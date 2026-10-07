@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.IFormatter
+  commentId: T:PostSharp.Patterns.Formatters.IFormatter
+  id: IFormatter
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.IFormatter.Attributes
+  - PostSharp.Patterns.Formatters.IFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IFormatter
+  nameWithType: IFormatter
+  fullName: PostSharp.Patterns.Formatters.IFormatter
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the description of an object into an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>. Weakly-typed variant of <xref href="PostSharp.Patterns.Formatters.IFormatter%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IFormatter
+    content.vb: Public Interface IFormatter
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Formatters.CollectionFormatter`2
+  - PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+  - PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2
+  - PostSharp.Patterns.Diagnostics.Formatters.OutFormatter`1
+  - PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  - PostSharp.Patterns.Formatters.AnonymousTypeFormatter`1
+  - PostSharp.Patterns.Formatters.BooleanFormatter
+  - PostSharp.Patterns.Formatters.ByteFormatter
+  - PostSharp.Patterns.Formatters.CharFormatter
+  - PostSharp.Patterns.Formatters.DefaultFormatter`2
+  - PostSharp.Patterns.Formatters.EnumFormatter`1
+  - PostSharp.Patterns.Formatters.Formatter`1
+  - PostSharp.Patterns.Formatters.Int16Formatter
+  - PostSharp.Patterns.Formatters.Int32Formatter
+  - PostSharp.Patterns.Formatters.Int64Formatter
+  - PostSharp.Patterns.Formatters.MethodFormatter
+  - PostSharp.Patterns.Formatters.SByteFormatter
+  - PostSharp.Patterns.Formatters.StringFormatter
+  - PostSharp.Patterns.Formatters.TypeFormatter
+  - PostSharp.Patterns.Formatters.UInt16Formatter
+  - PostSharp.Patterns.Formatters.UInt32Formatter
+  - PostSharp.Patterns.Formatters.UInt64Formatter
+  extensionMethods:
+  - PostSharp.Patterns.Formatters.IFormatter.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+- uid: PostSharp.Patterns.Formatters.IFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  commentId: M:PostSharp.Patterns.Formatters.IFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  parent: PostSharp.Patterns.Formatters.IFormatter
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, object)
+  nameWithType: IFormatter.Write(UnsafeStringBuilder, object)
+  fullName: PostSharp.Patterns.Formatters.IFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: void Write(UnsafeStringBuilder stringBuilder, object value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.Object
+      description: The value to be formatted.
+    content.vb: Sub Write(stringBuilder As UnsafeStringBuilder, value As Object)
+  overload: PostSharp.Patterns.Formatters.IFormatter.Write*
+  nameWithType.vb: IFormatter.Write(UnsafeStringBuilder, Object)
+  fullName.vb: PostSharp.Patterns.Formatters.IFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, Object)
+  name.vb: Write(UnsafeStringBuilder, Object)
+- uid: PostSharp.Patterns.Formatters.IFormatter.Attributes
+  commentId: P:PostSharp.Patterns.Formatters.IFormatter.Attributes
+  id: Attributes
+  parent: PostSharp.Patterns.Formatters.IFormatter
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: IFormatter.Attributes
+  fullName: PostSharp.Patterns.Formatters.IFormatter.Attributes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets the formatter attributes.
+  example: []
+  syntax:
+    content: FormatterAttributes Attributes { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Formatters.FormatterAttributes
+    content.vb: ReadOnly Property Attributes As FormatterAttributes
+  overload: PostSharp.Patterns.Formatters.IFormatter.Attributes*

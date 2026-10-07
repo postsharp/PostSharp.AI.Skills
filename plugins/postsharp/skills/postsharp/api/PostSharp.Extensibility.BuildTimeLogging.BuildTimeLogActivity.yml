@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity
+  commentId: T:PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity
+  id: BuildTimeLogActivity
+  parent: PostSharp.Extensibility.BuildTimeLogging
+  children:
+  - PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose
+  langs:
+  - csharp
+  - vb
+  name: BuildTimeLogActivity
+  nameWithType: BuildTimeLogActivity
+  fullName: PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility.BuildTimeLogging
+  summary: >-
+    Represents the value returned by the <xref href="PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogger.Activity(System.String)" data-throw-if-not-resolved="false"></xref> method.
+
+    Dispose this value to mark the end of the activity and to decrease the indentation level.
+  remarks: >-
+    <p>Only a value returned by the <xref href="PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogger.Activity(System.String)" data-throw-if-not-resolved="false"></xref> method decreases the indentation level
+        when its <xref href="PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose" data-throw-if-not-resolved="false"></xref> method is invoked. Calling the <xref href="PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose" data-throw-if-not-resolved="false"></xref> method on the default instance has no effect.</p>
+  example: []
+  syntax:
+    content: 'public struct BuildTimeLogActivity : IDisposable'
+    content.vb: Public Structure BuildTimeLogActivity Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose
+  commentId: M:PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose
+  id: Dispose
+  parent: PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: BuildTimeLogActivity.Dispose()
+  fullName: PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility.BuildTimeLogging
+  summary: Decreases the indentation level when the current <xref href="PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity" data-throw-if-not-resolved="false"></xref> was returned by the <xref href="PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogger.Activity(System.String)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Extensibility.BuildTimeLogging.BuildTimeLogActivity.Dispose*
+  implements:
+  - System.IDisposable.Dispose

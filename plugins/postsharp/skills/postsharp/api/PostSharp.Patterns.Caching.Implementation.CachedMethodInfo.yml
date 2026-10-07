@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+  id: CachedMethodInfo
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.IsThisParameterIgnored
+  - PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Method
+  - PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Parameters
+  langs:
+  - csharp
+  - vb
+  name: CachedMethodInfo
+  nameWithType: CachedMethodInfo
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Encapsulates information about a method being cached.
+  example: []
+  syntax:
+    content: public sealed class CachedMethodInfo
+    content.vb: Public NotInheritable Class CachedMethodInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Method
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Method
+  id: Method
+  parent: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: CachedMethodInfo.Method
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Method
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> of the method.
+  example: []
+  syntax:
+    content: public MethodInfo Method { get; }
+    parameters: []
+    return:
+      type: System.Reflection.MethodInfo
+    content.vb: Public ReadOnly Property Method As MethodInfo
+  overload: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Method*
+- uid: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.IsThisParameterIgnored
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.IsThisParameterIgnored
+  id: IsThisParameterIgnored
+  parent: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+  langs:
+  - csharp
+  - vb
+  name: IsThisParameterIgnored
+  nameWithType: CachedMethodInfo.IsThisParameterIgnored
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.IsThisParameterIgnored
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a value indicating whether the value of the <code>this</code> parameter
+
+    (for non-static methods) should be included in the cache key.
+  example: []
+  syntax:
+    content: public bool IsThisParameterIgnored { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsThisParameterIgnored As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.IsThisParameterIgnored*
+- uid: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Parameters
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Parameters
+  id: Parameters
+  parent: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+  langs:
+  - csharp
+  - vb
+  name: Parameters
+  nameWithType: CachedMethodInfo.Parameters
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Parameters
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets an array of <xref href="PostSharp.Patterns.Caching.Implementation.CachedParameterInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ImmutableArray<CachedParameterInfo> Parameters { get; }
+    parameters: []
+    return:
+      type: System.Collections.Immutable.ImmutableArray{PostSharp.Patterns.Caching.Implementation.CachedParameterInfo}
+    content.vb: Public ReadOnly Property Parameters As ImmutableArray(Of CachedParameterInfo)
+  overload: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo.Parameters*

@@ -1,0 +1,264 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.ChildInfo
+  commentId: T:PostSharp.Patterns.Model.ChildInfo
+  id: ChildInfo
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.ChildInfo.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Model.ChildInfo.#ctor(System.Reflection.FieldInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  - PostSharp.Patterns.Model.ChildInfo.#ctor(System.String,System.Type,PostSharp.Patterns.Model.RelationshipInfo)
+  - PostSharp.Patterns.Model.ChildInfo.BuildTimeVerificationDisabled
+  - PostSharp.Patterns.Model.ChildInfo.DeclarationIdentifier
+  - PostSharp.Patterns.Model.ChildInfo.LocationName
+  - PostSharp.Patterns.Model.ChildInfo.LocationType
+  - PostSharp.Patterns.Model.ChildInfo.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: ChildInfo
+  nameWithType: ChildInfo
+  fullName: PostSharp.Patterns.Model.ChildInfo
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Describes a location (typically a field or collection item) on which a child can be attached to a parent.
+  example: []
+  syntax:
+    content: >-
+      [Serializer(typeof(ChildInfo.Serializer))]
+
+      public sealed class ChildInfo
+    content.vb: >-
+      <Serializer(GetType(ChildInfo.Serializer))>
+
+      Public NotInheritable Class ChildInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.ChildInfo.Serializer
+- uid: PostSharp.Patterns.Model.ChildInfo.#ctor(System.Reflection.FieldInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.ChildInfo.#ctor(System.Reflection.FieldInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  id: '#ctor(System.Reflection.FieldInfo,PostSharp.Patterns.Model.RelationshipInfo)'
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: ChildInfo(FieldInfo, RelationshipInfo)
+  nameWithType: ChildInfo.ChildInfo(FieldInfo, RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.ChildInfo.ChildInfo(System.Reflection.FieldInfo, PostSharp.Patterns.Model.RelationshipInfo)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> class that represents a field.
+  example: []
+  syntax:
+    content: public ChildInfo(FieldInfo field, RelationshipInfo relationshipInfo)
+    parameters:
+    - id: field
+      type: System.Reflection.FieldInfo
+      description: A field.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: >-
+        A <xref href="PostSharp.Patterns.Model.ChildInfo.RelationshipInfo" data-throw-if-not-resolved="false"></xref> instance that describes the kind of relationship of the child
+                    object to its direct parent.
+    content.vb: Public Sub New(field As FieldInfo, relationshipInfo As RelationshipInfo)
+  overload: PostSharp.Patterns.Model.ChildInfo.#ctor*
+  nameWithType.vb: ChildInfo.New(FieldInfo, RelationshipInfo)
+  fullName.vb: PostSharp.Patterns.Model.ChildInfo.New(System.Reflection.FieldInfo, PostSharp.Patterns.Model.RelationshipInfo)
+  name.vb: New(FieldInfo, RelationshipInfo)
+- uid: PostSharp.Patterns.Model.ChildInfo.#ctor(System.String,System.Type,PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.ChildInfo.#ctor(System.String,System.Type,PostSharp.Patterns.Model.RelationshipInfo)
+  id: '#ctor(System.String,System.Type,PostSharp.Patterns.Model.RelationshipInfo)'
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: ChildInfo(string, Type, RelationshipInfo)
+  nameWithType: ChildInfo.ChildInfo(string, Type, RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.ChildInfo.ChildInfo(string, System.Type, PostSharp.Patterns.Model.RelationshipInfo)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> class that represents a collection item or a custom location.
+  example: []
+  syntax:
+    content: public ChildInfo(string locationName, Type locationType, RelationshipInfo relationshipInfo)
+    parameters:
+    - id: locationName
+      type: System.String
+      description: The name of the location, for instance <code>Item</code> for a collection item.
+    - id: locationType
+      type: System.Type
+      description: The type of the location.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: >-
+        A <xref href="PostSharp.Patterns.Model.ChildInfo.RelationshipInfo" data-throw-if-not-resolved="false"></xref> instance that describes the kind of relationship of the child
+                    object to its direct parent.
+    content.vb: Public Sub New(locationName As String, locationType As Type, relationshipInfo As RelationshipInfo)
+  overload: PostSharp.Patterns.Model.ChildInfo.#ctor*
+  nameWithType.vb: ChildInfo.New(String, Type, RelationshipInfo)
+  fullName.vb: PostSharp.Patterns.Model.ChildInfo.New(String, System.Type, PostSharp.Patterns.Model.RelationshipInfo)
+  name.vb: New(String, Type, RelationshipInfo)
+- uid: PostSharp.Patterns.Model.ChildInfo.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Model.ChildInfo.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: ChildInfo(PortableFormatterConstructorContext)
+  nameWithType: ChildInfo.ChildInfo(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Model.ChildInfo.ChildInfo(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected ChildInfo(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Model.ChildInfo.#ctor*
+  nameWithType.vb: ChildInfo.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Model.ChildInfo.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Model.ChildInfo.DeclarationIdentifier
+  commentId: P:PostSharp.Patterns.Model.ChildInfo.DeclarationIdentifier
+  id: DeclarationIdentifier
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: DeclarationIdentifier
+  nameWithType: ChildInfo.DeclarationIdentifier
+  fullName: PostSharp.Patterns.Model.ChildInfo.DeclarationIdentifier
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> of the field where the child is stored, or <xref href="PostSharp.Reflection.DeclarationIdentifier.Null" data-throw-if-not-resolved="false"></xref>
+
+    if the current <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> does not represent a field.
+  example: []
+  syntax:
+    content: public DeclarationIdentifier DeclarationIdentifier { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.DeclarationIdentifier
+    content.vb: Public ReadOnly Property DeclarationIdentifier As DeclarationIdentifier
+  overload: PostSharp.Patterns.Model.ChildInfo.DeclarationIdentifier*
+- uid: PostSharp.Patterns.Model.ChildInfo.LocationName
+  commentId: P:PostSharp.Patterns.Model.ChildInfo.LocationName
+  id: LocationName
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: LocationName
+  nameWithType: ChildInfo.LocationName
+  fullName: PostSharp.Patterns.Model.ChildInfo.LocationName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the name of the location to which the child is assigned.
+  remarks: >-
+    <p>This property should be used only to generate the text of error messages for developers, such as exceptions.
+        It is not meant as a mechanism to identify the location uniquely. Use <xref href="PostSharp.Patterns.Model.ChildInfo.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> for this purpose.
+        It is also not meant to generate messages for the end user.</p>
+  example: []
+  syntax:
+    content: public string LocationName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property LocationName As String
+  overload: PostSharp.Patterns.Model.ChildInfo.LocationName*
+- uid: PostSharp.Patterns.Model.ChildInfo.LocationType
+  commentId: P:PostSharp.Patterns.Model.ChildInfo.LocationType
+  id: LocationType
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: LocationType
+  nameWithType: ChildInfo.LocationType
+  fullName: PostSharp.Patterns.Model.ChildInfo.LocationType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the type of the location to which the child is assigned.
+  example: []
+  syntax:
+    content: public Type LocationType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property LocationType As Type
+  overload: PostSharp.Patterns.Model.ChildInfo.LocationType*
+- uid: PostSharp.Patterns.Model.ChildInfo.RelationshipInfo
+  commentId: P:PostSharp.Patterns.Model.ChildInfo.RelationshipInfo
+  id: RelationshipInfo
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: RelationshipInfo
+  nameWithType: ChildInfo.RelationshipInfo
+  fullName: PostSharp.Patterns.Model.ChildInfo.RelationshipInfo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the <xref href="PostSharp.Patterns.Model.ChildInfo.RelationshipInfo" data-throw-if-not-resolved="false"></xref> that describes the kind of relationship between the child and its parent.
+  example: []
+  syntax:
+    content: public RelationshipInfo RelationshipInfo { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipInfo
+    content.vb: Public ReadOnly Property RelationshipInfo As RelationshipInfo
+  overload: PostSharp.Patterns.Model.ChildInfo.RelationshipInfo*
+- uid: PostSharp.Patterns.Model.ChildInfo.BuildTimeVerificationDisabled
+  commentId: P:PostSharp.Patterns.Model.ChildInfo.BuildTimeVerificationDisabled
+  id: BuildTimeVerificationDisabled
+  parent: PostSharp.Patterns.Model.ChildInfo
+  langs:
+  - csharp
+  - vb
+  name: BuildTimeVerificationDisabled
+  nameWithType: ChildInfo.BuildTimeVerificationDisabled
+  fullName: PostSharp.Patterns.Model.ChildInfo.BuildTimeVerificationDisabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets a value indicating whether aspects relying on <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> should verify the field at build time. This property is only relevant at build time.
+  example: []
+  syntax:
+    content: public bool BuildTimeVerificationDisabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property BuildTimeVerificationDisabled As Boolean
+  overload: PostSharp.Patterns.Model.ChildInfo.BuildTimeVerificationDisabled*

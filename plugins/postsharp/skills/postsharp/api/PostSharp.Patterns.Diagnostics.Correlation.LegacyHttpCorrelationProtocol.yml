@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol
+  commentId: T:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol
+  id: LegacyHttpCorrelationProtocol
+  parent: PostSharp.Patterns.Diagnostics.Correlation
+  children:
+  - PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor
+  - PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor(System.Predicate{PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest})
+  langs:
+  - csharp
+  - vb
+  name: LegacyHttpCorrelationProtocol
+  nameWithType: LegacyHttpCorrelationProtocol
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: An implementation of the legacy HTTP Correlation Protocol proposed by Microsoft.
+  remarks: >-
+    <p>The implementation is here: 
+        https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md
+        </p>
+    <p>This protocol uses the <code>Request-Id</code> header to pass the synthetic identifier of the client activity to the server, and the
+        <code>Correlation-Context</code> header to pass baggage properties. It processes only the requests accepted by the predicate passed to the
+        <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.%23ctor(System.Predicate%7bPostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest%7d)" data-throw-if-not-resolved="false"></xref> constructor. Accept only trusted requests, because the headers
+        of other requests can inject arbitrary values into the logs.</p>
+  example: []
+  syntax:
+    content: 'public sealed class LegacyHttpCorrelationProtocol : ICorrelationProtocol'
+    content.vb: Public NotInheritable Class LegacyHttpCorrelationProtocol Implements ICorrelationProtocol
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-instrumentation'
+    altText: 'Conceptual: Instrumentation of ASP.NET and HttpClient'
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol
+  langs:
+  - csharp
+  - vb
+  name: LegacyHttpCorrelationProtocol()
+  nameWithType: LegacyHttpCorrelationProtocol.LegacyHttpCorrelationProtocol()
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.LegacyHttpCorrelationProtocol()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol" data-throw-if-not-resolved="false"></xref> class that trusts all requests.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This constructor may enable security weaknesses. This Use the other constructor and filter trusted requests.")]
+
+      public LegacyHttpCorrelationProtocol()
+    content.vb: >-
+      <Obsolete("This constructor may enable security weaknesses. This Use the other constructor and filter trusted requests.")>
+
+      Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This constructor may enable security weaknesses. This Use the other constructor and filter trusted requests.
+  nameWithType.vb: LegacyHttpCorrelationProtocol.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor(System.Predicate{PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest})
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor(System.Predicate{PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest})
+  id: '#ctor(System.Predicate{PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest})'
+  parent: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol
+  langs:
+  - csharp
+  - vb
+  name: LegacyHttpCorrelationProtocol(Predicate<CorrelationRequest>)
+  nameWithType: LegacyHttpCorrelationProtocol.LegacyHttpCorrelationProtocol(Predicate<CorrelationRequest>)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.LegacyHttpCorrelationProtocol(System.Predicate<PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol" data-throw-if-not-resolved="false"></xref> class and specifies a predicate that filters trusted requests.
+  example: []
+  syntax:
+    content: public LegacyHttpCorrelationProtocol(Predicate<CorrelationRequest> isTrustedRequestPredicate)
+    parameters:
+    - id: isTrustedRequestPredicate
+      type: System.Predicate{PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest}
+      description: A predicate that returns <code>true</code> when a request is trusted.
+    content.vb: Public Sub New(isTrustedRequestPredicate As Predicate(Of CorrelationRequest))
+  overload: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.#ctor*
+  nameWithType.vb: LegacyHttpCorrelationProtocol.New(Predicate(Of CorrelationRequest))
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol.New(System.Predicate(Of PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest))
+  name.vb: New(Predicate(Of CorrelationRequest))

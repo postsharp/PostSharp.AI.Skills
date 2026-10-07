@@ -1,0 +1,251 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  commentId: T:PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  id: AuditRecord
+  parent: PostSharp.Patterns.Diagnostics.Audit
+  children:
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.#ctor(System.Type,System.String,PostSharp.Patterns.Diagnostics.LogRecordKind)
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.DeclaringType
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Exception
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.MemberName
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.RecordKind
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Target
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Text
+  - PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Time
+  langs:
+  - csharp
+  - vb
+  name: AuditRecord
+  nameWithType: AuditRecord
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Represents an audit record published by the <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished" data-throw-if-not-resolved="false"></xref> event.
+  remarks: >-
+    <p>
+        You can customize this class by inheritance. In this case, you also need to customize the <xref href="PostSharp.Patterns.Diagnostics.Backends.Audit.AuditRecordBuilder" data-throw-if-not-resolved="false"></xref> and
+        <xref href="PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend" data-throw-if-not-resolved="false"></xref> classes.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")]
+
+      public class AuditRecord
+    content.vb: >-
+      <Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")>
+
+      Public Class AuditRecord
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This feature has been moved to the sample PostSharp.Samples.Logging.Audit.
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.#ctor(System.Type,System.String,PostSharp.Patterns.Diagnostics.LogRecordKind)
+  commentId: M:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.#ctor(System.Type,System.String,PostSharp.Patterns.Diagnostics.LogRecordKind)
+  id: '#ctor(System.Type,System.String,PostSharp.Patterns.Diagnostics.LogRecordKind)'
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: AuditRecord(Type, string, LogRecordKind)
+  nameWithType: AuditRecord.AuditRecord(Type, string, LogRecordKind)
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.AuditRecord(System.Type, string, PostSharp.Patterns.Diagnostics.LogRecordKind)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditRecord" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AuditRecord(Type declaringType, string memberName, LogRecordKind recordKind)
+    parameters:
+    - id: declaringType
+      type: System.Type
+      description: The declaring type of the audited method.
+    - id: memberName
+      type: System.String
+      description: The name of the audited method.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of record (typically <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.MethodSuccess" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Public Sub New(declaringType As Type, memberName As String, recordKind As LogRecordKind)
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.#ctor*
+  nameWithType.vb: AuditRecord.New(Type, String, LogRecordKind)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.New(System.Type, String, PostSharp.Patterns.Diagnostics.LogRecordKind)
+  name.vb: New(Type, String, LogRecordKind)
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Time
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Time
+  id: Time
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: AuditRecord.Time
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Time
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets the time when the execution ended.
+  example: []
+  syntax:
+    content: public DateTime Time { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public ReadOnly Property Time As Date
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Time*
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.DeclaringType
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.DeclaringType
+  id: DeclaringType
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: DeclaringType
+  nameWithType: AuditRecord.DeclaringType
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.DeclaringType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets the declaring type of the method.
+  example: []
+  syntax:
+    content: public Type DeclaringType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property DeclaringType As Type
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.DeclaringType*
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.MemberName
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.MemberName
+  id: MemberName
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: MemberName
+  nameWithType: AuditRecord.MemberName
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.MemberName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets the name of the method.
+  example: []
+  syntax:
+    content: public string MemberName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MemberName As String
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.MemberName*
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.RecordKind
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.RecordKind
+  id: RecordKind
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: RecordKind
+  nameWithType: AuditRecord.RecordKind
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.RecordKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets the kind of record (typically <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.MethodSuccess" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public LogRecordKind RecordKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+    content.vb: Public ReadOnly Property RecordKind As LogRecordKind
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.RecordKind*
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Text
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Text
+  id: Text
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: Text
+  nameWithType: AuditRecord.Text
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Text
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets a string describing the operation (typically, the method type, name, and parameters).
+  example: []
+  syntax:
+    content: public string Text { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Text As String
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Text*
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Exception
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Exception
+  id: Exception
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: Exception
+  nameWithType: AuditRecord.Exception
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Exception
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Exception" data-throw-if-not-resolved="false"></xref> if the method failed, or <code>null</code> if the method succeeded.
+  example: []
+  syntax:
+    content: public Exception Exception { get; set; }
+    parameters: []
+    return:
+      type: System.Exception
+    content.vb: Public Property Exception As Exception
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Exception*
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Target
+  commentId: P:PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Target
+  id: Target
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: AuditRecord.Target
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Target
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Gets the instance on which the method was executed, or <code>null</code> if the method is a static method.
+  example: []
+  syntax:
+    content: public object Target { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Target As Object
+  overload: PostSharp.Patterns.Diagnostics.Audit.AuditRecord.Target*

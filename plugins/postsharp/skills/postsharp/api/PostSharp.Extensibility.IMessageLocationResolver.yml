@@ -1,0 +1,55 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IMessageLocationResolver
+  commentId: T:PostSharp.Extensibility.IMessageLocationResolver
+  id: IMessageLocationResolver
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IMessageLocationResolver.GetMessageLocation(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IMessageLocationResolver
+  nameWithType: IMessageLocationResolver
+  fullName: PostSharp.Extensibility.IMessageLocationResolver
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Provides a method that returns the file and line where a declaration (such as a <xref href="System.Type" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>) is declared.
+  example: []
+  syntax:
+    content: 'public interface IMessageLocationResolver : IService'
+    content.vb: Public Interface IMessageLocationResolver Inherits IService
+- uid: PostSharp.Extensibility.IMessageLocationResolver.GetMessageLocation(System.Object)
+  commentId: M:PostSharp.Extensibility.IMessageLocationResolver.GetMessageLocation(System.Object)
+  id: GetMessageLocation(System.Object)
+  parent: PostSharp.Extensibility.IMessageLocationResolver
+  langs:
+  - csharp
+  - vb
+  name: GetMessageLocation(object)
+  nameWithType: IMessageLocationResolver.GetMessageLocation(object)
+  fullName: PostSharp.Extensibility.IMessageLocationResolver.GetMessageLocation(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Returns the file and line where a declaration is declared.
+  example: []
+  syntax:
+    content: MessageLocation GetMessageLocation(object codeElement)
+    parameters:
+    - id: codeElement
+      type: System.Object
+      description: A <xref href="System.Reflection.MemberInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Extensibility.MessageLocation
+      description: >-
+        A <xref href="PostSharp.Extensibility.MessageLocation" data-throw-if-not-resolved="false"></xref> that describes where <code class="paramref">codeElement</code> is declared, or <xref href="PostSharp.Extensibility.MessageLocation.Unknown" data-throw-if-not-resolved="false"></xref>
+                    if the location cannot be determined.
+    content.vb: Function GetMessageLocation(codeElement As Object) As MessageLocation
+  overload: PostSharp.Extensibility.IMessageLocationResolver.GetMessageLocation*
+  nameWithType.vb: IMessageLocationResolver.GetMessageLocation(Object)
+  fullName.vb: PostSharp.Extensibility.IMessageLocationResolver.GetMessageLocation(Object)
+  name.vb: GetMessageLocation(Object)

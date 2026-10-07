@@ -1,0 +1,712 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute
+  commentId: T:PostSharp.Patterns.Contracts.LocationContractAttribute
+  id: LocationContractAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.#ctor
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: LocationContractAttribute
+  nameWithType: LocationContractAttribute
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Base class for other custom attributes in this namespace.
+  remarks: >-
+    <p>The basic error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LocationContractErrorMessage" data-throw-if-not-resolved="false"></xref> and
+        obtained from the provider set in <xref href="PostSharp.Patterns.Contracts.ContractServices.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>In all formatting strings, the following parameters are replaced:</p>
+
+    <ul><li>
+          <code>{0}</code> is replaced by the location name.
+            </li><li>
+          <code>{1}</code> is replaced by the location kind.
+            </li><li>
+          <code>{2}</code> is replaced by a string containing both location kind and name.
+            </li><li>
+          <code>{3}</code> is replaced by the value which caused the error when being assigned to the location.
+            </li><li>
+                Further parameters are described in the remarks sections of contracts which override the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments" data-throw-if-not-resolved="false"></xref> method.
+            </li></ul>
+    <p>Note that an array of error message arguments is cached for each location.</p>
+
+    <p>Contracts are inherited: a contract added to a parameter or return value of an abstract, virtual or interface method also applies to the
+        overriding or implementing methods.</p>
+    <p>To create a custom contract, derive a class from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> and implement <xref href="PostSharp.Aspects.ILocationValidationAspect%601" data-throw-if-not-resolved="false"></xref>
+        for each type of value that the contract supports. The <xref href="PostSharp.Aspects.ILocationValidationAspect%601.ValidateValue(%600%2cSystem.String%2cPostSharp.Reflection.LocationKind%2cPostSharp.Aspects.LocationValidationContext)" data-throw-if-not-resolved="false"></xref> method returns an exception when the value is invalid,
+        or <code>null</code> otherwise. To let users customize the exception, create it with the <xref href="PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)" data-throw-if-not-resolved="false"></xref> method
+        of <xref href="PostSharp.Patterns.Contracts.ContractServices.ExceptionFactory" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AspectConfiguration(SerializerType = typeof(MsilAspectSerializer))]
+
+      [MulticastAttributeUsage(MulticastTargets.Field|MulticastTargets.Property|MulticastTargets.Parameter|MulticastTargets.ReturnValue, TargetMemberAttributes = MulticastAttributes.NonAbstract|MulticastAttributes.NonLiteral, Inheritance = MulticastInheritance.Multicast, AllowMultiple = false, PersistMetaData = true)]
+
+      [AttributeUsage(AttributeTargets.Property|AttributeTargets.Field|AttributeTargets.Parameter|AttributeTargets.ReturnValue)]
+
+      [ProvideAspectRole("Validation")]
+
+      public abstract class LocationContractAttribute : MulticastAttribute, ILocationLevelAspect, IAspect
+    content.vb: >-
+      <AspectConfiguration(SerializerType:=GetType(MsilAspectSerializer))>
+
+      <MulticastAttributeUsage(MulticastTargets.FieldOrMulticastTargets.PropertyOrMulticastTargets.ParameterOrMulticastTargets.ReturnValue, TargetMemberAttributes:=MulticastAttributes.NonAbstractOrMulticastAttributes.NonLiteral, Inheritance:=MulticastInheritance.Multicast, AllowMultiple:=False, PersistMetaData:=True)>
+
+      <AttributeUsage(AttributeTargets.PropertyOrAttributeTargets.FieldOrAttributeTargets.ParameterOrAttributeTargets.ReturnValue)>
+
+      <ProvideAspectRole("Validation")>
+
+      Public MustInherit Class LocationContractAttribute Inherits MulticastAttribute Implements ILocationLevelAspect, IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@contracts'
+    altText: 'Conceptual: Contracts'
+  - linkType: HRef
+    linkId: '@custom-contracts'
+    altText: 'Conceptual: Creating Custom Contracts'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  derivedClasses:
+  - PostSharp.Patterns.Contracts.CreditCardAttribute
+  - PostSharp.Patterns.Contracts.EnumDataTypeAttribute
+  - PostSharp.Patterns.Contracts.NotEmptyAttribute
+  - PostSharp.Patterns.Contracts.NotNullAttribute
+  - PostSharp.Patterns.Contracts.RangeAttribute
+  - PostSharp.Patterns.Contracts.RegularExpressionAttribute
+  - PostSharp.Patterns.Contracts.RequiredAttribute
+  - PostSharp.Patterns.Contracts.StringLengthAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Configuration.AspectConfigurationAttribute
+    ctor: PostSharp.Aspects.Configuration.AspectConfigurationAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: SerializerType
+      type: System.Type
+      value: PostSharp.Aspects.Serialization.MsilAspectSerializer
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 12832
+    namedArguments:
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 66560
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 2
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 10624
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Validation
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: LocationContractAttribute()
+  nameWithType: LocationContractAttribute.LocationContractAttribute()
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.LocationContractAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LocationContractAttribute()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.#ctor*
+  nameWithType.vb: LocationContractAttribute.New()
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  id: CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(LocationInfo)
+  nameWithType: LocationContractAttribute.CompileTimeValidate(LocationInfo)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Validates that the current aspect has been applied to a valid location.
+  example: []
+  syntax:
+    content: protected virtual bool CompileTimeValidate(LocationInfo target)
+    parameters:
+    - id: target
+      type: PostSharp.Reflection.LocationInfo
+      description: The location to which the current aspect has been applied.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">target</code> is a valid target for the current aspect, otherwise <code>false</code>.
+    content.vb: Protected Overridable Function CompileTimeValidate(target As LocationInfo) As Boolean
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate*
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  id: SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: SelectSelfOrNothing(LocationInfo)
+  nameWithType: LocationContractAttribute.SelectSelfOrNothing(LocationInfo)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Selects the target location of the current aspect, unless the target location is a dependency property or an attached property.
+  example: []
+  syntax:
+    content: protected IEnumerable<LocationInfo> SelectSelfOrNothing(LocationInfo target)
+    parameters:
+    - id: target
+      type: PostSharp.Reflection.LocationInfo
+      description: The target location.
+    return:
+      type: System.Collections.Generic.IEnumerable{PostSharp.Reflection.LocationInfo}
+      description: The target location, or nothing if the target location is a dependency property or an attached property.
+    content.vb: Protected Function SelectSelfOrNothing(target As LocationInfo) As IEnumerable(Of LocationInfo)
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing*
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  id: RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitialize(LocationInfo)
+  nameWithType: LocationContractAttribute.RuntimeInitialize(LocationInfo)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes the aspect at run time.
+  example: []
+  syntax:
+    content: public void RuntimeInitialize(LocationInfo locationInfo)
+    parameters:
+    - id: locationInfo
+      type: PostSharp.Reflection.LocationInfo
+      description: The target of the aspect.
+    content.vb: Public Sub RuntimeInitialize(locationInfo As LocationInfo)
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize*
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  id: ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: ValidateValueDynamic(object, string, LocationKind, LocationValidationContext)
+  nameWithType: LocationContractAttribute.ValidateValueDynamic(object, string, LocationKind, LocationValidationContext)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(object, string, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Validates a weakly-typed (boxed) value, typically the value of a dependency property or an attached property.
+  example: []
+  syntax:
+    content: public virtual Exception ValidateValueDynamic(object value, string locationName, LocationKind locationKind, LocationValidationContext context)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be validated.
+    - id: locationName
+      type: System.String
+      description: The name of the property.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of location (typically a <xref href="PostSharp.Reflection.LocationKind.Property" data-throw-if-not-resolved="false"></xref>).
+    - id: context
+      type: PostSharp.Aspects.LocationValidationContext
+      description: Why or when the value is being validated.
+    return:
+      type: System.Exception
+      description: An <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> if the value is invalid, or <code>null</code> if the value is valid.
+    content.vb: Public Overridable Function ValidateValueDynamic(value As Object, locationName As String, locationKind As LocationKind, context As LocationValidationContext) As Exception
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic*
+  nameWithType.vb: LocationContractAttribute.ValidateValueDynamic(Object, String, LocationKind, LocationValidationContext)
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(Object, String, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  name.vb: ValidateValueDynamic(Object, String, LocationKind, LocationValidationContext)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments
+  id: GetErrorMessageArguments
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessageArguments()
+  nameWithType: LocationContractAttribute.GetErrorMessageArguments()
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Gets the values of the additional arguments for the error message associated with a particular instance of <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref>.
+
+    These arguments can be referenced from the error message string by <code>{4}</code>, <code>{5}</code>, and so on.
+  remarks: >-
+    This method is expected to be pure, that is, its result can be cached. The implementer should not return information that may change
+
+    after the constructor of the class has finished.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")]
+
+      protected virtual object[] GetErrorMessageArguments()
+    return:
+      type: System.Object[]
+      description: An array of additional argument values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")>
+
+      Protected Overridable Function GetErrorMessageArguments() As Object()
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException to generate error messages.
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage
+  id: GetErrorMessage
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: LocationContractAttribute.GetErrorMessage()
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the unformatted error message as defined by the instance.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>The use of this method can be overridden by setting the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> property to a non-null value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      protected virtual string GetErrorMessage()
+    return:
+      type: System.String
+      description: The unformatted error message.
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Protected Overridable Function GetErrorMessage() As String
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  id: FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: FormatErrorMessage(object, string, LocationKind)
+  nameWithType: LocationContractAttribute.FormatErrorMessage(object, string, LocationKind)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(object, string, PostSharp.Reflection.LocationKind)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Formats the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> with concrete values.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.LocalizedTextProvider.GetFormattedMessage.")]
+
+      protected string FormatErrorMessage(object value, string locationName, LocationKind locationKind)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value assigned to the location.
+    - id: locationName
+      type: System.String
+      description: The name of the location.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of the location.
+    return:
+      type: System.String
+      description: >-
+        A string derived from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref>, where placeholders have been
+                    replaced by their concrete value.
+    content.vb: >-
+      <Obsolete("Use ContractServices.LocalizedTextProvider.GetFormattedMessage.")>
+
+      Protected Function FormatErrorMessage(value As Object, locationName As String, locationKind As LocationKind) As String
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.LocalizedTextProvider.GetFormattedMessage.
+  nameWithType.vb: LocationContractAttribute.FormatErrorMessage(Object, String, LocationKind)
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(Object, String, PostSharp.Reflection.LocationKind)
+  name.vb: FormatErrorMessage(Object, String, LocationKind)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  id: CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreateArgumentException(object, string, LocationKind)
+  nameWithType: LocationContractAttribute.CreateArgumentException(object, string, LocationKind)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(object, string, PostSharp.Reflection.LocationKind)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Creates an <xref href="System.ArgumentException" data-throw-if-not-resolved="false"></xref> with an error message formatted from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> and
+
+    given concrete values.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException().")]
+
+      protected ArgumentException CreateArgumentException(object value, string locationName, LocationKind locationKind)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value assigned to the location.
+    - id: locationName
+      type: System.String
+      description: The name of the location.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of the location.
+    return:
+      type: System.ArgumentException
+      description: A new <xref href="System.ArgumentException" data-throw-if-not-resolved="false"></xref> whose message is derived from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref>, with placeholders replaced by their concrete values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException().")>
+
+      Protected Function CreateArgumentException(value As Object, locationName As String, locationKind As LocationKind) As ArgumentException
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException().
+  nameWithType.vb: LocationContractAttribute.CreateArgumentException(Object, String, LocationKind)
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(Object, String, PostSharp.Reflection.LocationKind)
+  name.vb: CreateArgumentException(Object, String, LocationKind)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  id: CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreateArgumentNullException(object, string, LocationKind)
+  nameWithType: LocationContractAttribute.CreateArgumentNullException(object, string, LocationKind)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(object, string, PostSharp.Reflection.LocationKind)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Creates an <xref href="System.ArgumentNullException" data-throw-if-not-resolved="false"></xref> with an error message formatted from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> and
+
+    given concrete values.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException().")]
+
+      protected ArgumentNullException CreateArgumentNullException(object value, string locationName, LocationKind locationKind)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value assigned to the location.
+    - id: locationName
+      type: System.String
+      description: The name of the location.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of the location.
+    return:
+      type: System.ArgumentNullException
+      description: A new <xref href="System.ArgumentNullException" data-throw-if-not-resolved="false"></xref> whose message is derived from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref>, with placeholders replaced by their concrete values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException().")>
+
+      Protected Function CreateArgumentNullException(value As Object, locationName As String, locationKind As LocationKind) As ArgumentNullException
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException().
+  nameWithType.vb: LocationContractAttribute.CreateArgumentNullException(Object, String, LocationKind)
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(Object, String, PostSharp.Reflection.LocationKind)
+  name.vb: CreateArgumentNullException(Object, String, LocationKind)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  id: CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreateArgumentOutOfRangeException(object, string, LocationKind)
+  nameWithType: LocationContractAttribute.CreateArgumentOutOfRangeException(object, string, LocationKind)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(object, string, PostSharp.Reflection.LocationKind)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Creates an <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> with an error message formatted from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> and
+
+    given concrete values.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException().")]
+
+      protected ArgumentOutOfRangeException CreateArgumentOutOfRangeException(object value, string locationName, LocationKind locationKind)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value assigned to the location.
+    - id: locationName
+      type: System.String
+      description: The name of the location.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of the location.
+    return:
+      type: System.ArgumentOutOfRangeException
+      description: A new <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> whose message is derived from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref>, with placeholders replaced by their concrete values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException().")>
+
+      Protected Function CreateArgumentOutOfRangeException(value As Object, locationName As String, locationKind As LocationKind) As ArgumentOutOfRangeException
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException().
+  nameWithType.vb: LocationContractAttribute.CreateArgumentOutOfRangeException(Object, String, LocationKind)
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(Object, String, PostSharp.Reflection.LocationKind)
+  name.vb: CreateArgumentOutOfRangeException(Object, String, LocationKind)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  commentId: M:PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  id: CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreatePostconditionFailedException(object, string, LocationKind)
+  nameWithType: LocationContractAttribute.CreatePostconditionFailedException(object, string, LocationKind)
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(object, string, PostSharp.Reflection.LocationKind)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Creates a <xref href="PostSharp.Patterns.Contracts.PostconditionFailedException" data-throw-if-not-resolved="false"></xref> with an error message formatted from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> and
+
+    given concrete values.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException().")]
+
+      protected PostconditionFailedException CreatePostconditionFailedException(object value, string locationName, LocationKind locationKind)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value assigned to the location.
+    - id: locationName
+      type: System.String
+      description: The name of the location.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of the location.
+    return:
+      type: PostSharp.Patterns.Contracts.PostconditionFailedException
+      description: A new <xref href="PostSharp.Patterns.Contracts.PostconditionFailedException" data-throw-if-not-resolved="false"></xref> whose message is derived from <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref>, with placeholders replaced by their concrete values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException().")>
+
+      Protected Function CreatePostconditionFailedException(value As Object, locationName As String, locationKind As LocationKind) As PostconditionFailedException
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException().
+  nameWithType.vb: LocationContractAttribute.CreatePostconditionFailedException(Object, String, LocationKind)
+  fullName.vb: PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(Object, String, PostSharp.Reflection.LocationKind)
+  name.vb: CreatePostconditionFailedException(Object, String, LocationKind)
+- uid: PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  commentId: P:PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  id: ErrorMessage
+  parent: PostSharp.Patterns.Contracts.LocationContractAttribute
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: LocationContractAttribute.ErrorMessage
+  fullName: PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets or sets the error message formatting string.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>If the value of this property is set to <code>null</code>, <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage" data-throw-if-not-resolved="false"></xref> is used to obtain the error message.</p>
+
+    <p>Set this property only for legacy purposes. Otherwise, use the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      public string ErrorMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Public Property ErrorMessage As String
+  overload: PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.

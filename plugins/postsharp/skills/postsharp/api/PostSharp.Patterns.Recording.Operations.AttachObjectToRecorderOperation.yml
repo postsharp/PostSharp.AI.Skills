@@ -1,0 +1,154 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  commentId: T:PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  id: AttachObjectToRecorderOperation
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Object
+  - PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.OperationKind
+  - PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  langs:
+  - csharp
+  - vb
+  name: AttachObjectToRecorderOperation
+  nameWithType: AttachObjectToRecorderOperation
+  fullName: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Encapsulates the <xref href="PostSharp.Patterns.Recording.Recorder.Attach(System.Object)" data-throw-if-not-resolved="false"></xref> operation.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class AttachObjectToRecorderOperation : RecorderOperation, IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class AttachObjectToRecorderOperation Inherits RecorderOperation Implements IOperationDescriptor
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects(System.Action{System.Object})
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: AttachObjectToRecorderOperation.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Undo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Undo*
+- uid: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: AttachObjectToRecorderOperation.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Redo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Redo*
+- uid: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Object
+  commentId: P:PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Object
+  id: Object
+  parent: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  langs:
+  - csharp
+  - vb
+  name: Object
+  nameWithType: AttachObjectToRecorderOperation.Object
+  fullName: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Object
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the object being attached to the <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public object Object { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property [Object] As Object
+  overload: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.Object*
+- uid: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: AttachObjectToRecorderOperation.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public override OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public Overrides ReadOnly Property OperationKind As OperationKind
+  overridden: PostSharp.Patterns.Recording.Operation.OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation.OperationKind*

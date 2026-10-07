@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.MemberRelationshipAttribute
+  commentId: T:PostSharp.Patterns.Model.MemberRelationshipAttribute
+  id: MemberRelationshipAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: MemberRelationshipAttribute
+  nameWithType: MemberRelationshipAttribute
+  fullName: PostSharp.Patterns.Model.MemberRelationshipAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Base class for custom attributes that determine the kind of relationship of objects in a graph.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property|AttributeTargets.Field)]
+
+      public abstract class MemberRelationshipAttribute : Attribute, IValidableAnnotation
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.PropertyOrAttributeTargets.Field)>
+
+      Public MustInherit Class MemberRelationshipAttribute Inherits Attribute Implements IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Patterns.Model.ChildAttribute
+    commentId: T:PostSharp.Patterns.Model.ChildAttribute
+  - linkId: PostSharp.Patterns.Model.ParentAttribute
+    commentId: T:PostSharp.Patterns.Model.ParentAttribute
+  - linkId: PostSharp.Patterns.Model.ReferenceAttribute
+    commentId: T:PostSharp.Patterns.Model.ReferenceAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  derivedClasses:
+  - PostSharp.Patterns.Model.ChildAttribute
+  - PostSharp.Patterns.Model.ParentAttribute
+  - PostSharp.Patterns.Model.ReferenceAttribute
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 384
+- uid: PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(System.Object)
+  commentId: M:PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(System.Object)
+  id: CompileTimeValidate(System.Object)
+  parent: PostSharp.Patterns.Model.MemberRelationshipAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(object)
+  nameWithType: MemberRelationshipAttribute.CompileTimeValidate(object)
+  fullName: PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Method invoked at build time to ensure that the aspect has been applied to
+
+    the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message
+
+    or an exception of type <xref href="PostSharp.Extensibility.InvalidAnnotationException" data-throw-if-not-resolved="false"></xref> in case of error. Only returning <code>false</code> causes the aspect
+
+    to be silently ignored.
+  example: []
+  syntax:
+    content: public bool CompileTimeValidate(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: The target element.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable target, otherwise
+              <code>false</code>.
+    content.vb: Public Function CompileTimeValidate(target As Object) As Boolean
+  overload: PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate*
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+  nameWithType.vb: MemberRelationshipAttribute.CompileTimeValidate(Object)
+  fullName.vb: PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(Object)
+  name.vb: CompileTimeValidate(Object)

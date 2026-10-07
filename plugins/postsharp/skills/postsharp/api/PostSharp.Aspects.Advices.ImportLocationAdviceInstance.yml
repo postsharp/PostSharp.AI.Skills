@@ -1,0 +1,254 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  id: ImportLocationAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,System.String,System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,System.String[],System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Location
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Member
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance.MemberNames
+  langs:
+  - csharp
+  - vb
+  name: ImportLocationAdviceInstance
+  nameWithType: ImportLocationAdviceInstance
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Represents an advice that imports a field or property (represented by a <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) of the target class
+
+    into a field of the aspect class. This class is the imperative equivalent of the <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref> declarative advice.
+  remarks: >-
+    <p>Return instances of this class from <xref href="PostSharp.Aspects.Advices.IAdviceProvider.ProvideAdvices(System.Object)" data-throw-if-not-resolved="false"></xref>. Unlike <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>,
+        this advice can import several fields or properties into a single aspect field: declare the field as a collection of
+        <xref href="PostSharp.Aspects.ILocationBinding" data-throw-if-not-resolved="false"></xref>, as described in the <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance.%23ctor(System.Reflection.FieldInfo%2cPostSharp.Reflection.LocationInfo)" data-throw-if-not-resolved="false"></xref> constructor,
+        and return one advice per field or property.</p>
+  example: []
+  syntax:
+    content: 'public sealed class ImportLocationAdviceInstance : ImportMemberAdviceInstance'
+    content.vb: Public NotInheritable Class ImportLocationAdviceInstance Inherits ImportMemberAdviceInstance
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IAdviceProvider
+    commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.IsRequired
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Order
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MasterAspectMember
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,PostSharp.Reflection.LocationInfo)
+  commentId: M:PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,PostSharp.Reflection.LocationInfo)
+  id: '#ctor(System.Reflection.FieldInfo,PostSharp.Reflection.LocationInfo)'
+  parent: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: ImportLocationAdviceInstance(FieldInfo, LocationInfo)
+  nameWithType: ImportLocationAdviceInstance.ImportLocationAdviceInstance(FieldInfo, LocationInfo)
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.ImportLocationAdviceInstance(System.Reflection.FieldInfo, PostSharp.Reflection.LocationInfo)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref> class and specifies which field or property should be imported by giving its reflection representation.
+  example: []
+  syntax:
+    content: public ImportLocationAdviceInstance(FieldInfo aspectField, LocationInfo location)
+    parameters:
+    - id: aspectField
+      type: System.Reflection.FieldInfo
+      description: >-
+        The field of the aspect class to which <code class="paramref">location</code> should be bound at runtime.
+                        This field can be of type <xref href="PostSharp.Aspects.ILocationBinding" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref>, or a type that both (a) derives from <code>ICollection&lt;ILocationBinding&gt;</code> and (b) has a parameterless constructor.
+    - id: location
+      type: PostSharp.Reflection.LocationInfo
+      description: The field or property to import.
+    content.vb: Public Sub New(aspectField As FieldInfo, location As LocationInfo)
+  overload: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor*
+  nameWithType.vb: ImportLocationAdviceInstance.New(FieldInfo, LocationInfo)
+  fullName.vb: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.New(System.Reflection.FieldInfo, PostSharp.Reflection.LocationInfo)
+  name.vb: New(FieldInfo, LocationInfo)
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,System.String,System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)
+  commentId: M:PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,System.String,System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)
+  id: '#ctor(System.Reflection.FieldInfo,System.String,System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)'
+  parent: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: ImportLocationAdviceInstance(FieldInfo, string, bool, ImportMemberOrder)
+  nameWithType: ImportLocationAdviceInstance.ImportLocationAdviceInstance(FieldInfo, string, bool, ImportMemberOrder)
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.ImportLocationAdviceInstance(System.Reflection.FieldInfo, string, bool, PostSharp.Aspects.Advices.ImportMemberOrder)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref> class and specifies the name of the property to be imported.
+
+    The type of this property is matched according to the type of the aspect field.
+  example: []
+  syntax:
+    content: public ImportLocationAdviceInstance(FieldInfo aspectField, string propertyName, bool isRequired = false, ImportMemberOrder order = ImportMemberOrder.AfterIntroductions)
+    parameters:
+    - id: aspectField
+      type: System.Reflection.FieldInfo
+      description: >-
+        The field of the aspect class to which the field or property should be bound at build time.
+                        This field must be of type <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref>.
+    - id: propertyName
+      type: System.String
+      description: The name of the property to import.
+    - id: isRequired
+      type: System.Boolean
+      description: >-
+        Determines whether a build-time error should be emitted if the member cannot be found.
+                    If <code>false</code>, the binding field is <code>null</code> when the imported member is absent.
+    - id: order
+      type: PostSharp.Aspects.Advices.ImportMemberOrder
+      description: >-
+        Determines whether the <code class="paramref">aspectField</code> should be bound to the member
+                    as resolved before or after introduction of new members into the target class by the current advice.
+    content.vb: Public Sub New(aspectField As FieldInfo, propertyName As String, isRequired As Boolean = False, order As ImportMemberOrder = ImportMemberOrder.AfterIntroductions)
+  overload: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor*
+  nameWithType.vb: ImportLocationAdviceInstance.New(FieldInfo, String, Boolean, ImportMemberOrder)
+  fullName.vb: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.New(System.Reflection.FieldInfo, String, Boolean, PostSharp.Aspects.Advices.ImportMemberOrder)
+  name.vb: New(FieldInfo, String, Boolean, ImportMemberOrder)
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,System.String[],System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)
+  commentId: M:PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor(System.Reflection.FieldInfo,System.String[],System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)
+  id: '#ctor(System.Reflection.FieldInfo,System.String[],System.Boolean,PostSharp.Aspects.Advices.ImportMemberOrder)'
+  parent: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: ImportLocationAdviceInstance(FieldInfo, string[], bool, ImportMemberOrder)
+  nameWithType: ImportLocationAdviceInstance.ImportLocationAdviceInstance(FieldInfo, string[], bool, ImportMemberOrder)
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.ImportLocationAdviceInstance(System.Reflection.FieldInfo, string[], bool, PostSharp.Aspects.Advices.ImportMemberOrder)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref> class and specifies the name of the property to be imported.
+
+    The type of this property is matched according to the type of the aspect field.
+  example: []
+  syntax:
+    content: public ImportLocationAdviceInstance(FieldInfo aspectField, string[] propertyNames, bool isRequired = false, ImportMemberOrder order = ImportMemberOrder.AfterIntroductions)
+    parameters:
+    - id: aspectField
+      type: System.Reflection.FieldInfo
+      description: >-
+        The field of the aspect class to which the field or property should be bound at build time.
+                        This field must be of type <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref>.
+    - id: propertyNames
+      type: System.String[]
+      description: Fallback list of possible names of the property to import.
+    - id: isRequired
+      type: System.Boolean
+      description: >-
+        Determines whether a build-time error should be emitted if the member cannot be found.
+                    If <code>false</code>, the binding field is <code>null</code> when the imported member is absent.
+    - id: order
+      type: PostSharp.Aspects.Advices.ImportMemberOrder
+      description: >-
+        Determines whether the <code class="paramref">aspectField</code> should be bound to the member
+                    as resolved before or after introduction of new members into the target class by the current advice.
+    content.vb: Public Sub New(aspectField As FieldInfo, propertyNames As String(), isRequired As Boolean = False, order As ImportMemberOrder = ImportMemberOrder.AfterIntroductions)
+  overload: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.#ctor*
+  nameWithType.vb: ImportLocationAdviceInstance.New(FieldInfo, String(), Boolean, ImportMemberOrder)
+  fullName.vb: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.New(System.Reflection.FieldInfo, String(), Boolean, PostSharp.Aspects.Advices.ImportMemberOrder)
+  name.vb: New(FieldInfo, String(), Boolean, ImportMemberOrder)
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Location
+  commentId: P:PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Location
+  id: Location
+  parent: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: ImportLocationAdviceInstance.Location
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Location
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the field or property of the target class that needs to be imported into the aspect.
+  example: []
+  syntax:
+    content: public LocationInfo Location { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.LocationInfo
+    content.vb: Public ReadOnly Property Location As LocationInfo
+  overload: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Location*
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Member
+  commentId: P:PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Member
+  id: Member
+  parent: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Member
+  nameWithType: ImportLocationAdviceInstance.Member
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Member
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets the reflection object (<xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>) that needs to be
+
+    imported, or <code>null</code> if the exact member is unknown and must be matched by name and signature.
+  example: []
+  syntax:
+    content: public override object Member { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides ReadOnly Property Member As Object
+  overridden: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member
+  overload: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.Member*
+- uid: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.MemberNames
+  commentId: P:PostSharp.Aspects.Advices.ImportLocationAdviceInstance.MemberNames
+  id: MemberNames
+  parent: PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MemberNames
+  nameWithType: ImportLocationAdviceInstance.MemberNames
+  fullName: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.MemberNames
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the fallback list of possible names of the member to be imported.
+  example: []
+  syntax:
+    content: public override string[] MemberNames { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Overrides ReadOnly Property MemberNames As String()
+  overridden: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MemberNames
+  overload: PostSharp.Aspects.Advices.ImportLocationAdviceInstance.MemberNames*

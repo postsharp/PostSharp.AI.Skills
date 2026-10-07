@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.AggregatableServices
+  commentId: T:PostSharp.Patterns.Model.AggregatableServices
+  id: AggregatableServices
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.AggregatableServices.Advice(System.Object,PostSharp.Patterns.Model.RelationshipInfo,System.Boolean)
+  - PostSharp.Patterns.Model.AggregatableServices.Advice(System.Object,PostSharp.Patterns.Model.RelationshipKind,System.Boolean)
+  - PostSharp.Patterns.Model.AggregatableServices.GetAggregatableAspect(System.Type,System.Boolean)
+  - PostSharp.Patterns.Model.AggregatableServices.Unadvise(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: AggregatableServices
+  nameWithType: AggregatableServices
+  fullName: PostSharp.Patterns.Model.AggregatableServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Provides static methods to aid with the implementation of the <xref href="PostSharp.Patterns.Model.IAggregatable" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class AggregatableServices
+    content.vb: Public Module AggregatableServices
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.AggregatableServices.Advice(System.Object,PostSharp.Patterns.Model.RelationshipInfo,System.Boolean)
+  commentId: M:PostSharp.Patterns.Model.AggregatableServices.Advice(System.Object,PostSharp.Patterns.Model.RelationshipInfo,System.Boolean)
+  id: Advice(System.Object,PostSharp.Patterns.Model.RelationshipInfo,System.Boolean)
+  parent: PostSharp.Patterns.Model.AggregatableServices
+  langs:
+  - csharp
+  - vb
+  name: Advice(object, RelationshipInfo, bool)
+  nameWithType: AggregatableServices.Advice(object, RelationshipInfo, bool)
+  fullName: PostSharp.Patterns.Model.AggregatableServices.Advice(object, PostSharp.Patterns.Model.RelationshipInfo, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Injects the <code>Aggregatable</code> dynamic implementation into an object and specifies the <xref href="PostSharp.Patterns.Model.RelationshipInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool Advice(object obj, RelationshipInfo relationshipInfo, bool required = true)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object into which the implementation must be injected.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The description of the relationship of <code class="paramref">obj</code> relatively to its parent.
+    - id: required
+      type: System.Boolean
+      description: >-
+        <code>true</code> if an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> should be thrown if <code class="paramref">obj</code> cannot be dynamically advised,
+            otherwise <code>false</code>.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the <code>Aggregatable</code> implementation was successfully injected into <code class="paramref">obj</code>, <code>false</code> if <code class="paramref">obj</code> already
+            implemented it, or if <code class="paramref">obj</code> cannot be dynamically advised and <code class="paramref">required</code> is <code>false</code>.
+    content.vb: Public Shared Function Advice(obj As Object, relationshipInfo As RelationshipInfo, required As Boolean = True) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableServices.Advice*
+  nameWithType.vb: AggregatableServices.Advice(Object, RelationshipInfo, Boolean)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableServices.Advice(Object, PostSharp.Patterns.Model.RelationshipInfo, Boolean)
+  name.vb: Advice(Object, RelationshipInfo, Boolean)
+- uid: PostSharp.Patterns.Model.AggregatableServices.Advice(System.Object,PostSharp.Patterns.Model.RelationshipKind,System.Boolean)
+  commentId: M:PostSharp.Patterns.Model.AggregatableServices.Advice(System.Object,PostSharp.Patterns.Model.RelationshipKind,System.Boolean)
+  id: Advice(System.Object,PostSharp.Patterns.Model.RelationshipKind,System.Boolean)
+  parent: PostSharp.Patterns.Model.AggregatableServices
+  langs:
+  - csharp
+  - vb
+  name: Advice(object, RelationshipKind, bool)
+  nameWithType: AggregatableServices.Advice(object, RelationshipKind, bool)
+  fullName: PostSharp.Patterns.Model.AggregatableServices.Advice(object, PostSharp.Patterns.Model.RelationshipKind, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Injects the <code>Aggregatable</code> dynamic implementation into an object and specifies the <xref href="PostSharp.Patterns.Model.RelationshipKind" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static bool Advice(object obj, RelationshipKind itemsRelationship, bool required = true)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object into which the implementation must be injected.
+    - id: itemsRelationship
+      type: PostSharp.Patterns.Model.RelationshipKind
+      description: The description of the relationship of <code class="paramref">obj</code> relatively to its parent.
+    - id: required
+      type: System.Boolean
+      description: >-
+        <code>true</code> if an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> should be thrown if <code class="paramref">obj</code> cannot be dynamically advised,
+            otherwise <code>false</code>.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the <code>Aggregatable</code> implementation was successfully injected into <code class="paramref">obj</code>, <code>false</code> if <code class="paramref">obj</code> already
+            implemented it, or if <code class="paramref">obj</code> cannot be dynamically advised and <code class="paramref">required</code> is <code>false</code>.
+    content.vb: Public Shared Function Advice(obj As Object, itemsRelationship As RelationshipKind, required As Boolean = True) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableServices.Advice*
+  nameWithType.vb: AggregatableServices.Advice(Object, RelationshipKind, Boolean)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableServices.Advice(Object, PostSharp.Patterns.Model.RelationshipKind, Boolean)
+  name.vb: Advice(Object, RelationshipKind, Boolean)
+- uid: PostSharp.Patterns.Model.AggregatableServices.Unadvise(System.Object)
+  commentId: M:PostSharp.Patterns.Model.AggregatableServices.Unadvise(System.Object)
+  id: Unadvise(System.Object)
+  parent: PostSharp.Patterns.Model.AggregatableServices
+  langs:
+  - csharp
+  - vb
+  name: Unadvise(object)
+  nameWithType: AggregatableServices.Unadvise(object)
+  fullName: PostSharp.Patterns.Model.AggregatableServices.Unadvise(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Removes the Aggregatable advice from an object.
+  example: []
+  syntax:
+    content: public static bool Unadvise(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: An <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the implementation was removed from <code class="paramref">obj</code>, <code>false</code> if <code class="paramref">obj</code> did not have
+            the Aggregatable implementation.
+    content.vb: Public Shared Function Unadvise(obj As Object) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableServices.Unadvise*
+  nameWithType.vb: AggregatableServices.Unadvise(Object)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableServices.Unadvise(Object)
+  name.vb: Unadvise(Object)
+- uid: PostSharp.Patterns.Model.AggregatableServices.GetAggregatableAspect(System.Type,System.Boolean)
+  commentId: M:PostSharp.Patterns.Model.AggregatableServices.GetAggregatableAspect(System.Type,System.Boolean)
+  id: GetAggregatableAspect(System.Type,System.Boolean)
+  parent: PostSharp.Patterns.Model.AggregatableServices
+  langs:
+  - csharp
+  - vb
+  name: GetAggregatableAspect(Type, bool)
+  nameWithType: AggregatableServices.GetAggregatableAspect(Type, bool)
+  fullName: PostSharp.Patterns.Model.AggregatableServices.GetAggregatableAspect(System.Type, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> instance applied to a given <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static AggregatableAttribute GetAggregatableAspect(Type type, bool throwing = true)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type.
+    - id: throwing
+      type: System.Boolean
+      description: <code>true</code> if an exception should be thrown if <code class="paramref">type</code> does not have an <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref>, otherwise <code>false</code>.
+    return:
+      type: PostSharp.Patterns.Model.AggregatableAttribute
+      description: The <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> found on <code class="paramref">type</code>.
+    content.vb: Public Shared Function GetAggregatableAspect(type As Type, throwing As Boolean = True) As AggregatableAttribute
+  overload: PostSharp.Patterns.Model.AggregatableServices.GetAggregatableAspect*
+  nameWithType.vb: AggregatableServices.GetAggregatableAspect(Type, Boolean)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableServices.GetAggregatableAspect(System.Type, Boolean)
+  name.vb: GetAggregatableAspect(Type, Boolean)

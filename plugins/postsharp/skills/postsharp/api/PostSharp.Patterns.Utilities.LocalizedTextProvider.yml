@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Utilities.LocalizedTextProvider
+  commentId: T:PostSharp.Patterns.Utilities.LocalizedTextProvider
+  id: LocalizedTextProvider
+  parent: PostSharp.Patterns.Utilities
+  children:
+  - PostSharp.Patterns.Utilities.LocalizedTextProvider.#ctor(PostSharp.Patterns.Utilities.LocalizedTextProvider)
+  - PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString(System.String,System.Object[])
+  - PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)
+  langs:
+  - csharp
+  - vb
+  name: LocalizedTextProvider
+  nameWithType: LocalizedTextProvider
+  fullName: PostSharp.Patterns.Utilities.LocalizedTextProvider
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Base class for providers of error messages. Implements the chain of responsibility between multiple providers.
+  remarks: >-
+    Each chain of providers has its own base class derived from this one, which contains a static field <code>Current</code> that points to the current
+
+    provider.
+  example: []
+  syntax:
+    content: public abstract class LocalizedTextProvider
+    content.vb: Public MustInherit Class LocalizedTextProvider
+  seealso:
+  - linkType: HRef
+    linkId: '@contract-localization'
+    altText: 'Conceptual: Localizing Contract Error Messages'
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Utilities.LocalizedTextProvider.#ctor(PostSharp.Patterns.Utilities.LocalizedTextProvider)
+  commentId: M:PostSharp.Patterns.Utilities.LocalizedTextProvider.#ctor(PostSharp.Patterns.Utilities.LocalizedTextProvider)
+  id: '#ctor(PostSharp.Patterns.Utilities.LocalizedTextProvider)'
+  parent: PostSharp.Patterns.Utilities.LocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: LocalizedTextProvider(LocalizedTextProvider)
+  nameWithType: LocalizedTextProvider.LocalizedTextProvider(LocalizedTextProvider)
+  fullName: PostSharp.Patterns.Utilities.LocalizedTextProvider.LocalizedTextProvider(PostSharp.Patterns.Utilities.LocalizedTextProvider)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Utilities.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LocalizedTextProvider(LocalizedTextProvider next)
+    parameters:
+    - id: next
+      type: PostSharp.Patterns.Utilities.LocalizedTextProvider
+      description: The next <xref href="PostSharp.Patterns.Utilities.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref> in the responsibility chain.
+    content.vb: Protected Sub New([next] As LocalizedTextProvider)
+  overload: PostSharp.Patterns.Utilities.LocalizedTextProvider.#ctor*
+  nameWithType.vb: LocalizedTextProvider.New(LocalizedTextProvider)
+  fullName.vb: PostSharp.Patterns.Utilities.LocalizedTextProvider.New(PostSharp.Patterns.Utilities.LocalizedTextProvider)
+  name.vb: New(LocalizedTextProvider)
+- uid: PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)
+  commentId: M:PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)
+  id: GetMessage(System.String)
+  parent: PostSharp.Patterns.Utilities.LocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: GetMessage(string)
+  nameWithType: LocalizedTextProvider.GetMessage(string)
+  fullName: PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets a message declared by the <xref href="PostSharp.Patterns.Utilities.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref> or by the rest of the responsibility chain, if applicable.
+  remarks: >-
+    <p>An implementation must call the base implementation if it does not provide the requested message.
+        The base implementation is responsible for invoking the next provider in the chain of responsibility.
+        </p>
+  example: []
+  syntax:
+    content: public virtual string GetMessage(string messageId)
+    parameters:
+    - id: messageId
+      type: System.String
+      description: The identifier of the message.
+    return:
+      type: System.String
+      description: The message represented by <code class="paramref">messageId</code>. Returning <code>null</code> is not allowed.
+    content.vb: Public Overridable Function GetMessage(messageId As String) As String
+  overload: PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage*
+  nameWithType.vb: LocalizedTextProvider.GetMessage(String)
+  fullName.vb: PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(String)
+  name.vb: GetMessage(String)
+- uid: PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString(System.String,System.Object[])
+  commentId: M:PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString(System.String,System.Object[])
+  id: FormatString(System.String,System.Object[])
+  parent: PostSharp.Patterns.Utilities.LocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: FormatString(string, object[])
+  nameWithType: LocalizedTextProvider.FormatString(string, object[])
+  fullName: PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString(string, object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Formats a string. An implementation typically invokes <xref href="System.String.Format(System.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public virtual string FormatString(string format, object[] arguments)
+    parameters:
+    - id: format
+      type: System.String
+      description: The formatting string. It is typically, but not necessarily, the string returned by <xref href="PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref>.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments.
+    return:
+      type: System.String
+      description: The formatted string.
+    content.vb: Public Overridable Function FormatString(format As String, arguments As Object()) As String
+  overload: PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString*
+  nameWithType.vb: LocalizedTextProvider.FormatString(String, Object())
+  fullName.vb: PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString(String, Object())
+  name.vb: FormatString(String, Object())

@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IAsyncMethodBinding
+  commentId: T:PostSharp.Aspects.IAsyncMethodBinding
+  id: IAsyncMethodBinding
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IAsyncMethodBinding.InvokeAsync(System.Object@,PostSharp.Aspects.Arguments)
+  langs:
+  - csharp
+  - vb
+  name: IAsyncMethodBinding
+  nameWithType: IAsyncMethodBinding
+  fullName: PostSharp.Aspects.IAsyncMethodBinding
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Interface through which a method-level aspect or advice can
+
+    asynchronously invoke the next node in the chain of invocation.
+  example: []
+  syntax:
+    content: >-
+      [Internal]
+
+      public interface IAsyncMethodBinding : IMethodBinding
+    content.vb: >-
+      <Internal>
+
+      Public Interface IAsyncMethodBinding Inherits IMethodBinding
+  seealso:
+  - linkType: HRef
+    linkId: '@method-interception'
+    altText: 'Conceptual: Intercepting Methods'
+  inheritedMembers:
+  - PostSharp.Aspects.IMethodBinding.Invoke(System.Object@,PostSharp.Aspects.Arguments)
+  attributes:
+  - type: PostSharp.Constraints.InternalAttribute
+    ctor: PostSharp.Constraints.InternalAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IAsyncMethodBinding.InvokeAsync(System.Object@,PostSharp.Aspects.Arguments)
+  commentId: M:PostSharp.Aspects.IAsyncMethodBinding.InvokeAsync(System.Object@,PostSharp.Aspects.Arguments)
+  id: InvokeAsync(System.Object@,PostSharp.Aspects.Arguments)
+  parent: PostSharp.Aspects.IAsyncMethodBinding
+  langs:
+  - csharp
+  - vb
+  name: InvokeAsync(ref object, Arguments)
+  nameWithType: IAsyncMethodBinding.InvokeAsync(ref object, Arguments)
+  fullName: PostSharp.Aspects.IAsyncMethodBinding.InvokeAsync(ref object, PostSharp.Aspects.Arguments)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Asynchronously invokes the next node in the chain of invocation.
+  remarks: >-
+    <p>
+      The
+      <code class="paramref">instance</code>
+      parameter is passed by reference so that instance methods of value types (
+      <code>struct</code>
+      in C#) are allowed to change the value of the instance.
+    </p>
+  example: []
+  syntax:
+    content: MethodBindingInvokeAwaitable InvokeAsync(ref object instance, Arguments arguments)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: Target instance on which the method should be invoked (<code>null</code> if the method is static).
+    - id: arguments
+      type: PostSharp.Aspects.Arguments
+      description: Method arguments.
+    return:
+      type: PostSharp.Aspects.MethodBindingInvokeAwaitable
+      description: The value that can be awaited to get the result of the underlying method's invocation.
+    content.vb: Function InvokeAsync(instance As Object, arguments As Arguments) As MethodBindingInvokeAwaitable
+  overload: PostSharp.Aspects.IAsyncMethodBinding.InvokeAsync*
+  nameWithType.vb: IAsyncMethodBinding.InvokeAsync(Object, Arguments)
+  fullName.vb: PostSharp.Aspects.IAsyncMethodBinding.InvokeAsync(Object, PostSharp.Aspects.Arguments)
+  name.vb: InvokeAsync(Object, Arguments)

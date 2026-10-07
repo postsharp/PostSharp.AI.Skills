@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.BindingAttribute
+  commentId: T:PostSharp.Aspects.Advices.BindingAttribute
+  id: BindingAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.BindingAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: BindingAttribute
+  nameWithType: BindingAttribute
+  fullName: PostSharp.Aspects.Advices.BindingAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Binds a parameter of an interception advice to the binding object, which invokes the next node in the chain of interceptions of the target.
+  remarks: >-
+    <p>
+        In <xref href="PostSharp.Aspects.Advices.OnLocationGetValueAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnLocationSetValueAdvice" data-throw-if-not-resolved="false"></xref>, the parameter receives the <xref href="PostSharp.Aspects.ILocationBinding%601" data-throw-if-not-resolved="false"></xref>
+        of the field or property; its type must be <xref href="PostSharp.Aspects.ILocationBinding%601" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.ILocationBinding" data-throw-if-not-resolved="false"></xref>, or a type parameter of the advice
+        method. In <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>, the parameter receives the method binding of the target method.
+        </p>
+    <p>
+        The binding object is a singleton, so binding it does not allocate memory. The parameter cannot be <code>ref</code>, <code>in</code> or <code>out</code>. This attribute can be
+        used only in <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnLocationGetValueAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnLocationSetValueAdvice" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: 'public sealed class BindingAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class BindingAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.BindingAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.BindingAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.BindingAttribute
+  langs:
+  - csharp
+  - vb
+  name: BindingAttribute()
+  nameWithType: BindingAttribute.BindingAttribute()
+  fullName: PostSharp.Aspects.Advices.BindingAttribute.BindingAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public BindingAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.BindingAttribute.#ctor*
+  nameWithType.vb: BindingAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.BindingAttribute.New()
+  name.vb: New()

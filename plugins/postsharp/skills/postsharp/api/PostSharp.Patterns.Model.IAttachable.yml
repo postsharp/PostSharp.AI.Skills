@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.IAttachable
+  commentId: T:PostSharp.Patterns.Model.IAttachable
+  id: IAttachable
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  - PostSharp.Patterns.Model.IAttachable.DetachFromParent
+  - PostSharp.Patterns.Model.IAttachable.OnDeserialization(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IAttachable
+  nameWithType: IAttachable
+  fullName: PostSharp.Patterns.Model.IAttachable
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Defines the setter methods of the <xref href="PostSharp.Patterns.Model.IAggregatable" data-throw-if-not-resolved="false"></xref> interface.
+  remarks: >-
+    <p>This interface is consumed by the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect. It should normally not be consumed in user code.</p>
+
+    <p>User classes may implement this interface in a class if a custom implementation of <xref href="PostSharp.Patterns.Model.IAggregatable" data-throw-if-not-resolved="false"></xref> is required.</p>
+
+    <p>A child object may be attached several times to the same parent through several relationships.</p>
+  example: []
+  syntax:
+    content: 'public interface IAttachable : IAggregatable'
+    content.vb: Public Interface IAttachable Inherits IAggregatable
+  derivedClasses:
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  inheritedMembers:
+  - PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  - PostSharp.Patterns.Model.IAggregatable.Parent
+  - PostSharp.Patterns.Model.IAggregatable.ParentRelationship
+  - PostSharp.Patterns.Model.IAggregatable.ParentChanged
+  - PostSharp.Patterns.Model.IAggregatable.AncestorChanged
+  extensionMethods:
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(System.Object)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+- uid: PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  commentId: M:PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  id: AttachToParent(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  parent: PostSharp.Patterns.Model.IAttachable
+  langs:
+  - csharp
+  - vb
+  name: AttachToParent(RelationshipInfo, IAttacher, object)
+  nameWithType: IAttachable.AttachToParent(RelationshipInfo, IAttacher, object)
+  fullName: PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.IAttacher, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Attaches the current object to a parent object.
+  remarks: >-
+    <p>In case a child is attached to its parent through several relationships, all relationships should have the same characteristics,
+            that is, their <xref href="PostSharp.Patterns.Model.RelationshipInfo" data-throw-if-not-resolved="false"></xref> value should be identical.</p>
+  example: []
+  syntax:
+    content: bool AttachToParent(RelationshipInfo relationshipInfo, IAttacher attacher, object attacherState)
+    parameters:
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: >-
+        Information about the relationship of the parent node relative to the current node.
+                    The <xref href="PostSharp.Patterns.Model.RelationshipInfo.Relationship" data-throw-if-not-resolved="false"></xref> property must be set to <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref> or
+                    <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>.
+    - id: attacher
+      type: PostSharp.Patterns.Model.IAttacher
+      description: A service that allows the current node to attach itself to the parent.
+    - id: attacherState
+      type: System.Object
+      description: An opaque state object to be passed as the first argument to all methods of the <xref href="PostSharp.Patterns.Model.IAttacher" data-throw-if-not-resolved="false"></xref> interface.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current object was not previously attached to any parent, <code>false</code> if it was already attached to the same parent.
+    content.vb: Function AttachToParent(relationshipInfo As RelationshipInfo, attacher As IAttacher, attacherState As Object) As Boolean
+  overload: PostSharp.Patterns.Model.IAttachable.AttachToParent*
+  nameWithType.vb: IAttachable.AttachToParent(RelationshipInfo, IAttacher, Object)
+  fullName.vb: PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.IAttacher, Object)
+  name.vb: AttachToParent(RelationshipInfo, IAttacher, Object)
+- uid: PostSharp.Patterns.Model.IAttachable.DetachFromParent
+  commentId: M:PostSharp.Patterns.Model.IAttachable.DetachFromParent
+  id: DetachFromParent
+  parent: PostSharp.Patterns.Model.IAttachable
+  langs:
+  - csharp
+  - vb
+  name: DetachFromParent()
+  nameWithType: IAttachable.DetachFromParent()
+  fullName: PostSharp.Patterns.Model.IAttachable.DetachFromParent()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Detaches the current object from its parent object.
+  example: []
+  syntax:
+    content: bool DetachFromParent()
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current object has been fully detached, that is, is no longer attached to its parent by any other relationship, or <code>false</code>
+            if the current object is still attached to the parent by some relationship.
+    content.vb: Function DetachFromParent() As Boolean
+  overload: PostSharp.Patterns.Model.IAttachable.DetachFromParent*
+- uid: PostSharp.Patterns.Model.IAttachable.OnDeserialization(System.Object)
+  commentId: M:PostSharp.Patterns.Model.IAttachable.OnDeserialization(System.Object)
+  id: OnDeserialization(System.Object)
+  parent: PostSharp.Patterns.Model.IAttachable
+  langs:
+  - csharp
+  - vb
+  name: OnDeserialization(object)
+  nameWithType: IAttachable.OnDeserialization(object)
+  fullName: PostSharp.Patterns.Model.IAttachable.OnDeserialization(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Restores the correct state when the object is being deserialized.
+  remarks: <p>This method is redundant with <xref href="System.Runtime.Serialization.IDeserializationCallback" data-throw-if-not-resolved="false"></xref> on platforms where this interface is supported.</p>
+  example: []
+  syntax:
+    content: void OnDeserialization(object caller)
+    parameters:
+    - id: caller
+      type: System.Object
+      description: The object that governs the deserialization.
+    content.vb: Sub OnDeserialization(caller As Object)
+  overload: PostSharp.Patterns.Model.IAttachable.OnDeserialization*
+  nameWithType.vb: IAttachable.OnDeserialization(Object)
+  fullName.vb: PostSharp.Patterns.Model.IAttachable.OnDeserialization(Object)
+  name.vb: OnDeserialization(Object)

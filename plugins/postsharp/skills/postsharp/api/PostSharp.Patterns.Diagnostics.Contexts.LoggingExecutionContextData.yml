@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  id: LoggingExecutionContextData
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.#ctor
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Clone
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.GenerateChildContextId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Transaction
+  langs:
+  - csharp
+  - vb
+  name: LoggingExecutionContextData
+  nameWithType: LoggingExecutionContextData
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Represents data that is associated with a logging context and that should be passed through the execution context rather than the thread context. The class is mostly immutable.
+
+    The data is stored in an <code>AsyncLocal</code>, in a kind of "stack" maintained by the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Parent" data-throw-if-not-resolved="false"></xref> property. This class was previously known as <code>ContextLocalData</code>.
+  example: []
+  syntax:
+    content: 'public class LoggingExecutionContextData : IHierarchicalContextIdInfo'
+    content.vb: Public Class LoggingExecutionContextData Implements IHierarchicalContextIdInfo
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  langs:
+  - csharp
+  - vb
+  name: LoggingExecutionContextData()
+  nameWithType: LoggingExecutionContextData.LoggingExecutionContextData()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.LoggingExecutionContextData()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LoggingExecutionContextData()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.#ctor*
+  nameWithType.vb: LoggingExecutionContextData.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Clone
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Clone
+  id: Clone
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: LoggingExecutionContextData.Clone()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Clone()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Returns a shallow copy of this instance.
+  example: []
+  syntax:
+    content: public LoggingExecutionContextData Clone()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+      description: A shallow copy of this instance.
+    content.vb: Public Function Clone() As LoggingExecutionContextData
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Clone*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.GenerateChildContextId
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.GenerateChildContextId
+  id: GenerateChildContextId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  langs:
+  - csharp
+  - vb
+  name: GenerateChildContextId()
+  nameWithType: LoggingExecutionContextData.GenerateChildContextId()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.GenerateChildContextId()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Returns a new child identifier that is unique within the current parent.
+  example: []
+  syntax:
+    content: public long GenerateChildContextId()
+    return:
+      type: System.Int64
+      description: The new child identifier.
+    content.vb: Public Function GenerateChildContextId() As Long
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.GenerateChildContextId*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.GenerateChildContextId
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Transaction
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Transaction
+  id: Transaction
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+  langs:
+  - csharp
+  - vb
+  name: Transaction
+  nameWithType: LoggingExecutionContextData.Transaction
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Transaction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the transaction that's currently active.
+  example: []
+  syntax:
+    content: public LoggingTransaction Transaction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+    content.vb: Public ReadOnly Property Transaction As LoggingTransaction
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Transaction*

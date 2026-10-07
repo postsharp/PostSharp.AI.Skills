@@ -1,0 +1,148 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+  commentId: T:PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+  id: LinesOfCodeAvoidedAttribute
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+  - PostSharp.Aspects.LinesOfCodeAvoidedAttribute.Count
+  langs:
+  - csharp
+  - vb
+  name: LinesOfCodeAvoidedAttribute
+  nameWithType: LinesOfCodeAvoidedAttribute
+  fullName: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Custom attribute that, when applied to an aspect class, specifies how many manual lines of code
+
+    are avoided every time the aspect is used.
+  remarks: >-
+    <p>PostSharp uses this value to estimate the number of lines of handwritten code avoided by aspects. Without this attribute,
+        PostSharp uses a default estimate based on the advices of the aspect. For composite aspects, you can give an estimate for each advice
+        with the <xref href="PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided" data-throw-if-not-resolved="false"></xref> property of the advice custom attribute.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+
+      public sealed class LinesOfCodeAvoidedAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Class, AllowMultiple:=False)>
+
+      Public NotInheritable Class LinesOfCodeAvoidedAttribute Inherits Attribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+    commentId: P:PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - linkType: HRef
+    linkId: '@estimating-code-saving'
+    altText: 'Conceptual: Estimating Code Savings'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 4
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+  commentId: M:PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+  langs:
+  - csharp
+  - vb
+  name: LinesOfCodeAvoidedAttribute(int)
+  nameWithType: LinesOfCodeAvoidedAttribute.LinesOfCodeAvoidedAttribute(int)
+  fullName: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.LinesOfCodeAvoidedAttribute(int)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.LinesOfCodeAvoidedAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public LinesOfCodeAvoidedAttribute(int lines)
+    parameters:
+    - id: lines
+      type: System.Int32
+      description: Number of lines of code saved every time the aspect is applied to a target class.
+    content.vb: Public Sub New(lines As Integer)
+  overload: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor*
+  nameWithType.vb: LinesOfCodeAvoidedAttribute.New(Integer)
+  fullName.vb: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.New(Integer)
+  name.vb: New(Integer)
+- uid: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.Count
+  commentId: P:PostSharp.Aspects.LinesOfCodeAvoidedAttribute.Count
+  id: Count
+  parent: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: LinesOfCodeAvoidedAttribute.Count
+  fullName: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.Count
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the number of lines of code saved every time the aspect is applied to a target class.
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.Count*

@@ -1,0 +1,244 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ImmutableAttribute
+  commentId: T:PostSharp.Patterns.Threading.ImmutableAttribute
+  id: ImmutableAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ImmutableAttribute.#ctor
+  - PostSharp.Patterns.Threading.ImmutableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Threading.ImmutableAttribute.OnInstanceConstructed
+  langs:
+  - csharp
+  - vb
+  name: ImmutableAttribute
+  nameWithType: ImmutableAttribute
+  fullName: PostSharp.Patterns.Threading.ImmutableAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a class, applies the <xref href="PostSharp.Patterns.Threading.Models.ImmutableThreadingModel" data-throw-if-not-resolved="false"></xref> to this class.
+
+    The aspect introduces the <xref href="PostSharp.Patterns.Threading.IImmutable" data-throw-if-not-resolved="false"></xref> interface into the target class. Immutable objects cannot
+
+    be modified after the constructor exits.
+  remarks: >-
+    <p>The object becomes read-only when the constructor of the most derived class has completed, so constructors of base classes and methods
+        called by constructors can still set fields. Accessing the object from a different thread than the one that created it before the constructor
+        has completed results in a <xref href="PostSharp.Patterns.Threading.ThreadMismatchException" data-throw-if-not-resolved="false"></xref>. Modifying the object after the constructor has completed results in an
+        <xref href="PostSharp.Patterns.Threading.ObjectReadOnlyException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>The aspect implicitly adds the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect, so you can build immutable object trees. Children must be
+        immutable or freezable; freezable children are frozen when the constructor of the parent completes. When the object must be modified after
+        its constructor, use <xref href="PostSharp.Patterns.Threading.FreezableAttribute" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: >-
+      [IntroduceInterface(typeof(IImmutable), OverrideAction = InterfaceOverrideAction.Ignore, LinesOfCodeAvoided = 0)]
+
+      [Metric("UsedFeatures", "PostSharp.Patterns.Threading.Immutable")]
+
+      [Serializer(typeof(ImmutableAttribute.Serializer))]
+
+      public sealed class ImmutableAttribute : ReadOnlyThreadAwareAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IQueryInterface, IConcurrencyController, IImmutable, IThreadAware
+    content.vb: >-
+      <IntroduceInterface(GetType(IImmutable), OverrideAction:=InterfaceOverrideAction.Ignore, LinesOfCodeAvoided:=0)>
+
+      <Metric("UsedFeatures", "PostSharp.Patterns.Threading.Immutable")>
+
+      <Serializer(GetType(ImmutableAttribute.Serializer))>
+
+      Public NotInheritable Class ImmutableAttribute Inherits ReadOnlyThreadAwareAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IQueryInterface, IConcurrencyController, IImmutable, IThreadAware
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.FreezableAttribute
+    commentId: T:PostSharp.Patterns.Threading.FreezableAttribute
+  - linkType: HRef
+    linkId: '@immutable'
+    altText: 'Conceptual: Immutable Threading Model'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - PostSharp.Patterns.Threading.IConcurrencyController
+  - PostSharp.Patterns.Threading.IImmutable
+  - PostSharp.Patterns.Threading.IThreadAware
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.IImmutable
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+    - name: LinesOfCodeAvoided
+      type: System.Int32
+      value: 0
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Threading.Immutable
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.ImmutableAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.ImmutableAttribute.OnInstanceConstructed
+  commentId: M:PostSharp.Patterns.Threading.ImmutableAttribute.OnInstanceConstructed
+  id: OnInstanceConstructed
+  parent: PostSharp.Patterns.Threading.ImmutableAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnInstanceConstructed()
+  nameWithType: ImmutableAttribute.OnInstanceConstructed()
+  fullName: PostSharp.Patterns.Threading.ImmutableAttribute.OnInstanceConstructed()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  example: []
+  syntax:
+    content: public override void OnInstanceConstructed()
+    content.vb: Public Overrides Sub OnInstanceConstructed()
+  overridden: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnInstanceConstructed
+  overload: PostSharp.Patterns.Threading.ImmutableAttribute.OnInstanceConstructed*
+- uid: PostSharp.Patterns.Threading.ImmutableAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ImmutableAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ImmutableAttribute
+  langs:
+  - csharp
+  - vb
+  name: ImmutableAttribute()
+  nameWithType: ImmutableAttribute.ImmutableAttribute()
+  fullName: PostSharp.Patterns.Threading.ImmutableAttribute.ImmutableAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: public ImmutableAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ImmutableAttribute.#ctor*
+  nameWithType.vb: ImmutableAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.ImmutableAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ImmutableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.ImmutableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.ImmutableAttribute
+  langs:
+  - csharp
+  - vb
+  name: ImmutableAttribute(PortableFormatterConstructorContext)
+  nameWithType: ImmutableAttribute.ImmutableAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.ImmutableAttribute.ImmutableAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected ImmutableAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.ImmutableAttribute.#ctor*
+  nameWithType.vb: ImmutableAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.ImmutableAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

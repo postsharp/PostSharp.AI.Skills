@@ -1,0 +1,171 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  id: IHierarchicalContextIdInfo
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.ContextId
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.GenerateChildContextId
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.IdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.Parent
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdParentOverride
+  - PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdRootOverride
+  langs:
+  - csharp
+  - vb
+  name: IHierarchicalContextIdInfo
+  nameWithType: IHierarchicalContextIdInfo
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Exposes the information that is necessary to generate the synthetic context identifier when the <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy" data-throw-if-not-resolved="false"></xref> is set to <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Hierarchical" data-throw-if-not-resolved="false"></xref>.
+
+    This interface is used by <xref href="PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IHierarchicalContextIdInfo
+    content.vb: Public Interface IHierarchicalContextIdInfo
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.GenerateChildContextId
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.GenerateChildContextId
+  id: GenerateChildContextId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  langs:
+  - csharp
+  - vb
+  name: GenerateChildContextId()
+  nameWithType: IHierarchicalContextIdInfo.GenerateChildContextId()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.GenerateChildContextId()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Returns a new child identifier that is unique within the current parent.
+  example: []
+  syntax:
+    content: long GenerateChildContextId()
+    return:
+      type: System.Int64
+      description: The new child identifier.
+    content.vb: Function GenerateChildContextId() As Long
+  overload: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.GenerateChildContextId*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdRootOverride
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdRootOverride
+  id: SyntheticIdRootOverride
+  parent: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  langs:
+  - csharp
+  - vb
+  name: SyntheticIdRootOverride
+  nameWithType: IHierarchicalContextIdInfo.SyntheticIdRootOverride
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdRootOverride
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: If hierarchical IDs are enabled, this is <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticRootId" data-throw-if-not-resolved="false"></xref>. If they are not enabled, this property has no meaning.
+  example: []
+  syntax:
+    content: string SyntheticIdRootOverride { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property SyntheticIdRootOverride As String
+  overload: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdRootOverride*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdParentOverride
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdParentOverride
+  id: SyntheticIdParentOverride
+  parent: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  langs:
+  - csharp
+  - vb
+  name: SyntheticIdParentOverride
+  nameWithType: IHierarchicalContextIdInfo.SyntheticIdParentOverride
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdParentOverride
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: If hierarchical IDs are enabled, this is <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticParentId" data-throw-if-not-resolved="false"></xref>. If they are not enabled, this property has no meaning.
+  example: []
+  syntax:
+    content: string SyntheticIdParentOverride { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property SyntheticIdParentOverride As String
+  overload: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.SyntheticIdParentOverride*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.ContextId
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.ContextId
+  id: ContextId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  langs:
+  - csharp
+  - vb
+  name: ContextId
+  nameWithType: IHierarchicalContextIdInfo.ContextId
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.ContextId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the ID of the logging context within its parent or globally, according to <xref href="PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.IdGenerationStrategy" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: long ContextId { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: ReadOnly Property ContextId As Long
+  overload: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.ContextId*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.Parent
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.Parent
+  id: Parent
+  parent: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: IHierarchicalContextIdInfo.Parent
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.Parent
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the parent context.
+  example: []
+  syntax:
+    content: IHierarchicalContextIdInfo Parent { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+    content.vb: ReadOnly Property Parent As IHierarchicalContextIdInfo
+  overload: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.Parent*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.IdGenerationStrategy
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.IdGenerationStrategy
+  id: IdGenerationStrategy
+  parent: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo
+  langs:
+  - csharp
+  - vb
+  name: IdGenerationStrategy
+  nameWithType: IHierarchicalContextIdInfo.IdGenerationStrategy
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.IdGenerationStrategy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy" data-throw-if-not-resolved="false"></xref> for the current context.
+  example: []
+  syntax:
+    content: ContextIdGenerationStrategy IdGenerationStrategy { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+    content.vb: ReadOnly Property IdGenerationStrategy As ContextIdGenerationStrategy
+  overload: PostSharp.Patterns.Diagnostics.Contexts.IHierarchicalContextIdInfo.IdGenerationStrategy*

@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.AsyncCallIdAttribute
+  commentId: T:PostSharp.Aspects.Advices.AsyncCallIdAttribute
+  id: AsyncCallIdAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.AsyncCallIdAttribute.#ctor
+  - PostSharp.Aspects.Advices.AsyncCallIdAttribute.IsRequired
+  langs:
+  - csharp
+  - vb
+  name: AsyncCallIdAttribute
+  nameWithType: AsyncCallIdAttribute
+  fullName: PostSharp.Aspects.Advices.AsyncCallIdAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Binds a parameter of a method boundary advice to the <xref href="PostSharp.Aspects.AsyncCallId" data-throw-if-not-resolved="false"></xref> that identifies the current execution of an async method.
+  remarks: >-
+    <p>
+        All the advices of one execution of the async method receive the same value, so the identifier can correlate the events of this execution,
+        for instance in a log. The parameter must be of type <xref href="PostSharp.Aspects.AsyncCallId" data-throw-if-not-resolved="false"></xref>, and it cannot be <code>ref</code>, <code>in</code> or <code>out</code>.
+        </p>
+    <p>
+        This attribute can be used in the method boundary advices. When the target method is not transformed as an async method, for instance
+        when it is an iterator, the parameter receives the default value of <xref href="PostSharp.Aspects.AsyncCallId" data-throw-if-not-resolved="false"></xref>, unless <xref href="PostSharp.Aspects.Advices.AsyncCallIdAttribute.IsRequired" data-throw-if-not-resolved="false"></xref> is <code>true</code>.
+        </p>
+  example: []
+  syntax:
+    content: 'public sealed class AsyncCallIdAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class AsyncCallIdAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.AsyncCallIdAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.AsyncCallIdAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.AsyncCallIdAttribute
+  langs:
+  - csharp
+  - vb
+  name: AsyncCallIdAttribute()
+  nameWithType: AsyncCallIdAttribute.AsyncCallIdAttribute()
+  fullName: PostSharp.Aspects.Advices.AsyncCallIdAttribute.AsyncCallIdAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public AsyncCallIdAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.AsyncCallIdAttribute.#ctor*
+  nameWithType.vb: AsyncCallIdAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.AsyncCallIdAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Advices.AsyncCallIdAttribute.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.AsyncCallIdAttribute.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.AsyncCallIdAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: AsyncCallIdAttribute.IsRequired
+  fullName: PostSharp.Aspects.Advices.AsyncCallIdAttribute.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the target must be an async method. When this property is <code>true</code>, the compiler reports an
+
+    error when the target method is not transformed as an async method. When it is <code>false</code>, the parameter receives the default value of
+
+    <xref href="PostSharp.Aspects.AsyncCallId" data-throw-if-not-resolved="false"></xref>. The default value is <code>false</code>.
+  remarks: >-
+    When the advice is selected by <xref href="PostSharp.Aspects.Advices.MatchPointcut" data-throw-if-not-resolved="false"></xref>, a target method that is neither async nor returns an awaitable type is
+
+    skipped, and no error is reported.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.AsyncCallIdAttribute.IsRequired*

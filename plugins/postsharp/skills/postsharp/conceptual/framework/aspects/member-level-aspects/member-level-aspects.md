@@ -1,0 +1,121 @@
+---
+uid: member-level-aspects
+title: "Developing Member-Level Aspects"
+product: "postsharp"
+categories: "PostSharp;AOP;Metaprogramming"
+summary: "Explains how to develop aspects that apply to a method, a field, a property or an event, with advice methods that receive typed parameters, and how they compare with simple aspects."
+---
+# Developing Member-Level Aspects
+
+A *member-level aspect* is an aspect that applies to one method, field, property or event, and adds behaviors to it. It derives from one of the following classes:
+
+| Base class | Target | Advices |
+|------------|--------|---------|
+| <xref:PostSharp.Aspects.MethodLevelAspect> | A method or a constructor | Method boundary advices, such as <xref:PostSharp.Aspects.Advices.OnMethodEntryAdvice>, and the method interception advice <xref:PostSharp.Aspects.Advices.OnMethodInvokeAdvice> |
+| <xref:PostSharp.Aspects.LocationLevelAspect> | A field, a property, a parameter or a return value | <xref:PostSharp.Aspects.Advices.OnLocationGetValueAdvice> and <xref:PostSharp.Aspects.Advices.OnLocationSetValueAdvice> for fields and properties, and <xref:PostSharp.Aspects.Advices.LocationValidationAdvice> |
+| <xref:PostSharp.Aspects.EventLevelAspect> | An event | The event interception advices, such as <xref:PostSharp.Aspects.Advices.OnEventAddHandlerAdvice> |
+
+The behaviors are *advice methods* of the aspect class (see <xref:advices>). Each parameter of an advice method receives a typed value of the target, such as an argument or the return value (see <xref:advice-parameter-binding>). The event interception advices and <xref:PostSharp.Aspects.Advices.LocationValidationAdvice> are the exceptions: they have a fixed signature.
+
+To add behaviors to several members of a type or an assembly with one aspect, see <xref:complex-aspects>.
+
+
+## Example
+
+The following aspect measures the duration of a method and writes it to the console.
+
+```csharp
+using System;
+using System.Diagnostics;
+using PostSharp.Aspects;
+using PostSharp.Aspects.Advices;
+using PostSharp.Serialization;
+
+[PSerializable]
+public sealed class ProfileAttribute : MethodLevelAspect
+{
+    [OnMethodEntryAdvice]
+    public void OnEntry( [State( StateScope.MethodInvocation )] out Stopwatch stopwatch )
+    {
+        stopwatch = Stopwatch.StartNew();
+    }
+
+    [OnMethodExitAdvice]
+    public void OnExit( [DeclarationName( IncludeTypeName = true )] string methodName,
+                        [State( StateScope.MethodInvocation )] Stopwatch stopwatch )
+    {
+        Console.WriteLine( "{0} took {1} ms.", methodName, stopwatch.ElapsedMilliseconds );
+    }
+}
+```
+
+The aspect is applied as a custom attribute:
+
+```csharp
+public class OrderService
+{
+    [Profile]
+    public void PlaceOrder( Order order )
+    {
+        // Method body.
+    }
+}
+```
+
+PostSharp transforms `PlaceOrder` into code that is equivalent to the following:
+
+```csharp
+public void PlaceOrder( Order order )
+{
+    Stopwatch stopwatch;
+    aspect.OnEntry( out stopwatch );
+    try
+    {
+        // Method body.
+    }
+    finally
+    {
+        aspect.OnExit( "OrderService.PlaceOrder", stopwatch );
+    }
+}
+```
+
+
+## How it works
+
+The example shows the main rules of a member-level aspect:
+
+* The advices apply to the target of the aspect. They need no pointcut. An advice that cannot apply to this kind of declaration, for instance a location advice in a <xref:PostSharp.Aspects.MethodLevelAspect>, causes the error LA0049.
+* The advices of one family, such as the entry and exit advices, form one group and are woven as one transformation: here, one `try` / `finally` construct. You do not need to declare the group.
+* The parameters of the advices are bound to values of the target. `methodName` receives the name of the method, which is a constant. The two `stopwatch` parameters are bound to the same variable, which lives for one execution of the method: the entry advice assigns it, and the exit advice reads it.
+* No object is allocated on each call, except the <xref:System.Diagnostics.Stopwatch> itself.
+
+
+## Comparison with simple aspects
+
+A simple aspect, such as <xref:PostSharp.Aspects.OnMethodBoundaryAspect>, also applies to one declaration (see <xref:simple-aspects>). Its methods receive an <xref:PostSharp.Aspects.AdviceArgs> object, such as <xref:PostSharp.Aspects.MethodExecutionArgs>. This object is allocated on the heap on each call, and it gives access to the arguments and the return value as <xref:System.Object> values, which the aspect must cast.
+
+A member-level aspect declares only the values it needs, with their types. PostSharp checks these declarations against each target at build time. To convert a simple aspect into a member-level aspect, see <xref:modernizing-aspects>.
+
+
+## In this chapter
+
+| Section | Description |
+|---------|-------------|
+| <xref:advices> | This article explains how to write advice methods, lists the kinds of advices, and describes the properties of the advice attributes. |
+| <xref:advice-parameter-binding> | This article lists the binding attributes that give an advice the values it needs, such as arguments, the return value, the exception or a variable shared between advices. |
+| <xref:modernizing-aspects> | This article shows how to convert an aspect that receives <xref:PostSharp.Aspects.MethodExecutionArgs>, <xref:PostSharp.Aspects.MethodInterceptionArgs> or <xref:PostSharp.Aspects.LocationInterceptionArgs> into a member-level aspect with bound parameters. |
+
+
+## See Also
+
+**Reference**
+
+<xref:PostSharp.Aspects.MethodLevelAspect>
+<br><xref:PostSharp.Aspects.LocationLevelAspect>
+<br><xref:PostSharp.Aspects.EventLevelAspect>
+
+**Other Resources**
+
+<xref:simple-aspects>
+<br><xref:complex-aspects>

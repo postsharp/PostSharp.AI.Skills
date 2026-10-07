@@ -1,0 +1,417 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  id: LogLevelSource
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.IsEnabled
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync``1(``0@,System.Func{System.Threading.Tasks.Task},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync``2(``0@,System.Func{System.Threading.Tasks.Task{``1}},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity``1(``0@,System.Action,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity``2(``0@,System.Func{``1},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity``1(``0@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,System.Exception,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  langs:
+  - csharp
+  - vb
+  name: LogLevelSource
+  nameWithType: LogLevelSource
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    A facade for a <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> constrained to a specific <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+
+    Instances of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> class are exposed as properties of the <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref>
+
+    class, for example <xref href="PostSharp.Patterns.Diagnostics.LogSource.Debug" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogSource.Error" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Use <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.WriteMessageOptions%40)" data-throw-if-not-resolved="false"></xref> to write a message, and <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref> to open an activity
+        that you close explicitly. The <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity%60%601(%60%600%40%2cSystem.Action%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref>
+        and <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync%60%601(%60%600%40%2cSystem.Func%7bSystem.Threading.Tasks.Task%7d%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref> methods and their overloads execute a delegate within an activity and close it for you, but the delegate
+        is typically a closure that is allocated even when logging is disabled.</p>
+    <p>When evaluating the arguments of a message is expensive, use the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull" data-throw-if-not-resolved="false"></xref> property with the <code>?.</code> operator, so that
+        the arguments are evaluated only when the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level" data-throw-if-not-resolved="false"></xref> is enabled.</p>
+    <p>When PostSharp processes a project that uses this class, it adds caller information to the calls and instruments <code>await</code> expressions.</p>
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp("PostSharp.Patterns.Common.Weaver", "AddCallerInfoTask", AnyTypeReference = true)]
+
+      [RequirePostSharp(typeof(AwaitInstrumentationAspectProvider), AnyTypeReference = true)]
+
+      public sealed class LogLevelSource
+    content.vb: >-
+      <RequirePostSharp("PostSharp.Patterns.Common.Weaver", "AddCallerInfoTask", AnyTypeReference:=True)>
+
+      <RequirePostSharp(GetType(AwaitInstrumentationAspectProvider), AnyTypeReference:=True)>
+
+      Public NotInheritable Class LogLevelSource
+  seealso:
+  - linkType: HRef
+    linkId: '@log-custom-messages'
+    altText: 'Conceptual: Writing Custom Messages'
+  - linkType: HRef
+    linkId: '@log-custom-activities'
+    altText: 'Conceptual: Working with Custom Activities'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: PostSharp.Patterns.Common.Weaver
+    - type: System.String
+      value: AddCallerInfoTask
+    namedArguments:
+    - name: AnyTypeReference
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  id: Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: Write<T>(in T, in WriteMessageOptions)
+  nameWithType: LogLevelSource.Write<T>(in T, in WriteMessageOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write<T>(in T, in PostSharp.Patterns.Diagnostics.WriteMessageOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: 'public void Write<T>(in T message, in WriteMessageOptions options = default) where T : IMessage'
+    parameters:
+    - id: message
+      type: '{T}'
+      description: The message, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+      description: The options.
+    typeParameters:
+    - id: T
+      description: The type of the <code class="paramref">message</code>.
+    content.vb: Public Sub Write(Of T As IMessage)(message As T, options As WriteMessageOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write*
+  nameWithType.vb: LogLevelSource.Write(Of T)(T, WriteMessageOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write(Of T)(T, PostSharp.Patterns.Diagnostics.WriteMessageOptions)
+  name.vb: Write(Of T)(T, WriteMessageOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,System.Exception,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,System.Exception,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  id: Write``1(``0@,System.Exception,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: Write<T>(in T, Exception, in WriteMessageOptions)
+  nameWithType: LogLevelSource.Write<T>(in T, Exception, in WriteMessageOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write<T>(in T, System.Exception, in PostSharp.Patterns.Diagnostics.WriteMessageOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a message and specifies an <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public void Write<T>(in T message, Exception exception, in WriteMessageOptions options = default) where T : IMessage'
+    parameters:
+    - id: message
+      type: '{T}'
+      description: The message, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: exception
+      type: System.Exception
+      description: An optional <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+      description: The options.
+    typeParameters:
+    - id: T
+      description: The type of the <code class="paramref">message</code>.
+    content.vb: Public Sub Write(Of T As IMessage)(message As T, exception As Exception, options As WriteMessageOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write*
+  nameWithType.vb: LogLevelSource.Write(Of T)(T, Exception, WriteMessageOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write(Of T)(T, System.Exception, PostSharp.Patterns.Diagnostics.WriteMessageOptions)
+  name.vb: Write(Of T)(T, Exception, WriteMessageOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity``1(``0@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity``1(``0@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: OpenActivity``1(``0@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: OpenActivity<T>(in T, in OpenActivityOptions)
+  nameWithType: LogLevelSource.OpenActivity<T>(in T, in OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity<T>(in T, in PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Opens an activity.
+  remarks: The activity must be closed using <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String)" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public LogActivity<T> OpenActivity<T>(in T description, in OpenActivityOptions options = default) where T : IMessage'
+    parameters:
+    - id: description
+      type: '{T}'
+      description: The activity description, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The options.
+    typeParameters:
+    - id: T
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivity{{T}}
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> representing the new activity.
+    content.vb: Public Function OpenActivity(Of T As IMessage)(description As T, options As OpenActivityOptions = Nothing) As LogActivity(Of T)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity*
+  nameWithType.vb: LogLevelSource.OpenActivity(Of T)(T, OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity(Of T)(T, PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: OpenActivity(Of T)(T, OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity``1(``0@,System.Action,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity``1(``0@,System.Action,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: LogActivity``1(``0@,System.Action,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: LogActivity<TDescription>(in TDescription, Action, in OpenActivityOptions)
+  nameWithType: LogLevelSource.LogActivity<TDescription>(in TDescription, Action, in OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity<TDescription>(in TDescription, System.Action, in PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Executes an <xref href="System.Action" data-throw-if-not-resolved="false"></xref> and logs its execution.
+  example: []
+  syntax:
+    content: 'public void LogActivity<TDescription>(in TDescription description, Action action, in OpenActivityOptions options = default) where TDescription : IMessage'
+    parameters:
+    - id: description
+      type: '{TDescription}'
+      description: The activity description, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: action
+      type: System.Action
+      description: The action to be executed.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The options.
+    typeParameters:
+    - id: TDescription
+      description: The type of the description message.
+    content.vb: Public Sub LogActivity(Of TDescription As IMessage)(description As TDescription, action As Action, options As OpenActivityOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity*
+  nameWithType.vb: LogLevelSource.LogActivity(Of TDescription)(TDescription, Action, OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity(Of TDescription)(TDescription, System.Action, PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: LogActivity(Of TDescription)(TDescription, Action, OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity``2(``0@,System.Func{``1},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity``2(``0@,System.Func{``1},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: LogActivity``2(``0@,System.Func{``1},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: LogActivity<TDescription, TResult>(in TDescription, Func<TResult>, in OpenActivityOptions)
+  nameWithType: LogLevelSource.LogActivity<TDescription, TResult>(in TDescription, Func<TResult>, in OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity<TDescription, TResult>(in TDescription, System.Func<TResult>, in PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Executes a <xref href="System.Func%601" data-throw-if-not-resolved="false"></xref> and logs its execution.
+  example: []
+  syntax:
+    content: 'public TResult LogActivity<TDescription, TResult>(in TDescription description, Func<TResult> action, in OpenActivityOptions options = default) where TDescription : IMessage'
+    parameters:
+    - id: description
+      type: '{TDescription}'
+      description: The activity description, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: action
+      type: System.Func{{TResult}}
+      description: The action to be executed.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The options.
+    typeParameters:
+    - id: TDescription
+      description: The type of the description message.
+    - id: TResult
+      description: The type of the return value of the action to execute.
+    return:
+      type: '{TResult}'
+      description: The return value of <code class="paramref">action</code>.
+    content.vb: Public Function LogActivity(Of TDescription As IMessage, TResult)(description As TDescription, action As Func(Of TResult), options As OpenActivityOptions = Nothing) As TResult
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity*
+  nameWithType.vb: LogLevelSource.LogActivity(Of TDescription, TResult)(TDescription, Func(Of TResult), OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivity(Of TDescription, TResult)(TDescription, System.Func(Of TResult), PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: LogActivity(Of TDescription, TResult)(TDescription, Func(Of TResult), OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync``1(``0@,System.Func{System.Threading.Tasks.Task},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync``1(``0@,System.Func{System.Threading.Tasks.Task},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: LogActivityAsync``1(``0@,System.Func{System.Threading.Tasks.Task},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: LogActivityAsync<TDescription>(in TDescription, Func<Task>, in OpenActivityOptions)
+  nameWithType: LogLevelSource.LogActivityAsync<TDescription>(in TDescription, Func<Task>, in OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync<TDescription>(in TDescription, System.Func<System.Threading.Tasks.Task>, in PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Executes an asynchronous void delegate and logs its execution.
+  example: []
+  syntax:
+    content: 'public Task LogActivityAsync<TDescription>(in TDescription description, Func<Task> action, in OpenActivityOptions options = default) where TDescription : IMessage'
+    parameters:
+    - id: description
+      type: '{TDescription}'
+      description: The activity description, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: action
+      type: System.Func{System.Threading.Tasks.Task}
+      description: The action to be executed.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The options.
+    typeParameters:
+    - id: TDescription
+      description: The type of the description message.
+    return:
+      type: System.Threading.Tasks.Task
+      description: The <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function LogActivityAsync(Of TDescription As IMessage)(description As TDescription, action As Func(Of Task), options As OpenActivityOptions = Nothing) As Task
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync*
+  nameWithType.vb: LogLevelSource.LogActivityAsync(Of TDescription)(TDescription, Func(Of Task), OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync(Of TDescription)(TDescription, System.Func(Of System.Threading.Tasks.Task), PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: LogActivityAsync(Of TDescription)(TDescription, Func(Of Task), OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync``2(``0@,System.Func{System.Threading.Tasks.Task{``1}},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync``2(``0@,System.Func{System.Threading.Tasks.Task{``1}},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: LogActivityAsync``2(``0@,System.Func{System.Threading.Tasks.Task{``1}},PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: LogActivityAsync<TDescription, TResult>(in TDescription, Func<Task<TResult>>, in OpenActivityOptions)
+  nameWithType: LogLevelSource.LogActivityAsync<TDescription, TResult>(in TDescription, Func<Task<TResult>>, in OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync<TDescription, TResult>(in TDescription, System.Func<System.Threading.Tasks.Task<TResult>>, in PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Executes an asynchronous non-void delegate and logs its execution.
+  example: []
+  syntax:
+    content: 'public Task<TResult> LogActivityAsync<TDescription, TResult>(in TDescription description, Func<Task<TResult>> action, in OpenActivityOptions options = default) where TDescription : IMessage'
+    parameters:
+    - id: description
+      type: '{TDescription}'
+      description: The activity description, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: action
+      type: System.Func{System.Threading.Tasks.Task{{TResult}}}
+      description: The action to be executed.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The options.
+    typeParameters:
+    - id: TDescription
+      description: The type of the description message.
+    - id: TResult
+      description: The type of the return value of the action to execute.
+    return:
+      type: System.Threading.Tasks.Task{{TResult}}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> whose result will be set to the result of <code class="paramref">action</code>.
+    content.vb: Public Function LogActivityAsync(Of TDescription As IMessage, TResult)(description As TDescription, action As Func(Of Task(Of TResult)), options As OpenActivityOptions = Nothing) As Task(Of TResult)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync*
+  nameWithType.vb: LogLevelSource.LogActivityAsync(Of TDescription, TResult)(TDescription, Func(Of Task(Of TResult)), OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.LogActivityAsync(Of TDescription, TResult)(TDescription, System.Func(Of System.Threading.Tasks.Task(Of TResult)), PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: LogActivityAsync(Of TDescription, TResult)(TDescription, Func(Of Task(Of TResult)), OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level
+  id: Level
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: LogLevelSource.Level
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> to which the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> is constrained.
+  example: []
+  syntax:
+    content: public LogLevel Level { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public ReadOnly Property Level As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.IsEnabled
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.IsEnabled
+  id: IsEnabled
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: LogLevelSource.IsEnabled
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.IsEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets a value indicating whether logging is enabled for the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Level" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool IsEnabled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsEnabled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.IsEnabled*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull
+  id: EnabledOrNull
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+  langs:
+  - csharp
+  - vb
+  name: EnabledOrNull
+  nameWithType: LogLevelSource.EnabledOrNull
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if logging is not enabled for the current instance. This
+
+    property allows writing conditional logging using the <code>?.</code> operator.
+  example: []
+  syntax:
+    content: public LogLevelSource EnabledOrNull { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property EnabledOrNull As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull*

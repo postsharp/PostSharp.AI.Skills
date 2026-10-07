@@ -1,0 +1,616 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  commentId: T:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  id: NotifyPropertyChangedAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.ExcludeExplicitProperties
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.PreventFalsePositives
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.WeakEventStrategy
+  langs:
+  - csharp
+  - vb
+  name: NotifyPropertyChangedAttribute
+  nameWithType: NotifyPropertyChangedAttribute
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Custom attribute that, when applied on a type, implements the <xref href="System.ComponentModel.INotifyPropertyChanged" data-throw-if-not-resolved="false"></xref> interface for this class and all children classes.
+  remarks: >-
+    <p>The aspect analyzes dependencies between property getters and fields. The aspect understands indirect dependencies. For instance, a property
+        getter may depend on several other methods or property getters, which in turn can depend on other methods or fields. The algorithm is not able
+        to analyze calls to virtual methods or delegates because of the prohibitive computational cost. It tries to analyze only methods in the current class.
+        </p>
+    <p>
+            The aspect will emit a build-time error if it is not able to understand the code of the target class. In this case, you can exclude the property from
+        automatic change notification by applying the <xref href="PostSharp.Patterns.Model.IgnoreAutoChangeNotificationAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to the problematic property. Alternatively, you can apply
+        <xref href="PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute" data-throw-if-not-resolved="false"></xref> to ignore the warnings of the dependency analysis engine. You will then need to specify dependencies explicitly using
+        the <xref href="PostSharp.Patterns.Model.Depends" data-throw-if-not-resolved="false"></xref> class. You can also mark a helper method with the <xref href="PostSharp.Patterns.Model.PureAttribute" data-throw-if-not-resolved="false"></xref> to make it safe to use in a property getter.
+        For instance, the <code>string.Format</code> method is pure.
+        </p>
+    <p>
+        By default, the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect holds weak references to the client delegates. This behavior prevents memory leaks
+        if client delegates are not properly removed before client objects are disposed. To cause the aspect to store strong references, set the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.WeakEventStrategy" data-throw-if-not-resolved="false"></xref> 
+        property to <xref href="PostSharp.Patterns.Model.WeakEventStrategy.AlwaysStrong" data-throw-if-not-resolved="false"></xref> when applying the aspect. 
+        </p>
+    <p>
+        Target classes can customize the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect by implementing the <code>OnPropertyChanged(string)</code> method manually. If
+        this method is implemented, it must be <code>protected</code> or <code>public</code>.
+        </p>
+    <p>
+        By default, the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect does not call property getters by itself in order to avoid unexpected side effects. However,
+        this means that there are false positive notifications of property change. To allow the aspect to use arbitrary calls to property getters to suppress false positives, set 
+        the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.PreventFalsePositives" data-throw-if-not-resolved="false"></xref> property to <code>true</code>.
+        </p>
+    <p>
+        The aspect does not raise notifications immediately when a field changes. It buffers them per thread and raises them, on the thread that made the change,
+        when the control flow exits the object, that is, when the outermost call to a method of the object returns. This ensures that clients observe the
+        object in a consistent state, and avoids notifying the same property several times during a single call. To control the buffer, use the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices" data-throw-if-not-resolved="false"></xref> class.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict, PersistMetaData = true, AllowMultiple = false, TargetTypeAttributes = MulticastAttributes.UserGenerated)]
+
+      [ProvideAspectRole("DataBinding")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Threading")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")]
+
+      [AspectTypeDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, typeof(AggregatableAttribute))]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Caching")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")]
+
+      [Metric("UsedFeatures", "PostSharp.Patterns.Model.NotifyPropertyChanged")]
+
+      [IntroduceInterface(typeof(INotifyPropertyChanged), OverrideAction = InterfaceOverrideAction.Ignore, AncestorOverrideAction = InterfaceOverrideAction.Ignore)]
+
+      [IntroduceInterface(typeof(INotifyChildPropertyChanged), OverrideAction = InterfaceOverrideAction.Ignore, AncestorOverrideAction = InterfaceOverrideAction.Ignore, LinesOfCodeAvoided = 0)]
+
+      [IntroduceInterface(typeof(IQueryInterface), OverrideAction = InterfaceOverrideAction.Ignore, AncestorOverrideAction = InterfaceOverrideAction.Ignore)]
+
+      [Serializer(typeof(NotifyPropertyChangedAttribute.Serializer))]
+
+      public sealed class NotifyPropertyChangedAttribute : InstanceLevelAspect, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, ISerializationCallback, INotifyPropertyChanged, IAdviceProvider, IAspect, IQueryInterface, IDynamicInterfaceImplementation
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.Class, Inheritance:=MulticastInheritance.Strict, PersistMetaData:=True, AllowMultiple:=False, TargetTypeAttributes:=MulticastAttributes.UserGenerated)>
+
+      <ProvideAspectRole("DataBinding")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Threading")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")>
+
+      <AspectTypeDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, GetType(AggregatableAttribute))>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Caching")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")>
+
+      <Metric("UsedFeatures", "PostSharp.Patterns.Model.NotifyPropertyChanged")>
+
+      <IntroduceInterface(GetType(INotifyPropertyChanged), OverrideAction:=InterfaceOverrideAction.Ignore, AncestorOverrideAction:=InterfaceOverrideAction.Ignore)>
+
+      <IntroduceInterface(GetType(INotifyChildPropertyChanged), OverrideAction:=InterfaceOverrideAction.Ignore, AncestorOverrideAction:=InterfaceOverrideAction.Ignore, LinesOfCodeAvoided:=0)>
+
+      <IntroduceInterface(GetType(IQueryInterface), OverrideAction:=InterfaceOverrideAction.Ignore, AncestorOverrideAction:=InterfaceOverrideAction.Ignore)>
+
+      <Serializer(GetType(NotifyPropertyChangedAttribute.Serializer))>
+
+      Public NotInheritable Class NotifyPropertyChangedAttribute Inherits InstanceLevelAspect Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, ISerializationCallback, INotifyPropertyChanged, IAdviceProvider, IAspect, IQueryInterface, IDynamicInterfaceImplementation
+  seealso:
+  - linkId: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+    commentId: T:PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-add'
+    altText: 'Conceptual: Implementing INotifyPropertyChanged'
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-conceptual'
+    altText: 'Conceptual: Understanding the NotifyPropertyChanged Aspect'
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-customization'
+    altText: 'Conceptual: Handling Corner Cases of the NotifyPropertyChanged Aspect'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Serialization.ISerializationCallback
+  - System.ComponentModel.INotifyPropertyChanged
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+  inheritedMembers:
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 1
+    namedArguments:
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: TargetTypeAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 524288
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: DataBinding
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Tracing
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Threading
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Validation
+  - type: PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.Type)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.Type
+      value: PostSharp.Patterns.Model.AggregatableAttribute
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Caching
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: CacheInvalidation
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Model.NotifyPropertyChanged
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.ComponentModel.INotifyPropertyChanged
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+    - name: AncestorOverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+    - name: AncestorOverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.Serializer
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: NotifyPropertyChangedAttribute()
+  nameWithType: NotifyPropertyChangedAttribute.NotifyPropertyChangedAttribute()
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.NotifyPropertyChangedAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public NotifyPropertyChangedAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor*
+  nameWithType.vb: NotifyPropertyChangedAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeValidate(System.Type)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeValidate(System.Type)
+  id: CompileTimeValidate(System.Type)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(Type)
+  nameWithType: NotifyPropertyChangedAttribute.CompileTimeValidate(Type)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeValidate(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Method invoked at build time to ensure that the aspect has been applied to the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message (see 
+
+    <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref>) or an exception in case of error. Returning <code>false</code> without emitting an
+
+    error message or exception causes the aspect to be silently ignored.
+  example: []
+  syntax:
+    content: public override bool CompileTimeValidate(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to which the aspect has been applied.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable field, otherwise
+              <code>false</code>.
+    content.vb: Public Overrides Function CompileTimeValidate(type As Type) As Boolean
+  overridden: PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Type)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeValidate*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(Type, AspectInfo)
+  nameWithType: NotifyPropertyChangedAttribute.CompileTimeInitialize(Type, AspectInfo)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeInitialize(System.Type, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: public override void CompileTimeInitialize(Type type, AspectInfo aspectInfo)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future usage.
+    content.vb: Public Overrides Sub CompileTimeInitialize(type As Type, aspectInfo As AspectInfo)
+  overridden: PostSharp.Aspects.TypeLevelAspect.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  id: CreateInstance(PostSharp.Aspects.AdviceArgs)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(AdviceArgs)
+  nameWithType: NotifyPropertyChangedAttribute.CreateInstance(AdviceArgs)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Creates a new instance of the aspect based on the current instance, serving as a prototype.
+  remarks: This method is typically implemented by invoking <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override object CreateInstance(AdviceArgs adviceArgs)
+    parameters:
+    - id: adviceArgs
+      type: PostSharp.Aspects.AdviceArgs
+      description: Aspect arguments.
+    return:
+      type: System.Object
+      description: A new instance of the aspect, typically a clone of the current prototype instance.
+    content.vb: Public Overrides Function CreateInstance(adviceArgs As AdviceArgs) As Object
+  overridden: PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.CreateInstance*
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  id: OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnCloned(ICloneAwareAspect)
+  nameWithType: NotifyPropertyChangedAttribute.OnCloned(ICloneAwareAspect)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Method called after an object enhanced by the current aspect has been
+
+    cloned using <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>. The <code>this</code>
+
+    parameter refers to the new aspect instance in the cloned object.
+  remarks: >-
+    <p>Prior to calling the current method, the aspect framework
+        initializes the <code class="paramref">source</code> object using <xref href="PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> 
+        and <xref href="PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance" data-throw-if-not-resolved="false"></xref>. That is, the aspect instance
+        in the cloned object is not cloned from the source aspect instance, but from the prototype
+        aspect instance.
+        </p>
+  example: []
+  syntax:
+    content: public override void OnCloned(ICloneAwareAspect source)
+    parameters:
+    - id: source
+      type: PostSharp.Aspects.ICloneAwareAspect
+      description: >-
+        Aspect instance corresponding to the current
+                    aspect instance in the cloned target object.
+    content.vb: Public Overrides Sub OnCloned(source As ICloneAwareAspect)
+  overridden: PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.OnCloned*
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: NotifyPropertyChangedAttribute(PortableFormatterConstructorContext)
+  nameWithType: NotifyPropertyChangedAttribute.NotifyPropertyChangedAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.NotifyPropertyChangedAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected NotifyPropertyChangedAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.#ctor*
+  nameWithType.vb: NotifyPropertyChangedAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.PreventFalsePositives
+  commentId: P:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.PreventFalsePositives
+  id: PreventFalsePositives
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: PreventFalsePositives
+  nameWithType: NotifyPropertyChangedAttribute.PreventFalsePositives
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.PreventFalsePositives
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets or sets a value indicating whether the aspect should make additional efforts to prevent the <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> event from being 
+
+    raised when the value itself did not change. The default value of this property is <code>false</code>, which means that the aspect will raise the 
+
+    <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> event whenever any dependency of the property has changed, whether or not the property value has 
+
+    changed. Setting this property to <code>true</code> consumes more memory and processing power because the aspect will need to evaluate 
+
+    the properties and store their values.
+  example: []
+  syntax:
+    content: public bool PreventFalsePositives { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property PreventFalsePositives As Boolean
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.PreventFalsePositives*
+  seealso:
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-false-positives'
+    altText: 'Conceptual: Suppressing False Positives of the NotifyPropertyChanged Aspect'
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.WeakEventStrategy
+  commentId: P:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.WeakEventStrategy
+  id: WeakEventStrategy
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: WeakEventStrategy
+  nameWithType: NotifyPropertyChangedAttribute.WeakEventStrategy
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.WeakEventStrategy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Gets or sets how the <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> event keeps weak or strong references.
+  remarks: >-
+    <p>Setting this property to <xref href="PostSharp.Patterns.Model.WeakEventStrategy.Default" data-throw-if-not-resolved="false"></xref> is equivalent to 
+        <xref href="PostSharp.Patterns.Model.WeakEventStrategy.AlwaysWeak" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>Setting this property to <xref href="PostSharp.Patterns.Model.WeakEventStrategy.AlwaysWeak" data-throw-if-not-resolved="false"></xref> forces the event to hold only weak references. A 
+        <xref href="System.Runtime.CompilerServices.ConditionalWeakTable%602" data-throw-if-not-resolved="false"></xref> is used to bind the lifetime of the delegate to its target even if 
+        the registering object does not keep a reference to the delegate. This does not prevent the target object from being collected along with the delegate, which 
+        may happen implicitly when a lambda or local function with a closure is used as an event handler. In this case, no reference to the closure class 
+        is retained.</p>
+    <p>Setting this property to <xref href="PostSharp.Patterns.Model.WeakEventStrategy.AlwaysStrong" data-throw-if-not-resolved="false"></xref> forces the event to hold only strong references. This may 
+        prevent components that do not support weak event behavior from having subscribed delegates collected. However, it may cause memory leaks if delegates are not 
+        unregistered from the event.</p>
+  example: []
+  syntax:
+    content: public WeakEventStrategy WeakEventStrategy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.WeakEventStrategy
+    content.vb: Public Property WeakEventStrategy As WeakEventStrategy
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.WeakEventStrategy*
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.ExcludeExplicitProperties
+  commentId: P:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.ExcludeExplicitProperties
+  id: ExcludeExplicitProperties
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExcludeExplicitProperties
+  nameWithType: NotifyPropertyChangedAttribute.ExcludeExplicitProperties
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.ExcludeExplicitProperties
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets or sets a value indicating whether the aspect should instrument only automatic properties and ignore all others. This mode allows you to use only the abilities
+
+    of PostSharp Essentials, and prevents the aspect from consuming premium features.
+  example: []
+  syntax:
+    content: public bool ExcludeExplicitProperties { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ExcludeExplicitProperties As Boolean
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.ExcludeExplicitProperties*
+  seealso:
+  - linkType: HRef
+    linkId: '@express-limitations'
+    altText: 'Conceptual: PostSharp Essentials'

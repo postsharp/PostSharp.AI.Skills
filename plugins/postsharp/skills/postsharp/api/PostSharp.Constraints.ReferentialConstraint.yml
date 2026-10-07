@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.ReferentialConstraint
+  commentId: T:PostSharp.Constraints.ReferentialConstraint
+  id: ReferentialConstraint
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.ReferentialConstraint.#ctor
+  - PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  langs:
+  - csharp
+  - vb
+  name: ReferentialConstraint
+  nameWithType: ReferentialConstraint
+  fullName: PostSharp.Constraints.ReferentialConstraint
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Implementation of <xref href="PostSharp.Constraints.IReferentialConstraint" data-throw-if-not-resolved="false"></xref> based on <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>A referential constraint validates how a declaration is used. It is validated when the assembly that contains
+        the target declaration is processed and, if the target declaration is public, when each assembly that references
+        it is processed by PostSharp. The <code>assembly</code> parameter of <xref href="PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object%2cSystem.Reflection.Assembly)" data-throw-if-not-resolved="false"></xref> is the assembly being processed.</p>
+    <p>Use <xref href="PostSharp.Reflection.ReflectionSearch" data-throw-if-not-resolved="false"></xref> to find the references to the target declaration, and
+        <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref> to emit warnings or errors. To validate the declaration itself, use <xref href="PostSharp.Constraints.ScalarConstraint" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: 'public abstract class ReferentialConstraint : Constraint, IReferentialConstraint, IConstraint'
+    content.vb: Public MustInherit Class ReferentialConstraint Inherits Constraint Implements IReferentialConstraint, IConstraint
+  seealso:
+  - linkId: PostSharp.Constraints.ReferenceConstraint
+    commentId: T:PostSharp.Constraints.ReferenceConstraint
+  - linkType: HRef
+    linkId: '@custom-constraints'
+    altText: 'Conceptual: Developing Custom Architectural Constraints'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Constraints.Constraint
+  derivedClasses:
+  - PostSharp.Constraints.ExperimentalAttribute
+  - PostSharp.Constraints.InternalAttribute
+  - PostSharp.Constraints.InternalImplementAttribute
+  - PostSharp.Constraints.ParameterValueConstraint
+  - PostSharp.Constraints.ProtectedAttribute
+  - PostSharp.Constraints.ReferenceConstraint
+  implements:
+  - PostSharp.Constraints.IReferentialConstraint
+  - PostSharp.Constraints.IConstraint
+  inheritedMembers:
+  - PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  commentId: M:PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  id: ValidateCode(System.Object,System.Reflection.Assembly)
+  parent: PostSharp.Constraints.ReferentialConstraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateCode(object, Assembly)
+  nameWithType: ReferentialConstraint.ValidateCode(object, Assembly)
+  fullName: PostSharp.Constraints.ReferentialConstraint.ValidateCode(object, System.Reflection.Assembly)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Validates the constraint.
+  example: []
+  syntax:
+    content: public virtual void ValidateCode(object target, Assembly assembly)
+    parameters:
+    - id: target
+      type: System.Object
+      description: >-
+        Declaration (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>) to which
+                    the constraint has been applied.
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: The assembly being currently processed.
+    content.vb: Public Overridable Sub ValidateCode(target As Object, assembly As Assembly)
+  overload: PostSharp.Constraints.ReferentialConstraint.ValidateCode*
+  implements:
+  - PostSharp.Constraints.IReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  nameWithType.vb: ReferentialConstraint.ValidateCode(Object, Assembly)
+  fullName.vb: PostSharp.Constraints.ReferentialConstraint.ValidateCode(Object, System.Reflection.Assembly)
+  name.vb: ValidateCode(Object, Assembly)
+- uid: PostSharp.Constraints.ReferentialConstraint.#ctor
+  commentId: M:PostSharp.Constraints.ReferentialConstraint.#ctor
+  id: '#ctor'
+  parent: PostSharp.Constraints.ReferentialConstraint
+  langs:
+  - csharp
+  - vb
+  name: ReferentialConstraint()
+  nameWithType: ReferentialConstraint.ReferentialConstraint()
+  fullName: PostSharp.Constraints.ReferentialConstraint.ReferentialConstraint()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  syntax:
+    content: protected ReferentialConstraint()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Constraints.ReferentialConstraint.#ctor*
+  nameWithType.vb: ReferentialConstraint.New()
+  fullName.vb: PostSharp.Constraints.ReferentialConstraint.New()
+  name.vb: New()

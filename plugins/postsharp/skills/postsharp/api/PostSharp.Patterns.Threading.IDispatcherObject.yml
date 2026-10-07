@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IDispatcherObject
+  commentId: T:PostSharp.Patterns.Threading.IDispatcherObject
+  id: IDispatcherObject
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IDispatcherObject.Dispatcher
+  langs:
+  - csharp
+  - vb
+  name: IDispatcherObject
+  nameWithType: IDispatcherObject
+  fullName: PostSharp.Patterns.Threading.IDispatcherObject
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Interface implemented by objects whose access to methods is
+
+    controlled by a <xref href="PostSharp.Patterns.Threading.IDispatcherObject.Dispatcher" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>If you need to implement the <xref href="PostSharp.Patterns.Threading.IDispatcherObject" data-throw-if-not-resolved="false"></xref> interface in a class, consider using
+        the <xref href="PostSharp.Patterns.Threading.DispatcherFactory" data-throw-if-not-resolved="false"></xref> class to get an implementation of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface
+        in your instance constructor.
+        </p>
+  example: []
+  syntax:
+    content: public interface IDispatcherObject
+    content.vb: Public Interface IDispatcherObject
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.DispatcherFactory
+    commentId: T:PostSharp.Patterns.Threading.DispatcherFactory
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ActorAttribute
+- uid: PostSharp.Patterns.Threading.IDispatcherObject.Dispatcher
+  commentId: P:PostSharp.Patterns.Threading.IDispatcherObject.Dispatcher
+  id: Dispatcher
+  parent: PostSharp.Patterns.Threading.IDispatcherObject
+  langs:
+  - csharp
+  - vb
+  name: Dispatcher
+  nameWithType: IDispatcherObject.Dispatcher
+  fullName: PostSharp.Patterns.Threading.IDispatcherObject.Dispatcher
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> that controls access to methods
+
+    of the current object.
+  example: []
+  syntax:
+    content: IDispatcher Dispatcher { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.IDispatcher
+    content.vb: ReadOnly Property Dispatcher As IDispatcher
+  overload: PostSharp.Patterns.Threading.IDispatcherObject.Dispatcher*

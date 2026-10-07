@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ITypeLevelAspect
+  commentId: T:PostSharp.Aspects.ITypeLevelAspect
+  id: ITypeLevelAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ITypeLevelAspect.RuntimeInitialize(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: ITypeLevelAspect
+  nameWithType: ITypeLevelAspect
+  fullName: PostSharp.Aspects.ITypeLevelAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Run-time semantics of aspects applied to types.
+  example: []
+  syntax:
+    content: 'public interface ITypeLevelAspect : IAspect'
+    content.vb: Public Interface ITypeLevelAspect Inherits IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+    commentId: T:PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  derivedClasses:
+  - PostSharp.Aspects.CompositionAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Model.DisposableAttribute
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Recording.EditableObjectAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+- uid: PostSharp.Aspects.ITypeLevelAspect.RuntimeInitialize(System.Type)
+  commentId: M:PostSharp.Aspects.ITypeLevelAspect.RuntimeInitialize(System.Type)
+  id: RuntimeInitialize(System.Type)
+  parent: PostSharp.Aspects.ITypeLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitialize(Type)
+  nameWithType: ITypeLevelAspect.RuntimeInitialize(Type)
+  fullName: PostSharp.Aspects.ITypeLevelAspect.RuntimeInitialize(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes the current aspect.
+  example: []
+  syntax:
+    content: void RuntimeInitialize(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to which the current aspect is applied.
+    content.vb: Sub RuntimeInitialize(type As Type)
+  overload: PostSharp.Aspects.ITypeLevelAspect.RuntimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

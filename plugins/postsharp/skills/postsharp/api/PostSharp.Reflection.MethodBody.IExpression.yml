@@ -1,0 +1,55 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IExpression
+  commentId: T:PostSharp.Reflection.MethodBody.IExpression
+  id: IExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  langs:
+  - csharp
+  - vb
+  name: IExpression
+  nameWithType: IExpression
+  fullName: PostSharp.Reflection.MethodBody.IExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Represents an expression or an instruction.
+  example: []
+  syntax:
+    content: 'public interface IExpression : IMethodBodyElement'
+    content.vb: Public Interface IExpression Inherits IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  commentId: P:PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  id: ReturnType
+  parent: PostSharp.Reflection.MethodBody.IExpression
+  langs:
+  - csharp
+  - vb
+  name: ReturnType
+  nameWithType: IExpression.ReturnType
+  fullName: PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: >-
+    Gets the type of the return value of the current expression,
+
+    or <xref href="System.Void" data-throw-if-not-resolved="false"></xref> if the expression does not return anything.
+
+    This is the case of pure instructions, such as a <code>goto</code> or <code>throw</code> instruction.
+  example: []
+  syntax:
+    content: Type ReturnType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property ReturnType As Type
+  overload: PostSharp.Reflection.MethodBody.IExpression.ReturnType*

@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IEventLevelAspect
+  commentId: T:PostSharp.Aspects.IEventLevelAspect
+  id: IEventLevelAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IEventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  langs:
+  - csharp
+  - vb
+  name: IEventLevelAspect
+  nameWithType: IEventLevelAspect
+  fullName: PostSharp.Aspects.IEventLevelAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Runtime semantics of aspects that can be applied on events.
+  example: []
+  syntax:
+    content: 'public interface IEventLevelAspect : IAspect'
+    content.vb: Public Interface IEventLevelAspect Inherits IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.EventLevelAspect
+    commentId: T:PostSharp.Aspects.EventLevelAspect
+  - linkId: PostSharp.Aspects.IEventLevelAspectBuildSemantics
+    commentId: T:PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  derivedClasses:
+  - PostSharp.Aspects.EventInterceptionAspect
+  - PostSharp.Aspects.EventLevelAspect
+  - PostSharp.Patterns.Model.WeakEventAttribute
+- uid: PostSharp.Aspects.IEventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  commentId: M:PostSharp.Aspects.IEventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  id: RuntimeInitialize(System.Reflection.EventInfo)
+  parent: PostSharp.Aspects.IEventLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitialize(EventInfo)
+  nameWithType: IEventLevelAspect.RuntimeInitialize(EventInfo)
+  fullName: PostSharp.Aspects.IEventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes the current aspect.
+  example: []
+  syntax:
+    content: void RuntimeInitialize(EventInfo eventInfo)
+    parameters:
+    - id: eventInfo
+      type: System.Reflection.EventInfo
+      description: Event to which the current aspect is applied.
+    content.vb: Sub RuntimeInitialize(eventInfo As EventInfo)
+  overload: PostSharp.Aspects.IEventLevelAspect.RuntimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

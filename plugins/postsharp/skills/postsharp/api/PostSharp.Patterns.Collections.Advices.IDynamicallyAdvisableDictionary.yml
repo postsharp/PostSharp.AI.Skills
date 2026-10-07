@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary
+  commentId: T:PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary
+  id: IDynamicallyAdvisableDictionary
+  parent: PostSharp.Patterns.Collections.Advices
+  children:
+  - PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.KeyType
+  - PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.ValueType
+  langs:
+  - csharp
+  - vb
+  name: IDynamicallyAdvisableDictionary
+  nameWithType: IDynamicallyAdvisableDictionary
+  fullName: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Defines the semantics of a dictionary that can be advised dynamically.
+  example: []
+  syntax:
+    content: 'public interface IDynamicallyAdvisableDictionary : IDynamicallyAdvisable, IQueryInterface, IDictionary, ICollection, IEnumerable'
+    content.vb: Public Interface IDynamicallyAdvisableDictionary Inherits IDynamicallyAdvisable, IQueryInterface, IDictionary, ICollection, IEnumerable
+  derivedClasses:
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type,System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise(System.Type)
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice``1
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface``1
+  - System.Collections.IDictionary.Contains(System.Object)
+  - System.Collections.IDictionary.Add(System.Object,System.Object)
+  - System.Collections.IDictionary.Clear
+  - System.Collections.IDictionary.GetEnumerator
+  - System.Collections.IDictionary.Remove(System.Object)
+  - System.Collections.IDictionary.Item(System.Object)
+  - System.Collections.IDictionary.Keys
+  - System.Collections.IDictionary.Values
+  - System.Collections.IDictionary.IsReadOnly
+  - System.Collections.IDictionary.IsFixedSize
+  - System.Collections.ICollection.CopyTo(System.Array,System.Int32)
+  - System.Collections.ICollection.Count
+  - System.Collections.ICollection.SyncRoot
+  - System.Collections.ICollection.IsSynchronized
+- uid: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.KeyType
+  commentId: P:PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.KeyType
+  id: KeyType
+  parent: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary
+  langs:
+  - csharp
+  - vb
+  name: KeyType
+  nameWithType: IDynamicallyAdvisableDictionary.KeyType
+  fullName: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.KeyType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Gets the type of the keys in the dictionary.
+  example: []
+  syntax:
+    content: Type KeyType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property KeyType As Type
+  overload: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.KeyType*
+- uid: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.ValueType
+  commentId: P:PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.ValueType
+  id: ValueType
+  parent: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary
+  langs:
+  - csharp
+  - vb
+  name: ValueType
+  nameWithType: IDynamicallyAdvisableDictionary.ValueType
+  fullName: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.ValueType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Gets the type of the values in the dictionary.
+  example: []
+  syntax:
+    content: Type ValueType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property ValueType As Type
+  overload: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary.ValueType*

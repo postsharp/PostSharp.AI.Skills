@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+  id: CacheKeyHashingAlgorithm
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.None
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash128
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash64
+  langs:
+  - csharp
+  - vb
+  name: CacheKeyHashingAlgorithm
+  nameWithType: CacheKeyHashingAlgorithm
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Enumerates the hashing algorithms that can be used with <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref>. Available values
+
+    depend on the target framework.
+  example: []
+  syntax:
+    content: public enum CacheKeyHashingAlgorithm
+    content.vb: Public Enum CacheKeyHashingAlgorithm
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.None
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.None
+  id: None
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CacheKeyHashingAlgorithm.None
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Does not hash the cache key regardless of its length.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash64
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash64
+  id: XxHash64
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+  langs:
+  - csharp
+  - vb
+  name: XxHash64
+  nameWithType: CacheKeyHashingAlgorithm.XxHash64
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash64
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Uses <xref href="System.IO.Hashing.XxHash64" data-throw-if-not-resolved="false"></xref>. Available in .NET Framework 4.7, .NET 5.0, .NET Standard 2.0 or greater.
+  example: []
+  syntax:
+    content: XxHash64 = 1
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash128
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash128
+  id: XxHash128
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+  langs:
+  - csharp
+  - vb
+  name: XxHash128
+  nameWithType: CacheKeyHashingAlgorithm.XxHash128
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.XxHash128
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Uses <xref href="System.IO.Hashing.XxHash128" data-throw-if-not-resolved="false"></xref>. Available in .NET Framework 4.7, .NET 6.0, .NET Standard 2.0 or greater.
+  example: []
+  syntax:
+    content: XxHash128 = 2
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm

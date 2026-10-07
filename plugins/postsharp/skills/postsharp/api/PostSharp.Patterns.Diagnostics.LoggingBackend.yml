@@ -1,0 +1,1206 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingBackend
+  id: LoggingBackend
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.#ctor
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Options
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  langs:
+  - csharp
+  - vb
+  name: LoggingBackend
+  nameWithType: LoggingBackend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Base class for all logging backends (sometimes called sinks, targets, or listeners) of the PostSharp logging system.
+  remarks: >-
+    <p>
+        To implement your own logging backend, derive from the <xref href="PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend" data-throw-if-not-resolved="false"></xref> class, which
+        implements the standard logic for logging text.
+        A custom backend usually also derives a class from <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>, returned by <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource%2cSystem.Type)" data-throw-if-not-resolved="false"></xref>,
+        a class from <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.TextLogRecordBuilder" data-throw-if-not-resolved="false"></xref>, returned by <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder" data-throw-if-not-resolved="false"></xref>, and an options class from
+        <xref href="PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions" data-throw-if-not-resolved="false"></xref>. Override the factory methods of the context classes only when the contexts must store more information.
+        </p>
+    <p>
+        To use a backend, assign an instance to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> when the application starts. To write to several
+        backends at the same time, use the <xref href="PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: 'public abstract class LoggingBackend : IDisposable'
+    content.vb: Public MustInherit Class LoggingBackend Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-logging-backend'
+    altText: 'Conceptual: Building Your Own Logging Backend (Adapter)'
+  - linkType: HRef
+    linkId: '@log-multiplexer'
+    altText: 'Conceptual: Multiplexing Log Output to Several Frameworks'
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  - PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: LoggingBackend()
+  nameWithType: LoggingBackend.LoggingBackend()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.LoggingBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LoggingBackend()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.#ctor*
+  nameWithType.vb: LoggingBackend.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  id: GetSource(System.String,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetSource(string, Type)
+  nameWithType: LoggingBackend.GetSource(string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(string, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use methods from DefaultContextLocalConfiguration.Verbosity")]
+
+      public LoggingTypeSource GetSource(string role, Type type)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role. This is typically one of the constants of the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type, or a custom role.
+    - id: type
+      type: System.Type
+      description: The type.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: >-
+        The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">role</code> and <code class="paramref">type</code>. If no <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>
+                    exists for this role and type, this method shall create a new <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <Obsolete("Use methods from DefaultContextLocalConfiguration.Verbosity")>
+
+      Public Function GetSource(role As String, type As Type) As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use methods from DefaultContextLocalConfiguration.Verbosity
+  nameWithType.vb: LoggingBackend.GetSource(String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(String, System.Type)
+  name.vb: GetSource(String, Type)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  id: GetSource(System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetSource(string, string)
+  nameWithType: LoggingBackend.GetSource(string, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> for the given role and, optionally, namespace.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use methods from DefaultContextLocalConfiguration.Verbosity")]
+
+      public LoggingNamespaceSource GetSource(string role, string ns = null)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role. This is typically one of the constants of the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type, or a custom role.
+    - id: ns
+      type: System.String
+      description: >-
+        The namespace for which the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> is requested, or <code>null</code>
+                    if the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> is requested for the root namespace.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: >-
+        The <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">role</code> and <code class="paramref">ns</code>. If no <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>
+                    exists for this role and namespace, this method shall create a new <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <Obsolete("Use methods from DefaultContextLocalConfiguration.Verbosity")>
+
+      Public Function GetSource(role As String, ns As String = Nothing) As LoggingNamespaceSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use methods from DefaultContextLocalConfiguration.Verbosity
+  nameWithType.vb: LoggingBackend.GetSource(String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(String, String)
+  name.vb: GetSource(String, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  id: CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateContextLocalConfiguration(LoggingVerbosityConfiguration)
+  nameWithType: LoggingBackend.CreateContextLocalConfiguration(LoggingVerbosityConfiguration)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual LoggingContextLocalConfiguration CreateContextLocalConfiguration(LoggingVerbosityConfiguration verbosityConfiguration)
+    parameters:
+    - id: verbosityConfiguration
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+      description: The verbosity configuration.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "4802544203169038354"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function CreateContextLocalConfiguration(verbosityConfiguration As LoggingVerbosityConfiguration) As LoggingContextLocalConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: LoggingBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected abstract LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected MustOverride Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  id: CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  nameWithType: LoggingBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and logger name.
+  example: []
+  syntax:
+    content: protected virtual LoggingTypeSource CreateTypeSourceBySourceName(LoggingNamespaceSource parent, string sourceName)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent namespace source.
+    - id: sourceName
+      type: System.String
+      description: The name of the log source.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The new log source.
+    content.vb: Protected Overridable Function CreateTypeSourceBySourceName(parent As LoggingNamespaceSource, sourceName As String) As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: Thrown when the backend cannot create log sources based on names.
+  nameWithType.vb: LoggingBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, String)
+  name.vb: CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  id: GetThreadContext
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetThreadContext()
+  nameWithType: LoggingBackend.GetThreadContext()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> for the current <xref href="System.Threading.Thread" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ThreadLoggingContext GetThreadContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+    content.vb: Public Function GetThreadContext() As ThreadLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  id: WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: WithVerbosityConfiguration(LoggingVerbosityConfiguration)
+  nameWithType: LoggingBackend.WithVerbosityConfiguration(LoggingVerbosityConfiguration)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Changes the verbosity for the current execution context.
+  example: []
+  syntax:
+    content: public LoggingContextLocalConfigurationScope WithVerbosityConfiguration(LoggingVerbosityConfiguration verbosity)
+    parameters:
+    - id: verbosity
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+      description: The new <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> for the current execution context.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+      description: An opaque and disposable cookie that allows changing the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> back to its original value.
+    content.vb: Public Function WithVerbosityConfiguration(verbosity As LoggingVerbosityConfiguration) As LoggingContextLocalConfigurationScope
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  id: WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: WithContextLocalConfiguration(LoggingContextLocalConfiguration)
+  nameWithType: LoggingBackend.WithContextLocalConfiguration(LoggingContextLocalConfiguration)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Changes the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> for the current execution context.
+  example: []
+  syntax:
+    content: protected LoggingContextLocalConfigurationScope WithContextLocalConfiguration(LoggingContextLocalConfiguration configuration)
+    parameters:
+    - id: configuration
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+      description: The new <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> for the current execution context.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+      description: An opaque and disposable cookie that allows changing the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> back to its original value.
+    content.vb: Protected Function WithContextLocalConfiguration(configuration As LoggingContextLocalConfiguration) As LoggingContextLocalConfigurationScope
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  id: OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: OpenAsyncContext(AsyncCallId, ref LogMemberInfo)
+  nameWithType: LoggingBackend.OpenAsyncContext(AsyncCallId, ref LogMemberInfo)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId, ref PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets an <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for a given async method.
+  example: []
+  syntax:
+    content: public AsyncMethodLoggingContext OpenAsyncContext(AsyncCallId asyncCallId, ref LogMemberInfo logMemberInfo)
+    parameters:
+    - id: asyncCallId
+      type: PostSharp.Aspects.AsyncCallId
+      description: The <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> associated with the async method being logged, or <code>null</code> if the <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> cannot be determined.
+    - id: logMemberInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo
+      description: A reference to a <xref href="PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo" data-throw-if-not-resolved="false"></xref> describing the method being logged.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for <code class="paramref">logMemberInfo</code>.
+    content.vb: Public Function OpenAsyncContext(asyncCallId As AsyncCallId, logMemberInfo As LogMemberInfo) As AsyncMethodLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext*
+  nameWithType.vb: LoggingBackend.OpenAsyncContext(AsyncCallId, LogMemberInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId, PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  name.vb: OpenAsyncContext(AsyncCallId, LogMemberInfo)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  id: CreateVerbosityConfiguration
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateVerbosityConfiguration()
+  nameWithType: LoggingBackend.CreateVerbosityConfiguration()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Call <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use" data-throw-if-not-resolved="false"></xref> on the new object to apply it to the current execution context only.
+        A <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> is a heavyweight object: create one instance and reuse it, instead of creating one for each request.</p>
+  example: []
+  syntax:
+    content: public virtual LoggingVerbosityConfiguration CreateVerbosityConfiguration()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overridable Function CreateVerbosityConfiguration() As LoggingVerbosityConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  id: OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: OpenSyncContext(ref LogMemberInfo)
+  nameWithType: LoggingBackend.OpenSyncContext(ref LogMemberInfo)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(ref PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for a given normal (non-async, non-iterator) method.
+  example: []
+  syntax:
+    content: public SyncMethodLoggingContext OpenSyncContext(ref LogMemberInfo logMemberInfo)
+    parameters:
+    - id: logMemberInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo
+      description: A reference to a <xref href="PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo" data-throw-if-not-resolved="false"></xref> describing the method being logged.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for <code class="paramref">logMemberInfo</code>.
+    content.vb: Public Function OpenSyncContext(logMemberInfo As LogMemberInfo) As SyncMethodLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext*
+  nameWithType.vb: LoggingBackend.OpenSyncContext(LogMemberInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  name.vb: OpenSyncContext(LogMemberInfo)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  id: OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: OpenIteratorContext(IEnumerator, ref LogMemberInfo)
+  nameWithType: LoggingBackend.OpenIteratorContext(IEnumerator, ref LogMemberInfo)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator, ref PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets an <xref href="PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext" data-throw-if-not-resolved="false"></xref> for a given iterator method.
+  example: []
+  syntax:
+    content: public IteratorLoggingContext OpenIteratorContext(IEnumerator enumerator, ref LogMemberInfo logMemberInfo)
+    parameters:
+    - id: enumerator
+      type: System.Collections.IEnumerator
+      description: The <xref href="System.Collections.IEnumerator" data-throw-if-not-resolved="false"></xref> associated with the method to be logged.
+    - id: logMemberInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo
+      description: A reference to a <xref href="PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo" data-throw-if-not-resolved="false"></xref> describing the method being logged.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext" data-throw-if-not-resolved="false"></xref> for <code class="paramref">logMemberInfo</code>.
+    content.vb: Public Function OpenIteratorContext(enumerator As IEnumerator, logMemberInfo As LogMemberInfo) As IteratorLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext*
+  nameWithType.vb: LoggingBackend.OpenIteratorContext(IEnumerator, LogMemberInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator, PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  name.vb: OpenIteratorContext(IEnumerator, LogMemberInfo)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  id: OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: OpenEphemeralContext(ref LogMemberInfo)
+  nameWithType: LoggingBackend.OpenEphemeralContext(ref LogMemberInfo)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(ref PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets an <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> for use in a given method. An <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> is a degenerate
+
+    kind of context that is used to emit a single record.
+  example: []
+  syntax:
+    content: public EphemeralLoggingContext OpenEphemeralContext(ref LogMemberInfo logMemberInfo)
+    parameters:
+    - id: logMemberInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo
+      description: A reference to a <xref href="PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo" data-throw-if-not-resolved="false"></xref> describing the method in which the record will be emitted.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function OpenEphemeralContext(logMemberInfo As LogMemberInfo) As EphemeralLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext*
+  nameWithType.vb: LoggingBackend.OpenEphemeralContext(LogMemberInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  name.vb: OpenEphemeralContext(LogMemberInfo)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  id: OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: OpenEphemeralContext(LoggingTypeSource, ref ThreadLoggingContext)
+  nameWithType: LoggingBackend.OpenEphemeralContext(LoggingTypeSource, ref ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource, ref PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets an <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> for use in a given <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>. An <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> is a degenerate
+
+    kind of context that is used to emit a single record.
+  example: []
+  syntax:
+    content: public EphemeralLoggingContext OpenEphemeralContext(LoggingTypeSource source, ref ThreadLoggingContext threadContext)
+    parameters:
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The current <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function OpenEphemeralContext(source As LoggingTypeSource, threadContext As ThreadLoggingContext) As EphemeralLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext*
+  nameWithType.vb: LoggingBackend.OpenEphemeralContext(LoggingTypeSource, ThreadLoggingContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  name.vb: OpenEphemeralContext(LoggingTypeSource, ThreadLoggingContext)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: LoggingBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public MustOverride Function CreateRecordBuilder() As LogRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  id: CreateThreadContext
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateThreadContext()
+  nameWithType: LoggingBackend.CreateThreadContext()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual ThreadLoggingContext CreateThreadContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function CreateThreadContext() As ThreadLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateEphemeralContext(ThreadLoggingContext)
+  nameWithType: LoggingBackend.CreateEphemeralContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual EphemeralLoggingContext CreateEphemeralContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the new <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> will be used.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> to be used only in the thread of <code class="paramref">threadContext</code>.
+    content.vb: Protected Overridable Function CreateEphemeralContext(threadContext As ThreadLoggingContext) As EphemeralLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  id: CreateAsyncMethodContext
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateAsyncMethodContext()
+  nameWithType: LoggingBackend.CreateAsyncMethodContext()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for a given async method.
+  example: []
+  syntax:
+    content: protected virtual AsyncMethodLoggingContext CreateAsyncMethodContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function CreateAsyncMethodContext() As AsyncMethodLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  id: CreateIteratorContext
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateIteratorContext()
+  nameWithType: LoggingBackend.CreateIteratorContext()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext" data-throw-if-not-resolved="false"></xref> for a given iterator method.
+  example: []
+  syntax:
+    content: protected virtual IteratorLoggingContext CreateIteratorContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext
+    content.vb: Protected Overridable Function CreateIteratorContext() As IteratorLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateSyncMethodContext(ThreadLoggingContext)
+  nameWithType: LoggingBackend.CreateSyncMethodContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for a given normal (non-async, non-iterator) method.
+  example: []
+  syntax:
+    content: protected virtual SyncMethodLoggingContext CreateSyncMethodContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the method is executed.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> to be used only in the thread of <code class="paramref">threadContext</code>.
+    content.vb: Protected Overridable Function CreateSyncMethodContext(threadContext As ThreadLoggingContext) As SyncMethodLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateSyncCustomActivityContext(ThreadLoggingContext)
+  nameWithType: LoggingBackend.CreateSyncCustomActivityContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual SyncCustomActivityLoggingContext CreateSyncCustomActivityContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref> will be used.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref> to be used only in the thread of <code class="paramref">threadContext</code>.
+    content.vb: Protected Overridable Function CreateSyncCustomActivityContext(threadContext As ThreadLoggingContext) As SyncCustomActivityLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  id: CreateAsyncCustomActivityContext
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateAsyncCustomActivityContext()
+  nameWithType: LoggingBackend.CreateAsyncCustomActivityContext()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual AsyncCustomActivityLoggingContext CreateAsyncCustomActivityContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function CreateAsyncCustomActivityContext() As AsyncCustomActivityLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  id: GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetAsyncContextOfTask(Task)
+  nameWithType: LoggingBackend.GetAsyncContextOfTask(Task)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> associated with a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AsyncMethodLoggingContext GetAsyncContextOfTask(Task task)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> (typically representing an <code>async</code> method).
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+      description: >-
+        The <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> associated with <code class="paramref">task</code>, or <code>null</code>
+                    if no <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> is associated with <code class="paramref">task</code>.
+    content.vb: Public Function GetAsyncContextOfTask(task As Task) As AsyncMethodLoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions
+  id: GetBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetBackendOptions()
+  nameWithType: LoggingBackend.GetBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the formatting and rendering options for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected abstract LoggingBackendOptions GetBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions" data-throw-if-not-resolved="false"></xref> for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected MustOverride Function GetBackendOptions() As LoggingBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  id: CreateExecutionContextData
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateExecutionContextData()
+  nameWithType: LoggingBackend.CreateExecutionContextData()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a new empty instance of <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.ExecutionContextData" data-throw-if-not-resolved="false"></xref>. The instance can be of a subclass that holds backend-specific data.
+  example: []
+  syntax:
+    content: protected virtual LoggingExecutionContextData CreateExecutionContextData()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+    content.vb: Protected Overridable Function CreateExecutionContextData() As LoggingExecutionContextData
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: LoggingBackend.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: LoggingBackend.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose" data-throw-if-not-resolved="false"></xref> method has been called, <code>false</code> if the object is being finalized by the garbage collector.
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose*
+  nameWithType.vb: LoggingBackend.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  id: CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTransaction(LoggingTypeSource, in TransactionProperties, ITransactionPolicy)
+  nameWithType: LoggingBackend.CreateTransaction(LoggingTypeSource, in TransactionProperties, ITransactionPolicy)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource, in PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public virtual LoggingTransaction CreateTransaction(LoggingTypeSource source, in TransactionProperties properties, ITransactionPolicy policy)
+    parameters:
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> that was used to open the transaction.
+    - id: properties
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+      description: The transaction properties.
+    - id: policy
+      type: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+      description: The policy assigned to the transaction.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if the transaction could not be created.
+    content.vb: Public Overridable Function CreateTransaction(source As LoggingTypeSource, properties As TransactionProperties, policy As ITransactionPolicy) As LoggingTransaction
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction*
+  nameWithType.vb: LoggingBackend.CreateTransaction(LoggingTypeSource, TransactionProperties, ITransactionPolicy)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  name.vb: CreateTransaction(LoggingTypeSource, TransactionProperties, ITransactionPolicy)
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LoggingBackend.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.ToString*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  id: CurrentContextLocalConfiguration
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CurrentContextLocalConfiguration
+  nameWithType: LoggingBackend.CurrentContextLocalConfiguration
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> for the current execution. Returns <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    unless the context has been overwritten by <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingContextLocalConfiguration CurrentContextLocalConfiguration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+    content.vb: Public ReadOnly Property CurrentContextLocalConfiguration As LoggingContextLocalConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  id: CurrentContext
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CurrentContext
+  nameWithType: LoggingBackend.CurrentContext
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the current <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingContext CurrentContext { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+    content.vb: Public ReadOnly Property CurrentContext As LoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  id: IsDisposed
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: IsDisposed
+  nameWithType: LoggingBackend.IsDisposed
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> has been disposed.
+  example: []
+  syntax:
+    content: public bool IsDisposed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDisposed As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: LoggingBackend.Options
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the formatting and rendering options for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingBackendOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+    content.vb: Public ReadOnly Property Options As LoggingBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.Options*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  id: IsCorrupted
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: IsCorrupted
+  nameWithType: LoggingBackend.IsCorrupted
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> is in a state where it can no longer be recovered. This typically happens when
+
+    an exception occurs while disabling or enabling.
+  example: []
+  syntax:
+    content: public bool IsCorrupted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCorrupted As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  id: IsEnabled
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: LoggingBackend.IsEnabled
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> is enabled. This property has precedence
+
+    over, and does not affect, the minimum log levels set through the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.SetLevel(PostSharp.Patterns.Diagnostics.LogLevel)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>The default <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler" data-throw-if-not-resolved="false"></xref> sets this property to <code>false</code> when an internal exception occurs
+        in the backend. Set it to <code>true</code> to enable the backend again.</p>
+  example: []
+  syntax:
+    content: public bool IsEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEnabled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled*
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-exception-handling'
+    altText: 'Conceptual: Handling Logging Exceptions'
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  id: DefaultContextLocalConfiguration
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: DefaultContextLocalConfiguration
+  nameWithType: LoggingBackend.DefaultContextLocalConfiguration
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets the default <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>, used unless it has been overwritten by <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)" data-throw-if-not-resolved="false"></xref>
+
+    for the current execution context.
+  example: []
+  syntax:
+    content: public LoggingContextLocalConfiguration DefaultContextLocalConfiguration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+    content.vb: Public ReadOnly Property DefaultContextLocalConfiguration As LoggingContextLocalConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  id: DefaultVerbosity
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: DefaultVerbosity
+  nameWithType: LoggingBackend.DefaultVerbosity
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> of the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Use this property to set the minimum log level of types and namespaces for all execution contexts that do not use another
+        <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public LoggingVerbosityConfiguration DefaultVerbosity { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+    content.vb: Public ReadOnly Property DefaultVerbosity As LoggingVerbosityConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity*
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  id: TransactionPolicySelector
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: TransactionPolicySelector
+  nameWithType: LoggingBackend.TransactionPolicySelector
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the selector that determines what policy to apply for each transaction or whether the transaction should be logged as a transaction
+
+    at all.
+  example: []
+  syntax:
+    content: public ITransactionPolicySelector TransactionPolicySelector { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector
+    content.vb: Public Property TransactionPolicySelector As ITransactionPolicySelector
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector*

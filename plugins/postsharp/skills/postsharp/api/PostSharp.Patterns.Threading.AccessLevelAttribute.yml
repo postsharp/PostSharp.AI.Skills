@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.AccessLevelAttribute
+  commentId: T:PostSharp.Patterns.Threading.AccessLevelAttribute
+  id: AccessLevelAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.AccessLevelAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: AccessLevelAttribute
+  nameWithType: AccessLevelAttribute
+  fullName: PostSharp.Patterns.Threading.AccessLevelAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Base class for <xref href="PostSharp.Patterns.Threading.ReaderAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.WriterAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.YielderAttribute" data-throw-if-not-resolved="false"></xref>, and
+
+    <xref href="PostSharp.Patterns.Threading.UpgradeableReaderAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>These attributes specify the access level that an instance method of a class annotated with <xref href="PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute" data-throw-if-not-resolved="false"></xref>
+        requires on the object. A warning is emitted at build time when one of these attributes is applied to a method of a class that has no threading model.</p>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Method, TargetMemberAttributes = MulticastAttributes.Instance, AllowMultiple = false, Inheritance = MulticastInheritance.Strict)]
+
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method)]
+
+      public abstract class AccessLevelAttribute : MulticastAttribute, IValidableAnnotation
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.Method, TargetMemberAttributes:=MulticastAttributes.Instance, AllowMultiple:=False, Inheritance:=MulticastInheritance.Strict)>
+
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.Method)>
+
+      Public MustInherit Class AccessLevelAttribute Inherits MulticastAttribute Implements IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+    commentId: T:PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - linkType: HRef
+    linkId: '@reader-writer-synchronized'
+    altText: 'Conceptual: Reader/Writer Synchronized Threading Model'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ReaderAttribute
+  - PostSharp.Patterns.Threading.UpgradeableReaderAttribute
+  - PostSharp.Patterns.Threading.WriterAttribute
+  - PostSharp.Patterns.Threading.YielderAttribute
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 64
+    namedArguments:
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 256
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 69
+- uid: PostSharp.Patterns.Threading.AccessLevelAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.AccessLevelAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.AccessLevelAttribute
+  langs:
+  - csharp
+  - vb
+  name: AccessLevelAttribute()
+  nameWithType: AccessLevelAttribute.AccessLevelAttribute()
+  fullName: PostSharp.Patterns.Threading.AccessLevelAttribute.AccessLevelAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected AccessLevelAttribute()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Threading.AccessLevelAttribute.#ctor*
+  nameWithType.vb: AccessLevelAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.AccessLevelAttribute.New()
+  name.vb: New()

@@ -1,0 +1,50 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.ICompatibilityLevelService
+  commentId: T:PostSharp.Extensibility.ICompatibilityLevelService
+  id: ICompatibilityLevelService
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.ICompatibilityLevelService.CompatibilityLevel
+  langs:
+  - csharp
+  - vb
+  name: ICompatibilityLevelService
+  nameWithType: ICompatibilityLevelService
+  fullName: PostSharp.Extensibility.ICompatibilityLevelService
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Exposes the PostSharp version with which the current version of PostSharp should be backward compatible.
+  example: []
+  syntax:
+    content: 'public interface ICompatibilityLevelService : IService'
+    content.vb: Public Interface ICompatibilityLevelService Inherits IService
+- uid: PostSharp.Extensibility.ICompatibilityLevelService.CompatibilityLevel
+  commentId: P:PostSharp.Extensibility.ICompatibilityLevelService.CompatibilityLevel
+  id: CompatibilityLevel
+  parent: PostSharp.Extensibility.ICompatibilityLevelService
+  langs:
+  - csharp
+  - vb
+  name: CompatibilityLevel
+  nameWithType: ICompatibilityLevelService.CompatibilityLevel
+  fullName: PostSharp.Extensibility.ICompatibilityLevelService.CompatibilityLevel
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the PostSharp version with which the current version of PostSharp should be backward compatible.
+  remarks: >-
+    <p>
+        Some breaking changes may ignore this property.
+        </p>
+  example: []
+  syntax:
+    content: Version CompatibilityLevel { get; }
+    parameters: []
+    return:
+      type: System.Version
+    content.vb: ReadOnly Property CompatibilityLevel As Version
+  overload: PostSharp.Extensibility.ICompatibilityLevelService.CompatibilityLevel*

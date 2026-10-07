@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.MemberOverrideAction
+  commentId: T:PostSharp.Aspects.Advices.MemberOverrideAction
+  id: MemberOverrideAction
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.MemberOverrideAction.Default
+  - PostSharp.Aspects.Advices.MemberOverrideAction.Fail
+  - PostSharp.Aspects.Advices.MemberOverrideAction.Ignore
+  - PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrFail
+  - PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrIgnore
+  langs:
+  - csharp
+  - vb
+  name: MemberOverrideAction
+  nameWithType: MemberOverrideAction
+  fullName: PostSharp.Aspects.Advices.MemberOverrideAction
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Specifies the actions that the <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute" data-throw-if-not-resolved="false"></xref> aspect extension takes
+
+    when the member to be introduced already exists in the aspect target type or its base type.
+  example: []
+  syntax:
+    content: public enum MemberOverrideAction
+    content.vb: Public Enum MemberOverrideAction
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction
+    commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction
+  - linkType: HRef
+    linkId: '@members'
+    altText: 'Conceptual: Accessing Members of the Target Class'
+  - linkType: HRef
+    linkId: '@code-injections'
+    altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'
+- uid: PostSharp.Aspects.Advices.MemberOverrideAction.Default
+  commentId: F:PostSharp.Aspects.Advices.MemberOverrideAction.Default
+  id: Default
+  parent: PostSharp.Aspects.Advices.MemberOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: MemberOverrideAction.Default
+  fullName: PostSharp.Aspects.Advices.MemberOverrideAction.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The default action, which is <xref href="PostSharp.Aspects.Advices.MemberOverrideAction.Fail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+- uid: PostSharp.Aspects.Advices.MemberOverrideAction.Fail
+  commentId: F:PostSharp.Aspects.Advices.MemberOverrideAction.Fail
+  id: Fail
+  parent: PostSharp.Aspects.Advices.MemberOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Fail
+  nameWithType: MemberOverrideAction.Fail
+  fullName: PostSharp.Aspects.Advices.MemberOverrideAction.Fail
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Emits a build-time error.
+  example: []
+  syntax:
+    content: Fail = 0
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+- uid: PostSharp.Aspects.Advices.MemberOverrideAction.Ignore
+  commentId: F:PostSharp.Aspects.Advices.MemberOverrideAction.Ignore
+  id: Ignore
+  parent: PostSharp.Aspects.Advices.MemberOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Ignore
+  nameWithType: MemberOverrideAction.Ignore
+  fullName: PostSharp.Aspects.Advices.MemberOverrideAction.Ignore
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Silently ignores the member introduction.
+  example: []
+  syntax:
+    content: Ignore = 1
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+- uid: PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrFail
+  commentId: F:PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrFail
+  id: OverrideOrFail
+  parent: PostSharp.Aspects.Advices.MemberOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: OverrideOrFail
+  nameWithType: MemberOverrideAction.OverrideOrFail
+  fullName: PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrFail
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Tries to override the member, and fails if it is impossible (that is, if the existing member is defined
+
+    in a base type and is sealed or non-virtual).
+  example: []
+  syntax:
+    content: OverrideOrFail = 2
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+- uid: PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrIgnore
+  commentId: F:PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrIgnore
+  id: OverrideOrIgnore
+  parent: PostSharp.Aspects.Advices.MemberOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: OverrideOrIgnore
+  nameWithType: MemberOverrideAction.OverrideOrIgnore
+  fullName: PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrIgnore
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Tries to override the member, and silently ignores the introduction if it is impossible (that is, if the existing member is defined
+
+    in a base type and is sealed or non-virtual).
+  example: []
+  syntax:
+    content: OverrideOrIgnore = 3
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction

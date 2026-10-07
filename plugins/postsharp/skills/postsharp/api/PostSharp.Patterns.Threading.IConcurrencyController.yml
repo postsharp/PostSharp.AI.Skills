@@ -1,0 +1,246 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IConcurrencyController
+  commentId: T:PostSharp.Patterns.Threading.IConcurrencyController
+  id: IConcurrencyController
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  - PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)
+  - PostSharp.Patterns.Threading.IConcurrencyController.CheckAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  - PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly
+  - PostSharp.Patterns.Threading.IConcurrencyController.IsSharable
+  - PostSharp.Patterns.Threading.IConcurrencyController.RequireAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  - PostSharp.Patterns.Threading.IConcurrencyController.ThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IConcurrencyController
+  nameWithType: IConcurrencyController
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Controls access to an entity from possibly several threads.
+  remarks: >-
+    <p>An entity, for the sake of this documentation article, is a group of objects that share the same concurrency controller.</p>
+
+    <p>Objects that are controlled by a concurrency controller implement the <xref href="PostSharp.Patterns.Threading.IThreadAware" data-throw-if-not-resolved="false"></xref> interface.</p>
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement(AttributeId = 627500528741416982)]
+
+      public interface IConcurrencyController
+    content.vb: >-
+      <InternalImplement(AttributeId:=627500528741416982)>
+
+      Public Interface IConcurrencyController
+  derivedClasses:
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AttributeId
+      type: System.Int64
+      value: "627500528741416982"
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  commentId: M:PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  id: AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: AcquireAccess(ObjectAccessLevel, ref ConcurrentAccessToken)
+  nameWithType: IConcurrencyController.AcquireAccess(ObjectAccessLevel, ref ConcurrentAccessToken)
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel, ref PostSharp.Patterns.Threading.ConcurrentAccessToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Acquires access on the entity for the current thread and waits synchronously if access cannot be immediately acquired.
+  remarks: >-
+    <p>When you are using this method through the expression <code>threadAware.ConcurrentController.AcquireAccess</code>, there may be a race condition during the
+        evaluation of the expression. Use the <xref href="PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware%2cPostSharp.Patterns.Model.ObjectAccessLevel)" data-throw-if-not-resolved="false"></xref> extension method to acquire access to a thread-aware object in a thread-safe manner.</p>
+  example: []
+  syntax:
+    content: void AcquireAccess(ObjectAccessLevel objectAccessLevel, ref ConcurrentAccessToken concurrencyAccessToken)
+    parameters:
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The required access level on the entity.
+    - id: concurrencyAccessToken
+      type: PostSharp.Patterns.Threading.ConcurrentAccessToken
+      description: >-
+        An opaque <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref>, typically used in a <code>using</code> block. Consumers must invoke the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete" data-throw-if-not-resolved="false"></xref>
+                    method upon success before exiting the <code>using</code> block.
+    content.vb: Sub AcquireAccess(objectAccessLevel As ObjectAccessLevel, concurrencyAccessToken As ConcurrentAccessToken)
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess*
+  nameWithType.vb: IConcurrencyController.AcquireAccess(ObjectAccessLevel, ConcurrentAccessToken)
+  fullName.vb: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel, PostSharp.Patterns.Threading.ConcurrentAccessToken)
+  name.vb: AcquireAccess(ObjectAccessLevel, ConcurrentAccessToken)
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)
+  commentId: M:PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)
+  id: AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: AcquireAccessAsync(ObjectAccessLevel)
+  nameWithType: IConcurrencyController.AcquireAccessAsync(ObjectAccessLevel)
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Asynchronously acquires access on the entity for the current thread and returns an async awaiter.
+  remarks: >-
+    <p>When you are using this method through the expression <code>threadAware.ConcurrentController.AcquireAccess</code>, there may be a race condition during the
+        evaluation of the expression. Use the <xref href="PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync(PostSharp.Patterns.Threading.IThreadAware%2cPostSharp.Patterns.Model.ObjectAccessLevel)" data-throw-if-not-resolved="false"></xref> extension method to acquire access to a thread-aware object in a thread-safe manner.</p>
+  example: []
+  syntax:
+    content: ConcurrentAccessAwaiter AcquireAccessAsync(ObjectAccessLevel objectAccessLevel)
+    parameters:
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The required access level on the entity.
+    return:
+      type: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+      description: >-
+        A <xref href="PostSharp.Patterns.Threading.ConcurrentAccessAwaiter" data-throw-if-not-resolved="false"></xref> that is compatible with the <code>await</code> keyword and evaluates to an opaque <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref>, typically used in a <code>using</code> block.
+                    Consumers must invoke the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete" data-throw-if-not-resolved="false"></xref>
+                    method upon success before exiting the <code>using</code> block.
+    content.vb: Function AcquireAccessAsync(objectAccessLevel As ObjectAccessLevel) As ConcurrentAccessAwaiter
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync*
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.CheckAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  commentId: M:PostSharp.Patterns.Threading.IConcurrencyController.CheckAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  id: CheckAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: CheckAccess(ObjectAccessLevel)
+  nameWithType: IConcurrencyController.CheckAccess(ObjectAccessLevel)
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.CheckAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether the current thread has a specified level of access to the entity.
+  example: []
+  syntax:
+    content: bool CheckAccess(ObjectAccessLevel objectAccessLevel)
+    parameters:
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The required access level on the entity.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current thread has the required level of access, otherwise <code>false</code>.
+    content.vb: Function CheckAccess(objectAccessLevel As ObjectAccessLevel) As Boolean
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.CheckAccess*
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.RequireAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  commentId: M:PostSharp.Patterns.Threading.IConcurrencyController.RequireAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  id: RequireAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: RequireAccess(ObjectAccessLevel)
+  nameWithType: IConcurrencyController.RequireAccess(ObjectAccessLevel)
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.RequireAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether the current thread has a specified level of access to the entity and throws an exception if not.
+  example: []
+  syntax:
+    content: void RequireAccess(ObjectAccessLevel objectAccessLevel)
+    parameters:
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The required access level on the entity.
+    content.vb: Sub RequireAccess(objectAccessLevel As ObjectAccessLevel)
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.RequireAccess*
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.IsSharable
+  commentId: P:PostSharp.Patterns.Threading.IConcurrencyController.IsSharable
+  id: IsSharable
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: IsSharable
+  nameWithType: IConcurrencyController.IsSharable
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.IsSharable
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a value indicating whether the entity can currently be accessed concurrently by several threads.
+  example: []
+  syntax:
+    content: bool IsSharable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsSharable As Boolean
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.IsSharable*
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly
+  commentId: P:PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly
+  id: IsReadOnly
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: IConcurrencyController.IsReadOnly
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a value indicating whether the entity is currently read-only.
+  remarks: >-
+    <p>For an object of a freezable class, this property is <code>true</code> once the object has been frozen. Get the controller of an object
+        from its <xref href="PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController" data-throw-if-not-resolved="false"></xref> property.</p>
+  example: []
+  syntax:
+    content: bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsReadOnly As Boolean
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly*
+  seealso:
+  - linkType: HRef
+    linkId: '@freezable'
+    altText: 'Conceptual: Freezable Threading Model'
+- uid: PostSharp.Patterns.Threading.IConcurrencyController.ThreadingModel
+  commentId: P:PostSharp.Patterns.Threading.IConcurrencyController.ThreadingModel
+  id: ThreadingModel
+  parent: PostSharp.Patterns.Threading.IConcurrencyController
+  langs:
+  - csharp
+  - vb
+  name: ThreadingModel
+  nameWithType: IConcurrencyController.ThreadingModel
+  fullName: PostSharp.Patterns.Threading.IConcurrencyController.ThreadingModel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the <xref href="PostSharp.Patterns.Threading.ThreadingModel" data-throw-if-not-resolved="false"></xref> implemented by the current controller.
+  example: []
+  syntax:
+    content: ThreadingModel ThreadingModel { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.ThreadingModel
+    content.vb: ReadOnly Property ThreadingModel As ThreadingModel
+  overload: PostSharp.Patterns.Threading.IConcurrencyController.ThreadingModel*

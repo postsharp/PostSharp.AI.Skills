@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  id: CacheItemPriority
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Default
+  - PostSharp.Patterns.Caching.Implementation.CacheItemPriority.High
+  - PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Low
+  - PostSharp.Patterns.Caching.Implementation.CacheItemPriority.NotRemovable
+  langs:
+  - csharp
+  - vb
+  name: CacheItemPriority
+  nameWithType: CacheItemPriority
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Enumerates the priorities of a <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum CacheItemPriority
+    content.vb: Public Enum CacheItemPriority
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Default
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Default
+  id: Default
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: CacheItemPriority.Default
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Default priority means "Default" for <code>System.Runtime.Caching.MemoryCache</code> and it means "Normal" for <code>Microsoft.Extensions.Caching.Memory.IMemoryCache</code>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.NotRemovable
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemPriority.NotRemovable
+  id: NotRemovable
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  langs:
+  - csharp
+  - vb
+  name: NotRemovable
+  nameWithType: CacheItemPriority.NotRemovable
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.NotRemovable
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Never removed, unless explicitly required through invalidation methods.
+  example: []
+  syntax:
+    content: NotRemovable = 1
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Low
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Low
+  id: Low
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  langs:
+  - csharp
+  - vb
+  name: Low
+  nameWithType: CacheItemPriority.Low
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Low
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: This cache item is removed earlier if the cache needs to be compacted. For <xref href="PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" data-throw-if-not-resolved="false"></xref>, this is the same as <xref href="PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Default" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Low = 2
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.High
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemPriority.High
+  id: High
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+  langs:
+  - csharp
+  - vb
+  name: High
+  nameWithType: CacheItemPriority.High
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemPriority.High
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: This cache item is removed later if the cache needs to be compacted. For <xref href="PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" data-throw-if-not-resolved="false"></xref>, this is the same as <xref href="PostSharp.Patterns.Caching.Implementation.CacheItemPriority.Default" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: High = 3
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemPriority

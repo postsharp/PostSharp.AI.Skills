@@ -1,0 +1,409 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.CacheAttribute
+  commentId: T:PostSharp.Patterns.Caching.CacheAttribute
+  id: CacheAttribute
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.CacheAttribute.#ctor
+  - PostSharp.Patterns.Caching.CacheAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration
+  - PostSharp.Patterns.Caching.CacheAttribute.AutoReload
+  - PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter
+  - PostSharp.Patterns.Caching.CacheAttribute.Priority
+  - PostSharp.Patterns.Caching.CacheAttribute.ProfileName
+  - PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration
+  langs:
+  - csharp
+  - vb
+  name: CacheAttribute
+  nameWithType: CacheAttribute
+  fullName: PostSharp.Patterns.Caching.CacheAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Custom attribute that, when applied to a method, causes the return value of the method to be cached
+
+    for the specific list of arguments passed to this method call.
+  remarks: >-
+    <p>There are several ways to configure the behavior of the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> aspect: you can set the properties of the
+        <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> class, such as <xref href="PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration" data-throw-if-not-resolved="false"></xref>. You can
+        add the <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to the declaring type, a base type, or the declaring assembly.
+        Finally, you can define a profile by setting the <xref href="PostSharp.Patterns.Caching.CacheAttribute.ProfileName" data-throw-if-not-resolved="false"></xref> property and configure the profile at run time
+        by accessing the <xref href="PostSharp.Patterns.Caching.CachingServices.Profiles" data-throw-if-not-resolved="false"></xref> collection of the <xref href="PostSharp.Patterns.Caching.CachingServices" data-throw-if-not-resolved="false"></xref> class.</p>
+    <p>Use the <xref href="PostSharp.Patterns.Caching.NotCacheKeyAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to exclude a parameter from the cache key.</p>
+
+    <p>To invalidate a cached method, see <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>Before the first call to a cached method, set <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>; otherwise, the call throws a <xref href="PostSharp.Patterns.Caching.CachingException" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>The cache key includes the method, the <code>this</code> instance (unless <xref href="PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter" data-throw-if-not-resolved="false"></xref> is <code>true</code>) and the arguments.
+        Objects are formatted with <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> unless a formatter is registered for their type, so make sure that parameter types
+        other than intrinsic types such as <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> or <xref href="System.String" data-throw-if-not-resolved="false"></xref> produce a distinct string for each distinct value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Metric("UsedFeatures", "Patterns.Caching.Cache")]
+
+      [ProvideAspectRole("Caching")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")]
+
+      [LinesOfCodeAvoided(3)]
+
+      [MulticastAttributeUsage(PersistMetaData = true)]
+
+      [Serializer(typeof(CacheAttribute.Serializer))]
+
+      public sealed class CacheAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+    content.vb: >-
+      <Metric("UsedFeatures", "Patterns.Caching.Cache")>
+
+      <ProvideAspectRole("Caching")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")>
+
+      <LinesOfCodeAvoided(3)>
+
+      <MulticastAttributeUsage(PersistMetaData:=True)>
+
+      <Serializer(GetType(CacheAttribute.Serializer))>
+
+      Public NotInheritable Class CacheAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-getting-started'
+    altText: 'Conceptual: Caching Method Return Values'
+  - linkType: HRef
+    linkId: '@caching-keys'
+    altText: 'Conceptual: Customizing Cache Keys'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.MethodLevelAspect
+  - PostSharp.Aspects.MethodInterceptionAspect
+  implements:
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: Patterns.Caching.Cache
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Caching
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Validation
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Tracing
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 3
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Caching.CacheAttribute.Serializer
+- uid: PostSharp.Patterns.Caching.CacheAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Caching.CacheAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: CacheAttribute()
+  nameWithType: CacheAttribute.CacheAttribute()
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.CacheAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  syntax:
+    content: public CacheAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.CacheAttribute.#ctor*
+  nameWithType.vb: CacheAttribute.New()
+  fullName.vb: PostSharp.Patterns.Caching.CacheAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.CacheAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Caching.CacheAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: CacheAttribute(PortableFormatterConstructorContext)
+  nameWithType: CacheAttribute.CacheAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.CacheAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  syntax:
+    content: protected CacheAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Caching.CacheAttribute.#ctor*
+  nameWithType.vb: CacheAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Caching.CacheAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Caching.CacheAttribute.ProfileName
+  commentId: P:PostSharp.Patterns.Caching.CacheAttribute.ProfileName
+  id: ProfileName
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: ProfileName
+  nameWithType: CacheAttribute.ProfileName
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.ProfileName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the name of the <xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref> that contains the configuration of the current <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string ProfileName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProfileName As String
+  overload: PostSharp.Patterns.Caching.CacheAttribute.ProfileName*
+- uid: PostSharp.Patterns.Caching.CacheAttribute.AutoReload
+  commentId: P:PostSharp.Patterns.Caching.CacheAttribute.AutoReload
+  id: AutoReload
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: AutoReload
+  nameWithType: CacheAttribute.AutoReload
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.AutoReload
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the method calls are automatically reloaded (by re-evaluating the target method with the same arguments)
+
+    when the cache item is removed from the cache.
+  example: []
+  syntax:
+    content: public bool AutoReload { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AutoReload As Boolean
+  overload: PostSharp.Patterns.Caching.CacheAttribute.AutoReload*
+- uid: PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration
+  commentId: P:PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration
+  id: AbsoluteExpiration
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteExpiration
+  nameWithType: CacheAttribute.AbsoluteExpiration
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the total duration, in minutes, during which the result of the current method is stored in the cache. The absolute
+
+    expiration time is counted from the moment the method is evaluated and cached.
+  example: []
+  syntax:
+    content: public double AbsoluteExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property AbsoluteExpiration As Double
+  overload: PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration*
+- uid: PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration
+  commentId: P:PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration
+  id: SlidingExpiration
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: SlidingExpiration
+  nameWithType: CacheAttribute.SlidingExpiration
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the duration, in minutes, during which the result of the current method is stored in the cache after it has been
+
+    added to or accessed from the cache. The expiration is extended every time the value is accessed from the cache.
+  example: []
+  syntax:
+    content: public double SlidingExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property SlidingExpiration As Double
+  overload: PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration*
+- uid: PostSharp.Patterns.Caching.CacheAttribute.Priority
+  commentId: P:PostSharp.Patterns.Caching.CacheAttribute.Priority
+  id: Priority
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: CacheAttribute.Priority
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.Priority
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the priority of the current method.
+  example: []
+  syntax:
+    content: public CacheItemPriority Priority { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+    content.vb: Public Property Priority As CacheItemPriority
+  overload: PostSharp.Patterns.Caching.CacheAttribute.Priority*
+- uid: PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter
+  commentId: P:PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter
+  id: IgnoreThisParameter
+  parent: PostSharp.Patterns.Caching.CacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: IgnoreThisParameter
+  nameWithType: CacheAttribute.IgnoreThisParameter
+  fullName: PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the <code>this</code> instance should be a part of the cache key. The default value of this property is <code>false</code>,
+
+    which means that by default the <code>this</code> instance is a part of the cache key.
+  example: []
+  syntax:
+    content: public bool IgnoreThisParameter { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IgnoreThisParameter As Boolean
+  overload: PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter*

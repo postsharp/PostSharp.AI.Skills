@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  id: LoggingRoleConfiguration
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.CustomRecordLoggingOptions
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.GetAbstractSource(System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.IsBackendSpecified
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.PropertyChanged
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Role
+  langs:
+  - csharp
+  - vb
+  name: LoggingRoleConfiguration
+  nameWithType: LoggingRoleConfiguration
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Role-specific logging options. There is one instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration" data-throw-if-not-resolved="false"></xref> class for each logging role.
+
+    The <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration" data-throw-if-not-resolved="false"></xref> is a run-time concept, with no build-time meaning.
+  example: []
+  syntax:
+    content: 'public sealed class LoggingRoleConfiguration : INotifyPropertyChanged, ILoggerFactory3, ILoggerFactory2'
+    content.vb: Public NotInheritable Class LoggingRoleConfiguration Implements INotifyPropertyChanged, ILoggerFactory3, ILoggerFactory2
+  inheritance:
+  - System.Object
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.GetAbstractSource(System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.GetAbstractSource(System.Type)
+  id: GetAbstractSource(System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  langs:
+  - csharp
+  - vb
+  name: GetAbstractSource(Type)
+  nameWithType: LoggingRoleConfiguration.GetAbstractSource(Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.GetAbstractSource(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingAbstractSource" data-throw-if-not-resolved="false"></xref> for a given <xref href="System.Type" data-throw-if-not-resolved="false"></xref> in the current role.
+  example: []
+  syntax:
+    content: public LoggingAbstractSource GetAbstractSource(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref>. It must be a normal type that has a full name.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingAbstractSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingAbstractSource" data-throw-if-not-resolved="false"></xref> for the given <code class="paramref">type</code> in the current role.
+    content.vb: Public Function GetAbstractSource(type As Type) As LoggingAbstractSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.GetAbstractSource*
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Role
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Role
+  id: Role
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: LoggingRoleConfiguration.Role
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Role
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets the role whose options are represented by the current object.
+
+    See <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> for a list of standard logging roles.
+  example: []
+  syntax:
+    content: public string Role { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Role As String
+  overload: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Role*
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: LoggingRoleConfiguration.Backend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the backend that implements logging for the given <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Role" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingBackend Backend { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+    content.vb: Public Property Backend As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend*
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.IsBackendSpecified
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.IsBackendSpecified
+  id: IsBackendSpecified
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsBackendSpecified
+  nameWithType: LoggingRoleConfiguration.IsBackendSpecified
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.IsBackendSpecified
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a value indicating whether the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend" data-throw-if-not-resolved="false"></xref> has been explicitly specified.
+
+    This property is <code>false</code> by default, which means that the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend" data-throw-if-not-resolved="false"></xref> property
+
+    evaluates to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool IsBackendSpecified { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsBackendSpecified As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.IsBackendSpecified*
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.CustomRecordLoggingOptions
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.CustomRecordLoggingOptions
+  id: CustomRecordLoggingOptions
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  langs:
+  - csharp
+  - vb
+  name: CustomRecordLoggingOptions
+  nameWithType: LoggingRoleConfiguration.CustomRecordLoggingOptions
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.CustomRecordLoggingOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the options that influence the rendering of log records emitted with the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use LoggingBackend.Options")]
+
+      public CustomRecordLoggingOptions CustomRecordLoggingOptions { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+    content.vb: >-
+      <Obsolete("Use LoggingBackend.Options")>
+
+      Public ReadOnly Property CustomRecordLoggingOptions As CustomRecordLoggingOptions
+  overload: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.CustomRecordLoggingOptions*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use LoggingBackend.Options
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.PropertyChanged
+  commentId: E:PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.PropertyChanged
+  id: PropertyChanged
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: LoggingRoleConfiguration.PropertyChanged
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.PropertyChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Occurs when a property of this class changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged

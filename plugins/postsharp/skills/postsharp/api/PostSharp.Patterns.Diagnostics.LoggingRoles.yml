@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoles
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingRoles
+  id: LoggingRoles
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingRoles.Audit
+  - PostSharp.Patterns.Diagnostics.LoggingRoles.Caching
+  - PostSharp.Patterns.Diagnostics.LoggingRoles.Custom
+  - PostSharp.Patterns.Diagnostics.LoggingRoles.Meta
+  - PostSharp.Patterns.Diagnostics.LoggingRoles.Tracing
+  langs:
+  - csharp
+  - vb
+  name: LoggingRoles
+  nameWithType: LoggingRoles
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoles
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Defines the standard logging roles.
+  remarks: >-
+    <p>A role identifies the component that emits a log record. Together with a type or namespace name, it determines the source of the record,
+        whose verbosity can be configured separately.</p>
+    <p>
+      <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles.Caching" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles.Meta" data-throw-if-not-resolved="false"></xref> are system roles: their records are emitted from the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref> level by default,
+        and verbosity settings that do not name a role do not apply to them. To change their verbosity, specify the role explicitly.</p>
+  example: []
+  syntax:
+    content: public static class LoggingRoles
+    content.vb: Public Module LoggingRoles
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoles.Caching
+  commentId: F:PostSharp.Patterns.Diagnostics.LoggingRoles.Caching
+  id: Caching
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoles
+  langs:
+  - csharp
+  - vb
+  name: Caching
+  nameWithType: LoggingRoles.Caching
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoles.Caching
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Log records emitted by the Caching component.
+  remarks: '<p>This is a system role: to troubleshoot caching, enable the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref> level for this role explicitly.</p>'
+  example: []
+  syntax:
+    content: public const string Caching = "Cache"
+    return:
+      type: System.String
+    content.vb: Public Const Caching As String = "Cache"
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-logging-interaction'
+    altText: 'Conceptual: Troubleshooting Caching'
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoles.Tracing
+  commentId: F:PostSharp.Patterns.Diagnostics.LoggingRoles.Tracing
+  id: Tracing
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoles
+  langs:
+  - csharp
+  - vb
+  name: Tracing
+  nameWithType: LoggingRoles.Tracing
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoles.Tracing
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Default role for the Logging component.
+  example: []
+  syntax:
+    content: public const string Tracing = "Trace"
+    return:
+      type: System.String
+    content.vb: Public Const Tracing As String = "Trace"
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoles.Audit
+  commentId: F:PostSharp.Patterns.Diagnostics.LoggingRoles.Audit
+  id: Audit
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoles
+  langs:
+  - csharp
+  - vb
+  name: Audit
+  nameWithType: LoggingRoles.Audit
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoles.Audit
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: The role for audit records.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")]
+
+      public const string Audit = "Audit"
+    return:
+      type: System.String
+    content.vb: >-
+      <Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")>
+
+      Public Const Audit As String = "Audit"
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This feature has been moved to the sample PostSharp.Samples.Logging.Audit.
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoles.Meta
+  commentId: F:PostSharp.Patterns.Diagnostics.LoggingRoles.Meta
+  id: Meta
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoles
+  langs:
+  - csharp
+  - vb
+  name: Meta
+  nameWithType: LoggingRoles.Meta
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoles.Meta
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Log records emitted by the logging component itself.
+  remarks: <p>When the logging component catches an exception in its own code, it reports it under this role by default.</p>
+  example: []
+  syntax:
+    content: public const string Meta = "Meta"
+    return:
+      type: System.String
+    content.vb: Public Const Meta As String = "Meta"
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-exception-handling'
+    altText: 'Conceptual: Handling Logging Exceptions'
+- uid: PostSharp.Patterns.Diagnostics.LoggingRoles.Custom
+  commentId: F:PostSharp.Patterns.Diagnostics.LoggingRoles.Custom
+  id: Custom
+  parent: PostSharp.Patterns.Diagnostics.LoggingRoles
+  langs:
+  - csharp
+  - vb
+  name: Custom
+  nameWithType: LoggingRoles.Custom
+  fullName: PostSharp.Patterns.Diagnostics.LoggingRoles.Custom
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Default role for custom logging using the <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public const string Custom = "Custom"
+    return:
+      type: System.String
+    content.vb: Public Const Custom As String = "Custom"

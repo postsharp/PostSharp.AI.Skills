@@ -1,0 +1,471 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  commentId: T:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  id: TypeAdapter
+  parent: PostSharp.Patterns.Model.TypeAdapters
+  children:
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor(System.Boolean)
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor(System.Type)
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.EligibleRelationshipKind
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.ObjectReferenceTypes
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.VisitChildren(System.Object,PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: TypeAdapter
+  nameWithType: TypeAdapter
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Adapter that implements the features otherwise added by <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> to external or third-party types.
+  remarks: <p>Type adapters must be registered using the <xref href="PostSharp.Patterns.Model.TypeAdapters.RegisterTypeAdapterAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.</p>
+  example: []
+  syntax:
+    content: public class TypeAdapter
+    content.vb: Public Class TypeAdapter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor(System.Type)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: TypeAdapter(Type)
+  nameWithType: TypeAdapter.TypeAdapter(Type)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.TypeAdapter(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> class for a specific <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected TypeAdapter(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType" data-throw-if-not-resolved="false"></xref> being adapted.
+    content.vb: Protected Sub New(type As Type)
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor*
+  nameWithType.vb: TypeAdapter.New(Type)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor(System.Boolean)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: TypeAdapter(bool)
+  nameWithType: TypeAdapter.TypeAdapter(bool)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.TypeAdapter(bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> class for no specific type.
+  example: []
+  syntax:
+    content: protected TypeAdapter(bool isSealed)
+    parameters:
+    - id: isSealed
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> represents a type that cannot have derived types (such as a value type or a sealed class), otherwise <code>false</code>.
+    content.vb: Protected Sub New(isSealed As Boolean)
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.#ctor*
+  nameWithType.vb: TypeAdapter.New(Boolean)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.New(Boolean)
+  name.vb: New(Boolean)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.VisitChildren(System.Object,PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.VisitChildren(System.Object,PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  id: VisitChildren(System.Object,PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: VisitChildren(object, ChildVisitor, ChildVisitorOptions, object)
+  nameWithType: TypeAdapter.VisitChildren(object, ChildVisitor, ChildVisitorOptions, object)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.VisitChildren(object, PostSharp.Patterns.Model.ChildVisitor, PostSharp.Patterns.Model.ChildVisitorOptions, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Visits children or collection items.
+  remarks: <p>This method is equivalent to <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public virtual bool VisitChildren(object obj, ChildVisitor visitor, ChildVisitorOptions options, object state)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: An instance of the adapted type.
+    - id: visitor
+      type: PostSharp.Patterns.Model.ChildVisitor
+      description: The visitor.
+    - id: options
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+      description: The options.
+    - id: state
+      type: System.Object
+      description: The state to be passed to <code class="paramref">visitor</code>.
+    return:
+      type: System.Boolean
+      description: <code>false</code> if <code class="paramref">visitor</code> returned <xref href="PostSharp.Patterns.Model.DescendantVisitorStatus.Stop" data-throw-if-not-resolved="false"></xref>, otherwise <code>true</code>.
+    content.vb: Public Overridable Function VisitChildren(obj As Object, visitor As ChildVisitor, options As ChildVisitorOptions, state As Object) As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.VisitChildren*
+  nameWithType.vb: TypeAdapter.VisitChildren(Object, ChildVisitor, ChildVisitorOptions, Object)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.VisitChildren(Object, PostSharp.Patterns.Model.ChildVisitor, PostSharp.Patterns.Model.ChildVisitorOptions, Object)
+  name.vb: VisitChildren(Object, ChildVisitor, ChildVisitorOptions, Object)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  id: AttachToParent(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: AttachToParent(object, RelationshipInfo, IAttacher, object)
+  nameWithType: TypeAdapter.AttachToParent(object, RelationshipInfo, IAttacher, object)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent(object, PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.IAttacher, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Attaches an object to a parent object.
+  remarks: >-
+    <p>This method is equivalent to <xref href="PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>Implementations of this method can use the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild(System.Object%2cPostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method to attach items to the parent.</p>
+  example: []
+  syntax:
+    content: public virtual bool AttachToParent(object obj, RelationshipInfo relationshipInfo, IAttacher attacher, object attacherState)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: An instance of the adapted type.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: >-
+        Information about the relationship of the parent node relative to the current node.
+                    The <xref href="PostSharp.Patterns.Model.RelationshipInfo.Relationship" data-throw-if-not-resolved="false"></xref> property must be set to <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref> or
+                    <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>.
+    - id: attacher
+      type: PostSharp.Patterns.Model.IAttacher
+      description: A service that allows the current node to attach itself to the parent.
+    - id: attacherState
+      type: System.Object
+      description: An opaque state object to be passed as the first argument to all methods of the <xref href="PostSharp.Patterns.Model.IAttacher" data-throw-if-not-resolved="false"></xref> interface.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current object was not previously attached to any parent, <code>false</code> if it was already attached to the same parent.
+    content.vb: Public Overridable Function AttachToParent(obj As Object, relationshipInfo As RelationshipInfo, attacher As IAttacher, attacherState As Object) As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent*
+  nameWithType.vb: TypeAdapter.AttachToParent(Object, RelationshipInfo, IAttacher, Object)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent(Object, PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.IAttacher, Object)
+  name.vb: AttachToParent(Object, RelationshipInfo, IAttacher, Object)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  id: DetachFromParent(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: DetachFromParent(object, object, RelationshipInfo)
+  nameWithType: TypeAdapter.DetachFromParent(object, object, RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent(object, object, PostSharp.Patterns.Model.RelationshipInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Detaches an object from its parent object.
+  remarks: >-
+    <p>This method is equivalent to <xref href="PostSharp.Patterns.Model.IAttachable.DetachFromParent" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>Implementations of this method can use the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild(System.Object%2cSystem.Object%2cPostSharp.Patterns.Model.RelationshipInfo)" data-throw-if-not-resolved="false"></xref> method to detach items from the parent.</p>
+  example: []
+  syntax:
+    content: public virtual bool DetachFromParent(object obj, object parent, RelationshipInfo relationshipInfo)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: An instance of the adapted type.
+    - id: parent
+      type: System.Object
+      description: The object from which <code class="paramref">obj</code> is detached.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The relationship of <code class="paramref">obj</code> with respect to <code class="paramref">parent</code>.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current object has been fully detached, that is, is no longer attached to its parent by any other relationship, or <code>false</code>
+            if the current object is still attached to the parent by some relationship.
+    content.vb: Public Overridable Function DetachFromParent(obj As Object, parent As Object, relationshipInfo As RelationshipInfo) As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent*
+  nameWithType.vb: TypeAdapter.DetachFromParent(Object, Object, RelationshipInfo)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent(Object, Object, PostSharp.Patterns.Model.RelationshipInfo)
+  name.vb: DetachFromParent(Object, Object, RelationshipInfo)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  id: AttachChild(System.Object,PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: AttachChild(object, RelationshipInfo, IAttacher, object)
+  nameWithType: TypeAdapter.AttachChild(object, RelationshipInfo, IAttacher, object)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild(object, PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.IAttacher, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Attaches an item to a parent. This method is typically invoked by implementations of <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachToParent(System.Object%2cPostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> to attach items or children to the parent.
+  example: []
+  syntax:
+    content: protected bool AttachChild(object item, RelationshipInfo relationshipInfo, IAttacher attacher, object attacherState)
+    parameters:
+    - id: item
+      type: System.Object
+      description: The object to attach.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The relationship of <code class="paramref">item</code> with respect to the object represented by <code class="paramref">attacher</code> and <code class="paramref">attacherState</code>.
+    - id: attacher
+      type: PostSharp.Patterns.Model.IAttacher
+      description: An interface that represents the parent's ability to attach children.
+    - id: attacherState
+      type: System.Object
+      description: An opaque state object to be passed to <code class="paramref">attacher</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current object was not previously attached to any parent, <code>false</code> if it was already attached to the same parent.
+    content.vb: Protected Function AttachChild(item As Object, relationshipInfo As RelationshipInfo, attacher As IAttacher, attacherState As Object) As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild*
+  nameWithType.vb: TypeAdapter.AttachChild(Object, RelationshipInfo, IAttacher, Object)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AttachChild(Object, PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.IAttacher, Object)
+  name.vb: AttachChild(Object, RelationshipInfo, IAttacher, Object)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  id: DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.RelationshipInfo)
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: DetachChild(object, object, RelationshipInfo)
+  nameWithType: TypeAdapter.DetachChild(object, object, RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild(object, object, PostSharp.Patterns.Model.RelationshipInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Detaches an item from its parent. This method is typically invoked by implementations of <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachFromParent(System.Object%2cSystem.Object%2cPostSharp.Patterns.Model.RelationshipInfo)" data-throw-if-not-resolved="false"></xref> to detach items or children from the parent.
+  example: []
+  syntax:
+    content: protected bool DetachChild(object item, object itemParent, RelationshipInfo relationshipInfo)
+    parameters:
+    - id: item
+      type: System.Object
+      description: The object to detach.
+    - id: itemParent
+      type: System.Object
+      description: The parent from which <code class="paramref">item</code> is detached.
+    - id: relationshipInfo
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The relationship of <code class="paramref">item</code> with respect to <code class="paramref">itemParent</code>.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current object has been fully detached, that is, is no longer attached to its parent by any other relationship, or <code>false</code>
+            if the current object is still attached to the parent by some relationship.
+    content.vb: Protected Function DetachChild(item As Object, itemParent As Object, relationshipInfo As RelationshipInfo) As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild*
+  nameWithType.vb: TypeAdapter.DetachChild(Object, Object, RelationshipInfo)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.DetachChild(Object, Object, PostSharp.Patterns.Model.RelationshipInfo)
+  name.vb: DetachChild(Object, Object, RelationshipInfo)
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType
+  id: AdaptedType
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: AdaptedType
+  nameWithType: TypeAdapter.AdaptedType
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType" data-throw-if-not-resolved="false"></xref> adapted by the current <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if the current <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> is not specific to any <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Type AdaptedType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property AdaptedType As Type
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.AdaptedType*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.ObjectReferenceTypes
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.ObjectReferenceTypes
+  id: ObjectReferenceTypes
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: ObjectReferenceTypes
+  nameWithType: TypeAdapter.ObjectReferenceTypes
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.ObjectReferenceTypes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets a list of all types referenced from the adapted type.
+  example: []
+  syntax:
+    content: public virtual IList<Type> ObjectReferenceTypes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.Type}
+    content.vb: Public Overridable ReadOnly Property ObjectReferenceTypes As IList(Of Type)
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.ObjectReferenceTypes*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable
+  id: IsImmutable
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: IsImmutable
+  nameWithType: TypeAdapter.IsImmutable
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets a value indicating whether the adapted type is immutable.
+  remarks: <p>If the type is immutable but can have non-immutable instances of a derived type, the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code> but the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code>.</p>
+  example: []
+  syntax:
+    content: public virtual bool IsImmutable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsImmutable As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable
+  id: IsAnyInstanceImmutable
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: IsAnyInstanceImmutable
+  nameWithType: TypeAdapter.IsAnyInstanceImmutable
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets a value indicating whether any instance of this type or of any derived class is immutable.
+  remarks: <p>If the type is immutable but can have non-immutable instances of a derived type, the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsImmutable" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code> but the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code>.</p>
+  example: []
+  syntax:
+    content: public virtual bool IsAnyInstanceImmutable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsAnyInstanceImmutable As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceImmutable*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe
+  id: IsAnyInstanceThreadSafe
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: IsAnyInstanceThreadSafe
+  nameWithType: TypeAdapter.IsAnyInstanceThreadSafe
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets a value indicating whether any instance of this type or of any derived class can be safely shared by several threads.
+  remarks: <p>If the type is thread-safe but can have non-immutable instances of a derived type, the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code> but the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code>.</p>
+  example: []
+  syntax:
+    content: public virtual bool IsAnyInstanceThreadSafe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsAnyInstanceThreadSafe As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe
+  id: IsThreadSafe
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: IsThreadSafe
+  nameWithType: TypeAdapter.IsThreadSafe
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets a value indicating whether instances of this type can be safely shared by several threads.
+  remarks: <p>If the type is thread-safe but can have non-immutable instances of a derived type, the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code> but the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsAnyInstanceThreadSafe" data-throw-if-not-resolved="false"></xref> property shall be <code>true</code>.</p>
+  example: []
+  syntax:
+    content: public virtual bool IsThreadSafe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsThreadSafe As Boolean
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.IsThreadSafe*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.EligibleRelationshipKind
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.EligibleRelationshipKind
+  id: EligibleRelationshipKind
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+  langs:
+  - csharp
+  - vb
+  name: EligibleRelationshipKind
+  nameWithType: TypeAdapter.EligibleRelationshipKind
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.EligibleRelationshipKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets the kind of relationship that the adapted type can enter with respect to the parent object.
+  example: []
+  syntax:
+    content: public virtual RelationshipKind EligibleRelationshipKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: Public Overridable ReadOnly Property EligibleRelationshipKind As RelationshipKind
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter.EligibleRelationshipKind*

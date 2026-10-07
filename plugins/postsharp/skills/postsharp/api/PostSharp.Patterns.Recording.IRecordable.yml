@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.IRecordable
+  commentId: T:PostSharp.Patterns.Recording.IRecordable
+  id: IRecordable
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.IRecordable.HasRecorder(System.Boolean)
+  - PostSharp.Patterns.Recording.IRecordable.Recorder
+  langs:
+  - csharp
+  - vb
+  name: IRecordable
+  nameWithType: IRecordable
+  fullName: PostSharp.Patterns.Recording.IRecordable
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Interface implemented by the <xref href="PostSharp.Patterns.Recording.RecordableAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Recording.RecordableAttribute" data-throw-if-not-resolved="false"></xref> aspect also adds this interface at run time to the advisable collections and dictionaries that it
+        manages. Because these objects do not implement the interface at build time, a cast does not work on them: use
+        <xref href="PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface%60%601(System.Object%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface IRecordable
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface IRecordable
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  derivedClasses:
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.IRecordable.HasRecorder(System.Boolean)
+  commentId: M:PostSharp.Patterns.Recording.IRecordable.HasRecorder(System.Boolean)
+  id: HasRecorder(System.Boolean)
+  parent: PostSharp.Patterns.Recording.IRecordable
+  langs:
+  - csharp
+  - vb
+  name: HasRecorder(bool)
+  nameWithType: IRecordable.HasRecorder(bool)
+  fullName: PostSharp.Patterns.Recording.IRecordable.HasRecorder(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Determines whether the current object is attached to a <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>. If it is not,
+
+    optionally attaches the object to the default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [RecordingScope(RecordingScopeOption.Skip, AttributeId = -5178615502787633143, AttributePriority = 536870912)]
+
+      bool HasRecorder(bool autoAttach)
+    parameters:
+    - id: autoAttach
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current object should be automatically attached to the default <xref href="PostSharp.Patterns.Recording.IRecordable.Recorder" data-throw-if-not-resolved="false"></xref>
+            if it is not yet attached, otherwise <code>false</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the object is already attached to a <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> or if <code class="paramref">autoAttach</code> is <code>true</code>, otherwise <code>false</code>.
+    content.vb: >-
+      <RecordingScope(RecordingScopeOption.Skip, AttributeId:=-5178615502787633143, AttributePriority:=536870912)>
+
+      Function HasRecorder(autoAttach As Boolean) As Boolean
+  overload: PostSharp.Patterns.Recording.IRecordable.HasRecorder*
+  attributes:
+  - type: PostSharp.Patterns.Recording.RecordingScopeAttribute
+    ctor: PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(PostSharp.Patterns.Recording.RecordingScopeOption)
+    arguments:
+    - type: PostSharp.Patterns.Recording.RecordingScopeOption
+      value: 1
+    namedArguments:
+    - name: AttributeId
+      type: System.Int64
+      value: "-5178615502787633143"
+    - name: AttributePriority
+      type: System.Int32
+      value: 536870912
+  nameWithType.vb: IRecordable.HasRecorder(Boolean)
+  fullName.vb: PostSharp.Patterns.Recording.IRecordable.HasRecorder(Boolean)
+  name.vb: HasRecorder(Boolean)
+- uid: PostSharp.Patterns.Recording.IRecordable.Recorder
+  commentId: P:PostSharp.Patterns.Recording.IRecordable.Recorder
+  id: Recorder
+  parent: PostSharp.Patterns.Recording.IRecordable
+  langs:
+  - csharp
+  - vb
+  name: Recorder
+  nameWithType: IRecordable.Recorder
+  fullName: PostSharp.Patterns.Recording.IRecordable.Recorder
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the recorder attached to the current object.
+  remarks: >-
+    <p>Getting this property automatically attaches the object to the default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> if it is not yet attached. 
+        Use the <xref href="PostSharp.Patterns.Recording.IRecordable.HasRecorder(System.Boolean)" data-throw-if-not-resolved="false"></xref> method with the <code>false</code> argument to determine whether the object is already attached to a recorder. </p>
+    <div class="NOTE"><h5>note</h5><p>Named code should not invoke the setting of this property. </p></div>
+
+    <p>When this property is set, it is not the responsibility of the class implementing this interface to also set the property to all children. This
+        responsibility belongs to the <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> class.</p>
+  example: []
+  syntax:
+    content: Recorder Recorder { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.Recorder
+    content.vb: Property Recorder As Recorder
+  overload: PostSharp.Patterns.Recording.IRecordable.Recorder*

@@ -1,0 +1,318 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  commentId: T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  id: RedisCacheInvalidator
+  parent: PostSharp.Patterns.Caching.Backends.Redis
+  children:
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Connection
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(System.Boolean)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: RedisCacheInvalidator
+  nameWithType: RedisCacheInvalidator
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    An implementation of <xref href="PostSharp.Patterns.Caching.Implementation.CacheInvalidator" data-throw-if-not-resolved="false"></xref> that uses Redis publish/subscribe channels to invalidate several
+
+    instances of local caches.
+  remarks: >-
+    <p>Use this component when you have a Redis server but want to store cached values in a local in-memory cache, for example when the latency
+        of the Redis server is too high for caching. Create it with <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend%2cStackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend%2cStackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>, passing the local caching backend,
+        and assign the result to <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>. All instances of the application must use the same
+        <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions.ChannelName" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>If you already store cached values in Redis with <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>, you do not need this component.
+        To add a local cache in front of Redis, use <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: 'public class RedisCacheInvalidator : CacheInvalidator, IDisposable'
+    content.vb: Public Class RedisCacheInvalidator Inherits CacheInvalidator Implements IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions
+    commentId: T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions
+  - linkType: HRef
+    linkId: '@caching-pubsub'
+    altText: 'Conceptual: Synchronizing Local In-Memory Caches for Multiple Servers'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.RemoveItemCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.InvalidateDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.OnMessageReceived(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.Options
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.OnBackendDependencyInvalidated(System.Object,PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.OnBackendItemRemoved(System.Object,PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.CreateFeatures
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsItemCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.GetItemCore(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ClearCore
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.GetItemAsyncCore(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ClearAsyncCore(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.CompactAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.UnderlyingBackend
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItem(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemAsync(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItem(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Clear
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ToString
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnBackgroundTaskEnqueued
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnItemRemoved(PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnItemRemoved(System.String,PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnDependencyInvalidated(System.String,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnDependencyInvalidated(PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DisposeAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Compact
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUp(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Logger
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Id
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ValueAdapters
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SupportedFeatures
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Status
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ItemRemoved
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DependencyInvalidated
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)
+  id: Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: Create(CachingBackend, IConnectionMultiplexer, RedisCacheInvalidatorOptions)
+  nameWithType: RedisCacheInvalidator.Create(CachingBackend, IConnectionMultiplexer, RedisCacheInvalidatorOptions)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend, StackExchange.Redis.IConnectionMultiplexer, PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static RedisCacheInvalidator Create(CachingBackend backend, IConnectionMultiplexer connection, RedisCacheInvalidatorOptions options)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: A local (typically in-memory) caching backend.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: connection
+      type: StackExchange.Redis.IConnectionMultiplexer
+      description: A Redis connection.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions
+      description: The options.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+      description: A new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function Create(backend As CachingBackend, connection As IConnectionMultiplexer, options As RedisCacheInvalidatorOptions) As RedisCacheInvalidator
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions,System.Threading.CancellationToken)
+  id: CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(CachingBackend, IConnectionMultiplexer, RedisCacheInvalidatorOptions, CancellationToken)
+  nameWithType: RedisCacheInvalidator.CreateAsync(CachingBackend, IConnectionMultiplexer, RedisCacheInvalidatorOptions, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend, StackExchange.Redis.IConnectionMultiplexer, PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<RedisCacheInvalidator> CreateAsync(CachingBackend backend, IConnectionMultiplexer connection, RedisCacheInvalidatorOptions options, CancellationToken cancellationToken = default)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: A local (typically in-memory) caching backend.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: connection
+      type: StackExchange.Redis.IConnectionMultiplexer
+      description: A Redis connection.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions
+      description: The options.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator}
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> returning a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function CreateAsync(backend As CachingBackend, connection As IConnectionMultiplexer, options As RedisCacheInvalidatorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of RedisCacheInvalidator)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.CreateAsync*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  id: SendMessageAsync(System.String,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: SendMessageAsync(string, CancellationToken)
+  nameWithType: RedisCacheInvalidator.SendMessageAsync(string, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync(string, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Sends an invalidation message over the message bus of the implementation.
+  example: []
+  syntax:
+    content: protected override Task SendMessageAsync(string message, CancellationToken cancellationToken)
+    parameters:
+    - id: message
+      type: System.String
+      description: A serialized, opaque serialization message.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: Protected Overrides Function SendMessageAsync(message As String, cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync*
+  nameWithType.vb: RedisCacheInvalidator.SendMessageAsync(String, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.SendMessageAsync(String, System.Threading.CancellationToken)
+  name.vb: SendMessageAsync(String, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(System.Boolean)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(System.Boolean)
+  id: DisposeCore(System.Boolean)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: DisposeCore(bool)
+  nameWithType: RedisCacheInvalidator.DisposeCore(bool)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Synchronously disposes the current <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override void DisposeCore(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overrides Sub DisposeCore(disposing As Boolean)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.DisposeCore(System.Boolean)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore*
+  nameWithType.vb: RedisCacheInvalidator.DisposeCore(Boolean)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeCore(Boolean)
+  name.vb: DisposeCore(Boolean)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  id: DisposeAsyncCore(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsyncCore(CancellationToken)
+  nameWithType: RedisCacheInvalidator.DisposeAsyncCore(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously disposes the current <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override Task DisposeAsyncCore(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function DisposeAsyncCore(cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.DisposeAsyncCore(System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.DisposeAsyncCore*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Connection
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Connection
+  id: Connection
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: Connection
+  nameWithType: RedisCacheInvalidator.Connection
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Connection
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the Redis <xref href="StackExchange.Redis.IConnectionMultiplexer" data-throw-if-not-resolved="false"></xref> used by the current <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IConnectionMultiplexer Connection { get; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.IConnectionMultiplexer
+    content.vb: Public ReadOnly Property Connection As IConnectionMultiplexer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Connection*

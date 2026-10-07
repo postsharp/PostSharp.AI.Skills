@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Locking.LocalLockManager
+  commentId: T:PostSharp.Patterns.Caching.Locking.LocalLockManager
+  id: LocalLockManager
+  parent: PostSharp.Patterns.Caching.Locking
+  children:
+  - PostSharp.Patterns.Caching.Locking.LocalLockManager.#ctor
+  - PostSharp.Patterns.Caching.Locking.LocalLockManager.GetLock(System.String)
+  langs:
+  - csharp
+  - vb
+  name: LocalLockManager
+  nameWithType: LocalLockManager
+  fullName: PostSharp.Patterns.Caching.Locking.LocalLockManager
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: >-
+    An implementation of <xref href="PostSharp.Patterns.Caching.Locking.ILockManager" data-throw-if-not-resolved="false"></xref> in which every instance of the <xref href="PostSharp.Patterns.Caching.Locking.LocalLockManager" data-throw-if-not-resolved="false"></xref>
+
+    has its own set of named locks that are not shared in any way with other instances. The <xref href="PostSharp.Patterns.Caching.Locking.LocalLockManager" data-throw-if-not-resolved="false"></xref> can
+
+    be used to synchronize the execution of methods in the current process and <xref href="System.AppDomain" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Assign an instance to the <xref href="PostSharp.Patterns.Caching.CachingProfile.LockManager" data-throw-if-not-resolved="false"></xref> property of each profile that needs locking. Since each cached method
+        uses a single profile, sharing an instance between profiles or not makes no difference. Lock names are compared without regard to case.</p>
+  example: []
+  syntax:
+    content: 'public sealed class LocalLockManager : ILockManager'
+    content.vb: Public NotInheritable Class LocalLockManager Implements ILockManager
+  seealso:
+  - linkType: HRef
+    linkId: '@cache-locking'
+    altText: 'Conceptual: Preventing Concurrent Execution of Cached Methods'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Locking.ILockManager
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Locking.LocalLockManager.GetLock(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Locking.LocalLockManager.GetLock(System.String)
+  id: GetLock(System.String)
+  parent: PostSharp.Patterns.Caching.Locking.LocalLockManager
+  langs:
+  - csharp
+  - vb
+  name: GetLock(string)
+  nameWithType: LocalLockManager.GetLock(string)
+  fullName: PostSharp.Patterns.Caching.Locking.LocalLockManager.GetLock(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Gets a handle to a named lock. This method must return immediately. Waiting, if any, must be done in the <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public ILockHandle GetLock(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The name of the lock.
+    return:
+      type: PostSharp.Patterns.Caching.Locking.ILockHandle
+      description: A handle to the lock named <code class="paramref">key</code>.
+    content.vb: Public Function GetLock(key As String) As ILockHandle
+  overload: PostSharp.Patterns.Caching.Locking.LocalLockManager.GetLock*
+  implements:
+  - PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(System.String)
+  nameWithType.vb: LocalLockManager.GetLock(String)
+  fullName.vb: PostSharp.Patterns.Caching.Locking.LocalLockManager.GetLock(String)
+  name.vb: GetLock(String)
+- uid: PostSharp.Patterns.Caching.Locking.LocalLockManager.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Locking.LocalLockManager.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Locking.LocalLockManager
+  langs:
+  - csharp
+  - vb
+  name: LocalLockManager()
+  nameWithType: LocalLockManager.LocalLockManager()
+  fullName: PostSharp.Patterns.Caching.Locking.LocalLockManager.LocalLockManager()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  syntax:
+    content: public LocalLockManager()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Locking.LocalLockManager.#ctor*
+  nameWithType.vb: LocalLockManager.New()
+  fullName.vb: PostSharp.Patterns.Caching.Locking.LocalLockManager.New()
+  name.vb: New()

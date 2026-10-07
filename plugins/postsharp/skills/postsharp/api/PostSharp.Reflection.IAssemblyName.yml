@@ -1,0 +1,264 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.IAssemblyName
+  commentId: T:PostSharp.Reflection.IAssemblyName
+  id: IAssemblyName
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.IAssemblyName.BindingContext
+  - PostSharp.Reflection.IAssemblyName.Culture
+  - PostSharp.Reflection.IAssemblyName.GetPublicKey
+  - PostSharp.Reflection.IAssemblyName.GetPublicKeyToken
+  - PostSharp.Reflection.IAssemblyName.IsRetargetable
+  - PostSharp.Reflection.IAssemblyName.IsStronglyNamed
+  - PostSharp.Reflection.IAssemblyName.Name
+  - PostSharp.Reflection.IAssemblyName.ProcessorArchitecture
+  - PostSharp.Reflection.IAssemblyName.Version
+  langs:
+  - csharp
+  - vb
+  name: IAssemblyName
+  nameWithType: IAssemblyName
+  fullName: PostSharp.Reflection.IAssemblyName
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Defines the semantics of an assembly name.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IAssemblyName
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IAssemblyName
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Reflection.IAssemblyName.GetPublicKey
+  commentId: M:PostSharp.Reflection.IAssemblyName.GetPublicKey
+  id: GetPublicKey
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: GetPublicKey()
+  nameWithType: IAssemblyName.GetPublicKey()
+  fullName: PostSharp.Reflection.IAssemblyName.GetPublicKey()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the assembly public key.
+  example: []
+  syntax:
+    content: byte[] GetPublicKey()
+    return:
+      type: System.Byte[]
+      description: >-
+        An array of bytes containing the public key,
+
+        or <code>null</code> if no public key is specified (for instance if
+
+        only the public key token is given).
+    content.vb: Function GetPublicKey() As Byte()
+  overload: PostSharp.Reflection.IAssemblyName.GetPublicKey*
+- uid: PostSharp.Reflection.IAssemblyName.GetPublicKeyToken
+  commentId: M:PostSharp.Reflection.IAssemblyName.GetPublicKeyToken
+  id: GetPublicKeyToken
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: GetPublicKeyToken()
+  nameWithType: IAssemblyName.GetPublicKeyToken()
+  fullName: PostSharp.Reflection.IAssemblyName.GetPublicKeyToken()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the assembly public key token.
+  example: []
+  syntax:
+    content: byte[] GetPublicKeyToken()
+    return:
+      type: System.Byte[]
+      description: >-
+        An array of bytes containing the public key token,
+                      or <code>null</code> if no public key is specified.
+    content.vb: Function GetPublicKeyToken() As Byte()
+  overload: PostSharp.Reflection.IAssemblyName.GetPublicKeyToken*
+- uid: PostSharp.Reflection.IAssemblyName.Name
+  commentId: P:PostSharp.Reflection.IAssemblyName.Name
+  id: Name
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IAssemblyName.Name
+  fullName: PostSharp.Reflection.IAssemblyName.Name
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the assembly friendly name.
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: The assembly friendly name.
+    content.vb: ReadOnly Property Name As String
+  overload: PostSharp.Reflection.IAssemblyName.Name*
+- uid: PostSharp.Reflection.IAssemblyName.Version
+  commentId: P:PostSharp.Reflection.IAssemblyName.Version
+  id: Version
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: IAssemblyName.Version
+  fullName: PostSharp.Reflection.IAssemblyName.Version
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the assembly version.
+  example: []
+  syntax:
+    content: Version Version { get; }
+    parameters: []
+    return:
+      type: System.Version
+      description: A <xref href="PostSharp.Reflection.IAssemblyName.Version" data-throw-if-not-resolved="false"></xref>.
+    content.vb: ReadOnly Property Version As Version
+  overload: PostSharp.Reflection.IAssemblyName.Version*
+- uid: PostSharp.Reflection.IAssemblyName.Culture
+  commentId: P:PostSharp.Reflection.IAssemblyName.Culture
+  id: Culture
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: Culture
+  nameWithType: IAssemblyName.Culture
+  fullName: PostSharp.Reflection.IAssemblyName.Culture
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the assembly culture name.
+  example: []
+  syntax:
+    content: string Culture { get; }
+    parameters: []
+    return:
+      type: System.String
+      description: >-
+        The standard assembly culture name, or <code>null</code> if the assembly
+
+        is culture-neutral.
+    content.vb: ReadOnly Property Culture As String
+  overload: PostSharp.Reflection.IAssemblyName.Culture*
+- uid: PostSharp.Reflection.IAssemblyName.IsStronglyNamed
+  commentId: P:PostSharp.Reflection.IAssemblyName.IsStronglyNamed
+  id: IsStronglyNamed
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: IsStronglyNamed
+  nameWithType: IAssemblyName.IsStronglyNamed
+  fullName: PostSharp.Reflection.IAssemblyName.IsStronglyNamed
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a value indicating whether the current assembly (or assembly reference) contains a strong name signature.
+  example: []
+  syntax:
+    content: bool IsStronglyNamed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsStronglyNamed As Boolean
+  overload: PostSharp.Reflection.IAssemblyName.IsStronglyNamed*
+- uid: PostSharp.Reflection.IAssemblyName.IsRetargetable
+  commentId: P:PostSharp.Reflection.IAssemblyName.IsRetargetable
+  id: IsRetargetable
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: IsRetargetable
+  nameWithType: IAssemblyName.IsRetargetable
+  fullName: PostSharp.Reflection.IAssemblyName.IsRetargetable
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Gets a value indicating whether the reference is retargetable by the CLR. A retargetable reference can be satisfied by
+
+    an assembly whose identity does not match the current assembly reference.
+  example: []
+  syntax:
+    content: bool IsRetargetable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsRetargetable As Boolean
+  overload: PostSharp.Reflection.IAssemblyName.IsRetargetable*
+- uid: PostSharp.Reflection.IAssemblyName.ProcessorArchitecture
+  commentId: P:PostSharp.Reflection.IAssemblyName.ProcessorArchitecture
+  id: ProcessorArchitecture
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: ProcessorArchitecture
+  nameWithType: IAssemblyName.ProcessorArchitecture
+  fullName: PostSharp.Reflection.IAssemblyName.ProcessorArchitecture
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the processor architecture that the current assembly targets.
+  example: []
+  syntax:
+    content: AssemblyProcessorArchitecture ProcessorArchitecture { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.AssemblyProcessorArchitecture
+    content.vb: ReadOnly Property ProcessorArchitecture As AssemblyProcessorArchitecture
+  overload: PostSharp.Reflection.IAssemblyName.ProcessorArchitecture*
+- uid: PostSharp.Reflection.IAssemblyName.BindingContext
+  commentId: P:PostSharp.Reflection.IAssemblyName.BindingContext
+  id: BindingContext
+  parent: PostSharp.Reflection.IAssemblyName
+  langs:
+  - csharp
+  - vb
+  name: BindingContext
+  nameWithType: IAssemblyName.BindingContext
+  fullName: PostSharp.Reflection.IAssemblyName.BindingContext
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the <xref href="PostSharp.Reflection.IAssemblyName.BindingContext" data-throw-if-not-resolved="false"></xref> in which the assembly name is valid.
+  example: []
+  syntax:
+    content: BindingContext BindingContext { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.BindingContext
+    content.vb: ReadOnly Property BindingContext As BindingContext
+  overload: PostSharp.Reflection.IAssemblyName.BindingContext*

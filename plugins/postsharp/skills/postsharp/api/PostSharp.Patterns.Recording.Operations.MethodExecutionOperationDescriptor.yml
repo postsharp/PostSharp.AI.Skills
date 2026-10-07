@@ -1,0 +1,171 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  commentId: T:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  id: MethodExecutionOperationDescriptor
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Arguments
+  - PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method
+  - PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.MethodName
+  - PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.OperationKind
+  - PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Target
+  langs:
+  - csharp
+  - vb
+  name: MethodExecutionOperationDescriptor
+  nameWithType: MethodExecutionOperationDescriptor
+  fullName: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Represents a call to a method in user code.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class MethodExecutionOperationDescriptor : IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class MethodExecutionOperationDescriptor Implements IOperationDescriptor
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Arguments
+  commentId: P:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Arguments
+  id: Arguments
+  parent: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: MethodExecutionOperationDescriptor.Arguments
+  fullName: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Arguments
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the method arguments.
+  remarks: <p>This property is <code>null</code> unless the <xref href="PostSharp.Patterns.Recording.RecordableAttribute.ProvideMethodContext" data-throw-if-not-resolved="false"></xref> property is set to <code>true</code> for the target class.</p>
+  example: []
+  syntax:
+    content: public IList<object> Arguments { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.Object}
+    content.vb: Public ReadOnly Property Arguments As IList(Of Object)
+  overload: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Arguments*
+- uid: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Target
+  commentId: P:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Target
+  id: Target
+  parent: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: MethodExecutionOperationDescriptor.Target
+  fullName: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Target
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the <code>this</code> instance.
+  example: []
+  syntax:
+    content: public object Target { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property Target As Object
+  overload: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Target*
+- uid: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method
+  commentId: P:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method
+  id: Method
+  parent: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: MethodExecutionOperationDescriptor.Method
+  fullName: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the executed method.
+  remarks: <p>This property is <code>null</code> unless the <xref href="PostSharp.Patterns.Recording.RecordableAttribute.ProvideMethodContext" data-throw-if-not-resolved="false"></xref> property is set to <code>true</code> for the target class.</p>
+  example: []
+  syntax:
+    content: public MethodInfo Method { get; }
+    parameters: []
+    return:
+      type: System.Reflection.MethodInfo
+    content.vb: Public ReadOnly Property Method As MethodInfo
+  overload: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method*
+- uid: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.MethodName
+  commentId: P:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.MethodName
+  id: MethodName
+  parent: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: MethodName
+  nameWithType: MethodExecutionOperationDescriptor.MethodName
+  fullName: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.MethodName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the name of the method. This property is set even if the <xref href="PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method" data-throw-if-not-resolved="false"></xref> property is <code>null</code>.
+  example: []
+  syntax:
+    content: public string MethodName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MethodName As String
+  overload: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.MethodName*
+- uid: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: MethodExecutionOperationDescriptor.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public ReadOnly Property OperationKind As OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.OperationKind*
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind

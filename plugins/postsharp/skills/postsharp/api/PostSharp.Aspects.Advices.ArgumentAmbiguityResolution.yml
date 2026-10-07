@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  commentId: T:PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  id: ArgumentAmbiguityResolution
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Default
+  - PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Error
+  - PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.First
+  - PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Last
+  langs:
+  - csharp
+  - vb
+  name: ArgumentAmbiguityResolution
+  nameWithType: ArgumentAmbiguityResolution
+  fullName: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Specifies the behavior of <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref> when several arguments of the target method match the type of the advice parameter.
+  example: []
+  syntax:
+    content: public enum ArgumentAmbiguityResolution
+    content.vb: Public Enum ArgumentAmbiguityResolution
+- uid: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Default
+  commentId: F:PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Default
+  id: Default
+  parent: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ArgumentAmbiguityResolution.Default
+  fullName: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Same as <xref href="PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Error" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+- uid: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Error
+  commentId: F:PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Error
+  id: Error
+  parent: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: ArgumentAmbiguityResolution.Error
+  fullName: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Error
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The compiler reports an error. This is the default behavior.
+  example: []
+  syntax:
+    content: Error = 0
+    return:
+      type: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+- uid: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.First
+  commentId: F:PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.First
+  id: First
+  parent: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  langs:
+  - csharp
+  - vb
+  name: First
+  nameWithType: ArgumentAmbiguityResolution.First
+  fullName: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.First
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The first matching argument, in the order of the parameter list, is selected.
+  example: []
+  syntax:
+    content: First = 1
+    return:
+      type: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+- uid: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Last
+  commentId: F:PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Last
+  id: Last
+  parent: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+  langs:
+  - csharp
+  - vb
+  name: Last
+  nameWithType: ArgumentAmbiguityResolution.Last
+  fullName: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Last
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The last matching argument, in the order of the parameter list, is selected.
+  example: []
+  syntax:
+    content: Last = 2
+    return:
+      type: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution

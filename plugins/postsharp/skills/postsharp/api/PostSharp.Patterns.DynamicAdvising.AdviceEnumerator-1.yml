@@ -1,0 +1,116 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1
+  commentId: T:PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1
+  id: AdviceEnumerator`1
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.Current
+  - PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.GetNext
+  - PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.HasValue
+  langs:
+  - csharp
+  - vb
+  name: AdviceEnumerator<T>
+  nameWithType: AdviceEnumerator<T>
+  fullName: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<T>
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: >-
+    An immutable iterator of dynamic advices (<xref href="PostSharp.Patterns.DynamicAdvising.IDynamicAdvice" data-throw-if-not-resolved="false"></xref>).
+
+    The <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601.GetNext" data-throw-if-not-resolved="false"></xref> method returns a new enumerator instance.
+  example: []
+  syntax:
+    content: 'public readonly struct AdviceEnumerator<T> where T : class, IDynamicAdvice'
+    typeParameters:
+    - id: T
+      description: The advice interface.
+    content.vb: Public Structure AdviceEnumerator(Of T As {Class, IDynamicAdvice})
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: AdviceEnumerator(Of T)
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of T)
+  name.vb: AdviceEnumerator(Of T)
+- uid: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.GetNext
+  commentId: M:PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.GetNext
+  id: GetNext
+  parent: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: GetNext()
+  nameWithType: AdviceEnumerator<T>.GetNext()
+  fullName: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<T>.GetNext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets a new instance of <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601" data-throw-if-not-resolved="false"></xref> that points to the next item.
+  example: []
+  syntax:
+    content: public AdviceEnumerator<T> GetNext()
+    return:
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1
+      description: A new <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601" data-throw-if-not-resolved="false"></xref> that points to the next item.
+    content.vb: Public Function GetNext() As AdviceEnumerator(Of T)
+  overload: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.GetNext*
+  nameWithType.vb: AdviceEnumerator(Of T).GetNext()
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of T).GetNext()
+- uid: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.Current
+  commentId: P:PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.Current
+  id: Current
+  parent: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: AdviceEnumerator<T>.Current
+  fullName: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<T>.Current
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets the current value.
+  example: []
+  syntax:
+    content: public T Current { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property Current As T
+  overload: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.Current*
+  nameWithType.vb: AdviceEnumerator(Of T).Current
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of T).Current
+- uid: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.HasValue
+  commentId: P:PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.HasValue
+  id: HasValue
+  parent: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: HasValue
+  nameWithType: AdviceEnumerator<T>.HasValue
+  fullName: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<T>.HasValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets a value indicating whether the current enumerator has a <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601.Current" data-throw-if-not-resolved="false"></xref> value.
+  example: []
+  syntax:
+    content: public bool HasValue { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property HasValue As Boolean
+  overload: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator`1.HasValue*
+  nameWithType.vb: AdviceEnumerator(Of T).HasValue
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of T).HasValue

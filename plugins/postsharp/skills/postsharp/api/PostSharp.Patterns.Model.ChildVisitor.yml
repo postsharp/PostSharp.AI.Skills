@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.ChildVisitor
+  commentId: T:PostSharp.Patterns.Model.ChildVisitor
+  id: ChildVisitor
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.ChildVisitor.#ctor(System.Object,System.IntPtr)
+  - PostSharp.Patterns.Model.ChildVisitor.BeginInvoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object,System.AsyncCallback,System.Object)
+  - PostSharp.Patterns.Model.ChildVisitor.EndInvoke(System.IAsyncResult)
+  - PostSharp.Patterns.Model.ChildVisitor.Invoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ChildVisitor
+  nameWithType: ChildVisitor
+  fullName: PostSharp.Patterns.Model.ChildVisitor
+  type: Delegate
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Encapsulates a method that is invoked by the <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public delegate bool ChildVisitor(object child, ChildInfo childInfo, object state)
+    parameters:
+    - id: child
+      type: System.Object
+      description: The object being visited.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: Describes the field or other location to which the child is assigned.
+    - id: state
+      type: System.Object
+      description: An opaque state object that was requested to be passed to this delegate.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> to instruct the <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> implementation to continue enumerating other children, <code>false</code> 
+            to instruct the <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> implementation to immediately return the <code>false</code> value without enumerating other children.
+    content.vb: Public Delegate Function ChildVisitor(child As Object, childInfo As ChildInfo, state As Object) As Boolean
+  seealso:
+  - linkId: PostSharp.Patterns.Model.ChildVisitorOptions
+    commentId: T:PostSharp.Patterns.Model.ChildVisitorOptions
+  - linkType: HRef
+    linkId: '@aggregatable-visitor'
+    altText: 'Conceptual: Enumerating Child Objects (Visitor)'
+- uid: PostSharp.Patterns.Model.ChildVisitor.#ctor(System.Object,System.IntPtr)
+  commentId: M:PostSharp.Patterns.Model.ChildVisitor.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: PostSharp.Patterns.Model.ChildVisitor
+  langs:
+  - csharp
+  - vb
+  name: ChildVisitor(object, nint)
+  nameWithType: ChildVisitor.ChildVisitor(object, nint)
+  fullName: PostSharp.Patterns.Model.ChildVisitor.ChildVisitor(object, nint)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public ChildVisitor(object @object, nint method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: PostSharp.Patterns.Model.ChildVisitor.#ctor*
+  nameWithType.vb: ChildVisitor.New(Object, IntPtr)
+  fullName.vb: PostSharp.Patterns.Model.ChildVisitor.New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: PostSharp.Patterns.Model.ChildVisitor.Invoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object)
+  commentId: M:PostSharp.Patterns.Model.ChildVisitor.Invoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object)
+  id: Invoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object)
+  parent: PostSharp.Patterns.Model.ChildVisitor
+  langs:
+  - csharp
+  - vb
+  name: Invoke(object, ChildInfo, object)
+  nameWithType: ChildVisitor.Invoke(object, ChildInfo, object)
+  fullName: PostSharp.Patterns.Model.ChildVisitor.Invoke(object, PostSharp.Patterns.Model.ChildInfo, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public virtual bool Invoke(object child, ChildInfo childInfo, object state)
+    parameters:
+    - id: child
+      type: System.Object
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+    - id: state
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Function Invoke(child As Object, childInfo As ChildInfo, state As Object) As Boolean
+  overload: PostSharp.Patterns.Model.ChildVisitor.Invoke*
+  nameWithType.vb: ChildVisitor.Invoke(Object, ChildInfo, Object)
+  fullName.vb: PostSharp.Patterns.Model.ChildVisitor.Invoke(Object, PostSharp.Patterns.Model.ChildInfo, Object)
+  name.vb: Invoke(Object, ChildInfo, Object)
+- uid: PostSharp.Patterns.Model.ChildVisitor.BeginInvoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object,System.AsyncCallback,System.Object)
+  commentId: M:PostSharp.Patterns.Model.ChildVisitor.BeginInvoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object,System.AsyncCallback,System.Object)
+  id: BeginInvoke(System.Object,PostSharp.Patterns.Model.ChildInfo,System.Object,System.AsyncCallback,System.Object)
+  parent: PostSharp.Patterns.Model.ChildVisitor
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(object, ChildInfo, object, AsyncCallback, object)
+  nameWithType: ChildVisitor.BeginInvoke(object, ChildInfo, object, AsyncCallback, object)
+  fullName: PostSharp.Patterns.Model.ChildVisitor.BeginInvoke(object, PostSharp.Patterns.Model.ChildInfo, object, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(object child, ChildInfo childInfo, object state, AsyncCallback callback, object @object)
+    parameters:
+    - id: child
+      type: System.Object
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+    - id: state
+      type: System.Object
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke(child As Object, childInfo As ChildInfo, state As Object, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: PostSharp.Patterns.Model.ChildVisitor.BeginInvoke*
+  nameWithType.vb: ChildVisitor.BeginInvoke(Object, ChildInfo, Object, AsyncCallback, Object)
+  fullName.vb: PostSharp.Patterns.Model.ChildVisitor.BeginInvoke(Object, PostSharp.Patterns.Model.ChildInfo, Object, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(Object, ChildInfo, Object, AsyncCallback, Object)
+- uid: PostSharp.Patterns.Model.ChildVisitor.EndInvoke(System.IAsyncResult)
+  commentId: M:PostSharp.Patterns.Model.ChildVisitor.EndInvoke(System.IAsyncResult)
+  id: EndInvoke(System.IAsyncResult)
+  parent: PostSharp.Patterns.Model.ChildVisitor
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(IAsyncResult)
+  nameWithType: ChildVisitor.EndInvoke(IAsyncResult)
+  fullName: PostSharp.Patterns.Model.ChildVisitor.EndInvoke(System.IAsyncResult)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public virtual bool EndInvoke(IAsyncResult result)
+    parameters:
+    - id: result
+      type: System.IAsyncResult
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Function EndInvoke(result As IAsyncResult) As Boolean
+  overload: PostSharp.Patterns.Model.ChildVisitor.EndInvoke*

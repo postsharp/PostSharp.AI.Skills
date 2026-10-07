@@ -1,0 +1,293 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Internals.ArgumentsArray
+  commentId: T:PostSharp.Aspects.Internals.ArgumentsArray
+  id: ArgumentsArray
+  parent: PostSharp.Aspects.Internals
+  children:
+  - PostSharp.Aspects.Internals.ArgumentsArray.#ctor(System.Object[])
+  - PostSharp.Aspects.Internals.ArgumentsArray.Arguments
+  - PostSharp.Aspects.Internals.ArgumentsArray.CopyFrom(System.Object[],System.Int32)
+  - PostSharp.Aspects.Internals.ArgumentsArray.CopyTo(System.Object[],System.Int32)
+  - PostSharp.Aspects.Internals.ArgumentsArray.GetArgument(System.Int32)
+  - PostSharp.Aspects.Internals.ArgumentsArray.SetArgument(System.Int32,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ArgumentsArray
+  nameWithType: ArgumentsArray
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: >-
+    Implements <xref href="PostSharp.Aspects.Arguments" data-throw-if-not-resolved="false"></xref> for a
+
+    list of arguments of any length and type.
+  remarks: >-
+    Unlike the generic implementations of
+
+    <xref href="PostSharp.Aspects.Arguments" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Internals.ArgumentsArray" data-throw-if-not-resolved="false"></xref> boxes all arguments
+
+    into an <xref href="System.Array" data-throw-if-not-resolved="false"></xref>. This results in lower performance and higher memory usage.
+  example: []
+  syntax:
+    content: >-
+      [Internal]
+
+      public sealed class ArgumentsArray : Arguments, IList<object>, ICollection<object>, IEnumerable<object>, IEnumerable, ICloneable
+    content.vb: >-
+      <Internal>
+
+      Public NotInheritable Class ArgumentsArray Inherits Arguments Implements IList(Of Object), ICollection(Of Object), IEnumerable(Of Object), IEnumerable, ICloneable
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Arguments
+  implements:
+  - System.Collections.Generic.IList{System.Object}
+  - System.Collections.Generic.ICollection{System.Object}
+  - System.Collections.Generic.IEnumerable{System.Object}
+  - System.Collections.IEnumerable
+  - System.ICloneable
+  inheritedMembers:
+  - PostSharp.Aspects.Arguments.Empty
+  - PostSharp.Aspects.Arguments.ToArray
+  - PostSharp.Aspects.Arguments.Clone
+  - PostSharp.Aspects.Arguments.Create``1({T})
+  - PostSharp.Aspects.Arguments.Create``2({T0},{T1})
+  - PostSharp.Aspects.Arguments.Create``3({T0},{T1},{T2})
+  - PostSharp.Aspects.Arguments.Create``4({T0},{T1},{T2},{T3})
+  - PostSharp.Aspects.Arguments.Create``5({T0},{T1},{T2},{T3},{T4})
+  - PostSharp.Aspects.Arguments.Create``6({T0},{T1},{T2},{T3},{T4},{T5})
+  - PostSharp.Aspects.Arguments.Create``7({T0},{T1},{T2},{T3},{T4},{T5},{T6})
+  - PostSharp.Aspects.Arguments.Create``8({T0},{T1},{T2},{T3},{T4},{T5},{T6},{T7})
+  - PostSharp.Aspects.Arguments.Create(System.Object[])
+  - PostSharp.Aspects.Arguments.GetEnumerator
+  - PostSharp.Aspects.Arguments.Count
+  - PostSharp.Aspects.Arguments.Item(System.Int32)
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Constraints.InternalAttribute
+    ctor: PostSharp.Constraints.InternalAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.Internals.ArgumentsArray.#ctor(System.Object[])
+  commentId: M:PostSharp.Aspects.Internals.ArgumentsArray.#ctor(System.Object[])
+  id: '#ctor(System.Object[])'
+  parent: PostSharp.Aspects.Internals.ArgumentsArray
+  langs:
+  - csharp
+  - vb
+  name: ArgumentsArray(object[])
+  nameWithType: ArgumentsArray.ArgumentsArray(object[])
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray.ArgumentsArray(object[])
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Internals.ArgumentsArray" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ArgumentsArray(object[] arguments)
+    parameters:
+    - id: arguments
+      type: System.Object[]
+      description: The <xref href="System.Array" data-throw-if-not-resolved="false"></xref> that contains the argument values.
+    content.vb: Public Sub New(arguments As Object())
+  overload: PostSharp.Aspects.Internals.ArgumentsArray.#ctor*
+  nameWithType.vb: ArgumentsArray.New(Object())
+  fullName.vb: PostSharp.Aspects.Internals.ArgumentsArray.New(Object())
+  name.vb: New(Object())
+- uid: PostSharp.Aspects.Internals.ArgumentsArray.GetArgument(System.Int32)
+  commentId: M:PostSharp.Aspects.Internals.ArgumentsArray.GetArgument(System.Int32)
+  id: GetArgument(System.Int32)
+  parent: PostSharp.Aspects.Internals.ArgumentsArray
+  langs:
+  - csharp
+  - vb
+  name: GetArgument(int)
+  nameWithType: ArgumentsArray.GetArgument(int)
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray.GetArgument(int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: Gets the value of the argument at a given index.
+  example: []
+  syntax:
+    content: public override object GetArgument(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The index of the argument.
+    return:
+      type: System.Object
+      description: The value of the argument at position <code class="paramref">index</code>.
+    content.vb: Public Overrides Function GetArgument(index As Integer) As Object
+  overridden: PostSharp.Aspects.Arguments.GetArgument(System.Int32)
+  overload: PostSharp.Aspects.Internals.ArgumentsArray.GetArgument*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">index</code> is less than zero or greater than or equal to <xref href="PostSharp.Aspects.Arguments.Count" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: ArgumentsArray.GetArgument(Integer)
+  fullName.vb: PostSharp.Aspects.Internals.ArgumentsArray.GetArgument(Integer)
+  name.vb: GetArgument(Integer)
+- uid: PostSharp.Aspects.Internals.ArgumentsArray.SetArgument(System.Int32,System.Object)
+  commentId: M:PostSharp.Aspects.Internals.ArgumentsArray.SetArgument(System.Int32,System.Object)
+  id: SetArgument(System.Int32,System.Object)
+  parent: PostSharp.Aspects.Internals.ArgumentsArray
+  langs:
+  - csharp
+  - vb
+  name: SetArgument(int, object)
+  nameWithType: ArgumentsArray.SetArgument(int, object)
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray.SetArgument(int, object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: >-
+    Sets the value of the <code>ref</code> or <code>out</code> argument at a given index. Replacing an argument value is supported only in some advices
+
+    and is silently ignored in unsupported scenarios. See Remarks for details.
+  remarks: >-
+    <p>
+        Replacing a parameter value is supported in the following scenarios:
+        </p>
+    <ul><li>In <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> advices, to replace
+                    the value of <code>ref</code> and <code>out</code> parameters.</li><li>In any interception advice (such as <xref href="PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>),
+            to set the value passed to the next node in the chain of responsibility, or the value of <code>ref</code> and <code>out</code> parameters.
+            </li></ul>
+    <p>
+        Setting the value in a different situation is unsupported and has unspecified behavior.
+        </p>
+  example: []
+  syntax:
+    content: public override void SetArgument(int index, object value)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The index of the argument.
+    - id: value
+      type: System.Object
+      description: The new value of the <code>ref</code> or <code>out</code> argument at position <code class="paramref">index</code>.
+    content.vb: Public Overrides Sub SetArgument(index As Integer, value As Object)
+  overridden: PostSharp.Aspects.Arguments.SetArgument(System.Int32,System.Object)
+  overload: PostSharp.Aspects.Internals.ArgumentsArray.SetArgument*
+  exceptions:
+  - type: System.InvalidCastException
+    commentId: T:System.InvalidCastException
+    description: >-
+      <code class="paramref">value</code> is not assignable to the parameter
+            at position <code class="paramref">index</code>.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">index</code> is less than zero or greater than or equal to <xref href="PostSharp.Aspects.Arguments.Count" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: ArgumentsArray.SetArgument(Integer, Object)
+  fullName.vb: PostSharp.Aspects.Internals.ArgumentsArray.SetArgument(Integer, Object)
+  name.vb: SetArgument(Integer, Object)
+- uid: PostSharp.Aspects.Internals.ArgumentsArray.CopyFrom(System.Object[],System.Int32)
+  commentId: M:PostSharp.Aspects.Internals.ArgumentsArray.CopyFrom(System.Object[],System.Int32)
+  id: CopyFrom(System.Object[],System.Int32)
+  parent: PostSharp.Aspects.Internals.ArgumentsArray
+  langs:
+  - csharp
+  - vb
+  name: CopyFrom(object[], int)
+  nameWithType: ArgumentsArray.CopyFrom(object[], int)
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray.CopyFrom(object[], int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: Copies all the argument values from the elements of an <xref href="System.Array" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override void CopyFrom(object[] array, int index)
+    parameters:
+    - id: array
+      type: System.Object[]
+      description: The array that is the source of the argument values copied into the current <xref href="PostSharp.Aspects.Arguments" data-throw-if-not-resolved="false"></xref>.
+    - id: index
+      type: System.Int32
+      description: An integer that represents the index in <code class="paramref">array</code> at which copying begins.
+    content.vb: Public Overrides Sub CopyFrom(array As Object(), index As Integer)
+  overridden: PostSharp.Aspects.Arguments.CopyFrom(System.Object[],System.Int32)
+  overload: PostSharp.Aspects.Internals.ArgumentsArray.CopyFrom*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">array</code> is <code>null</code>.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">index</code> is less than zero.
+  seealso:
+  - linkId: PostSharp.Aspects.Arguments.CopyTo(System.Object[],System.Int32)
+    commentId: M:PostSharp.Aspects.Arguments.CopyTo(System.Object[],System.Int32)
+  nameWithType.vb: ArgumentsArray.CopyFrom(Object(), Integer)
+  fullName.vb: PostSharp.Aspects.Internals.ArgumentsArray.CopyFrom(Object(), Integer)
+  name.vb: CopyFrom(Object(), Integer)
+- uid: PostSharp.Aspects.Internals.ArgumentsArray.CopyTo(System.Object[],System.Int32)
+  commentId: M:PostSharp.Aspects.Internals.ArgumentsArray.CopyTo(System.Object[],System.Int32)
+  id: CopyTo(System.Object[],System.Int32)
+  parent: PostSharp.Aspects.Internals.ArgumentsArray
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(object[], int)
+  nameWithType: ArgumentsArray.CopyTo(object[], int)
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray.CopyTo(object[], int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: Copies all argument values to the specified <xref href="System.Array" data-throw-if-not-resolved="false"></xref>, starting at the specified index of the destination <xref href="System.Array" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override void CopyTo(object[] array, int index)
+    parameters:
+    - id: array
+      type: System.Object[]
+      description: The array that is the destination of argument values copied from the current <xref href="PostSharp.Aspects.Arguments" data-throw-if-not-resolved="false"></xref>.
+    - id: index
+      type: System.Int32
+      description: An integer that represents the index in <code class="paramref">array</code> at which copying begins.
+    content.vb: Public Overrides Sub CopyTo(array As Object(), index As Integer)
+  overridden: PostSharp.Aspects.Arguments.CopyTo(System.Object[],System.Int32)
+  overload: PostSharp.Aspects.Internals.ArgumentsArray.CopyTo*
+  seealso:
+  - linkId: PostSharp.Aspects.Arguments.CopyFrom(System.Object[],System.Int32)
+    commentId: M:PostSharp.Aspects.Arguments.CopyFrom(System.Object[],System.Int32)
+  nameWithType.vb: ArgumentsArray.CopyTo(Object(), Integer)
+  fullName.vb: PostSharp.Aspects.Internals.ArgumentsArray.CopyTo(Object(), Integer)
+  name.vb: CopyTo(Object(), Integer)
+- uid: PostSharp.Aspects.Internals.ArgumentsArray.Arguments
+  commentId: P:PostSharp.Aspects.Internals.ArgumentsArray.Arguments
+  id: Arguments
+  parent: PostSharp.Aspects.Internals.ArgumentsArray
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: ArgumentsArray.Arguments
+  fullName: PostSharp.Aspects.Internals.ArgumentsArray.Arguments
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Internals
+  summary: Gets or sets the underlying array of arguments.
+  remarks: When you set this property, the new <xref href="System.Array" data-throw-if-not-resolved="false"></xref> must have the same length as the previous one.
+  example: []
+  syntax:
+    content: public object[] Arguments { get; set; }
+    parameters: []
+    return:
+      type: System.Object[]
+    content.vb: Public Property Arguments As Object()
+  overload: PostSharp.Aspects.Internals.ArgumentsArray.Arguments*

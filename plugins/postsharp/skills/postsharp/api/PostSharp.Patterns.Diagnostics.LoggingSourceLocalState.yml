@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingSourceLocalState
+  id: LoggingSourceLocalState
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Source
+  langs:
+  - csharp
+  - vb
+  name: LoggingSourceLocalState
+  nameWithType: LoggingSourceLocalState
+  fullName: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Stores the state of a <xref href="PostSharp.Patterns.Diagnostics.LoggingAbstractSource" data-throw-if-not-resolved="false"></xref> for the current execution context.
+  example: []
+  syntax:
+    content: public readonly struct LoggingSourceLocalState
+    content.vb: Public Structure LoggingSourceLocalState
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled(LogLevel)
+  nameWithType: LoggingSourceLocalState.IsEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Determines whether logging is enabled for a specified <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool IsEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if logging is enabled, otherwise <code>false</code>.
+    content.vb: Public Function IsEnabled(level As LogLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.IsEnabled*
+- uid: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Source
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Source
+  id: Source
+  parent: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: LoggingSourceLocalState.Source
+  fullName: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Source
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the resolved <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingTypeSource Source { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Public ReadOnly Property Source As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Source*
+- uid: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Backend
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: LoggingSourceLocalState.Backend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the resolved <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingBackend Backend { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+    content.vb: Public ReadOnly Property Backend As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.LoggingSourceLocalState.Backend*

@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  id: CacheItemRemovedReason
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Evicted
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Expired
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Invalidated
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Other
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Removed
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Replaced
+  langs:
+  - csharp
+  - vb
+  name: CacheItemRemovedReason
+  nameWithType: CacheItemRemovedReason
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Enumerates the reasons why an item can be removed from the cache.
+  example: []
+  syntax:
+    content: public enum CacheItemRemovedReason
+    content.vb: Public Enum CacheItemRemovedReason
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Removed
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Removed
+  id: Removed
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  langs:
+  - csharp
+  - vb
+  name: Removed
+  nameWithType: CacheItemRemovedReason.Removed
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Removed
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Directly removed from the cache, by calling the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)" data-throw-if-not-resolved="false"></xref> method, or an invalidation method that invalidates
+
+    a cached method directly (not indirectly through dependencies).
+  example: []
+  syntax:
+    content: Removed = 0
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Expired
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Expired
+  id: Expired
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  langs:
+  - csharp
+  - vb
+  name: Expired
+  nameWithType: CacheItemRemovedReason.Expired
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Expired
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Removed because of <xref href="PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration.AbsoluteExpiration" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration.SlidingExpiration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Expired = 1
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Evicted
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Evicted
+  id: Evicted
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  langs:
+  - csharp
+  - vb
+  name: Evicted
+  nameWithType: CacheItemRemovedReason.Evicted
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Evicted
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Evicted to make space for newer cache items.
+  example: []
+  syntax:
+    content: Evicted = 2
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Invalidated
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Invalidated
+  id: Invalidated
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  langs:
+  - csharp
+  - vb
+  name: Invalidated
+  nameWithType: CacheItemRemovedReason.Invalidated
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Invalidated
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Indirectly invalidated (through dependencies).
+  example: []
+  syntax:
+    content: Invalidated = 3
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Other
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Other
+  id: Other
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  langs:
+  - csharp
+  - vb
+  name: Other
+  nameWithType: CacheItemRemovedReason.Other
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Other
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Any other reason, or a reason that cannot be determined.
+  example: []
+  syntax:
+    content: Other = 4
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Replaced
+  commentId: F:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Replaced
+  id: Replaced
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+  langs:
+  - csharp
+  - vb
+  name: Replaced
+  nameWithType: CacheItemRemovedReason.Replaced
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason.Replaced
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: The item value has been replaced.
+  example: []
+  syntax:
+    content: Replaced = 5
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason

@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ConstructorDepth
+  commentId: T:PostSharp.Aspects.ConstructorDepth
+  id: ConstructorDepth
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ConstructorDepth.Increment
+  - PostSharp.Aspects.ConstructorDepth.IsZero
+  - PostSharp.Aspects.ConstructorDepth.ToString
+  - PostSharp.Aspects.ConstructorDepth.Zero
+  langs:
+  - csharp
+  - vb
+  name: ConstructorDepth
+  nameWithType: ConstructorDepth
+  fullName: PostSharp.Aspects.ConstructorDepth
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: System type used in the implementation of the <xref href="PostSharp.Aspects.Advices.OnInstanceConstructedAdvice" data-throw-if-not-resolved="false"></xref>. Do not use this type in user code.
+  example: []
+  syntax:
+    content: >-
+      [Internal]
+
+      public struct ConstructorDepth
+    content.vb: >-
+      <Internal>
+
+      Public Structure ConstructorDepth
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Constraints.InternalAttribute
+    ctor: PostSharp.Constraints.InternalAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.ConstructorDepth.Increment
+  commentId: M:PostSharp.Aspects.ConstructorDepth.Increment
+  id: Increment
+  parent: PostSharp.Aspects.ConstructorDepth
+  langs:
+  - csharp
+  - vb
+  name: Increment()
+  nameWithType: ConstructorDepth.Increment()
+  fullName: PostSharp.Aspects.ConstructorDepth.Increment()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Creates a new instance of the <xref href="PostSharp.Aspects.ConstructorDepth" data-throw-if-not-resolved="false"></xref> type with a depth level that is one more than the current one.
+  example: []
+  syntax:
+    content: public ConstructorDepth Increment()
+    return:
+      type: PostSharp.Aspects.ConstructorDepth
+      description: A new <xref href="PostSharp.Aspects.ConstructorDepth" data-throw-if-not-resolved="false"></xref>, incremented by one from the current <xref href="PostSharp.Aspects.ConstructorDepth" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function Increment() As ConstructorDepth
+  overload: PostSharp.Aspects.ConstructorDepth.Increment*
+- uid: PostSharp.Aspects.ConstructorDepth.ToString
+  commentId: M:PostSharp.Aspects.ConstructorDepth.ToString
+  id: ToString
+  parent: PostSharp.Aspects.ConstructorDepth
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ConstructorDepth.ToString()
+  fullName: PostSharp.Aspects.ConstructorDepth.ToString()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PostSharp.Aspects.ConstructorDepth.ToString*
+- uid: PostSharp.Aspects.ConstructorDepth.IsZero
+  commentId: P:PostSharp.Aspects.ConstructorDepth.IsZero
+  id: IsZero
+  parent: PostSharp.Aspects.ConstructorDepth
+  langs:
+  - csharp
+  - vb
+  name: IsZero
+  nameWithType: ConstructorDepth.IsZero
+  fullName: PostSharp.Aspects.ConstructorDepth.IsZero
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets a value indicating whether the current depth is zero.
+  example: []
+  syntax:
+    content: public bool IsZero { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsZero As Boolean
+  overload: PostSharp.Aspects.ConstructorDepth.IsZero*
+- uid: PostSharp.Aspects.ConstructorDepth.Zero
+  commentId: P:PostSharp.Aspects.ConstructorDepth.Zero
+  id: Zero
+  parent: PostSharp.Aspects.ConstructorDepth
+  langs:
+  - csharp
+  - vb
+  name: Zero
+  nameWithType: ConstructorDepth.Zero
+  fullName: PostSharp.Aspects.ConstructorDepth.Zero
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets a <xref href="PostSharp.Aspects.ConstructorDepth" data-throw-if-not-resolved="false"></xref> instance representing zero.
+  example: []
+  syntax:
+    content: public static ConstructorDepth Zero { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.ConstructorDepth
+    content.vb: Public Shared ReadOnly Property Zero As ConstructorDepth
+  overload: PostSharp.Aspects.ConstructorDepth.Zero*

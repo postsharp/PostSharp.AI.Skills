@@ -1,0 +1,163 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ValueTypeSerializer`1
+  commentId: T:PostSharp.Serialization.ValueTypeSerializer`1
+  id: ValueTypeSerializer`1
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ValueTypeSerializer`1.#ctor
+  - PostSharp.Serialization.ValueTypeSerializer`1.Convert(System.Object,System.Type)
+  - PostSharp.Serialization.ValueTypeSerializer`1.DeserializeObject(PostSharp.Serialization.IArgumentsReader)
+  - PostSharp.Serialization.ValueTypeSerializer`1.SerializeObject(`0,PostSharp.Serialization.IArgumentsWriter)
+  langs:
+  - csharp
+  - vb
+  name: ValueTypeSerializer<T>
+  nameWithType: ValueTypeSerializer<T>
+  fullName: PostSharp.Serialization.ValueTypeSerializer<T>
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Base serializer for all value types.
+  example: []
+  syntax:
+    content: 'public abstract class ValueTypeSerializer<T> : ISerializer where T : struct'
+    typeParameters:
+    - id: T
+    content.vb: Public MustInherit Class ValueTypeSerializer(Of T As Structure) Implements ISerializer
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Model.RelationshipInfo.Serializer
+  implements:
+  - PostSharp.Serialization.ISerializer
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: ValueTypeSerializer(Of T)
+  fullName.vb: PostSharp.Serialization.ValueTypeSerializer(Of T)
+  name.vb: ValueTypeSerializer(Of T)
+- uid: PostSharp.Serialization.ValueTypeSerializer`1.SerializeObject(`0,PostSharp.Serialization.IArgumentsWriter)
+  commentId: M:PostSharp.Serialization.ValueTypeSerializer`1.SerializeObject(`0,PostSharp.Serialization.IArgumentsWriter)
+  id: SerializeObject(`0,PostSharp.Serialization.IArgumentsWriter)
+  parent: PostSharp.Serialization.ValueTypeSerializer`1
+  langs:
+  - csharp
+  - vb
+  name: SerializeObject(T, IArgumentsWriter)
+  nameWithType: ValueTypeSerializer<T>.SerializeObject(T, IArgumentsWriter)
+  fullName: PostSharp.Serialization.ValueTypeSerializer<T>.SerializeObject(T, PostSharp.Serialization.IArgumentsWriter)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Serializes an object.
+  example: []
+  syntax:
+    content: public abstract void SerializeObject(T obj, IArgumentsWriter constructorArguments)
+    parameters:
+    - id: obj
+      type: '{T}'
+      description: The object to serialize.
+    - id: constructorArguments
+      type: PostSharp.Serialization.IArgumentsWriter
+      description: Gives access to arguments that will be passed to the <xref href="PostSharp.Serialization.ValueTypeSerializer%601.DeserializeObject(PostSharp.Serialization.IArgumentsReader)" data-throw-if-not-resolved="false"></xref> method during deserialization.
+    content.vb: Public MustOverride Sub SerializeObject(obj As T, constructorArguments As IArgumentsWriter)
+  overload: PostSharp.Serialization.ValueTypeSerializer`1.SerializeObject*
+  nameWithType.vb: ValueTypeSerializer(Of T).SerializeObject(T, IArgumentsWriter)
+  fullName.vb: PostSharp.Serialization.ValueTypeSerializer(Of T).SerializeObject(T, PostSharp.Serialization.IArgumentsWriter)
+- uid: PostSharp.Serialization.ValueTypeSerializer`1.DeserializeObject(PostSharp.Serialization.IArgumentsReader)
+  commentId: M:PostSharp.Serialization.ValueTypeSerializer`1.DeserializeObject(PostSharp.Serialization.IArgumentsReader)
+  id: DeserializeObject(PostSharp.Serialization.IArgumentsReader)
+  parent: PostSharp.Serialization.ValueTypeSerializer`1
+  langs:
+  - csharp
+  - vb
+  name: DeserializeObject(IArgumentsReader)
+  nameWithType: ValueTypeSerializer<T>.DeserializeObject(IArgumentsReader)
+  fullName: PostSharp.Serialization.ValueTypeSerializer<T>.DeserializeObject(PostSharp.Serialization.IArgumentsReader)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Creates an instance of the given type.
+  example: []
+  syntax:
+    content: public abstract T DeserializeObject(IArgumentsReader constructorArguments)
+    parameters:
+    - id: constructorArguments
+      type: PostSharp.Serialization.IArgumentsReader
+      description: Gives access to arguments required to create the instance.
+    return:
+      type: '{T}'
+      description: An instance of type <code class="typeparamref">T</code> initialized using <code class="paramref">constructorArguments</code>.
+    content.vb: Public MustOverride Function DeserializeObject(constructorArguments As IArgumentsReader) As T
+  overload: PostSharp.Serialization.ValueTypeSerializer`1.DeserializeObject*
+  nameWithType.vb: ValueTypeSerializer(Of T).DeserializeObject(IArgumentsReader)
+  fullName.vb: PostSharp.Serialization.ValueTypeSerializer(Of T).DeserializeObject(PostSharp.Serialization.IArgumentsReader)
+- uid: PostSharp.Serialization.ValueTypeSerializer`1.Convert(System.Object,System.Type)
+  commentId: M:PostSharp.Serialization.ValueTypeSerializer`1.Convert(System.Object,System.Type)
+  id: Convert(System.Object,System.Type)
+  parent: PostSharp.Serialization.ValueTypeSerializer`1
+  langs:
+  - csharp
+  - vb
+  name: Convert(object, Type)
+  nameWithType: ValueTypeSerializer<T>.Convert(object, Type)
+  fullName: PostSharp.Serialization.ValueTypeSerializer<T>.Convert(object, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Converts a value into a given target type.
+  remarks: >-
+    <p>This method allows for additional flexibility if the serialization-time type is
+                    not equal to the deserialization-time type. The current method is invoked
+        at deserialization time to perform the conversion.</p>
+  example: []
+  syntax:
+    content: public virtual object Convert(object value, Type targetType)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be converted.
+    - id: targetType
+      type: System.Type
+      description: The target type.
+    return:
+      type: System.Object
+      description: The <code class="paramref">value</code> converted to <code class="paramref">targetType</code>.
+    content.vb: Public Overridable Function Convert(value As Object, targetType As Type) As Object
+  overload: PostSharp.Serialization.ValueTypeSerializer`1.Convert*
+  implements:
+  - PostSharp.Serialization.ISerializer.Convert(System.Object,System.Type)
+  nameWithType.vb: ValueTypeSerializer(Of T).Convert(Object, Type)
+  fullName.vb: PostSharp.Serialization.ValueTypeSerializer(Of T).Convert(Object, System.Type)
+  name.vb: Convert(Object, Type)
+- uid: PostSharp.Serialization.ValueTypeSerializer`1.#ctor
+  commentId: M:PostSharp.Serialization.ValueTypeSerializer`1.#ctor
+  id: '#ctor'
+  parent: PostSharp.Serialization.ValueTypeSerializer`1
+  langs:
+  - csharp
+  - vb
+  name: ValueTypeSerializer()
+  nameWithType: ValueTypeSerializer<T>.ValueTypeSerializer()
+  fullName: PostSharp.Serialization.ValueTypeSerializer<T>.ValueTypeSerializer()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  syntax:
+    content: protected ValueTypeSerializer()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Serialization.ValueTypeSerializer`1.#ctor*
+  nameWithType.vb: ValueTypeSerializer(Of T).New()
+  fullName.vb: PostSharp.Serialization.ValueTypeSerializer(Of T).New()
+  name.vb: New()

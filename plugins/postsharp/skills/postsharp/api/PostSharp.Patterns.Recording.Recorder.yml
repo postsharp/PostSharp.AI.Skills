@@ -1,0 +1,669 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Recorder
+  commentId: T:PostSharp.Patterns.Recording.Recorder
+  id: Recorder
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.Recorder.#ctor
+  - PostSharp.Patterns.Recording.Recorder.#ctor(System.Object)
+  - PostSharp.Patterns.Recording.Recorder.AddOperation(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.Recorder.AddRestorePoint(System.String)
+  - PostSharp.Patterns.Recording.Recorder.Attach(System.Object)
+  - PostSharp.Patterns.Recording.Recorder.CanAddRestorePoint
+  - PostSharp.Patterns.Recording.Recorder.CanRedo
+  - PostSharp.Patterns.Recording.Recorder.CanUndo
+  - PostSharp.Patterns.Recording.Recorder.ChildPropertyChanged
+  - PostSharp.Patterns.Recording.Recorder.ChildPropertyChanging
+  - PostSharp.Patterns.Recording.Recorder.Clear
+  - PostSharp.Patterns.Recording.Recorder.Detach(System.Object)
+  - PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount
+  - PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+  - PostSharp.Patterns.Recording.Recorder.OpenScope(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  - PostSharp.Patterns.Recording.Recorder.PropertyChanged
+  - PostSharp.Patterns.Recording.Recorder.Redo
+  - PostSharp.Patterns.Recording.Recorder.RedoOperations
+  - PostSharp.Patterns.Recording.Recorder.RedoTo(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.Recorder.Undo
+  - PostSharp.Patterns.Recording.Recorder.UndoOperations
+  - PostSharp.Patterns.Recording.Recorder.UndoTo(PostSharp.Patterns.Recording.Operation)
+  langs:
+  - csharp
+  - vb
+  name: Recorder
+  nameWithType: Recorder
+  fullName: PostSharp.Patterns.Recording.Recorder
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Records changes made to an object model and allows you to undo and redo them.
+  remarks: >-
+    <p>An application typically uses a single recorder, exposed by the <xref href="PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder" data-throw-if-not-resolved="false"></xref> property, but you can
+        create several, for instance one per document.</p>
+    <p>The <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref> collections hold strong references to the objects whose changes
+        they contain, which prevents these objects from being garbage collected. Use the <xref href="PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount" data-throw-if-not-resolved="false"></xref> property to limit
+        the number of operations.</p>
+    <p>Do not modify objects that share a recorder concurrently from several threads.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class Recorder : INotifyPropertyChanged
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class Recorder Implements INotifyPropertyChanged
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-conceptual'
+    altText: 'Conceptual: Understanding the Recordable Aspect'
+  - linkType: HRef
+    linkId: '@undoredo-ui'
+    altText: 'Conceptual: Adding Undo/Redo to the User Interface'
+  inheritance:
+  - System.Object
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Recorder.#ctor
+  commentId: M:PostSharp.Patterns.Recording.Recorder.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Recorder()
+  nameWithType: Recorder.Recorder()
+  fullName: PostSharp.Patterns.Recording.Recorder.Recorder()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public Recorder()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Recording.Recorder.#ctor*
+  nameWithType.vb: Recorder.New()
+  fullName.vb: PostSharp.Patterns.Recording.Recorder.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Recording.Recorder.#ctor(System.Object)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Recorder(object)
+  nameWithType: Recorder.Recorder(object)
+  fullName: PostSharp.Patterns.Recording.Recorder.Recorder(object)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> class and attaches it to a given object.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> created using this constructor will be private to its <code class="paramref">owner</code>, that is, no object other
+        than <code class="paramref">owner</code> and descendants of <code class="paramref">owner</code> will be allowed to be attached to this <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public Recorder(object owner)
+    parameters:
+    - id: owner
+      type: System.Object
+      description: The object to which the new <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> should be attached.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub New(owner As Object)
+  overload: PostSharp.Patterns.Recording.Recorder.#ctor*
+  nameWithType.vb: Recorder.New(Object)
+  fullName.vb: PostSharp.Patterns.Recording.Recorder.New(Object)
+  name.vb: New(Object)
+- uid: PostSharp.Patterns.Recording.Recorder.AddOperation(PostSharp.Patterns.Recording.Operation)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.AddOperation(PostSharp.Patterns.Recording.Operation)
+  id: AddOperation(PostSharp.Patterns.Recording.Operation)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: AddOperation(Operation)
+  nameWithType: Recorder.AddOperation(Operation)
+  fullName: PostSharp.Patterns.Recording.Recorder.AddOperation(PostSharp.Patterns.Recording.Operation)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Adds a new <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> to the <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> collection of the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void AddOperation(Operation operation)
+    parameters:
+    - id: operation
+      type: PostSharp.Patterns.Recording.Operation
+      description: The operation.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub AddOperation(operation As Operation)
+  overload: PostSharp.Patterns.Recording.Recorder.AddOperation*
+- uid: PostSharp.Patterns.Recording.Recorder.AddRestorePoint(System.String)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.AddRestorePoint(System.String)
+  id: AddRestorePoint(System.String)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: AddRestorePoint(string)
+  nameWithType: Recorder.AddRestorePoint(string)
+  fullName: PostSharp.Patterns.Recording.Recorder.AddRestorePoint(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Adds a new restore point with the given name.
+  remarks: >-
+    <p>A <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref> can be used as an argument to the <xref href="PostSharp.Patterns.Recording.Recorder.UndoTo(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.Recorder.RedoTo(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref> method.</p>
+
+    <p>To remove a <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref> from <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref>, call the <xref href="PostSharp.Patterns.Recording.RestorePoint.Remove" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: public RestorePoint AddRestorePoint(string name = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the restore point, or <code>null</code> to create an unnamed restore point.
+    return:
+      type: PostSharp.Patterns.Recording.RestorePoint
+      description: The newly created <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function AddRestorePoint(name As String = Nothing) As RestorePoint
+  overload: PostSharp.Patterns.Recording.Recorder.AddRestorePoint*
+  nameWithType.vb: Recorder.AddRestorePoint(String)
+  fullName.vb: PostSharp.Patterns.Recording.Recorder.AddRestorePoint(String)
+  name.vb: AddRestorePoint(String)
+- uid: PostSharp.Patterns.Recording.Recorder.Undo
+  commentId: M:PostSharp.Patterns.Recording.Recorder.Undo
+  id: Undo
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Undo()
+  nameWithType: Recorder.Undo()
+  fullName: PostSharp.Patterns.Recording.Recorder.Undo()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Undoes the last operation.
+  example: []
+  syntax:
+    content: public void Undo()
+    content.vb: Public Sub Undo()
+  overload: PostSharp.Patterns.Recording.Recorder.Undo*
+- uid: PostSharp.Patterns.Recording.Recorder.UndoTo(PostSharp.Patterns.Recording.Operation)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.UndoTo(PostSharp.Patterns.Recording.Operation)
+  id: UndoTo(PostSharp.Patterns.Recording.Operation)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: UndoTo(Operation)
+  nameWithType: Recorder.UndoTo(Operation)
+  fullName: PostSharp.Patterns.Recording.Recorder.UndoTo(PostSharp.Patterns.Recording.Operation)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Undoes all operations up to the specified <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void UndoTo(Operation operation)
+    parameters:
+    - id: operation
+      type: PostSharp.Patterns.Recording.Operation
+      description: The operation.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub UndoTo(operation As Operation)
+  overload: PostSharp.Patterns.Recording.Recorder.UndoTo*
+- uid: PostSharp.Patterns.Recording.Recorder.Redo
+  commentId: M:PostSharp.Patterns.Recording.Recorder.Redo
+  id: Redo
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Redo()
+  nameWithType: Recorder.Redo()
+  fullName: PostSharp.Patterns.Recording.Recorder.Redo()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Redoes the last operation.
+  example: []
+  syntax:
+    content: public void Redo()
+    content.vb: Public Sub Redo()
+  overload: PostSharp.Patterns.Recording.Recorder.Redo*
+- uid: PostSharp.Patterns.Recording.Recorder.RedoTo(PostSharp.Patterns.Recording.Operation)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.RedoTo(PostSharp.Patterns.Recording.Operation)
+  id: RedoTo(PostSharp.Patterns.Recording.Operation)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: RedoTo(Operation)
+  nameWithType: Recorder.RedoTo(Operation)
+  fullName: PostSharp.Patterns.Recording.Recorder.RedoTo(PostSharp.Patterns.Recording.Operation)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Redoes all operations up to the specified operation.
+  example: []
+  syntax:
+    content: public void RedoTo(Operation operation)
+    parameters:
+    - id: operation
+      type: PostSharp.Patterns.Recording.Operation
+      description: The operation.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub RedoTo(operation As Operation)
+  overload: PostSharp.Patterns.Recording.Recorder.RedoTo*
+- uid: PostSharp.Patterns.Recording.Recorder.Clear
+  commentId: M:PostSharp.Patterns.Recording.Recorder.Clear
+  id: Clear
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: Recorder.Clear()
+  fullName: PostSharp.Patterns.Recording.Recorder.Clear()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Clears the undo and redo lists.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: PostSharp.Patterns.Recording.Recorder.Clear*
+- uid: PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+  id: OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: OpenScope(RecordingScopeOption)
+  nameWithType: Recorder.OpenScope(RecordingScopeOption)
+  fullName: PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Opens an unnamed <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>The name of the scope can be set at any time by setting the <xref href="PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor" data-throw-if-not-resolved="false"></xref> property.</p>
+  example: []
+  syntax:
+    content: public RecordingScope OpenScope(RecordingScopeOption option = RecordingScopeOption.Default)
+    parameters:
+    - id: option
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+      description: Scope options. Specify this parameter if you want the scope to be <xref href="PostSharp.Patterns.Recording.RecordingScopeOption.Atomic" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Recording.RecordingScope
+      description: >-
+        A <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> object, which should be closed using <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref>
+                    or <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function OpenScope([option] As RecordingScopeOption = RecordingScopeOption.Default) As RecordingScope
+  overload: PostSharp.Patterns.Recording.Recorder.OpenScope*
+- uid: PostSharp.Patterns.Recording.Recorder.OpenScope(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.OpenScope(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  id: OpenScope(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: OpenScope(string, RecordingScopeOption)
+  nameWithType: Recorder.OpenScope(string, RecordingScopeOption)
+  fullName: PostSharp.Patterns.Recording.Recorder.OpenScope(string, PostSharp.Patterns.Recording.RecordingScopeOption)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Opens a <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> with a given name.
+  remarks: <p>The name of the scope can be set at any time by setting the <xref href="PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor" data-throw-if-not-resolved="false"></xref> property.</p>
+  example: []
+  syntax:
+    content: public RecordingScope OpenScope(string name, RecordingScopeOption option = RecordingScopeOption.Default)
+    parameters:
+    - id: name
+      type: System.String
+      description: The scope name, or <code>null</code> to create an unnamed scope.
+    - id: option
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+      description: Scope options. Specify this parameter if you want the scope to be <xref href="PostSharp.Patterns.Recording.RecordingScopeOption.Atomic" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Recording.RecordingScope
+      description: >-
+        A <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> object, which should be closed using <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref>
+                    or <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function OpenScope(name As String, [option] As RecordingScopeOption = RecordingScopeOption.Default) As RecordingScope
+  overload: PostSharp.Patterns.Recording.Recorder.OpenScope*
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-operation-name'
+    altText: 'Conceptual: Customizing Undo/Redo Operation Names'
+  nameWithType.vb: Recorder.OpenScope(String, RecordingScopeOption)
+  fullName.vb: PostSharp.Patterns.Recording.Recorder.OpenScope(String, PostSharp.Patterns.Recording.RecordingScopeOption)
+  name.vb: OpenScope(String, RecordingScopeOption)
+- uid: PostSharp.Patterns.Recording.Recorder.Attach(System.Object)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.Attach(System.Object)
+  id: Attach(System.Object)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Attach(object)
+  nameWithType: Recorder.Attach(object)
+  fullName: PostSharp.Patterns.Recording.Recorder.Attach(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Attaches a recordable object (including its descendant objects) to the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> so that changes in
+
+    this object start being recorded into the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>This method implicitly attaches all descendants of <code class="paramref">obj</code> to the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public void Attach(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The recordable object whose changes need to be recorded into the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub Attach(obj As Object)
+  overload: PostSharp.Patterns.Recording.Recorder.Attach*
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-recorder'
+    altText: 'Conceptual: Assigning Recorders Manually'
+  nameWithType.vb: Recorder.Attach(Object)
+  fullName.vb: PostSharp.Patterns.Recording.Recorder.Attach(Object)
+  name.vb: Attach(Object)
+- uid: PostSharp.Patterns.Recording.Recorder.Detach(System.Object)
+  commentId: M:PostSharp.Patterns.Recording.Recorder.Detach(System.Object)
+  id: Detach(System.Object)
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: Detach(object)
+  nameWithType: Recorder.Detach(object)
+  fullName: PostSharp.Patterns.Recording.Recorder.Detach(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Detaches a recordable object from the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>, so that changes in
+
+    this object stop being recorded into the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>This method implicitly detaches all descendants of <code class="paramref">obj</code> from the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public void Detach(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The recordable object whose changes no longer need to be recorded into the current <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub Detach(obj As Object)
+  overload: PostSharp.Patterns.Recording.Recorder.Detach*
+  nameWithType.vb: Recorder.Detach(Object)
+  fullName.vb: PostSharp.Patterns.Recording.Recorder.Detach(Object)
+  name.vb: Detach(Object)
+- uid: PostSharp.Patterns.Recording.Recorder.CanUndo
+  commentId: P:PostSharp.Patterns.Recording.Recorder.CanUndo
+  id: CanUndo
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: CanUndo
+  nameWithType: Recorder.CanUndo
+  fullName: PostSharp.Patterns.Recording.Recorder.CanUndo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Recording.Recorder.Undo" data-throw-if-not-resolved="false"></xref> method can be invoked.
+  example: []
+  syntax:
+    content: public bool CanUndo { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanUndo As Boolean
+  overload: PostSharp.Patterns.Recording.Recorder.CanUndo*
+- uid: PostSharp.Patterns.Recording.Recorder.CanRedo
+  commentId: P:PostSharp.Patterns.Recording.Recorder.CanRedo
+  id: CanRedo
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: CanRedo
+  nameWithType: Recorder.CanRedo
+  fullName: PostSharp.Patterns.Recording.Recorder.CanRedo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Recording.Recorder.Redo" data-throw-if-not-resolved="false"></xref> method can be invoked.
+  example: []
+  syntax:
+    content: public bool CanRedo { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanRedo As Boolean
+  overload: PostSharp.Patterns.Recording.Recorder.CanRedo*
+- uid: PostSharp.Patterns.Recording.Recorder.CanAddRestorePoint
+  commentId: P:PostSharp.Patterns.Recording.Recorder.CanAddRestorePoint
+  id: CanAddRestorePoint
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: CanAddRestorePoint
+  nameWithType: Recorder.CanAddRestorePoint
+  fullName: PostSharp.Patterns.Recording.Recorder.CanAddRestorePoint
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Recording.Recorder.AddRestorePoint(System.String)" data-throw-if-not-resolved="false"></xref> method can be invoked.
+  example: []
+  syntax:
+    content: public bool CanAddRestorePoint { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property CanAddRestorePoint As Boolean
+  overload: PostSharp.Patterns.Recording.Recorder.CanAddRestorePoint*
+- uid: PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount
+  commentId: P:PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount
+  id: MaximumOperationsCount
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: MaximumOperationsCount
+  nameWithType: Recorder.MaximumOperationsCount
+  fullName: PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Gets or sets the maximum number of operations in the <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref> collections. 
+
+    These collections are automatically trimmed so that their size never exceeds <xref href="PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int MaximumOperationsCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: The default value is <code>int.MaxValue</code>.
+    content.vb: Public Property MaximumOperationsCount As Integer
+  overload: PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount*
+- uid: PostSharp.Patterns.Recording.Recorder.UndoOperations
+  commentId: P:PostSharp.Patterns.Recording.Recorder.UndoOperations
+  id: UndoOperations
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: UndoOperations
+  nameWithType: Recorder.UndoOperations
+  fullName: PostSharp.Patterns.Recording.Recorder.UndoOperations
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the collection of operations that can be undone using the <xref href="PostSharp.Patterns.Recording.Recorder.Undo" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public OperationCollection UndoOperations { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationCollection
+    content.vb: Public ReadOnly Property UndoOperations As OperationCollection
+  overload: PostSharp.Patterns.Recording.Recorder.UndoOperations*
+- uid: PostSharp.Patterns.Recording.Recorder.RedoOperations
+  commentId: P:PostSharp.Patterns.Recording.Recorder.RedoOperations
+  id: RedoOperations
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: RedoOperations
+  nameWithType: Recorder.RedoOperations
+  fullName: PostSharp.Patterns.Recording.Recorder.RedoOperations
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the collection of operations that can be redone using the <xref href="PostSharp.Patterns.Recording.Recorder.Redo" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public OperationCollection RedoOperations { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationCollection
+    content.vb: Public ReadOnly Property RedoOperations As OperationCollection
+  overload: PostSharp.Patterns.Recording.Recorder.RedoOperations*
+- uid: PostSharp.Patterns.Recording.Recorder.PropertyChanged
+  commentId: E:PostSharp.Patterns.Recording.Recorder.PropertyChanged
+  id: PropertyChanged
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: Recorder.PropertyChanged
+  fullName: PostSharp.Patterns.Recording.Recorder.PropertyChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Occurs when the value of a property of the current object changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+- uid: PostSharp.Patterns.Recording.Recorder.ChildPropertyChanging
+  commentId: E:PostSharp.Patterns.Recording.Recorder.ChildPropertyChanging
+  id: ChildPropertyChanging
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: ChildPropertyChanging
+  nameWithType: Recorder.ChildPropertyChanging
+  fullName: PostSharp.Patterns.Recording.Recorder.ChildPropertyChanging
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Occurs before the property of a child object is changed.
+  example: []
+  syntax:
+    content: public event EventHandler<ChildPropertyChangedEventArgs> ChildPropertyChanging
+    return:
+      type: System.EventHandler{PostSharp.Patterns.Model.ChildPropertyChangedEventArgs}
+    content.vb: Public Event ChildPropertyChanging As EventHandler(Of ChildPropertyChangedEventArgs)
+- uid: PostSharp.Patterns.Recording.Recorder.ChildPropertyChanged
+  commentId: E:PostSharp.Patterns.Recording.Recorder.ChildPropertyChanged
+  id: ChildPropertyChanged
+  parent: PostSharp.Patterns.Recording.Recorder
+  langs:
+  - csharp
+  - vb
+  name: ChildPropertyChanged
+  nameWithType: Recorder.ChildPropertyChanged
+  fullName: PostSharp.Patterns.Recording.Recorder.ChildPropertyChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Occurs after the property of a child object has been changed.
+  example: []
+  syntax:
+    content: public event EventHandler<ChildPropertyChangedEventArgs> ChildPropertyChanged
+    return:
+      type: System.EventHandler{PostSharp.Patterns.Model.ChildPropertyChangedEventArgs}
+    content.vb: Public Event ChildPropertyChanged As EventHandler(Of ChildPropertyChangedEventArgs)

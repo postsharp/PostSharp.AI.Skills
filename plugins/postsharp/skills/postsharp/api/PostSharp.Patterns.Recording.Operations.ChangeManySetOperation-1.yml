@@ -1,0 +1,200 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  commentId: T:PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  id: ChangeManySetOperation`1
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.NewItems
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OldItems
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OperationKind
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  langs:
+  - csharp
+  - vb
+  name: ChangeManySetOperation<T>
+  nameWithType: ChangeManySetOperation<T>
+  fullName: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: >-
+    Represents any of the set operations that add or remove multiple items,
+
+    for example <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601.IntersectWith(System.Collections.Generic.IEnumerable%7b%600%7d)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601.UnionWith(System.Collections.Generic.IEnumerable%7b%600%7d)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class ChangeManySetOperation<T> : HashSetOperation<T>, IHashSetOperation, IOperationDescriptor
+    typeParameters:
+    - id: T
+      description: The type of items in the set.
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class ChangeManySetOperation(Of T) Inherits HashSetOperation(Of T) Implements IHashSetOperation, IOperationDescriptor
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation{{T}}
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation{{T}}.VisitAffectedObjects(System.Action{System.Object})
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation{{T}}.Set
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation{{T}}.NewItem
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation{{T}}.OldItem
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: ChangeManySetOperation(Of T)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation(Of T)
+  name.vb: ChangeManySetOperation(Of T)
+- uid: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: ChangeManySetOperation<T>.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation<T>.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Undo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Undo*
+  nameWithType.vb: ChangeManySetOperation(Of T).Undo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation(Of T).Undo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: ChangeManySetOperation<T>.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation<T>.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Redo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.Redo*
+  nameWithType.vb: ChangeManySetOperation(Of T).Redo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation(Of T).Redo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.NewItems
+  commentId: P:PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.NewItems
+  id: NewItems
+  parent: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  langs:
+  - csharp
+  - vb
+  name: NewItems
+  nameWithType: ChangeManySetOperation<T>.NewItems
+  fullName: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation<T>.NewItems
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the items that were added to the set after the operation.
+  example: []
+  syntax:
+    content: public ReadOnlyArray<T> NewItems { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Collections.ReadOnlyArray{{T}}
+    content.vb: Public ReadOnly Property NewItems As ReadOnlyArray(Of T)
+  overload: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.NewItems*
+  nameWithType.vb: ChangeManySetOperation(Of T).NewItems
+  fullName.vb: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation(Of T).NewItems
+- uid: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OldItems
+  commentId: P:PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OldItems
+  id: OldItems
+  parent: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OldItems
+  nameWithType: ChangeManySetOperation<T>.OldItems
+  fullName: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation<T>.OldItems
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the items that were in the set before the operation.
+  example: []
+  syntax:
+    content: public ReadOnlyArray<T> OldItems { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Collections.ReadOnlyArray{{T}}
+    content.vb: Public ReadOnly Property OldItems As ReadOnlyArray(Of T)
+  overload: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OldItems*
+  nameWithType.vb: ChangeManySetOperation(Of T).OldItems
+  fullName.vb: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation(Of T).OldItems
+- uid: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: ChangeManySetOperation<T>.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation<T>.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public override OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public Overrides ReadOnly Property OperationKind As OperationKind
+  overridden: PostSharp.Patterns.Recording.Operation.OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1.OperationKind*
+  nameWithType.vb: ChangeManySetOperation(Of T).OperationKind
+  fullName.vb: PostSharp.Patterns.Recording.Operations.ChangeManySetOperation(Of T).OperationKind

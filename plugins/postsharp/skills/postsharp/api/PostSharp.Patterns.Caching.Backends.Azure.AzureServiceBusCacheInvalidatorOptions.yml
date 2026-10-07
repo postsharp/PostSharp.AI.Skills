@@ -1,0 +1,270 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  commentId: T:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  id: AzureServiceBusCacheInvalidatorOptions
+  parent: PostSharp.Patterns.Caching.Backends.Azure
+  children:
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.#ctor(System.String,System.String)
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AdministrationClientOptions
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ClientOptions
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ConnectionString
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.MaxDeliveryCount
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.RetryOnReceiveError
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.TopicName
+  langs:
+  - csharp
+  - vb
+  name: AzureServiceBusCacheInvalidatorOptions
+  nameWithType: AzureServiceBusCacheInvalidatorOptions
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Options that determine the mode of operation of an <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref> instance.
+  remarks: >-
+    <p>When <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName" data-throw-if-not-resolved="false"></xref> is <code>null</code>, the invalidator creates its own topic subscription, which requires the <code>Manage</code> right.
+
+    When it is set, the subscription must already exist and must not be shared with another instance of the invalidator.</p>
+  example: []
+  syntax:
+    content: 'public class AzureServiceBusCacheInvalidatorOptions : CacheInvalidatorOptions'
+    content.vb: Public Class AzureServiceBusCacheInvalidatorOptions Inherits CacheInvalidatorOptions
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-pubsub'
+    altText: 'Conceptual: Synchronizing Local In-Memory Caches for Multiple Servers'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidatorOptions
+  inheritedMembers:
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidatorOptions.Prefix
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.#ctor(System.String,System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: AzureServiceBusCacheInvalidatorOptions(string, string)
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.AzureServiceBusCacheInvalidatorOptions(string, string)
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AzureServiceBusCacheInvalidatorOptions(string, string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AzureServiceBusCacheInvalidatorOptions(string connectionString, string topicName = null)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: The connection string of the Azure Service Bus namespace or topic.
+    - id: topicName
+      type: System.String
+      description: >-
+        The name of the topic. If it is <code>null</code>, the name is read from the <code>EntityPath</code> component of <code class="paramref">connectionString</code>,
+                    and an <xref href="System.ArgumentNullException" data-throw-if-not-resolved="false"></xref> is thrown if the connection string does not contain it.
+    content.vb: Public Sub New(connectionString As String, topicName As String = Nothing)
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.#ctor*
+  nameWithType.vb: AzureServiceBusCacheInvalidatorOptions.New(String, String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.New(String, String)
+  name.vb: New(String, String)
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.TopicName
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.TopicName
+  id: TopicName
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: TopicName
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.TopicName
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.TopicName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets or sets the topic name.
+  example: []
+  syntax:
+    content: public string TopicName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TopicName As String
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.TopicName*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ConnectionString
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ConnectionString
+  id: ConnectionString
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: ConnectionString
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.ConnectionString
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ConnectionString
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets the connection string.
+  example: []
+  syntax:
+    content: public string ConnectionString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property ConnectionString As String
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ConnectionString*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ClientOptions
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ClientOptions
+  id: ClientOptions
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: ClientOptions
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.ClientOptions
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ClientOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets or sets the <xref href="Azure.Messaging.ServiceBus.ServiceBusClientOptions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ServiceBusClientOptions ClientOptions { get; set; }
+    parameters: []
+    return:
+      type: Azure.Messaging.ServiceBus.ServiceBusClientOptions
+    content.vb: Public Property ClientOptions As ServiceBusClientOptions
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.ClientOptions*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.RetryOnReceiveError
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.RetryOnReceiveError
+  id: RetryOnReceiveError
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: RetryOnReceiveError
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.RetryOnReceiveError
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.RetryOnReceiveError
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets or sets the time span after which the receive is retried after an error occurs.
+  example: []
+  syntax:
+    content: public TimeSpan RetryOnReceiveError { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property RetryOnReceiveError As TimeSpan
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.RetryOnReceiveError*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName
+  id: SubscriptionName
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: SubscriptionName
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.SubscriptionName
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: >-
+    Gets or sets the topic subscription name. Do not confuse it with the Azure subscription ID. If this property is not supplied,
+
+    a new auto-deleted subscription is created every time the component is instantiated.
+  example: []
+  syntax:
+    content: public string SubscriptionName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SubscriptionName As String
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AdministrationClientOptions
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AdministrationClientOptions
+  id: AdministrationClientOptions
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: AdministrationClientOptions
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.AdministrationClientOptions
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AdministrationClientOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets or sets the <xref href="Azure.Messaging.ServiceBus.Administration.ServiceBusAdministrationClientOptions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ServiceBusAdministrationClientOptions AdministrationClientOptions { get; set; }
+    parameters: []
+    return:
+      type: Azure.Messaging.ServiceBus.Administration.ServiceBusAdministrationClientOptions
+    content.vb: Public Property AdministrationClientOptions As ServiceBusAdministrationClientOptions
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AdministrationClientOptions*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle
+  id: AutoDeleteOnIdle
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: AutoDeleteOnIdle
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets or sets the time after which the subscription is automatically deleted.
+  example: []
+  syntax:
+    content: public TimeSpan AutoDeleteOnIdle { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property AutoDeleteOnIdle As TimeSpan
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.MaxDeliveryCount
+  commentId: P:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.MaxDeliveryCount
+  id: MaxDeliveryCount
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxDeliveryCount
+  nameWithType: AzureServiceBusCacheInvalidatorOptions.MaxDeliveryCount
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.MaxDeliveryCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Gets or sets the maximum delivery count of a message after which it is dead-lettered.
+  example: []
+  syntax:
+    content: public int MaxDeliveryCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxDeliveryCount As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.MaxDeliveryCount*

@@ -1,0 +1,297 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Dependencies.StandardRoles
+  commentId: T:PostSharp.Aspects.Dependencies.StandardRoles
+  id: StandardRoles
+  parent: PostSharp.Aspects.Dependencies
+  children:
+  - PostSharp.Aspects.Dependencies.StandardRoles.Caching
+  - PostSharp.Aspects.Dependencies.StandardRoles.DataBinding
+  - PostSharp.Aspects.Dependencies.StandardRoles.EventBroker
+  - PostSharp.Aspects.Dependencies.StandardRoles.ExceptionHandling
+  - PostSharp.Aspects.Dependencies.StandardRoles.PerformanceInstrumentation
+  - PostSharp.Aspects.Dependencies.StandardRoles.Persistence
+  - PostSharp.Aspects.Dependencies.StandardRoles.Security
+  - PostSharp.Aspects.Dependencies.StandardRoles.Threading
+  - PostSharp.Aspects.Dependencies.StandardRoles.Tracing
+  - PostSharp.Aspects.Dependencies.StandardRoles.TransactionHandling
+  - PostSharp.Aspects.Dependencies.StandardRoles.Validation
+  langs:
+  - csharp
+  - vb
+  name: StandardRoles
+  nameWithType: StandardRoles
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Defines the standard roles.
+  remarks: >-
+    <p>See <xref href="PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute" data-throw-if-not-resolved="false"></xref> for a discussion of aspect roles.</p>
+
+    <p>Roles are used to categorize aspects according to their function. This class
+            defines standard names for the most commonly used aspect roles. If you are an aspect vendor,
+            you are encouraged to enroll your aspects (using <xref href="PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute" data-throw-if-not-resolved="false"></xref>) in
+            one of these roles.
+          </p>
+    <p>
+            If this list is not sufficient, we at <code>PostSharp</code> encourage you to
+            contact us to define a new role string. In any case, if you define a new role string, we recommend that you
+            define it clearly so that users of your aspect can express dependencies with their own aspects
+            or with third-party aspects.</p>
+  example: []
+  syntax:
+    content: public static class StandardRoles
+    content.vb: Public Module StandardRoles
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+  - linkType: HRef
+    linkId: '@aspect-dependencies'
+    altText: 'Conceptual: Coping with Several Aspects on the Same Target'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.Validation
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.Validation
+  id: Validation
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: Validation
+  nameWithType: StandardRoles.Validation
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.Validation
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: The validation of a field, property, or parameter value.
+  example: []
+  syntax:
+    content: public const string Validation = "Validation"
+    return:
+      type: System.String
+    content.vb: Public Const Validation As String = "Validation"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.Tracing
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.Tracing
+  id: Tracing
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: Tracing
+  nameWithType: StandardRoles.Tracing
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.Tracing
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Tracing and logging.
+  example: []
+  syntax:
+    content: public const string Tracing = "Tracing"
+    return:
+      type: System.String
+    content.vb: Public Const Tracing As String = "Tracing"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.PerformanceInstrumentation
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.PerformanceInstrumentation
+  id: PerformanceInstrumentation
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: PerformanceInstrumentation
+  nameWithType: StandardRoles.PerformanceInstrumentation
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.PerformanceInstrumentation
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Performance instrumentation (for example, performance counters).
+  example: []
+  syntax:
+    content: public const string PerformanceInstrumentation = "PerformanceInstrumentation"
+    return:
+      type: System.String
+    content.vb: Public Const PerformanceInstrumentation As String = "PerformanceInstrumentation"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.Security
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.Security
+  id: Security
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: Security
+  nameWithType: StandardRoles.Security
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.Security
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Security enforcement (typically authorization).
+  example: []
+  syntax:
+    content: public const string Security = "Security"
+    return:
+      type: System.String
+    content.vb: Public Const Security As String = "Security"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.Caching
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.Caching
+  id: Caching
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: Caching
+  nameWithType: StandardRoles.Caching
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.Caching
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Caching.
+  example: []
+  syntax:
+    content: public const string Caching = "Caching"
+    return:
+      type: System.String
+    content.vb: Public Const Caching As String = "Caching"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.TransactionHandling
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.TransactionHandling
+  id: TransactionHandling
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: TransactionHandling
+  nameWithType: StandardRoles.TransactionHandling
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.TransactionHandling
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Transaction handling.
+  example: []
+  syntax:
+    content: public const string TransactionHandling = "Transaction"
+    return:
+      type: System.String
+    content.vb: Public Const TransactionHandling As String = "Transaction"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.ExceptionHandling
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.ExceptionHandling
+  id: ExceptionHandling
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: ExceptionHandling
+  nameWithType: StandardRoles.ExceptionHandling
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.ExceptionHandling
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Exception handling.
+  example: []
+  syntax:
+    content: public const string ExceptionHandling = "ExceptionHandling"
+    return:
+      type: System.String
+    content.vb: Public Const ExceptionHandling As String = "ExceptionHandling"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.DataBinding
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.DataBinding
+  id: DataBinding
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: DataBinding
+  nameWithType: StandardRoles.DataBinding
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.DataBinding
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Data binding (for example, the implementation of <xref href="System.ComponentModel.INotifyPropertyChanged" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public const string DataBinding = "DataBinding"
+    return:
+      type: System.String
+    content.vb: Public Const DataBinding As String = "DataBinding"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.Persistence
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.Persistence
+  id: Persistence
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: Persistence
+  nameWithType: StandardRoles.Persistence
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.Persistence
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Object persistence (for example, an object-relational mapper).
+  example: []
+  syntax:
+    content: public const string Persistence = "Persistence"
+    return:
+      type: System.String
+    content.vb: Public Const Persistence As String = "Persistence"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.EventBroker
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.EventBroker
+  id: EventBroker
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: EventBroker
+  nameWithType: StandardRoles.EventBroker
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.EventBroker
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    Event broker. This is a system role that <code>PostSharp</code> uses internally to implement
+
+    the <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref> handler.
+  example: []
+  syntax:
+    content: public const string EventBroker = "Event Broker"
+    return:
+      type: System.String
+    content.vb: Public Const EventBroker As String = "Event Broker"
+- uid: PostSharp.Aspects.Dependencies.StandardRoles.Threading
+  commentId: F:PostSharp.Aspects.Dependencies.StandardRoles.Threading
+  id: Threading
+  parent: PostSharp.Aspects.Dependencies.StandardRoles
+  langs:
+  - csharp
+  - vb
+  name: Threading
+  nameWithType: StandardRoles.Threading
+  fullName: PostSharp.Aspects.Dependencies.StandardRoles.Threading
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Threading (locking).
+  example: []
+  syntax:
+    content: public const string Threading = "Threading"
+    return:
+      type: System.String
+    content.vb: Public Const Threading As String = "Threading"

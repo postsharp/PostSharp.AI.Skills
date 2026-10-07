@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  id: ConsoleThemes
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Classic
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.None
+  langs:
+  - csharp
+  - vb
+  name: ConsoleThemes
+  nameWithType: ConsoleThemes
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: A collection of color themes for use with the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>Assign a theme to <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackendOptions.Theme" data-throw-if-not-resolved="false"></xref>. The default theme is <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Classic" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public static class ConsoleThemes
+    content.vb: Public Module ConsoleThemes
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  - linkType: HRef
+    linkId: '@logging-console'
+    altText: 'Conceptual: Logging with System.Console'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.None
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.None
+  id: None
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ConsoleThemes.None
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.None
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: No formatting.
+  example: []
+  syntax:
+    content: public static IConsoleTheme None { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+    content.vb: Public Shared ReadOnly Property None As IConsoleTheme
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.None*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark
+  id: Dark
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  langs:
+  - csharp
+  - vb
+  name: Dark
+  nameWithType: ConsoleThemes.Dark
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: The most readable theme for use on a black background. Highlights parameters and return values.
+  remarks: <p>This instance is frozen. To customize it, call <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone" data-throw-if-not-resolved="false"></xref> and edit the copy.</p>
+  example: []
+  syntax:
+    content: public static ConsoleTheme Dark { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+    content.vb: Public Shared ReadOnly Property Dark As ConsoleTheme
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Classic
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Classic
+  id: Classic
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  langs:
+  - csharp
+  - vb
+  name: Classic
+  nameWithType: ConsoleThemes.Classic
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Classic
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: The classic and default theme. Does not highlight individual parameters.
+  example: []
+  syntax:
+    content: public static IConsoleTheme Classic { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+    content.vb: Public Shared ReadOnly Property Classic As IConsoleTheme
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Classic*

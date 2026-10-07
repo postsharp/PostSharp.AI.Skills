@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.IMetadataEmitter
+  commentId: T:PostSharp.Reflection.IMetadataEmitter
+  id: IMetadataEmitter
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IMetadataEmitter
+  nameWithType: IMetadataEmitter
+  fullName: PostSharp.Reflection.IMetadataEmitter
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Defines the semantics of a service that allows build-time code to serialize references
+
+    to metadata objects (that is, reflection objects) in a way that is compatible with obfuscators.
+
+    References are deserialized at run time using <xref href="PostSharp.Reflection.IMetadataDispenser" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IMetadataEmitter
+    content.vb: Public Interface IMetadataEmitter
+- uid: PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex(System.Object)
+  commentId: M:PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex(System.Object)
+  id: GetMetadataIndex(System.Object)
+  parent: PostSharp.Reflection.IMetadataEmitter
+  langs:
+  - csharp
+  - vb
+  name: GetMetadataIndex(object)
+  nameWithType: IMetadataEmitter.GetMetadataIndex(object)
+  fullName: PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the index of a serialized metadata reference.
+  example: []
+  syntax:
+    content: int GetMetadataIndex(object metadata)
+    parameters:
+    - id: metadata
+      type: System.Object
+      description: A reflection object.
+    return:
+      type: System.Int32
+      description: >-
+        The index of <code class="paramref">metadata</code>, to be serialized
+                      and deserialized at runtime with <xref href="PostSharp.Reflection.IMetadataDispenser.GetMetadata(System.Int32)" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function GetMetadataIndex(metadata As Object) As Integer
+  overload: PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex*
+  nameWithType.vb: IMetadataEmitter.GetMetadataIndex(Object)
+  fullName.vb: PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex(Object)
+  name.vb: GetMetadataIndex(Object)

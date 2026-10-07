@@ -1,0 +1,249 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.ChildAttribute
+  commentId: T:PostSharp.Patterns.Model.ChildAttribute
+  id: ChildAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.ChildAttribute.#ctor
+  - PostSharp.Patterns.Model.ChildAttribute.DisableBehaviorPropagation
+  - PostSharp.Patterns.Model.ChildAttribute.DisableBuildTimeValidation
+  - PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate
+  - PostSharp.Patterns.Model.ChildAttribute.ItemsRelationship
+  langs:
+  - csharp
+  - vb
+  name: ChildAttribute
+  nameWithType: ChildAttribute
+  fullName: PostSharp.Patterns.Model.ChildAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Custom attribute that, when applied to a field or automatic property, specifies that the object assigned to this
+
+    field or property is a child of the instance of the declaring type.
+  remarks: >-
+    <p>When the field or property holds a collection, assign an advisable collection, such as
+        <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref>, or an immutable collection. By default, a collection is a parent surrogate:
+        its items are children of the declaring instance, and the collection itself is skipped by <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>
+        (see <xref href="PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate" data-throw-if-not-resolved="false"></xref>). To make the items of the collection references, set <xref href="PostSharp.Patterns.Model.ChildAttribute.ItemsRelationship" data-throw-if-not-resolved="false"></xref>
+        to <xref href="PostSharp.Patterns.Model.RelationshipKind.Reference" data-throw-if-not-resolved="false"></xref>. The collection stays a parent surrogate.</p>
+  example: []
+  syntax:
+    content: 'public sealed class ChildAttribute : MemberRelationshipAttribute, IValidableAnnotation'
+    content.vb: Public NotInheritable Class ChildAttribute Inherits MemberRelationshipAttribute Implements IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Patterns.Model.ReferenceAttribute
+    commentId: T:PostSharp.Patterns.Model.ReferenceAttribute
+  - linkId: PostSharp.Patterns.Model.ParentAttribute
+    commentId: T:PostSharp.Patterns.Model.ParentAttribute
+  - linkId: PostSharp.Patterns.Model.AggregatableAttribute
+    commentId: T:PostSharp.Patterns.Model.AggregatableAttribute
+  - linkType: HRef
+    linkId: '@aggregatable-adding'
+    altText: 'Conceptual: Annotating an Object Model for Parent/Child Relationships (Aggregatable)'
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Patterns.Model.MemberRelationshipAttribute
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(System.Object)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Model.ChildAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.ChildAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.ChildAttribute
+  langs:
+  - csharp
+  - vb
+  name: ChildAttribute()
+  nameWithType: ChildAttribute.ChildAttribute()
+  fullName: PostSharp.Patterns.Model.ChildAttribute.ChildAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ChildAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.ChildAttribute.#ctor*
+  nameWithType.vb: ChildAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.ChildAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate
+  commentId: P:PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate
+  id: IsParentSurrogate
+  parent: PostSharp.Patterns.Model.ChildAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsParentSurrogate
+  nameWithType: ChildAttribute.IsParentSurrogate
+  fullName: PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets or sets a value indicating whether the value assigned to the field or property is a parent surrogate. The <xref href="PostSharp.Patterns.Model.IAggregatable.Parent" data-throw-if-not-resolved="false"></xref> property
+
+    of children of a parent surrogate is set to the parent of the parent surrogate, instead of to the field itself.
+  remarks: >-
+    <p>When an item is attached to a parent surrogate, the <xref href="PostSharp.Patterns.Model.IAggregatable.Parent" data-throw-if-not-resolved="false"></xref> property of the item is set to the
+        <xref href="PostSharp.Patterns.Model.IAggregatable.Parent" data-throw-if-not-resolved="false"></xref> of the parent surrogate, instead of the parent surrogate itself. Collections are typical examples
+        of a parent surrogate, because the parent of collection items needs to be the owner of the collection and not the collection itself.</p>
+    <p>The default value of this property is <code>true</code> for collections, and <code>false</code> otherwise.</p>
+  example: []
+  syntax:
+    content: public bool IsParentSurrogate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsParentSurrogate As Boolean
+  overload: PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate*
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+- uid: PostSharp.Patterns.Model.ChildAttribute.ItemsRelationship
+  commentId: P:PostSharp.Patterns.Model.ChildAttribute.ItemsRelationship
+  id: ItemsRelationship
+  parent: PostSharp.Patterns.Model.ChildAttribute
+  langs:
+  - csharp
+  - vb
+  name: ItemsRelationship
+  nameWithType: ChildAttribute.ItemsRelationship
+  fullName: PostSharp.Patterns.Model.ChildAttribute.ItemsRelationship
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets or sets the kind of relationship between items.
+  remarks: >-
+    <p>By default, the items of a child collection are children of the declaring instance. Set this property to <xref href="PostSharp.Patterns.Model.RelationshipKind.Reference" data-throw-if-not-resolved="false"></xref>
+        when the collection itself belongs to the declaring instance but its items do not, for example a collection of related entities
+        whose changes must still be recorded. <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> does not visit the items of such a collection.</p>
+  example: []
+  syntax:
+    content: public RelationshipKind ItemsRelationship { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: Public Property ItemsRelationship As RelationshipKind
+  overload: PostSharp.Patterns.Model.ChildAttribute.ItemsRelationship*
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+- uid: PostSharp.Patterns.Model.ChildAttribute.DisableBehaviorPropagation
+  commentId: P:PostSharp.Patterns.Model.ChildAttribute.DisableBehaviorPropagation
+  id: DisableBehaviorPropagation
+  parent: PostSharp.Patterns.Model.ChildAttribute
+  langs:
+  - csharp
+  - vb
+  name: DisableBehaviorPropagation
+  nameWithType: ChildAttribute.DisableBehaviorPropagation
+  fullName: PostSharp.Patterns.Model.ChildAttribute.DisableBehaviorPropagation
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets or sets a value indicating whether the behaviors applied to the declaring type of the target field should be applied
+
+    to the object assigned to this field. The default value of this property is <code>false</code>, which means
+
+    that behaviors such as Recordable or threading models will be applied to children.
+
+    If this is not possible, an exception occurs at build time or at run time. When it is set to <code>true</code>, behaviors will not be propagated.
+
+    When applied to a field of collection type, the value applies to collection items.
+  example: []
+  syntax:
+    content: public bool DisableBehaviorPropagation { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DisableBehaviorPropagation As Boolean
+  overload: PostSharp.Patterns.Model.ChildAttribute.DisableBehaviorPropagation*
+- uid: PostSharp.Patterns.Model.ChildAttribute.DisableBuildTimeValidation
+  commentId: P:PostSharp.Patterns.Model.ChildAttribute.DisableBuildTimeValidation
+  id: DisableBuildTimeValidation
+  parent: PostSharp.Patterns.Model.ChildAttribute
+  langs:
+  - csharp
+  - vb
+  name: DisableBuildTimeValidation
+  nameWithType: ChildAttribute.DisableBuildTimeValidation
+  fullName: PostSharp.Patterns.Model.ChildAttribute.DisableBuildTimeValidation
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets or sets a value indicating whether the type of the target field or property should be validated at build time
+
+    against the rules of aspects that rely on the Aggregatable model, such as the Recordable aspect
+
+    or the threading model aspects. If this property is set to <code>true</code>, validation will
+
+    be performed at run time only.
+  example: []
+  syntax:
+    content: public bool DisableBuildTimeValidation { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DisableBuildTimeValidation As Boolean
+  overload: PostSharp.Patterns.Model.ChildAttribute.DisableBuildTimeValidation*

@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  id: IntroduceMemberAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.OverrideAction
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.Visibility
+  langs:
+  - csharp
+  - vb
+  name: IntroduceMemberAdviceInstance
+  nameWithType: IntroduceMemberAdviceInstance
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Base class for <xref href="PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class IntroduceMemberAdviceInstance : AdviceInstance'
+    content.vb: Public MustInherit Class IntroduceMemberAdviceInstance Inherits AdviceInstance
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  derivedClasses:
+  - PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.AdviceInstance.MasterAspectMember
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.Visibility
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.Visibility
+  id: Visibility
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Visibility
+  nameWithType: IntroduceMemberAdviceInstance.Visibility
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.Visibility
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the visibility of the introduced member.
+  example: []
+  syntax:
+    content: public Visibility Visibility { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.Visibility
+    content.vb: Public ReadOnly Property Visibility As Visibility
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.Visibility*
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual
+  id: IsVirtual
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsVirtual
+  nameWithType: IntroduceMemberAdviceInstance.IsVirtual
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets a value indicating whether the introduced member should be virtual.
+  remarks: >-
+    <p>
+            When this property is <code>false</code> and the member already exists in a base type
+            and is virtual, the member is overridden and marked as <code>sealed</code>.
+          </p>
+    <p>
+            When this property is set to <code>null</code>, the introduced member is <code>virtual</code> if it exists in a base
+            type as a virtual member; otherwise, it is non-virtual.
+          </p>
+  example: []
+  syntax:
+    content: public bool? IsVirtual { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public ReadOnly Property IsVirtual As Boolean?
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual*
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.OverrideAction
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.OverrideAction
+  id: OverrideAction
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: OverrideAction
+  nameWithType: IntroduceMemberAdviceInstance.OverrideAction
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.OverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets the action to take when the member to be introduced already exists
+
+    in the type to which the aspect is applied or in a base type.
+  example: []
+  syntax:
+    content: public MemberOverrideAction OverrideAction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+    content.vb: Public ReadOnly Property OverrideAction As MemberOverrideAction
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.OverrideAction*

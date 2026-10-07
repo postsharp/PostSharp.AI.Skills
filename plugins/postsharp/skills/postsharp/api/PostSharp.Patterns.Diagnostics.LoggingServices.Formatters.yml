@@ -1,0 +1,49 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.Formatters
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingServices.Formatters
+  id: LoggingServices.Formatters
+  parent: PostSharp.Patterns.Diagnostics
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: LoggingServices.Formatters
+  nameWithType: LoggingServices.Formatters
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.Formatters
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Provides access to the formatters used by logging. All members of this class are static.
+  remarks: >-
+    <p>A formatter determines how values, for instance parameter values, are rendered in log records. To use a custom formatter for a type
+        that you do not own, derive a class from <xref href="PostSharp.Patterns.Formatters.Formatter%601" data-throw-if-not-resolved="false"></xref> and register an instance with the
+        <xref href="PostSharp.Patterns.Formatters.FormatterRepository%601.Register%60%601(PostSharp.Patterns.Formatters.IFormatter%7b%60%600%7d)" data-throw-if-not-resolved="false"></xref> method of this class. A type that you own can instead implement
+        <xref href="PostSharp.Patterns.Formatters.IFormattable" data-throw-if-not-resolved="false"></xref>, which needs no registration.</p>
+  example: []
+  syntax:
+    content: 'public class LoggingServices.Formatters : FormatterRepository<LoggingFormattingRole>'
+    content.vb: Public Class LoggingServices.Formatters Inherits FormatterRepository(Of LoggingFormattingRole)
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-formatter'
+    altText: 'Conceptual: Implementing a Custom Formatter'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.SetDynamic``1
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.Register``1(PostSharp.Patterns.Formatters.IFormatter{{T}})
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.Register(System.Type,PostSharp.Patterns.Formatters.IFormatter)
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.Register(System.Type,System.Type)
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.Get``1
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.Get(System.Type)
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Diagnostics.Formatters.LoggingFormattingRole}.Reset
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode

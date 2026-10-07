@@ -1,0 +1,309 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  commentId: T:PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  id: RetryPolicy
+  parent: PostSharp.Patterns.Caching.Resilience
+  children:
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.#ctor
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.BaseDelay
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.JitterFactor
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxAttempts
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxDelay
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.Multiplier
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.NoDelayAttempts
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.RetryableExceptionTypes
+  - PostSharp.Patterns.Caching.Resilience.RetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind,System.Int32,System.Exception,System.Object@,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: RetryPolicy
+  nameWithType: RetryPolicy
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    The default implementation of <xref href="PostSharp.Patterns.Caching.Resilience.IRetryPolicy" data-throw-if-not-resolved="false"></xref>, implementing
+
+    an exponential back-off with jitter effect. It can be configured by setting
+
+    the properties.
+  example: []
+  syntax:
+    content: 'public class RetryPolicy : IRetryPolicy'
+    content.vb: Public Class RetryPolicy Implements IRetryPolicy
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Caching.Resilience.BackgroundRetryPolicy
+  - PostSharp.Patterns.Caching.Resilience.TransactionRetryPolicy
+  implements:
+  - PostSharp.Patterns.Caching.Resilience.IRetryPolicy
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind,System.Int32,System.Exception,System.Object@,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Resilience.RetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind,System.Int32,System.Exception,System.Object@,System.Threading.CancellationToken)
+  id: TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind,System.Int32,System.Exception,System.Object@,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: TryAsync(OperationKind, int, Exception, ref object, CancellationToken)
+  nameWithType: RetryPolicy.TryAsync(OperationKind, int, Exception, ref object, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind, int, System.Exception, ref object, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Determines whether a Redis transaction should be tried, and throws a <xref href="PostSharp.Patterns.Caching.CachingException" data-throw-if-not-resolved="false"></xref> if it cannot.
+  example: []
+  syntax:
+    content: public virtual ValueTask<bool> TryAsync(OperationKind kind, int attempt, Exception exception, ref object state, CancellationToken cancellation)
+    parameters:
+    - id: kind
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+      description: The transaction kind.
+    - id: attempt
+      type: System.Int32
+      description: The index of the attempt. <code>0</code> indicates the first attempt, i.e. not a retry.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> of the previous attempt, if any.
+    - id: state
+      type: System.Object
+      description: >-
+        A reference to an optional state of the operation, optionally set by the <xref href="PostSharp.Patterns.Caching.Resilience.IRetryPolicy" data-throw-if-not-resolved="false"></xref> implementation and
+                    opaque to the caller.
+    - id: cancellation
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.ValueTask{System.Boolean}
+      description: Always <code>true</code>. Must throw an exception if it cannot retry.
+    content.vb: Public Overridable Function TryAsync(kind As OperationKind, attempt As Integer, exception As Exception, state As Object, cancellation As CancellationToken) As ValueTask(Of Boolean)
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.TryAsync*
+  implements:
+  - PostSharp.Patterns.Caching.Resilience.IRetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind,System.Int32,System.Exception,System.Object@,System.Threading.CancellationToken)
+  nameWithType.vb: RetryPolicy.TryAsync(OperationKind, Integer, Exception, Object, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Resilience.RetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind, Integer, System.Exception, Object, System.Threading.CancellationToken)
+  name.vb: TryAsync(OperationKind, Integer, Exception, Object, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Resilience.RetryPolicy.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: RetryPolicy()
+  nameWithType: RetryPolicy.RetryPolicy()
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.RetryPolicy()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  syntax:
+    content: public RetryPolicy()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.#ctor*
+  nameWithType.vb: RetryPolicy.New()
+  fullName.vb: PostSharp.Patterns.Caching.Resilience.RetryPolicy.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.BaseDelay
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.BaseDelay
+  id: BaseDelay
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: BaseDelay
+  nameWithType: RetryPolicy.BaseDelay
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.BaseDelay
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Gets or sets the base delay between attempts.
+  example: []
+  syntax:
+    content: public TimeSpan BaseDelay { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property BaseDelay As TimeSpan
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.BaseDelay*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The value is out of the valid range.
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.Multiplier
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.Multiplier
+  id: Multiplier
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: Multiplier
+  nameWithType: RetryPolicy.Multiplier
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.Multiplier
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Gets or sets the multiplier (under the exponent).
+  example: []
+  syntax:
+    content: public double Multiplier { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Multiplier As Double
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.Multiplier*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The value is out of the valid range.
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxDelay
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxDelay
+  id: MaxDelay
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: MaxDelay
+  nameWithType: RetryPolicy.MaxDelay
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxDelay
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Gets or sets the maximum delay.
+  example: []
+  syntax:
+    content: public TimeSpan MaxDelay { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property MaxDelay As TimeSpan
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxDelay*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The value is out of the valid range.
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.JitterFactor
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.JitterFactor
+  id: JitterFactor
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: JitterFactor
+  nameWithType: RetryPolicy.JitterFactor
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.JitterFactor
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Gets or sets the jitter factor, i.e. a randomness value between 0 and 1.
+  example: []
+  syntax:
+    content: public double JitterFactor { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property JitterFactor As Double
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.JitterFactor*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The value is out of the valid range.
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxAttempts
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxAttempts
+  id: MaxAttempts
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: MaxAttempts
+  nameWithType: RetryPolicy.MaxAttempts
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxAttempts
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Gets or sets the maximum number of attempts.
+  example: []
+  syntax:
+    content: public int MaxAttempts { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxAttempts As Integer
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.MaxAttempts*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The value is out of the valid range.
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.NoDelayAttempts
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.NoDelayAttempts
+  id: NoDelayAttempts
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: NoDelayAttempts
+  nameWithType: RetryPolicy.NoDelayAttempts
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.NoDelayAttempts
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    Gets or sets the number of initial attempts (including the first attempt) that should not be delayed.
+
+    Must be greater than or equal to 1.
+  example: []
+  syntax:
+    content: public int NoDelayAttempts { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property NoDelayAttempts As Integer
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.NoDelayAttempts*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: The value is out of the valid range.
+- uid: PostSharp.Patterns.Caching.Resilience.RetryPolicy.RetryableExceptionTypes
+  commentId: P:PostSharp.Patterns.Caching.Resilience.RetryPolicy.RetryableExceptionTypes
+  id: RetryableExceptionTypes
+  parent: PostSharp.Patterns.Caching.Resilience.RetryPolicy
+  langs:
+  - csharp
+  - vb
+  name: RetryableExceptionTypes
+  nameWithType: RetryPolicy.RetryableExceptionTypes
+  fullName: PostSharp.Patterns.Caching.Resilience.RetryPolicy.RetryableExceptionTypes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    Gets or sets an array of exception types that can be retried. A <code>null</code> entry means that non-exception failures
+
+    (such as transaction retries) will be retried. By default, all exception types and non-exceptions are retried.
+  example: []
+  syntax:
+    content: public Type[] RetryableExceptionTypes { get; set; }
+    parameters: []
+    return:
+      type: System.Type[]
+    content.vb: Public Property RetryableExceptionTypes As Type()
+  overload: PostSharp.Patterns.Caching.Resilience.RetryPolicy.RetryableExceptionTypes*

@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.ParentAttribute
+  commentId: T:PostSharp.Patterns.Model.ParentAttribute
+  id: ParentAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.ParentAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: ParentAttribute
+  nameWithType: ParentAttribute
+  fullName: PostSharp.Patterns.Model.ParentAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Custom attribute that, when applied to a field or automatic property, specifies that this field or property
+
+    should be automatically set to the parent of the instance of the declaring type, whenever this instance
+
+    is attached as a child to another object.
+  remarks: >-
+    <p>It is recommended to add this custom attribute only to private fields or automatic properties
+        with a private setter.</p>
+    <p>User code should not set the field or property. When the parent of the instance is a parent surrogate, such as a child collection,
+        the field or property is set to the owner of the parent surrogate and not to the parent surrogate itself.</p>
+    <p>The declaring class must have the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect, applied directly or through another aspect such as a threading model.
+        Otherwise, PostSharp emits a warning.</p>
+  example: []
+  syntax:
+    content: 'public sealed class ParentAttribute : MemberRelationshipAttribute, IValidableAnnotation'
+    content.vb: Public NotInheritable Class ParentAttribute Inherits MemberRelationshipAttribute Implements IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Patterns.Model.ChildAttribute
+    commentId: T:PostSharp.Patterns.Model.ChildAttribute
+  - linkId: PostSharp.Patterns.Model.ReferenceAttribute
+    commentId: T:PostSharp.Patterns.Model.ReferenceAttribute
+  - linkId: PostSharp.Patterns.Model.AggregatableAttribute
+    commentId: T:PostSharp.Patterns.Model.AggregatableAttribute
+  - linkType: HRef
+    linkId: '@aggregatable-adding'
+    altText: 'Conceptual: Annotating an Object Model for Parent/Child Relationships (Aggregatable)'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Patterns.Model.MemberRelationshipAttribute
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - PostSharp.Patterns.Model.MemberRelationshipAttribute.CompileTimeValidate(System.Object)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Model.ParentAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.ParentAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.ParentAttribute
+  langs:
+  - csharp
+  - vb
+  name: ParentAttribute()
+  nameWithType: ParentAttribute.ParentAttribute()
+  fullName: PostSharp.Patterns.Model.ParentAttribute.ParentAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public ParentAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.ParentAttribute.#ctor*
+  nameWithType.vb: ParentAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.ParentAttribute.New()
+  name.vb: New()

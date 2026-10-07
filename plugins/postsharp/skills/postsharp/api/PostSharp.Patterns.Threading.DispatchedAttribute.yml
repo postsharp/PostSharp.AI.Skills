@@ -1,0 +1,459 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute
+  commentId: T:PostSharp.Patterns.Threading.DispatchedAttribute
+  id: DispatchedAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.DispatchedAttribute.#ctor
+  - PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(PostSharp.Patterns.Threading.DispatchedExecutionMode)
+  - PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(System.Boolean)
+  - PostSharp.Patterns.Threading.DispatchedAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  - PostSharp.Patterns.Threading.DispatchedAttribute.ExecutionMode
+  - PostSharp.Patterns.Threading.DispatchedAttribute.FireAndForget
+  langs:
+  - csharp
+  - vb
+  name: DispatchedAttribute
+  nameWithType: DispatchedAttribute
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Custom attribute that, when applied to a method, specifies that the method should be executed in the UI thread.
+  remarks: >-
+    <p>Execution of the method can be synchronous or asynchronous according to the value of the <xref href="PostSharp.Patterns.Threading.DispatchedAttribute.FireAndForget" data-throw-if-not-resolved="false"></xref>
+        property.</p>
+    <p>This aspect can be applied to instance methods of UI controls (WinForms or WPF), or to any class implementing the <xref href="PostSharp.Patterns.Threading.IDispatcherObject" data-throw-if-not-resolved="false"></xref> manually.</p>
+
+    <p>When the class does not implement <xref href="PostSharp.Patterns.Threading.IDispatcherObject" data-throw-if-not-resolved="false"></xref>, the dispatcher is taken from the synchronization context of the thread
+        that creates the object, typically the UI thread. Creating the object in a thread that has no synchronization context results in an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref>.
+        The aspect cannot be applied to static methods.</p>
+    <p>When an <code>async</code> method is called from another thread, the method is started in the dispatcher thread, and the returned task
+        completes when the method completes.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class|AttributeTargets.Method|AttributeTargets.Interface)]
+
+      [ProvideAspectRole("Threading")]
+
+      [MulticastAttributeUsage(MulticastTargets.Method, TargetExternalMemberAttributes = MulticastAttributes.Internal, AllowMultiple = false)]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Tracing")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Caching")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")]
+
+      [Metric("UsedFeatures", "PostSharp.Patterns.Threading.DispatchedMethod")]
+
+      [LinesOfCodeAvoided(0)]
+
+      [Serializer(typeof(DispatchedAttribute.Serializer))]
+
+      public sealed class DispatchedAttribute : MethodLevelAspect, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAspectProvider, IAspect, IService
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.ClassOrAttributeTargets.MethodOrAttributeTargets.Interface)>
+
+      <ProvideAspectRole("Threading")>
+
+      <MulticastAttributeUsage(MulticastTargets.Method, TargetExternalMemberAttributes:=MulticastAttributes.Internal, AllowMultiple:=False)>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Tracing")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Caching")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")>
+
+      <Metric("UsedFeatures", "PostSharp.Patterns.Threading.DispatchedMethod")>
+
+      <LinesOfCodeAvoided(0)>
+
+      <Serializer(GetType(DispatchedAttribute.Serializer))>
+
+      Public NotInheritable Class DispatchedAttribute Inherits MethodLevelAspect Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAspectProvider, IAspect, IService
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.BackgroundAttribute
+    commentId: T:PostSharp.Patterns.Threading.BackgroundAttribute
+  - linkType: HRef
+    linkId: '@ui-dispatching'
+    altText: 'Conceptual: Dispatching a Method to the UI Thread'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.MethodLevelAspect
+  implements:
+  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Extensibility.IService
+  inheritedMembers:
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1092
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Threading
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 64
+    namedArguments:
+    - name: TargetExternalMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 8
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: Tracing
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: Caching
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: CacheInvalidation
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Threading.DispatchedMethod
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 0
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.DispatchedAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(System.Boolean)
+  commentId: M:PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: DispatchedAttribute(bool)
+  nameWithType: DispatchedAttribute.DispatchedAttribute(bool)
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.DispatchedAttribute(bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.DispatchedAttribute" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>Methods that have a non-<code>void</code> return type or <code>ref</code> or <code>out</code> parameters
+        cannot be dispatched asynchronously.</p>
+  example: []
+  syntax:
+    content: public DispatchedAttribute(bool fireAndForget)
+    parameters:
+    - id: fireAndForget
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the target method must be invoked in non-blocking mode
+            (equivalent to <xref href="PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlocking" data-throw-if-not-resolved="false"></xref>),
+            or <code>false</code> if the target method must be invoked in blocking mode, that is, if the caller must wait for the
+            dispatched method to complete (equivalent to <xref href="PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Public Sub New(fireAndForget As Boolean)
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor*
+  nameWithType.vb: DispatchedAttribute.New(Boolean)
+  fullName.vb: PostSharp.Patterns.Threading.DispatchedAttribute.New(Boolean)
+  name.vb: New(Boolean)
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.DispatchedAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: DispatchedAttribute()
+  nameWithType: DispatchedAttribute.DispatchedAttribute()
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.DispatchedAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.DispatchedAttribute" data-throw-if-not-resolved="false"></xref> class in blocking mode.
+  example: []
+  syntax:
+    content: public DispatchedAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor*
+  nameWithType.vb: DispatchedAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.DispatchedAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(PostSharp.Patterns.Threading.DispatchedExecutionMode)
+  commentId: M:PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(PostSharp.Patterns.Threading.DispatchedExecutionMode)
+  id: '#ctor(PostSharp.Patterns.Threading.DispatchedExecutionMode)'
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: DispatchedAttribute(DispatchedExecutionMode)
+  nameWithType: DispatchedAttribute.DispatchedAttribute(DispatchedExecutionMode)
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.DispatchedAttribute(PostSharp.Patterns.Threading.DispatchedExecutionMode)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.DispatchedAttribute" data-throw-if-not-resolved="false"></xref> class and specifies whether the execution
+
+    mode should be blocking or non-blocking.
+  remarks: >-
+    <p>Methods that have a non-<code>void</code> return type or <code>ref</code> or <code>out</code> parameters
+        cannot be dispatched in non-blocking mode.</p>
+  example: []
+  syntax:
+    content: public DispatchedAttribute(DispatchedExecutionMode executionMode)
+    parameters:
+    - id: executionMode
+      type: PostSharp.Patterns.Threading.DispatchedExecutionMode
+      description: A value determining whether and when the caller should wait for the called method to complete.
+    content.vb: Public Sub New(executionMode As DispatchedExecutionMode)
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor*
+  nameWithType.vb: DispatchedAttribute.New(DispatchedExecutionMode)
+  fullName.vb: PostSharp.Patterns.Threading.DispatchedAttribute.New(PostSharp.Patterns.Threading.DispatchedExecutionMode)
+  name.vb: New(DispatchedExecutionMode)
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  commentId: M:PostSharp.Patterns.Threading.DispatchedAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  id: CompileTimeValidate(System.Reflection.MethodBase)
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(MethodBase)
+  nameWithType: DispatchedAttribute.CompileTimeValidate(MethodBase)
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Method invoked at build time to ensure that the aspect has been applied to the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message (see 
+
+    <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref>) or an exception in case of error. Returning <code>false</code> without emitting an
+
+    error message or exception causes the aspect to be silently ignored.
+  example: []
+  syntax:
+    content: public override bool CompileTimeValidate(MethodBase method)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodBase
+      description: Method to which the aspect has been applied.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable field, otherwise
+              <code>false</code>.
+    content.vb: Public Overrides Function CompileTimeValidate(method As MethodBase) As Boolean
+  overridden: PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.CompileTimeValidate*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.DispatchedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: DispatchedAttribute(PortableFormatterConstructorContext)
+  nameWithType: DispatchedAttribute.DispatchedAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.DispatchedAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected DispatchedAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.#ctor*
+  nameWithType.vb: DispatchedAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.DispatchedAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.FireAndForget
+  commentId: P:PostSharp.Patterns.Threading.DispatchedAttribute.FireAndForget
+  id: FireAndForget
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: FireAndForget
+  nameWithType: DispatchedAttribute.FireAndForget
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.FireAndForget
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets or sets a value indicating whether the caller continues immediately after enqueuing the call to the target method,
+
+    without waiting for the method to complete. This property applies when the aspect is applied to a void non-async method.
+
+    The default value is <code>false</code>.
+  remarks: >-
+    <p>Methods that have a non-<code>void</code> return type or <code>ref</code> or <code>out</code> parameters
+        cannot be dispatched asynchronously.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Set ExecutionMode to NonBlocking instead.")]
+
+      public bool FireAndForget { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the target method must be invoked asynchronously, or <code>false</code>
+            if the target method must be invoked synchronously, that is, if the caller must wait for the
+            dispatched method to complete.
+    content.vb: >-
+      <Obsolete("Set ExecutionMode to NonBlocking instead.")>
+
+      Public Property FireAndForget As Boolean
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.FireAndForget*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Set ExecutionMode to NonBlocking instead.
+- uid: PostSharp.Patterns.Threading.DispatchedAttribute.ExecutionMode
+  commentId: P:PostSharp.Patterns.Threading.DispatchedAttribute.ExecutionMode
+  id: ExecutionMode
+  parent: PostSharp.Patterns.Threading.DispatchedAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExecutionMode
+  nameWithType: DispatchedAttribute.ExecutionMode
+  fullName: PostSharp.Patterns.Threading.DispatchedAttribute.ExecutionMode
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets or sets a value that specifies whether the caller continues immediately after enqueuing the call to the target method,
+
+    without waiting for the method to complete. This property applies when the aspect is applied to a void non-async method.
+
+    The default value is <xref href="PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Methods that have a non-<code>void</code> return type or <code>ref</code> or <code>out</code> parameters
+        cannot be dispatched in a non-blocking mode.</p>
+  example: []
+  syntax:
+    content: public DispatchedExecutionMode ExecutionMode { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.DispatchedExecutionMode
+    content.vb: Public Property ExecutionMode As DispatchedExecutionMode
+  overload: PostSharp.Patterns.Threading.DispatchedAttribute.ExecutionMode*

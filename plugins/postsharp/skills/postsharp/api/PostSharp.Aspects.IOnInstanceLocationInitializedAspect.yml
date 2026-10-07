@@ -1,0 +1,90 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IOnInstanceLocationInitializedAspect
+  commentId: T:PostSharp.Aspects.IOnInstanceLocationInitializedAspect
+  id: IOnInstanceLocationInitializedAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  langs:
+  - csharp
+  - vb
+  name: IOnInstanceLocationInitializedAspect
+  nameWithType: IOnInstanceLocationInitializedAspect
+  fullName: PostSharp.Aspects.IOnInstanceLocationInitializedAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Contains the signature of <xref href="PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref>, a location-level advice.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IOnInstanceLocationInitializedAspect : ILocationLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IOnInstanceLocationInitializedAspect Inherits ILocationLevelAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.LocationInterceptionAspect
+  inheritedMembers:
+  - PostSharp.Aspects.ILocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  commentId: M:PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  id: OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  parent: PostSharp.Aspects.IOnInstanceLocationInitializedAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInstanceLocationInitialized(LocationInitializationArgs)
+  nameWithType: IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(LocationInitializationArgs)
+  fullName: PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked after an initial value is set for a field or property to which the current aspect is applied.
+
+    The method is invoked only for instance fields and instance auto-implemented properties, and it is invoked after their inline initialization.
+
+    For static fields and properties, and for accesses from the constructor, <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref> is invoked instead.
+  remarks: >-
+    <p>
+        This method is invoked at the beginning of an instance constructor.
+        If more than one field or property is affected by this advice, this method is called for them in the declaration
+        order of the properties. For example, if you declare "a" first and "b" second in your C# file, the method is called for "a" first.
+        If more than one advice group applies to a property, they are called in the order of aspect priority, as usual.
+        </p>
+    <p>
+        This method is invoked for all instance fields and auto-implemented properties, even if they do not have an initializer. If they do not,
+        the method is called with the default value in the <xref href="PostSharp.Aspects.Internals.LocationLevelAdviceArgs.Value" data-throw-if-not-resolved="false"></xref> property (<code>null</code>, zero, or <code>false</code>).
+        </p>
+    <p>
+        For structs, this method is invoked only if an actual non-default constructor of the struct is invoked.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnInstanceLocationInitialized(LocationInitializationArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.LocationInitializationArgs
+      description: Information about the location.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnInstanceLocationInitialized(args As LocationInitializationArgs)
+  overload: PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.MergeStatus
+  commentId: T:PostSharp.Patterns.Recording.MergeStatus
+  id: MergeStatus
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.MergeStatus.Commutative
+  - PostSharp.Patterns.Recording.MergeStatus.Mergeable
+  - PostSharp.Patterns.Recording.MergeStatus.None
+  langs:
+  - csharp
+  - vb
+  name: MergeStatus
+  nameWithType: MergeStatus
+  fullName: PostSharp.Patterns.Recording.MergeStatus
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Enumerates the possible return values of the <xref href="PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public enum MergeStatus
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Enum MergeStatus
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.MergeStatus.None
+  commentId: F:PostSharp.Patterns.Recording.MergeStatus.None
+  id: None
+  parent: PostSharp.Patterns.Recording.MergeStatus
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MergeStatus.None
+  fullName: PostSharp.Patterns.Recording.MergeStatus.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: The subsequent <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> cannot be merged and is not commutative with the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Recording.MergeStatus
+- uid: PostSharp.Patterns.Recording.MergeStatus.Mergeable
+  commentId: F:PostSharp.Patterns.Recording.MergeStatus.Mergeable
+  id: Mergeable
+  parent: PostSharp.Patterns.Recording.MergeStatus
+  langs:
+  - csharp
+  - vb
+  name: Mergeable
+  nameWithType: MergeStatus.Mergeable
+  fullName: PostSharp.Patterns.Recording.MergeStatus.Mergeable
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: The subsequent <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> can be merged into the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>. For example, this is the case of two subsequent changes to the same field.
+  example: []
+  syntax:
+    content: Mergeable = 1
+    return:
+      type: PostSharp.Patterns.Recording.MergeStatus
+- uid: PostSharp.Patterns.Recording.MergeStatus.Commutative
+  commentId: F:PostSharp.Patterns.Recording.MergeStatus.Commutative
+  id: Commutative
+  parent: PostSharp.Patterns.Recording.MergeStatus
+  langs:
+  - csharp
+  - vb
+  name: Commutative
+  nameWithType: MergeStatus.Commutative
+  fullName: PostSharp.Patterns.Recording.MergeStatus.Commutative
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    The subsequent <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> cannot be merged into the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>, but both operations are commutative.
+
+    For example, this is the case of two subsequent changes to different fields.
+  example: []
+  syntax:
+    content: Commutative = 2
+    return:
+      type: PostSharp.Patterns.Recording.MergeStatus

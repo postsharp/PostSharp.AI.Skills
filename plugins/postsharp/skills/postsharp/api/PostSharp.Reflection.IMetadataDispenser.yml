@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.IMetadataDispenser
+  commentId: T:PostSharp.Reflection.IMetadataDispenser
+  id: IMetadataDispenser
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.IMetadataDispenser.GetMetadata(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IMetadataDispenser
+  nameWithType: IMetadataDispenser
+  fullName: PostSharp.Reflection.IMetadataDispenser
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Defines the semantics of a service that deserializes metadata objects (that is, reflection objects) that have
+
+    been serialized by <xref href="PostSharp.Reflection.IMetadataEmitter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IMetadataDispenser
+    content.vb: Public Interface IMetadataDispenser
+- uid: PostSharp.Reflection.IMetadataDispenser.GetMetadata(System.Int32)
+  commentId: M:PostSharp.Reflection.IMetadataDispenser.GetMetadata(System.Int32)
+  id: GetMetadata(System.Int32)
+  parent: PostSharp.Reflection.IMetadataDispenser
+  langs:
+  - csharp
+  - vb
+  name: GetMetadata(int)
+  nameWithType: IMetadataDispenser.GetMetadata(int)
+  fullName: PostSharp.Reflection.IMetadataDispenser.GetMetadata(int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the reflection object corresponding to the given index.
+  example: []
+  syntax:
+    content: object GetMetadata(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: >-
+        Index returned by <xref href="PostSharp.Reflection.IMetadataEmitter.GetMetadataIndex(System.Object)" data-throw-if-not-resolved="false"></xref>
+                      at build time.
+    return:
+      type: System.Object
+      description: The reflection object corresponding to <code class="paramref">index</code>.
+    content.vb: Function GetMetadata(index As Integer) As Object
+  overload: PostSharp.Reflection.IMetadataDispenser.GetMetadata*
+  nameWithType.vb: IMetadataDispenser.GetMetadata(Integer)
+  fullName.vb: PostSharp.Reflection.IMetadataDispenser.GetMetadata(Integer)
+  name.vb: GetMetadata(Integer)

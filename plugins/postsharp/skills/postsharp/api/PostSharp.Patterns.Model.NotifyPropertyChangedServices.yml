@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  commentId: T:PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  id: NotifyPropertyChangedServices
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter
+  - PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate(System.Object)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents
+  - PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(System.Object,System.String)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanging(System.Object,System.String)
+  - PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents
+  langs:
+  - csharp
+  - vb
+  name: NotifyPropertyChangedServices
+  nameWithType: NotifyPropertyChangedServices
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Provides utility methods for working with the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect buffers change notifications in a per-thread buffer and raises them when the control flow
+        exits the changed object. Use <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate(System.Object)" data-throw-if-not-resolved="false"></xref> to flush the buffer for an object before that, and <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents" data-throw-if-not-resolved="false"></xref>
+        and <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents" data-throw-if-not-resolved="false"></xref> to hold notifications back over a longer piece of code.</p>
+  example: []
+  syntax:
+    content: public static class NotifyPropertyChangedServices
+    content.vb: Public Module NotifyPropertyChangedServices
+  seealso:
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-conceptual'
+    altText: 'Conceptual: Understanding the NotifyPropertyChanged Aspect'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate(System.Object)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate(System.Object)
+  id: RaiseEventsImmediate(System.Object)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  langs:
+  - csharp
+  - vb
+  name: RaiseEventsImmediate(object)
+  nameWithType: NotifyPropertyChangedServices.RaiseEventsImmediate(object)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Raises all <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> events that are currently stored in the event buffer for the current thread
+
+    and a given object.
+  example: []
+  syntax:
+    content: public static void RaiseEventsImmediate(object instance)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: The object for which events should be raised.
+    content.vb: Public Shared Sub RaiseEventsImmediate(instance As Object)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate*
+  nameWithType.vb: NotifyPropertyChangedServices.RaiseEventsImmediate(Object)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangedServices.RaiseEventsImmediate(Object)
+  name.vb: RaiseEventsImmediate(Object)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents
+  id: SuspendEvents
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  langs:
+  - csharp
+  - vb
+  name: SuspendEvents()
+  nameWithType: NotifyPropertyChangedServices.SuspendEvents()
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Suspends the raising of <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> events for the current thread.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents" data-throw-if-not-resolved="false"></xref> method should be invoked as many times as the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents" data-throw-if-not-resolved="false"></xref> method has been invoked,
+        regardless of the return value of the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents" data-throw-if-not-resolved="false"></xref> method. Failing to do so results in events not being raised at all and potentially in memory leaks,
+        because collected events hold strong references.</p>
+    <p>When events are suspended, existing objects have <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> events collected into an event buffer. Multiple changes are treated as one.</p>
+
+    <p>When events are suspended, newly created objects do not have <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> events collected.</p>
+
+    <p>When events are suspended, all objects do not have <xref href="System.ComponentModel.INotifyPropertyChanging.PropertyChanging" data-throw-if-not-resolved="false"></xref> events collected.</p>
+  example: []
+  syntax:
+    content: public static bool SuspendEvents()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if events were suspended as a result of the current method call, <code>false</code> if events were already suspended before.
+    content.vb: Public Shared Function SuspendEvents() As Boolean
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents*
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents
+  id: ResumeEvents
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  langs:
+  - csharp
+  - vb
+  name: ResumeEvents()
+  nameWithType: NotifyPropertyChangedServices.ResumeEvents()
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Resumes the raising of <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> events for the current thread after it has been
+
+    suspended by the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.SuspendEvents" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public static void ResumeEvents()
+    content.vb: Public Shared Sub ResumeEvents()
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents*
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(System.Object,System.String)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(System.Object,System.String)
+  id: SignalPropertyChanged(System.Object,System.String)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  langs:
+  - csharp
+  - vb
+  name: SignalPropertyChanged(object, string)
+  nameWithType: NotifyPropertyChangedServices.SignalPropertyChanged(object, string)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(object, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Signals the <xref href="System.ComponentModel.INotifyPropertyChanged.PropertyChanged" data-throw-if-not-resolved="false"></xref> event of an object that is instrumented with the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <p>This method invokes the <code>OnPropertyChanged</code> method on the <code class="paramref">instance</code> object. If the method has been defined in user code, it will be invoked.</p>
+
+    <p>The event is buffered and will actually be raised when the current thread exits the scope of the <code class="paramref">instance</code> parameter. This method invokes the <code>OnPropertyChanged</code> method synchronously.</p>
+  example: []
+  syntax:
+    content: public static void SignalPropertyChanged(object instance, string propertyName)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: An instance of a class instrumented with the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+    - id: propertyName
+      type: System.String
+      description: The name of the changed property.
+    content.vb: Public Shared Sub SignalPropertyChanged(instance As Object, propertyName As String)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged*
+  nameWithType.vb: NotifyPropertyChangedServices.SignalPropertyChanged(Object, String)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(Object, String)
+  name.vb: SignalPropertyChanged(Object, String)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanging(System.Object,System.String)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanging(System.Object,System.String)
+  id: SignalPropertyChanging(System.Object,System.String)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  langs:
+  - csharp
+  - vb
+  name: SignalPropertyChanging(object, string)
+  nameWithType: NotifyPropertyChangedServices.SignalPropertyChanging(object, string)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanging(object, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Signals the <code>PropertyChanging</code> event of an object that is instrumented with the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <p>This method invokes the <code>OnPropertyChanging</code> method on the <code class="paramref">instance</code> object. If the method has been defined in user code, it will be invoked.</p>
+
+    <p>The event is buffered and will actually be raised when the current thread exits the scope of the <code class="paramref">instance</code> parameter. This method invokes the <code>OnPropertyChanging</code> method synchronously.</p>
+  example: []
+  syntax:
+    content: public static void SignalPropertyChanging(object instance, string propertyName)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: An instance of a class instrumented with the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+    - id: propertyName
+      type: System.String
+      description: The name of the changed property.
+    content.vb: Public Shared Sub SignalPropertyChanging(instance As Object, propertyName As String)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanging*
+  nameWithType.vb: NotifyPropertyChangedServices.SignalPropertyChanging(Object, String)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanging(Object, String)
+  name.vb: SignalPropertyChanging(Object, String)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter
+  commentId: P:PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter
+  id: PropertyChangingAdapter
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangedServices
+  langs:
+  - csharp
+  - vb
+  name: PropertyChangingAdapter
+  nameWithType: NotifyPropertyChangedServices.PropertyChangingAdapter
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Gets or sets the currently active <xref href="PostSharp.Patterns.Model.NotifyPropertyChangingAdapter" data-throw-if-not-resolved="false"></xref> object.
+  remarks: <p>The adapters form a chain of responsibility. This property represents the head of this chain.</p>
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public static NotifyPropertyChangingAdapter PropertyChangingAdapter { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+    content.vb: >-
+      <Required>
+
+      Public Shared Property PropertyChangingAdapter As NotifyPropertyChangingAdapter
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter*
+  attributes:
+  - type: PostSharp.Patterns.Contracts.RequiredAttribute
+    ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+    arguments: []

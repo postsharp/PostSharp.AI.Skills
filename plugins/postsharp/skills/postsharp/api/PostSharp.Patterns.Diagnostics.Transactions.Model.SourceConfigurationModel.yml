@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel
+  id: SourceConfigurationModel
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Level
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Name
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Role
+  langs:
+  - csharp
+  - vb
+  name: SourceConfigurationModel
+  nameWithType: SourceConfigurationModel
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Type of the <code>source</code> XML element. The parent
+
+    of the <code>source</code> element is <code>verbosity</code> (see <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.VerbosityConfigurationModel" data-throw-if-not-resolved="false"></xref>).
+  remarks: This class should not be used in any code. It is only mentioned for the sake of documenting the XML file.
+  example: []
+  syntax:
+    content: public sealed class SourceConfigurationModel
+    content.vb: Public NotInheritable Class SourceConfigurationModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Name
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Name
+  id: Name
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: SourceConfigurationModel.Name
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    The name of the source, typically the name of a type or namespace. This is a dotted name.
+
+    This attribute is optional. The default value matches the root namespace.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Name*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Level
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Level
+  id: Level
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: SourceConfigurationModel.Level
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Level
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Logging level for this source.
+  example: []
+  syntax:
+    content: public LogLevel Level { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public ReadOnly Property Level As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Level*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Role
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Role
+  id: Role
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: SourceConfigurationModel.Role
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Role
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Role of the source. Optional. If it is not specified, the log level is applied to all non-system sources.
+  example: []
+  syntax:
+    content: public string Role { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Role As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.SourceConfigurationModel.Role*

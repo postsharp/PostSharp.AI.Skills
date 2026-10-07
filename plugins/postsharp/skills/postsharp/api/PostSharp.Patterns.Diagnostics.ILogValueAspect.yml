@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ILogValueAspect
+  commentId: T:PostSharp.Patterns.Diagnostics.ILogValueAspect
+  id: ILogValueAspect
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.ILogValueAspect.ProfileName
+  langs:
+  - csharp
+  - vb
+  name: ILogValueAspect
+  nameWithType: ILogValueAspect
+  fullName: PostSharp.Patterns.Diagnostics.ILogValueAspect
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Interface that all location-level logging aspects implement.
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp("PostSharp.Patterns.Diagnostics.Weaver", "PostSharp.Patterns.Diagnostics")]
+
+      public interface ILogValueAspect : IAspect
+    content.vb: >-
+      <RequirePostSharp("PostSharp.Patterns.Diagnostics.Weaver", "PostSharp.Patterns.Diagnostics")>
+
+      Public Interface ILogValueAspect Inherits IAspect
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.LogValueAttribute
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: PostSharp.Patterns.Diagnostics.Weaver
+    - type: System.String
+      value: PostSharp.Patterns.Diagnostics
+- uid: PostSharp.Patterns.Diagnostics.ILogValueAspect.ProfileName
+  commentId: P:PostSharp.Patterns.Diagnostics.ILogValueAspect.ProfileName
+  id: ProfileName
+  parent: PostSharp.Patterns.Diagnostics.ILogValueAspect
+  langs:
+  - csharp
+  - vb
+  name: ProfileName
+  nameWithType: ILogValueAspect.ProfileName
+  fullName: PostSharp.Patterns.Diagnostics.ILogValueAspect.ProfileName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the name of the logging profile.
+  example: []
+  syntax:
+    content: string ProfileName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ProfileName As String
+  overload: PostSharp.Patterns.Diagnostics.ILogValueAspect.ProfileName*

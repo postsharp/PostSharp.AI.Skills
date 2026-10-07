@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.RecordingScope
+  commentId: T:PostSharp.Patterns.Recording.RecordingScope
+  id: RecordingScope
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.RecordingScope.Complete
+  - PostSharp.Patterns.Recording.RecordingScope.Dispose
+  - PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: RecordingScope
+  nameWithType: RecordingScope
+  fullName: PostSharp.Patterns.Recording.RecordingScope
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Defines the scope of a logical operation, that is, a set of changes that should be undone or redone as a whole.
+  remarks: >-
+    <p>Scopes can be defined declaratively using the <xref href="PostSharp.Patterns.Recording.RecordingScopeAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.</p>
+
+    <p>To open a scope imperatively, use the <xref href="PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)" data-throw-if-not-resolved="false"></xref> method.
+        Use the <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref> method to close the scope.</p>
+    <p>By default, the <xref href="PostSharp.Patterns.Recording.RecordableAttribute" data-throw-if-not-resolved="false"></xref> aspect wraps each call to a public or internal method of a recordable object
+        in an implicit scope, so that a call from outside the object model becomes a single logical operation.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class RecordingScope : IDisposable
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class RecordingScope Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-conceptual'
+    altText: 'Conceptual: Understanding the Recordable Aspect'
+  - linkType: HRef
+    linkId: '@undoredo-operation-name'
+    altText: 'Conceptual: Customizing Undo/Redo Operation Names'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.RecordingScope.Dispose
+  commentId: M:PostSharp.Patterns.Recording.RecordingScope.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Recording.RecordingScope
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: RecordingScope.Dispose()
+  fullName: PostSharp.Patterns.Recording.RecordingScope.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Closes the current <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>If the current <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> is atomic, invoking <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref> without <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref>
+        will undo all changes made in the current scope. In other words, <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref> without <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref> has rollback semantics.
+        </p>
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Recording.RecordingScope.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Recording.RecordingScope.Complete
+  commentId: M:PostSharp.Patterns.Recording.RecordingScope.Complete
+  id: Complete
+  parent: PostSharp.Patterns.Recording.RecordingScope
+  langs:
+  - csharp
+  - vb
+  name: Complete()
+  nameWithType: RecordingScope.Complete()
+  fullName: PostSharp.Patterns.Recording.RecordingScope.Complete()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Closes the current <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> and marks it as successful.
+  remarks: <p>It is allowed but unnecessary to call the <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref> method after the <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: public void Complete()
+    content.vb: Public Sub Complete()
+  overload: PostSharp.Patterns.Recording.RecordingScope.Complete*
+- uid: PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor
+  commentId: P:PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor
+  id: OperationDescriptor
+  parent: PostSharp.Patterns.Recording.RecordingScope
+  langs:
+  - csharp
+  - vb
+  name: OperationDescriptor
+  nameWithType: RecordingScope.OperationDescriptor
+  fullName: PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets or sets the <xref href="PostSharp.Patterns.Recording.Operations.IOperationDescriptor" data-throw-if-not-resolved="false"></xref> for the current scope.
+  remarks: <p>To set the name of the current scope, assign this property to an instance of the <xref href="PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor" data-throw-if-not-resolved="false"></xref> class.</p>
+  example: []
+  syntax:
+    content: public IOperationDescriptor OperationDescriptor { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+    content.vb: Public Property OperationDescriptor As IOperationDescriptor
+  overload: PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor*

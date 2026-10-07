@@ -1,0 +1,246 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  commentId: T:PostSharp.Aspects.Dependencies.AspectDependencyAction
+  id: AspectDependencyAction
+  parent: PostSharp.Aspects.Dependencies
+  children:
+  - PostSharp.Aspects.Dependencies.AspectDependencyAction.Commute
+  - PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict
+  - PostSharp.Aspects.Dependencies.AspectDependencyAction.None
+  - PostSharp.Aspects.Dependencies.AspectDependencyAction.Order
+  - PostSharp.Aspects.Dependencies.AspectDependencyAction.Require
+  langs:
+  - csharp
+  - vb
+  name: AspectDependencyAction
+  nameWithType: AspectDependencyAction
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: Specifies the kinds of relationships that aspect dependencies can express.
+  remarks: >-
+    <p>The combined values of <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition" data-throw-if-not-resolved="false"></xref> are interpreted
+            as follows:</p>
+    <table>
+      <tr>
+        <th>Action</th>
+        <th>Position</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Order" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.After" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice should be positioned <i>after</i> the other aspect or advice
+                matched by the custom attribute.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Order" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Before" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice should be positioned <i>before</i> the other aspect or advice
+                matched by the custom attribute.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Require" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Any" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice requires another aspect or advice
+                matched by the custom attribute, at any position.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Require" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.After" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice requires another aspect or advice
+                matched by the custom attribute positioned <i>after</i> the current one.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Require" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Before" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice requires another aspect or advice
+                matched by the custom attribute positioned <i>before</i> the current one.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Any" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice conflicts with any aspect or advice
+                matched by the custom attribute, at any position.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.After" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice conflicts with any aspect or advice
+                matched by the custom attribute, if positioned <i>after</i> the current one.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Before" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td>The current aspect or advice conflicts with any aspect or advice
+                matched by the custom attribute, if positioned <i>before</i> the current one.</td>
+      </tr>
+      <tr>
+        <td>
+          <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Commute" data-throw-if-not-resolved="false"></xref>
+        </td>
+        <td></td>
+        <td>The current aspect or advice commutes with any other aspect or advice
+                matched by the custom attribute.
+              </td>
+      </tr>
+    </table>
+
+    <p>An unsatisfied <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Require" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict" data-throw-if-not-resolved="false"></xref> dependency causes a build error, or a warning
+            if <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAttribute.IsWarning" data-throw-if-not-resolved="false"></xref> is set.</p>
+  example: []
+  syntax:
+    content: public enum AspectDependencyAction
+    content.vb: Public Enum AspectDependencyAction
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-dependencies'
+    altText: 'Conceptual: Coping with Several Aspects on the Same Target'
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyAction.None
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyAction.None
+  id: None
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: AspectDependencyAction.None
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyAction.None
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: The dependency is ignored.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyAction.Order
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyAction.Order
+  id: Order
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  langs:
+  - csharp
+  - vb
+  name: Order
+  nameWithType: AspectDependencyAction.Order
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyAction.Order
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: The dependency specifies an order relationship.
+  example: []
+  syntax:
+    content: Order = 1
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyAction.Require
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyAction.Require
+  id: Require
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  langs:
+  - csharp
+  - vb
+  name: Require
+  nameWithType: AspectDependencyAction.Require
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyAction.Require
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    The dependency specifies that the current aspect or advice requires
+
+    another aspect or advice.
+  example: []
+  syntax:
+    content: Require = 2
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict
+  id: Conflict
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  langs:
+  - csharp
+  - vb
+  name: Conflict
+  nameWithType: AspectDependencyAction.Conflict
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    The dependency specifies that the current aspect or advice
+
+    conflicts with another aspect or advice.
+  example: []
+  syntax:
+    content: Conflict = 3
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyAction.Commute
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyAction.Commute
+  id: Commute
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyAction
+  langs:
+  - csharp
+  - vb
+  name: Commute
+  nameWithType: AspectDependencyAction.Commute
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyAction.Commute
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    The dependency specifies that the current aspect or advice
+
+    commutes with another aspect or advice.
+  remarks: >-
+    The weaver emits a warning when aspects or advices that do not commute are not strongly ordered, because their
+
+    order of execution is then nondeterministic. Declaring that they commute suppresses this warning.
+  example: []
+  syntax:
+    content: Commute = 4
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyAction

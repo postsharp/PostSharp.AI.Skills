@@ -1,0 +1,159 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  commentId: T:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  id: ValueAdapterFactory
+  parent: PostSharp.Patterns.Caching.ValueAdapters
+  children:
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Get(System.Type)
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type,PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter)
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type,System.Type)
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register``1(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{``0})
+  langs:
+  - csharp
+  - vb
+  name: ValueAdapterFactory
+  nameWithType: ValueAdapterFactory
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: >-
+    Registers and provides value adapters (<xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter" data-throw-if-not-resolved="false"></xref>), which make it possible, for example, to cache objects such as <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> or <xref href="System.Collections.IEnumerable" data-throw-if-not-resolved="false"></xref>,
+
+    which could not be cached otherwise.
+  remarks: >-
+    <p>Each backend has its own instance, exposed by the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ValueAdapters" data-throw-if-not-resolved="false"></xref> property. Adapters for
+        <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref>, <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref> and <xref href="System.Collections.Generic.IEnumerator%601" data-throw-if-not-resolved="false"></xref> are registered by default. To adapt a generic type,
+        register the generic type definitions of the value type and of the adapter type, which must have the same number of generic parameters.</p>
+  example: []
+  syntax:
+    content: public sealed class ValueAdapterFactory
+    content.vb: Public NotInheritable Class ValueAdapterFactory
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-value-adapters'
+    altText: 'Conceptual: Caching Special Types with Value Adapters'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type,PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter)
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type,PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter)
+  id: Register(System.Type,PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter)
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  langs:
+  - csharp
+  - vb
+  name: Register(Type, IValueAdapter)
+  nameWithType: ValueAdapterFactory.Register(Type, IValueAdapter)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type, PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Registers an <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter" data-throw-if-not-resolved="false"></xref> instance and explicitly specifies the value type.
+  example: []
+  syntax:
+    content: public void Register(Type valueType, IValueAdapter valueAdapter)
+    parameters:
+    - id: valueType
+      type: System.Type
+      description: The type of the cached value (typically the return type of the cached method).
+    - id: valueAdapter
+      type: PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter
+      description: The adapter.
+    content.vb: Public Sub Register(valueType As Type, valueAdapter As IValueAdapter)
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register*
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type,System.Type)
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type,System.Type)
+  id: Register(System.Type,System.Type)
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  langs:
+  - csharp
+  - vb
+  name: Register(Type, Type)
+  nameWithType: ValueAdapterFactory.Register(Type, Type)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(System.Type, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Registers a generic value adapter.
+  example: []
+  syntax:
+    content: public void Register(Type valueType, Type valueAdapterType)
+    parameters:
+    - id: valueType
+      type: System.Type
+      description: The type of the cached value (typically the return type of the cached method).
+    - id: valueAdapterType
+      type: System.Type
+      description: >-
+        The type of the value adapter. This type must implement the <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter" data-throw-if-not-resolved="false"></xref>
+                    interface and have the same number of generic parameters as <code class="paramref">valueType</code>.
+    content.vb: Public Sub Register(valueType As Type, valueAdapterType As Type)
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register*
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register``1(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{``0})
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register``1(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{``0})
+  id: Register``1(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{``0})
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  langs:
+  - csharp
+  - vb
+  name: Register<T>(IValueAdapter<T>)
+  nameWithType: ValueAdapterFactory.Register<T>(IValueAdapter<T>)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register<T>(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Registers an <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Register<T>(IValueAdapter<T> valueAdapter)
+    parameters:
+    - id: valueAdapter
+      type: PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{{T}}
+      description: The adapter.
+    typeParameters:
+    - id: T
+      description: The type of the cached value (typically the return type of the cached method).
+    content.vb: Public Sub Register(Of T)(valueAdapter As IValueAdapter(Of T))
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register*
+  nameWithType.vb: ValueAdapterFactory.Register(Of T)(IValueAdapter(Of T))
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register(Of T)(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter(Of T))
+  name.vb: Register(Of T)(IValueAdapter(Of T))
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Get(System.Type)
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Get(System.Type)
+  id: Get(System.Type)
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory
+  langs:
+  - csharp
+  - vb
+  name: Get(Type)
+  nameWithType: ValueAdapterFactory.Get(Type)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Get(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Gets an <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter" data-throw-if-not-resolved="false"></xref> given a value type.
+  example: []
+  syntax:
+    content: public IValueAdapter Get(Type valueType)
+    parameters:
+    - id: valueType
+      type: System.Type
+      description: The type of the cached value (typically the return type of the cached method).
+    return:
+      type: PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter
+      description: A value adapter for <code class="paramref">valueType</code>, or <code>null</code> if no value adapter is available for <code class="paramref">valueType</code>.
+    content.vb: Public Function [Get](valueType As Type) As IValueAdapter
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Get*

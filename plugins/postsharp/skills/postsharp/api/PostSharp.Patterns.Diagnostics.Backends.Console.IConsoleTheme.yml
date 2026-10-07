@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  id: IConsoleTheme
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  - PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsAnsiCodes
+  - PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsThemeItems
+  langs:
+  - csharp
+  - vb
+  name: IConsoleTheme
+  nameWithType: IConsoleTheme
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: >-
+    Exposes the semantics of a console color theme. A simple implementation is provided by the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref> class,
+
+    and ready-made themes are exposed on the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>Implement this interface directly only when <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref>, which allows two styles per <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>, is too
+        restrictive. Assign the theme to <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackendOptions.Theme" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public interface IConsoleTheme
+    content.vb: Public Interface IConsoleTheme
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-console'
+    altText: 'Conceptual: Logging with System.Console'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  id: GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: GetStyle(string, LogLevel, LogRecordKind, ConsoleThemeItem)
+  nameWithType: IConsoleTheme.GetStyle(string, LogLevel, LogRecordKind, ConsoleThemeItem)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle(string, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle" data-throw-if-not-resolved="false"></xref> for a specific theme item.
+  example: []
+  syntax:
+    content: ConsoleThemeStyle GetStyle(string role, LogLevel level, LogRecordKind kind, ConsoleThemeItem item)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role of the log record.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The level of the log record.
+    - id: kind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the log record.
+    - id: item
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem
+      description: The kind of item inside the log record.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function GetStyle(role As String, level As LogLevel, kind As LogRecordKind, item As ConsoleThemeItem) As ConsoleThemeStyle
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle*
+  nameWithType.vb: IConsoleTheme.GetStyle(String, LogLevel, LogRecordKind, ConsoleThemeItem)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle(String, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  name.vb: GetStyle(String, LogLevel, LogRecordKind, ConsoleThemeItem)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsAnsiCodes
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsAnsiCodes
+  id: SupportsAnsiCodes
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: SupportsAnsiCodes
+  nameWithType: IConsoleTheme.SupportsAnsiCodes
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsAnsiCodes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets a value indicating whether the theme supports VT escape codes.
+  example: []
+  syntax:
+    content: bool SupportsAnsiCodes { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsAnsiCodes As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsAnsiCodes*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsThemeItems
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsThemeItems
+  id: SupportsThemeItems
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: SupportsThemeItems
+  nameWithType: IConsoleTheme.SupportsThemeItems
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsThemeItems
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets a value indicating whether the theme supports differentiating the style according to the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool SupportsThemeItems { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property SupportsThemeItems As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsThemeItems*

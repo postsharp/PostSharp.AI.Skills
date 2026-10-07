@@ -1,0 +1,414 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  commentId: T:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  id: RedisCacheDependencyGarbageCollector
+  parent: PostSharp.Patterns.Caching.Backends.Redis
+  children:
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Connection
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Database
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Dispose
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.DisposeAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Options
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: RedisCacheDependencyGarbageCollector
+  nameWithType: RedisCacheDependencyGarbageCollector
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Removes dependencies added by a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> when items are expired or evicted from the cache.
+
+    At least one instance (ideally a single instance) of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> must be running whenever a
+
+    <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> instance that supports dependencies is running, otherwise the cache will use storage to store dependencies
+
+    that are no longer relevant, and these dependencies will not be removed. If no <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> is running while
+
+    at least one dependency-enabled <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> instance is running, you must initiate a full garbage collection
+
+    by calling the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>The collector must use the same <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database" data-throw-if-not-resolved="false"></xref>
+        as the application, and its configuration must have <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents" data-throw-if-not-resolved="false"></xref> set to <code>true</code>.
+        It can run in a separate process or service.</p>
+    <p>The collector performs two tasks. It subscribes to the <code>expired</code> and <code>evicted</code> keyevent notifications of Redis and removes
+        the dependencies of the removed items. The Redis server must therefore publish these notifications (<code>notify-keyspace-events Exe</code>).
+        The collector also periodically scans the database and removes unreachable data, according to <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions" data-throw-if-not-resolved="false"></xref>.
+        The real-time processing stops while the background task queue is overloaded (see <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold" data-throw-if-not-resolved="false"></xref>).</p>
+    <p>Several instances can run at the same time, but they process the same notifications, so a single instance is preferable.
+        To start a cleanup manually, call <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public sealed class RedisCacheDependencyGarbageCollector : IDisposable'
+    content.vb: Public NotInheritable Class RedisCacheDependencyGarbageCollector Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  id: Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: Create(IConnectionMultiplexer, RedisCachingBackendConfiguration, RedisCacheDependencyGarbageCollectorOptions)
+  nameWithType: RedisCacheDependencyGarbageCollector.Create(IConnectionMultiplexer, RedisCachingBackendConfiguration, RedisCacheDependencyGarbageCollectorOptions)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(StackExchange.Redis.IConnectionMultiplexer, PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration, PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> given a Redis connection and a configuration object.
+  example: []
+  syntax:
+    content: public static RedisCacheDependencyGarbageCollector Create(IConnectionMultiplexer connection, RedisCachingBackendConfiguration configuration, RedisCacheDependencyGarbageCollectorOptions options = null)
+    parameters:
+    - id: connection
+      type: StackExchange.Redis.IConnectionMultiplexer
+      description: A Redis connection.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+      description: A configuration object.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions
+      description: The options.
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+      description: A <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> using <code class="paramref">connection</code> and <code class="paramref">configuration</code>.
+    content.vb: Public Shared Function Create(connection As IConnectionMultiplexer, configuration As RedisCachingBackendConfiguration, options As RedisCacheDependencyGarbageCollectorOptions = Nothing) As RedisCacheDependencyGarbageCollector
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  id: Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: Create(CachingBackend, RedisCacheDependencyGarbageCollectorOptions)
+  nameWithType: RedisCacheDependencyGarbageCollector.Create(CachingBackend, RedisCacheDependencyGarbageCollectorOptions)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend, PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> that uses an existing <xref href="PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public static RedisCacheDependencyGarbageCollector Create(CachingBackend backend, RedisCacheDependencyGarbageCollectorOptions options = null)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: An existing Redis <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>, as returned by <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions
+      description: The options.
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+      description: A <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> using <code class="paramref">backend</code>.
+    content.vb: Public Shared Function Create(backend As CachingBackend, options As RedisCacheDependencyGarbageCollectorOptions = Nothing) As RedisCacheDependencyGarbageCollector
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Create*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  id: CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(IConnectionMultiplexer, RedisCachingBackendConfiguration, RedisCacheDependencyGarbageCollectorOptions, CancellationToken)
+  nameWithType: RedisCacheDependencyGarbageCollector.CreateAsync(IConnectionMultiplexer, RedisCachingBackendConfiguration, RedisCacheDependencyGarbageCollectorOptions, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(StackExchange.Redis.IConnectionMultiplexer, PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration, PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> given a Redis connection and a configuration object.
+  example: []
+  syntax:
+    content: public static Task<RedisCacheDependencyGarbageCollector> CreateAsync(IConnectionMultiplexer connection, RedisCachingBackendConfiguration configuration, RedisCacheDependencyGarbageCollectorOptions options = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: connection
+      type: StackExchange.Redis.IConnectionMultiplexer
+      description: A Redis connection.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+      description: A configuration object.
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions
+      description: The options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector}
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> returning a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> that uses <code class="paramref">connection</code> and <code class="paramref">configuration</code>.
+    content.vb: Public Shared Function CreateAsync(connection As IConnectionMultiplexer, configuration As RedisCachingBackendConfiguration, options As RedisCacheDependencyGarbageCollectorOptions = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of RedisCacheDependencyGarbageCollector)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  id: CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(CachingBackend, RedisCacheDependencyGarbageCollectorOptions, CancellationToken)
+  nameWithType: RedisCacheDependencyGarbageCollector.CreateAsync(CachingBackend, RedisCacheDependencyGarbageCollectorOptions, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend, PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> that uses an existing <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public static Task<RedisCacheDependencyGarbageCollector> CreateAsync(CachingBackend backend, RedisCacheDependencyGarbageCollectorOptions options = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: An existing <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>, as returned by <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)" data-throw-if-not-resolved="false"></xref>, that supports dependencies.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions
+      description: The options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector}
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> returning a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> that uses <code class="paramref">backend</code>.
+    content.vb: Public Shared Function CreateAsync(backend As CachingBackend, options As RedisCacheDependencyGarbageCollectorOptions = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of RedisCacheDependencyGarbageCollector)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.CreateAsync*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Dispose
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: RedisCacheDependencyGarbageCollector.Dispose()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.DisposeAsync(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.DisposeAsync(System.Threading.CancellationToken)
+  id: DisposeAsync(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsync(CancellationToken)
+  nameWithType: RedisCacheDependencyGarbageCollector.DisposeAsync(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.DisposeAsync(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously disposes the current object.
+  example: []
+  syntax:
+    content: public Task DisposeAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function DisposeAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.DisposeAsync*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,System.Threading.CancellationToken)
+  id: PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: PerformFullCollectionAsync(RedisCachingBackend, CancellationToken)
+  nameWithType: RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(RedisCachingBackend, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync(PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Performs a full garbage collection on all Redis servers. This operation enumerates and validates all keys in the database, and can possibly last several
+
+    minutes and affect performance in production.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use CachingBackend.CleanUpAsync.")]
+
+      public static Task PerformFullCollectionAsync(RedisCachingBackend backend, CancellationToken cancellationToken = default)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+      description: A <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> that supports dependencies.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <Obsolete("Use CachingBackend.CleanUpAsync.")>
+
+      Public Shared Function PerformFullCollectionAsync(backend As RedisCachingBackend, cancellationToken As CancellationToken = Nothing) As Task
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.PerformFullCollectionAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use CachingBackend.CleanUpAsync.
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  id: WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: WhenBackgroundTasksCompleted(CancellationToken)
+  nameWithType: RedisCacheDependencyGarbageCollector.WhenBackgroundTasksCompleted(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Awaits until all background tasks have completed.
+  example: []
+  syntax:
+    content: public Task WhenBackgroundTasksCompleted(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function WhenBackgroundTasksCompleted(cancellationToken As CancellationToken = Nothing) As Task
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.WhenBackgroundTasksCompleted*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Options
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Options
+  id: Options
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: RedisCacheDependencyGarbageCollector.Options
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the options for the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public RedisCacheDependencyGarbageCollectorOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollectorOptions
+    content.vb: Public ReadOnly Property Options As RedisCacheDependencyGarbageCollectorOptions
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Options*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Database
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Database
+  id: Database
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: Database
+  nameWithType: RedisCacheDependencyGarbageCollector.Database
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Database
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the Redis <xref href="StackExchange.Redis.IDatabase" data-throw-if-not-resolved="false"></xref> used by the current object.
+  example: []
+  syntax:
+    content: public IDatabase Database { get; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.IDatabase
+    content.vb: Public ReadOnly Property Database As IDatabase
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Database*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Connection
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Connection
+  id: Connection
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector
+  langs:
+  - csharp
+  - vb
+  name: Connection
+  nameWithType: RedisCacheDependencyGarbageCollector.Connection
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Connection
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the Redis <xref href="StackExchange.Redis.IConnectionMultiplexer" data-throw-if-not-resolved="false"></xref> used by the current object.
+  example: []
+  syntax:
+    content: public IConnectionMultiplexer Connection { get; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.IConnectionMultiplexer
+    content.vb: Public ReadOnly Property Connection As IConnectionMultiplexer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector.Connection*

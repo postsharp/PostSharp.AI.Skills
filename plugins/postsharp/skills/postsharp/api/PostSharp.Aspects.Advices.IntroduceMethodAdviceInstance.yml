@@ -1,0 +1,109 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance
+  id: IntroduceMethodAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.#ctor(System.Reflection.MethodInfo,PostSharp.Reflection.Visibility,System.Nullable{System.Boolean},PostSharp.Aspects.Advices.MemberOverrideAction)
+  - PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.MasterAspectMember
+  langs:
+  - csharp
+  - vb
+  name: IntroduceMethodAdviceInstance
+  nameWithType: IntroduceMethodAdviceInstance
+  fullName: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Represents an advice that introduces a method of the aspect class into the target class.
+  example: []
+  syntax:
+    content: 'public sealed class IntroduceMethodAdviceInstance : IntroduceMemberAdviceInstance'
+    content.vb: Public NotInheritable Class IntroduceMethodAdviceInstance Inherits IntroduceMemberAdviceInstance
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IAdviceProvider
+    commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
+  - linkId: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.Visibility
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual
+  - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.OverrideAction
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.#ctor(System.Reflection.MethodInfo,PostSharp.Reflection.Visibility,System.Nullable{System.Boolean},PostSharp.Aspects.Advices.MemberOverrideAction)
+  commentId: M:PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.#ctor(System.Reflection.MethodInfo,PostSharp.Reflection.Visibility,System.Nullable{System.Boolean},PostSharp.Aspects.Advices.MemberOverrideAction)
+  id: '#ctor(System.Reflection.MethodInfo,PostSharp.Reflection.Visibility,System.Nullable{System.Boolean},PostSharp.Aspects.Advices.MemberOverrideAction)'
+  parent: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IntroduceMethodAdviceInstance(MethodInfo, Visibility, bool?, MemberOverrideAction)
+  nameWithType: IntroduceMethodAdviceInstance.IntroduceMethodAdviceInstance(MethodInfo, Visibility, bool?, MemberOverrideAction)
+  fullName: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.IntroduceMethodAdviceInstance(System.Reflection.MethodInfo, PostSharp.Reflection.Visibility, bool?, PostSharp.Aspects.Advices.MemberOverrideAction)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public IntroduceMethodAdviceInstance(MethodInfo method, Visibility visibility, bool? isVirtual, MemberOverrideAction overrideAction)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: A public method of the aspect class.
+    - id: visibility
+      type: PostSharp.Reflection.Visibility
+      description: The visibility of the introduced method.
+    - id: isVirtual
+      type: System.Nullable{System.Boolean}
+      description: >-
+        <code>true</code> if the introduced method should be virtual, <code>false</code> if it should be non-virtual (or sealed, if the method is overriding another one),
+            or <code>null</code> if the method should be virtual only if the overridden method is also virtual. See <xref href="PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance.IsVirtual" data-throw-if-not-resolved="false"></xref> for details.
+    - id: overrideAction
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+      description: >-
+        The action to take when the member to be introduced already exists
+                      in the type to which the aspect is applied or in a base type.
+    content.vb: Public Sub New(method As MethodInfo, visibility As Visibility, isVirtual As Boolean?, overrideAction As MemberOverrideAction)
+  overload: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.#ctor*
+  nameWithType.vb: IntroduceMethodAdviceInstance.New(MethodInfo, Visibility, Boolean?, MemberOverrideAction)
+  fullName.vb: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.New(System.Reflection.MethodInfo, PostSharp.Reflection.Visibility, Boolean?, PostSharp.Aspects.Advices.MemberOverrideAction)
+  name.vb: New(MethodInfo, Visibility, Boolean?, MemberOverrideAction)
+- uid: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.MasterAspectMember
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.MasterAspectMember
+  id: MasterAspectMember
+  parent: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MasterAspectMember
+  nameWithType: IntroduceMethodAdviceInstance.MasterAspectMember
+  fullName: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.MasterAspectMember
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the main field or method of the aspect class that the current <xref href="PostSharp.Aspects.Advices.AdviceInstance" data-throw-if-not-resolved="false"></xref> relates to.
+  example: []
+  syntax:
+    content: public override object MasterAspectMember { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides ReadOnly Property MasterAspectMember As Object
+  overridden: PostSharp.Aspects.Advices.AdviceInstance.MasterAspectMember
+  overload: PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance.MasterAspectMember*

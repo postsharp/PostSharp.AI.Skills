@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IMethodBody
+  commentId: T:PostSharp.Reflection.MethodBody.IMethodBody
+  id: IMethodBody
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IMethodBody.Method
+  - PostSharp.Reflection.MethodBody.IMethodBody.RootBlock
+  langs:
+  - csharp
+  - vb
+  name: IMethodBody
+  nameWithType: IMethodBody
+  fullName: PostSharp.Reflection.MethodBody.IMethodBody
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Represents the body of a method.
+  example: []
+  syntax:
+    content: 'public interface IMethodBody : IMethodBodyElement'
+    content.vb: Public Interface IMethodBody Inherits IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IMethodBody.Method
+  commentId: P:PostSharp.Reflection.MethodBody.IMethodBody.Method
+  id: Method
+  parent: PostSharp.Reflection.MethodBody.IMethodBody
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: IMethodBody.Method
+  fullName: PostSharp.Reflection.MethodBody.IMethodBody.Method
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the method whose body is represented by the current object.
+  example: []
+  syntax:
+    content: MethodBase Method { get; }
+    parameters: []
+    return:
+      type: System.Reflection.MethodBase
+    content.vb: ReadOnly Property Method As MethodBase
+  overload: PostSharp.Reflection.MethodBody.IMethodBody.Method*
+- uid: PostSharp.Reflection.MethodBody.IMethodBody.RootBlock
+  commentId: P:PostSharp.Reflection.MethodBody.IMethodBody.RootBlock
+  id: RootBlock
+  parent: PostSharp.Reflection.MethodBody.IMethodBody
+  langs:
+  - csharp
+  - vb
+  name: RootBlock
+  nameWithType: IMethodBody.RootBlock
+  fullName: PostSharp.Reflection.MethodBody.IMethodBody.RootBlock
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the root instruction block of the method.
+  example: []
+  syntax:
+    content: IBlockExpression RootBlock { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IBlockExpression
+    content.vb: ReadOnly Property RootBlock As IBlockExpression
+  overload: PostSharp.Reflection.MethodBody.IMethodBody.RootBlock*

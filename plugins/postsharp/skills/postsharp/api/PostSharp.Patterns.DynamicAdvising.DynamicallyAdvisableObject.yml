@@ -1,0 +1,224 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  commentId: T:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  id: DynamicallyAdvisableObject
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.#ctor
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices``2(PostSharp.Patterns.Model.ObjectAccessLevel,``1@)
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator``1
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: DynamicallyAdvisableObject
+  nameWithType: DynamicallyAdvisableObject
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Base class for objects into which advices can be dynamically injected.
+  example: []
+  syntax:
+    content: 'public abstract class DynamicallyAdvisableObject : IDynamicallyAdvisable, IQueryInterface, ISerializable, IDeserializationCallback'
+    content.vb: Public MustInherit Class DynamicallyAdvisableObject Implements IDynamicallyAdvisable, IQueryInterface, ISerializable, IDeserializationCallback
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Collections.AdvisableCollection`1
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1
+  implements:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - System.Runtime.Serialization.ISerializable
+  - System.Runtime.Serialization.IDeserializationCallback
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.#ctor
+  commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  langs:
+  - csharp
+  - vb
+  name: DynamicallyAdvisableObject()
+  nameWithType: DynamicallyAdvisableObject.DynamicallyAdvisableObject()
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.DynamicallyAdvisableObject()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject" data-throw-if-not-resolved="false"></xref> class. Constructors of derived classes are supposed to call the <xref href="PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)" data-throw-if-not-resolved="false"></xref> method too.
+  example: []
+  syntax:
+    content: protected DynamicallyAdvisableObject()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.#ctor*
+  nameWithType.vb: DynamicallyAdvisableObject.New()
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  id: InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  parent: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  langs:
+  - csharp
+  - vb
+  name: InitializeAdvices(IExecuteActionDynamicAdvice)
+  nameWithType: DynamicallyAdvisableObject.InitializeAdvices(IExecuteActionDynamicAdvice)
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Initializes the list of dynamic advices.
+  example: []
+  syntax:
+    content: protected void InitializeAdvices(IExecuteActionDynamicAdvice advice)
+    parameters:
+    - id: advice
+      type: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice
+      description: The last advice in the chain of responsibility, which does the actual work.
+    content.vb: Protected Sub InitializeAdvices(advice As IExecuteActionDynamicAdvice)
+  overload: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices*
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator``1
+  commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator``1
+  id: GetAdviceEnumerator``1
+  parent: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  langs:
+  - csharp
+  - vb
+  name: GetAdviceEnumerator<T>()
+  nameWithType: DynamicallyAdvisableObject.GetAdviceEnumerator<T>()
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets an <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601" data-throw-if-not-resolved="false"></xref> for all advices implementing a given interface on the current object.
+  example: []
+  syntax:
+    content: 'public AdviceEnumerator<T> GetAdviceEnumerator<T>() where T : class, IDynamicAdvice'
+    typeParameters:
+    - id: T
+      description: The interface to be implemented by the advice.
+    return:
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{{T}}
+      description: An <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601" data-throw-if-not-resolved="false"></xref> that enumerates all advices of type <code class="typeparamref">T</code> on the current object.
+    content.vb: Public Function GetAdviceEnumerator(Of T As {Class, IDynamicAdvice})() As AdviceEnumerator(Of T)
+  overload: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator*
+  nameWithType.vb: DynamicallyAdvisableObject.GetAdviceEnumerator(Of T)()
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator(Of T)()
+  name.vb: GetAdviceEnumerator(Of T)()
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices``2(PostSharp.Patterns.Model.ObjectAccessLevel,``1@)
+  commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices``2(PostSharp.Patterns.Model.ObjectAccessLevel,``1@)
+  id: ExecuteWithAdvices``2(PostSharp.Patterns.Model.ObjectAccessLevel,``1@)
+  parent: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  langs:
+  - csharp
+  - vb
+  name: ExecuteWithAdvices<TResult, TAction>(ObjectAccessLevel, ref TAction)
+  nameWithType: DynamicallyAdvisableObject.ExecuteWithAdvices<TResult, TAction>(ObjectAccessLevel, ref TAction)
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices<TResult, TAction>(PostSharp.Patterns.Model.ObjectAccessLevel, ref TAction)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Executes an action wrapped by all custom advices added to the current object.
+  example: []
+  syntax:
+    content: 'protected TResult ExecuteWithAdvices<TResult, TAction>(ObjectAccessLevel objectAccessLevel, ref TAction action) where TAction : struct, IAction<TResult>'
+    parameters:
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The required access level when executing <code class="paramref">action</code>.
+    - id: action
+      type: '{TAction}'
+      description: The action to be executed.
+    typeParameters:
+    - id: TResult
+      description: The type of the return value.
+    - id: TAction
+      description: The type of the action.
+    return:
+      type: '{TResult}'
+      description: The return value of <code class="paramref">action</code>.
+    content.vb: Protected Function ExecuteWithAdvices(Of TResult, TAction As {Structure, IAction(Of TResult)})(objectAccessLevel As ObjectAccessLevel, action As TAction) As TResult
+  overload: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices*
+  nameWithType.vb: DynamicallyAdvisableObject.ExecuteWithAdvices(Of TResult, TAction)(ObjectAccessLevel, TAction)
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices(Of TResult, TAction)(PostSharp.Patterns.Model.ObjectAccessLevel, TAction)
+  name.vb: ExecuteWithAdvices(Of TResult, TAction)(ObjectAccessLevel, TAction)
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: DynamicallyAdvisableObject.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  example: []
+  syntax:
+    content: >-
+      [SecurityCritical]
+
+      public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+    content.vb: >-
+      <SecurityCritical>
+
+      Public Overridable Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  attributes:
+  - type: System.Security.SecurityCriticalAttribute
+    ctor: System.Security.SecurityCriticalAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(System.Object)
+  commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(System.Object)
+  id: OnDeserialization(System.Object)
+  parent: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  langs:
+  - csharp
+  - vb
+  name: OnDeserialization(object)
+  nameWithType: DynamicallyAdvisableObject.OnDeserialization(object)
+  fullName: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  example: []
+  syntax:
+    content: public virtual void OnDeserialization(object sender)
+    parameters:
+    - id: sender
+      type: System.Object
+    content.vb: Public Overridable Sub OnDeserialization(sender As Object)
+  overload: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization*
+  implements:
+  - System.Runtime.Serialization.IDeserializationCallback.OnDeserialization(System.Object)
+  nameWithType.vb: DynamicallyAdvisableObject.OnDeserialization(Object)
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(Object)
+  name.vb: OnDeserialization(Object)

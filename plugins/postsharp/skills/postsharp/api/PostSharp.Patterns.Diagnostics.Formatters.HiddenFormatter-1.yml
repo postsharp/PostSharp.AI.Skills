@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+  id: HiddenFormatter`1
+  parent: PostSharp.Patterns.Diagnostics.Formatters
+  children:
+  - PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Instance
+  - PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,`0)
+  langs:
+  - csharp
+  - vb
+  name: HiddenFormatter<T>
+  nameWithType: HiddenFormatter<T>
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Formatter that always writes <code>*******</code> to the output.
+  example: []
+  syntax:
+    content: 'public class HiddenFormatter<T> : Formatter<T>, IFormatter<T>, IOptionAwareFormatter, IFormatter, IOverrideFormatter'
+    typeParameters:
+    - id: T
+    content.vb: Public Class HiddenFormatter(Of T) Inherits Formatter(Of T) Implements IFormatter(Of T), IOptionAwareFormatter, IFormatter, IOverrideFormatter
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.Formatter{{T}}
+  implements:
+  - PostSharp.Patterns.Formatters.IFormatter{{T}}
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  - PostSharp.Patterns.Formatters.IFormatter
+  - PostSharp.Patterns.Diagnostics.Formatters.IOverrideFormatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.Formatter{{T}}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.Formatter{{T}}.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.Formatter{{T}}.Attributes
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: HiddenFormatter(Of T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter(Of T)
+  name.vb: HiddenFormatter(Of T)
+- uid: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,`0)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,`0)
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,`0)
+  parent: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, T)
+  nameWithType: HiddenFormatter<T>.Write(UnsafeStringBuilder, T)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter<T>.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: public override void Write(UnsafeStringBuilder stringBuilder, T value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: '{T}'
+      description: The value to be formatted.
+    content.vb: Public Overrides Sub Write(stringBuilder As UnsafeStringBuilder, value As T)
+  overridden: PostSharp.Patterns.Formatters.Formatter{{T}}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,{T})
+  overload: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Write*
+  nameWithType.vb: HiddenFormatter(Of T).Write(UnsafeStringBuilder, T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter(Of T).Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, T)
+- uid: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Instance
+  commentId: P:PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Instance
+  id: Instance
+  parent: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: HiddenFormatter<T>.Instance
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter<T>.Instance
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Gets the singleton instance of <xref href="PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static HiddenFormatter<T> Instance { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+    content.vb: Public Shared ReadOnly Property Instance As HiddenFormatter(Of T)
+  overload: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1.Instance*
+  nameWithType.vb: HiddenFormatter(Of T).Instance
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter(Of T).Instance

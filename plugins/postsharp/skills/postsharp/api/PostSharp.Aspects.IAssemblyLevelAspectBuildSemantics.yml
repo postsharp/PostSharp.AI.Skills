@@ -1,0 +1,63 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics
+  commentId: T:PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics
+  id: IAssemblyLevelAspectBuildSemantics
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.Assembly,PostSharp.Aspects.AspectInfo)
+  langs:
+  - csharp
+  - vb
+  name: IAssemblyLevelAspectBuildSemantics
+  nameWithType: IAssemblyLevelAspectBuildSemantics
+  fullName: PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Build-time semantics of aspects applied at assembly level.
+  example: []
+  syntax:
+    content: 'public interface IAssemblyLevelAspectBuildSemantics : IAspect'
+    content.vb: Public Interface IAssemblyLevelAspectBuildSemantics Inherits IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.AssemblyLevelAspect
+    commentId: T:PostSharp.Aspects.AssemblyLevelAspect
+  derivedClasses:
+  - PostSharp.Aspects.AssemblyLevelAspect
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+- uid: PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.Assembly,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.Assembly,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Reflection.Assembly,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(Assembly, AspectInfo)
+  nameWithType: IAssemblyLevelAspectBuildSemantics.CompileTimeInitialize(Assembly, AspectInfo)
+  fullName: PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.Assembly, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: void CompileTimeInitialize(Assembly assembly, AspectInfo aspectInfo)
+    parameters:
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: Assembly to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future use.
+    content.vb: Sub CompileTimeInitialize(assembly As Assembly, aspectInfo As AspectInfo)
+  overload: PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

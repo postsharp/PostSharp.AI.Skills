@@ -1,0 +1,438 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  commentId: T:PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  id: UnknownObjectAccessor
+  parent: PostSharp.Patterns.Utilities
+  children:
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(System.Object)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetEnumerator
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory(System.Type)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory``1
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetHashCode
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance(System.Object)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.ToTuples
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty``1(System.Object,System.String,``0@)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty``1(System.String,``0@)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties``1(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor{``0},``0@)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Equality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  - PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Inequality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  langs:
+  - csharp
+  - vb
+  name: UnknownObjectAccessor
+  nameWithType: UnknownObjectAccessor
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: A convenience wrapper for instances of anonymous types (or any unknown type) that exposes properties.
+  example: []
+  syntax:
+    content: 'public readonly struct UnknownObjectAccessor : IEquatable<UnknownObjectAccessor>, IEnumerable<KeyValuePair<string, object>>, IEnumerable'
+    content.vb: Public Structure UnknownObjectAccessor Implements IEquatable(Of UnknownObjectAccessor), IEnumerable(Of KeyValuePair(Of String, Object)), IEnumerable
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Utilities.UnknownObjectAccessor}
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  extensionMethods:
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}}.PostSharp.Patterns.Collections.Extensions.ToAdvisableCollection``1
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}}.PostSharp.Patterns.Collections.Extensions.ToAdvisableDictionary``3(System.Func{System.Collections.Generic.KeyValuePair{System.String,System.Object},{TKey}},System.Func{System.Collections.Generic.KeyValuePair{System.String,System.Object},{TValue}})
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}}.PostSharp.Patterns.Collections.Extensions.ToAdvisableHashSet``1
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory``1
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory``1
+  id: GetFactory``1
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetFactory<T>()
+  nameWithType: UnknownObjectAccessor.GetFactory<T>()
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets a delegate to a factory method that returns an <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref> for an object of a type given as a generic parameter.
+  example: []
+  syntax:
+    content: public static Func<T, UnknownObjectAccessor> GetFactory<T>()
+    typeParameters:
+    - id: T
+      description: The type of the objects to be wrapped. It must be the final type (cannot be <code>object</code>, for instance).
+    return:
+      type: System.Func{{T},PostSharp.Patterns.Utilities.UnknownObjectAccessor}
+      description: A delegate that takes the object as input and returns its <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function GetFactory(Of T)() As Func(Of T, UnknownObjectAccessor)
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory*
+  nameWithType.vb: UnknownObjectAccessor.GetFactory(Of T)()
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory(Of T)()
+  name.vb: GetFactory(Of T)()
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory(System.Type)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory(System.Type)
+  id: GetFactory(System.Type)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetFactory(Type)
+  nameWithType: UnknownObjectAccessor.GetFactory(Type)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets a delegate to a factory method that returns an <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref> for an object of a type given as a generic parameter.
+  example: []
+  syntax:
+    content: public static Func<object, UnknownObjectAccessor> GetFactory(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type of the objects to be wrapped. It must be the final type (cannot be <code>object</code>, for instance).
+    return:
+      type: System.Func{System.Object,PostSharp.Patterns.Utilities.UnknownObjectAccessor}
+      description: A delegate that takes the object as input and returns its <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function GetFactory(type As Type) As Func(Of Object, UnknownObjectAccessor)
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetFactory*
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance(System.Object)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance(System.Object)
+  id: GetInstance(System.Object)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetInstance(object)
+  nameWithType: UnknownObjectAccessor.GetInstance(object)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets an <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref> for a specific object.
+  example: []
+  syntax:
+    content: public static UnknownObjectAccessor GetInstance(object value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The wrapped object.
+    return:
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+      description: A wrapper for <code class="paramref">value</code>.
+    content.vb: Public Shared Function GetInstance(value As Object) As UnknownObjectAccessor
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance*
+  nameWithType.vb: UnknownObjectAccessor.GetInstance(Object)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance(Object)
+  name.vb: GetInstance(Object)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty``1(System.String,``0@)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty``1(System.String,``0@)
+  id: TryGetProperty``1(System.String,``0@)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: TryGetProperty<T>(string, out T)
+  nameWithType: UnknownObjectAccessor.TryGetProperty<T>(string, out T)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty<T>(string, out T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets the value of a named property for the current <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool TryGetProperty<T>(string name, out T value)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+    - id: value
+      type: '{T}'
+      description: The property value if a property named <code class="paramref">name</code> exists and its value can be cast to <code class="typeparamref">T</code>; otherwise, <code>default</code>.
+    typeParameters:
+    - id: T
+      description: The type of the property value.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if a property named <code class="paramref">name</code> exists and its value can be cast to <code class="typeparamref">T</code>; otherwise, <code>false</code>.
+    content.vb: Public Function TryGetProperty(Of T)(name As String, value As T) As Boolean
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty*
+  nameWithType.vb: UnknownObjectAccessor.TryGetProperty(Of T)(String, T)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty(Of T)(String, T)
+  name.vb: TryGetProperty(Of T)(String, T)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty``1(System.Object,System.String,``0@)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty``1(System.Object,System.String,``0@)
+  id: TryGetProperty``1(System.Object,System.String,``0@)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: TryGetProperty<T>(object, string, out T)
+  nameWithType: UnknownObjectAccessor.TryGetProperty<T>(object, string, out T)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty<T>(object, string, out T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets the value of a named property for an arbitrary object.
+  example: []
+  syntax:
+    content: public static bool TryGetProperty<T>(object instance, string name, out T value)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: The object whose property has to be returned.
+    - id: name
+      type: System.String
+      description: The property name.
+    - id: value
+      type: '{T}'
+      description: The property value if a property named <code class="paramref">name</code> exists and its value can be cast to <code class="typeparamref">T</code>; otherwise, <code>default</code>.
+    typeParameters:
+    - id: T
+      description: The type of the property value.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if a property named <code class="paramref">name</code> exists and its value can be cast to <code class="typeparamref">T</code>; otherwise, <code>false</code>.
+    content.vb: Public Shared Function TryGetProperty(Of T)(instance As Object, name As String, value As T) As Boolean
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty*
+  nameWithType.vb: UnknownObjectAccessor.TryGetProperty(Of T)(Object, String, T)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty(Of T)(Object, String, T)
+  name.vb: TryGetProperty(Of T)(Object, String, T)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.ToTuples
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.ToTuples
+  id: ToTuples
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: ToTuples()
+  nameWithType: UnknownObjectAccessor.ToTuples()
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.ToTuples()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Converts the wrapped object to an array of name-value tuples.
+  example: []
+  syntax:
+    content: public IReadOnlyList<(string name, object value)> ToTuples()
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.ValueTuple{System.String,System.Object}}
+      description: The list of name-value tuples.
+    content.vb: Public Function ToTuples() As IReadOnlyList(Of (name As String, value As Object))
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.ToTuples*
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(System.Object)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: UnknownObjectAccessor.Equals(object)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals*
+  nameWithType.vb: UnknownObjectAccessor.Equals(Object)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetHashCode
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: UnknownObjectAccessor.GetHashCode()
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetHashCode*
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  id: Equals(PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: Equals(UnknownObjectAccessor)
+  nameWithType: UnknownObjectAccessor.Equals(UnknownObjectAccessor)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals(PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  example: []
+  syntax:
+    content: public bool Equals(UnknownObjectAccessor other)
+    parameters:
+    - id: other
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As UnknownObjectAccessor) As Boolean
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Utilities.UnknownObjectAccessor}.Equals(PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetEnumerator
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetEnumerator
+  id: GetEnumerator
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: UnknownObjectAccessor.GetEnumerator()
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetEnumerator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: >-
+    Returns an <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor.Enumerator" data-throw-if-not-resolved="false"></xref>, which enumerates the properties of the current <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>
+
+    as a set of <code>KeyValuePair&lt;string, object&gt;</code>.
+  example: []
+  syntax:
+    content: public UnknownObjectAccessor.Enumerator GetEnumerator()
+    return:
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor.Enumerator
+      description: A new <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor.Enumerator" data-throw-if-not-resolved="false"></xref> for the current <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetEnumerator() As UnknownObjectAccessor.Enumerator
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetEnumerator*
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties``1(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor{``0},``0@)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties``1(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor{``0},``0@)
+  id: VisitProperties``1(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor{``0},``0@)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: VisitProperties<TState>(IUnknownObjectPropertyVisitor<TState>, ref TState)
+  nameWithType: UnknownObjectAccessor.VisitProperties<TState>(IUnknownObjectPropertyVisitor<TState>, ref TState)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties<TState>(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor<TState>, ref TState)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: >-
+    Invokes the <xref href="PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2c%600%40)" data-throw-if-not-resolved="false"></xref> method of a given visitor
+
+    for each property of the current <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void VisitProperties<TState>(IUnknownObjectPropertyVisitor<TState> visitor, ref TState state)
+    parameters:
+    - id: visitor
+      type: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor{{TState}}
+      description: The visitor.
+    - id: state
+      type: '{TState}'
+      description: The opaque state passed to the <xref href="PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2c%600%40)" data-throw-if-not-resolved="false"></xref> method.
+    typeParameters:
+    - id: TState
+      description: >-
+        The type of the opaque state passed to the <xref href="PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2c%600%40)" data-throw-if-not-resolved="false"></xref>
+                    method.
+    content.vb: Public Sub VisitProperties(Of TState)(visitor As IUnknownObjectPropertyVisitor(Of TState), state As TState)
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties*
+  nameWithType.vb: UnknownObjectAccessor.VisitProperties(Of TState)(IUnknownObjectPropertyVisitor(Of TState), TState)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties(Of TState)(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor(Of TState), TState)
+  name.vb: VisitProperties(Of TState)(IUnknownObjectPropertyVisitor(Of TState), TState)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Equality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Equality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  id: op_Equality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: operator ==(UnknownObjectAccessor, UnknownObjectAccessor)
+  nameWithType: UnknownObjectAccessor.operator ==(UnknownObjectAccessor, UnknownObjectAccessor)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.operator ==(PostSharp.Patterns.Utilities.UnknownObjectAccessor, PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Determines whether two <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref> instances are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(UnknownObjectAccessor left, UnknownObjectAccessor right)
+    parameters:
+    - id: left
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+      description: The first instance.
+    - id: right
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+      description: The second instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the instances are equal; otherwise, <code>false</code>.
+    content.vb: Public Shared Operator =(left As UnknownObjectAccessor, right As UnknownObjectAccessor) As Boolean
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Equality*
+  nameWithType.vb: UnknownObjectAccessor.=(UnknownObjectAccessor, UnknownObjectAccessor)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.=(PostSharp.Patterns.Utilities.UnknownObjectAccessor, PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  name.vb: =(UnknownObjectAccessor, UnknownObjectAccessor)
+- uid: PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Inequality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  commentId: M:PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Inequality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  id: op_Inequality(PostSharp.Patterns.Utilities.UnknownObjectAccessor,PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  parent: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+  langs:
+  - csharp
+  - vb
+  name: operator !=(UnknownObjectAccessor, UnknownObjectAccessor)
+  nameWithType: UnknownObjectAccessor.operator !=(UnknownObjectAccessor, UnknownObjectAccessor)
+  fullName: PostSharp.Patterns.Utilities.UnknownObjectAccessor.operator !=(PostSharp.Patterns.Utilities.UnknownObjectAccessor, PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Determines whether two <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref> instances are different.
+  example: []
+  syntax:
+    content: public static bool operator !=(UnknownObjectAccessor left, UnknownObjectAccessor right)
+    parameters:
+    - id: left
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+      description: The first instance.
+    - id: right
+      type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
+      description: The second instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the instances are different; otherwise, <code>false</code>.
+    content.vb: Public Shared Operator <>(left As UnknownObjectAccessor, right As UnknownObjectAccessor) As Boolean
+  overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.op_Inequality*
+  nameWithType.vb: UnknownObjectAccessor.<>(UnknownObjectAccessor, UnknownObjectAccessor)
+  fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.<>(PostSharp.Patterns.Utilities.UnknownObjectAccessor, PostSharp.Patterns.Utilities.UnknownObjectAccessor)
+  name.vb: <>(UnknownObjectAccessor, UnknownObjectAccessor)

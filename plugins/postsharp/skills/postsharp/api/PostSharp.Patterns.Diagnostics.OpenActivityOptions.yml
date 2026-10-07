@@ -1,0 +1,342 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  id: OpenActivityOptions
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@,PostSharp.Patterns.Diagnostics.LogActivityKind)
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor(System.Object,PostSharp.Patterns.Diagnostics.LogActivityKind)
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.Data
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.IncomingRequestOptions
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.IsSyntheticRootId
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.Kind
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.Properties
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticParentId
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticRootId
+  - PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: OpenActivityOptions
+  nameWithType: OpenActivityOptions
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Represents the argument of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>To open a transaction that the logging policies of the configuration file can match, create the options with the
+        <xref href="PostSharp.Patterns.Diagnostics.LogActivityKind.Transaction" data-throw-if-not-resolved="false"></xref> kind and a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref> whose <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> exposes the expression model
+        of the transaction, then call <xref href="PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref> before opening the activity.
+        To bypass the policies, set the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement" data-throw-if-not-resolved="false"></xref> property directly.</p>
+  example: []
+  syntax:
+    content: public struct OpenActivityOptions
+    content.vb: Public Structure OpenActivityOptions
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+    commentId: T:PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  - linkType: HRef
+    linkId: '@custom-logging-transactions'
+    altText: 'Conceptual: Defining Your Own Logging Transactions'
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor(System.Object,PostSharp.Patterns.Diagnostics.LogActivityKind)
+  commentId: M:PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor(System.Object,PostSharp.Patterns.Diagnostics.LogActivityKind)
+  id: '#ctor(System.Object,PostSharp.Patterns.Diagnostics.LogActivityKind)'
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: OpenActivityOptions(object, LogActivityKind)
+  nameWithType: OpenActivityOptions.OpenActivityOptions(object, LogActivityKind)
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.OpenActivityOptions(object, PostSharp.Patterns.Diagnostics.LogActivityKind)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> struct and specifies properties using an arbitrary object
+
+    (possibly of an anonymous class).
+  example: []
+  syntax:
+    content: public OpenActivityOptions(object data = null, LogActivityKind kind = LogActivityKind.Default)
+    parameters:
+    - id: data
+      type: System.Object
+      description: >-
+        Optional. Specifies the properties of the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref>. It is typically an instance of a well-known or anonymous CLR type.
+                    The resulting <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref> has the default <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>. This means that all CLR properties are exposed
+                    as logging properties, unless they are annotated with <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute" data-throw-if-not-resolved="false"></xref>.
+    - id: kind
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+      description: Optional. The kind of activity.
+    content.vb: Public Sub New(data As Object = Nothing, kind As LogActivityKind = LogActivityKind.Default)
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor*
+  nameWithType.vb: OpenActivityOptions.New(Object, LogActivityKind)
+  fullName.vb: PostSharp.Patterns.Diagnostics.OpenActivityOptions.New(Object, PostSharp.Patterns.Diagnostics.LogActivityKind)
+  name.vb: New(Object, LogActivityKind)
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@,PostSharp.Patterns.Diagnostics.LogActivityKind)
+  commentId: M:PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@,PostSharp.Patterns.Diagnostics.LogActivityKind)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@,PostSharp.Patterns.Diagnostics.LogActivityKind)'
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: OpenActivityOptions(in LogEventData, LogActivityKind)
+  nameWithType: OpenActivityOptions.OpenActivityOptions(in LogEventData, LogActivityKind)
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.OpenActivityOptions(in PostSharp.Patterns.Diagnostics.Custom.LogEventData, PostSharp.Patterns.Diagnostics.LogActivityKind)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> struct and specifies properties using a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public OpenActivityOptions(in LogEventData data, LogActivityKind kind = LogActivityKind.Default)
+    parameters:
+    - id: data
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventData
+      description: Optional. Specifies the properties of the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions" data-throw-if-not-resolved="false"></xref>. See <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+    - id: kind
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+      description: Optional. The kind of activity.
+    content.vb: Public Sub New(data As LogEventData, kind As LogActivityKind = LogActivityKind.Default)
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.#ctor*
+  nameWithType.vb: OpenActivityOptions.New(LogEventData, LogActivityKind)
+  fullName.vb: PostSharp.Patterns.Diagnostics.OpenActivityOptions.New(PostSharp.Patterns.Diagnostics.Custom.LogEventData, PostSharp.Patterns.Diagnostics.LogActivityKind)
+  name.vb: New(LogEventData, LogActivityKind)
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.IncomingRequestOptions
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.IncomingRequestOptions
+  id: IncomingRequestOptions
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: IncomingRequestOptions
+  nameWithType: OpenActivityOptions.IncomingRequestOptions
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.IncomingRequestOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the logging options set by the remote caller of the request
+
+    represented by the current <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IncomingRequestOptions IncomingRequestOptions { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+    content.vb: Public Property IncomingRequestOptions As IncomingRequestOptions
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.IncomingRequestOptions*
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement
+  id: TransactionRequirement
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: TransactionRequirement
+  nameWithType: OpenActivityOptions.TransactionRequirement
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement" data-throw-if-not-resolved="false"></xref> for the current activity. These requirements can be set
+
+    by the caller of <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref> or
+
+    by <xref href="PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public TransactionRequirement TransactionRequirement { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+    content.vb: Public Property TransactionRequirement As TransactionRequirement
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement*
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.IsSyntheticRootId
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.IsSyntheticRootId
+  id: IsSyntheticRootId
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: IsSyntheticRootId
+  nameWithType: OpenActivityOptions.IsSyntheticRootId
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.IsSyntheticRootId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether the resulting activity is assigned a global id, irrespective of the id generation strategy.
+
+    When this property is <code>true</code>, the resulting <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> is rooted by the current activity. When this property is <code>false</code>,
+
+    the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> may start with the id of the parent context.
+  example: []
+  syntax:
+    content: public bool IsSyntheticRootId { readonly get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSyntheticRootId As Boolean
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.IsSyntheticRootId*
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Kind
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.Kind
+  id: Kind
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: OpenActivityOptions.Kind
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Kind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the kind of <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LogActivityKind Kind { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+    content.vb: Public Property Kind As LogActivityKind
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Kind*
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Properties
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.Properties
+  id: Properties
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: OpenActivityOptions.Properties
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Properties
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the activity properties.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the Data property.")]
+
+      public LoggingProperty[] Properties { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty[]
+    content.vb: >-
+      <Obsolete("Use the Data property.")>
+
+      Public Property Properties As LoggingProperty()
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Properties*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Data property.
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Data
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.Data
+  id: Data
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: OpenActivityOptions.Data
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Data
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the properties of the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref>. They are typically specified as an instance of a well-known or anonymous CLR type.
+  example: []
+  syntax:
+    content: public LogEventData Data { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventData
+    content.vb: Public Property Data As LogEventData
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.Data*
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticParentId
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticParentId
+  id: SyntheticParentId
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: SyntheticParentId
+  nameWithType: OpenActivityOptions.SyntheticParentId
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticParentId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the parent identifier of the synthetic identifier.
+
+    When this property is set to a non-null value, the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property shall use this
+
+    property as the parent identifier, instead of recursively building the synthetic identifier based on the parent context.
+  remarks: >-
+    <p>Set this property when you open the activity that processes a request received from another process,
+        passing the identifier of the calling activity that the caller sent with the request.</p>
+  example: []
+  syntax:
+    content: public string SyntheticParentId { readonly get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SyntheticParentId As String
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticParentId*
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+- uid: PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticRootId
+  commentId: P:PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticRootId
+  id: SyntheticRootId
+  parent: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: SyntheticRootId
+  nameWithType: OpenActivityOptions.SyntheticRootId
+  fullName: PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticRootId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the root identifier of the synthetic identifier.
+
+    When this property is set to a non-null value, the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property shall return the
+
+    value of this property, instead of starting with the id of the parent context.
+  example: []
+  syntax:
+    content: public string SyntheticRootId { readonly get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SyntheticRootId As String
+  overload: PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticRootId*

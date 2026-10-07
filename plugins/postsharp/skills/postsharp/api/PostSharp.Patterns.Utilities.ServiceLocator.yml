@@ -1,0 +1,115 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Utilities.ServiceLocator
+  commentId: T:PostSharp.Patterns.Utilities.ServiceLocator
+  id: ServiceLocator
+  parent: PostSharp.Patterns.Utilities
+  children:
+  - PostSharp.Patterns.Utilities.ServiceLocator.GetService``1
+  - PostSharp.Patterns.Utilities.ServiceLocator.RegisterService``1(``0)
+  - PostSharp.Patterns.Utilities.ServiceLocator.ServiceRegistered
+  langs:
+  - csharp
+  - vb
+  name: ServiceLocator
+  nameWithType: ServiceLocator
+  fullName: PostSharp.Patterns.Utilities.ServiceLocator
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: A basic service locator used by PostSharp Patterns to find global services.
+  example: []
+  syntax:
+    content: public static class ServiceLocator
+    content.vb: Public Module ServiceLocator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Utilities.ServiceLocator.RegisterService``1(``0)
+  commentId: M:PostSharp.Patterns.Utilities.ServiceLocator.RegisterService``1(``0)
+  id: RegisterService``1(``0)
+  parent: PostSharp.Patterns.Utilities.ServiceLocator
+  langs:
+  - csharp
+  - vb
+  name: RegisterService<T>(T)
+  nameWithType: ServiceLocator.RegisterService<T>(T)
+  fullName: PostSharp.Patterns.Utilities.ServiceLocator.RegisterService<T>(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Registers a service.
+  example: []
+  syntax:
+    content: 'public static void RegisterService<T>(T service) where T : class'
+    parameters:
+    - id: service
+      type: '{T}'
+      description: The service implementation.
+    typeParameters:
+    - id: T
+      description: The type of the service interface.
+    content.vb: Public Shared Sub RegisterService(Of T As Class)(service As T)
+  overload: PostSharp.Patterns.Utilities.ServiceLocator.RegisterService*
+  nameWithType.vb: ServiceLocator.RegisterService(Of T)(T)
+  fullName.vb: PostSharp.Patterns.Utilities.ServiceLocator.RegisterService(Of T)(T)
+  name.vb: RegisterService(Of T)(T)
+- uid: PostSharp.Patterns.Utilities.ServiceLocator.GetService``1
+  commentId: M:PostSharp.Patterns.Utilities.ServiceLocator.GetService``1
+  id: GetService``1
+  parent: PostSharp.Patterns.Utilities.ServiceLocator
+  langs:
+  - csharp
+  - vb
+  name: GetService<T>()
+  nameWithType: ServiceLocator.GetService<T>()
+  fullName: PostSharp.Patterns.Utilities.ServiceLocator.GetService<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Gets a service implementation.
+  example: []
+  syntax:
+    content: 'public static T GetService<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The type of the requested service interface.
+    return:
+      type: '{T}'
+      description: An implementation of <code class="typeparamref">T</code>, or <code>null</code> if no such service has been registered.
+    content.vb: Public Shared Function GetService(Of T As Class)() As T
+  overload: PostSharp.Patterns.Utilities.ServiceLocator.GetService*
+  nameWithType.vb: ServiceLocator.GetService(Of T)()
+  fullName.vb: PostSharp.Patterns.Utilities.ServiceLocator.GetService(Of T)()
+  name.vb: GetService(Of T)()
+- uid: PostSharp.Patterns.Utilities.ServiceLocator.ServiceRegistered
+  commentId: E:PostSharp.Patterns.Utilities.ServiceLocator.ServiceRegistered
+  id: ServiceRegistered
+  parent: PostSharp.Patterns.Utilities.ServiceLocator
+  langs:
+  - csharp
+  - vb
+  name: ServiceRegistered
+  nameWithType: ServiceLocator.ServiceRegistered
+  fullName: PostSharp.Patterns.Utilities.ServiceLocator.ServiceRegistered
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Occurs when a new service is registered.
+  example: []
+  syntax:
+    content: public static event EventHandler<ServiceRegisteredEventArgs> ServiceRegistered
+    return:
+      type: System.EventHandler{PostSharp.Patterns.Utilities.ServiceRegisteredEventArgs}
+    content.vb: Public Shared Event ServiceRegistered As EventHandler(Of ServiceRegisteredEventArgs)

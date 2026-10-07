@@ -1,0 +1,222 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.PhoneAttribute
+  commentId: T:PostSharp.Patterns.Contracts.PhoneAttribute
+  id: PhoneAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.PhoneAttribute.#ctor
+  - PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessage
+  - PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessageArguments
+  langs:
+  - csharp
+  - vb
+  name: PhoneAttribute
+  nameWithType: PhoneAttribute
+  fullName: PostSharp.Patterns.Contracts.PhoneAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Custom attribute that, when added to a field, property or parameter, throws
+
+    an <xref href="System.ArgumentException" data-throw-if-not-resolved="false"></xref> if the target is assigned a value that
+
+    is not a valid phone number. Null strings are accepted and do not
+
+    throw an exception.
+  remarks: <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.PhoneAttribute" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AspectConfiguration(SerializerType = typeof(MsilAspectSerializer))]
+
+      public sealed class PhoneAttribute : RegularExpressionAttribute, ILocationLevelAspect, IAspect
+    content.vb: >-
+      <AspectConfiguration(SerializerType:=GetType(MsilAspectSerializer))>
+
+      Public NotInheritable Class PhoneAttribute Inherits RegularExpressionAttribute Implements ILocationLevelAspect, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Patterns.Contracts.LocationContractAttribute
+  - PostSharp.Patterns.Contracts.RegularExpressionAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Contracts.RegularExpressionAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Configuration.AspectConfigurationAttribute
+    ctor: PostSharp.Aspects.Configuration.AspectConfigurationAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: SerializerType
+      type: System.Type
+      value: PostSharp.Aspects.Serialization.MsilAspectSerializer
+- uid: PostSharp.Patterns.Contracts.PhoneAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Contracts.PhoneAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Contracts.PhoneAttribute
+  langs:
+  - csharp
+  - vb
+  name: PhoneAttribute()
+  nameWithType: PhoneAttribute.PhoneAttribute()
+  fullName: PostSharp.Patterns.Contracts.PhoneAttribute.PhoneAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.PhoneAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public PhoneAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Contracts.PhoneAttribute.#ctor*
+  nameWithType.vb: PhoneAttribute.New()
+  fullName.vb: PostSharp.Patterns.Contracts.PhoneAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessage
+  commentId: M:PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessage
+  id: GetErrorMessage
+  parent: PostSharp.Patterns.Contracts.PhoneAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: PhoneAttribute.GetErrorMessage()
+  fullName: PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessage()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the unformatted error message as defined by the instance.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>The use of this method can be overridden by setting the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> property to a non-null value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      protected override string GetErrorMessage()
+    return:
+      type: System.String
+      description: The unformatted error message.
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessage() As String
+  overridden: PostSharp.Patterns.Contracts.RegularExpressionAttribute.GetErrorMessage
+  overload: PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.
+- uid: PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessageArguments
+  commentId: M:PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessageArguments
+  id: GetErrorMessageArguments
+  parent: PostSharp.Patterns.Contracts.PhoneAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessageArguments()
+  nameWithType: PhoneAttribute.GetErrorMessageArguments()
+  fullName: PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessageArguments()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Gets the values of the additional arguments for the error message associated with a particular instance of <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref>.
+
+    These arguments can be referenced from the error message string by <code>{4}</code>, <code>{5}</code>, and so on.
+  remarks: >-
+    This method is expected to be pure, that is, its result can be cached. The implementer should not return information that may change
+
+    after the constructor of the class has finished.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")]
+
+      protected override object[] GetErrorMessageArguments()
+    return:
+      type: System.Object[]
+      description: An array of additional argument values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessageArguments() As Object()
+  overridden: PostSharp.Patterns.Contracts.RegularExpressionAttribute.GetErrorMessageArguments
+  overload: PostSharp.Patterns.Contracts.PhoneAttribute.GetErrorMessageArguments*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException to generate error messages.

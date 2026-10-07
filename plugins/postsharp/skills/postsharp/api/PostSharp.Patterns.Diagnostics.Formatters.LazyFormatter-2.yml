@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2
+  commentId: T:PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2
+  id: LazyFormatter`2
+  parent: PostSharp.Patterns.Diagnostics.Formatters
+  children:
+  - PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.#ctor
+  - PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Lazy{`1})
+  langs:
+  - csharp
+  - vb
+  name: LazyFormatter<TKind, T>
+  nameWithType: LazyFormatter<TKind, T>
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter<TKind, T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Formatter for <xref href="System.Lazy%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class LazyFormatter<TKind, T> : Formatter<Lazy<T>>, IFormatter<Lazy<T>>, IOptionAwareFormatter, IFormatter where TKind : FormattingRole, new()'
+    typeParameters:
+    - id: TKind
+    - id: T
+    content.vb: Public Class LazyFormatter(Of TKind As {FormattingRole, New}, T) Inherits Formatter(Of Lazy(Of T)) Implements IFormatter(Of Lazy(Of T)), IOptionAwareFormatter, IFormatter
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.Formatter{System.Lazy{{T}}}
+  implements:
+  - PostSharp.Patterns.Formatters.IFormatter{System.Lazy{{T}}}
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  - PostSharp.Patterns.Formatters.IFormatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.Formatter{System.Lazy{{T}}}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.Formatter{System.Lazy{{T}}}.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.Formatter{System.Lazy{{T}}}.Attributes
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: LazyFormatter(Of TKind, T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter(Of TKind, T)
+  name.vb: LazyFormatter(Of TKind, T)
+- uid: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Lazy{`1})
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Lazy{`1})
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Lazy{`1})
+  parent: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, Lazy<T>)
+  nameWithType: LazyFormatter<TKind, T>.Write(UnsafeStringBuilder, Lazy<T>)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter<TKind, T>.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Lazy<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: public override void Write(UnsafeStringBuilder stringBuilder, Lazy<T> value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.Lazy{{T}}
+      description: The value to be formatted.
+    content.vb: Public Overrides Sub Write(stringBuilder As UnsafeStringBuilder, value As Lazy(Of T))
+  overridden: PostSharp.Patterns.Formatters.Formatter{System.Lazy{{T}}}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Lazy{{T}})
+  overload: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.Write*
+  nameWithType.vb: LazyFormatter(Of TKind, T).Write(UnsafeStringBuilder, Lazy(Of T))
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter(Of TKind, T).Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Lazy(Of T))
+  name.vb: Write(UnsafeStringBuilder, Lazy(Of T))
+- uid: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2
+  langs:
+  - csharp
+  - vb
+  name: LazyFormatter()
+  nameWithType: LazyFormatter<TKind, T>.LazyFormatter()
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter<TKind, T>.LazyFormatter()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  syntax:
+    content: public LazyFormatter()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2.#ctor*
+  nameWithType.vb: LazyFormatter(Of TKind, T).New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter(Of TKind, T).New()
+  name.vb: New()

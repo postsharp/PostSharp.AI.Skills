@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  commentId: T:PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  id: IMethodLevelAspectBuildSemantics
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  langs:
+  - csharp
+  - vb
+  name: IMethodLevelAspectBuildSemantics
+  nameWithType: IMethodLevelAspectBuildSemantics
+  fullName: PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Compile-time semantics of <xref href="PostSharp.Aspects.IMethodLevelAspect" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IMethodLevelAspectBuildSemantics : IAspectBuildSemantics, IValidableAnnotation'
+    content.vb: Public Interface IMethodLevelAspectBuildSemantics Inherits IAspectBuildSemantics, IValidableAnnotation
+  derivedClasses:
+  - PostSharp.Aspects.MethodImplementationAspect
+  - PostSharp.Aspects.MethodInterceptionAspect
+  - PostSharp.Aspects.MethodLevelAspect
+  - PostSharp.Aspects.OnExceptionAspect
+  - PostSharp.Aspects.OnMethodBoundaryAspect
+  - PostSharp.Patterns.Caching.CacheAttribute
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  - PostSharp.Patterns.Diagnostics.Audit.AuditAttribute
+  - PostSharp.Patterns.Diagnostics.LogAttribute
+  - PostSharp.Patterns.Diagnostics.LogAttributeBase
+  - PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  - PostSharp.Patterns.Threading.BackgroundAttribute
+  - PostSharp.Patterns.Threading.DispatchedAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+- uid: PostSharp.Aspects.IMethodLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Aspects.IMethodLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(MethodBase, AspectInfo)
+  nameWithType: IMethodLevelAspectBuildSemantics.CompileTimeInitialize(MethodBase, AspectInfo)
+  fullName: PostSharp.Aspects.IMethodLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.MethodBase, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: void CompileTimeInitialize(MethodBase method, AspectInfo aspectInfo)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodBase
+      description: Method to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future usage.
+    content.vb: Sub CompileTimeInitialize(method As MethodBase, aspectInfo As AspectInfo)
+  overload: PostSharp.Aspects.IMethodLevelAspectBuildSemantics.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

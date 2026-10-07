@@ -1,0 +1,171 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.Constraint
+  commentId: T:PostSharp.Constraints.Constraint
+  id: Constraint
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.Constraint.#ctor
+  - PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: Constraint
+  nameWithType: Constraint
+  fullName: PostSharp.Constraints.Constraint
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: >-
+    Root class for all constraints based on <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+
+    A constraint is a piece of validation logic executed at build time. Constraints
+
+    are applied to elements of code (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>)
+
+    typically using multicast custom attributes, and verified
+
+    at build time for every assembly using this element of code.
+  remarks: >-
+    <p>Derive a custom constraint from <xref href="PostSharp.Constraints.ScalarConstraint" data-throw-if-not-resolved="false"></xref> to validate the target declaration itself, or from
+        <xref href="PostSharp.Constraints.ReferentialConstraint" data-throw-if-not-resolved="false"></xref> to validate how other code uses it.</p>
+    <p>Override <xref href="PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)" data-throw-if-not-resolved="false"></xref> to restrict the declarations to which the constraint can be applied. It is evaluated
+        only when the assembly that contains the target declaration is processed. When it returns <code>false</code>, the constraint
+        is not validated for this target.</p>
+    <p>Multicasting a constraint to many declarations creates one constraint instance per declaration, which increases build time.</p>
+  example: []
+  syntax:
+    content: 'public abstract class Constraint : MulticastAttribute, IConstraint'
+    content.vb: Public MustInherit Class Constraint Inherits MulticastAttribute Implements IConstraint
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-constraints'
+    altText: 'Conceptual: Developing Custom Architectural Constraints'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  derivedClasses:
+  - PostSharp.Constraints.ReferentialConstraint
+  - PostSharp.Constraints.ScalarConstraint
+  implements:
+  - PostSharp.Constraints.IConstraint
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  commentId: M:PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  id: ValidateConstraint(System.Object)
+  parent: PostSharp.Constraints.Constraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateConstraint(object)
+  nameWithType: Constraint.ValidateConstraint(object)
+  fullName: PostSharp.Constraints.Constraint.ValidateConstraint(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: >-
+    Validates that the constraint has been applied to a valid element of code. When this
+
+    method returns <code>false</code>, the constraint is silently ignored.
+  example: []
+  syntax:
+    content: public virtual bool ValidateConstraint(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: The element of code to which the constraint is applied.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the constraint has been applied to a valid element of code, otherwise <code>false</code>.
+    content.vb: Public Overridable Function ValidateConstraint(target As Object) As Boolean
+  overload: PostSharp.Constraints.Constraint.ValidateConstraint*
+  implements:
+  - PostSharp.Constraints.IConstraint.ValidateConstraint(System.Object)
+  nameWithType.vb: Constraint.ValidateConstraint(Object)
+  fullName.vb: PostSharp.Constraints.Constraint.ValidateConstraint(Object)
+  name.vb: ValidateConstraint(Object)
+- uid: PostSharp.Constraints.Constraint.#ctor
+  commentId: M:PostSharp.Constraints.Constraint.#ctor
+  id: '#ctor'
+  parent: PostSharp.Constraints.Constraint
+  langs:
+  - csharp
+  - vb
+  name: Constraint()
+  nameWithType: Constraint.Constraint()
+  fullName: PostSharp.Constraints.Constraint.Constraint()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  syntax:
+    content: protected Constraint()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Constraints.Constraint.#ctor*
+  nameWithType.vb: Constraint.New()
+  fullName.vb: PostSharp.Constraints.Constraint.New()
+  name.vb: New()

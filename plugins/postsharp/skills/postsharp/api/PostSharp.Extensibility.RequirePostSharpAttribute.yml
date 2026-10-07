@@ -1,0 +1,310 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute
+  commentId: T:PostSharp.Extensibility.RequirePostSharpAttribute
+  id: RequirePostSharpAttribute
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String)
+  - PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+  - PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.Type)
+  - PostSharp.Extensibility.RequirePostSharpAttribute.AnyTypeReference
+  - PostSharp.Extensibility.RequirePostSharpAttribute.AssemblyReferenceOnly
+  - PostSharp.Extensibility.RequirePostSharpAttribute.PlugIn
+  - PostSharp.Extensibility.RequirePostSharpAttribute.ServiceType
+  - PostSharp.Extensibility.RequirePostSharpAttribute.Task
+  langs:
+  - csharp
+  - vb
+  name: RequirePostSharpAttribute
+  nameWithType: RequirePostSharpAttribute
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Custom attribute that, when applied to another custom attribute (a class derived 
+
+    from <xref href="System.Attribute" data-throw-if-not-resolved="false"></xref>), means that assemblies with elements
+
+    annotated with that custom attribute should be processed by <code>PostSharp</code>.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Interface, AllowMultiple = true)]
+
+      public sealed class RequirePostSharpAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.Interface, AllowMultiple:=True)>
+
+      Public NotInheritable Class RequirePostSharpAttribute Inherits Attribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1037
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+  commentId: M:PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: RequirePostSharpAttribute(string, string)
+  nameWithType: RequirePostSharpAttribute.RequirePostSharpAttribute(string, string)
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.RequirePostSharpAttribute(string, string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.RequirePostSharpAttribute" data-throw-if-not-resolved="false"></xref> class and specifies the required plug-in name and task name.
+  example: []
+  syntax:
+    content: public RequirePostSharpAttribute(string plugIn, string task)
+    parameters:
+    - id: plugIn
+      type: System.String
+      description: The name of the required plug-in (file name without extension).
+    - id: task
+      type: System.String
+      description: The name of the required task. It should be defined in <code class="paramref">plugIn</code>.
+    content.vb: Public Sub New(plugIn As String, task As String)
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor*
+  nameWithType.vb: RequirePostSharpAttribute.New(String, String)
+  fullName.vb: PostSharp.Extensibility.RequirePostSharpAttribute.New(String, String)
+  name.vb: New(String, String)
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String)
+  commentId: M:PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: RequirePostSharpAttribute(string)
+  nameWithType: RequirePostSharpAttribute.RequirePostSharpAttribute(string)
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.RequirePostSharpAttribute(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Extensibility.RequirePostSharpAttribute" data-throw-if-not-resolved="false"></xref> class and specifies the required plug-in name.
+
+    All implicit (auto-included) tasks of that plug-in will be added to the project.
+  example: []
+  syntax:
+    content: public RequirePostSharpAttribute(string plugIn)
+    parameters:
+    - id: plugIn
+      type: System.String
+      description: The name of the required plug-in (file name without extension).
+    content.vb: Public Sub New(plugIn As String)
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor*
+  nameWithType.vb: RequirePostSharpAttribute.New(String)
+  fullName.vb: PostSharp.Extensibility.RequirePostSharpAttribute.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.Type)
+  commentId: M:PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: RequirePostSharpAttribute(Type)
+  nameWithType: RequirePostSharpAttribute.RequirePostSharpAttribute(Type)
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.RequirePostSharpAttribute(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.RequirePostSharpAttribute" data-throw-if-not-resolved="false"></xref> class and specifies the required <xref href="PostSharp.Extensibility.IService" data-throw-if-not-resolved="false"></xref> type.
+  example: []
+  syntax:
+    content: public RequirePostSharpAttribute(Type serviceType)
+    parameters:
+    - id: serviceType
+      type: System.Type
+      description: A type derived from <xref href="PostSharp.Extensibility.IService" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(serviceType As Type)
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor*
+  nameWithType.vb: RequirePostSharpAttribute.New(Type)
+  fullName.vb: PostSharp.Extensibility.RequirePostSharpAttribute.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.PlugIn
+  commentId: P:PostSharp.Extensibility.RequirePostSharpAttribute.PlugIn
+  id: PlugIn
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: PlugIn
+  nameWithType: RequirePostSharpAttribute.PlugIn
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.PlugIn
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the name of the required plug-in (file name without the extension).
+  example: []
+  syntax:
+    content: public string PlugIn { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property PlugIn As String
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.PlugIn*
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.Task
+  commentId: P:PostSharp.Extensibility.RequirePostSharpAttribute.Task
+  id: Task
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: Task
+  nameWithType: RequirePostSharpAttribute.Task
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.Task
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the name of the required task (should be defined in <xref href="PostSharp.Extensibility.RequirePostSharpAttribute.PlugIn" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public string Task { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Task As String
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.Task*
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.ServiceType
+  commentId: P:PostSharp.Extensibility.RequirePostSharpAttribute.ServiceType
+  id: ServiceType
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: ServiceType
+  nameWithType: RequirePostSharpAttribute.ServiceType
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.ServiceType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the type of the required <xref href="PostSharp.Extensibility.IService" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Type ServiceType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property ServiceType As Type
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.ServiceType*
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.AssemblyReferenceOnly
+  commentId: P:PostSharp.Extensibility.RequirePostSharpAttribute.AssemblyReferenceOnly
+  id: AssemblyReferenceOnly
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: AssemblyReferenceOnly
+  nameWithType: RequirePostSharpAttribute.AssemblyReferenceOnly
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.AssemblyReferenceOnly
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets a value indicating whether the requirement should apply only to assemblies referencing the declaration to
+
+    which the custom attribute is applied. If <code>true</code>, the requirement will not apply to the assembly
+
+    where the custom attribute is used.
+  example: []
+  syntax:
+    content: public bool AssemblyReferenceOnly { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AssemblyReferenceOnly As Boolean
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.AssemblyReferenceOnly*
+- uid: PostSharp.Extensibility.RequirePostSharpAttribute.AnyTypeReference
+  commentId: P:PostSharp.Extensibility.RequirePostSharpAttribute.AnyTypeReference
+  id: AnyTypeReference
+  parent: PostSharp.Extensibility.RequirePostSharpAttribute
+  langs:
+  - csharp
+  - vb
+  name: AnyTypeReference
+  nameWithType: RequirePostSharpAttribute.AnyTypeReference
+  fullName: PostSharp.Extensibility.RequirePostSharpAttribute.AnyTypeReference
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets a value indicating whether the current attribute applies to any project that has a
+
+    reference to the target type. If <code>false</code>, the requirement will apply only
+
+    to assemblies that use the target type as a custom attribute. If <code>true</code>,
+
+    the requirement will apply to any assembly that references the target type. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool AnyTypeReference { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AnyTypeReference As Boolean
+  overload: PostSharp.Extensibility.RequirePostSharpAttribute.AnyTypeReference*

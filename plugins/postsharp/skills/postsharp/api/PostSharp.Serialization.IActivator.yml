@@ -1,0 +1,55 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.IActivator
+  commentId: T:PostSharp.Serialization.IActivator
+  id: IActivator
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.IActivator.CreateInstance(System.Type,PostSharp.Serialization.ActivatorSecurityToken)
+  langs:
+  - csharp
+  - vb
+  name: IActivator
+  nameWithType: IActivator
+  fullName: PostSharp.Serialization.IActivator
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Exposes a method <xref href="PostSharp.Serialization.IActivator.CreateInstance(System.Type%2cPostSharp.Serialization.ActivatorSecurityToken)" data-throw-if-not-resolved="false"></xref>, which allows creating an instance of a type using the <xref href="System.Activator" data-throw-if-not-resolved="false"></xref> facility.
+  remarks: <p>PostSharp generates implementations of this interface in each assembly that contains serializable classes. It allows creating objects in the security context of this assembly (instead of from the security context of <code>PostSharp.dll</code>).</p>
+  example: []
+  syntax:
+    content: public interface IActivator
+    content.vb: Public Interface IActivator
+- uid: PostSharp.Serialization.IActivator.CreateInstance(System.Type,PostSharp.Serialization.ActivatorSecurityToken)
+  commentId: M:PostSharp.Serialization.IActivator.CreateInstance(System.Type,PostSharp.Serialization.ActivatorSecurityToken)
+  id: CreateInstance(System.Type,PostSharp.Serialization.ActivatorSecurityToken)
+  parent: PostSharp.Serialization.IActivator
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(Type, ActivatorSecurityToken)
+  nameWithType: IActivator.CreateInstance(Type, ActivatorSecurityToken)
+  fullName: PostSharp.Serialization.IActivator.CreateInstance(System.Type, PostSharp.Serialization.ActivatorSecurityToken)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Creates an instance of a given type.
+  remarks: <p>For security reasons, implementations should throw an exception or return <code>null</code> if <code class="paramref">securityToken</code> is <code>null</code>.</p>
+  example: []
+  syntax:
+    content: object CreateInstance(Type objectType, ActivatorSecurityToken securityToken)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type of the object of which an instance is requested.
+    - id: securityToken
+      type: PostSharp.Serialization.ActivatorSecurityToken
+      description: A security token.
+    return:
+      type: System.Object
+      description: A new instance of type <code class="paramref">objectType</code>.
+    content.vb: Function CreateInstance(objectType As Type, securityToken As ActivatorSecurityToken) As Object
+  overload: PostSharp.Serialization.IActivator.CreateInstance*

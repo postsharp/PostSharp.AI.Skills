@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+  id: IncomingRequestOptions
+  parent: PostSharp.Patterns.Diagnostics.Correlation
+  children:
+  - PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.#ctor(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.IsParentSampled
+  langs:
+  - csharp
+  - vb
+  name: IncomingRequestOptions
+  nameWithType: IncomingRequestOptions
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Logging options sent by the caller in a distributed logging transaction.
+  example: []
+  syntax:
+    content: public readonly struct IncomingRequestOptions
+    content.vb: Public Structure IncomingRequestOptions
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.#ctor(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+  langs:
+  - csharp
+  - vb
+  name: IncomingRequestOptions(bool)
+  nameWithType: IncomingRequestOptions.IncomingRequestOptions(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.IncomingRequestOptions(bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public IncomingRequestOptions(bool isParentSampled)
+    parameters:
+    - id: isParentSampled
+      type: System.Boolean
+      description: >-
+        Determines whether the parent request was logged as a result of sampling,
+                    that is, it was logged by a policy that had a sampling clause. It corresponds
+                    to the <code>sampled</code> flag of the W3C Trace Context specification
+                    (https://www.w3.org/TR/trace-context/#sampled-flag).
+    content.vb: Public Sub New(isParentSampled As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.#ctor*
+  nameWithType.vb: IncomingRequestOptions.New(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.New(Boolean)
+  name.vb: New(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.IsParentSampled
+  commentId: P:PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.IsParentSampled
+  id: IsParentSampled
+  parent: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+  langs:
+  - csharp
+  - vb
+  name: IsParentSampled
+  nameWithType: IncomingRequestOptions.IsParentSampled
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.IsParentSampled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: >-
+    Gets a value indicating whether the parent request was logged as a result of sampling,
+
+    that is, it was logged by a policy that had a sampling clause. It corresponds
+
+    to the <code>sampled</code> flag of the W3C Trace Context specification
+
+    (https://www.w3.org/TR/trace-context/#sampled-flag).
+  example: []
+  syntax:
+    content: public bool IsParentSampled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsParentSampled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions.IsParentSampled*

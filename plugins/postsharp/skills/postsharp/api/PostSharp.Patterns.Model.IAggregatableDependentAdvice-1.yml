@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1
+  commentId: T:PostSharp.Patterns.Model.IAggregatableDependentAdvice`1
+  id: IAggregatableDependentAdvice`1
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildAttached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  - PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildDetached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  - PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnParentChanged(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  langs:
+  - csharp
+  - vb
+  name: IAggregatableDependentAdvice<T>
+  nameWithType: IAggregatableDependentAdvice<T>
+  fullName: PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Defines the semantics of advices that depend on the aggregatable dynamic advices.
+
+    These advices must be able to react to attachment and detachment events.
+  example: []
+  syntax:
+    content: 'public interface IAggregatableDependentAdvice<T> : IDynamicAdvice, IDynamicInterfaceImplementation'
+    typeParameters:
+    - id: T
+      description: The type of the items.
+    content.vb: Public Interface IAggregatableDependentAdvice(Of T) Inherits IDynamicAdvice, IDynamicInterfaceImplementation
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  nameWithType.vb: IAggregatableDependentAdvice(Of T)
+  fullName.vb: PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T)
+  name.vb: IAggregatableDependentAdvice(Of T)
+- uid: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildAttached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildAttached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  id: OnChildAttached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  parent: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: OnChildAttached(T, AdviceEnumerator<IAggregatableDependentAdvice<T>>)
+  nameWithType: IAggregatableDependentAdvice<T>.OnChildAttached(T, AdviceEnumerator<IAggregatableDependentAdvice<T>>)
+  fullName: PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>.OnChildAttached(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: This method is invoked when a child is attached to the parent.
+  example: []
+  syntax:
+    content: void OnChildAttached(T child, AdviceEnumerator<IAggregatableDependentAdvice<T>> nextAdvices)
+    parameters:
+    - id: child
+      type: '{T}'
+      description: The child object.
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice`1}
+      description: The enumerator of the next advices.
+    content.vb: Sub OnChildAttached(child As T, nextAdvices As AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+  overload: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildAttached*
+  nameWithType.vb: IAggregatableDependentAdvice(Of T).OnChildAttached(T, AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T).OnChildAttached(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T)))
+  name.vb: OnChildAttached(T, AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+- uid: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildDetached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildDetached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  id: OnChildDetached(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  parent: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: OnChildDetached(T, AdviceEnumerator<IAggregatableDependentAdvice<T>>)
+  nameWithType: IAggregatableDependentAdvice<T>.OnChildDetached(T, AdviceEnumerator<IAggregatableDependentAdvice<T>>)
+  fullName: PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>.OnChildDetached(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: This method is invoked when a child is detached from the parent.
+  example: []
+  syntax:
+    content: void OnChildDetached(T child, AdviceEnumerator<IAggregatableDependentAdvice<T>> nextAdvices)
+    parameters:
+    - id: child
+      type: '{T}'
+      description: The child object.
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice`1}
+      description: The enumerator of the next advices.
+    content.vb: Sub OnChildDetached(child As T, nextAdvices As AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+  overload: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnChildDetached*
+  nameWithType.vb: IAggregatableDependentAdvice(Of T).OnChildDetached(T, AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T).OnChildDetached(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T)))
+  name.vb: OnChildDetached(T, AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+- uid: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnParentChanged(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnParentChanged(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  id: OnParentChanged(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice{`0}})
+  parent: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: OnParentChanged(AdviceEnumerator<IAggregatableDependentAdvice<T>>)
+  nameWithType: IAggregatableDependentAdvice<T>.OnParentChanged(AdviceEnumerator<IAggregatableDependentAdvice<T>>)
+  fullName: PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>.OnParentChanged(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Model.IAggregatableDependentAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: This method is invoked when the parent changes.
+  example: []
+  syntax:
+    content: void OnParentChanged(AdviceEnumerator<IAggregatableDependentAdvice<T>> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Model.IAggregatableDependentAdvice`1}
+      description: The enumerator of the next advices.
+    content.vb: Sub OnParentChanged(nextAdvices As AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+  overload: PostSharp.Patterns.Model.IAggregatableDependentAdvice`1.OnParentChanged*
+  nameWithType.vb: IAggregatableDependentAdvice(Of T).OnParentChanged(AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T).OnParentChanged(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Model.IAggregatableDependentAdvice(Of T)))
+  name.vb: OnParentChanged(AdviceEnumerator(Of IAggregatableDependentAdvice(Of T)))

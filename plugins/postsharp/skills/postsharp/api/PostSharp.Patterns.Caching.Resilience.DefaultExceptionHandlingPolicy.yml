@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy
+  commentId: T:PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy
+  id: DefaultExceptionHandlingPolicy
+  parent: PostSharp.Patterns.Caching.Resilience
+  children:
+  - PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.#ctor
+  - PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: DefaultExceptionHandlingPolicy
+  nameWithType: DefaultExceptionHandlingPolicy
+  fullName: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    The default implementation of <xref href="PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy" data-throw-if-not-resolved="false"></xref>. Logs and swallows all exceptions and tries to recover from failed write operations
+
+    by invalidating the cache in the background.
+  example: []
+  syntax:
+    content: 'public class DefaultExceptionHandlingPolicy : IExceptionHandlingPolicy'
+    content.vb: Public Class DefaultExceptionHandlingPolicy Implements IExceptionHandlingPolicy
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  id: OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy
+  langs:
+  - csharp
+  - vb
+  name: OnExceptionAsync(ExceptionInfo, CancellationToken)
+  nameWithType: DefaultExceptionHandlingPolicy.OnExceptionAsync(ExceptionInfo, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    Method invoked when an exception is thrown by the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref> implementation.
+
+    It should return a <xref href="PostSharp.Patterns.Caching.Resilience.RecoveryAction" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public virtual ValueTask<RecoveryAction> OnExceptionAsync(ExceptionInfo exceptionInfo, CancellationToken cancellationToken)
+    parameters:
+    - id: exceptionInfo
+      type: PostSharp.Patterns.Caching.Resilience.ExceptionInfo
+      description: Information about the exception.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> for the current operation.
+    return:
+      type: System.Threading.Tasks.ValueTask{PostSharp.Patterns.Caching.Resilience.RecoveryAction}
+      description: A <xref href="PostSharp.Patterns.Caching.Resilience.RecoveryAction" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overridable Function OnExceptionAsync(exceptionInfo As ExceptionInfo, cancellationToken As CancellationToken) As ValueTask(Of RecoveryAction)
+  overload: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.OnExceptionAsync*
+  implements:
+  - PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+- uid: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy
+  langs:
+  - csharp
+  - vb
+  name: DefaultExceptionHandlingPolicy()
+  nameWithType: DefaultExceptionHandlingPolicy.DefaultExceptionHandlingPolicy()
+  fullName: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.DefaultExceptionHandlingPolicy()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  syntax:
+    content: public DefaultExceptionHandlingPolicy()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.#ctor*
+  nameWithType.vb: DefaultExceptionHandlingPolicy.New()
+  fullName.vb: PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy.New()
+  name.vb: New()

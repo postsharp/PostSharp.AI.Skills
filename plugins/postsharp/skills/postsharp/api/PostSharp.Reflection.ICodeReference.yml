@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.ICodeReference
+  commentId: T:PostSharp.Reflection.ICodeReference
+  id: ICodeReference
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.ICodeReference.ReferenceKind
+  - PostSharp.Reflection.ICodeReference.ReferencedDeclaration
+  - PostSharp.Reflection.ICodeReference.ReferencingDeclaration
+  langs:
+  - csharp
+  - vb
+  name: ICodeReference
+  nameWithType: ICodeReference
+  fullName: PostSharp.Reflection.ICodeReference
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Represents a reference between two declarations.
+  example: []
+  syntax:
+    content: public interface ICodeReference
+    content.vb: Public Interface ICodeReference
+  derivedClasses:
+  - PostSharp.Reflection.MemberTypeCodeReference
+  - PostSharp.Reflection.MethodUsageCodeReference
+  - PostSharp.Reflection.TypeInheritanceCodeReference
+- uid: PostSharp.Reflection.ICodeReference.ReferencingDeclaration
+  commentId: P:PostSharp.Reflection.ICodeReference.ReferencingDeclaration
+  id: ReferencingDeclaration
+  parent: PostSharp.Reflection.ICodeReference
+  langs:
+  - csharp
+  - vb
+  name: ReferencingDeclaration
+  nameWithType: ICodeReference.ReferencingDeclaration
+  fullName: PostSharp.Reflection.ICodeReference.ReferencingDeclaration
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the declaration referencing the other.
+  example: []
+  syntax:
+    content: object ReferencingDeclaration { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property ReferencingDeclaration As Object
+  overload: PostSharp.Reflection.ICodeReference.ReferencingDeclaration*
+- uid: PostSharp.Reflection.ICodeReference.ReferencedDeclaration
+  commentId: P:PostSharp.Reflection.ICodeReference.ReferencedDeclaration
+  id: ReferencedDeclaration
+  parent: PostSharp.Reflection.ICodeReference
+  langs:
+  - csharp
+  - vb
+  name: ReferencedDeclaration
+  nameWithType: ICodeReference.ReferencedDeclaration
+  fullName: PostSharp.Reflection.ICodeReference.ReferencedDeclaration
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the declaration referenced by the other.
+  example: []
+  syntax:
+    content: object ReferencedDeclaration { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property ReferencedDeclaration As Object
+  overload: PostSharp.Reflection.ICodeReference.ReferencedDeclaration*
+- uid: PostSharp.Reflection.ICodeReference.ReferenceKind
+  commentId: P:PostSharp.Reflection.ICodeReference.ReferenceKind
+  id: ReferenceKind
+  parent: PostSharp.Reflection.ICodeReference
+  langs:
+  - csharp
+  - vb
+  name: ReferenceKind
+  nameWithType: ICodeReference.ReferenceKind
+  fullName: PostSharp.Reflection.ICodeReference.ReferenceKind
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the kind of code reference.
+  example: []
+  syntax:
+    content: CodeReferenceKind ReferenceKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.CodeReferenceKind
+    content.vb: ReadOnly Property ReferenceKind As CodeReferenceKind
+  overload: PostSharp.Reflection.ICodeReference.ReferenceKind*

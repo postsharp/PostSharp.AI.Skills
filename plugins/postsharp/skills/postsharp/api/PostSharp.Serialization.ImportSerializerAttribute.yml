@@ -1,0 +1,183 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ImportSerializerAttribute
+  commentId: T:PostSharp.Serialization.ImportSerializerAttribute
+  id: ImportSerializerAttribute
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ImportSerializerAttribute.#ctor(System.Type,System.Type)
+  - PostSharp.Serialization.ImportSerializerAttribute.ObjectType
+  - PostSharp.Serialization.ImportSerializerAttribute.SerializerType
+  langs:
+  - csharp
+  - vb
+  name: ImportSerializerAttribute
+  nameWithType: ImportSerializerAttribute
+  fullName: PostSharp.Serialization.ImportSerializerAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Custom attribute that, when applied to a serializable type, specifies that the serializer of this type has
+
+    a dependency on another serializer. The custom attribute can be applied at assembly level; it then
+
+    applies to all serializable types in this assembly.
+  remarks: >-
+    <p>This custom attribute is useful to add serializers to types of third-party assemblies.
+        For types whose source code you can modify, it is preferable to use <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.SerializerAttribute" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Struct, AllowMultiple = true)]
+
+      public sealed class ImportSerializerAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.Struct, AllowMultiple:=True)>
+
+      Public NotInheritable Class ImportSerializerAttribute Inherits Attribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 13
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Serialization.ImportSerializerAttribute.#ctor(System.Type,System.Type)
+  commentId: M:PostSharp.Serialization.ImportSerializerAttribute.#ctor(System.Type,System.Type)
+  id: '#ctor(System.Type,System.Type)'
+  parent: PostSharp.Serialization.ImportSerializerAttribute
+  langs:
+  - csharp
+  - vb
+  name: ImportSerializerAttribute(Type, Type)
+  nameWithType: ImportSerializerAttribute.ImportSerializerAttribute(Type, Type)
+  fullName: PostSharp.Serialization.ImportSerializerAttribute.ImportSerializerAttribute(System.Type, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Initializes a new instance of the <xref href="PostSharp.Serialization.ImportSerializerAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ImportSerializerAttribute(Type objectType, Type serializerType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type of the object to be made serializable.
+    - id: serializerType
+      type: System.Type
+      description: >-
+        The serializer type. This type must implement <xref href="PostSharp.Serialization.ISerializer" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref>,
+                    and must have a public default constructor. If <code class="paramref">serializerType</code> is a generic type, it must have the same number
+                    of generic type parameters as <code class="paramref">objectType</code>, and have a compatible set of constraints.
+    content.vb: Public Sub New(objectType As Type, serializerType As Type)
+  overload: PostSharp.Serialization.ImportSerializerAttribute.#ctor*
+  seealso:
+  - linkId: PostSharp.Serialization.SerializerAttribute
+    commentId: T:PostSharp.Serialization.SerializerAttribute
+  nameWithType.vb: ImportSerializerAttribute.New(Type, Type)
+  fullName.vb: PostSharp.Serialization.ImportSerializerAttribute.New(System.Type, System.Type)
+  name.vb: New(Type, Type)
+- uid: PostSharp.Serialization.ImportSerializerAttribute.ObjectType
+  commentId: P:PostSharp.Serialization.ImportSerializerAttribute.ObjectType
+  id: ObjectType
+  parent: PostSharp.Serialization.ImportSerializerAttribute
+  langs:
+  - csharp
+  - vb
+  name: ObjectType
+  nameWithType: ImportSerializerAttribute.ObjectType
+  fullName: PostSharp.Serialization.ImportSerializerAttribute.ObjectType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the type of the object to be made serializable.
+  example: []
+  syntax:
+    content: public Type ObjectType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property ObjectType As Type
+  overload: PostSharp.Serialization.ImportSerializerAttribute.ObjectType*
+- uid: PostSharp.Serialization.ImportSerializerAttribute.SerializerType
+  commentId: P:PostSharp.Serialization.ImportSerializerAttribute.SerializerType
+  id: SerializerType
+  parent: PostSharp.Serialization.ImportSerializerAttribute
+  langs:
+  - csharp
+  - vb
+  name: SerializerType
+  nameWithType: ImportSerializerAttribute.SerializerType
+  fullName: PostSharp.Serialization.ImportSerializerAttribute.SerializerType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the serializer type.
+  remarks: >-
+    This type must implement <xref href="PostSharp.Serialization.ISerializer" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref>,
+
+    and must have a public default constructor. If <xref href="PostSharp.Serialization.ImportSerializerAttribute.SerializerType" data-throw-if-not-resolved="false"></xref> is a generic type, it must have the same number
+
+    of generic type parameters as <xref href="PostSharp.Serialization.ImportSerializerAttribute.ObjectType" data-throw-if-not-resolved="false"></xref>, and have a compatible set of constraints.
+  example: []
+  syntax:
+    content: public Type SerializerType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property SerializerType As Type
+  overload: PostSharp.Serialization.ImportSerializerAttribute.SerializerType*

@@ -1,0 +1,80 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  commentId: T:PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  id: ITypeLevelAspectBuildSemantics
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  langs:
+  - csharp
+  - vb
+  name: ITypeLevelAspectBuildSemantics
+  nameWithType: ITypeLevelAspectBuildSemantics
+  fullName: PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Compile-time semantics of <xref href="PostSharp.Aspects.ITypeLevelAspect" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface ITypeLevelAspectBuildSemantics : IAspectBuildSemantics, IValidableAnnotation'
+    content.vb: Public Interface ITypeLevelAspectBuildSemantics Inherits IAspectBuildSemantics, IValidableAnnotation
+  derivedClasses:
+  - PostSharp.Aspects.CompositionAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Model.DisposableAttribute
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Recording.EditableObjectAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+- uid: PostSharp.Aspects.ITypeLevelAspectBuildSemantics.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Aspects.ITypeLevelAspectBuildSemantics.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(Type, AspectInfo)
+  nameWithType: ITypeLevelAspectBuildSemantics.CompileTimeInitialize(Type, AspectInfo)
+  fullName: PostSharp.Aspects.ITypeLevelAspectBuildSemantics.CompileTimeInitialize(System.Type, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: void CompileTimeInitialize(Type type, AspectInfo aspectInfo)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future usage.
+    content.vb: Sub CompileTimeInitialize(type As Type, aspectInfo As AspectInfo)
+  overload: PostSharp.Aspects.ITypeLevelAspectBuildSemantics.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

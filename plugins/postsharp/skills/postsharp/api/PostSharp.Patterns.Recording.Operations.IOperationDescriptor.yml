@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  commentId: T:PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  id: IOperationDescriptor
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: IOperationDescriptor
+  nameWithType: IOperationDescriptor
+  fullName: PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: >-
+    Encapsulates information that allows implementations of the <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref> class to provide
+
+    a human-readable description of an <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>If you implement your own <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref>, you can also implement your own <xref href="PostSharp.Patterns.Recording.Operations.IOperationDescriptor" data-throw-if-not-resolved="false"></xref>
+        and assign it to the <xref href="PostSharp.Patterns.Recording.RecordingScope.OperationDescriptor" data-throw-if-not-resolved="false"></xref> property of the <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref>
+        returned by <xref href="PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface IOperationDescriptor
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operation
+  - PostSharp.Patterns.Recording.Operations.AddCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  - PostSharp.Patterns.Recording.Operations.AddDictionaryItemOperation`2
+  - PostSharp.Patterns.Recording.Operations.AddSetItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  - PostSharp.Patterns.Recording.Operations.ClearCollectionOperation`1
+  - PostSharp.Patterns.Recording.Operations.ClearDictionaryOperation`2
+  - PostSharp.Patterns.Recording.Operations.ClearSetOperation`1
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation`1
+  - PostSharp.Patterns.Recording.Operations.CompositeOperation
+  - PostSharp.Patterns.Recording.Operations.DetachObjectFromRecorderOperation
+  - PostSharp.Patterns.Recording.Operations.DictionaryOperation`2
+  - PostSharp.Patterns.Recording.Operations.FieldOperation`1
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation`1
+  - PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  - PostSharp.Patterns.Recording.Operations.RemoveDictionaryItemOperation`2
+  - PostSharp.Patterns.Recording.Operations.RemoveSetItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.SetCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.SetDictionaryItemOperation`2
+  - PostSharp.Patterns.Recording.RestorePoint
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: IOperationDescriptor.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: ReadOnly Property OperationKind As OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind*

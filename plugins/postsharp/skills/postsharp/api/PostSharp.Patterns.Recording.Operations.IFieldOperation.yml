@@ -1,0 +1,134 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.IFieldOperation
+  commentId: T:PostSharp.Patterns.Recording.Operations.IFieldOperation
+  id: IFieldOperation
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.IFieldOperation.Location
+  - PostSharp.Patterns.Recording.Operations.IFieldOperation.NewValue
+  - PostSharp.Patterns.Recording.Operations.IFieldOperation.OldValue
+  - PostSharp.Patterns.Recording.Operations.IFieldOperation.Target
+  langs:
+  - csharp
+  - vb
+  name: IFieldOperation
+  nameWithType: IFieldOperation
+  fullName: PostSharp.Patterns.Recording.Operations.IFieldOperation
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Weakly typed interface for <xref href="PostSharp.Patterns.Recording.Operations.FieldOperation%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface IFieldOperation
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface IFieldOperation
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operations.FieldOperation`1
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.IFieldOperation.Target
+  commentId: P:PostSharp.Patterns.Recording.Operations.IFieldOperation.Target
+  id: Target
+  parent: PostSharp.Patterns.Recording.Operations.IFieldOperation
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: IFieldOperation.Target
+  fullName: PostSharp.Patterns.Recording.Operations.IFieldOperation.Target
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the <code>this</code> instance.
+  example: []
+  syntax:
+    content: object Target { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property Target As Object
+  overload: PostSharp.Patterns.Recording.Operations.IFieldOperation.Target*
+- uid: PostSharp.Patterns.Recording.Operations.IFieldOperation.OldValue
+  commentId: P:PostSharp.Patterns.Recording.Operations.IFieldOperation.OldValue
+  id: OldValue
+  parent: PostSharp.Patterns.Recording.Operations.IFieldOperation
+  langs:
+  - csharp
+  - vb
+  name: OldValue
+  nameWithType: IFieldOperation.OldValue
+  fullName: PostSharp.Patterns.Recording.Operations.IFieldOperation.OldValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the value of the field before the operation.
+  example: []
+  syntax:
+    content: object OldValue { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property OldValue As Object
+  overload: PostSharp.Patterns.Recording.Operations.IFieldOperation.OldValue*
+- uid: PostSharp.Patterns.Recording.Operations.IFieldOperation.NewValue
+  commentId: P:PostSharp.Patterns.Recording.Operations.IFieldOperation.NewValue
+  id: NewValue
+  parent: PostSharp.Patterns.Recording.Operations.IFieldOperation
+  langs:
+  - csharp
+  - vb
+  name: NewValue
+  nameWithType: IFieldOperation.NewValue
+  fullName: PostSharp.Patterns.Recording.Operations.IFieldOperation.NewValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the value of the field after the operation.
+  example: []
+  syntax:
+    content: object NewValue { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property NewValue As Object
+  overload: PostSharp.Patterns.Recording.Operations.IFieldOperation.NewValue*
+- uid: PostSharp.Patterns.Recording.Operations.IFieldOperation.Location
+  commentId: P:PostSharp.Patterns.Recording.Operations.IFieldOperation.Location
+  id: Location
+  parent: PostSharp.Patterns.Recording.Operations.IFieldOperation
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: IFieldOperation.Location
+  fullName: PostSharp.Patterns.Recording.Operations.IFieldOperation.Location
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref> of the modified field.
+  example: []
+  syntax:
+    content: LocationInfo Location { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.LocationInfo
+    content.vb: ReadOnly Property Location As LocationInfo
+  overload: PostSharp.Patterns.Recording.Operations.IFieldOperation.Location*

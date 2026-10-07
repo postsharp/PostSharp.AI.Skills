@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.IReferentialConstraint
+  commentId: T:PostSharp.Constraints.IReferentialConstraint
+  id: IReferentialConstraint
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.IReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  langs:
+  - csharp
+  - vb
+  name: IReferentialConstraint
+  nameWithType: IReferentialConstraint
+  fullName: PostSharp.Constraints.IReferentialConstraint
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: >-
+    A referential constraint is a piece of validation logic executed at build time. Referential constraints
+
+    are applied to elements of code (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>),
+
+    typically using custom attributes or <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>, and verified
+
+    at build time for every assembly using this element of code. This differs from scalar constraints,
+
+    which are only verified for the assembly where that element of code is defined.
+  remarks: ''
+  example: []
+  syntax:
+    content: 'public interface IReferentialConstraint : IConstraint'
+    content.vb: Public Interface IReferentialConstraint Inherits IConstraint
+  derivedClasses:
+  - PostSharp.Constraints.ComponentInternalAttribute
+  - PostSharp.Constraints.ExperimentalAttribute
+  - PostSharp.Constraints.InternalAttribute
+  - PostSharp.Constraints.InternalImplementAttribute
+  - PostSharp.Constraints.ParameterValueConstraint
+  - PostSharp.Constraints.ProtectedAttribute
+  - PostSharp.Constraints.ReferenceConstraint
+  - PostSharp.Constraints.ReferentialConstraint
+  inheritedMembers:
+  - PostSharp.Constraints.IConstraint.ValidateConstraint(System.Object)
+- uid: PostSharp.Constraints.IReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  commentId: M:PostSharp.Constraints.IReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  id: ValidateCode(System.Object,System.Reflection.Assembly)
+  parent: PostSharp.Constraints.IReferentialConstraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateCode(object, Assembly)
+  nameWithType: IReferentialConstraint.ValidateCode(object, Assembly)
+  fullName: PostSharp.Constraints.IReferentialConstraint.ValidateCode(object, System.Reflection.Assembly)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Validates the constraint.
+  example: []
+  syntax:
+    content: void ValidateCode(object target, Assembly assembly)
+    parameters:
+    - id: target
+      type: System.Object
+      description: >-
+        Declaration (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>) to which
+                    the constraint has been applied.
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: The assembly being currently processed.
+    content.vb: Sub ValidateCode(target As Object, assembly As Assembly)
+  overload: PostSharp.Constraints.IReferentialConstraint.ValidateCode*
+  nameWithType.vb: IReferentialConstraint.ValidateCode(Object, Assembly)
+  fullName.vb: PostSharp.Constraints.IReferentialConstraint.ValidateCode(Object, System.Reflection.Assembly)
+  name.vb: ValidateCode(Object, Assembly)

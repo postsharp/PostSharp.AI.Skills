@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  id: AspNetFrameworkRequestExpressionModel
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Context
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.GetHeader(System.String)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Method
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Path
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Protocol
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.QueryString
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.RemoteIpAddress
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Scheme
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.User
+  langs:
+  - csharp
+  - vb
+  name: AspNetFrameworkRequestExpressionModel
+  nameWithType: AspNetFrameworkRequestExpressionModel
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: >-
+    Exposes a legacy ASP.NET request to the transaction policy expressions (see <code>OpenTransactionExpressionModel.Request</code> and <code>CloseTransactionExpressionModel.Request</code>).
+
+    The <code>type</code> attribute of the <code>policy</code> element must be set to <code>AspNetFrameworkRequest</code> to match requests of this class.
+  remarks: >-
+    <p>Requests are captured only when <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule" data-throw-if-not-resolved="false"></xref> is registered as an HTTP module. In a policy expression, access
+        the request through the <code>t.Request</code> parameter, for example <code>t.Request.Path.StartsWith("/invoices")</code>.</p>
+  example: []
+  syntax:
+    content: 'public readonly struct AspNetFrameworkRequestExpressionModel : IFormattable'
+    content.vb: Public Structure AspNetFrameworkRequestExpressionModel Implements IFormattable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+    commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  implements:
+  - PostSharp.Patterns.Formatters.IFormattable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetType
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.GetHeader(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.GetHeader(System.String)
+  id: GetHeader(System.String)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: GetHeader(string)
+  nameWithType: AspNetFrameworkRequestExpressionModel.GetHeader(string)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.GetHeader(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets a specified header, or <code>null</code>.
+  example: []
+  syntax:
+    content: public string GetHeader(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the header.
+    return:
+      type: System.String
+      description: The value of the header, or <code>null</code> if the header is not present.
+    content.vb: Public Function GetHeader(name As String) As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.GetHeader*
+  nameWithType.vb: AspNetFrameworkRequestExpressionModel.GetHeader(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.GetHeader(String)
+  name.vb: GetHeader(String)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.User
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.User
+  id: User
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: AspNetFrameworkRequestExpressionModel.User
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.User
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the name of the current authenticated user, or <code>null</code>.
+  example: []
+  syntax:
+    content: public string User { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property User As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.User*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.RemoteIpAddress
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.RemoteIpAddress
+  id: RemoteIpAddress
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: RemoteIpAddress
+  nameWithType: AspNetFrameworkRequestExpressionModel.RemoteIpAddress
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.RemoteIpAddress
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the IP address of the remote client.
+  example: []
+  syntax:
+    content: public string RemoteIpAddress { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RemoteIpAddress As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.RemoteIpAddress*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Method
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Method
+  id: Method
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: AspNetFrameworkRequestExpressionModel.Method
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Method
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the HTTP method, such as <code>GET</code>.
+  example: []
+  syntax:
+    content: public string Method { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Method As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Method*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Path
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Path
+  id: Path
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: Path
+  nameWithType: AspNetFrameworkRequestExpressionModel.Path
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Path
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the path of the URL, starting with a <code>/</code>.
+  example: []
+  syntax:
+    content: public string Path { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Path As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Path*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Protocol
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Protocol
+  id: Protocol
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: AspNetFrameworkRequestExpressionModel.Protocol
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Protocol
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the request protocol, such as <code>HTTP/1.1</code>.
+  example: []
+  syntax:
+    content: public string Protocol { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Protocol As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Protocol*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.QueryString
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.QueryString
+  id: QueryString
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: QueryString
+  nameWithType: AspNetFrameworkRequestExpressionModel.QueryString
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.QueryString
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the query string starting with a <code>?</code>, or <code>null</code>.
+  example: []
+  syntax:
+    content: public string QueryString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property QueryString As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.QueryString*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Scheme
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Scheme
+  id: Scheme
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: Scheme
+  nameWithType: AspNetFrameworkRequestExpressionModel.Scheme
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Scheme
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the request scheme, for instance <code>http</code> or <code>https</code>.
+  example: []
+  syntax:
+    content: public string Scheme { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Scheme As String
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Scheme*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Context
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Context
+  id: Context
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: AspNetFrameworkRequestExpressionModel.Context
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Context
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Gets the full <xref href="System.Web.HttpContext" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public HttpContext Context { get; }
+    parameters: []
+    return:
+      type: System.Web.HttpContext
+    content.vb: Public ReadOnly Property Context As HttpContext
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel.Context*

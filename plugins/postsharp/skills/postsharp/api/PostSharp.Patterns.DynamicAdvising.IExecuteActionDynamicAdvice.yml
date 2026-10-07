@@ -1,0 +1,71 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice
+  commentId: T:PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice
+  id: IExecuteActionDynamicAdvice
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice.Invoke``2(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice},``1@)
+  langs:
+  - csharp
+  - vb
+  name: IExecuteActionDynamicAdvice
+  nameWithType: IExecuteActionDynamicAdvice
+  fullName: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: A dynamic advice around the execution of an action.
+  example: []
+  syntax:
+    content: 'public interface IExecuteActionDynamicAdvice : IDynamicAdvice, IDynamicInterfaceImplementation'
+    content.vb: Public Interface IExecuteActionDynamicAdvice Inherits IDynamicAdvice, IDynamicInterfaceImplementation
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+- uid: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice.Invoke``2(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice},``1@)
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice.Invoke``2(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice},``1@)
+  id: Invoke``2(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice},``1@)
+  parent: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice
+  langs:
+  - csharp
+  - vb
+  name: Invoke<TResult, TAction>(ObjectAccessLevel, AdviceEnumerator<IExecuteActionDynamicAdvice>, ref TAction)
+  nameWithType: IExecuteActionDynamicAdvice.Invoke<TResult, TAction>(ObjectAccessLevel, AdviceEnumerator<IExecuteActionDynamicAdvice>, ref TAction)
+  fullName: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice.Invoke<TResult, TAction>(PostSharp.Patterns.Model.ObjectAccessLevel, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice>, ref TAction)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Invokes the advice or the underlying method.
+  example: []
+  syntax:
+    content: 'TResult Invoke<TResult, TAction>(ObjectAccessLevel objectAccessLevel, AdviceEnumerator<IExecuteActionDynamicAdvice> nextAdvice, ref TAction action) where TAction : struct, IAction<TResult>'
+    parameters:
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The <xref href="PostSharp.Patterns.Model.ObjectAccessLevel" data-throw-if-not-resolved="false"></xref> required by the action.
+    - id: nextAdvice
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice}
+      description: The next advice.
+    - id: action
+      type: '{TAction}'
+      description: The action to be executed.
+    typeParameters:
+    - id: TResult
+      description: The type of the method result.
+    - id: TAction
+      description: The type of the action.
+    return:
+      type: '{TResult}'
+      description: The result of the underlying advice.
+    content.vb: Function Invoke(Of TResult, TAction As {Structure, IAction(Of TResult)})(objectAccessLevel As ObjectAccessLevel, nextAdvice As AdviceEnumerator(Of IExecuteActionDynamicAdvice), action As TAction) As TResult
+  overload: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice.Invoke*
+  nameWithType.vb: IExecuteActionDynamicAdvice.Invoke(Of TResult, TAction)(ObjectAccessLevel, AdviceEnumerator(Of IExecuteActionDynamicAdvice), TAction)
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice.Invoke(Of TResult, TAction)(PostSharp.Patterns.Model.ObjectAccessLevel, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice), TAction)
+  name.vb: Invoke(Of TResult, TAction)(ObjectAccessLevel, AdviceEnumerator(Of IExecuteActionDynamicAdvice), TAction)

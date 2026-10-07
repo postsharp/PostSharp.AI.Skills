@@ -1,0 +1,104 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.Controls.UndoCommand
+  commentId: T:PostSharp.Patterns.Model.Controls.UndoCommand
+  id: UndoCommand
+  parent: PostSharp.Patterns.Model.Controls
+  children:
+  - PostSharp.Patterns.Model.Controls.UndoCommand.#ctor
+  - PostSharp.Patterns.Model.Controls.UndoCommand.#ctor(PostSharp.Patterns.Recording.Recorder)
+  langs:
+  - csharp
+  - vb
+  name: UndoCommand
+  nameWithType: UndoCommand
+  fullName: PostSharp.Patterns.Model.Controls.UndoCommand
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: A command that undoes a single operation in a <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class UndoCommand : UndoRedoCommandBase, ICommand
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class UndoCommand Inherits UndoRedoCommandBase Implements ICommand
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  implements:
+  - System.Windows.Input.ICommand
+  inheritedMembers:
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(System.Object)
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(System.Object)
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecuteChanged
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Model.Controls.UndoCommand.#ctor
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoCommand.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.Controls.UndoCommand
+  langs:
+  - csharp
+  - vb
+  name: UndoCommand()
+  nameWithType: UndoCommand.UndoCommand()
+  fullName: PostSharp.Patterns.Model.Controls.UndoCommand.UndoCommand()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.Controls.UndoCommand" data-throw-if-not-resolved="false"></xref> class and binds it to the <xref href="PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UndoCommand()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.Controls.UndoCommand.#ctor*
+  nameWithType.vb: UndoCommand.New()
+  fullName.vb: PostSharp.Patterns.Model.Controls.UndoCommand.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Model.Controls.UndoCommand.#ctor(PostSharp.Patterns.Recording.Recorder)
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoCommand.#ctor(PostSharp.Patterns.Recording.Recorder)
+  id: '#ctor(PostSharp.Patterns.Recording.Recorder)'
+  parent: PostSharp.Patterns.Model.Controls.UndoCommand
+  langs:
+  - csharp
+  - vb
+  name: UndoCommand(Recorder)
+  nameWithType: UndoCommand.UndoCommand(Recorder)
+  fullName: PostSharp.Patterns.Model.Controls.UndoCommand.UndoCommand(PostSharp.Patterns.Recording.Recorder)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.Controls.UndoCommand" data-throw-if-not-resolved="false"></xref> class and specifies to which <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> it should be bound.
+  example: []
+  syntax:
+    content: public UndoCommand(Recorder recorder)
+    parameters:
+    - id: recorder
+      type: PostSharp.Patterns.Recording.Recorder
+      description: The <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> to which the new <xref href="PostSharp.Patterns.Model.Controls.UndoCommand" data-throw-if-not-resolved="false"></xref> should be bound.
+    content.vb: Public Sub New(recorder As Recorder)
+  overload: PostSharp.Patterns.Model.Controls.UndoCommand.#ctor*
+  nameWithType.vb: UndoCommand.New(Recorder)
+  fullName.vb: PostSharp.Patterns.Model.Controls.UndoCommand.New(PostSharp.Patterns.Recording.Recorder)
+  name.vb: New(Recorder)

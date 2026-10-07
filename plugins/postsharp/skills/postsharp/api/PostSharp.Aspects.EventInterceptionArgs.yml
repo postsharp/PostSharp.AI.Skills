@@ -1,0 +1,366 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.EventInterceptionArgs
+  commentId: T:PostSharp.Aspects.EventInterceptionArgs
+  id: EventInterceptionArgs
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.EventInterceptionArgs.AddHandler(System.Delegate)
+  - PostSharp.Aspects.EventInterceptionArgs.Arguments
+  - PostSharp.Aspects.EventInterceptionArgs.Binding
+  - PostSharp.Aspects.EventInterceptionArgs.Event
+  - PostSharp.Aspects.EventInterceptionArgs.Handler
+  - PostSharp.Aspects.EventInterceptionArgs.InvokeHandler(System.Delegate,PostSharp.Aspects.Arguments)
+  - PostSharp.Aspects.EventInterceptionArgs.ProceedAddHandler
+  - PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler
+  - PostSharp.Aspects.EventInterceptionArgs.ProceedRemoveHandler
+  - PostSharp.Aspects.EventInterceptionArgs.RemoveHandler(System.Delegate)
+  - PostSharp.Aspects.EventInterceptionArgs.ReturnValue
+  langs:
+  - csharp
+  - vb
+  name: EventInterceptionArgs
+  nameWithType: EventInterceptionArgs
+  fullName: PostSharp.Aspects.EventInterceptionArgs
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Arguments of handlers of aspects of the type <xref href="PostSharp.Aspects.EventInterceptionAspect" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The same type is passed to the three advices of the aspect. <xref href="PostSharp.Aspects.EventInterceptionArgs.Handler" data-throw-if-not-resolved="false"></xref> is the delegate being added, removed,
+                or invoked; <xref href="PostSharp.Aspects.EventInterceptionArgs.Arguments" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.EventInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref> are meaningful only when a handler is invoked.
+                From <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>, you can call <xref href="PostSharp.Aspects.EventInterceptionArgs.RemoveHandler(System.Delegate)" data-throw-if-not-resolved="false"></xref> to unsubscribe
+                the current handler, for instance after it has thrown an exception.</p>
+        <div class="NOTE"><h5>note</h5><p>
+      As a result of weaving optimizations, instances of classes derived from
+      <xref href="PostSharp.Aspects.AdviceArgs" data-throw-if-not-resolved="false"></xref>
+      may be shared among different aspects. Therefore,
+      aspect code should not attempt to access this object once control has been passed to the next node in the chain of invocation. Consider working
+      with
+      aspect bindings
+      if you need such deferred execution.
+    </p></div>
+        <div class="NOTE"><h5>note</h5><p>
+      Aspect weaving optimizations may also cause an advice parameter of this type to appear as <code>null</code> when inspecting it in a debugger.
+      If you need to inspect the instance at runtime, consider disabling aspect optimizations in the debug build configuration.
+    </p></div>
+        <a href="@simple-aspects" target="_self">
+      Conceptual: Developing Simple Aspects
+    </a>
+  example: []
+  syntax:
+    content: 'public abstract class EventInterceptionArgs : AdviceArgs'
+    content.vb: Public MustInherit Class EventInterceptionArgs Inherits AdviceArgs
+  seealso:
+  - linkId: PostSharp.Aspects.EventInterceptionAspect
+    commentId: T:PostSharp.Aspects.EventInterceptionAspect
+  - linkType: HRef
+    linkId: '@event-interception'
+    altText: 'Conceptual: Intercepting Events'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.AdviceArgs
+  inheritedMembers:
+  - PostSharp.Aspects.AdviceArgs.Instance
+  - PostSharp.Aspects.AdviceArgs.DeclarationIdentifier
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.EventInterceptionArgs.ProceedAddHandler
+  commentId: M:PostSharp.Aspects.EventInterceptionArgs.ProceedAddHandler
+  id: ProceedAddHandler
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: ProceedAddHandler()
+  nameWithType: EventInterceptionArgs.ProceedAddHandler()
+  fullName: PostSharp.Aspects.EventInterceptionArgs.ProceedAddHandler()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Proceeds with adding the <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref> to the event to which the current aspect is applied.
+
+    This method invokes the next handler in the chain.
+
+    It is typically invoked from the implementation of <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract void ProceedAddHandler()
+    content.vb: Public MustOverride Sub ProceedAddHandler()
+  overload: PostSharp.Aspects.EventInterceptionArgs.ProceedAddHandler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.AddHandler(System.Delegate)
+  commentId: M:PostSharp.Aspects.EventInterceptionArgs.AddHandler(System.Delegate)
+  id: AddHandler(System.Delegate)
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: AddHandler(Delegate)
+  nameWithType: EventInterceptionArgs.AddHandler(Delegate)
+  fullName: PostSharp.Aspects.EventInterceptionArgs.AddHandler(System.Delegate)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Adds a handler to the event by invoking the <code>Add</code> semantic of the next node in the chain of invocation.
+  example: []
+  syntax:
+    content: public abstract void AddHandler(Delegate handler)
+    parameters:
+    - id: handler
+      type: System.Delegate
+      description: The handler to add to the event.
+    content.vb: Public MustOverride Sub [AddHandler](handler As [Delegate])
+  overload: PostSharp.Aspects.EventInterceptionArgs.AddHandler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.ProceedRemoveHandler
+  commentId: M:PostSharp.Aspects.EventInterceptionArgs.ProceedRemoveHandler
+  id: ProceedRemoveHandler
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: ProceedRemoveHandler()
+  nameWithType: EventInterceptionArgs.ProceedRemoveHandler()
+  fullName: PostSharp.Aspects.EventInterceptionArgs.ProceedRemoveHandler()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Proceeds with removing the <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref> from the event to which the current aspect is applied.
+
+    This method invokes the next handler in the chain.
+
+    It is typically invoked from the implementation of <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract void ProceedRemoveHandler()
+    content.vb: Public MustOverride Sub ProceedRemoveHandler()
+  overload: PostSharp.Aspects.EventInterceptionArgs.ProceedRemoveHandler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.RemoveHandler(System.Delegate)
+  commentId: M:PostSharp.Aspects.EventInterceptionArgs.RemoveHandler(System.Delegate)
+  id: RemoveHandler(System.Delegate)
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: RemoveHandler(Delegate)
+  nameWithType: EventInterceptionArgs.RemoveHandler(Delegate)
+  fullName: PostSharp.Aspects.EventInterceptionArgs.RemoveHandler(System.Delegate)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Removes a handler from the event by invoking the <code>Remove</code> semantic of the next node in the chain of invocation.
+  example: []
+  syntax:
+    content: public abstract void RemoveHandler(Delegate handler)
+    parameters:
+    - id: handler
+      type: System.Delegate
+      description: Handler to be removed.
+    content.vb: Public MustOverride Sub [RemoveHandler](handler As [Delegate])
+  overload: PostSharp.Aspects.EventInterceptionArgs.RemoveHandler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler
+  commentId: M:PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler
+  id: ProceedInvokeHandler
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: ProceedInvokeHandler()
+  nameWithType: EventInterceptionArgs.ProceedInvokeHandler()
+  fullName: PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Proceeds with invoking the <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref> with the arguments specified in the <xref href="PostSharp.Aspects.EventInterceptionArgs.Arguments" data-throw-if-not-resolved="false"></xref> property.
+
+    The delegate may change the <xref href="PostSharp.Aspects.EventInterceptionArgs.Arguments" data-throw-if-not-resolved="false"></xref> and set the <xref href="PostSharp.Aspects.EventInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>.
+
+    This method invokes the next handler in the chain.
+
+    It is typically invoked from the implementation of <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract void ProceedInvokeHandler()
+    content.vb: Public MustOverride Sub ProceedInvokeHandler()
+  overload: PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.InvokeHandler(System.Delegate,PostSharp.Aspects.Arguments)
+  commentId: M:PostSharp.Aspects.EventInterceptionArgs.InvokeHandler(System.Delegate,PostSharp.Aspects.Arguments)
+  id: InvokeHandler(System.Delegate,PostSharp.Aspects.Arguments)
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: InvokeHandler(Delegate, Arguments)
+  nameWithType: EventInterceptionArgs.InvokeHandler(Delegate, Arguments)
+  fullName: PostSharp.Aspects.EventInterceptionArgs.InvokeHandler(System.Delegate, PostSharp.Aspects.Arguments)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Invokes a handler by calling the <code>Invoke</code> semantic of the next node in the chain of invocation.
+  example: []
+  syntax:
+    content: public abstract object InvokeHandler(Delegate handler, Arguments arguments)
+    parameters:
+    - id: handler
+      type: System.Delegate
+      description: Handler to be invoked.
+    - id: arguments
+      type: PostSharp.Aspects.Arguments
+      description: Arguments passed to the handler.
+    return:
+      type: System.Object
+      description: Return value of the handler.
+    content.vb: Public MustOverride Function InvokeHandler(handler As [Delegate], arguments As Arguments) As Object
+  overload: PostSharp.Aspects.EventInterceptionArgs.InvokeHandler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.Binding
+  commentId: P:PostSharp.Aspects.EventInterceptionArgs.Binding
+  id: Binding
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: Binding
+  nameWithType: EventInterceptionArgs.Binding
+  fullName: PostSharp.Aspects.EventInterceptionArgs.Binding
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets an interface that allows invoking the next node in the chain of invocation of the intercepted method.
+  remarks: >-
+    <p>
+      Bindings are thread-safe and context-free singleton instances exposing the next node in the chain of invocation.
+    </p>
+        <a href="@simple-aspects" target="_self">
+      Conceptual: Developing Simple Aspects
+    </a>
+  example: []
+  syntax:
+    content: public abstract IEventBinding Binding { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.IEventBinding
+    content.vb: Public MustOverride ReadOnly Property Binding As IEventBinding
+  overload: PostSharp.Aspects.EventInterceptionArgs.Binding*
+- uid: PostSharp.Aspects.EventInterceptionArgs.Handler
+  commentId: P:PostSharp.Aspects.EventInterceptionArgs.Handler
+  id: Handler
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: Handler
+  nameWithType: EventInterceptionArgs.Handler
+  fullName: PostSharp.Aspects.EventInterceptionArgs.Handler
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the delegate being added, removed, or invoked.
+  example: []
+  syntax:
+    content: public Delegate Handler { get; }
+    parameters: []
+    return:
+      type: System.Delegate
+    content.vb: Public ReadOnly Property Handler As [Delegate]
+  overload: PostSharp.Aspects.EventInterceptionArgs.Handler*
+- uid: PostSharp.Aspects.EventInterceptionArgs.ReturnValue
+  commentId: P:PostSharp.Aspects.EventInterceptionArgs.ReturnValue
+  id: ReturnValue
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: ReturnValue
+  nameWithType: EventInterceptionArgs.ReturnValue
+  fullName: PostSharp.Aspects.EventInterceptionArgs.ReturnValue
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the return value of the delegate.
+  remarks: >-
+    <p>This property is meaningful only during a delegate invocation (not during an addition or removal).</p>
+
+    <p>This property is typically set by the <xref href="PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler" data-throw-if-not-resolved="false"></xref> method. It is also legal for
+            an implementation of <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref> to change the value of this property.</p>
+  example: []
+  syntax:
+    content: public object ReturnValue { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property ReturnValue As Object
+  overload: PostSharp.Aspects.EventInterceptionArgs.ReturnValue*
+- uid: PostSharp.Aspects.EventInterceptionArgs.Event
+  commentId: P:PostSharp.Aspects.EventInterceptionArgs.Event
+  id: Event
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: Event
+  nameWithType: EventInterceptionArgs.Event
+  fullName: PostSharp.Aspects.EventInterceptionArgs.Event
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the event to which the current aspect has been applied.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>
+            Using this property causes the aspect weaver to generate code that has non-trivial runtime overhead. Avoid using
+            this property whenever possible. One possible solution is to use compile-time initialization of
+            aspect instances and to make use of reflection only at build time.
+          </p></div>
+  example: []
+  syntax:
+    content: public EventInfo Event { get; set; }
+    parameters: []
+    return:
+      type: System.Reflection.EventInfo
+    content.vb: Public Property [Event] As EventInfo
+  overload: PostSharp.Aspects.EventInterceptionArgs.Event*
+- uid: PostSharp.Aspects.EventInterceptionArgs.Arguments
+  commentId: P:PostSharp.Aspects.EventInterceptionArgs.Arguments
+  id: Arguments
+  parent: PostSharp.Aspects.EventInterceptionArgs
+  langs:
+  - csharp
+  - vb
+  name: Arguments
+  nameWithType: EventInterceptionArgs.Arguments
+  fullName: PostSharp.Aspects.EventInterceptionArgs.Arguments
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the delegate arguments.
+  remarks: >-
+    <p>This property is meaningful only during a delegate invocation (not during an addition or removal).</p>
+
+    <p>This property is typically accessed by the <xref href="PostSharp.Aspects.EventInterceptionArgs.ProceedInvokeHandler" data-throw-if-not-resolved="false"></xref> method. Implementations of
+            <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref> can also get or change the value of this property.</p>
+  example: []
+  syntax:
+    content: public Arguments Arguments { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Arguments
+    content.vb: Public ReadOnly Property Arguments As Arguments
+  overload: PostSharp.Aspects.EventInterceptionArgs.Arguments*

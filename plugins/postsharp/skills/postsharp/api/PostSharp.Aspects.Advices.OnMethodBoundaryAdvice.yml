@@ -1,0 +1,172 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice
+  commentId: T:PostSharp.Aspects.Advices.OnMethodBoundaryAdvice
+  id: OnMethodBoundaryAdvice
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds
+  - PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: OnMethodBoundaryAdvice
+  nameWithType: OnMethodBoundaryAdvice
+  fullName: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Base class for <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The derived advices are the counterparts of the methods of <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> for aspects composed of
+        advices and pointcuts. Group them with the <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property so that they are woven as a single
+        <code>try</code>/<code>catch</code>/<code>finally</code> construct, consistent with <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>, and so that they can share state through
+        <xref href="PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>When applied to iterator or async methods, these advices are applied semantically by default.
+        Use <xref href="PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction" data-throw-if-not-resolved="false"></xref> to change this behavior.</p>
+  example: []
+  syntax:
+    content: 'public abstract class OnMethodBoundaryAdvice : GroupingAdvice'
+    content.vb: Public MustInherit Class OnMethodBoundaryAdvice Inherits GroupingAdvice
+  seealso:
+  - linkId: PostSharp.Aspects.OnMethodBoundaryAspect
+    commentId: T:PostSharp.Aspects.OnMethodBoundaryAspect
+  - linkType: HRef
+    linkId: '@advices'
+    altText: 'Conceptual: Adding Behaviors to Existing Members'
+  - linkType: HRef
+    linkId: '@semantic-advising'
+    altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  - PostSharp.Aspects.Advices.GroupingAdvice
+  derivedClasses:
+  - PostSharp.Aspects.Advices.OnMethodEntryAdvice
+  - PostSharp.Aspects.Advices.OnMethodExceptionAdvice
+  - PostSharp.Aspects.Advices.OnMethodExitAdvice
+  - PostSharp.Aspects.Advices.OnMethodResumeAdvice
+  - PostSharp.Aspects.Advices.OnMethodSuccessAdvice
+  - PostSharp.Aspects.Advices.OnMethodYieldAdvice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.GroupingAdvice.Master
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds
+  commentId: P:PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds
+  id: SemanticallyAdvisedMethodKinds
+  parent: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice
+  langs:
+  - csharp
+  - vb
+  name: SemanticallyAdvisedMethodKinds
+  nameWithType: OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds
+  fullName: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets which target methods are advised semantically. This affects the behavior of the advice when it is applied to
+
+    iterator or async methods, which are compiled into state machines.
+  remarks: >-
+    <p>
+        Semantic advising results in an aspect that is consistent with the level of abstraction of the programming language. This is the default behavior.
+        You can disable semantic advising by using this property to be consistent with the level of abstraction
+        of MSIL and for backward compatibility with the versions of PostSharp prior to 3.1.
+        </p>
+    <p>Set this property on the master advice of a group. Setting it on an advice whose <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property is set
+        is a build-time error.</p>
+  example: []
+  syntax:
+    content: public SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+    content.vb: Public Property SemanticallyAdvisedMethodKinds As SemanticallyAdvisedMethodKinds
+  overload: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds*
+  seealso:
+  - linkType: HRef
+    linkId: '@semantic-advising'
+    altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'
+- uid: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction
+  commentId: P:PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction
+  id: UnsupportedTargetAction
+  parent: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedTargetAction
+  nameWithType: OnMethodBoundaryAdvice.UnsupportedTargetAction
+  fullName: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets the action to take when the advice is applied to an unsupported target method.
+  remarks: >-
+    <p>By default, applying the advice to a target method that it does not support, for example a method that it cannot advise semantically,
+        is a build-time error. Set this property to <xref href="PostSharp.Aspects.UnsupportedTargetAction.Ignore" data-throw-if-not-resolved="false"></xref> to skip such methods silently, or to
+        <xref href="PostSharp.Aspects.UnsupportedTargetAction.Fallback" data-throw-if-not-resolved="false"></xref> to apply non-semantic advising when it is available.</p>
+    <p>Set this property on the master advice of a group. Setting it on an advice whose <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property is set
+        is a build-time error.</p>
+  example: []
+  syntax:
+    content: public UnsupportedTargetAction UnsupportedTargetAction { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.UnsupportedTargetAction
+    content.vb: Public Property UnsupportedTargetAction As UnsupportedTargetAction
+  overload: PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction*
+  seealso:
+  - linkType: HRef
+    linkId: '@semantic-advising'
+    altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'

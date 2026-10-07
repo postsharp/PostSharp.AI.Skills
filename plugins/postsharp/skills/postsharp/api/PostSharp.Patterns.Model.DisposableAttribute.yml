@@ -1,0 +1,337 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.DisposableAttribute
+  commentId: T:PostSharp.Patterns.Model.DisposableAttribute
+  id: DisposableAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.DisposableAttribute.#ctor
+  - PostSharp.Patterns.Model.DisposableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Model.DisposableAttribute.Advise(System.Object)
+  - PostSharp.Patterns.Model.DisposableAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Model.DisposableAttribute.OnAdviseChildFailed(System.Object)
+  - PostSharp.Patterns.Model.DisposableAttribute.ThrowObjectDisposedException
+  langs:
+  - csharp
+  - vb
+  name: DisposableAttribute
+  nameWithType: DisposableAttribute
+  fullName: PostSharp.Patterns.Model.DisposableAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Custom attribute that, when applied to a class, implements the <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> interface in such a way that
+
+    the <xref href="System.IDisposable.Dispose" data-throw-if-not-resolved="false"></xref> method executes the <xref href="System.IDisposable.Dispose" data-throw-if-not-resolved="false"></xref> method for all
+
+    child objects that also implement the <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> interface.
+  remarks: >-
+    <p>The aspect relies on the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect to find children, so you must annotate the fields and properties
+        that hold child objects with <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref>. Children that do not implement <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> are ignored.</p>
+    <p>To add your own disposal logic, define a <code>protected virtual void Dispose(bool disposing)</code> method in the target class. The aspect
+        calls it after it has disposed of the children.</p>
+    <p>The aspect does not introduce a finalizer. If you need one, implement it manually and call <code>Dispose</code> from it.</p>
+  example: []
+  syntax:
+    content: >-
+      [IntroduceInterface(typeof(IDisposable), OverrideAction = InterfaceOverrideAction.Ignore)]
+
+      [MulticastAttributeUsage(Inheritance = MulticastInheritance.Strict)]
+
+      [Serializer(typeof(DisposableAttribute.Serializer))]
+
+      public sealed class DisposableAttribute : AggregatableClientAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IDisposable
+    content.vb: >-
+      <IntroduceInterface(GetType(IDisposable), OverrideAction:=InterfaceOverrideAction.Ignore)>
+
+      <MulticastAttributeUsage(Inheritance:=MulticastInheritance.Strict)>
+
+      <Serializer(GetType(DisposableAttribute.Serializer))>
+
+      Public NotInheritable Class DisposableAttribute Inherits AggregatableClientAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@disposable'
+    altText: 'Conceptual: Automatically Disposing Children Objects (Disposable)'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.IDisposable
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.DisposableAttribute.Serializer
+- uid: PostSharp.Patterns.Model.DisposableAttribute.Advise(System.Object)
+  commentId: M:PostSharp.Patterns.Model.DisposableAttribute.Advise(System.Object)
+  id: Advise(System.Object)
+  parent: PostSharp.Patterns.Model.DisposableAttribute
+  langs:
+  - csharp
+  - vb
+  name: Advise(object)
+  nameWithType: DisposableAttribute.Advise(object)
+  fullName: PostSharp.Patterns.Model.DisposableAttribute.Advise(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Injects the advice into the child object.
+  example: []
+  syntax:
+    content: protected override bool Advise(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to advise.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the children of <code class="paramref">obj</code> have to be advised as well, <code>false</code> otherwise.
+    content.vb: Protected Overrides Function Advise(obj As Object) As Boolean
+  overridden: PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)
+  overload: PostSharp.Patterns.Model.DisposableAttribute.Advise*
+  nameWithType.vb: DisposableAttribute.Advise(Object)
+  fullName.vb: PostSharp.Patterns.Model.DisposableAttribute.Advise(Object)
+  name.vb: Advise(Object)
+- uid: PostSharp.Patterns.Model.DisposableAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Model.DisposableAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Model.DisposableAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsEligibleChild(object, ChildInfo)
+  nameWithType: DisposableAttribute.IsEligibleChild(object, ChildInfo)
+  fullName: PostSharp.Patterns.Model.DisposableAttribute.IsEligibleChild(object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether an object is eligible to be a child of the target instance of the current aspect.
+  example: []
+  syntax:
+    content: protected override bool IsEligibleChild(object child, ChildInfo childInfo)
+    parameters:
+    - id: child
+      type: System.Object
+      description: The object to test.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: The <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> that describes the location of the child.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if <code class="paramref">child</code> is eligible to be a child without injecting any advice, otherwise <code>false</code>. When this method returns <code>false</code>,
+            the aspect will invoke the <xref href="PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)" data-throw-if-not-resolved="false"></xref> method.
+    content.vb: Protected Overrides Function IsEligibleChild(child As Object, childInfo As ChildInfo) As Boolean
+  overridden: PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  overload: PostSharp.Patterns.Model.DisposableAttribute.IsEligibleChild*
+  nameWithType.vb: DisposableAttribute.IsEligibleChild(Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Model.DisposableAttribute.IsEligibleChild(Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: IsEligibleChild(Object, ChildInfo)
+- uid: PostSharp.Patterns.Model.DisposableAttribute.OnAdviseChildFailed(System.Object)
+  commentId: M:PostSharp.Patterns.Model.DisposableAttribute.OnAdviseChildFailed(System.Object)
+  id: OnAdviseChildFailed(System.Object)
+  parent: PostSharp.Patterns.Model.DisposableAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnAdviseChildFailed(object)
+  nameWithType: DisposableAttribute.OnAdviseChildFailed(object)
+  fullName: PostSharp.Patterns.Model.DisposableAttribute.OnAdviseChildFailed(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    This method is invoked when a child is assigned to a parent and the advices of the parent cannot be added to the child.
+
+    Implementations can choose to throw an exception (thread-aware attributes do this) or ignore the situation (<code>DisposableAttribute</code> does this).
+  example: []
+  syntax:
+    content: protected override void OnAdviseChildFailed(object child)
+    parameters:
+    - id: child
+      type: System.Object
+      description: An object that is ineligible to be a child. It is guaranteed to be non-null.
+    content.vb: Protected Overrides Sub OnAdviseChildFailed(child As Object)
+  overridden: PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(System.Object)
+  overload: PostSharp.Patterns.Model.DisposableAttribute.OnAdviseChildFailed*
+  nameWithType.vb: DisposableAttribute.OnAdviseChildFailed(Object)
+  fullName.vb: PostSharp.Patterns.Model.DisposableAttribute.OnAdviseChildFailed(Object)
+  name.vb: OnAdviseChildFailed(Object)
+- uid: PostSharp.Patterns.Model.DisposableAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.DisposableAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.DisposableAttribute
+  langs:
+  - csharp
+  - vb
+  name: DisposableAttribute()
+  nameWithType: DisposableAttribute.DisposableAttribute()
+  fullName: PostSharp.Patterns.Model.DisposableAttribute.DisposableAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public DisposableAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.DisposableAttribute.#ctor*
+  nameWithType.vb: DisposableAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.DisposableAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Model.DisposableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Model.DisposableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Model.DisposableAttribute
+  langs:
+  - csharp
+  - vb
+  name: DisposableAttribute(PortableFormatterConstructorContext)
+  nameWithType: DisposableAttribute.DisposableAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Model.DisposableAttribute.DisposableAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected DisposableAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Model.DisposableAttribute.#ctor*
+  nameWithType.vb: DisposableAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Model.DisposableAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Model.DisposableAttribute.ThrowObjectDisposedException
+  commentId: P:PostSharp.Patterns.Model.DisposableAttribute.ThrowObjectDisposedException
+  id: ThrowObjectDisposedException
+  parent: PostSharp.Patterns.Model.DisposableAttribute
+  langs:
+  - csharp
+  - vb
+  name: ThrowObjectDisposedException
+  nameWithType: DisposableAttribute.ThrowObjectDisposedException
+  fullName: PostSharp.Patterns.Model.DisposableAttribute.ThrowObjectDisposedException
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets or sets a value indicating whether an <xref href="System.ObjectDisposedException" data-throw-if-not-resolved="false"></xref> should be thrown when an attempt is made
+
+    to access an object that has already been disposed.
+  example: []
+  syntax:
+    content: public bool ThrowObjectDisposedException { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property ThrowObjectDisposedException As Boolean
+  overload: PostSharp.Patterns.Model.DisposableAttribute.ThrowObjectDisposedException*

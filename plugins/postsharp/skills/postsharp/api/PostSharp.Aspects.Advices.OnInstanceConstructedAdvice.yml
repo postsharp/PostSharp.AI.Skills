@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice
+  commentId: T:PostSharp.Aspects.Advices.OnInstanceConstructedAdvice
+  id: OnInstanceConstructedAdvice
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.#ctor
+  langs:
+  - csharp
+  - vb
+  name: OnInstanceConstructedAdvice
+  nameWithType: OnInstanceConstructedAdvice
+  fullName: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied to a method of an aspect, specifies that this method should be executed
+
+    after the last instance constructor of the target class of the aspect has completed execution. That is, this method is invoked when the target object
+
+    is fully constructed. This custom attribute can be applied only on methods that have return type <code>void</code>.
+  remarks: >-
+    <p>
+        The target object is fully constructed when all its constructors complete execution, including constructors of subclasses. For example, if you apply
+        this advice to type <code>A</code>, and class <code>B</code> extends class <code>A</code>, then if you create a new instance of <code>B</code>, the method will be invoked only
+        after B's constructor ends.
+        </p>
+    <p>
+        The parameters of the method must be bound by a custom attribute derived from <xref href="PostSharp.Aspects.Advices.AdviceParameterAttribute" data-throw-if-not-resolved="false"></xref>. Their target is the
+        target type of the aspect: for instance, <xref href="PostSharp.Aspects.Advices.ThisAttribute" data-throw-if-not-resolved="false"></xref> binds the object and <xref href="PostSharp.Aspects.Advices.DeclarationNameAttribute" data-throw-if-not-resolved="false"></xref> the name
+        of the type. <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ReturnValueAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.LocationValueAttribute" data-throw-if-not-resolved="false"></xref> and
+        <xref href="PostSharp.Aspects.Advices.FlowBehaviorAttribute" data-throw-if-not-resolved="false"></xref> cannot be used.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
+
+      public sealed class OnInstanceConstructedAdvice : Advice
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Method, AllowMultiple:=False, Inherited:=False)>
+
+      Public NotInheritable Class OnInstanceConstructedAdvice Inherits Advice
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 64
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: Inherited
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.#ctor
+  commentId: M:PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice
+  langs:
+  - csharp
+  - vb
+  name: OnInstanceConstructedAdvice()
+  nameWithType: OnInstanceConstructedAdvice.OnInstanceConstructedAdvice()
+  fullName: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.OnInstanceConstructedAdvice()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public OnInstanceConstructedAdvice()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.#ctor*
+  nameWithType.vb: OnInstanceConstructedAdvice.New()
+  fullName.vb: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.New()
+  name.vb: New()

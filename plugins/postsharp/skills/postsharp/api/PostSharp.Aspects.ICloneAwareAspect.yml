@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ICloneAwareAspect
+  commentId: T:PostSharp.Aspects.ICloneAwareAspect
+  id: ICloneAwareAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ICloneAwareAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  langs:
+  - csharp
+  - vb
+  name: ICloneAwareAspect
+  nameWithType: ICloneAwareAspect
+  fullName: PostSharp.Aspects.ICloneAwareAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Defines the semantics of aspects that must be notified after
+
+    a target object is cloned using <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface ICloneAwareAspect : IInstanceScopedAspect, IAspect'
+    content.vb: Public Interface ICloneAwareAspect Inherits IInstanceScopedAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Model.DisposableAttribute
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Recording.EditableObjectAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance
+- uid: PostSharp.Aspects.ICloneAwareAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  commentId: M:PostSharp.Aspects.ICloneAwareAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  id: OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  parent: PostSharp.Aspects.ICloneAwareAspect
+  langs:
+  - csharp
+  - vb
+  name: OnCloned(ICloneAwareAspect)
+  nameWithType: ICloneAwareAspect.OnCloned(ICloneAwareAspect)
+  fullName: PostSharp.Aspects.ICloneAwareAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method called after an object enhanced by the current aspect has been
+
+    cloned using <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>. The <code>this</code>
+
+    parameter refers to the new aspect instance in the cloned object.
+  remarks: >-
+    <p>Prior to calling the current method, the aspect framework
+        initializes the <code class="paramref">source</code> object using <xref href="PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> 
+        and <xref href="PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance" data-throw-if-not-resolved="false"></xref>. That is, the aspect instance
+        in the cloned object is not cloned from the source aspect instance, but from the prototype
+        aspect instance.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnCloned(ICloneAwareAspect source)
+    parameters:
+    - id: source
+      type: PostSharp.Aspects.ICloneAwareAspect
+      description: >-
+        Aspect instance corresponding to the current
+                    aspect instance in the cloned target object.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnCloned(source As ICloneAwareAspect)
+  overload: PostSharp.Aspects.ICloneAwareAspect.OnCloned*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

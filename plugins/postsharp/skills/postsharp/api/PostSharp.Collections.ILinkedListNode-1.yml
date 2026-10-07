@@ -1,0 +1,116 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Collections.ILinkedListNode`1
+  commentId: T:PostSharp.Collections.ILinkedListNode`1
+  id: ILinkedListNode`1
+  parent: PostSharp.Collections
+  children:
+  - PostSharp.Collections.ILinkedListNode`1.Next
+  - PostSharp.Collections.ILinkedListNode`1.Previous
+  - PostSharp.Collections.ILinkedListNode`1.Value
+  langs:
+  - csharp
+  - vb
+  name: ILinkedListNode<T>
+  nameWithType: ILinkedListNode<T>
+  fullName: PostSharp.Collections.ILinkedListNode<T>
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Collections
+  summary: Represents a node in a doubly linked list.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface ILinkedListNode<out T>
+    typeParameters:
+    - id: T
+      description: The type of values stored in the list.
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface ILinkedListNode(Of Out T)
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ILinkedListNode(Of T)
+  fullName.vb: PostSharp.Collections.ILinkedListNode(Of T)
+  name.vb: ILinkedListNode(Of T)
+- uid: PostSharp.Collections.ILinkedListNode`1.Value
+  commentId: P:PostSharp.Collections.ILinkedListNode`1.Value
+  id: Value
+  parent: PostSharp.Collections.ILinkedListNode`1
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: ILinkedListNode<T>.Value
+  fullName: PostSharp.Collections.ILinkedListNode<T>.Value
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Collections
+  summary: Gets the value stored in the current node.
+  example: []
+  syntax:
+    content: T Value { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: ReadOnly Property Value As T
+  overload: PostSharp.Collections.ILinkedListNode`1.Value*
+  nameWithType.vb: ILinkedListNode(Of T).Value
+  fullName.vb: PostSharp.Collections.ILinkedListNode(Of T).Value
+- uid: PostSharp.Collections.ILinkedListNode`1.Previous
+  commentId: P:PostSharp.Collections.ILinkedListNode`1.Previous
+  id: Previous
+  parent: PostSharp.Collections.ILinkedListNode`1
+  langs:
+  - csharp
+  - vb
+  name: Previous
+  nameWithType: ILinkedListNode<T>.Previous
+  fullName: PostSharp.Collections.ILinkedListNode<T>.Previous
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Collections
+  summary: Gets the previous node in the list, or <code>null</code> if the current node is the first one in the list.
+  example: []
+  syntax:
+    content: ILinkedListNode<out T> Previous { get; }
+    parameters: []
+    return:
+      type: PostSharp.Collections.ILinkedListNode`1
+    content.vb: ReadOnly Property Previous As ILinkedListNode(Of Out T)
+  overload: PostSharp.Collections.ILinkedListNode`1.Previous*
+  nameWithType.vb: ILinkedListNode(Of T).Previous
+  fullName.vb: PostSharp.Collections.ILinkedListNode(Of T).Previous
+- uid: PostSharp.Collections.ILinkedListNode`1.Next
+  commentId: P:PostSharp.Collections.ILinkedListNode`1.Next
+  id: Next
+  parent: PostSharp.Collections.ILinkedListNode`1
+  langs:
+  - csharp
+  - vb
+  name: Next
+  nameWithType: ILinkedListNode<T>.Next
+  fullName: PostSharp.Collections.ILinkedListNode<T>.Next
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Collections
+  summary: Gets the next node in the list, or <code>null</code> if the current node is the last one in the list.
+  example: []
+  syntax:
+    content: ILinkedListNode<out T> Next { get; }
+    parameters: []
+    return:
+      type: PostSharp.Collections.ILinkedListNode`1
+    content.vb: ReadOnly Property [Next] As ILinkedListNode(Of Out T)
+  overload: PostSharp.Collections.ILinkedListNode`1.Next*
+  nameWithType.vb: ILinkedListNode(Of T).Next
+  fullName.vb: PostSharp.Collections.ILinkedListNode(Of T).Next

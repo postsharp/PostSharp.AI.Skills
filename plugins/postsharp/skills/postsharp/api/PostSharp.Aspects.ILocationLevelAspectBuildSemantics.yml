@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  commentId: T:PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  id: ILocationLevelAspectBuildSemantics
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ILocationLevelAspectBuildSemantics.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  langs:
+  - csharp
+  - vb
+  name: ILocationLevelAspectBuildSemantics
+  nameWithType: ILocationLevelAspectBuildSemantics
+  fullName: PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Compile-time semantics of <xref href="PostSharp.Aspects.ILocationLevelAspect" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface ILocationLevelAspectBuildSemantics : IAspectBuildSemantics, IValidableAnnotation'
+    content.vb: Public Interface ILocationLevelAspectBuildSemantics Inherits IAspectBuildSemantics, IValidableAnnotation
+  derivedClasses:
+  - PostSharp.Aspects.LocationInterceptionAspect
+  - PostSharp.Aspects.LocationLevelAspect
+  - PostSharp.Patterns.Diagnostics.LogValueAttribute
+  - PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  - PostSharp.Patterns.Xaml.AttachedPropertyAttribute
+  - PostSharp.Patterns.Xaml.CommandAttribute
+  - PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+- uid: PostSharp.Aspects.ILocationLevelAspectBuildSemantics.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Aspects.ILocationLevelAspectBuildSemantics.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(LocationInfo, AspectInfo)
+  nameWithType: ILocationLevelAspectBuildSemantics.CompileTimeInitialize(LocationInfo, AspectInfo)
+  fullName: PostSharp.Aspects.ILocationLevelAspectBuildSemantics.CompileTimeInitialize(PostSharp.Reflection.LocationInfo, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: void CompileTimeInitialize(LocationInfo targetLocation, AspectInfo aspectInfo)
+    parameters:
+    - id: targetLocation
+      type: PostSharp.Reflection.LocationInfo
+      description: Location to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future usage.
+    content.vb: Sub CompileTimeInitialize(targetLocation As LocationInfo, aspectInfo As AspectInfo)
+  overload: PostSharp.Aspects.ILocationLevelAspectBuildSemantics.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IMethodLevelAspect
+  commentId: T:PostSharp.Aspects.IMethodLevelAspect
+  id: IMethodLevelAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  langs:
+  - csharp
+  - vb
+  name: IMethodLevelAspect
+  nameWithType: IMethodLevelAspect
+  fullName: PostSharp.Aspects.IMethodLevelAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Runtime semantics of aspects applied to methods.
+  example: []
+  syntax:
+    content: 'public interface IMethodLevelAspect : IAspect'
+    content.vb: Public Interface IMethodLevelAspect Inherits IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+    commentId: T:PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - linkId: PostSharp.Aspects.MethodLevelAspect
+    commentId: T:PostSharp.Aspects.MethodLevelAspect
+  derivedClasses:
+  - PostSharp.Aspects.MethodImplementationAspect
+  - PostSharp.Aspects.MethodInterceptionAspect
+  - PostSharp.Aspects.MethodLevelAspect
+  - PostSharp.Aspects.OnExceptionAspect
+  - PostSharp.Aspects.OnMethodBoundaryAspect
+  - PostSharp.Patterns.Caching.CacheAttribute
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  - PostSharp.Patterns.Diagnostics.Audit.AuditAttribute
+  - PostSharp.Patterns.Diagnostics.LogAttribute
+  - PostSharp.Patterns.Diagnostics.LogAttributeBase
+  - PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  - PostSharp.Patterns.Threading.BackgroundAttribute
+  - PostSharp.Patterns.Threading.DispatchedAttribute
+- uid: PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  commentId: M:PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  id: RuntimeInitialize(System.Reflection.MethodBase)
+  parent: PostSharp.Aspects.IMethodLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitialize(MethodBase)
+  nameWithType: IMethodLevelAspect.RuntimeInitialize(MethodBase)
+  fullName: PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes the current aspect.
+  example: []
+  syntax:
+    content: void RuntimeInitialize(MethodBase method)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodBase
+      description: Method to which the current aspect is applied.
+    content.vb: Sub RuntimeInitialize(method As MethodBase)
+  overload: PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

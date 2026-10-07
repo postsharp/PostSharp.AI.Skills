@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.MethodInterceptionProceedAwaitable
+  commentId: T:PostSharp.Aspects.MethodInterceptionProceedAwaitable
+  id: MethodInterceptionProceedAwaitable
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetAwaiter
+  - PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetTask
+  langs:
+  - csharp
+  - vb
+  name: MethodInterceptionProceedAwaitable
+  nameWithType: MethodInterceptionProceedAwaitable
+  fullName: PostSharp.Aspects.MethodInterceptionProceedAwaitable
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Represents the asynchronous proceed operation that calls the next node in the chain of invocation.
+  example: []
+  syntax:
+    content: public struct MethodInterceptionProceedAwaitable
+    content.vb: Public Structure MethodInterceptionProceedAwaitable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetAwaiter
+  commentId: M:PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetAwaiter
+  id: GetAwaiter
+  parent: PostSharp.Aspects.MethodInterceptionProceedAwaitable
+  langs:
+  - csharp
+  - vb
+  name: GetAwaiter()
+  nameWithType: MethodInterceptionProceedAwaitable.GetAwaiter()
+  fullName: PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetAwaiter()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets an awaiter used to await the asynchronous method invocation.
+  example: []
+  syntax:
+    content: public MethodInterceptionProceedAwaiter GetAwaiter()
+    return:
+      type: PostSharp.Aspects.MethodInterceptionProceedAwaiter
+      description: The <xref href="PostSharp.Aspects.MethodInterceptionProceedAwaiter" data-throw-if-not-resolved="false"></xref> used to await the asynchronous method invocation.
+    content.vb: Public Function GetAwaiter() As MethodInterceptionProceedAwaiter
+  overload: PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetAwaiter*
+- uid: PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetTask
+  commentId: M:PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetTask
+  id: GetTask
+  parent: PostSharp.Aspects.MethodInterceptionProceedAwaitable
+  langs:
+  - csharp
+  - vb
+  name: GetTask()
+  nameWithType: MethodInterceptionProceedAwaitable.GetTask()
+  fullName: PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetTask()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the underlying task that represents the asynchronous proceed operation.
+  example: []
+  syntax:
+    content: public Task GetTask()
+    return:
+      type: System.Threading.Tasks.Task
+      description: The <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> instance that represents the asynchronous proceed operation.
+    content.vb: Public Function GetTask() As Task
+  overload: PostSharp.Aspects.MethodInterceptionProceedAwaitable.GetTask*

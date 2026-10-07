@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.MulticastInheritance
+  commentId: T:PostSharp.Extensibility.MulticastInheritance
+  id: MulticastInheritance
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.MulticastInheritance.Multicast
+  - PostSharp.Extensibility.MulticastInheritance.None
+  - PostSharp.Extensibility.MulticastInheritance.Strict
+  langs:
+  - csharp
+  - vb
+  name: MulticastInheritance
+  nameWithType: MulticastInheritance
+  fullName: PostSharp.Extensibility.MulticastInheritance
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Specifies the kind of inheritance of <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Set the inheritance mode with <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance" data-throw-if-not-resolved="false"></xref> for all usages of an attribute,
+        or with <xref href="PostSharp.Extensibility.MulticastAttribute.AttributeInheritance" data-throw-if-not-resolved="false"></xref> for a single usage.</p>
+  example: []
+  syntax:
+    content: public enum MulticastInheritance
+    content.vb: Public Enum MulticastInheritance
+  seealso:
+  - linkType: HRef
+    linkId: '@multicast-inheritance'
+    altText: 'Conceptual: Understanding Aspect Inheritance'
+  - linkType: HRef
+    linkId: '@aspect-inheritance'
+    altText: 'Conceptual: Adding Aspects to Derived Classes and Methods Using Attributes'
+- uid: PostSharp.Extensibility.MulticastInheritance.None
+  commentId: F:PostSharp.Extensibility.MulticastInheritance.None
+  id: None
+  parent: PostSharp.Extensibility.MulticastInheritance
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: MulticastInheritance.None
+  fullName: PostSharp.Extensibility.MulticastInheritance.None
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: No inheritance.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Extensibility.MulticastInheritance
+- uid: PostSharp.Extensibility.MulticastInheritance.Strict
+  commentId: F:PostSharp.Extensibility.MulticastInheritance.Strict
+  id: Strict
+  parent: PostSharp.Extensibility.MulticastInheritance
+  langs:
+  - csharp
+  - vb
+  name: Strict
+  nameWithType: MulticastInheritance.Strict
+  fullName: PostSharp.Extensibility.MulticastInheritance.Strict
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    The instance is inherited by children of the original element,
+
+    but multicasting is not applied to members of children.
+  remarks: See https://doc.postsharp.net/multicast-inheritance.
+  example: []
+  syntax:
+    content: Strict = 1
+    return:
+      type: PostSharp.Extensibility.MulticastInheritance
+- uid: PostSharp.Extensibility.MulticastInheritance.Multicast
+  commentId: F:PostSharp.Extensibility.MulticastInheritance.Multicast
+  id: Multicast
+  parent: PostSharp.Extensibility.MulticastInheritance
+  langs:
+  - csharp
+  - vb
+  name: Multicast
+  nameWithType: MulticastInheritance.Multicast
+  fullName: PostSharp.Extensibility.MulticastInheritance.Multicast
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    The instance is inherited by children of the original element
+
+    and multicasting is applied to members of children.
+  remarks: See https://doc.postsharp.net/multicast-inheritance.
+  example: []
+  syntax:
+    content: Multicast = 2
+    return:
+      type: PostSharp.Extensibility.MulticastInheritance

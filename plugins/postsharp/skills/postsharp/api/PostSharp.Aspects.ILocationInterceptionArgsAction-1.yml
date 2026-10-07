@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ILocationInterceptionArgsAction`1
+  commentId: T:PostSharp.Aspects.ILocationInterceptionArgsAction`1
+  id: ILocationInterceptionArgsAction`1
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ILocationInterceptionArgsAction`1.Execute``1(PostSharp.Aspects.ILocationInterceptionArgs{``0},`0@)
+  langs:
+  - csharp
+  - vb
+  name: ILocationInterceptionArgsAction<TPayload>
+  nameWithType: ILocationInterceptionArgsAction<TPayload>
+  fullName: PostSharp.Aspects.ILocationInterceptionArgsAction<TPayload>
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Exposes an <xref href="PostSharp.Aspects.ILocationInterceptionArgsAction%601.Execute%60%601(PostSharp.Aspects.ILocationInterceptionArgs%7b%60%600%7d%2c%600%40)" data-throw-if-not-resolved="false"></xref> method invoked by the <xref href="PostSharp.Aspects.LocationInterceptionArgs.Execute%60%601(PostSharp.Aspects.ILocationInterceptionArgsAction%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref> method,
+
+    which allows executing strongly typed operations and avoids the boxing required by the weakly typed <xref href="PostSharp.Aspects.ILocationInterceptionArgs" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public interface ILocationInterceptionArgsAction<TPayload>
+    typeParameters:
+    - id: TPayload
+      description: Type of the payload of the <xref href="PostSharp.Aspects.ILocationInterceptionArgsAction%601.Execute%60%601(PostSharp.Aspects.ILocationInterceptionArgs%7b%60%600%7d%2c%600%40)" data-throw-if-not-resolved="false"></xref> method.
+    content.vb: Public Interface ILocationInterceptionArgsAction(Of TPayload)
+  nameWithType.vb: ILocationInterceptionArgsAction(Of TPayload)
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgsAction(Of TPayload)
+  name.vb: ILocationInterceptionArgsAction(Of TPayload)
+- uid: PostSharp.Aspects.ILocationInterceptionArgsAction`1.Execute``1(PostSharp.Aspects.ILocationInterceptionArgs{``0},`0@)
+  commentId: M:PostSharp.Aspects.ILocationInterceptionArgsAction`1.Execute``1(PostSharp.Aspects.ILocationInterceptionArgs{``0},`0@)
+  id: Execute``1(PostSharp.Aspects.ILocationInterceptionArgs{``0},`0@)
+  parent: PostSharp.Aspects.ILocationInterceptionArgsAction`1
+  langs:
+  - csharp
+  - vb
+  name: Execute<TValue>(ILocationInterceptionArgs<TValue>, ref TPayload)
+  nameWithType: ILocationInterceptionArgsAction<TPayload>.Execute<TValue>(ILocationInterceptionArgs<TValue>, ref TPayload)
+  fullName: PostSharp.Aspects.ILocationInterceptionArgsAction<TPayload>.Execute<TValue>(PostSharp.Aspects.ILocationInterceptionArgs<TValue>, ref TPayload)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method invoked by the <xref href="PostSharp.Aspects.LocationInterceptionArgs.Execute%60%601(PostSharp.Aspects.ILocationInterceptionArgsAction%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: void Execute<TValue>(ILocationInterceptionArgs<TValue> args, ref TPayload payload)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.ILocationInterceptionArgs{{TValue}}
+      description: The typed <xref href="PostSharp.Aspects.LocationInterceptionArgs" data-throw-if-not-resolved="false"></xref>.
+    - id: payload
+      type: '{TPayload}'
+      description: Payload passed to the <xref href="PostSharp.Aspects.LocationInterceptionArgs.Execute%60%601(PostSharp.Aspects.ILocationInterceptionArgsAction%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref> method.
+    typeParameters:
+    - id: TValue
+      description: Type of the value of the <xref href="PostSharp.Aspects.LocationInterceptionArgs" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Sub Execute(Of TValue)(args As ILocationInterceptionArgs(Of TValue), payload As TPayload)
+  overload: PostSharp.Aspects.ILocationInterceptionArgsAction`1.Execute*
+  nameWithType.vb: ILocationInterceptionArgsAction(Of TPayload).Execute(Of TValue)(ILocationInterceptionArgs(Of TValue), TPayload)
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgsAction(Of TPayload).Execute(Of TValue)(PostSharp.Aspects.ILocationInterceptionArgs(Of TValue), TPayload)
+  name.vb: Execute(Of TValue)(ILocationInterceptionArgs(Of TValue), TPayload)

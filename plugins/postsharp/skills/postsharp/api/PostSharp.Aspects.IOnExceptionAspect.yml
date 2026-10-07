@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IOnExceptionAspect
+  commentId: T:PostSharp.Aspects.IOnExceptionAspect
+  id: IOnExceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IOnExceptionAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  langs:
+  - csharp
+  - vb
+  name: IOnExceptionAspect
+  nameWithType: IOnExceptionAspect
+  fullName: PostSharp.Aspects.IOnExceptionAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Runtime semantics of an aspect that, when applied on a method,
+
+    defines an exception handler around the whole method body
+
+    and lets the implementation of this interface handle the exception.
+  remarks: >-
+    <p>See <xref href="PostSharp.Aspects.OnExceptionAspect" data-throw-if-not-resolved="false"></xref> for details.</p>
+
+    <p>A class that implements this interface directly, instead of deriving from <xref href="PostSharp.Aspects.OnExceptionAspect" data-throw-if-not-resolved="false"></xref>,
+            cannot override <xref href="PostSharp.Aspects.OnExceptionAspect.GetExceptionType(System.Reflection.MethodBase)" data-throw-if-not-resolved="false"></xref>. To configure the aspect, for example to set the type
+            of handled exceptions, implement <xref href="PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)" data-throw-if-not-resolved="false"></xref> and return an
+            <xref href="PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IOnExceptionAspect : IMethodLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IOnExceptionAspect Inherits IMethodLevelAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.OnExceptionAspect
+    commentId: T:PostSharp.Aspects.OnExceptionAspect
+  - linkId: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+    commentId: T:PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  - linkId: PostSharp.Aspects.Configuration.OnExceptionAspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.OnExceptionAspectConfigurationAttribute
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+  derivedClasses:
+  - PostSharp.Aspects.OnExceptionAspect
+  inheritedMembers:
+  - PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnExceptionAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnExceptionAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnException(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnExceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnException(MethodExecutionArgs)
+  nameWithType: IOnExceptionAspect.OnException(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnExceptionAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method executed after the body of the methods to which this aspect is applied,
+
+    when the method failed with an exception, that is, in a <code>catch</code> block.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnException(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnException(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnExceptionAspect.OnException*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

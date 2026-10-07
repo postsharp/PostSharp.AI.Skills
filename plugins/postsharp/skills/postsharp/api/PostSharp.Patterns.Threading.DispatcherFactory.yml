@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.DispatcherFactory
+  commentId: T:PostSharp.Patterns.Threading.DispatcherFactory
+  id: DispatcherFactory
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForCurrentContext
+  - PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForSynchronizationContext(System.Threading.SynchronizationContext)
+  - PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForWindowsDispatcher(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: DispatcherFactory
+  nameWithType: DispatcherFactory
+  fullName: PostSharp.Patterns.Threading.DispatcherFactory
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Provides implementations of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class DispatcherFactory
+    content.vb: Public Module DispatcherFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForCurrentContext
+  commentId: M:PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForCurrentContext
+  id: GetDispatcherForCurrentContext
+  parent: PostSharp.Patterns.Threading.DispatcherFactory
+  langs:
+  - csharp
+  - vb
+  name: GetDispatcherForCurrentContext()
+  nameWithType: DispatcherFactory.GetDispatcherForCurrentContext()
+  fullName: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForCurrentContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets an implementation of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface that is suitable for dispatching
+
+    to the current context. This method requires that the current thread is associated with
+
+    a <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref> or a WPF <code>Dispatcher</code>.
+  remarks: >-
+    <p>Subsequent calls to this method in the same context will return the same instance.</p>
+
+    <p>If this method is invoked in the context of an actor (see <xref href="PostSharp.Patterns.Threading.ActorAttribute" data-throw-if-not-resolved="false"></xref>),
+        this method returns a dispatcher that dispatches to the actor queue.
+        </p>
+  example: []
+  syntax:
+    content: public static IDispatcher GetDispatcherForCurrentContext()
+    return:
+      type: PostSharp.Patterns.Threading.IDispatcher
+      description: >-
+        An implementation of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> for the current context, or <code>null</code>
+                    if the current thread is not associated with any <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref> or WPF <code>Dispatcher</code>.
+    content.vb: Public Shared Function GetDispatcherForCurrentContext() As IDispatcher
+  overload: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForCurrentContext*
+- uid: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForWindowsDispatcher(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForWindowsDispatcher(System.Object)
+  id: GetDispatcherForWindowsDispatcher(System.Object)
+  parent: PostSharp.Patterns.Threading.DispatcherFactory
+  langs:
+  - csharp
+  - vb
+  name: GetDispatcherForWindowsDispatcher(object)
+  nameWithType: DispatcherFactory.GetDispatcherForWindowsDispatcher(object)
+  fullName: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForWindowsDispatcher(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets an implementation of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface for a given
+
+    instance of the <code>System.Windows.Threading.Dispatcher</code> class.
+  remarks: Throws <xref href="System.PlatformNotSupportedException" data-throw-if-not-resolved="false"></xref> on platforms that do not support WPF.
+  example: []
+  syntax:
+    content: public static IDispatcher GetDispatcherForWindowsDispatcher(object dispatcher)
+    parameters:
+    - id: dispatcher
+      type: System.Object
+      description: An instance of the <code>System.Windows.Threading.Dispatcher</code> class.
+    return:
+      type: PostSharp.Patterns.Threading.IDispatcher
+      description: An implementation of <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> wrapping the functionality of <code class="paramref">dispatcher</code>.
+    content.vb: Public Shared Function GetDispatcherForWindowsDispatcher(dispatcher As Object) As IDispatcher
+  overload: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForWindowsDispatcher*
+  nameWithType.vb: DispatcherFactory.GetDispatcherForWindowsDispatcher(Object)
+  fullName.vb: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForWindowsDispatcher(Object)
+  name.vb: GetDispatcherForWindowsDispatcher(Object)
+- uid: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForSynchronizationContext(System.Threading.SynchronizationContext)
+  commentId: M:PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForSynchronizationContext(System.Threading.SynchronizationContext)
+  id: GetDispatcherForSynchronizationContext(System.Threading.SynchronizationContext)
+  parent: PostSharp.Patterns.Threading.DispatcherFactory
+  langs:
+  - csharp
+  - vb
+  name: GetDispatcherForSynchronizationContext(SynchronizationContext)
+  nameWithType: DispatcherFactory.GetDispatcherForSynchronizationContext(SynchronizationContext)
+  fullName: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForSynchronizationContext(System.Threading.SynchronizationContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets an implementation of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface for a given <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static IDispatcher GetDispatcherForSynchronizationContext(SynchronizationContext synchronizationContext)
+    parameters:
+    - id: synchronizationContext
+      type: System.Threading.SynchronizationContext
+      description: A <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Threading.IDispatcher
+      description: An implementation of <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> that dispatches using <code class="paramref">synchronizationContext</code>.
+    content.vb: Public Shared Function GetDispatcherForSynchronizationContext(synchronizationContext As SynchronizationContext) As IDispatcher
+  overload: PostSharp.Patterns.Threading.DispatcherFactory.GetDispatcherForSynchronizationContext*

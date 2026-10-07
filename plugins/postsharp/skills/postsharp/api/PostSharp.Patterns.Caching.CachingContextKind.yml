@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.CachingContextKind
+  commentId: T:PostSharp.Patterns.Caching.CachingContextKind
+  id: CachingContextKind
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.CachingContextKind.Cache
+  - PostSharp.Patterns.Caching.CachingContextKind.None
+  - PostSharp.Patterns.Caching.CachingContextKind.Recache
+  langs:
+  - csharp
+  - vb
+  name: CachingContextKind
+  nameWithType: CachingContextKind
+  fullName: PostSharp.Patterns.Caching.CachingContextKind
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Enumerates the kinds of <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CachingContextKind
+    content.vb: >-
+      <Flags>
+
+      Public Enum CachingContextKind
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Caching.CachingContextKind.None
+  commentId: F:PostSharp.Patterns.Caching.CachingContextKind.None
+  id: None
+  parent: PostSharp.Patterns.Caching.CachingContextKind
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CachingContextKind.None
+  fullName: PostSharp.Patterns.Caching.CachingContextKind.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: None. This is a null implementation of <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Caching.CachingContextKind
+- uid: PostSharp.Patterns.Caching.CachingContextKind.Cache
+  commentId: F:PostSharp.Patterns.Caching.CachingContextKind.Cache
+  id: Cache
+  parent: PostSharp.Patterns.Caching.CachingContextKind
+  langs:
+  - csharp
+  - vb
+  name: Cache
+  nameWithType: CachingContextKind.Cache
+  fullName: PostSharp.Patterns.Caching.CachingContextKind.Cache
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: The <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref> of a method being evaluated and added to the cache.
+  example: []
+  syntax:
+    content: Cache = 1
+    return:
+      type: PostSharp.Patterns.Caching.CachingContextKind
+- uid: PostSharp.Patterns.Caching.CachingContextKind.Recache
+  commentId: F:PostSharp.Patterns.Caching.CachingContextKind.Recache
+  id: Recache
+  parent: PostSharp.Patterns.Caching.CachingContextKind
+  langs:
+  - csharp
+  - vb
+  name: Recache
+  nameWithType: CachingContextKind.Recache
+  fullName: PostSharp.Patterns.Caching.CachingContextKind.Recache
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    The <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref> of a method being re-evaluated, ignoring the previous value, and replaced in the cache, using the
+
+    <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation.Recache%60%601(System.Func%7b%60%600%7d)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: Recache = 2
+    return:
+      type: PostSharp.Patterns.Caching.CachingContextKind

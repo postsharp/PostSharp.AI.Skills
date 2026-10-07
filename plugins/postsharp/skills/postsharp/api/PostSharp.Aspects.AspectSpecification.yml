@@ -1,0 +1,198 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.AspectSpecification
+  commentId: T:PostSharp.Aspects.AspectSpecification
+  id: AspectSpecification
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.AspectSpecification.#ctor(PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)
+  - PostSharp.Aspects.AspectSpecification.Aspect
+  - PostSharp.Aspects.AspectSpecification.AspectAssemblyQualifiedTypeName
+  - PostSharp.Aspects.AspectSpecification.AspectConfiguration
+  - PostSharp.Aspects.AspectSpecification.AspectConstruction
+  - PostSharp.Aspects.AspectSpecification.AspectTypeName
+  langs:
+  - csharp
+  - vb
+  name: AspectSpecification
+  nameWithType: AspectSpecification
+  fullName: PostSharp.Aspects.AspectSpecification
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Completely specifies an aspect instance (but not its target). An <xref href="PostSharp.Aspects.AspectSpecification" data-throw-if-not-resolved="false"></xref> contains either the aspect instance itself 
+
+    (<xref href="PostSharp.Aspects.AspectSpecification.Aspect" data-throw-if-not-resolved="false"></xref> property), or the information needed to construct the aspect (<xref href="PostSharp.Aspects.AspectSpecification.AspectConstruction" data-throw-if-not-resolved="false"></xref>) and to configure the weaver (<xref href="PostSharp.Aspects.AspectSpecification.AspectConfiguration" data-throw-if-not-resolved="false"></xref>).
+  remarks: >-
+    User code cannot create an instance of the <xref href="PostSharp.Aspects.AspectSpecification" data-throw-if-not-resolved="false"></xref> class. Always create an instance of
+
+    <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> instead.
+  example: []
+  syntax:
+    content: public class AspectSpecification
+    content.vb: Public Class AspectSpecification
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Aspects.AspectInstance
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.AspectSpecification.#ctor(PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)
+  commentId: M:PostSharp.Aspects.AspectSpecification.#ctor(PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)
+  id: '#ctor(PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)'
+  parent: PostSharp.Aspects.AspectSpecification
+  langs:
+  - csharp
+  - vb
+  name: AspectSpecification(ObjectConstruction, AspectConfiguration)
+  nameWithType: AspectSpecification.AspectSpecification(ObjectConstruction, AspectConfiguration)
+  fullName: PostSharp.Aspects.AspectSpecification.AspectSpecification(PostSharp.Reflection.ObjectConstruction, PostSharp.Aspects.Configuration.AspectConfiguration)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.AspectSpecification" data-throw-if-not-resolved="false"></xref> class when the caller cannot provide an aspect instance,
+
+    that is, from an <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref> and an <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected AspectSpecification(ObjectConstruction aspectConstruction, AspectConfiguration aspectConfiguration)
+    parameters:
+    - id: aspectConstruction
+      type: PostSharp.Reflection.ObjectConstruction
+      description: The aspect construction.
+    - id: aspectConfiguration
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: The aspect configuration.
+    content.vb: Protected Sub New(aspectConstruction As ObjectConstruction, aspectConfiguration As AspectConfiguration)
+  overload: PostSharp.Aspects.AspectSpecification.#ctor*
+  nameWithType.vb: AspectSpecification.New(ObjectConstruction, AspectConfiguration)
+  fullName.vb: PostSharp.Aspects.AspectSpecification.New(PostSharp.Reflection.ObjectConstruction, PostSharp.Aspects.Configuration.AspectConfiguration)
+  name.vb: New(ObjectConstruction, AspectConfiguration)
+- uid: PostSharp.Aspects.AspectSpecification.AspectConfiguration
+  commentId: P:PostSharp.Aspects.AspectSpecification.AspectConfiguration
+  id: AspectConfiguration
+  parent: PostSharp.Aspects.AspectSpecification
+  langs:
+  - csharp
+  - vb
+  name: AspectConfiguration
+  nameWithType: AspectSpecification.AspectConfiguration
+  fullName: PostSharp.Aspects.AspectSpecification.AspectConfiguration
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the aspect configuration.
+  example: []
+  syntax:
+    content: public AspectConfiguration AspectConfiguration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: The aspect configuration, or <code>null</code> if none was provided.
+    content.vb: Public ReadOnly Property AspectConfiguration As AspectConfiguration
+  overload: PostSharp.Aspects.AspectSpecification.AspectConfiguration*
+- uid: PostSharp.Aspects.AspectSpecification.AspectConstruction
+  commentId: P:PostSharp.Aspects.AspectSpecification.AspectConstruction
+  id: AspectConstruction
+  parent: PostSharp.Aspects.AspectSpecification
+  langs:
+  - csharp
+  - vb
+  name: AspectConstruction
+  nameWithType: AspectSpecification.AspectConstruction
+  fullName: PostSharp.Aspects.AspectSpecification.AspectConstruction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the aspect construction.
+  example: []
+  syntax:
+    content: public ObjectConstruction AspectConstruction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.ObjectConstruction
+      description: The aspect construction, or <code>null</code> if the aspect instance was provided instead.
+    content.vb: Public ReadOnly Property AspectConstruction As ObjectConstruction
+  overload: PostSharp.Aspects.AspectSpecification.AspectConstruction*
+- uid: PostSharp.Aspects.AspectSpecification.Aspect
+  commentId: P:PostSharp.Aspects.AspectSpecification.Aspect
+  id: Aspect
+  parent: PostSharp.Aspects.AspectSpecification
+  langs:
+  - csharp
+  - vb
+  name: Aspect
+  nameWithType: AspectSpecification.Aspect
+  fullName: PostSharp.Aspects.AspectSpecification.Aspect
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the aspect instance.
+  example: []
+  syntax:
+    content: public IAspect Aspect { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.IAspect
+      description: The aspect instance, or <code>null</code> if the <xref href="PostSharp.Aspects.AspectSpecification.AspectConfiguration" data-throw-if-not-resolved="false"></xref> was provided instead.
+    content.vb: Public ReadOnly Property Aspect As IAspect
+  overload: PostSharp.Aspects.AspectSpecification.Aspect*
+- uid: PostSharp.Aspects.AspectSpecification.AspectAssemblyQualifiedTypeName
+  commentId: P:PostSharp.Aspects.AspectSpecification.AspectAssemblyQualifiedTypeName
+  id: AspectAssemblyQualifiedTypeName
+  parent: PostSharp.Aspects.AspectSpecification
+  langs:
+  - csharp
+  - vb
+  name: AspectAssemblyQualifiedTypeName
+  nameWithType: AspectSpecification.AspectAssemblyQualifiedTypeName
+  fullName: PostSharp.Aspects.AspectSpecification.AspectAssemblyQualifiedTypeName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the assembly-qualified type name of the aspect.
+  example: []
+  syntax:
+    content: public string AspectAssemblyQualifiedTypeName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AspectAssemblyQualifiedTypeName As String
+  overload: PostSharp.Aspects.AspectSpecification.AspectAssemblyQualifiedTypeName*
+- uid: PostSharp.Aspects.AspectSpecification.AspectTypeName
+  commentId: P:PostSharp.Aspects.AspectSpecification.AspectTypeName
+  id: AspectTypeName
+  parent: PostSharp.Aspects.AspectSpecification
+  langs:
+  - csharp
+  - vb
+  name: AspectTypeName
+  nameWithType: AspectSpecification.AspectTypeName
+  fullName: PostSharp.Aspects.AspectSpecification.AspectTypeName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the type name of the aspect.
+  example: []
+  syntax:
+    content: public string AspectTypeName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AspectTypeName As String
+  overload: PostSharp.Aspects.AspectSpecification.AspectTypeName*

@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  commentId: T:PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  id: OnExceptionAspectConfiguration
+  parent: PostSharp.Aspects.Configuration
+  children:
+  - PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.#ctor
+  - PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.ExceptionType
+  - PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: OnExceptionAspectConfiguration
+  nameWithType: OnExceptionAspectConfiguration
+  fullName: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Configuration of the <xref href="PostSharp.Aspects.IOnExceptionAspect" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <xref href="PostSharp.Aspects.OnExceptionAspect" data-throw-if-not-resolved="false"></xref> creates this object at build time and sets <xref href="PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.ExceptionType" data-throw-if-not-resolved="false"></xref> to the value
+          returned by <xref href="PostSharp.Aspects.OnExceptionAspect.GetExceptionType(System.Reflection.MethodBase)" data-throw-if-not-resolved="false"></xref>. An aspect that implements <xref href="PostSharp.Aspects.IOnExceptionAspect" data-throw-if-not-resolved="false"></xref>
+          directly provides it from <xref href="PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public sealed class OnExceptionAspectConfiguration : AspectConfiguration'
+    content.vb: Public NotInheritable Class OnExceptionAspectConfiguration Inherits AspectConfiguration
+  seealso:
+  - linkId: PostSharp.Aspects.OnExceptionAspect
+    commentId: T:PostSharp.Aspects.OnExceptionAspect
+  - linkId: PostSharp.Aspects.Configuration.OnExceptionAspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.OnExceptionAspectConfigurationAttribute
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Configuration.AspectConfiguration
+  inheritedMembers:
+  - PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority
+  - PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType
+  - PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies
+  - PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.#ctor
+  commentId: M:PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: OnExceptionAspectConfiguration()
+  nameWithType: OnExceptionAspectConfiguration.OnExceptionAspectConfiguration()
+  fullName: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.OnExceptionAspectConfiguration()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  syntax:
+    content: public OnExceptionAspectConfiguration()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.#ctor*
+  nameWithType.vb: OnExceptionAspectConfiguration.New()
+  fullName.vb: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.ExceptionType
+  commentId: P:PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.ExceptionType
+  id: ExceptionType
+  parent: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ExceptionType
+  nameWithType: OnExceptionAspectConfiguration.ExceptionType
+  fullName: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.ExceptionType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Gets or sets the type of exceptions that are caught by this aspect.
+  remarks: If this property is <code>null</code>, any <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> is caught.
+  example: []
+  syntax:
+    content: public TypeIdentity ExceptionType { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.TypeIdentity
+    content.vb: Public Property ExceptionType As TypeIdentity
+  overload: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.ExceptionType*
+- uid: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.SemanticallyAdvisedMethodKinds
+  commentId: P:PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.SemanticallyAdvisedMethodKinds
+  id: SemanticallyAdvisedMethodKinds
+  parent: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SemanticallyAdvisedMethodKinds
+  nameWithType: OnExceptionAspectConfiguration.SemanticallyAdvisedMethodKinds
+  fullName: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.SemanticallyAdvisedMethodKinds
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: >-
+    Gets or sets the kinds of target methods that are advised semantically. This affects the behavior of the aspect when it is applied to
+
+    iterator or async methods, which are compiled into state machines.
+  remarks: >-
+    <p>
+        Semantic advising results in an aspect that is consistent with the level of abstraction of the programming language. This is the default behavior.
+        You can disable semantic advising using this property to be consistent with the level of abstraction
+        of MSIL and for backward compatibility with the versions of PostSharp prior to 3.1.
+        </p>
+  example: []
+  syntax:
+    content: public SemanticallyAdvisedMethodKinds? SemanticallyAdvisedMethodKinds { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Aspects.SemanticallyAdvisedMethodKinds}
+    content.vb: Public Property SemanticallyAdvisedMethodKinds As SemanticallyAdvisedMethodKinds?
+  overload: PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration.SemanticallyAdvisedMethodKinds*

@@ -1,0 +1,122 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  commentId: T:PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  id: IDynamicallyAdvisable
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type,System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice``1
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: IDynamicallyAdvisable
+  nameWithType: IDynamicallyAdvisable
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Defines the semantics of an object that accepts dynamic advices.
+  example: []
+  syntax:
+    content: 'public interface IDynamicallyAdvisable : IQueryInterface'
+    content.vb: Public Interface IDynamicallyAdvisable Inherits IQueryInterface
+  derivedClasses:
+  - PostSharp.Patterns.Collections.AdvisableCollection`1
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1
+  - PostSharp.Patterns.Collections.AdvisableKeyedCollection`2
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface``1
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type,System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type,System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  id: Advise(System.Type,System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  langs:
+  - csharp
+  - vb
+  name: Advise(Type, Func<IQueryInterface, IDynamicAdvice>)
+  nameWithType: IDynamicallyAdvisable.Advise(Type, Func<IQueryInterface, IDynamicAdvice>)
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type, System.Func<PostSharp.Patterns.DynamicAdvising.IQueryInterface, PostSharp.Patterns.DynamicAdvising.IDynamicAdvice>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Adds an advice to the object.
+  example: []
+  syntax:
+    content: bool Advise(Type type, Func<IQueryInterface, IDynamicAdvice> createAdvice)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The advice type identity.
+    - id: createAdvice
+      type: System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice}
+      description: A delegate that instantiates the advice if it has not yet been added to the object.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the advice was added, <code>false</code> if it was already added.
+    content.vb: Function Advise(type As Type, createAdvice As Func(Of IQueryInterface, IDynamicAdvice)) As Boolean
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise*
+  nameWithType.vb: IDynamicallyAdvisable.Advise(Type, Func(Of IQueryInterface, IDynamicAdvice))
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type, System.Func(Of PostSharp.Patterns.DynamicAdvising.IQueryInterface, PostSharp.Patterns.DynamicAdvising.IDynamicAdvice))
+  name.vb: Advise(Type, Func(Of IQueryInterface, IDynamicAdvice))
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise(System.Type)
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise(System.Type)
+  id: Unadvise(System.Type)
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  langs:
+  - csharp
+  - vb
+  name: Unadvise(Type)
+  nameWithType: IDynamicallyAdvisable.Unadvise(Type)
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Removes an advice from the object.
+  example: []
+  syntax:
+    content: bool Unadvise(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The advice type identity.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the advice was removed, <code>false</code> if it was not present.
+    content.vb: Function Unadvise(type As Type) As Boolean
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise*
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice``1
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice``1
+  id: QueryAdvice``1
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  langs:
+  - csharp
+  - vb
+  name: QueryAdvice<T>()
+  nameWithType: IDynamicallyAdvisable.QueryAdvice<T>()
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Queries an interface implemented by a dynamic advice.
+  example: []
+  syntax:
+    content: 'T QueryAdvice<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The interface type.
+    return:
+      type: '{T}'
+      description: The interface implementation, or <code>null</code> if the object does not have an advice implementing <code class="typeparamref">T</code>.
+    content.vb: Function QueryAdvice(Of T As Class)() As T
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice*
+  nameWithType.vb: IDynamicallyAdvisable.QueryAdvice(Of T)()
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice(Of T)()
+  name.vb: QueryAdvice(Of T)()

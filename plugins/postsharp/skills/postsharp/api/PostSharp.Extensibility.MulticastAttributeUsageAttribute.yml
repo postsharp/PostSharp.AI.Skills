@@ -1,0 +1,499 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  commentId: T:PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  id: MulticastAttributeUsageAttribute
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExtensionBlockMembers
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExternalAssemblies
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowMultiple
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.PersistMetaData
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttributeUsageAttribute.ValidOn
+  langs:
+  - csharp
+  - vb
+  name: MulticastAttributeUsageAttribute
+  nameWithType: MulticastAttributeUsageAttribute
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Custom attribute that determines the usage of a <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>This attribute is the equivalent of <xref href="System.AttributeUsageAttribute" data-throw-if-not-resolved="false"></xref> for multicast attributes. The aspect developer uses it to
+        define the valid targets of the attribute and the filters applied during multicasting. Aspect users can restrict these targets with the
+        properties of <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref> whose name starts with <code>Attribute</code>, but cannot enlarge them.</p>
+    <p>Every multicast attribute class, or one of its base classes, must have this attribute; otherwise PostSharp reports a build error.
+        The attribute is inherited. A derived class can override it, but only to restrict the set of valid targets: enabling
+        <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowMultiple" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExternalAssemblies" data-throw-if-not-resolved="false"></xref>, or adding kinds to <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute.ValidOn" data-throw-if-not-resolved="false"></xref>, when a base class
+        disallows them is a build error.</p>
+    <p>For validation rules that multicast filters cannot express, override <xref href="PostSharp.Aspects.Aspect.CompileTimeValidate(System.Object)" data-throw-if-not-resolved="false"></xref>
+        or implement <xref href="PostSharp.Extensibility.IValidableAnnotation" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
+
+      public sealed class MulticastAttributeUsageAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Class, AllowMultiple:=False, Inherited:=True)>
+
+      Public NotInheritable Class MulticastAttributeUsageAttribute Inherits Attribute
+  seealso:
+  - linkId: PostSharp.Extensibility.MulticastAttribute
+    commentId: T:PostSharp.Extensibility.MulticastAttribute
+  - linkType: HRef
+    linkId: '@multicast-conceptual'
+    altText: 'Conceptual: Understanding Attribute Multicasting'
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 4
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: Inherited
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+  commentId: M:PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+  id: '#ctor(PostSharp.Extensibility.MulticastTargets)'
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: MulticastAttributeUsageAttribute(MulticastTargets)
+  nameWithType: MulticastAttributeUsageAttribute.MulticastAttributeUsageAttribute(MulticastTargets)
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.MulticastAttributeUsageAttribute(PostSharp.Extensibility.MulticastTargets)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MulticastAttributeUsageAttribute(MulticastTargets validOn)
+    parameters:
+    - id: validOn
+      type: PostSharp.Extensibility.MulticastTargets
+      description: >-
+        The kinds of targets that instances of the related <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>
+                      apply to.
+    content.vb: Public Sub New(validOn As MulticastTargets)
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor*
+  nameWithType.vb: MulticastAttributeUsageAttribute.New(MulticastTargets)
+  fullName.vb: PostSharp.Extensibility.MulticastAttributeUsageAttribute.New(PostSharp.Extensibility.MulticastTargets)
+  name.vb: New(MulticastTargets)
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+  commentId: M:PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: MulticastAttributeUsageAttribute()
+  nameWithType: MulticastAttributeUsageAttribute.MulticastAttributeUsageAttribute()
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.MulticastAttributeUsageAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MulticastAttributeUsageAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor*
+  nameWithType.vb: MulticastAttributeUsageAttribute.New()
+  fullName.vb: PostSharp.Extensibility.MulticastAttributeUsageAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.ValidOn
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.ValidOn
+  id: ValidOn
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: ValidOn
+  nameWithType: MulticastAttributeUsageAttribute.ValidOn
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.ValidOn
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets the kinds of targets that instances of the related <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>
+
+    apply to.
+  example: []
+  syntax:
+    content: public MulticastTargets ValidOn { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastTargets
+    content.vb: Public ReadOnly Property ValidOn As MulticastTargets
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.ValidOn*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowMultiple
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowMultiple
+  id: AllowMultiple
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: AllowMultiple
+  nameWithType: MulticastAttributeUsageAttribute.AllowMultiple
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowMultiple
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets or sets a value indicating whether multiple instances of the custom attribute are allowed on a single declaration.
+  remarks: >-
+    <p>Unless a class sets it to <code>false</code>, multiple instances are allowed. When multiple instances are not allowed, each instance
+        replaces the instances of the same attribute type processed before it, for example the ones multicast from the declaring type
+        or the assembly. Applying two instances directly to the same declaration is then a build error.</p>
+  example: []
+  syntax:
+    content: public bool AllowMultiple { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowMultiple As Boolean
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowMultiple*
+  seealso:
+  - linkId: PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+    commentId: P:PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - linkType: HRef
+    linkId: '@multicast-override'
+    altText: 'Conceptual: Overriding and Removing Aspect Instances'
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance
+  id: Inheritance
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: Inheritance
+  nameWithType: MulticastAttributeUsageAttribute.Inheritance
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets how the custom attribute is inherited along the lines of inheritance
+
+    of the target element.
+  remarks: >-
+    <p>Only one class of the inheritance hierarchy of the attribute can set this property; setting it again in a derived class is a build error.
+        Aspect users can also set the inheritance mode of each usage with <xref href="PostSharp.Extensibility.MulticastAttribute.AttributeInheritance" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public MulticastInheritance Inheritance { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastInheritance
+    content.vb: Public Property Inheritance As MulticastInheritance
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance*
+  seealso:
+  - linkId: PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+    commentId: P:PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - linkType: HRef
+    linkId: '@multicast-inheritance'
+    altText: 'Conceptual: Understanding Aspect Inheritance'
+  - linkType: HRef
+    linkId: '@aspect-inheritance'
+    altText: 'Conceptual: Adding Aspects to Derived Classes and Methods Using Attributes'
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExternalAssemblies
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExternalAssemblies
+  id: AllowExternalAssemblies
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: AllowExternalAssemblies
+  nameWithType: MulticastAttributeUsageAttribute.AllowExternalAssemblies
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExternalAssemblies
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets a value indicating whether this attribute can be applied to declarations of external assemblies
+
+    (that is, to assemblies other than the one in which the custom attribute is instantiated).
+  example: []
+  syntax:
+    content: public bool AllowExternalAssemblies { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowExternalAssemblies As Boolean
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExternalAssemblies*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.PersistMetaData
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.PersistMetaData
+  id: PersistMetaData
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: PersistMetaData
+  nameWithType: MulticastAttributeUsageAttribute.PersistMetaData
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.PersistMetaData
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets a value indicating whether the custom attribute should be persisted in metadata, so that
+
+    it is available for <code>System.Reflection</code>.
+  remarks: >-
+    <p>The default value is <code>false</code>. When this property is <code>true</code>, the compiled assembly contains an instance of the custom attribute
+        on every element of code it was multicast to, as if you had added it manually, so that the instances can be reflected at run time.</p>
+  example: []
+  syntax:
+    content: public bool PersistMetaData { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property PersistMetaData As Boolean
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.PersistMetaData*
+  seealso:
+  - linkType: HRef
+    linkId: '@multicast-reflection'
+    altText: 'Conceptual: Reflecting Aspect Instances at Runtime'
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetMemberAttributes
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetMemberAttributes
+  id: TargetMemberAttributes
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: TargetMemberAttributes
+  nameWithType: MulticastAttributeUsageAttribute.TargetMemberAttributes
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetMemberAttributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets the attributes of the members (fields or methods) to which
+
+    the custom attribute can be applied.
+  example: []
+  syntax:
+    content: public MulticastAttributes TargetMemberAttributes { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastAttributes
+    content.vb: Public Property TargetMemberAttributes As MulticastAttributes
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetMemberAttributes*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalMemberAttributes
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalMemberAttributes
+  id: TargetExternalMemberAttributes
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: TargetExternalMemberAttributes
+  nameWithType: MulticastAttributeUsageAttribute.TargetExternalMemberAttributes
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalMemberAttributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets the attributes of the members (fields or methods) to which
+
+    the custom attribute can be applied, when the members are external to
+
+    the current module.
+  example: []
+  syntax:
+    content: public MulticastAttributes TargetExternalMemberAttributes { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastAttributes
+    content.vb: Public Property TargetExternalMemberAttributes As MulticastAttributes
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalMemberAttributes*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetParameterAttributes
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetParameterAttributes
+  id: TargetParameterAttributes
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: TargetParameterAttributes
+  nameWithType: MulticastAttributeUsageAttribute.TargetParameterAttributes
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetParameterAttributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets the attributes of the parameter to which
+
+    the custom attribute can be applied.
+  example: []
+  syntax:
+    content: public MulticastAttributes TargetParameterAttributes { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastAttributes
+    content.vb: Public Property TargetParameterAttributes As MulticastAttributes
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetParameterAttributes*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetTypeAttributes
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetTypeAttributes
+  id: TargetTypeAttributes
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: TargetTypeAttributes
+  nameWithType: MulticastAttributeUsageAttribute.TargetTypeAttributes
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetTypeAttributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets the attributes of the types to which
+
+    the custom attribute can be applied. Visibility, scope (<xref href="PostSharp.Extensibility.MulticastAttributes.Instance" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Extensibility.MulticastAttributes.Static" data-throw-if-not-resolved="false"></xref>)
+
+    and generation are the only categories that are taken into account; attributes of other categories are ignored. If the custom attribute relates to
+
+    fields or methods, this property specifies which attributes of the declaring type are acceptable.
+  example: []
+  syntax:
+    content: public MulticastAttributes TargetTypeAttributes { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastAttributes
+    content.vb: Public Property TargetTypeAttributes As MulticastAttributes
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetTypeAttributes*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalTypeAttributes
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalTypeAttributes
+  id: TargetExternalTypeAttributes
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: TargetExternalTypeAttributes
+  nameWithType: MulticastAttributeUsageAttribute.TargetExternalTypeAttributes
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalTypeAttributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets or sets the attributes of the types to which
+
+    the custom attribute can be applied, when the type is external to
+
+    the current module. If the custom attribute relates to
+
+    fields or methods, this property specifies which attributes
+
+    of the declaring type are acceptable.
+  example: []
+  syntax:
+    content: public MulticastAttributes TargetExternalTypeAttributes { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastAttributes
+    content.vb: Public Property TargetExternalTypeAttributes As MulticastAttributes
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetExternalTypeAttributes*
+- uid: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExtensionBlockMembers
+  commentId: P:PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExtensionBlockMembers
+  id: AllowExtensionBlockMembers
+  parent: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+  langs:
+  - csharp
+  - vb
+  name: AllowExtensionBlockMembers
+  nameWithType: MulticastAttributeUsageAttribute.AllowExtensionBlockMembers
+  fullName: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExtensionBlockMembers
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets or sets a value indicating whether C# 14 extension block members are allowed.
+  remarks: >-
+    <p>The default value is <code>false</code>: instances multicast from an outer declaration are not applied to the static methods that implement
+        the members of C# 14 extension blocks. Set this property to <code>true</code> to make these members eligible for every usage of the attribute.
+        Aspect users can override this value with <xref href="PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public bool AllowExtensionBlockMembers { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowExtensionBlockMembers As Boolean
+  overload: PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExtensionBlockMembers*
+  seealso:
+  - linkType: HRef
+    linkId: '@extension-blocks-multicast'
+    altText: 'Conceptual: C# 14 extension blocks and multicasting'

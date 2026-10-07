@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  id: CustomRecordLoggingOptions
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ActivityLevel
+  - PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ExceptionLevel
+  - PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.FailureLevel
+  - PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.IncludeSourceLineInfo
+  - PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.PropertyChanged
+  langs:
+  - csharp
+  - vb
+  name: CustomRecordLoggingOptions
+  nameWithType: CustomRecordLoggingOptions
+  fullName: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Represents the options for custom log records. These options are exposed by the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.CustomRecordLoggingOptions" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: 'public sealed class CustomRecordLoggingOptions : INotifyPropertyChanged, ILogActivityOptions'
+    content.vb: Public NotInheritable Class CustomRecordLoggingOptions Implements INotifyPropertyChanged, ILogActivityOptions
+  inheritance:
+  - System.Object
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ActivityLevel
+  commentId: P:PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ActivityLevel
+  id: ActivityLevel
+  parent: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: ActivityLevel
+  nameWithType: CustomRecordLoggingOptions.ActivityLevel
+  fullName: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ActivityLevel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the default severity for custom messages and for entry and success messages of activities.
+  example: []
+  syntax:
+    content: public LogLevel ActivityLevel { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public Property ActivityLevel As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ActivityLevel*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ActivityLevel
+- uid: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.FailureLevel
+  commentId: P:PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.FailureLevel
+  id: FailureLevel
+  parent: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: FailureLevel
+  nameWithType: CustomRecordLoggingOptions.FailureLevel
+  fullName: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.FailureLevel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for failures of custom activities (defined by the <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)" data-throw-if-not-resolved="false"></xref> method).
+  example: []
+  syntax:
+    content: public LogLevel FailureLevel { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public Property FailureLevel As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.FailureLevel*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.FailureLevel
+- uid: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ExceptionLevel
+  commentId: P:PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ExceptionLevel
+  id: ExceptionLevel
+  parent: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: ExceptionLevel
+  nameWithType: CustomRecordLoggingOptions.ExceptionLevel
+  fullName: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ExceptionLevel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the default severity for failure custom messages.
+  example: []
+  syntax:
+    content: public LogLevel ExceptionLevel { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public Property ExceptionLevel As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.ExceptionLevel*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ExceptionLevel
+- uid: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.IncludeSourceLineInfo
+  commentId: P:PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.IncludeSourceLineInfo
+  id: IncludeSourceLineInfo
+  parent: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeSourceLineInfo
+  nameWithType: CustomRecordLoggingOptions.IncludeSourceLineInfo
+  fullName: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.IncludeSourceLineInfo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether source line information is included in the log output.
+  example: []
+  syntax:
+    content: public bool IncludeSourceLineInfo { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeSourceLineInfo As Boolean
+  overload: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.IncludeSourceLineInfo*
+- uid: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.PropertyChanged
+  commentId: E:PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.PropertyChanged
+  id: PropertyChanged
+  parent: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: CustomRecordLoggingOptions.PropertyChanged
+  fullName: PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions.PropertyChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Occurs when a property of the current object changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged

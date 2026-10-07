@@ -1,0 +1,204 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  commentId: T:PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  id: RequiresThreadSafeAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor
+  - PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  langs:
+  - csharp
+  - vb
+  name: RequiresThreadSafeAttribute
+  nameWithType: RequiresThreadSafeAttribute
+  fullName: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a field, property or parameter, checks that the assigned object is thread-safe.
+
+    Otherwise, the assignment results in an <xref href="System.ArgumentException" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Field|MulticastTargets.Property|MulticastTargets.Parameter, Inheritance = MulticastInheritance.Strict)]
+
+      [Serializer(typeof(RequiresThreadSafeAttribute.Serializer))]
+
+      public sealed class RequiresThreadSafeAttribute : LocationLevelAspect, ILocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILocationValidationAspect<object>, ILocationValidationAspect, IAspect
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.FieldOrMulticastTargets.PropertyOrMulticastTargets.Parameter, Inheritance:=MulticastInheritance.Strict)>
+
+      <Serializer(GetType(RequiresThreadSafeAttribute.Serializer))>
+
+      Public NotInheritable Class RequiresThreadSafeAttribute Inherits LocationLevelAspect Implements ILocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILocationValidationAspect(Of Object), ILocationValidationAspect, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.LocationLevelAspect
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ILocationValidationAspect{System.Object}
+  - PostSharp.Aspects.ILocationValidationAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 4640
+    namedArguments:
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  commentId: M:PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  id: RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  parent: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitialize(LocationInfo)
+  nameWithType: RequiresThreadSafeAttribute.RuntimeInitialize(LocationInfo)
+  fullName: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes the current aspect.
+  example: []
+  syntax:
+    content: public override void RuntimeInitialize(LocationInfo locationInfo)
+    parameters:
+    - id: locationInfo
+      type: PostSharp.Reflection.LocationInfo
+      description: Location to which the current aspect is applied.
+    content.vb: Public Overrides Sub RuntimeInitialize(locationInfo As LocationInfo)
+  overridden: PostSharp.Aspects.LocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  overload: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RuntimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'
+- uid: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RequiresThreadSafeAttribute()
+  nameWithType: RequiresThreadSafeAttribute.RequiresThreadSafeAttribute()
+  fullName: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RequiresThreadSafeAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: public RequiresThreadSafeAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor*
+  nameWithType.vb: RequiresThreadSafeAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RequiresThreadSafeAttribute(PortableFormatterConstructorContext)
+  nameWithType: RequiresThreadSafeAttribute.RequiresThreadSafeAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.RequiresThreadSafeAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected RequiresThreadSafeAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.#ctor*
+  nameWithType.vb: RequiresThreadSafeAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

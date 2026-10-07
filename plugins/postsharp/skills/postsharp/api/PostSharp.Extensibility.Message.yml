@@ -1,0 +1,774 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.Message
+  commentId: T:PostSharp.Extensibility.Message
+  id: Message
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.Exception)
+  - PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Exception)
+  - PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Exception)
+  - PostSharp.Extensibility.Message.GetExceptionStackMessage(System.Exception)
+  - PostSharp.Extensibility.Message.HelpLink
+  - PostSharp.Extensibility.Message.InnerException
+  - PostSharp.Extensibility.Message.Location
+  - PostSharp.Extensibility.Message.MessageId
+  - PostSharp.Extensibility.Message.MessageText
+  - PostSharp.Extensibility.Message.NotAvailable
+  - PostSharp.Extensibility.Message.Severity
+  - PostSharp.Extensibility.Message.Source
+  - PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.Message)
+  - PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String)
+  - PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  - PostSharp.Extensibility.Message.Write(PostSharp.Reflection.LocationInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  - PostSharp.Extensibility.Message.Write(System.Reflection.Assembly,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  - PostSharp.Extensibility.Message.Write(System.Reflection.MemberInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  - PostSharp.Extensibility.Message.Write(System.Reflection.ParameterInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  - PostSharp.Extensibility.Message.Write(System.Type,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Message
+  fullName: PostSharp.Extensibility.Message
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Encapsulates a message, such as an error, a warning or an information message.
+  remarks: >-
+    <p>Build-time code, such as an implementation of <xref href="PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)" data-throw-if-not-resolved="false"></xref>, emits messages with the
+        static <code>Write</code> methods of this class. They appear in the build output and in Visual Studio. Each message has a severity, an identifier,
+        a text, and preferably a location: users can suppress a warning on a specific element of code with <xref href="PostSharp.Extensibility.SuppressWarningAttribute" data-throw-if-not-resolved="false"></xref>
+        only when the message has a location. Pass the message arguments to the <code>Write</code> methods instead of formatting the text yourself,
+        so that PostSharp can render arguments such as reflection objects in a readable way.</p>
+    <p>To keep the texts of many messages in a single place, emit them through a <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: public sealed class Message
+    content.vb: Public NotInheritable Class Message
+  seealso:
+  - linkId: PostSharp.Extensibility.MessageSource
+    commentId: T:PostSharp.Extensibility.MessageSource
+  - linkId: PostSharp.Extensibility.SeverityType
+    commentId: T:PostSharp.Extensibility.SeverityType
+  - linkType: HRef
+    linkId: '@emitting-errors'
+    altText: 'Conceptual: Emitting Errors, Warnings, and Messages'
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Extensibility.Message.NotAvailable
+  commentId: F:PostSharp.Extensibility.Message.NotAvailable
+  id: NotAvailable
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: NotAvailable
+  nameWithType: Message.NotAvailable
+  fullName: PostSharp.Extensibility.Message.NotAvailable
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    When set to the <code>locationLine</code> or <code>locationColumn</code> constructor parameter, or to the <xref href="PostSharp.Extensibility.MessageLocation.StartColumn" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="PostSharp.Extensibility.MessageLocation.EndColumn" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Extensibility.MessageLocation.StartLine" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Extensibility.MessageLocation.EndLine" data-throw-if-not-resolved="false"></xref>, means that the value of this property is unknown.
+  example: []
+  syntax:
+    content: public const int NotAvailable = 0
+    return:
+      type: System.Int32
+    content.vb: Public Const NotAvailable As Integer = 0
+- uid: PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.Exception)
+  commentId: M:PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.Exception)
+  id: '#ctor(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.Exception)'
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Message(MessageLocation, SeverityType, string, string, string, string, Exception)
+  nameWithType: Message.Message(MessageLocation, SeverityType, string, string, string, string, Exception)
+  fullName: PostSharp.Extensibility.Message.Message(PostSharp.Extensibility.MessageLocation, PostSharp.Extensibility.SeverityType, string, string, string, string, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref> class and specifies all its properties.
+  example: []
+  syntax:
+    content: public Message(MessageLocation location, SeverityType severity, string messageId, string messageText, string helpLink, string source, Exception innerException)
+    parameters:
+    - id: location
+      type: PostSharp.Extensibility.MessageLocation
+      description: >-
+        The element of code (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>)
+                    to which the message applies. When called from PostSharp.Sdk, the parameter can also contain a <code>MetadataDeclaration</code>.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The message severity (fatal error, error, info, debug).
+    - id: messageId
+      type: System.String
+      description: The identifier of the message type.
+    - id: messageText
+      type: System.String
+      description: The fully formatted message text.
+    - id: helpLink
+      type: System.String
+      description: The link to the help file page associated with this message.
+    - id: source
+      type: System.String
+      description: The name of the component that emits the message.
+    - id: innerException
+      type: System.Exception
+      description: >-
+        The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> that caused this message,
+                      or <code>null</code> if this message was not caused by an
+                      exception.
+    content.vb: Public Sub New(location As MessageLocation, severity As SeverityType, messageId As String, messageText As String, helpLink As String, source As String, innerException As Exception)
+  overload: PostSharp.Extensibility.Message.#ctor*
+  nameWithType.vb: Message.New(MessageLocation, SeverityType, String, String, String, String, Exception)
+  fullName.vb: PostSharp.Extensibility.Message.New(PostSharp.Extensibility.MessageLocation, PostSharp.Extensibility.SeverityType, String, String, String, String, System.Exception)
+  name.vb: New(MessageLocation, SeverityType, String, String, String, String, Exception)
+- uid: PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Exception)
+  commentId: M:PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Exception)
+  id: '#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Exception)'
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Message(SeverityType, string, string, string, string, string, int, int, Exception)
+  nameWithType: Message.Message(SeverityType, string, string, string, string, string, int, int, Exception)
+  fullName: PostSharp.Extensibility.Message.Message(PostSharp.Extensibility.SeverityType, string, string, string, string, string, int, int, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref> class and specifies all its properties.
+  example: []
+  syntax:
+    content: public Message(SeverityType severity, string messageId, string messageText, string helpLink, string source, string locationFile, int locationLine, int locationColumn, Exception innerException)
+    parameters:
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The message severity (fatal error, error, info, debug).
+    - id: messageId
+      type: System.String
+      description: The identifier of the message type.
+    - id: messageText
+      type: System.String
+      description: The fully formatted message text.
+    - id: helpLink
+      type: System.String
+      description: The link to the help file page associated with this message.
+    - id: source
+      type: System.String
+      description: The name of the component that emits the message.
+    - id: locationFile
+      type: System.String
+      description: >-
+        The file that caused the error, or <code>null</code> if
+                      the file is unknown or does not apply.
+    - id: locationLine
+      type: System.Int32
+      description: >-
+        The position (line) in the file that caused the error,
+                      or <xref href="PostSharp.Extensibility.Message.NotAvailable" data-throw-if-not-resolved="false"></xref> if the line is 
+                      unknown or does not apply.
+    - id: locationColumn
+      type: System.Int32
+      description: >-
+        The position (column) in the file that caused the error,
+                      or <xref href="PostSharp.Extensibility.Message.NotAvailable" data-throw-if-not-resolved="false"></xref> if the column is 
+                      unknown or does not apply.
+    - id: innerException
+      type: System.Exception
+      description: >-
+        The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> that caused this message,
+                      or <code>null</code> if this message was not caused by an
+                      exception.
+    content.vb: Public Sub New(severity As SeverityType, messageId As String, messageText As String, helpLink As String, source As String, locationFile As String, locationLine As Integer, locationColumn As Integer, innerException As Exception)
+  overload: PostSharp.Extensibility.Message.#ctor*
+  nameWithType.vb: Message.New(SeverityType, String, String, String, String, String, Integer, Integer, Exception)
+  fullName.vb: PostSharp.Extensibility.Message.New(PostSharp.Extensibility.SeverityType, String, String, String, String, String, Integer, Integer, System.Exception)
+  name.vb: New(SeverityType, String, String, String, String, String, Integer, Integer, Exception)
+- uid: PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Exception)
+  commentId: M:PostSharp.Extensibility.Message.#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Exception)
+  id: '#ctor(PostSharp.Extensibility.SeverityType,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Exception)'
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Message(SeverityType, string, string, string, string, string, int, int, int, int, Exception)
+  nameWithType: Message.Message(SeverityType, string, string, string, string, string, int, int, int, int, Exception)
+  fullName: PostSharp.Extensibility.Message.Message(PostSharp.Extensibility.SeverityType, string, string, string, string, string, int, int, int, int, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref> class and specifies all its properties.
+  example: []
+  syntax:
+    content: public Message(SeverityType severity, string messageId, string messageText, string helpLink, string source, string locationFile, int locationStartLine, int locationStartColumn, int locationEndLine, int locationEndColumn, Exception innerException)
+    parameters:
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The message severity (fatal error, error, info, debug).
+    - id: messageId
+      type: System.String
+      description: The identifier of the message type.
+    - id: messageText
+      type: System.String
+      description: The fully formatted message text.
+    - id: helpLink
+      type: System.String
+      description: The link to the help file page associated with this message.
+    - id: source
+      type: System.String
+      description: The name of the component that emits the message.
+    - id: locationFile
+      type: System.String
+      description: >-
+        The file that caused the error, or <code>null</code> if
+                      the file is unknown or does not apply.
+    - id: locationStartLine
+      type: System.Int32
+      description: >-
+        The start position (line) in the file that caused the error,
+                      or <xref href="PostSharp.Extensibility.Message.NotAvailable" data-throw-if-not-resolved="false"></xref> if the line is 
+                      unknown or does not apply.
+    - id: locationStartColumn
+      type: System.Int32
+      description: >-
+        The start position (column) in the file that caused the error,
+                      or <xref href="PostSharp.Extensibility.Message.NotAvailable" data-throw-if-not-resolved="false"></xref> if the column is 
+                      unknown or does not apply.
+    - id: locationEndLine
+      type: System.Int32
+      description: >-
+        The end position (line) in the file that caused the error,
+                      or <xref href="PostSharp.Extensibility.Message.NotAvailable" data-throw-if-not-resolved="false"></xref> if the line is 
+                      unknown or does not apply.
+    - id: locationEndColumn
+      type: System.Int32
+      description: >-
+        The end position (column) in the file that caused the error,
+                      or <xref href="PostSharp.Extensibility.Message.NotAvailable" data-throw-if-not-resolved="false"></xref> if the column is 
+                      unknown or does not apply.
+    - id: innerException
+      type: System.Exception
+      description: >-
+        The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> that caused this message,
+                      or <code>null</code> if this message was not caused by an
+                      exception.
+    content.vb: Public Sub New(severity As SeverityType, messageId As String, messageText As String, helpLink As String, source As String, locationFile As String, locationStartLine As Integer, locationStartColumn As Integer, locationEndLine As Integer, locationEndColumn As Integer, innerException As Exception)
+  overload: PostSharp.Extensibility.Message.#ctor*
+  nameWithType.vb: Message.New(SeverityType, String, String, String, String, String, Integer, Integer, Integer, Integer, Exception)
+  fullName.vb: PostSharp.Extensibility.Message.New(PostSharp.Extensibility.SeverityType, String, String, String, String, String, Integer, Integer, Integer, Integer, System.Exception)
+  name.vb: New(SeverityType, String, String, String, String, String, Integer, Integer, Integer, Integer, Exception)
+- uid: PostSharp.Extensibility.Message.GetExceptionStackMessage(System.Exception)
+  commentId: M:PostSharp.Extensibility.Message.GetExceptionStackMessage(System.Exception)
+  id: GetExceptionStackMessage(System.Exception)
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: GetExceptionStackMessage(Exception)
+  nameWithType: Message.GetExceptionStackMessage(Exception)
+  fullName: PostSharp.Extensibility.Message.GetExceptionStackMessage(System.Exception)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Returns a string composed of the messages of
+
+    all inner exceptions.
+  example: []
+  syntax:
+    content: public static string GetExceptionStackMessage(Exception outerException)
+    parameters:
+    - id: outerException
+      type: System.Exception
+      description: The outer exception.
+    return:
+      type: System.String
+      description: >-
+        A string composed of the messages of
+                      <code class="paramref">outerException</code> and all its inner exceptions,
+                      concatenated with the string <code>--&gt;</code>.
+    content.vb: Public Shared Function GetExceptionStackMessage(outerException As Exception) As String
+  overload: PostSharp.Extensibility.Message.GetExceptionStackMessage*
+- uid: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.Message)
+  commentId: M:PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.Message)
+  id: Write(PostSharp.Extensibility.Message)
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(Message)
+  nameWithType: Message.Write(Message)
+  fullName: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.Message)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message by providing a <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public static void Write(Message message)
+    parameters:
+    - id: message
+      type: PostSharp.Extensibility.Message
+      description: The message to write.
+    content.vb: Public Shared Sub Write(message As Message)
+  overload: PostSharp.Extensibility.Message.Write*
+- uid: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String)
+  commentId: M:PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String)
+  id: Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String)
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(MessageLocation, SeverityType, string, string)
+  nameWithType: Message.Write(MessageLocation, SeverityType, string, string)
+  fullName: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation, PostSharp.Extensibility.SeverityType, string, string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(MessageLocation messageLocation, SeverityType severity, string errorCode, string message)
+    parameters:
+    - id: messageLocation
+      type: PostSharp.Extensibility.MessageLocation
+      description: >-
+        The element of code (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>)
+                    to which the message applies. When called from PostSharp.Sdk, the parameter can also contain a <code>MetadataDeclaration</code>.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: message
+      type: System.String
+      description: The error message.
+    content.vb: Public Shared Sub Write(messageLocation As MessageLocation, severity As SeverityType, errorCode As String, message As String)
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(MessageLocation, SeverityType, String, String)
+  fullName.vb: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation, PostSharp.Extensibility.SeverityType, String, String)
+  name.vb: Write(MessageLocation, SeverityType, String, String)
+- uid: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  id: Write(PostSharp.Extensibility.MessageLocation,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(MessageLocation, SeverityType, string, string, params object[])
+  nameWithType: Message.Write(MessageLocation, SeverityType, string, string, params object[])
+  fullName: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation, PostSharp.Extensibility.SeverityType, string, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(MessageLocation messageLocation, SeverityType severity, string errorCode, string format, params object[] arguments)
+    parameters:
+    - id: messageLocation
+      type: PostSharp.Extensibility.MessageLocation
+      description: >-
+        The element of code (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>)
+                    to which the message applies. When called from PostSharp.Sdk, the parameter can also contain a <code>MetadataDeclaration</code>.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: format
+      type: System.String
+      description: The error message formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments of the formatting string.
+    content.vb: Public Shared Sub Write(messageLocation As MessageLocation, severity As SeverityType, errorCode As String, format As String, ParamArray arguments As Object())
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(MessageLocation, SeverityType, String, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.Message.Write(PostSharp.Extensibility.MessageLocation, PostSharp.Extensibility.SeverityType, String, String, ParamArray Object())
+  name.vb: Write(MessageLocation, SeverityType, String, String, ParamArray Object())
+- uid: PostSharp.Extensibility.Message.Write(System.Reflection.MemberInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.Message.Write(System.Reflection.MemberInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  id: Write(System.Reflection.MemberInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(MemberInfo, SeverityType, string, string, params object[])
+  nameWithType: Message.Write(MemberInfo, SeverityType, string, string, params object[])
+  fullName: PostSharp.Extensibility.Message.Write(System.Reflection.MemberInfo, PostSharp.Extensibility.SeverityType, string, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(MemberInfo codeElement, SeverityType severity, string errorCode, string format, params object[] arguments)
+    parameters:
+    - id: codeElement
+      type: System.Reflection.MemberInfo
+      description: The element of code to which the message applies.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: format
+      type: System.String
+      description: The error message formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments of the formatting string.
+    content.vb: Public Shared Sub Write(codeElement As MemberInfo, severity As SeverityType, errorCode As String, format As String, ParamArray arguments As Object())
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(MemberInfo, SeverityType, String, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.Message.Write(System.Reflection.MemberInfo, PostSharp.Extensibility.SeverityType, String, String, ParamArray Object())
+  name.vb: Write(MemberInfo, SeverityType, String, String, ParamArray Object())
+- uid: PostSharp.Extensibility.Message.Write(System.Type,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.Message.Write(System.Type,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  id: Write(System.Type,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(Type, SeverityType, string, string, params object[])
+  nameWithType: Message.Write(Type, SeverityType, string, string, params object[])
+  fullName: PostSharp.Extensibility.Message.Write(System.Type, PostSharp.Extensibility.SeverityType, string, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(Type type, SeverityType severity, string errorCode, string format, params object[] arguments)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The element of code to which the message applies.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: format
+      type: System.String
+      description: The error message formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments of the formatting string.
+    content.vb: Public Shared Sub Write(type As Type, severity As SeverityType, errorCode As String, format As String, ParamArray arguments As Object())
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(Type, SeverityType, String, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.Message.Write(System.Type, PostSharp.Extensibility.SeverityType, String, String, ParamArray Object())
+  name.vb: Write(Type, SeverityType, String, String, ParamArray Object())
+- uid: PostSharp.Extensibility.Message.Write(System.Reflection.ParameterInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.Message.Write(System.Reflection.ParameterInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  id: Write(System.Reflection.ParameterInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(ParameterInfo, SeverityType, string, string, params object[])
+  nameWithType: Message.Write(ParameterInfo, SeverityType, string, string, params object[])
+  fullName: PostSharp.Extensibility.Message.Write(System.Reflection.ParameterInfo, PostSharp.Extensibility.SeverityType, string, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(ParameterInfo codeElement, SeverityType severity, string errorCode, string format, params object[] arguments)
+    parameters:
+    - id: codeElement
+      type: System.Reflection.ParameterInfo
+      description: The element of code to which the message applies.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: format
+      type: System.String
+      description: The error message formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments of the formatting string.
+    content.vb: Public Shared Sub Write(codeElement As ParameterInfo, severity As SeverityType, errorCode As String, format As String, ParamArray arguments As Object())
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(ParameterInfo, SeverityType, String, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.Message.Write(System.Reflection.ParameterInfo, PostSharp.Extensibility.SeverityType, String, String, ParamArray Object())
+  name.vb: Write(ParameterInfo, SeverityType, String, String, ParamArray Object())
+- uid: PostSharp.Extensibility.Message.Write(System.Reflection.Assembly,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.Message.Write(System.Reflection.Assembly,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  id: Write(System.Reflection.Assembly,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(Assembly, SeverityType, string, string, params object[])
+  nameWithType: Message.Write(Assembly, SeverityType, string, string, params object[])
+  fullName: PostSharp.Extensibility.Message.Write(System.Reflection.Assembly, PostSharp.Extensibility.SeverityType, string, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(Assembly codeElement, SeverityType severity, string errorCode, string format, params object[] arguments)
+    parameters:
+    - id: codeElement
+      type: System.Reflection.Assembly
+      description: The element of code to which the message applies.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: format
+      type: System.String
+      description: The error message formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments of the formatting string.
+    content.vb: Public Shared Sub Write(codeElement As Assembly, severity As SeverityType, errorCode As String, format As String, ParamArray arguments As Object())
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(Assembly, SeverityType, String, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.Message.Write(System.Reflection.Assembly, PostSharp.Extensibility.SeverityType, String, String, ParamArray Object())
+  name.vb: Write(Assembly, SeverityType, String, String, ParamArray Object())
+- uid: PostSharp.Extensibility.Message.Write(PostSharp.Reflection.LocationInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.Message.Write(PostSharp.Reflection.LocationInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  id: Write(PostSharp.Reflection.LocationInfo,PostSharp.Extensibility.SeverityType,System.String,System.String,System.Object[])
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Write(LocationInfo, SeverityType, string, string, params object[])
+  nameWithType: Message.Write(LocationInfo, SeverityType, string, string, params object[])
+  fullName: PostSharp.Extensibility.Message.Write(PostSharp.Reflection.LocationInfo, PostSharp.Extensibility.SeverityType, string, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: public static void Write(LocationInfo codeElement, SeverityType severity, string errorCode, string format, params object[] arguments)
+    parameters:
+    - id: codeElement
+      type: PostSharp.Reflection.LocationInfo
+      description: The element of code to which the message applies.
+    - id: severity
+      type: PostSharp.Extensibility.SeverityType
+      description: The severity.
+    - id: errorCode
+      type: System.String
+      description: The error code.
+    - id: format
+      type: System.String
+      description: The error message formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments of the formatting string.
+    content.vb: Public Shared Sub Write(codeElement As LocationInfo, severity As SeverityType, errorCode As String, format As String, ParamArray arguments As Object())
+  overload: PostSharp.Extensibility.Message.Write*
+  nameWithType.vb: Message.Write(LocationInfo, SeverityType, String, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.Message.Write(PostSharp.Reflection.LocationInfo, PostSharp.Extensibility.SeverityType, String, String, ParamArray Object())
+  name.vb: Write(LocationInfo, SeverityType, String, String, ParamArray Object())
+- uid: PostSharp.Extensibility.Message.Severity
+  commentId: P:PostSharp.Extensibility.Message.Severity
+  id: Severity
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Severity
+  nameWithType: Message.Severity
+  fullName: PostSharp.Extensibility.Message.Severity
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the message severity.
+  example: []
+  syntax:
+    content: public SeverityType Severity { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.SeverityType
+    content.vb: Public ReadOnly Property Severity As SeverityType
+  overload: PostSharp.Extensibility.Message.Severity*
+- uid: PostSharp.Extensibility.Message.MessageId
+  commentId: P:PostSharp.Extensibility.Message.MessageId
+  id: MessageId
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: MessageId
+  nameWithType: Message.MessageId
+  fullName: PostSharp.Extensibility.Message.MessageId
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the message type identifier.
+  example: []
+  syntax:
+    content: public string MessageId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MessageId As String
+  overload: PostSharp.Extensibility.Message.MessageId*
+- uid: PostSharp.Extensibility.Message.Location
+  commentId: P:PostSharp.Extensibility.Message.Location
+  id: Location
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Location
+  nameWithType: Message.Location
+  fullName: PostSharp.Extensibility.Message.Location
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the location of the source code artifact that causes the message.
+  example: []
+  syntax:
+    content: public MessageLocation Location { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MessageLocation
+    content.vb: Public Property Location As MessageLocation
+  overload: PostSharp.Extensibility.Message.Location*
+- uid: PostSharp.Extensibility.Message.InnerException
+  commentId: P:PostSharp.Extensibility.Message.InnerException
+  id: InnerException
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: InnerException
+  nameWithType: Message.InnerException
+  fullName: PostSharp.Extensibility.Message.InnerException
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the exception that caused this message, or <code>null</code> if this message was not caused by an exception.
+  example: []
+  syntax:
+    content: public Exception InnerException { get; }
+    parameters: []
+    return:
+      type: System.Exception
+    content.vb: Public ReadOnly Property InnerException As Exception
+  overload: PostSharp.Extensibility.Message.InnerException*
+- uid: PostSharp.Extensibility.Message.Source
+  commentId: P:PostSharp.Extensibility.Message.Source
+  id: Source
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: Message.Source
+  fullName: PostSharp.Extensibility.Message.Source
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the name of the source component.
+  example: []
+  syntax:
+    content: public string Source { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Source As String
+  overload: PostSharp.Extensibility.Message.Source*
+- uid: PostSharp.Extensibility.Message.MessageText
+  commentId: P:PostSharp.Extensibility.Message.MessageText
+  id: MessageText
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: MessageText
+  nameWithType: Message.MessageText
+  fullName: PostSharp.Extensibility.Message.MessageText
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the formatted message text.
+  example: []
+  syntax:
+    content: public string MessageText { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MessageText As String
+  overload: PostSharp.Extensibility.Message.MessageText*
+- uid: PostSharp.Extensibility.Message.HelpLink
+  commentId: P:PostSharp.Extensibility.Message.HelpLink
+  id: HelpLink
+  parent: PostSharp.Extensibility.Message
+  langs:
+  - csharp
+  - vb
+  name: HelpLink
+  nameWithType: Message.HelpLink
+  fullName: PostSharp.Extensibility.Message.HelpLink
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the help link.
+  example: []
+  syntax:
+    content: public string HelpLink { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property HelpLink As String
+  overload: PostSharp.Extensibility.Message.HelpLink*

@@ -1,0 +1,109 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.UnsupportedTargetAction
+  commentId: T:PostSharp.Aspects.UnsupportedTargetAction
+  id: UnsupportedTargetAction
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.UnsupportedTargetAction.Default
+  - PostSharp.Aspects.UnsupportedTargetAction.Fail
+  - PostSharp.Aspects.UnsupportedTargetAction.Fallback
+  - PostSharp.Aspects.UnsupportedTargetAction.Ignore
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedTargetAction
+  nameWithType: UnsupportedTargetAction
+  fullName: PostSharp.Aspects.UnsupportedTargetAction
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Enumerates actions that can be taken when an aspect is applied to a target element that is not currently supported.
+  example: []
+  syntax:
+    content: public enum UnsupportedTargetAction
+    content.vb: Public Enum UnsupportedTargetAction
+- uid: PostSharp.Aspects.UnsupportedTargetAction.Default
+  commentId: F:PostSharp.Aspects.UnsupportedTargetAction.Default
+  id: Default
+  parent: PostSharp.Aspects.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: UnsupportedTargetAction.Default
+  fullName: PostSharp.Aspects.UnsupportedTargetAction.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Same as <xref href="PostSharp.Aspects.UnsupportedTargetAction.Fail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.UnsupportedTargetAction
+- uid: PostSharp.Aspects.UnsupportedTargetAction.Fail
+  commentId: F:PostSharp.Aspects.UnsupportedTargetAction.Fail
+  id: Fail
+  parent: PostSharp.Aspects.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: Fail
+  nameWithType: UnsupportedTargetAction.Fail
+  fullName: PostSharp.Aspects.UnsupportedTargetAction.Fail
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Emit a build-time error when the target declaration is not supported by the aspect. This is the default behavior.
+  example: []
+  syntax:
+    content: Fail = 0
+    return:
+      type: PostSharp.Aspects.UnsupportedTargetAction
+- uid: PostSharp.Aspects.UnsupportedTargetAction.Ignore
+  commentId: F:PostSharp.Aspects.UnsupportedTargetAction.Ignore
+  id: Ignore
+  parent: PostSharp.Aspects.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: Ignore
+  nameWithType: UnsupportedTargetAction.Ignore
+  fullName: PostSharp.Aspects.UnsupportedTargetAction.Ignore
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Do not apply the advice when the target declaration is not supported, but do not emit a build error.
+  example: []
+  syntax:
+    content: Ignore = 1
+    return:
+      type: PostSharp.Aspects.UnsupportedTargetAction
+- uid: PostSharp.Aspects.UnsupportedTargetAction.Fallback
+  commentId: F:PostSharp.Aspects.UnsupportedTargetAction.Fallback
+  id: Fallback
+  parent: PostSharp.Aspects.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: Fallback
+  nameWithType: UnsupportedTargetAction.Fallback
+  fullName: PostSharp.Aspects.UnsupportedTargetAction.Fallback
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Fall back to a supported advising strategy if any is available, for example from semantic advising (taking into account async semantics) to non-semantic advising.
+
+    If no fallback is available, emit a build-time error.
+  example: []
+  syntax:
+    content: Fallback = 2
+    return:
+      type: PostSharp.Aspects.UnsupportedTargetAction

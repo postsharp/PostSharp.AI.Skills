@@ -1,0 +1,367 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  id: LoggingPropertyOptions
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,PostSharp.Patterns.Formatters.IFormatter)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.Formatter
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithFormatter(PostSharp.Patterns.Formatters.IFormatter)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsBaggage(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsIgnored(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsInherited(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsRendered(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyOptions
+  nameWithType: LoggingPropertyOptions
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Specifies the behavior of logging properties (exposed by <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>), such as
+
+    <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public readonly struct LoggingPropertyOptions
+    content.vb: Public Structure LoggingPropertyOptions
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,PostSharp.Patterns.Formatters.IFormatter)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,PostSharp.Patterns.Formatters.IFormatter)
+  id: '#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean,PostSharp.Patterns.Formatters.IFormatter)'
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyOptions(bool, bool, bool, bool, IFormatter)
+  nameWithType: LoggingPropertyOptions.LoggingPropertyOptions(bool, bool, bool, bool, IFormatter)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.LoggingPropertyOptions(bool, bool, bool, bool, PostSharp.Patterns.Formatters.IFormatter)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions(bool isRendered = false, bool isInherited = false, bool isBaggage = false, bool isIgnored = false, IFormatter formatter = null)
+    parameters:
+    - id: isRendered
+      type: System.Boolean
+      description: >-
+        Determines whether the property will be included in the log message. The default value is <code>false</code>. In this case,
+                    the property is only available as an additional property, if this is supported by the backend.
+    - id: isInherited
+      type: System.Boolean
+      description: >-
+        Determines whether the property is inherited from the parent activity to child activities and messages. The default value is <code>false</code>.
+                    When this property is set to <code>false</code>, <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage" data-throw-if-not-resolved="false"></xref> is automatically set to <code>false</code>.
+    - id: isBaggage
+      type: System.Boolean
+      description: >-
+        Determines whether the property is cross-process. The default value is <code>false</code>. When this property is set to <code>true</code>, <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> is automatically
+
+        set to <code>true</code>.
+    - id: isIgnored
+      type: System.Boolean
+      description: >-
+        Determines whether this property must be ignored by the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.VisitProperties%60%601(System.Object%2cPostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions%40)" data-throw-if-not-resolved="false"></xref>
+                    method.
+    - id: formatter
+      type: PostSharp.Patterns.Formatters.IFormatter
+      description: The formatter to be used to render the property value.
+    content.vb: Public Sub New(isRendered As Boolean = False, isInherited As Boolean = False, isBaggage As Boolean = False, isIgnored As Boolean = False, formatter As IFormatter = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.#ctor*
+  nameWithType.vb: LoggingPropertyOptions.New(Boolean, Boolean, Boolean, Boolean, IFormatter)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.New(Boolean, Boolean, Boolean, Boolean, PostSharp.Patterns.Formatters.IFormatter)
+  name.vb: New(Boolean, Boolean, Boolean, Boolean, IFormatter)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithFormatter(PostSharp.Patterns.Formatters.IFormatter)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithFormatter(PostSharp.Patterns.Formatters.IFormatter)
+  id: WithFormatter(PostSharp.Patterns.Formatters.IFormatter)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: WithFormatter(IFormatter)
+  nameWithType: LoggingPropertyOptions.WithFormatter(IFormatter)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithFormatter(PostSharp.Patterns.Formatters.IFormatter)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>, but with a different value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.Formatter" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions WithFormatter(IFormatter formatter)
+    parameters:
+    - id: formatter
+      type: PostSharp.Patterns.Formatters.IFormatter
+      description: The formatter to be used to render the property value.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> with the specified formatter.
+    content.vb: Public Function WithFormatter(formatter As IFormatter) As LoggingPropertyOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithFormatter*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsIgnored(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsIgnored(System.Boolean)
+  id: WithIsIgnored(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: WithIsIgnored(bool)
+  nameWithType: LoggingPropertyOptions.WithIsIgnored(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsIgnored(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>, but with a different value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions WithIsIgnored(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithIsIgnored(value As Boolean) As LoggingPropertyOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsIgnored*
+  nameWithType.vb: LoggingPropertyOptions.WithIsIgnored(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsIgnored(Boolean)
+  name.vb: WithIsIgnored(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsRendered(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsRendered(System.Boolean)
+  id: WithIsRendered(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: WithIsRendered(bool)
+  nameWithType: LoggingPropertyOptions.WithIsRendered(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsRendered(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>, but with a different value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions WithIsRendered(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithIsRendered(value As Boolean) As LoggingPropertyOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsRendered*
+  nameWithType.vb: LoggingPropertyOptions.WithIsRendered(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsRendered(Boolean)
+  name.vb: WithIsRendered(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsInherited(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsInherited(System.Boolean)
+  id: WithIsInherited(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: WithIsInherited(bool)
+  nameWithType: LoggingPropertyOptions.WithIsInherited(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsInherited(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>, but with a different value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions WithIsInherited(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithIsInherited(value As Boolean) As LoggingPropertyOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsInherited*
+  nameWithType.vb: LoggingPropertyOptions.WithIsInherited(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsInherited(Boolean)
+  name.vb: WithIsInherited(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsBaggage(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsBaggage(System.Boolean)
+  id: WithIsBaggage(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: WithIsBaggage(bool)
+  nameWithType: LoggingPropertyOptions.WithIsBaggage(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsBaggage(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>, but with a different value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions WithIsBaggage(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithIsBaggage(value As Boolean) As LoggingPropertyOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsBaggage*
+  nameWithType.vb: LoggingPropertyOptions.WithIsBaggage(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.WithIsBaggage(Boolean)
+  name.vb: WithIsBaggage(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.Formatter
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.Formatter
+  id: Formatter
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: Formatter
+  nameWithType: LoggingPropertyOptions.Formatter
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.Formatter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the formatter to be used to render the property value.
+  example: []
+  syntax:
+    content: public IFormatter Formatter { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Formatters.IFormatter
+    content.vb: Public ReadOnly Property Formatter As IFormatter
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.Formatter*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored
+  id: IsIgnored
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: IsIgnored
+  nameWithType: LoggingPropertyOptions.IsIgnored
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether this property must be ignored by the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.VisitProperties%60%601(System.Object%2cPostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions%40)" data-throw-if-not-resolved="false"></xref>
+
+    method. This value is typically only returned by <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.GetPropertyOptions(System.String)" data-throw-if-not-resolved="false"></xref> to indicate that a property of the raw CLR object
+
+    must not be exposed as a logging property.
+  example: []
+  syntax:
+    content: public bool IsIgnored { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsIgnored As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsIgnored*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered
+  id: IsRendered
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: IsRendered
+  nameWithType: LoggingPropertyOptions.IsRendered
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether the property will be included in the log message. The default value is <code>false</code>. In this case,
+
+    the property is only available as an additional property, if this is supported by the backend.
+  example: []
+  syntax:
+    content: public bool IsRendered { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsRendered As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsRendered*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited
+  id: IsInherited
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: IsInherited
+  nameWithType: LoggingPropertyOptions.IsInherited
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether the property is inherited from the parent activity to child activities and messages. The default value is <code>false</code>.
+
+    When this property is set to <code>false</code>, <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage" data-throw-if-not-resolved="false"></xref> is automatically set to <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IsInherited { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInherited As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage
+  id: IsBaggage
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+  langs:
+  - csharp
+  - vb
+  name: IsBaggage
+  nameWithType: LoggingPropertyOptions.IsBaggage
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether the property is cross-process. The default value is <code>false</code>. When this property is set to <code>true</code>, <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> is automatically
+
+    set to <code>true</code>.
+  example: []
+  syntax:
+    content: public bool IsBaggage { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsBaggage As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsBaggage*

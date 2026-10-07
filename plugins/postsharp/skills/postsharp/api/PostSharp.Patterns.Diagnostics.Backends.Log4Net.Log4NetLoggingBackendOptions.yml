@@ -1,0 +1,104 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions
+  id: Log4NetLoggingBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.GetLogger
+  langs:
+  - csharp
+  - vb
+  name: Log4NetLoggingBackendOptions
+  nameWithType: Log4NetLoggingBackendOptions
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Options for <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class Log4NetLoggingBackendOptions : TextLoggingBackendOptions'
+    content.vb: Public Class Log4NetLoggingBackendOptions Inherits TextLoggingBackendOptions
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: Log4NetLoggingBackendOptions()
+  nameWithType: Log4NetLoggingBackendOptions.Log4NetLoggingBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.Log4NetLoggingBackendOptions()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  syntax:
+    content: public Log4NetLoggingBackendOptions()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.#ctor*
+  nameWithType.vb: Log4NetLoggingBackendOptions.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.GetLogger
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.GetLogger
+  id: GetLogger
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: GetLogger
+  nameWithType: Log4NetLoggingBackendOptions.GetLogger
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.GetLogger
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: >-
+    Gets or sets the function that returns a log4net <code>ILog</code> for a given <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+
+    The default implementation is to call <code>LogManager.GetLogger( backend.Repository.Name, typeSource.DisplayFullName )</code>.
+  example: []
+  syntax:
+    content: public Func<Log4NetLoggingTypeSource, ILog> GetLogger { get; set; }
+    parameters: []
+    return:
+      type: System.Func{PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingTypeSource,log4net.ILog}
+    content.vb: Public Property GetLogger As Func(Of Log4NetLoggingTypeSource, ILog)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions.GetLogger*

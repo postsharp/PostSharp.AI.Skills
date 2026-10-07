@@ -1,0 +1,103 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+  commentId: T:PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+  id: ILoggingExceptionHandler
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInternalException(PostSharp.Patterns.Diagnostics.LoggingExceptionInfo)
+  - PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInvalidUserCode(PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,PostSharp.Patterns.Diagnostics.LoggingTypeSource,System.String,System.Object[])
+  langs:
+  - csharp
+  - vb
+  name: ILoggingExceptionHandler
+  nameWithType: ILoggingExceptionHandler
+  fullName: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Defines the methods that are called when an exception occurs in the logging component.
+  remarks: >-
+    <p>The logging component catches the exceptions thrown by the logging code, so that a logging failure does not make the application fail,
+        and passes them to the handler assigned to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler" data-throw-if-not-resolved="false"></xref>. To change this behavior, implement this interface
+        and assign an instance to that property.</p>
+    <p>The default handler, <xref href="PostSharp.Patterns.Diagnostics.DefaultLoggingExceptionHandler" data-throw-if-not-resolved="false"></xref>, writes a message to the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles.Meta" data-throw-if-not-resolved="false"></xref> role. In case of
+        an internal exception other than <xref href="PostSharp.Patterns.Diagnostics.Custom.InvalidFormattingStringException" data-throw-if-not-resolved="false"></xref>, it also disables the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> that caused it, until <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled" data-throw-if-not-resolved="false"></xref> is set to
+        <code>true</code> again. When a debugger is attached at initialization, the default handler is <xref href="PostSharp.Patterns.Diagnostics.ThrowingLoggingExceptionHandler" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: public interface ILoggingExceptionHandler
+    content.vb: Public Interface ILoggingExceptionHandler
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler
+    commentId: P:PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler
+  - linkType: HRef
+    linkId: '@logging-exception-handling'
+    altText: 'Conceptual: Handling Logging Exceptions'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.DefaultLoggingExceptionHandler
+  - PostSharp.Patterns.Diagnostics.ThrowingLoggingExceptionHandler
+- uid: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInternalException(PostSharp.Patterns.Diagnostics.LoggingExceptionInfo)
+  commentId: M:PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInternalException(PostSharp.Patterns.Diagnostics.LoggingExceptionInfo)
+  id: OnInternalException(PostSharp.Patterns.Diagnostics.LoggingExceptionInfo)
+  parent: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+  langs:
+  - csharp
+  - vb
+  name: OnInternalException(LoggingExceptionInfo)
+  nameWithType: ILoggingExceptionHandler.OnInternalException(LoggingExceptionInfo)
+  fullName: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInternalException(PostSharp.Patterns.Diagnostics.LoggingExceptionInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Called when an exception is thrown in logging code.
+  example: []
+  syntax:
+    content: void OnInternalException(LoggingExceptionInfo exceptionInfo)
+    parameters:
+    - id: exceptionInfo
+      type: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+      description: Information about the exception.
+    content.vb: Sub OnInternalException(exceptionInfo As LoggingExceptionInfo)
+  overload: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInternalException*
+- uid: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInvalidUserCode(PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,PostSharp.Patterns.Diagnostics.LoggingTypeSource,System.String,System.Object[])
+  commentId: M:PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInvalidUserCode(PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,PostSharp.Patterns.Diagnostics.LoggingTypeSource,System.String,System.Object[])
+  id: OnInvalidUserCode(PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,PostSharp.Patterns.Diagnostics.LoggingTypeSource,System.String,System.Object[])
+  parent: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+  langs:
+  - csharp
+  - vb
+  name: OnInvalidUserCode(ref CallerInfo, LoggingTypeSource, string, params object[])
+  nameWithType: ILoggingExceptionHandler.OnInvalidUserCode(ref CallerInfo, LoggingTypeSource, string, params object[])
+  fullName: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInvalidUserCode(ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo, PostSharp.Patterns.Diagnostics.LoggingTypeSource, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Called when a logging component detects a precondition violation
+
+    that probably stems from user-written code.
+  example: []
+  syntax:
+    content: void OnInvalidUserCode(ref CallerInfo callerInfo, LoggingTypeSource source, string message, params object[] args)
+    parameters:
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: The location of the code that performed the invalid call, or an empty instance if the information is not available.
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The related <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if it is not available.
+    - id: message
+      type: System.String
+      description: The error message format string.
+    - id: args
+      type: System.Object[]
+      description: The arguments of the format string, or <code>null</code>.
+    content.vb: Sub OnInvalidUserCode(callerInfo As CallerInfo, source As LoggingTypeSource, message As String, ParamArray args As Object())
+  overload: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInvalidUserCode*
+  nameWithType.vb: ILoggingExceptionHandler.OnInvalidUserCode(CallerInfo, LoggingTypeSource, String, ParamArray Object())
+  fullName.vb: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInvalidUserCode(PostSharp.Patterns.Diagnostics.Contexts.CallerInfo, PostSharp.Patterns.Diagnostics.LoggingTypeSource, String, ParamArray Object())
+  name.vb: OnInvalidUserCode(CallerInfo, LoggingTypeSource, String, ParamArray Object())

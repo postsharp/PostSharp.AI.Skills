@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  commentId: T:PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  id: RemoveCollectionRangeOperation`1
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldIndex
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldItems
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OperationKind
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  langs:
+  - csharp
+  - vb
+  name: RemoveCollectionRangeOperation<T>
+  nameWithType: RemoveCollectionRangeOperation<T>
+  fullName: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Represents a <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601.RemoveRange(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> operation.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class RemoveCollectionRangeOperation<T> : CollectionOperation<T>, ICollectionOperation, IOperationDescriptor
+    typeParameters:
+    - id: T
+      description: The type of collection items.
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class RemoveCollectionRangeOperation(Of T) Inherits CollectionOperation(Of T) Implements ICollectionOperation, IOperationDescriptor
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}
+  implements:
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.VisitAffectedObjects(System.Action{System.Object})
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.Collection
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.NewIndex
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.NewItem
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.OldItem
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: RemoveCollectionRangeOperation(Of T)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation(Of T)
+  name.vb: RemoveCollectionRangeOperation(Of T)
+- uid: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: RemoveCollectionRangeOperation<T>.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation<T>.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Undo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Undo*
+  nameWithType.vb: RemoveCollectionRangeOperation(Of T).Undo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation(Of T).Undo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: RemoveCollectionRangeOperation<T>.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation<T>.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Redo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.Redo*
+  nameWithType.vb: RemoveCollectionRangeOperation(Of T).Redo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation(Of T).Redo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldIndex
+  commentId: P:PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldIndex
+  id: OldIndex
+  parent: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OldIndex
+  nameWithType: RemoveCollectionRangeOperation<T>.OldIndex
+  fullName: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation<T>.OldIndex
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the index before the operation.
+  example: []
+  syntax:
+    content: public override int OldIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property OldIndex As Integer
+  overridden: PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.OldIndex
+  overload: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldIndex*
+  nameWithType.vb: RemoveCollectionRangeOperation(Of T).OldIndex
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation(Of T).OldIndex
+- uid: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldItems
+  commentId: P:PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldItems
+  id: OldItems
+  parent: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OldItems
+  nameWithType: RemoveCollectionRangeOperation<T>.OldItems
+  fullName: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation<T>.OldItems
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the items that were in the collection before the operation.
+  example: []
+  syntax:
+    content: public ReadOnlyArray<T> OldItems { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Collections.ReadOnlyArray{{T}}
+    content.vb: Public ReadOnly Property OldItems As ReadOnlyArray(Of T)
+  overload: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OldItems*
+  nameWithType.vb: RemoveCollectionRangeOperation(Of T).OldItems
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation(Of T).OldItems
+- uid: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: RemoveCollectionRangeOperation<T>.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation<T>.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public override OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public Overrides ReadOnly Property OperationKind As OperationKind
+  overridden: PostSharp.Patterns.Recording.Operation.OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1.OperationKind*
+  nameWithType.vb: RemoveCollectionRangeOperation(Of T).OperationKind
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation(Of T).OperationKind

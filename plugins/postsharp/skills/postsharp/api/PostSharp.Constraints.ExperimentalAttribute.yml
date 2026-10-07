@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.ExperimentalAttribute
+  commentId: T:PostSharp.Constraints.ExperimentalAttribute
+  id: ExperimentalAttribute
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.ExperimentalAttribute.#ctor
+  - PostSharp.Constraints.ExperimentalAttribute.ValidateCode(System.Object,System.Reflection.Assembly)
+  langs:
+  - csharp
+  - vb
+  name: ExperimentalAttribute
+  nameWithType: ExperimentalAttribute
+  fullName: PostSharp.Constraints.ExperimentalAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Custom attribute that, when applied to a declaration, causes PostSharp to emit a warning if the declaration is being used.
+  remarks: ''
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Module|AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Enum|AttributeTargets.Constructor|AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Field|AttributeTargets.Event|AttributeTargets.Interface|AttributeTargets.Delegate, AllowMultiple = true)]
+
+      [MulticastAttributeUsage(MulticastTargets.AnyType|MulticastTargets.Field|MulticastTargets.Method)]
+
+      public sealed class ExperimentalAttribute : ReferentialConstraint, IReferentialConstraint, IConstraint
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ModuleOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.EnumOrAttributeTargets.ConstructorOrAttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.FieldOrAttributeTargets.EventOrAttributeTargets.InterfaceOrAttributeTargets.Delegate, AllowMultiple:=True)>
+
+      <MulticastAttributeUsage(MulticastTargets.AnyTypeOrMulticastTargets.FieldOrMulticastTargets.Method)>
+
+      Public NotInheritable Class ExperimentalAttribute Inherits ReferentialConstraint Implements IReferentialConstraint, IConstraint
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Constraints.Constraint
+  - PostSharp.Constraints.ReferentialConstraint
+  implements:
+  - PostSharp.Constraints.IReferentialConstraint
+  - PostSharp.Constraints.IConstraint
+  inheritedMembers:
+  - PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 6143
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 127
+- uid: PostSharp.Constraints.ExperimentalAttribute.ValidateCode(System.Object,System.Reflection.Assembly)
+  commentId: M:PostSharp.Constraints.ExperimentalAttribute.ValidateCode(System.Object,System.Reflection.Assembly)
+  id: ValidateCode(System.Object,System.Reflection.Assembly)
+  parent: PostSharp.Constraints.ExperimentalAttribute
+  langs:
+  - csharp
+  - vb
+  name: ValidateCode(object, Assembly)
+  nameWithType: ExperimentalAttribute.ValidateCode(object, Assembly)
+  fullName: PostSharp.Constraints.ExperimentalAttribute.ValidateCode(object, System.Reflection.Assembly)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Validates the constraint.
+  example: []
+  syntax:
+    content: public override void ValidateCode(object target, Assembly assembly)
+    parameters:
+    - id: target
+      type: System.Object
+      description: >-
+        Declaration (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>) to which
+                    the constraint has been applied.
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: The assembly being currently processed.
+    content.vb: Public Overrides Sub ValidateCode(target As Object, assembly As Assembly)
+  overridden: PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  overload: PostSharp.Constraints.ExperimentalAttribute.ValidateCode*
+  nameWithType.vb: ExperimentalAttribute.ValidateCode(Object, Assembly)
+  fullName.vb: PostSharp.Constraints.ExperimentalAttribute.ValidateCode(Object, System.Reflection.Assembly)
+  name.vb: ValidateCode(Object, Assembly)
+- uid: PostSharp.Constraints.ExperimentalAttribute.#ctor
+  commentId: M:PostSharp.Constraints.ExperimentalAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Constraints.ExperimentalAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExperimentalAttribute()
+  nameWithType: ExperimentalAttribute.ExperimentalAttribute()
+  fullName: PostSharp.Constraints.ExperimentalAttribute.ExperimentalAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  syntax:
+    content: public ExperimentalAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Constraints.ExperimentalAttribute.#ctor*
+  nameWithType.vb: ExperimentalAttribute.New()
+  fullName.vb: PostSharp.Constraints.ExperimentalAttribute.New()
+  name.vb: New()

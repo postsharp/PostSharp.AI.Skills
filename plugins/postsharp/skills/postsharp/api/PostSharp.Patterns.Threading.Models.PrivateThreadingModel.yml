@@ -1,0 +1,90 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.Models.PrivateThreadingModel
+  commentId: T:PostSharp.Patterns.Threading.Models.PrivateThreadingModel
+  id: PrivateThreadingModel
+  parent: PostSharp.Patterns.Threading.Models
+  children:
+  - PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsBlocking
+  - PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsThreadSafe
+  langs:
+  - csharp
+  - vb
+  name: PrivateThreadingModel
+  nameWithType: PrivateThreadingModel
+  fullName: PostSharp.Patterns.Threading.Models.PrivateThreadingModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    The <xref href="PostSharp.Patterns.Threading.Models.PrivateThreadingModel" data-throw-if-not-resolved="false"></xref> class describes a behavior of objects in which their threading model is
+
+    determined by the parent they are assigned to in a parent-child relationship. Objects with this threading model
+
+    are considered a private state of their parent object and cannot be accessed from a different object.
+  example: []
+  syntax:
+    content: 'public sealed class PrivateThreadingModel : ThreadingModel'
+    content.vb: Public NotInheritable Class PrivateThreadingModel Inherits ThreadingModel
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Threading.ThreadingModel
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadingModel.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsBlocking
+  commentId: P:PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsBlocking
+  id: IsBlocking
+  parent: PostSharp.Patterns.Threading.Models.PrivateThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsBlocking
+  nameWithType: PrivateThreadingModel.IsBlocking
+  fullName: PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsBlocking
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Threading.ThreadingModel" data-throw-if-not-resolved="false"></xref> has blocking semantics, that is, whether the threading model may cause the executing thread
+
+    to be blocked, for instance when waiting for a lock.
+  example: []
+  syntax:
+    content: public override bool IsBlocking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsBlocking As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsBlocking
+  overload: PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsBlocking*
+- uid: PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsThreadSafe
+  commentId: P:PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsThreadSafe
+  id: IsThreadSafe
+  parent: PostSharp.Patterns.Threading.Models.PrivateThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsThreadSafe
+  nameWithType: PrivateThreadingModel.IsThreadSafe
+  fullName: PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsThreadSafe
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: Gets a value indicating whether the threading model is possibly thread safe.
+  example: []
+  syntax:
+    content: public override bool IsThreadSafe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsThreadSafe As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsThreadSafe
+  overload: PostSharp.Patterns.Threading.Models.PrivateThreadingModel.IsThreadSafe*

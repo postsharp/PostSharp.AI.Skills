@@ -1,0 +1,165 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice
+  commentId: T:PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice
+  id: OnEventInvokeHandlerAdvice
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice.#ctor
+  langs:
+  - csharp
+  - vb
+  name: OnEventInvokeHandlerAdvice
+  nameWithType: OnEventInvokeHandlerAdvice
+  fullName: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied on a method of an aspect class, specifies
+
+    that this method is an advice that has the same semantics as <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+                The method to which this custom attribute is applied must be public and must have the same signature as
+                <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>. However, it can be static.
+              </p>
+        <p>
+      If an aspect defines many advices (among
+      <xref href="PostSharp.Aspects.Advices.OnEventAddHandlerAdvice" data-throw-if-not-resolved="false"></xref>
+      ,
+      <xref href="PostSharp.Aspects.Advices.OnEventRemoveHandlerAdvice" data-throw-if-not-resolved="false"></xref>
+      and
+      <xref href="PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice" data-throw-if-not-resolved="false"></xref>
+      ) that are meant to be applied to the same events with consistent ordering, these advices should be
+      grouped together (see
+      <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref>
+      property).
+    </p>
+        <div class="NOTE"><h5>note</h5><p>
+      A master advice without a custom attribute derived from <xref href="PostSharp.Aspects.Advices.Pointcut" data-throw-if-not-resolved="false"></xref> applies to the event to which the aspect is applied; when the aspect is applied to another kind of declaration, a pointcut is required. An advice without <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> and without pointcut joins
+      the group of the master advice declared in its class.
+    </p></div>
+        <xref href="PostSharp.Aspects.IEventInterceptionAspect" data-throw-if-not-resolved="false"></xref>
+        <xref href="PostSharp.Aspects.Advices.OnEventAddHandlerAdvice" data-throw-if-not-resolved="false"></xref>
+        <xref href="PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice" data-throw-if-not-resolved="false"></xref>
+        <br />
+        <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+
+      public sealed class OnEventInvokeHandlerAdvice : GroupingAdvice
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Method, AllowMultiple:=True, Inherited:=True)>
+
+      Public NotInheritable Class OnEventInvokeHandlerAdvice Inherits GroupingAdvice
+  seealso:
+  - linkId: PostSharp.Aspects.EventInterceptionAspect
+    commentId: T:PostSharp.Aspects.EventInterceptionAspect
+  - linkId: PostSharp.Aspects.Advices.OnEventRemoveHandlerAdvice
+    commentId: T:PostSharp.Aspects.Advices.OnEventRemoveHandlerAdvice
+  - linkId: PostSharp.Aspects.Advices.OnEventAddHandlerAdvice
+    commentId: T:PostSharp.Aspects.Advices.OnEventAddHandlerAdvice
+  - linkType: HRef
+    linkId: '@advices'
+    altText: 'Conceptual: Adding Behaviors to Existing Members'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  - PostSharp.Aspects.Advices.GroupingAdvice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.GroupingAdvice.Master
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 64
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: Inherited
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice.#ctor
+  commentId: M:PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice
+  langs:
+  - csharp
+  - vb
+  name: OnEventInvokeHandlerAdvice()
+  nameWithType: OnEventInvokeHandlerAdvice.OnEventInvokeHandlerAdvice()
+  fullName: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice.OnEventInvokeHandlerAdvice()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public OnEventInvokeHandlerAdvice()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice.#ctor*
+  nameWithType.vb: OnEventInvokeHandlerAdvice.New()
+  fullName.vb: PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice.New()
+  name.vb: New()

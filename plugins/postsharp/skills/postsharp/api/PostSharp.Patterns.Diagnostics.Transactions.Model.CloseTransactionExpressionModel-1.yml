@@ -1,0 +1,177 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  id: CloseTransactionExpressionModel`1
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.CriticalCount
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ErrorCount
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ExecutionTime
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.Request
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.WarningCount
+  langs:
+  - csharp
+  - vb
+  name: CloseTransactionExpressionModel<T>
+  nameWithType: CloseTransactionExpressionModel<T>
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel<T>
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Type of the <code>t</code> parameter for the <code>publishIf</code> expression in the policy configuration file. It represents
+
+    information from the transaction that a policy can use to take an action when the transaction closes. The policy might decide
+
+    to publish the log file based on this information.
+  example: []
+  syntax:
+    content: 'public readonly struct CloseTransactionExpressionModel<T> : IFormattable'
+    typeParameters:
+    - id: T
+      description: The type of the model exposed by the request. See <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel%601.Request" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Structure CloseTransactionExpressionModel(Of T) Implements IFormattable
+  implements:
+  - PostSharp.Patterns.Formatters.IFormattable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: CloseTransactionExpressionModel(Of T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel(Of T)
+  name.vb: CloseTransactionExpressionModel(Of T)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.Request
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.Request
+  id: Request
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: CloseTransactionExpressionModel<T>.Request
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel<T>.Request
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Gets the model of the request that causes the transaction to be opened. 
+
+    The type depends on the kind of transaction. For the ASP.NET Core <code>LoggingActionFilter</code>, this
+
+    property is of type <code>AspNetCoreRequestExpressionModel</code>.
+  example: []
+  syntax:
+    content: public T Request { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property Request As T
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.Request*
+  nameWithType.vb: CloseTransactionExpressionModel(Of T).Request
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel(Of T).Request
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ErrorCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ErrorCount
+  id: ErrorCount
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: ErrorCount
+  nameWithType: CloseTransactionExpressionModel<T>.ErrorCount
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel<T>.ErrorCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Gets the value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ErrorCount" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int ErrorCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ErrorCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ErrorCount*
+  nameWithType.vb: CloseTransactionExpressionModel(Of T).ErrorCount
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel(Of T).ErrorCount
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.WarningCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.WarningCount
+  id: WarningCount
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: WarningCount
+  nameWithType: CloseTransactionExpressionModel<T>.WarningCount
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel<T>.WarningCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Gets the value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.WarningCount" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int WarningCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property WarningCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.WarningCount*
+  nameWithType.vb: CloseTransactionExpressionModel(Of T).WarningCount
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel(Of T).WarningCount
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.CriticalCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.CriticalCount
+  id: CriticalCount
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: CriticalCount
+  nameWithType: CloseTransactionExpressionModel<T>.CriticalCount
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel<T>.CriticalCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Gets the value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.CriticalCount" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int CriticalCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CriticalCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.CriticalCount*
+  nameWithType.vb: CloseTransactionExpressionModel(Of T).CriticalCount
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel(Of T).CriticalCount
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ExecutionTime
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ExecutionTime
+  id: ExecutionTime
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: ExecutionTime
+  nameWithType: CloseTransactionExpressionModel<T>.ExecutionTime
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel<T>.ExecutionTime
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Gets the value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ExecutionTime" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public double ExecutionTime { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ExecutionTime As Double
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1.ExecutionTime*
+  nameWithType.vb: CloseTransactionExpressionModel(Of T).ExecutionTime
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel(Of T).ExecutionTime

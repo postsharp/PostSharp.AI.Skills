@@ -1,0 +1,136 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.IArgumentsReader
+  commentId: T:PostSharp.Serialization.IArgumentsReader
+  id: IArgumentsReader
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.IArgumentsReader.GetValue``1(System.String,System.String)
+  - PostSharp.Serialization.IArgumentsReader.MetadataDispenser
+  - PostSharp.Serialization.IArgumentsReader.TryGetValue``1(System.String,``0@,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IArgumentsReader
+  nameWithType: IArgumentsReader
+  fullName: PostSharp.Serialization.IArgumentsReader
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Provides read access to the collection of deserialized arguments.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IArgumentsReader
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IArgumentsReader
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Serialization.IArgumentsReader.TryGetValue``1(System.String,``0@,System.String)
+  commentId: M:PostSharp.Serialization.IArgumentsReader.TryGetValue``1(System.String,``0@,System.String)
+  id: TryGetValue``1(System.String,``0@,System.String)
+  parent: PostSharp.Serialization.IArgumentsReader
+  langs:
+  - csharp
+  - vb
+  name: TryGetValue<T>(string, out T, string)
+  nameWithType: IArgumentsReader.TryGetValue<T>(string, out T, string)
+  fullName: PostSharp.Serialization.IArgumentsReader.TryGetValue<T>(string, out T, string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Attempts to read a value from the collection, and does not throw an exception if the value does not exist.
+  example: []
+  syntax:
+    content: bool TryGetValue<T>(string name, out T value, string scope = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the argument.
+    - id: value
+      type: '{T}'
+      description: When this method returns, contains the value of the argument named <code class="paramref">name</code> in the given optional <code class="paramref">scope</code>.
+    - id: scope
+      type: System.String
+      description: An optional prefix of <code class="paramref">name</code>, similar to a namespace.
+    typeParameters:
+    - id: T
+      description: The type of the value.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the value is defined, otherwise <code>false</code>.
+    content.vb: Function TryGetValue(Of T)(name As String, value As T, scope As String = Nothing) As Boolean
+  overload: PostSharp.Serialization.IArgumentsReader.TryGetValue*
+  nameWithType.vb: IArgumentsReader.TryGetValue(Of T)(String, T, String)
+  fullName.vb: PostSharp.Serialization.IArgumentsReader.TryGetValue(Of T)(String, T, String)
+  name.vb: TryGetValue(Of T)(String, T, String)
+- uid: PostSharp.Serialization.IArgumentsReader.GetValue``1(System.String,System.String)
+  commentId: M:PostSharp.Serialization.IArgumentsReader.GetValue``1(System.String,System.String)
+  id: GetValue``1(System.String,System.String)
+  parent: PostSharp.Serialization.IArgumentsReader
+  langs:
+  - csharp
+  - vb
+  name: GetValue<T>(string, string)
+  nameWithType: IArgumentsReader.GetValue<T>(string, string)
+  fullName: PostSharp.Serialization.IArgumentsReader.GetValue<T>(string, string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Reads a value from the collection, and throws an exception if the value does not exist.
+  example: []
+  syntax:
+    content: T GetValue<T>(string name, string scope = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the argument.
+    - id: scope
+      type: System.String
+      description: An optional prefix of <code class="paramref">name</code>, similar to a namespace.
+    typeParameters:
+    - id: T
+      description: The type of the value.
+    return:
+      type: '{T}'
+      description: The value of the argument named <code class="paramref">name</code> in the given optional <code class="paramref">scope</code>.
+    content.vb: Function GetValue(Of T)(name As String, scope As String = Nothing) As T
+  overload: PostSharp.Serialization.IArgumentsReader.GetValue*
+  nameWithType.vb: IArgumentsReader.GetValue(Of T)(String, String)
+  fullName.vb: PostSharp.Serialization.IArgumentsReader.GetValue(Of T)(String, String)
+  name.vb: GetValue(Of T)(String, String)
+- uid: PostSharp.Serialization.IArgumentsReader.MetadataDispenser
+  commentId: P:PostSharp.Serialization.IArgumentsReader.MetadataDispenser
+  id: MetadataDispenser
+  parent: PostSharp.Serialization.IArgumentsReader
+  langs:
+  - csharp
+  - vb
+  name: MetadataDispenser
+  nameWithType: IArgumentsReader.MetadataDispenser
+  fullName: PostSharp.Serialization.IArgumentsReader.MetadataDispenser
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    When deserializing PostSharp aspects, gets the <xref href="PostSharp.Reflection.IMetadataDispenser" data-throw-if-not-resolved="false"></xref> corresponding to the <xref href="PostSharp.Serialization.IArgumentsWriter.MetadataEmitter" data-throw-if-not-resolved="false"></xref> 
+
+    used at build time.
+  example: []
+  syntax:
+    content: IMetadataDispenser MetadataDispenser { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.IMetadataDispenser
+    content.vb: ReadOnly Property MetadataDispenser As IMetadataDispenser
+  overload: PostSharp.Serialization.IArgumentsReader.MetadataDispenser*

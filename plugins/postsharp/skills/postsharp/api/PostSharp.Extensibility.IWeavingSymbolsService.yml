@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IWeavingSymbolsService
+  commentId: T:PostSharp.Extensibility.IWeavingSymbolsService
+  id: IWeavingSymbolsService
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IWeavingSymbolsService.PushAnnotation(System.Object,System.Type,System.String,System.String,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IWeavingSymbolsService
+  nameWithType: IWeavingSymbolsService
+  fullName: PostSharp.Extensibility.IWeavingSymbolsService
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Service that allows build-time code to push annotations (both programmatic and user-visible)
+
+    to PostSharp Tools for Visual Studio.
+  remarks: >-
+    <p>Use this service from an aspect, at build time, to add a text to the CodeLens and IntelliSense tooltip of a declaration, to report
+        the lines of code saved, or to make the Visual Studio tools consider that a declaration has a custom attribute.
+        Get an instance by calling <xref href="PostSharp.Extensibility.IProject.GetService%60%601(System.Boolean)" data-throw-if-not-resolved="false"></xref> on <xref href="PostSharp.Extensibility.PostSharpEnvironment.CurrentProject" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IWeavingSymbolsService : IService
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IWeavingSymbolsService Inherits IService
+  seealso:
+  - linkType: HRef
+    linkId: '@programmatic-tooltip'
+    altText: 'Conceptual: Pushing Information to Visual Studio Tools for Metalama and PostSharp Programmatically'
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Extensibility.IWeavingSymbolsService.PushAnnotation(System.Object,System.Type,System.String,System.String,System.Int32)
+  commentId: M:PostSharp.Extensibility.IWeavingSymbolsService.PushAnnotation(System.Object,System.Type,System.String,System.String,System.Int32)
+  id: PushAnnotation(System.Object,System.Type,System.String,System.String,System.Int32)
+  parent: PostSharp.Extensibility.IWeavingSymbolsService
+  langs:
+  - csharp
+  - vb
+  name: PushAnnotation(object, Type, string, string, int)
+  nameWithType: IWeavingSymbolsService.PushAnnotation(object, Type, string, string, int)
+  fullName: PostSharp.Extensibility.IWeavingSymbolsService.PushAnnotation(object, System.Type, string, string, int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Pushes an annotation to PostSharp Tools for Visual Studio.
+  example: []
+  syntax:
+    content: void PushAnnotation(object targetDeclaration, Type annotationClass = null, string arguments = null, string description = null, int linesOfCodeAvoided = 0)
+    parameters:
+    - id: targetDeclaration
+      type: System.Object
+      description: The declaration to which the annotation relates.
+    - id: annotationClass
+      type: System.Type
+      description: The type of the annotation.
+    - id: arguments
+      type: System.String
+      description: The arguments of the annotation.
+    - id: description
+      type: System.String
+      description: A human-readable description of the annotation.
+    - id: linesOfCodeAvoided
+      type: System.Int32
+      description: A number incrementing the number of lines of code saved on <code class="paramref">targetDeclaration</code>.
+    content.vb: Sub PushAnnotation(targetDeclaration As Object, annotationClass As Type = Nothing, arguments As String = Nothing, description As String = Nothing, linesOfCodeAvoided As Integer = 0)
+  overload: PostSharp.Extensibility.IWeavingSymbolsService.PushAnnotation*
+  nameWithType.vb: IWeavingSymbolsService.PushAnnotation(Object, Type, String, String, Integer)
+  fullName.vb: PostSharp.Extensibility.IWeavingSymbolsService.PushAnnotation(Object, System.Type, String, String, Integer)
+  name.vb: PushAnnotation(Object, Type, String, String, Integer)

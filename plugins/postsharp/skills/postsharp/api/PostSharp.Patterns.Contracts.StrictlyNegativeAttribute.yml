@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute
+  commentId: T:PostSharp.Patterns.Contracts.StrictlyNegativeAttribute
+  id: StrictlyNegativeAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.StrictlyNegativeAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: StrictlyNegativeAttribute
+  nameWithType: StrictlyNegativeAttribute
+  fullName: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Custom attribute that, when added to a field, property or parameter, throws
+
+    an <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> if the target is assigned a value
+
+    greater than or equal to zero.
+  remarks: >-
+    <p>Null values are accepted and do not throw an exception.
+        </p>
+    <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LessThanErrorMessage" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class StrictlyNegativeAttribute : StrictlyLessThanAttribute, ILocationLevelAspect, IValidableAnnotation, IAspect'
+    content.vb: Public Class StrictlyNegativeAttribute Inherits StrictlyLessThanAttribute Implements ILocationLevelAspect, IValidableAnnotation, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Patterns.Contracts.LocationContractAttribute
+  - PostSharp.Patterns.Contracts.RangeAttribute
+  - PostSharp.Patterns.Contracts.StrictlyLessThanAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Contracts.StrictlyLessThanAttribute.GetErrorMessage
+  - PostSharp.Patterns.Contracts.StrictlyLessThanAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.StrictlyLessThanAttribute.GetErrorMessageArguments
+  - PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(System.Object)
+  - PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue
+  - PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyNegativeAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute
+  langs:
+  - csharp
+  - vb
+  name: StrictlyNegativeAttribute()
+  nameWithType: StrictlyNegativeAttribute.StrictlyNegativeAttribute()
+  fullName: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute.StrictlyNegativeAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.StrictlyNegativeAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public StrictlyNegativeAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute.#ctor*
+  nameWithType.vb: StrictlyNegativeAttribute.New()
+  fullName.vb: PostSharp.Patterns.Contracts.StrictlyNegativeAttribute.New()
+  name.vb: New()

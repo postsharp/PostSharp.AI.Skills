@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.ScalarConstraint
+  commentId: T:PostSharp.Constraints.ScalarConstraint
+  id: ScalarConstraint
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.ScalarConstraint.#ctor
+  - PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ScalarConstraint
+  nameWithType: ScalarConstraint
+  fullName: PostSharp.Constraints.ScalarConstraint
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Implementation of <xref href="PostSharp.Constraints.IScalarConstraint" data-throw-if-not-resolved="false"></xref> based on <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>A scalar constraint validates the target declaration itself, for instance a type, member or parameter.
+        It is validated when the assembly that contains the target declaration is processed. To validate how other
+        code uses the declaration, use <xref href="PostSharp.Constraints.ReferentialConstraint" data-throw-if-not-resolved="false"></xref> instead.</p>
+    <p>Override <xref href="PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)" data-throw-if-not-resolved="false"></xref>, cast the target to the reflection type that matches the multicast targets of the
+        constraint, and emit warnings or errors with <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref>. Combine the constraint with
+        <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute.Inheritance" data-throw-if-not-resolved="false"></xref> to validate all types derived from the target type.</p>
+  example: []
+  syntax:
+    content: 'public class ScalarConstraint : Constraint, IScalarConstraint, IConstraint'
+    content.vb: Public Class ScalarConstraint Inherits Constraint Implements IScalarConstraint, IConstraint
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-constraints'
+    altText: 'Conceptual: Developing Custom Architectural Constraints'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Constraints.Constraint
+  derivedClasses:
+  - PostSharp.Constraints.NamingConventionAttribute
+  - PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  implements:
+  - PostSharp.Constraints.IScalarConstraint
+  - PostSharp.Constraints.IConstraint
+  inheritedMembers:
+  - PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)
+  commentId: M:PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)
+  id: ValidateCode(System.Object)
+  parent: PostSharp.Constraints.ScalarConstraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateCode(object)
+  nameWithType: ScalarConstraint.ValidateCode(object)
+  fullName: PostSharp.Constraints.ScalarConstraint.ValidateCode(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Validates the element of code to which the constraint is applied.
+  example: []
+  syntax:
+    content: public virtual void ValidateCode(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: >-
+        Element of code to which the constraint is applied (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Public Overridable Sub ValidateCode(target As Object)
+  overload: PostSharp.Constraints.ScalarConstraint.ValidateCode*
+  implements:
+  - PostSharp.Constraints.IScalarConstraint.ValidateCode(System.Object)
+  nameWithType.vb: ScalarConstraint.ValidateCode(Object)
+  fullName.vb: PostSharp.Constraints.ScalarConstraint.ValidateCode(Object)
+  name.vb: ValidateCode(Object)
+- uid: PostSharp.Constraints.ScalarConstraint.#ctor
+  commentId: M:PostSharp.Constraints.ScalarConstraint.#ctor
+  id: '#ctor'
+  parent: PostSharp.Constraints.ScalarConstraint
+  langs:
+  - csharp
+  - vb
+  name: ScalarConstraint()
+  nameWithType: ScalarConstraint.ScalarConstraint()
+  fullName: PostSharp.Constraints.ScalarConstraint.ScalarConstraint()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  syntax:
+    content: public ScalarConstraint()
+    content.vb: Public Sub New()
+  overload: PostSharp.Constraints.ScalarConstraint.#ctor*
+  nameWithType.vb: ScalarConstraint.New()
+  fullName.vb: PostSharp.Constraints.ScalarConstraint.New()
+  name.vb: New()

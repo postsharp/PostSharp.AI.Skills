@@ -1,0 +1,57 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IMethodBodyService
+  commentId: T:PostSharp.Reflection.MethodBody.IMethodBodyService
+  id: IMethodBodyService
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IMethodBodyService.GetMethodBody(System.Reflection.MethodBase,PostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel)
+  langs:
+  - csharp
+  - vb
+  name: IMethodBodyService
+  nameWithType: IMethodBodyService
+  fullName: PostSharp.Reflection.MethodBody.IMethodBodyService
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: >-
+    Service that exposes the <xref href="PostSharp.Reflection.MethodBody.IMethodBodyService.GetMethodBody(System.Reflection.MethodBase%2cPostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel)" data-throw-if-not-resolved="false"></xref> method, which decompiles
+
+    a method and gets an AST representation of it.
+  remarks: ''
+  example: []
+  syntax:
+    content: 'public interface IMethodBodyService : IService'
+    content.vb: Public Interface IMethodBodyService Inherits IService
+- uid: PostSharp.Reflection.MethodBody.IMethodBodyService.GetMethodBody(System.Reflection.MethodBase,PostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel)
+  commentId: M:PostSharp.Reflection.MethodBody.IMethodBodyService.GetMethodBody(System.Reflection.MethodBase,PostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel)
+  id: GetMethodBody(System.Reflection.MethodBase,PostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel)
+  parent: PostSharp.Reflection.MethodBody.IMethodBodyService
+  langs:
+  - csharp
+  - vb
+  name: GetMethodBody(MethodBase, MethodBodyAbstractionLevel)
+  nameWithType: IMethodBodyService.GetMethodBody(MethodBase, MethodBodyAbstractionLevel)
+  fullName: PostSharp.Reflection.MethodBody.IMethodBodyService.GetMethodBody(System.Reflection.MethodBase, PostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Decompiles a method and gets an AST representation of it.
+  example: []
+  syntax:
+    content: IMethodBody GetMethodBody(MethodBase method, MethodBodyAbstractionLevel abstractionLevel)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodBase
+      description: The method to decompile.
+    - id: abstractionLevel
+      type: PostSharp.Reflection.MethodBody.MethodBodyAbstractionLevel
+      description: The required level of abstraction and detail.
+    return:
+      type: PostSharp.Reflection.MethodBody.IMethodBody
+      description: The AST that represents the <code class="paramref">method</code> at the required level of abstraction and detail.
+    content.vb: Function GetMethodBody(method As MethodBase, abstractionLevel As MethodBodyAbstractionLevel) As IMethodBody
+  overload: PostSharp.Reflection.MethodBody.IMethodBodyService.GetMethodBody*

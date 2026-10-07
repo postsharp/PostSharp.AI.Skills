@@ -1,0 +1,305 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operation
+  commentId: T:PostSharp.Patterns.Recording.Operation
+  id: Operation
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.Operation.#ctor
+  - PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.Operation.Merge(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - PostSharp.Patterns.Recording.Operation.OperationKind
+  - PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action{System.Object})
+  langs:
+  - csharp
+  - vb
+  name: Operation
+  nameWithType: Operation
+  fullName: PostSharp.Patterns.Recording.Operation
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Base class for all operations. An operation is any change of state that can be appended to a <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref>
+
+    and therefore be involved in an undo/redo operation.
+  remarks: >-
+    <p>To record a custom change, derive a class from <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>, implement the <xref href="PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)" data-throw-if-not-resolved="false"></xref> methods,
+        and append instances to the history with the <xref href="PostSharp.Patterns.Recording.Recorder.AddOperation(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public abstract class Operation : IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public MustInherit Class Operation Implements IOperationDescriptor
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-conceptual'
+    altText: 'Conceptual: Understanding the Recordable Aspect'
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation`1
+  - PostSharp.Patterns.Recording.Operations.CompositeOperation
+  - PostSharp.Patterns.Recording.Operations.DictionaryOperation`2
+  - PostSharp.Patterns.Recording.Operations.FieldOperation`1
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation`1
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation
+  - PostSharp.Patterns.Recording.RestorePoint
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operation.#ctor
+  commentId: M:PostSharp.Patterns.Recording.Operation.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: Operation()
+  nameWithType: Operation.Operation()
+  fullName: PostSharp.Patterns.Recording.Operation.Operation()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected Operation()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Recording.Operation.#ctor*
+  nameWithType.vb: Operation.New()
+  fullName.vb: PostSharp.Patterns.Recording.Operation.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: Operation.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected abstract void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected MustOverride Sub Undo(context As ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operation.Undo*
+- uid: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: Operation.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected abstract void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected MustOverride Sub Redo(context As ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operation.Redo*
+- uid: PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action{System.Object})
+  commentId: M:PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action{System.Object})
+  id: VisitAffectedObjects(System.Action{System.Object})
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: VisitAffectedObjects(Action<object>)
+  nameWithType: Operation.VisitAffectedObjects(Action<object>)
+  fullName: PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action<object>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Executes a given action on all recordable objects involved with the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract void VisitAffectedObjects(Action<object> action)
+    parameters:
+    - id: action
+      type: System.Action{System.Object}
+      description: ''
+    content.vb: Public MustOverride Sub VisitAffectedObjects(action As Action(Of Object))
+  overload: PostSharp.Patterns.Recording.Operation.VisitAffectedObjects*
+  nameWithType.vb: Operation.VisitAffectedObjects(Action(Of Object))
+  fullName.vb: PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action(Of Object))
+  name.vb: VisitAffectedObjects(Action(Of Object))
+- uid: PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)
+  commentId: M:PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)
+  id: GetMergeStatus(PostSharp.Patterns.Recording.Operation)
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: GetMergeStatus(Operation)
+  nameWithType: Operation.GetMergeStatus(Operation)
+  fullName: PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Determines how a given <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> can be merged with the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual MergeStatus GetMergeStatus(Operation subsequent)
+    parameters:
+    - id: subsequent
+      type: PostSharp.Patterns.Recording.Operation
+      description: The subsequent <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> to be merged with the current one.
+    return:
+      type: PostSharp.Patterns.Recording.MergeStatus
+      description: A <xref href="PostSharp.Patterns.Recording.MergeStatus" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function GetMergeStatus(subsequent As Operation) As MergeStatus
+  overload: PostSharp.Patterns.Recording.Operation.GetMergeStatus*
+- uid: PostSharp.Patterns.Recording.Operation.Merge(PostSharp.Patterns.Recording.Operation)
+  commentId: M:PostSharp.Patterns.Recording.Operation.Merge(PostSharp.Patterns.Recording.Operation)
+  id: Merge(PostSharp.Patterns.Recording.Operation)
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: Merge(Operation)
+  nameWithType: Operation.Merge(Operation)
+  fullName: PostSharp.Patterns.Recording.Operation.Merge(PostSharp.Patterns.Recording.Operation)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Merges a given <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> into the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>This method is invoked only if the <xref href="PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref> method returned <xref href="PostSharp.Patterns.Recording.MergeStatus" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: protected virtual void Merge(Operation subsequent)
+    parameters:
+    - id: subsequent
+      type: PostSharp.Patterns.Recording.Operation
+      description: The <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> to merge into the current one.
+    content.vb: Protected Overridable Sub Merge(subsequent As Operation)
+  overload: PostSharp.Patterns.Recording.Operation.Merge*
+- uid: PostSharp.Patterns.Recording.Operation.Name
+  commentId: P:PostSharp.Patterns.Recording.Operation.Name
+  id: Name
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Operation.Name
+  fullName: PostSharp.Patterns.Recording.Operation.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the operation name.
+  remarks: <p>Operation names are evaluated lazily by the <xref href="PostSharp.Patterns.Recording.RecordingServices.OperationFormatter" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Recording.Operation.Name*
+- uid: PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  commentId: P:PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  id: OperationDescriptor
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: OperationDescriptor
+  nameWithType: Operation.OperationDescriptor
+  fullName: PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Gets the <xref href="PostSharp.Patterns.Recording.Operations.IOperationDescriptor" data-throw-if-not-resolved="false"></xref>, which is used by the <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref> to produce a human-readable description
+
+    of the current operation.
+  remarks: >-
+    <p>By default, the <xref href="PostSharp.Patterns.Recording.Operation.OperationDescriptor" data-throw-if-not-resolved="false"></xref> property returns the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>When the <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> represents a user-defined scope, the property evaluates to an instance of the <xref href="PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor" data-throw-if-not-resolved="false"></xref> class.
+        When it represents a method scope, it evaluates to an instance of the <xref href="PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor" data-throw-if-not-resolved="false"></xref> class. </p>
+  example: []
+  syntax:
+    content: public virtual IOperationDescriptor OperationDescriptor { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+    content.vb: Public Overridable ReadOnly Property OperationDescriptor As IOperationDescriptor
+  overload: PostSharp.Patterns.Recording.Operation.OperationDescriptor*
+- uid: PostSharp.Patterns.Recording.Operation.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operation.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operation
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: Operation.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operation.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public abstract OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public MustOverride ReadOnly Property OperationKind As OperationKind
+  overload: PostSharp.Patterns.Recording.Operation.OperationKind*
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind

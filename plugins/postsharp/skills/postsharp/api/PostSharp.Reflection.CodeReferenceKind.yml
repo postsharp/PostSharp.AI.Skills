@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.CodeReferenceKind
+  commentId: T:PostSharp.Reflection.CodeReferenceKind
+  id: CodeReferenceKind
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.CodeReferenceKind.MemberType
+  - PostSharp.Reflection.CodeReferenceKind.MethodUsage
+  - PostSharp.Reflection.CodeReferenceKind.None
+  - PostSharp.Reflection.CodeReferenceKind.TypeInheritance
+  langs:
+  - csharp
+  - vb
+  name: CodeReferenceKind
+  nameWithType: CodeReferenceKind
+  fullName: PostSharp.Reflection.CodeReferenceKind
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Kinds of code references (<xref href="PostSharp.Reflection.ICodeReference" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public enum CodeReferenceKind
+    content.vb: Public Enum CodeReferenceKind
+- uid: PostSharp.Reflection.CodeReferenceKind.None
+  commentId: F:PostSharp.Reflection.CodeReferenceKind.None
+  id: None
+  parent: PostSharp.Reflection.CodeReferenceKind
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CodeReferenceKind.None
+  fullName: PostSharp.Reflection.CodeReferenceKind.None
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: No code reference.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Reflection.CodeReferenceKind
+- uid: PostSharp.Reflection.CodeReferenceKind.TypeInheritance
+  commentId: F:PostSharp.Reflection.CodeReferenceKind.TypeInheritance
+  id: TypeInheritance
+  parent: PostSharp.Reflection.CodeReferenceKind
+  langs:
+  - csharp
+  - vb
+  name: TypeInheritance
+  nameWithType: CodeReferenceKind.TypeInheritance
+  fullName: PostSharp.Reflection.CodeReferenceKind.TypeInheritance
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Type inheritance. The base type is the <xref href="PostSharp.Reflection.ICodeReference.ReferencedDeclaration" data-throw-if-not-resolved="false"></xref>;
+
+    the child type is the <xref href="PostSharp.Reflection.ICodeReference.ReferencingDeclaration" data-throw-if-not-resolved="false"></xref>.
+
+    See <xref href="PostSharp.Reflection.TypeInheritanceCodeReference" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: TypeInheritance = 1
+    return:
+      type: PostSharp.Reflection.CodeReferenceKind
+- uid: PostSharp.Reflection.CodeReferenceKind.MemberType
+  commentId: F:PostSharp.Reflection.CodeReferenceKind.MemberType
+  id: MemberType
+  parent: PostSharp.Reflection.CodeReferenceKind
+  langs:
+  - csharp
+  - vb
+  name: MemberType
+  nameWithType: CodeReferenceKind.MemberType
+  fullName: PostSharp.Reflection.CodeReferenceKind.MemberType
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Member type (field or property type, method return type, or parameter type).
+
+    The member type is the <xref href="PostSharp.Reflection.ICodeReference.ReferencedDeclaration" data-throw-if-not-resolved="false"></xref>.
+
+    See <xref href="PostSharp.Reflection.MemberTypeCodeReference" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: MemberType = 2
+    return:
+      type: PostSharp.Reflection.CodeReferenceKind
+- uid: PostSharp.Reflection.CodeReferenceKind.MethodUsage
+  commentId: F:PostSharp.Reflection.CodeReferenceKind.MethodUsage
+  id: MethodUsage
+  parent: PostSharp.Reflection.CodeReferenceKind
+  langs:
+  - csharp
+  - vb
+  name: MethodUsage
+  nameWithType: CodeReferenceKind.MethodUsage
+  fullName: PostSharp.Reflection.CodeReferenceKind.MethodUsage
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Operand of an instruction in a method body. The <xref href="PostSharp.Reflection.ICodeReference.ReferencingDeclaration" data-throw-if-not-resolved="false"></xref>
+
+    is the method. See <xref href="PostSharp.Reflection.MethodUsageCodeReference" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: MethodUsage = 16
+    return:
+      type: PostSharp.Reflection.CodeReferenceKind

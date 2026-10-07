@@ -1,0 +1,415 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingServices
+  id: LoggingServices
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingServices.#ctor
+  - PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp
+  - PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend
+  - PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackendChanged
+  - PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler
+  - PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingServices.Initialize
+  - PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource)
+  - PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder)
+  - PostSharp.Patterns.Diagnostics.LoggingServices.Profiles
+  - PostSharp.Patterns.Diagnostics.LoggingServices.Roles
+  langs:
+  - csharp
+  - vb
+  name: LoggingServices
+  nameWithType: LoggingServices
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: The entry point to configure <code>PostSharp.Patterns.Diagnostics</code> logging at run time.
+  example: []
+  syntax:
+    content: public class LoggingServices
+    content.vb: Public Class LoggingServices
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.Initialize
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingServices.Initialize
+  id: Initialize
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: LoggingServices.Initialize()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.Initialize()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Forces initialization of the <code>PostSharp.Patterns.Diagnostics</code> package, that is,
+
+    binds the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> facade API (which is defined in the <code>PostSharp.Patterns.Common</code> package) to the implementation
+
+    provided by the <code>PostSharp.Patterns.Diagnostics</code> package.
+  example: []
+  syntax:
+    content: public static void Initialize()
+    content.vb: Public Shared Sub Initialize()
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.Initialize*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(System.String,System.Type)
+  id: GetSource(System.String,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: GetSource(string, Type)
+  nameWithType: LoggingServices.GetSource(string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(string, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  remarks: >-
+    <p>This method returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> currently configured for the given <code class="paramref">role</code>.
+        Instances of the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> class are not shared by different instances of the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> class. However, several
+        roles can share the same <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> instance. Therefore, you should configure a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> after, and not before,
+        assigning a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> to the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> property or a <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use LoggingBackend.DefaultContextLocalConfiguration.Verbosity")]
+
+      public static LoggingTypeSource GetSource(string role, Type type)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role. This is typically one of the constants of the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type, or a custom role.
+    - id: type
+      type: System.Type
+      description: The type.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: >-
+        The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">role</code> and <code class="paramref">type</code>. If no <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>
+                    exists for this role and type, this method shall create a new <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <Obsolete("Use LoggingBackend.DefaultContextLocalConfiguration.Verbosity")>
+
+      Public Shared Function GetSource(role As String, type As Type) As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use LoggingBackend.DefaultContextLocalConfiguration.Verbosity
+  nameWithType.vb: LoggingServices.GetSource(String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(String, System.Type)
+  name.vb: GetSource(String, Type)
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(System.String,System.String)
+  id: GetSource(System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: GetSource(string, string)
+  nameWithType: LoggingServices.GetSource(string, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> for the given role and, optionally, namespace.
+  remarks: >-
+    <p>This method returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> currently configured for the given <code class="paramref">role</code>.
+        Instances of the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> class are not shared by different instances of the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> class. However, several
+        roles can share the same <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> instance. Therefore, you should configure a <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> after, and not before,
+        assigning a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> to the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> property or a <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use LoggingBackend.DefaultContextLocalConfiguration.Verbosity")]
+
+      public static LoggingNamespaceSource GetSource(string role, string ns = null)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role. This is typically one of the constants of the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type, or a custom role.
+    - id: ns
+      type: System.String
+      description: >-
+        The namespace for which the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> is requested, or <code>null</code>
+                    if the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> is requested for the root namespace.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: >-
+        The <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">role</code> and <code class="paramref">ns</code>. If no <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>
+                    exists for this role and namespace, this method shall create a new <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <Obsolete("Use LoggingBackend.DefaultContextLocalConfiguration.Verbosity")>
+
+      Public Shared Function GetSource(role As String, ns As String = Nothing) As LoggingNamespaceSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use LoggingBackend.DefaultContextLocalConfiguration.Verbosity
+  nameWithType.vb: LoggingServices.GetSource(String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingServices.GetSource(String, String)
+  name.vb: GetSource(String, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource)
+  id: OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource)
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: OnInternalException(Exception, LoggingTypeSource)
+  nameWithType: LoggingServices.OnInternalException(Exception, LoggingTypeSource)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception, PostSharp.Patterns.Diagnostics.LoggingTypeSource)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Called when an exception is caught in logging code.
+  example: []
+  syntax:
+    content: public static void OnInternalException(Exception exception, LoggingTypeSource source)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: The caught exception, or <code>null</code> if it is not available.
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The relevant <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if it could not be determined.
+    content.vb: Public Shared Sub OnInternalException(exception As Exception, source As LoggingTypeSource)
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder)
+  id: OnInternalException(System.Exception,PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder)
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: OnInternalException(Exception, LoggingTypeSource, LogRecordBuilder)
+  nameWithType: LoggingServices.OnInternalException(Exception, LoggingTypeSource, LogRecordBuilder)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException(System.Exception, PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Called when an exception is caught in logging code. This overload disposes the <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void OnInternalException(Exception exception, LoggingTypeSource source, LogRecordBuilder recordBuilder)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: The caught exception, or <code>null</code> if it is not available.
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The relevant <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if it could not be determined.
+    - id: recordBuilder
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: An optional <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref> that will be disposed.
+    content.vb: Public Shared Sub OnInternalException(exception As Exception, source As LoggingTypeSource, recordBuilder As LogRecordBuilder)
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.OnInternalException*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingServices.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: LoggingServices()
+  nameWithType: LoggingServices.LoggingServices()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.LoggingServices()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  syntax:
+    content: public LoggingServices()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.#ctor*
+  nameWithType.vb: LoggingServices.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingServices.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend
+  id: DefaultBackend
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: DefaultBackend
+  nameWithType: LoggingServices.DefaultBackend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the default <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> used for logging in the current application.
+  remarks: >-
+    <p>
+        The <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> can be set individually for each role by setting the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration.Backend" data-throw-if-not-resolved="false"></xref>
+        property of items of the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.Roles" data-throw-if-not-resolved="false"></xref> collection.
+        </p>
+    <p>Setting this property has the side effect of also setting the backend for
+        the Meta role to a <xref href="PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend" data-throw-if-not-resolved="false"></xref> whose first child is the new default backend
+        and the second child is a new <xref href="PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend" data-throw-if-not-resolved="false"></xref>. If you need to change this behavior,
+        you must override <code>Roles[LoggingRoles.Meta].Backend</code> after setting this property.</p>
+  example: []
+  syntax:
+    content: public static LoggingBackend DefaultBackend { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+    content.vb: Public Shared Property DefaultBackend As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.Profiles
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingServices.Profiles
+  id: Profiles
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: Profiles
+  nameWithType: LoggingServices.Profiles
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.Profiles
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the repository of build-time logging profiles.
+  example: []
+  syntax:
+    content: public static LoggingProfileRepository Profiles { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingProfileRepository
+    content.vb: Public Shared ReadOnly Property Profiles As LoggingProfileRepository
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.Profiles*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.Roles
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingServices.Roles
+  id: Roles
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: Roles
+  nameWithType: LoggingServices.Roles
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.Roles
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the repository of role-specific run-time logging options.
+  example: []
+  syntax:
+    content: public static LoggingRoleConfigurationRepository Roles { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingRoleConfigurationRepository
+    content.vb: Public Shared ReadOnly Property Roles As LoggingRoleConfigurationRepository
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.Roles*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp
+  id: CurrentTimestamp
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: CurrentTimestamp
+  nameWithType: LoggingServices.CurrentTimestamp
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a timestamp, in milliseconds.
+  example: []
+  syntax:
+    content: public static double CurrentTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Shared ReadOnly Property CurrentTimestamp As Double
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp*
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler
+  id: ExceptionHandler
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: ExceptionHandler
+  nameWithType: LoggingServices.ExceptionHandler
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the object that handles exceptions thrown by the logging logic. This property is set by default to an instance
+
+    of the <xref href="PostSharp.Patterns.Diagnostics.DefaultLoggingExceptionHandler" data-throw-if-not-resolved="false"></xref> class, or to an instance of the <xref href="PostSharp.Patterns.Diagnostics.ThrowingLoggingExceptionHandler" data-throw-if-not-resolved="false"></xref> class
+
+    when a debugger is attached at the time the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices" data-throw-if-not-resolved="false"></xref> class is initialized.
+  remarks: >-
+    <p>The default handler disables the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> that caused an internal exception, unless the exception is an
+        <xref href="PostSharp.Patterns.Diagnostics.Custom.InvalidFormattingStringException" data-throw-if-not-resolved="false"></xref>. Set <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled" data-throw-if-not-resolved="false"></xref>
+        to <code>true</code> to enable it again.</p>
+  example: []
+  syntax:
+    content: public static ILoggingExceptionHandler ExceptionHandler { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+    content.vb: Public Shared Property ExceptionHandler As ILoggingExceptionHandler
+  overload: PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler*
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+    commentId: T:PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler
+  - linkType: HRef
+    linkId: '@logging-exception-handling'
+    altText: 'Conceptual: Handling Logging Exceptions'
+- uid: PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackendChanged
+  commentId: E:PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackendChanged
+  id: DefaultBackendChanged
+  parent: PostSharp.Patterns.Diagnostics.LoggingServices
+  langs:
+  - csharp
+  - vb
+  name: DefaultBackendChanged
+  nameWithType: LoggingServices.DefaultBackendChanged
+  fullName: PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackendChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Occurs when the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
+  syntax:
+    content: public static event EventHandler DefaultBackendChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Shared Event DefaultBackendChanged As EventHandler

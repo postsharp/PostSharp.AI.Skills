@@ -1,0 +1,281 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1
+  commentId: T:PostSharp.Patterns.Formatters.FormatterRepository`1
+  id: FormatterRepository`1
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.#ctor
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.Get(System.Type)
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.Get``1
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.Register(System.Type,PostSharp.Patterns.Formatters.IFormatter)
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.Register(System.Type,System.Type)
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.Register``1(PostSharp.Patterns.Formatters.IFormatter{``0})
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.Reset
+  - PostSharp.Patterns.Formatters.FormatterRepository`1.SetDynamic``1
+  langs:
+  - csharp
+  - vb
+  name: FormatterRepository<TRole>
+  nameWithType: FormatterRepository<TRole>
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Allows getting and registering formatters for a specific type.
+  example: []
+  syntax:
+    content: 'public abstract class FormatterRepository<TRole> where TRole : FormattingRole, new()'
+    typeParameters:
+    - id: TRole
+      description: The marker type used to differentiate FormattingServices for different purposes, such as caching or logging.
+    content.vb: Public MustInherit Class FormatterRepository(Of TRole As {FormattingRole, New})
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Caching.CachingServices.Formatters
+  - PostSharp.Patterns.Diagnostics.LoggingServices.Formatters
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: FormatterRepository(Of TRole)
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole)
+  name.vb: FormatterRepository(Of TRole)
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.#ctor
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: FormatterRepository()
+  nameWithType: FormatterRepository<TRole>.FormatterRepository()
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.FormatterRepository()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.FormatterRepository%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected FormatterRepository()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.#ctor*
+  nameWithType.vb: FormatterRepository(Of TRole).New()
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.SetDynamic``1
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.SetDynamic``1
+  id: SetDynamic``1
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: SetDynamic<T>()
+  nameWithType: FormatterRepository<TRole>.SetDynamic<T>()
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.SetDynamic<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Specifies that formatters for parameters of a given type are resolved according
+
+    to the type of the parameter value, not the type of the parameter itself. Interfaces, abstract classes, and the <xref href="System.Object" data-throw-if-not-resolved="false"></xref> class are
+
+    always resolved dynamically.
+  example: []
+  syntax:
+    content: 'public static void SetDynamic<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The type of the parameter.
+    content.vb: Public Shared Sub SetDynamic(Of T As Class)()
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.SetDynamic*
+  nameWithType.vb: FormatterRepository(Of TRole).SetDynamic(Of T)()
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).SetDynamic(Of T)()
+  name.vb: SetDynamic(Of T)()
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.Register``1(PostSharp.Patterns.Formatters.IFormatter{``0})
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.Register``1(PostSharp.Patterns.Formatters.IFormatter{``0})
+  id: Register``1(PostSharp.Patterns.Formatters.IFormatter{``0})
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Register<T>(IFormatter<T>)
+  nameWithType: FormatterRepository<TRole>.Register<T>(IFormatter<T>)
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.Register<T>(PostSharp.Patterns.Formatters.IFormatter<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Registers the given <code class="paramref">formatter</code> for the type <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static void Register<T>(IFormatter<T> formatter)
+    parameters:
+    - id: formatter
+      type: PostSharp.Patterns.Formatters.IFormatter{{T}}
+    typeParameters:
+    - id: T
+    content.vb: Public Shared Sub Register(Of T)(formatter As IFormatter(Of T))
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Register*
+  nameWithType.vb: FormatterRepository(Of TRole).Register(Of T)(IFormatter(Of T))
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).Register(Of T)(PostSharp.Patterns.Formatters.IFormatter(Of T))
+  name.vb: Register(Of T)(IFormatter(Of T))
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.Register(System.Type,PostSharp.Patterns.Formatters.IFormatter)
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.Register(System.Type,PostSharp.Patterns.Formatters.IFormatter)
+  id: Register(System.Type,PostSharp.Patterns.Formatters.IFormatter)
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Register(Type, IFormatter)
+  nameWithType: FormatterRepository<TRole>.Register(Type, IFormatter)
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.Register(System.Type, PostSharp.Patterns.Formatters.IFormatter)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Registers the given <code class="paramref">formatter</code> for the given <code class="paramref">targetType</code>.
+  remarks: The formatter works for the given target type and for any type that inherits from or implements the target type.
+  example: []
+  syntax:
+    content: public static void Register(Type targetType, IFormatter formatter)
+    parameters:
+    - id: targetType
+      type: System.Type
+    - id: formatter
+      type: PostSharp.Patterns.Formatters.IFormatter
+    content.vb: Public Shared Sub Register(targetType As Type, formatter As IFormatter)
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Register*
+  nameWithType.vb: FormatterRepository(Of TRole).Register(Type, IFormatter)
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).Register(System.Type, PostSharp.Patterns.Formatters.IFormatter)
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.Register(System.Type,System.Type)
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.Register(System.Type,System.Type)
+  id: Register(System.Type,System.Type)
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Register(Type, Type)
+  nameWithType: FormatterRepository<TRole>.Register(Type, Type)
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.Register(System.Type, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Registers the given <code class="paramref">formatterType</code> for the given <code class="paramref">targetType</code>.
+  remarks: >-
+    <p>Instances of <code class="paramref">formatterType</code> are created using a parameterless constructor.</p>
+
+    <p>When <code class="paramref">targetType</code> is generic, the registration applies to its generic instantiations
+        and to types that inherit from or implement them.</p>
+  example:
+  - >-
+    If you register a formatter as
+
+    <code>FormattingServices.RegisterFormatter(typeof(IDictionary&lt;,&gt;), typeof(MyDictionaryFormatter&lt;,&gt;))</code>
+
+    and then log a parameter of type <code>Dictionary&lt;int, string&gt;</code>, the formatter for that parameter is created
+
+    by calling <code>new MyDictionaryFormatter&lt;int, string&gt;</code>.
+  syntax:
+    content: public static void Register(Type targetType, Type formatterType)
+    parameters:
+    - id: targetType
+      type: System.Type
+    - id: formatterType
+      type: System.Type
+    content.vb: Public Shared Sub Register(targetType As Type, formatterType As Type)
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Register*
+  nameWithType.vb: FormatterRepository(Of TRole).Register(Type, Type)
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).Register(System.Type, System.Type)
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.Get``1
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.Get``1
+  id: Get``1
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Get<T>()
+  nameWithType: FormatterRepository<TRole>.Get<T>()
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.Get<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Returns the formatter for the type <code class="typeparamref">T</code>.
+  example: []
+  syntax:
+    content: public static IFormatter<T> Get<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: PostSharp.Patterns.Formatters.IFormatter{{T}}
+    content.vb: Public Shared Function [Get](Of T)() As IFormatter(Of T)
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Get*
+  nameWithType.vb: FormatterRepository(Of TRole).Get(Of T)()
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).Get(Of T)()
+  name.vb: Get(Of T)()
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.Get(System.Type)
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.Get(System.Type)
+  id: Get(System.Type)
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Get(Type)
+  nameWithType: FormatterRepository<TRole>.Get(Type)
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.Get(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Returns a formatter for a specific object. This overload should be used when the type of the object
+
+    is not known at build time because the type is non-sealed.
+  example: []
+  syntax:
+    content: public static IFormatter Get(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type of the object.
+    return:
+      type: PostSharp.Patterns.Formatters.IFormatter
+      description: The formatter for the object type <code class="paramref">objectType</code>.
+    content.vb: Public Shared Function [Get](objectType As Type) As IFormatter
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Get*
+  nameWithType.vb: FormatterRepository(Of TRole).Get(Type)
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).Get(System.Type)
+- uid: PostSharp.Patterns.Formatters.FormatterRepository`1.Reset
+  commentId: M:PostSharp.Patterns.Formatters.FormatterRepository`1.Reset
+  id: Reset
+  parent: PostSharp.Patterns.Formatters.FormatterRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: FormatterRepository<TRole>.Reset()
+  fullName: PostSharp.Patterns.Formatters.FormatterRepository<TRole>.Reset()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Clears the formatters, but does not reset the registrations.
+  remarks: This method is used by unit tests to clear the standard formatters.
+  example: []
+  syntax:
+    content: public static void Reset()
+    content.vb: Public Shared Sub Reset()
+  overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Reset*
+  nameWithType.vb: FormatterRepository(Of TRole).Reset()
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterRepository(Of TRole).Reset()

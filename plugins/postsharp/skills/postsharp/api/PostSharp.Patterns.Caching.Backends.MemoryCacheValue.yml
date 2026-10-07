@@ -1,0 +1,147 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  commentId: T:PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  id: MemoryCacheValue
+  parent: PostSharp.Patterns.Caching.Backends
+  children:
+  - PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},System.Object)
+  - PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},System.Object)
+  - PostSharp.Patterns.Caching.Backends.MemoryCacheValue.Sync
+  langs:
+  - csharp
+  - vb
+  name: MemoryCacheValue
+  nameWithType: MemoryCacheValue
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: >-
+    Represents a <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref> with an extra object that functions as a lock. Caching backends use this class. Do not use it if you are not
+
+    implementing a <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class MemoryCacheValue : CacheValue'
+    content.vb: Public Class MemoryCacheValue Inherits CacheValue
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CacheValue
+  inheritedMembers:
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue(System.Object)
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.Value
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.Tags
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},System.Object)
+  id: '#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},System.Object)'
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  langs:
+  - csharp
+  - vb
+  name: MemoryCacheValue(object, IImmutableList<string>, object)
+  nameWithType: MemoryCacheValue.MemoryCacheValue(object, IImmutableList<string>, object)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.MemoryCacheValue(object, System.Collections.Immutable.IImmutableList<string>, object)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Backends.MemoryCacheValue" data-throw-if-not-resolved="false"></xref> class without the <code>tags</code> parameter.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Pass the tags parameter.")]
+
+      public MemoryCacheValue(object value, IImmutableList<string> dependencies, object sync)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The cached value.
+    - id: dependencies
+      type: System.Collections.Immutable.IImmutableList{System.String}
+      description: The list of dependencies, or <code>null</code> if there are no dependencies.
+    - id: sync
+      type: System.Object
+      description: A mutex that is locked when the dependencies of this item are modified.
+    content.vb: >-
+      <Obsolete("Pass the tags parameter.")>
+
+      Public Sub New(value As Object, dependencies As IImmutableList(Of String), sync As Object)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Pass the tags parameter.
+  nameWithType.vb: MemoryCacheValue.New(Object, IImmutableList(Of String), Object)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.New(Object, System.Collections.Immutable.IImmutableList(Of String), Object)
+  name.vb: New(Object, IImmutableList(Of String), Object)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},System.Object)
+  id: '#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},System.Object)'
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  langs:
+  - csharp
+  - vb
+  name: MemoryCacheValue(object, IReadOnlyList<object>, IImmutableList<string>, object)
+  nameWithType: MemoryCacheValue.MemoryCacheValue(object, IReadOnlyList<object>, IImmutableList<string>, object)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.MemoryCacheValue(object, System.Collections.Generic.IReadOnlyList<object>, System.Collections.Immutable.IImmutableList<string>, object)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Backends.MemoryCacheValue" data-throw-if-not-resolved="false"></xref> class with the <code class="paramref">tags</code> parameter.
+  example: []
+  syntax:
+    content: public MemoryCacheValue(object value, IReadOnlyList<object> tags, IImmutableList<string> dependencies, object sync)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The cached value.
+    - id: tags
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: A secondary list of values, typically used by <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer" data-throw-if-not-resolved="false"></xref> implementations.
+    - id: dependencies
+      type: System.Collections.Immutable.IImmutableList{System.String}
+      description: The list of dependencies, or <code>null</code> if there are no dependencies.
+    - id: sync
+      type: System.Object
+      description: A mutex that is locked when the dependencies of this item are modified.
+    content.vb: Public Sub New(value As Object, tags As IReadOnlyList(Of Object), dependencies As IImmutableList(Of String), sync As Object)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.#ctor*
+  nameWithType.vb: MemoryCacheValue.New(Object, IReadOnlyList(Of Object), IImmutableList(Of String), Object)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.New(Object, System.Collections.Generic.IReadOnlyList(Of Object), System.Collections.Immutable.IImmutableList(Of String), Object)
+  name.vb: New(Object, IReadOnlyList(Of Object), IImmutableList(Of String), Object)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.Sync
+  commentId: P:PostSharp.Patterns.Caching.Backends.MemoryCacheValue.Sync
+  id: Sync
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  langs:
+  - csharp
+  - vb
+  name: Sync
+  nameWithType: MemoryCacheValue.Sync
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.Sync
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Gets or sets the mutex that protects this cache key.
+  example: []
+  syntax:
+    content: public object Sync { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Sync As Object
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCacheValue.Sync*

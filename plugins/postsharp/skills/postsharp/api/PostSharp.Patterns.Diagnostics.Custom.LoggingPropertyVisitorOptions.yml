@@ -1,0 +1,241 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  id: LoggingPropertyVisitorOptions
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.#ctor(System.Boolean,System.Boolean,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithIncludeInherited(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyInherited(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyRendered(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyVisitorOptions
+  nameWithType: LoggingPropertyVisitorOptions
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Specifies the behavior of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData.VisitProperties%60%601(PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions%40)" data-throw-if-not-resolved="false"></xref>
+
+    method.
+  example: []
+  syntax:
+    content: public readonly struct LoggingPropertyVisitorOptions
+    content.vb: Public Structure LoggingPropertyVisitorOptions
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.#ctor(System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.#ctor(System.Boolean,System.Boolean,System.Boolean)
+  id: '#ctor(System.Boolean,System.Boolean,System.Boolean)'
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyVisitorOptions(bool, bool, bool)
+  nameWithType: LoggingPropertyVisitorOptions.LoggingPropertyVisitorOptions(bool, bool, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.LoggingPropertyVisitorOptions(bool, bool, bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public LoggingPropertyVisitorOptions(bool onlyInherited = false, bool includeInherited = false, bool onlyRendered = false)
+    parameters:
+    - id: onlyInherited
+      type: System.Boolean
+      description: >-
+        Determines whether only inherited properties (those with the
+                    <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> flag set to <code>true</code>) must be visited.
+    - id: includeInherited
+      type: System.Boolean
+      description: >-
+        Determines whether inherited properties must be included. This flag is taken into account by the visitors implemented on the logging contexts
+                    only. It is ignored by other visiting methods.
+    - id: onlyRendered
+      type: System.Boolean
+      description: Determines whether only rendered properties must be visited.
+    content.vb: Public Sub New(onlyInherited As Boolean = False, includeInherited As Boolean = False, onlyRendered As Boolean = False)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.#ctor*
+  nameWithType.vb: LoggingPropertyVisitorOptions.New(Boolean, Boolean, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.New(Boolean, Boolean, Boolean)
+  name.vb: New(Boolean, Boolean, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyInherited(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyInherited(System.Boolean)
+  id: WithOnlyInherited(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: WithOnlyInherited(bool)
+  nameWithType: LoggingPropertyVisitorOptions.WithOnlyInherited(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyInherited(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref>, but with a specific value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyVisitorOptions WithOnlyInherited(bool value = true)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithOnlyInherited(value As Boolean = True) As LoggingPropertyVisitorOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyInherited*
+  nameWithType.vb: LoggingPropertyVisitorOptions.WithOnlyInherited(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyInherited(Boolean)
+  name.vb: WithOnlyInherited(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyRendered(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyRendered(System.Boolean)
+  id: WithOnlyRendered(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: WithOnlyRendered(bool)
+  nameWithType: LoggingPropertyVisitorOptions.WithOnlyRendered(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyRendered(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref>, but with a specific value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyVisitorOptions WithOnlyRendered(bool value = true)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithOnlyRendered(value As Boolean = True) As LoggingPropertyVisitorOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyRendered*
+  nameWithType.vb: LoggingPropertyVisitorOptions.WithOnlyRendered(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithOnlyRendered(Boolean)
+  name.vb: WithOnlyRendered(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithIncludeInherited(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithIncludeInherited(System.Boolean)
+  id: WithIncludeInherited(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: WithIncludeInherited(bool)
+  nameWithType: LoggingPropertyVisitorOptions.WithIncludeInherited(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithIncludeInherited(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref>, but with a specific value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public LoggingPropertyVisitorOptions WithIncludeInherited(bool value = true)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited" data-throw-if-not-resolved="false"></xref> property.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions" data-throw-if-not-resolved="false"></xref> with the specified value.
+    content.vb: Public Function WithIncludeInherited(value As Boolean = True) As LoggingPropertyVisitorOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithIncludeInherited*
+  nameWithType.vb: LoggingPropertyVisitorOptions.WithIncludeInherited(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.WithIncludeInherited(Boolean)
+  name.vb: WithIncludeInherited(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited
+  id: OnlyInherited
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: OnlyInherited
+  nameWithType: LoggingPropertyVisitorOptions.OnlyInherited
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether only inherited properties (those with the <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions.IsInherited" data-throw-if-not-resolved="false"></xref> flag set to <code>true</code>)
+
+    must be visited.
+  example: []
+  syntax:
+    content: public bool OnlyInherited { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property OnlyInherited As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyInherited*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited
+  id: IncludeInherited
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeInherited
+  nameWithType: LoggingPropertyVisitorOptions.IncludeInherited
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether inherited properties must be included. This flag is taken into account by the visitors implemented on the logging contexts
+
+    only. It is ignored by other visiting methods.
+  example: []
+  syntax:
+    content: public bool IncludeInherited { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IncludeInherited As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.IncludeInherited*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered
+  id: OnlyRendered
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: OnlyRendered
+  nameWithType: LoggingPropertyVisitorOptions.OnlyRendered
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets a value indicating whether only rendered properties must be visited.
+  example: []
+  syntax:
+    content: public bool OnlyRendered { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property OnlyRendered As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions.OnlyRendered*

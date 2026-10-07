@@ -1,0 +1,303 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  id: LoggingConfigurationManager
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XDocument,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XElement,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.TimeSpan,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ResetConfiguration(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  - PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.StopAutoReloadConfigurationAsync(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  langs:
+  - csharp
+  - vb
+  name: LoggingConfigurationManager
+  nameWithType: LoggingConfigurationManager
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Provides methods that configure a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> from an XML file.
+  remarks: >-
+    <p>The XML file sets the default verbosity per namespace or type and can define transaction policies that change the verbosity
+        of selected requests. Its format is described by <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>Use <xref href="PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend%2cSystem.Uri%2cSystem.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> to change the verbosity of a running application without redeploying it: the
+        method downloads the file, typically from an HTTPS location, and reloads it periodically. It does not throw when the file cannot be
+        downloaded or parsed; it reports the error through PostSharp Logging. <xref href="PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlAsync(PostSharp.Patterns.Diagnostics.LoggingBackend%2cSystem.Uri%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> loads the file once and throws
+        in that case, except for errors in the <code>verbosity</code> element, which are only reported.</p>
+    <p>The file can contain expressions that execute in the application, so only authorized personnel should have write access to it.</p>
+  example: []
+  syntax:
+    content: public static class LoggingConfigurationManager
+    content.vb: Public Module LoggingConfigurationManager
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+    commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.TimeSpan,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.TimeSpan,System.Threading.CancellationToken)
+  id: ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.TimeSpan,System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  langs:
+  - csharp
+  - vb
+  name: ConfigureFromXmlWithAutoReloadAsync(LoggingBackend, Uri, TimeSpan, CancellationToken)
+  nameWithType: LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(LoggingBackend, Uri, TimeSpan, CancellationToken)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend, System.Uri, System.TimeSpan, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Configures a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> from an XML configuration file whose location is specified in a <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>
+
+    and specifies a <xref href="System.TimeSpan" data-throw-if-not-resolved="false"></xref> at which the file should be refreshed from source.
+  remarks: >-
+    <p>
+        This method always succeeds, even if the <code class="paramref">uri</code> is incorrect or the content is corrupt. The reason is that
+        the resource may become available or correct later.
+        </p>
+    <div class="NOTE"><h5>security</h5><p>
+        Note that the XML file can contain code that will execute on the device from which you call this method. A malicious attacker
+        could create a file that causes a data breach or a denial of service. Therefore, you must ensure that only
+        authorized personnel have write access to the remote file. Additionally, this file must be publicly readable. Therefore,
+        it should not include any sensitive information. There should be no reason to do so.
+        </p></div>
+  example: []
+  syntax:
+    content: public static Task<IDisposable> ConfigureFromXmlWithAutoReloadAsync(this LoggingBackend backend, Uri uri, TimeSpan autoReloadPeriod, CancellationToken cancellationToken = default)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The backend to configure.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: uri
+      type: System.Uri
+      description: >-
+        The location of the configuration file. The schema is described in the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel" data-throw-if-not-resolved="false"></xref> type. 
+                    If you are using a cloud storage service, this should be a direct download link.
+    - id: autoReloadPeriod
+      type: System.TimeSpan
+      description: >-
+        The <xref href="System.TimeSpan" data-throw-if-not-resolved="false"></xref> after which the configuration should be reloaded. If this parameter equals zero or <code>TimeSpan.MaxValue</code>,
+                    the configuration is never reloaded.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.IDisposable}
+      description: An opaque <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> that must be disposed to stop reloading the configuration.
+    content.vb: Public Shared Function ConfigureFromXmlWithAutoReloadAsync(backend As LoggingBackend, uri As Uri, autoReloadPeriod As TimeSpan, cancellationToken As CancellationToken = Nothing) As Task(Of IDisposable)
+  overload: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync*
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.StopAutoReloadConfigurationAsync(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.StopAutoReloadConfigurationAsync(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  id: StopAutoReloadConfigurationAsync(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  langs:
+  - csharp
+  - vb
+  name: StopAutoReloadConfigurationAsync(LoggingBackend)
+  nameWithType: LoggingConfigurationManager.StopAutoReloadConfigurationAsync(LoggingBackend)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.StopAutoReloadConfigurationAsync(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Stops all auto-refresh configuration set up by <xref href="PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlWithAutoReloadAsync(PostSharp.Patterns.Diagnostics.LoggingBackend%2cSystem.Uri%2cSystem.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>
+
+    and waits until all pending operations have completed.
+  example: []
+  syntax:
+    content: public static Task StopAutoReloadConfigurationAsync(this LoggingBackend backend)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The backend for which auto-refreshed configuration must be stopped.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that completes when all pending operations have completed.
+    content.vb: Public Shared Function StopAutoReloadConfigurationAsync(backend As LoggingBackend) As Task
+  overload: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.StopAutoReloadConfigurationAsync*
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.Threading.CancellationToken)
+  id: ConfigureFromXmlAsync(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Uri,System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  langs:
+  - csharp
+  - vb
+  name: ConfigureFromXmlAsync(LoggingBackend, Uri, CancellationToken)
+  nameWithType: LoggingConfigurationManager.ConfigureFromXmlAsync(LoggingBackend, Uri, CancellationToken)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlAsync(PostSharp.Patterns.Diagnostics.LoggingBackend, System.Uri, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Configures a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> from an XML configuration file whose location is specified in a <xref href="System.Uri" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task ConfigureFromXmlAsync(this LoggingBackend backend, Uri uri, CancellationToken cancellationToken = default)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The backend to configure.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: uri
+      type: System.Uri
+      description: >-
+        The location of the configuration file. The schema is described in the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel" data-throw-if-not-resolved="false"></xref> type. 
+                    If you are using a cloud storage service, this should be a direct download link.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: Nothing.
+    content.vb: Public Shared Function ConfigureFromXmlAsync(backend As LoggingBackend, uri As Uri, cancellationToken As CancellationToken = Nothing) As Task
+  overload: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXmlAsync*
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XDocument,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XDocument,System.Boolean)
+  id: ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XDocument,System.Boolean)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  langs:
+  - csharp
+  - vb
+  name: ConfigureFromXml(LoggingBackend, XDocument, bool)
+  nameWithType: LoggingConfigurationManager.ConfigureFromXml(LoggingBackend, XDocument, bool)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend, System.Xml.Linq.XDocument, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Configures a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> from an <xref href="System.Xml.Linq.XDocument" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void ConfigureFromXml(this LoggingBackend backend, XDocument xml, bool throwing = false)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The backend to configure.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: xml
+      type: System.Xml.Linq.XDocument
+      description: The configuration file. The schema is described in the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel" data-throw-if-not-resolved="false"></xref> type.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: throwing
+      type: System.Boolean
+      description: >-
+        <code>true</code> if errors should be reported as exceptions, <code>false</code> if they should be handled without exception.
+            The default is <code>false</code>. The <code>true</code> value is used for debugging and diagnostics.
+    content.vb: Public Shared Sub ConfigureFromXml(backend As LoggingBackend, xml As XDocument, throwing As Boolean = False)
+  overload: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml*
+  nameWithType.vb: LoggingConfigurationManager.ConfigureFromXml(LoggingBackend, XDocument, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend, System.Xml.Linq.XDocument, Boolean)
+  name.vb: ConfigureFromXml(LoggingBackend, XDocument, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XElement,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XElement,System.Boolean)
+  id: ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend,System.Xml.Linq.XElement,System.Boolean)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  langs:
+  - csharp
+  - vb
+  name: ConfigureFromXml(LoggingBackend, XElement, bool)
+  nameWithType: LoggingConfigurationManager.ConfigureFromXml(LoggingBackend, XElement, bool)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend, System.Xml.Linq.XElement, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Configures a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> from an <xref href="System.Xml.Linq.XElement" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void ConfigureFromXml(this LoggingBackend backend, XElement xml, bool throwing = false)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The backend to configure.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: xml
+      type: System.Xml.Linq.XElement
+      description: The configuration file. The schema is described in the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel" data-throw-if-not-resolved="false"></xref> type.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: throwing
+      type: System.Boolean
+      description: >-
+        <code>true</code> if errors should be reported as exceptions, <code>false</code> if they should be handled without exception.
+            The default is <code>false</code>. The <code>true</code> value is used for debugging and diagnostics.
+    content.vb: Public Shared Sub ConfigureFromXml(backend As LoggingBackend, xml As XElement, throwing As Boolean = False)
+  overload: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml*
+  nameWithType.vb: LoggingConfigurationManager.ConfigureFromXml(LoggingBackend, XElement, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ConfigureFromXml(PostSharp.Patterns.Diagnostics.LoggingBackend, System.Xml.Linq.XElement, Boolean)
+  name.vb: ConfigureFromXml(LoggingBackend, XElement, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ResetConfiguration(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ResetConfiguration(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  id: ResetConfiguration(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  langs:
+  - csharp
+  - vb
+  name: ResetConfiguration(LoggingBackend)
+  nameWithType: LoggingConfigurationManager.ResetConfiguration(LoggingBackend)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ResetConfiguration(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Removes the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector" data-throw-if-not-resolved="false"></xref> and resets the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity" data-throw-if-not-resolved="false"></xref> of a given <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static void ResetConfiguration(this LoggingBackend backend)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The backend to reset.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Shared Sub ResetConfiguration(backend As LoggingBackend)
+  overload: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager.ResetConfiguration*

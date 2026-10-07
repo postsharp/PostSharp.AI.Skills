@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.IArgumentsWriter
+  commentId: T:PostSharp.Serialization.IArgumentsWriter
+  id: IArgumentsWriter
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.IArgumentsWriter.MetadataEmitter
+  - PostSharp.Serialization.IArgumentsWriter.SetValue(System.String,System.Object,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IArgumentsWriter
+  nameWithType: IArgumentsWriter
+  fullName: PostSharp.Serialization.IArgumentsWriter
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Provides write access to a collection of arguments that need to be serialized.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IArgumentsWriter
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IArgumentsWriter
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Serialization.IArgumentsWriter.SetValue(System.String,System.Object,System.String)
+  commentId: M:PostSharp.Serialization.IArgumentsWriter.SetValue(System.String,System.Object,System.String)
+  id: SetValue(System.String,System.Object,System.String)
+  parent: PostSharp.Serialization.IArgumentsWriter
+  langs:
+  - csharp
+  - vb
+  name: SetValue(string, object, string)
+  nameWithType: IArgumentsWriter.SetValue(string, object, string)
+  fullName: PostSharp.Serialization.IArgumentsWriter.SetValue(string, object, string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Sets the value of an argument.
+  example: []
+  syntax:
+    content: void SetValue(string name, object value, string scope = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the argument.
+    - id: value
+      type: System.Object
+      description: The argument value. The value must be serializable or <code>null</code>.
+    - id: scope
+      type: System.String
+      description: An optional prefix of <code class="paramref">name</code>, similar to a namespace.
+    content.vb: Sub SetValue(name As String, value As Object, scope As String = Nothing)
+  overload: PostSharp.Serialization.IArgumentsWriter.SetValue*
+  nameWithType.vb: IArgumentsWriter.SetValue(String, Object, String)
+  fullName.vb: PostSharp.Serialization.IArgumentsWriter.SetValue(String, Object, String)
+  name.vb: SetValue(String, Object, String)
+- uid: PostSharp.Serialization.IArgumentsWriter.MetadataEmitter
+  commentId: P:PostSharp.Serialization.IArgumentsWriter.MetadataEmitter
+  id: MetadataEmitter
+  parent: PostSharp.Serialization.IArgumentsWriter
+  langs:
+  - csharp
+  - vb
+  name: MetadataEmitter
+  nameWithType: IArgumentsWriter.MetadataEmitter
+  fullName: PostSharp.Serialization.IArgumentsWriter.MetadataEmitter
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    When serializing PostSharp aspects, gets a facility that can be used to serialize metadata (<code>System.Reflection</code>) objects
+
+    as MSIL, therefore making them transparent to obfuscation.
+  example: []
+  syntax:
+    content: IMetadataEmitter MetadataEmitter { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.IMetadataEmitter
+    content.vb: ReadOnly Property MetadataEmitter As IMetadataEmitter
+  overload: PostSharp.Serialization.IArgumentsWriter.MetadataEmitter*
+  seealso:
+  - linkId: PostSharp.Serialization.IArgumentsReader.MetadataDispenser
+    commentId: P:PostSharp.Serialization.IArgumentsReader.MetadataDispenser

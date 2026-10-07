@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1
+  commentId: T:PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1
+  id: IUnknownObjectPropertyVisitor`1
+  parent: PostSharp.Patterns.Utilities
+  children:
+  - PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.MustVisit(System.String,`0@)
+  - PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.Visit``1(System.String,``0,`0@)
+  langs:
+  - csharp
+  - vb
+  name: IUnknownObjectPropertyVisitor<TState>
+  nameWithType: IUnknownObjectPropertyVisitor<TState>
+  fullName: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor<TState>
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Defines a <xref href="PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2c%600%40)" data-throw-if-not-resolved="false"></xref> method invoked by <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties%60%601(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface IUnknownObjectPropertyVisitor<TState>
+    typeParameters:
+    - id: TState
+      description: The type of the opaque state.
+    content.vb: Public Interface IUnknownObjectPropertyVisitor(Of TState)
+  nameWithType.vb: IUnknownObjectPropertyVisitor(Of TState)
+  fullName.vb: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor(Of TState)
+  name.vb: IUnknownObjectPropertyVisitor(Of TState)
+- uid: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.Visit``1(System.String,``0,`0@)
+  commentId: M:PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.Visit``1(System.String,``0,`0@)
+  id: Visit``1(System.String,``0,`0@)
+  parent: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: Visit<TValue>(string, TValue, ref TState)
+  nameWithType: IUnknownObjectPropertyVisitor<TState>.Visit<TValue>(string, TValue, ref TState)
+  fullName: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor<TState>.Visit<TValue>(string, TValue, ref TState)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: The method invoked by <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties%60%601(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Visit<TValue>(string name, TValue value, ref TState state)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+    - id: value
+      type: '{TValue}'
+      description: The property value.
+    - id: state
+      type: '{TState}'
+      description: The opaque state passed to <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties%60%601(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref>.
+    typeParameters:
+    - id: TValue
+      description: The type of the property value.
+    content.vb: Sub Visit(Of TValue)(name As String, value As TValue, state As TState)
+  overload: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.Visit*
+  nameWithType.vb: IUnknownObjectPropertyVisitor(Of TState).Visit(Of TValue)(String, TValue, TState)
+  fullName.vb: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor(Of TState).Visit(Of TValue)(String, TValue, TState)
+  name.vb: Visit(Of TValue)(String, TValue, TState)
+- uid: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.MustVisit(System.String,`0@)
+  commentId: M:PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.MustVisit(System.String,`0@)
+  id: MustVisit(System.String,`0@)
+  parent: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: MustVisit(string, ref TState)
+  nameWithType: IUnknownObjectPropertyVisitor<TState>.MustVisit(string, ref TState)
+  fullName: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor<TState>.MustVisit(string, ref TState)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Utilities
+  summary: Determines whether a given property must be visited. If this method returns true, the property is not evaluated.
+  example: []
+  syntax:
+    content: bool MustVisit(string name, ref TState state)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+    - id: state
+      type: '{TState}'
+      description: The opaque state passed to <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor.VisitProperties%60%601(PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the property must be visited; otherwise, <code>false</code>.
+    content.vb: Function MustVisit(name As String, state As TState) As Boolean
+  overload: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor`1.MustVisit*
+  nameWithType.vb: IUnknownObjectPropertyVisitor(Of TState).MustVisit(String, TState)
+  fullName.vb: PostSharp.Patterns.Utilities.IUnknownObjectPropertyVisitor(Of TState).MustVisit(String, TState)
+  name.vb: MustVisit(String, TState)

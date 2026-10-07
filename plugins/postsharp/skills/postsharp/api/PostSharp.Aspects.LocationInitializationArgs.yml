@@ -1,0 +1,80 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.LocationInitializationArgs
+  commentId: T:PostSharp.Aspects.LocationInitializationArgs
+  id: LocationInitializationArgs
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.LocationInitializationArgs.Value
+  langs:
+  - csharp
+  - vb
+  name: LocationInitializationArgs
+  nameWithType: LocationInitializationArgs
+  fullName: PostSharp.Aspects.LocationInitializationArgs
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Represents information about a location that has just been initialized. It is used in <xref href="PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Internal]
+
+      public sealed class LocationInitializationArgs : LocationLevelAdviceArgs
+    content.vb: >-
+      <Internal>
+
+      Public NotInheritable Class LocationInitializationArgs Inherits LocationLevelAdviceArgs
+  seealso:
+  - linkType: HRef
+    linkId: '@location-interception'
+    altText: 'Conceptual: Intercepting Properties and Fields'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.AdviceArgs
+  - PostSharp.Aspects.Internals.LocationLevelAdviceArgs
+  inheritedMembers:
+  - PostSharp.Aspects.AdviceArgs.Instance
+  - PostSharp.Aspects.AdviceArgs.DeclarationIdentifier
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Constraints.InternalAttribute
+    ctor: PostSharp.Constraints.InternalAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.LocationInitializationArgs.Value
+  commentId: P:PostSharp.Aspects.LocationInitializationArgs.Value
+  id: Value
+  parent: PostSharp.Aspects.LocationInitializationArgs
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: LocationInitializationArgs.Value
+  fullName: PostSharp.Aspects.LocationInitializationArgs.Value
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the initial value of the location.
+  remarks: >-
+    Returns the current value of the field or, if it is a property, of the backing field of the property. This is usually the default value or the value
+
+    set by the initializer.
+
+    The value is read-only: setting it throws a <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override object Value { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides Property Value As Object
+  overridden: PostSharp.Aspects.Internals.LocationLevelAdviceArgs.Value
+  overload: PostSharp.Aspects.LocationInitializationArgs.Value*

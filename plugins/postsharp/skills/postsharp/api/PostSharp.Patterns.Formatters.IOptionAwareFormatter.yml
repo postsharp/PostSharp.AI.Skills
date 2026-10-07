@@ -1,0 +1,81 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  commentId: T:PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  id: IOptionAwareFormatter
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  langs:
+  - csharp
+  - vb
+  name: IOptionAwareFormatter
+  nameWithType: IOptionAwareFormatter
+  fullName: PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: An interface that implementations of <xref href="PostSharp.Patterns.Formatters.IFormattable" data-throw-if-not-resolved="false"></xref> can optionally implement to support options.
+  example: []
+  syntax:
+    content: 'public interface IOptionAwareFormatter : IFormatter'
+    content.vb: Public Interface IOptionAwareFormatter Inherits IFormatter
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Formatters.CollectionFormatter`2
+  - PostSharp.Patterns.Diagnostics.Formatters.HiddenFormatter`1
+  - PostSharp.Patterns.Diagnostics.Formatters.LazyFormatter`2
+  - PostSharp.Patterns.Diagnostics.Formatters.OutFormatter`1
+  - PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  - PostSharp.Patterns.Formatters.BooleanFormatter
+  - PostSharp.Patterns.Formatters.ByteFormatter
+  - PostSharp.Patterns.Formatters.CharFormatter
+  - PostSharp.Patterns.Formatters.DefaultFormatter`2
+  - PostSharp.Patterns.Formatters.EnumFormatter`1
+  - PostSharp.Patterns.Formatters.Formatter`1
+  - PostSharp.Patterns.Formatters.Int16Formatter
+  - PostSharp.Patterns.Formatters.Int32Formatter
+  - PostSharp.Patterns.Formatters.Int64Formatter
+  - PostSharp.Patterns.Formatters.MethodFormatter
+  - PostSharp.Patterns.Formatters.SByteFormatter
+  - PostSharp.Patterns.Formatters.StringFormatter
+  - PostSharp.Patterns.Formatters.TypeFormatter
+  - PostSharp.Patterns.Formatters.UInt16Formatter
+  - PostSharp.Patterns.Formatters.UInt32Formatter
+  - PostSharp.Patterns.Formatters.UInt64Formatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.IFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.IFormatter.Attributes
+  extensionMethods:
+  - PostSharp.Patterns.Formatters.IFormatter.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+- uid: PostSharp.Patterns.Formatters.IOptionAwareFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  commentId: M:PostSharp.Patterns.Formatters.IOptionAwareFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  id: WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  parent: PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  langs:
+  - csharp
+  - vb
+  name: WithOptions(FormattingOptions)
+  nameWithType: IOptionAwareFormatter.WithOptions(FormattingOptions)
+  fullName: PostSharp.Patterns.Formatters.IOptionAwareFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Returns a copy of the current formatter, but for different options.
+  remarks: >-
+    It is essential for performance that the implementation respects a semi-singleton pattern, that is, keeps a single instance of the formatter
+
+    for each distinct value of <xref href="PostSharp.Patterns.Formatters.FormattingOptions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: IOptionAwareFormatter WithOptions(FormattingOptions options)
+    parameters:
+    - id: options
+      type: PostSharp.Patterns.Formatters.FormattingOptions
+      description: The new options.
+    return:
+      type: PostSharp.Patterns.Formatters.IOptionAwareFormatter
+      description: A copy of the current formatter with the new <code class="paramref">options</code>.
+    content.vb: Function WithOptions(options As FormattingOptions) As IOptionAwareFormatter
+  overload: PostSharp.Patterns.Formatters.IOptionAwareFormatter.WithOptions*

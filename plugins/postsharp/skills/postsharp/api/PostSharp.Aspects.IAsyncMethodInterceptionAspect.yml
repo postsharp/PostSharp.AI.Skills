@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  commentId: T:PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  id: IAsyncMethodInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: IAsyncMethodInterceptionAspect
+  nameWithType: IAsyncMethodInterceptionAspect
+  fullName: PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Runtime semantics of an aspect that, when applied on a method, intercepts invocations of this method.
+
+    Includes semantics for both async and non-async method interception.
+  remarks: See <xref href="PostSharp.Aspects.MethodInterceptionAspect" data-throw-if-not-resolved="false"></xref> for details.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IAsyncMethodInterceptionAspect : IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IAsyncMethodInterceptionAspect Inherits IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.MethodInterceptionAspect
+  - PostSharp.Patterns.Caching.CacheAttribute
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  - PostSharp.Patterns.Threading.BackgroundAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  commentId: M:PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  id: OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  parent: PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInvokeAsync(MethodInterceptionArgs)
+  nameWithType: IAsyncMethodInterceptionAspect.OnInvokeAsync(MethodInterceptionArgs)
+  fullName: PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method invoked instead of the method to which the aspect has been applied.
+  remarks: >-
+    <p>The implementation of <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> may invoke <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>, may schedule it for invocation from another thread, or
+            may completely skip its invocation. Alternatively, it may use <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>. Before returning to the caller,
+            the <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method must set the return value (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>),
+            otherwise the target method may fail with a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. It is normally set by calling <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>
+            If semantic advising applies to a method and the method is an async method or returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, then <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> is called for that method instead of <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+          </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      Task OnInvokeAsync(MethodInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodInterceptionArgs
+      description: Advice arguments.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Function OnInvokeAsync(args As MethodInterceptionArgs) As Task
+  overload: PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync*
+  seealso:
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

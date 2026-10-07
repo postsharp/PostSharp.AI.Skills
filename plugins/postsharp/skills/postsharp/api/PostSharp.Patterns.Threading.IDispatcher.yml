@@ -1,0 +1,185 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IDispatcher
+  commentId: T:PostSharp.Patterns.Threading.IDispatcher
+  id: IDispatcher
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  - PostSharp.Patterns.Threading.IDispatcher.CheckAccess
+  - PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  - PostSharp.Patterns.Threading.IDispatcher.IsInvokeSupported
+  - PostSharp.Patterns.Threading.IDispatcher.SynchronizationContext
+  langs:
+  - csharp
+  - vb
+  name: IDispatcher
+  nameWithType: IDispatcher
+  fullName: PostSharp.Patterns.Threading.IDispatcher
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Defines the semantics of a facility that executes actions synchronously or asynchronously,
+
+    possibly on a different thread.
+  remarks: <p>Use the <xref href="PostSharp.Patterns.Threading.DispatcherFactory" data-throw-if-not-resolved="false"></xref> class to get implementations of this interface. You can also create a custom implementation.</p>
+  example: []
+  syntax:
+    content: public interface IDispatcher
+    content.vb: Public Interface IDispatcher
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.IDispatcherObject
+    commentId: T:PostSharp.Patterns.Threading.IDispatcherObject
+  - linkId: PostSharp.Patterns.Threading.DispatcherFactory
+    commentId: T:PostSharp.Patterns.Threading.DispatcherFactory
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ActorDispatcher
+- uid: PostSharp.Patterns.Threading.IDispatcher.CheckAccess
+  commentId: M:PostSharp.Patterns.Threading.IDispatcher.CheckAccess
+  id: CheckAccess
+  parent: PostSharp.Patterns.Threading.IDispatcher
+  langs:
+  - csharp
+  - vb
+  name: CheckAccess()
+  nameWithType: IDispatcher.CheckAccess()
+  fullName: PostSharp.Patterns.Threading.IDispatcher.CheckAccess()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether the current thread has access to the current dispatcher.
+  example: []
+  syntax:
+    content: bool CheckAccess()
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current thread can directly call methods of objects protected
+            by the current dispatcher, or <code>false</code> if the <xref href="PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> methods
+            must be used.
+    content.vb: Function CheckAccess() As Boolean
+  overload: PostSharp.Patterns.Threading.IDispatcher.CheckAccess*
+- uid: PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  commentId: M:PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  id: Invoke(System.Threading.SendOrPostCallback,System.Object)
+  parent: PostSharp.Patterns.Threading.IDispatcher
+  langs:
+  - csharp
+  - vb
+  name: Invoke(SendOrPostCallback, object)
+  nameWithType: IDispatcher.Invoke(SendOrPostCallback, object)
+  fullName: PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Executes an action synchronously.
+  example: []
+  syntax:
+    content: void Invoke(SendOrPostCallback action, object state)
+    parameters:
+    - id: action
+      type: System.Threading.SendOrPostCallback
+      description: The action to execute.
+    - id: state
+      type: System.Object
+      description: The parameter passed to <code class="paramref">action</code>.
+    content.vb: Sub Invoke(action As SendOrPostCallback, state As Object)
+  overload: PostSharp.Patterns.Threading.IDispatcher.Invoke*
+  nameWithType.vb: IDispatcher.Invoke(SendOrPostCallback, Object)
+  fullName.vb: PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback, Object)
+  name.vb: Invoke(SendOrPostCallback, Object)
+- uid: PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  commentId: M:PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  id: BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  parent: PostSharp.Patterns.Threading.IDispatcher
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(SendOrPostCallback, object)
+  nameWithType: IDispatcher.BeginInvoke(SendOrPostCallback, object)
+  fullName: PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Queues an action for asynchronous execution.
+  example: []
+  syntax:
+    content: void BeginInvoke(SendOrPostCallback action, object state)
+    parameters:
+    - id: action
+      type: System.Threading.SendOrPostCallback
+      description: The action to execute.
+    - id: state
+      type: System.Object
+      description: The parameter passed to <code class="paramref">action</code>.
+    content.vb: Sub BeginInvoke(action As SendOrPostCallback, state As Object)
+  overload: PostSharp.Patterns.Threading.IDispatcher.BeginInvoke*
+  nameWithType.vb: IDispatcher.BeginInvoke(SendOrPostCallback, Object)
+  fullName.vb: PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback, Object)
+  name.vb: BeginInvoke(SendOrPostCallback, Object)
+- uid: PostSharp.Patterns.Threading.IDispatcher.IsInvokeSupported
+  commentId: P:PostSharp.Patterns.Threading.IDispatcher.IsInvokeSupported
+  id: IsInvokeSupported
+  parent: PostSharp.Patterns.Threading.IDispatcher
+  langs:
+  - csharp
+  - vb
+  name: IsInvokeSupported
+  nameWithType: IDispatcher.IsInvokeSupported
+  fullName: PostSharp.Patterns.Threading.IDispatcher.IsInvokeSupported
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method is supported.
+  remarks: >-
+    If <code>false</code>,
+               the dispatcher only supports asynchronous invocation (<xref href="PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: bool IsInvokeSupported { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsInvokeSupported As Boolean
+  overload: PostSharp.Patterns.Threading.IDispatcher.IsInvokeSupported*
+- uid: PostSharp.Patterns.Threading.IDispatcher.SynchronizationContext
+  commentId: P:PostSharp.Patterns.Threading.IDispatcher.SynchronizationContext
+  id: SynchronizationContext
+  parent: PostSharp.Patterns.Threading.IDispatcher
+  langs:
+  - csharp
+  - vb
+  name: SynchronizationContext
+  nameWithType: IDispatcher.SynchronizationContext
+  fullName: PostSharp.Patterns.Threading.IDispatcher.SynchronizationContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref> associated with the current dispatcher.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property can throw an InvalidOperationException with WPF objects.")]
+
+      SynchronizationContext SynchronizationContext { get; }
+    parameters: []
+    return:
+      type: System.Threading.SynchronizationContext
+    content.vb: >-
+      <Obsolete("This property can throw an InvalidOperationException with WPF objects.")>
+
+      ReadOnly Property SynchronizationContext As SynchronizationContext
+  overload: PostSharp.Patterns.Threading.IDispatcher.SynchronizationContext*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This property can throw an InvalidOperationException with WPF objects.

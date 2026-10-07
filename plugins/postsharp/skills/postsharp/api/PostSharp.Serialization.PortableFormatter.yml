@@ -1,0 +1,247 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.PortableFormatter
+  commentId: T:PostSharp.Serialization.PortableFormatter
+  id: PortableFormatter
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.PortableFormatter.#ctor
+  - PostSharp.Serialization.PortableFormatter.#ctor(PostSharp.Serialization.PortableSerializationBinder,PostSharp.Serialization.ISerializerFactoryProvider)
+  - PostSharp.Serialization.PortableFormatter.DefaultBinder
+  - PostSharp.Serialization.PortableFormatter.Deserialize(System.IO.Stream)
+  - PostSharp.Serialization.PortableFormatter.MetadataDispenser
+  - PostSharp.Serialization.PortableFormatter.MetadataEmitter
+  - PostSharp.Serialization.PortableFormatter.Serialize(System.Object,System.IO.Stream)
+  langs:
+  - csharp
+  - vb
+  name: PortableFormatter
+  nameWithType: PortableFormatter
+  fullName: PostSharp.Serialization.PortableFormatter
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    A serializer designed to serialize the internal structure of types with support for cyclic object graphs.
+
+    The <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> is very similar in function and design to the <xref href="System.Runtime.Serialization.Formatters.Binary.BinaryFormatter" data-throw-if-not-resolved="false"></xref>,
+
+    but is supported on most platforms and does not require full trust. Both formatters have similar usage:
+
+    <xref href="System.SerializableAttribute" data-throw-if-not-resolved="false"></xref> is replaced by <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref> and
+
+    <xref href="System.NonSerializedAttribute" data-throw-if-not-resolved="false"></xref> by <xref href="PostSharp.Serialization.PNonSerializedAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> backs <xref href="PostSharp.Aspects.Serialization.PortableAspectSerializer" data-throw-if-not-resolved="false"></xref>, the default serialization strategy
+        for aspects annotated with <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public sealed class PortableFormatter
+    content.vb: Public NotInheritable Class PortableFormatter
+  seealso:
+  - linkId: PostSharp.Serialization.PSerializableAttribute
+    commentId: T:PostSharp.Serialization.PSerializableAttribute
+  - linkType: HRef
+    linkId: '@aspect-serialization'
+    altText: 'Conceptual: Understanding Aspect Serialization'
+  - linkType: HRef
+    linkId: '@binary-formatter-security'
+    altText: 'Conceptual: BinaryFormatter security'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Serialization.PortableFormatter.#ctor
+  commentId: M:PostSharp.Serialization.PortableFormatter.#ctor
+  id: '#ctor'
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: PortableFormatter()
+  nameWithType: PortableFormatter.PortableFormatter()
+  fullName: PostSharp.Serialization.PortableFormatter.PortableFormatter()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Initializes a new instance of the <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public PortableFormatter()
+    content.vb: Public Sub New()
+  overload: PostSharp.Serialization.PortableFormatter.#ctor*
+  nameWithType.vb: PortableFormatter.New()
+  fullName.vb: PostSharp.Serialization.PortableFormatter.New()
+  name.vb: New()
+- uid: PostSharp.Serialization.PortableFormatter.#ctor(PostSharp.Serialization.PortableSerializationBinder,PostSharp.Serialization.ISerializerFactoryProvider)
+  commentId: M:PostSharp.Serialization.PortableFormatter.#ctor(PostSharp.Serialization.PortableSerializationBinder,PostSharp.Serialization.ISerializerFactoryProvider)
+  id: '#ctor(PostSharp.Serialization.PortableSerializationBinder,PostSharp.Serialization.ISerializerFactoryProvider)'
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: PortableFormatter(PortableSerializationBinder, ISerializerFactoryProvider)
+  nameWithType: PortableFormatter.PortableFormatter(PortableSerializationBinder, ISerializerFactoryProvider)
+  fullName: PostSharp.Serialization.PortableFormatter.PortableFormatter(PostSharp.Serialization.PortableSerializationBinder, PostSharp.Serialization.ISerializerFactoryProvider)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Initializes a new instance of the <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public PortableFormatter(PortableSerializationBinder binder, ISerializerFactoryProvider serializerProvider)
+    parameters:
+    - id: binder
+      type: PostSharp.Serialization.PortableSerializationBinder
+      description: A <xref href="PostSharp.Serialization.PortableSerializationBinder" data-throw-if-not-resolved="false"></xref> customizing bindings between types and type names, or <code>null</code> to use the default implementation.
+    - id: serializerProvider
+      type: PostSharp.Serialization.ISerializerFactoryProvider
+      description: A custom implementation of <xref href="PostSharp.Serialization.ISerializerFactoryProvider" data-throw-if-not-resolved="false"></xref>, or <code>null</code> to use the default implementation.
+    content.vb: Public Sub New(binder As PortableSerializationBinder, serializerProvider As ISerializerFactoryProvider)
+  overload: PostSharp.Serialization.PortableFormatter.#ctor*
+  nameWithType.vb: PortableFormatter.New(PortableSerializationBinder, ISerializerFactoryProvider)
+  fullName.vb: PostSharp.Serialization.PortableFormatter.New(PostSharp.Serialization.PortableSerializationBinder, PostSharp.Serialization.ISerializerFactoryProvider)
+  name.vb: New(PortableSerializationBinder, ISerializerFactoryProvider)
+- uid: PostSharp.Serialization.PortableFormatter.Serialize(System.Object,System.IO.Stream)
+  commentId: M:PostSharp.Serialization.PortableFormatter.Serialize(System.Object,System.IO.Stream)
+  id: Serialize(System.Object,System.IO.Stream)
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: Serialize(object, Stream)
+  nameWithType: PortableFormatter.Serialize(object, Stream)
+  fullName: PostSharp.Serialization.PortableFormatter.Serialize(object, System.IO.Stream)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Serializes an object (and the complete graph whose root is this object) into a <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Serialize(object obj, Stream stream)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to serialize.
+    - id: stream
+      type: System.IO.Stream
+      description: The stream where <code class="paramref">obj</code> needs to be serialized.
+    content.vb: Public Sub Serialize(obj As Object, stream As Stream)
+  overload: PostSharp.Serialization.PortableFormatter.Serialize*
+  nameWithType.vb: PortableFormatter.Serialize(Object, Stream)
+  fullName.vb: PostSharp.Serialization.PortableFormatter.Serialize(Object, System.IO.Stream)
+  name.vb: Serialize(Object, Stream)
+- uid: PostSharp.Serialization.PortableFormatter.Deserialize(System.IO.Stream)
+  commentId: M:PostSharp.Serialization.PortableFormatter.Deserialize(System.IO.Stream)
+  id: Deserialize(System.IO.Stream)
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(Stream)
+  nameWithType: PortableFormatter.Deserialize(Stream)
+  fullName: PostSharp.Serialization.PortableFormatter.Deserialize(System.IO.Stream)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Deserializes a stream.
+  example: []
+  syntax:
+    content: public object Deserialize(Stream stream)
+    parameters:
+    - id: stream
+      type: System.IO.Stream
+      description: A <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> containing a serialized object graph.
+    return:
+      type: System.Object
+      description: The root object of the object graph serialized in <code class="paramref">stream</code>.
+    content.vb: Public Function Deserialize(stream As Stream) As Object
+  overload: PostSharp.Serialization.PortableFormatter.Deserialize*
+- uid: PostSharp.Serialization.PortableFormatter.DefaultBinder
+  commentId: P:PostSharp.Serialization.PortableFormatter.DefaultBinder
+  id: DefaultBinder
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: DefaultBinder
+  nameWithType: PortableFormatter.DefaultBinder
+  fullName: PostSharp.Serialization.PortableFormatter.DefaultBinder
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Gets or sets the default <xref href="PostSharp.Serialization.PortableSerializationBinder" data-throw-if-not-resolved="false"></xref> that is used by a <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> to bind types to/from type names if no
+
+    <xref href="PostSharp.Serialization.PortableSerializationBinder" data-throw-if-not-resolved="false"></xref> is specified.
+  example: []
+  syntax:
+    content: public static PortableSerializationBinder DefaultBinder { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Serialization.PortableSerializationBinder
+    content.vb: Public Shared Property DefaultBinder As PortableSerializationBinder
+  overload: PostSharp.Serialization.PortableFormatter.DefaultBinder*
+- uid: PostSharp.Serialization.PortableFormatter.MetadataDispenser
+  commentId: P:PostSharp.Serialization.PortableFormatter.MetadataDispenser
+  id: MetadataDispenser
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: MetadataDispenser
+  nameWithType: PortableFormatter.MetadataDispenser
+  fullName: PostSharp.Serialization.PortableFormatter.MetadataDispenser
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    When deserializing PostSharp aspects, gets or sets the <xref href="PostSharp.Reflection.IMetadataDispenser" data-throw-if-not-resolved="false"></xref> corresponding to the <xref href="PostSharp.Serialization.IArgumentsWriter.MetadataEmitter" data-throw-if-not-resolved="false"></xref> 
+
+    used at build time.
+  example: []
+  syntax:
+    content: public IMetadataDispenser MetadataDispenser { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.IMetadataDispenser
+    content.vb: Public Property MetadataDispenser As IMetadataDispenser
+  overload: PostSharp.Serialization.PortableFormatter.MetadataDispenser*
+- uid: PostSharp.Serialization.PortableFormatter.MetadataEmitter
+  commentId: P:PostSharp.Serialization.PortableFormatter.MetadataEmitter
+  id: MetadataEmitter
+  parent: PostSharp.Serialization.PortableFormatter
+  langs:
+  - csharp
+  - vb
+  name: MetadataEmitter
+  nameWithType: PortableFormatter.MetadataEmitter
+  fullName: PostSharp.Serialization.PortableFormatter.MetadataEmitter
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    When serializing PostSharp aspects, gets or sets a facility that can be used to serialize metadata (<code>System.Reflection</code>) objects
+
+    as MSIL, therefore making them transparent to obfuscation.
+  example: []
+  syntax:
+    content: public IMetadataEmitter MetadataEmitter { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.IMetadataEmitter
+    content.vb: Public Property MetadataEmitter As IMetadataEmitter
+  overload: PostSharp.Serialization.PortableFormatter.MetadataEmitter*

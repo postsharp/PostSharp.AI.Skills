@@ -1,0 +1,139 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Locking.ILockHandle
+  commentId: T:PostSharp.Patterns.Caching.Locking.ILockHandle
+  id: ILockHandle
+  parent: PostSharp.Patterns.Caching.Locking
+  children:
+  - PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Locking.ILockHandle.AcquireAsync(System.TimeSpan,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Locking.ILockHandle.Release
+  - PostSharp.Patterns.Caching.Locking.ILockHandle.ReleaseAsync
+  langs:
+  - csharp
+  - vb
+  name: ILockHandle
+  nameWithType: ILockHandle
+  fullName: PostSharp.Patterns.Caching.Locking.ILockHandle
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Allows acquiring and releasing a named lock returned by <xref href="PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(System.String)" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The caching aspect can call <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.AcquireAsync(System.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> twice on the same handle: first with a zero timeout and,
+        if the lock is not free, with <xref href="PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout" data-throw-if-not-resolved="false"></xref>. It then always calls <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.Release" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.ReleaseAsync" data-throw-if-not-resolved="false"></xref>
+        and <xref href="System.IDisposable.Dispose" data-throw-if-not-resolved="false"></xref>, including when the lock could not be acquired. Implementations must therefore ignore a release
+        of a lock that the handle does not hold.</p>
+  example: []
+  syntax:
+    content: 'public interface ILockHandle : IDisposable'
+    content.vb: Public Interface ILockHandle Inherits IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@cache-locking'
+    altText: 'Conceptual: Preventing Concurrent Execution of Cached Methods'
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan,System.Threading.CancellationToken)
+  id: Acquire(System.TimeSpan,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Locking.ILockHandle
+  langs:
+  - csharp
+  - vb
+  name: Acquire(TimeSpan, CancellationToken)
+  nameWithType: ILockHandle.Acquire(TimeSpan, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Synchronously acquires the lock bound to the current handle.
+  example: []
+  syntax:
+    content: bool Acquire(TimeSpan timeout, CancellationToken cancellationToken)
+    parameters:
+    - id: timeout
+      type: System.TimeSpan
+      description: The timeout of the operation.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the lock was acquired, or <code>false</code> if the operation has timed out before the lock could be acquired.
+    content.vb: Function Acquire(timeout As TimeSpan, cancellationToken As CancellationToken) As Boolean
+  overload: PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire*
+- uid: PostSharp.Patterns.Caching.Locking.ILockHandle.AcquireAsync(System.TimeSpan,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Locking.ILockHandle.AcquireAsync(System.TimeSpan,System.Threading.CancellationToken)
+  id: AcquireAsync(System.TimeSpan,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Locking.ILockHandle
+  langs:
+  - csharp
+  - vb
+  name: AcquireAsync(TimeSpan, CancellationToken)
+  nameWithType: ILockHandle.AcquireAsync(TimeSpan, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Locking.ILockHandle.AcquireAsync(System.TimeSpan, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Asynchronously acquires the lock bound to the current handle.
+  example: []
+  syntax:
+    content: Task<bool> AcquireAsync(TimeSpan timeout, CancellationToken cancellationToken)
+    parameters:
+    - id: timeout
+      type: System.TimeSpan
+      description: The timeout of the operation.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: <code>true</code> if the lock was acquired, or <code>false</code> if the operation has timed out before the lock could be acquired.
+    content.vb: Function AcquireAsync(timeout As TimeSpan, cancellationToken As CancellationToken) As Task(Of Boolean)
+  overload: PostSharp.Patterns.Caching.Locking.ILockHandle.AcquireAsync*
+- uid: PostSharp.Patterns.Caching.Locking.ILockHandle.Release
+  commentId: M:PostSharp.Patterns.Caching.Locking.ILockHandle.Release
+  id: Release
+  parent: PostSharp.Patterns.Caching.Locking.ILockHandle
+  langs:
+  - csharp
+  - vb
+  name: Release()
+  nameWithType: ILockHandle.Release()
+  fullName: PostSharp.Patterns.Caching.Locking.ILockHandle.Release()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Synchronously releases the lock bound to the current handle.
+  example: []
+  syntax:
+    content: void Release()
+    content.vb: Sub Release()
+  overload: PostSharp.Patterns.Caching.Locking.ILockHandle.Release*
+- uid: PostSharp.Patterns.Caching.Locking.ILockHandle.ReleaseAsync
+  commentId: M:PostSharp.Patterns.Caching.Locking.ILockHandle.ReleaseAsync
+  id: ReleaseAsync
+  parent: PostSharp.Patterns.Caching.Locking.ILockHandle
+  langs:
+  - csharp
+  - vb
+  name: ReleaseAsync()
+  nameWithType: ILockHandle.ReleaseAsync()
+  fullName: PostSharp.Patterns.Caching.Locking.ILockHandle.ReleaseAsync()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Asynchronously releases the lock bound to the current handle.
+  example: []
+  syntax:
+    content: Task ReleaseAsync()
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function ReleaseAsync() As Task
+  overload: PostSharp.Patterns.Caching.Locking.ILockHandle.ReleaseAsync*

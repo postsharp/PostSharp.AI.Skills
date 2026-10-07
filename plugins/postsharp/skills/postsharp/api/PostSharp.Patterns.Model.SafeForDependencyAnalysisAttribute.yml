@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute
+  commentId: T:PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute
+  id: SafeForDependencyAnalysisAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: SafeForDependencyAnalysisAttribute
+  nameWithType: SafeForDependencyAnalysisAttribute
+  fullName: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Custom attribute that, when applied on a property, prevents the dependency analysis algorithm used by the
+
+    <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect from emitting errors when it encounters constructs
+
+    that it cannot analyze.
+  remarks: >-
+    <p>Getters of properties annotated with <xref href="PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute" data-throw-if-not-resolved="false"></xref> should typically
+        specify dependencies manually using the <xref href="PostSharp.Patterns.Model.Depends" data-throw-if-not-resolved="false"></xref> class. Note that all dependencies that can be
+        found using code analysis will be taken into account. The <xref href="PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute" data-throw-if-not-resolved="false"></xref> only
+        disables errors, but not the code analysis itself.</p>
+    <p>By applying this attribute, you take responsibility for declaring every dependency that the analysis cannot discover. A missing dependency
+        results in a missing change notification, not in an error.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property)]
+
+      public sealed class SafeForDependencyAnalysisAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property)>
+
+      Public NotInheritable Class SafeForDependencyAnalysisAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-customization'
+    altText: 'Conceptual: Handling Corner Cases of the NotifyPropertyChanged Aspect'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+- uid: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute
+  langs:
+  - csharp
+  - vb
+  name: SafeForDependencyAnalysisAttribute()
+  nameWithType: SafeForDependencyAnalysisAttribute.SafeForDependencyAnalysisAttribute()
+  fullName: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute.SafeForDependencyAnalysisAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public SafeForDependencyAnalysisAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute.#ctor*
+  nameWithType.vb: SafeForDependencyAnalysisAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute.New()
+  name.vb: New()

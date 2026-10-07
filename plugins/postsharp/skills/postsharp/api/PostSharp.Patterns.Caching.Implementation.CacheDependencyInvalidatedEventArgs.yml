@@ -1,0 +1,146 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  id: CacheDependencyInvalidatedEventArgs
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.#ctor(System.String,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.Key
+  - PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.SourceId
+  - PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.ToString
+  langs:
+  - csharp
+  - vb
+  name: CacheDependencyInvalidatedEventArgs
+  nameWithType: CacheDependencyInvalidatedEventArgs
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Provides data for the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.DependencyInvalidated" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: 'public sealed class CacheDependencyInvalidatedEventArgs : EventArgs'
+    content.vb: Public NotInheritable Class CacheDependencyInvalidatedEventArgs Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.#ctor(System.String,System.Guid)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.#ctor(System.String,System.Guid)
+  id: '#ctor(System.String,System.Guid)'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: CacheDependencyInvalidatedEventArgs(string, Guid)
+  nameWithType: CacheDependencyInvalidatedEventArgs.CacheDependencyInvalidatedEventArgs(string, Guid)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.CacheDependencyInvalidatedEventArgs(string, System.Guid)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CacheDependencyInvalidatedEventArgs(string key, Guid sourceId)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the invalidated dependency.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: sourceId
+      type: System.Guid
+      description: >-
+        The <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>
+                    instance that requested the invalidation, or <xref href="System.Guid.Empty" data-throw-if-not-resolved="false"></xref>
+                    if this information is not available.
+    content.vb: Public Sub New(key As String, sourceId As Guid)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.#ctor*
+  nameWithType.vb: CacheDependencyInvalidatedEventArgs.New(String, Guid)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.New(String, System.Guid)
+  name.vb: New(String, Guid)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.ToString
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: CacheDependencyInvalidatedEventArgs.ToString()
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.ToString*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.Key
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.Key
+  id: Key
+  parent: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: CacheDependencyInvalidatedEventArgs.Key
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.Key
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the key of the invalidated dependency.
+  example: []
+  syntax:
+    content: public string Key { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Key As String
+  overload: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.Key*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.SourceId
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.SourceId
+  id: SourceId
+  parent: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: SourceId
+  nameWithType: CacheDependencyInvalidatedEventArgs.SourceId
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.SourceId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>
+
+    instance that requested the invalidation, or <xref href="System.Guid.Empty" data-throw-if-not-resolved="false"></xref>
+
+    if this information is not available.
+  example: []
+  syntax:
+    content: public Guid SourceId { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public ReadOnly Property SourceId As Guid
+  overload: PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs.SourceId*

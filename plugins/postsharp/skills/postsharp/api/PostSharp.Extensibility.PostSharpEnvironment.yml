@@ -1,0 +1,121 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.PostSharpEnvironment
+  commentId: T:PostSharp.Extensibility.PostSharpEnvironment
+  id: PostSharpEnvironment
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.PostSharpEnvironment.Current
+  - PostSharp.Extensibility.PostSharpEnvironment.CurrentProject
+  - PostSharp.Extensibility.PostSharpEnvironment.IsPostSharpRunning
+  langs:
+  - csharp
+  - vb
+  name: PostSharpEnvironment
+  nameWithType: PostSharpEnvironment
+  fullName: PostSharp.Extensibility.PostSharpEnvironment
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Provides access to the current <code>PostSharp</code> environment (<xref href="PostSharp.Extensibility.IPostSharpEnvironment" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public static class PostSharpEnvironment
+    content.vb: Public Module PostSharpEnvironment
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Extensibility.PostSharpEnvironment.Current
+  commentId: P:PostSharp.Extensibility.PostSharpEnvironment.Current
+  id: Current
+  parent: PostSharp.Extensibility.PostSharpEnvironment
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: PostSharpEnvironment.Current
+  fullName: PostSharp.Extensibility.PostSharpEnvironment.Current
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets the current <code>PostSharp</code> environment, or <code>null</code>
+
+    if the <code>PostSharp</code> Platform is not loaded in the current
+
+    context.
+  example: []
+  syntax:
+    content: public static IPostSharpEnvironment Current { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.IPostSharpEnvironment
+    content.vb: Public Shared ReadOnly Property Current As IPostSharpEnvironment
+  overload: PostSharp.Extensibility.PostSharpEnvironment.Current*
+- uid: PostSharp.Extensibility.PostSharpEnvironment.CurrentProject
+  commentId: P:PostSharp.Extensibility.PostSharpEnvironment.CurrentProject
+  id: CurrentProject
+  parent: PostSharp.Extensibility.PostSharpEnvironment
+  langs:
+  - csharp
+  - vb
+  name: CurrentProject
+  nameWithType: PostSharpEnvironment.CurrentProject
+  fullName: PostSharp.Extensibility.PostSharpEnvironment.CurrentProject
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the current PostSharp project, or <code>null</code> if the <code>PostSharp</code> Platform is not loaded in the current context.
+  remarks: <p>Use the project from build-time code to read configuration properties and sections, and to get build-time services.</p>
+  example: []
+  syntax:
+    content: public static IProject CurrentProject { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.IProject
+    content.vb: Public Shared ReadOnly Property CurrentProject As IProject
+  overload: PostSharp.Extensibility.PostSharpEnvironment.CurrentProject*
+  seealso:
+  - linkType: HRef
+    linkId: '@configuration-consuming'
+    altText: 'Conceptual: Accessing Configuration from Source Code'
+- uid: PostSharp.Extensibility.PostSharpEnvironment.IsPostSharpRunning
+  commentId: P:PostSharp.Extensibility.PostSharpEnvironment.IsPostSharpRunning
+  id: IsPostSharpRunning
+  parent: PostSharp.Extensibility.PostSharpEnvironment
+  langs:
+  - csharp
+  - vb
+  name: IsPostSharpRunning
+  nameWithType: PostSharpEnvironment.IsPostSharpRunning
+  fullName: PostSharp.Extensibility.PostSharpEnvironment.IsPostSharpRunning
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a value indicating whether the <code>PostSharp</code> Platform is currently loaded.
+  remarks: >-
+    <p>Aspect code such as a static constructor can run both at build time, when PostSharp instantiates the aspect, and at run time.
+        Test this property to skip initialization that must happen only at run time, for example getting dependencies from a service locator.</p>
+  example: []
+  syntax:
+    content: public static bool IsPostSharpRunning { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Property IsPostSharpRunning As Boolean
+  overload: PostSharp.Extensibility.PostSharpEnvironment.IsPostSharpRunning*
+  seealso:
+  - linkType: HRef
+    linkId: '@global-service-locator'
+    altText: 'Conceptual: Using a Global Service Locator'

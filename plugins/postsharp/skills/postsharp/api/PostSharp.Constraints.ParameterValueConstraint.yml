@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.ParameterValueConstraint
+  commentId: T:PostSharp.Constraints.ParameterValueConstraint
+  id: ParameterValueConstraint
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.ParameterValueConstraint.#ctor
+  - PostSharp.Constraints.ParameterValueConstraint.ValidateParameterValue(System.Reflection.ParameterInfo,PostSharp.Reflection.MethodBody.IExpression)
+  - PostSharp.Constraints.ParameterValueConstraint.ValidateTargetParameter(System.Reflection.ParameterInfo)
+  langs:
+  - csharp
+  - vb
+  name: ParameterValueConstraint
+  nameWithType: ParameterValueConstraint
+  fullName: PostSharp.Constraints.ParameterValueConstraint
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Base class to create architecture constraints that validate the value passed to a method parameter.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Parameter)]
+
+      [MulticastAttributeUsage(MulticastTargets.Parameter, Inheritance = MulticastInheritance.Strict)]
+
+      public abstract class ParameterValueConstraint : ReferentialConstraint, IReferentialConstraint, IConstraint
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Parameter)>
+
+      <MulticastAttributeUsage(MulticastTargets.Parameter, Inheritance:=MulticastInheritance.Strict)>
+
+      Public MustInherit Class ParameterValueConstraint Inherits ReferentialConstraint Implements IReferentialConstraint, IConstraint
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Constraints.Constraint
+  - PostSharp.Constraints.ReferentialConstraint
+  implements:
+  - PostSharp.Constraints.IReferentialConstraint
+  - PostSharp.Constraints.IConstraint
+  inheritedMembers:
+  - PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)
+  - PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 2048
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 4096
+    namedArguments:
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+- uid: PostSharp.Constraints.ParameterValueConstraint.ValidateTargetParameter(System.Reflection.ParameterInfo)
+  commentId: M:PostSharp.Constraints.ParameterValueConstraint.ValidateTargetParameter(System.Reflection.ParameterInfo)
+  id: ValidateTargetParameter(System.Reflection.ParameterInfo)
+  parent: PostSharp.Constraints.ParameterValueConstraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateTargetParameter(ParameterInfo)
+  nameWithType: ParameterValueConstraint.ValidateTargetParameter(ParameterInfo)
+  fullName: PostSharp.Constraints.ParameterValueConstraint.ValidateTargetParameter(System.Reflection.ParameterInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: >-
+    Validates the parameter to which the current constraint has been applied. A typical use of this method is to validate the parameter type.
+
+    Overriding implementations should call the base implementation.
+  example: []
+  syntax:
+    content: protected virtual bool ValidateTargetParameter(ParameterInfo parameter)
+    parameters:
+    - id: parameter
+      type: System.Reflection.ParameterInfo
+      description: The parameter to which the custom attribute has been applied.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current constraint can legally be applied to <code class="paramref">parameter</code>, <code>false</code> otherwise. No error message is emitted if
+            the method returns <code>false</code>. The method should emit its own error message.
+    content.vb: Protected Overridable Function ValidateTargetParameter(parameter As ParameterInfo) As Boolean
+  overload: PostSharp.Constraints.ParameterValueConstraint.ValidateTargetParameter*
+- uid: PostSharp.Constraints.ParameterValueConstraint.ValidateParameterValue(System.Reflection.ParameterInfo,PostSharp.Reflection.MethodBody.IExpression)
+  commentId: M:PostSharp.Constraints.ParameterValueConstraint.ValidateParameterValue(System.Reflection.ParameterInfo,PostSharp.Reflection.MethodBody.IExpression)
+  id: ValidateParameterValue(System.Reflection.ParameterInfo,PostSharp.Reflection.MethodBody.IExpression)
+  parent: PostSharp.Constraints.ParameterValueConstraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateParameterValue(ParameterInfo, IExpression)
+  nameWithType: ParameterValueConstraint.ValidateParameterValue(ParameterInfo, IExpression)
+  fullName: PostSharp.Constraints.ParameterValueConstraint.ValidateParameterValue(System.Reflection.ParameterInfo, PostSharp.Reflection.MethodBody.IExpression)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: Validates the value passed to the parameter.
+  example: []
+  syntax:
+    content: protected abstract void ValidateParameterValue(ParameterInfo parameter, IExpression expression)
+    parameters:
+    - id: parameter
+      type: System.Reflection.ParameterInfo
+      description: The parameter to which the current constraint has been applied.
+    - id: expression
+      type: PostSharp.Reflection.MethodBody.IExpression
+      description: The expression passed to the parameter.
+    content.vb: Protected MustOverride Sub ValidateParameterValue(parameter As ParameterInfo, expression As IExpression)
+  overload: PostSharp.Constraints.ParameterValueConstraint.ValidateParameterValue*
+- uid: PostSharp.Constraints.ParameterValueConstraint.#ctor
+  commentId: M:PostSharp.Constraints.ParameterValueConstraint.#ctor
+  id: '#ctor'
+  parent: PostSharp.Constraints.ParameterValueConstraint
+  langs:
+  - csharp
+  - vb
+  name: ParameterValueConstraint()
+  nameWithType: ParameterValueConstraint.ParameterValueConstraint()
+  fullName: PostSharp.Constraints.ParameterValueConstraint.ParameterValueConstraint()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  syntax:
+    content: protected ParameterValueConstraint()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Constraints.ParameterValueConstraint.#ctor*
+  nameWithType.vb: ParameterValueConstraint.New()
+  fullName.vb: PostSharp.Constraints.ParameterValueConstraint.New()
+  name.vb: New()

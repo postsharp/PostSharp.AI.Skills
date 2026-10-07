@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IAspectInstance
+  commentId: T:PostSharp.Aspects.IAspectInstance
+  id: IAspectInstance
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IAspectInstance.Aspect
+  - PostSharp.Aspects.IAspectInstance.AspectConfiguration
+  - PostSharp.Aspects.IAspectInstance.AspectConstruction
+  - PostSharp.Aspects.IAspectInstance.AspectType
+  langs:
+  - csharp
+  - vb
+  name: IAspectInstance
+  nameWithType: IAspectInstance
+  fullName: PostSharp.Aspects.IAspectInstance
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Represents an instance of an aspect applied to a declaration.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IAspectInstance
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IAspectInstance
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IAspectInstance.AspectConfiguration
+  commentId: P:PostSharp.Aspects.IAspectInstance.AspectConfiguration
+  id: AspectConfiguration
+  parent: PostSharp.Aspects.IAspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectConfiguration
+  nameWithType: IAspectInstance.AspectConfiguration
+  fullName: PostSharp.Aspects.IAspectInstance.AspectConfiguration
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the aspect configuration.
+  example: []
+  syntax:
+    content: AspectConfiguration AspectConfiguration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: The aspect configuration, or <code>null</code> if none was provided.
+    content.vb: ReadOnly Property AspectConfiguration As AspectConfiguration
+  overload: PostSharp.Aspects.IAspectInstance.AspectConfiguration*
+- uid: PostSharp.Aspects.IAspectInstance.AspectConstruction
+  commentId: P:PostSharp.Aspects.IAspectInstance.AspectConstruction
+  id: AspectConstruction
+  parent: PostSharp.Aspects.IAspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectConstruction
+  nameWithType: IAspectInstance.AspectConstruction
+  fullName: PostSharp.Aspects.IAspectInstance.AspectConstruction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the aspect construction.
+  example: []
+  syntax:
+    content: ObjectConstruction AspectConstruction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.ObjectConstruction
+      description: The aspect construction, or <code>null</code> if the aspect instance was provided instead.
+    content.vb: ReadOnly Property AspectConstruction As ObjectConstruction
+  overload: PostSharp.Aspects.IAspectInstance.AspectConstruction*
+- uid: PostSharp.Aspects.IAspectInstance.Aspect
+  commentId: P:PostSharp.Aspects.IAspectInstance.Aspect
+  id: Aspect
+  parent: PostSharp.Aspects.IAspectInstance
+  langs:
+  - csharp
+  - vb
+  name: Aspect
+  nameWithType: IAspectInstance.Aspect
+  fullName: PostSharp.Aspects.IAspectInstance.Aspect
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the aspect instance.
+  example: []
+  syntax:
+    content: IAspect Aspect { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.IAspect
+      description: The aspect instance, or <code>null</code> if the <xref href="PostSharp.Aspects.IAspectInstance.AspectConfiguration" data-throw-if-not-resolved="false"></xref> was provided instead.
+    content.vb: ReadOnly Property Aspect As IAspect
+  overload: PostSharp.Aspects.IAspectInstance.Aspect*
+- uid: PostSharp.Aspects.IAspectInstance.AspectType
+  commentId: P:PostSharp.Aspects.IAspectInstance.AspectType
+  id: AspectType
+  parent: PostSharp.Aspects.IAspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectType
+  nameWithType: IAspectInstance.AspectType
+  fullName: PostSharp.Aspects.IAspectInstance.AspectType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the type of the aspect.
+  example: []
+  syntax:
+    content: Type AspectType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property AspectType As Type
+  overload: PostSharp.Aspects.IAspectInstance.AspectType*

@@ -1,0 +1,348 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.CachingProfile
+  commentId: T:PostSharp.Patterns.Caching.CachingProfile
+  id: CachingProfile
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.CachingProfile.#ctor(System.String)
+  - PostSharp.Patterns.Caching.CachingProfile.AbsoluteExpiration
+  - PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout
+  - PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy
+  - PostSharp.Patterns.Caching.CachingProfile.AutoReload
+  - PostSharp.Patterns.Caching.CachingProfile.DefaultName
+  - PostSharp.Patterns.Caching.CachingProfile.IsEnabled
+  - PostSharp.Patterns.Caching.CachingProfile.LockManager
+  - PostSharp.Patterns.Caching.CachingProfile.Name
+  - PostSharp.Patterns.Caching.CachingProfile.Priority
+  - PostSharp.Patterns.Caching.CachingProfile.SlidingExpiration
+  langs:
+  - csharp
+  - vb
+  name: CachingProfile
+  nameWithType: CachingProfile
+  fullName: PostSharp.Patterns.Caching.CachingProfile
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Allows for centralized and run-time configuration of several instances of the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <p>Profiles are exposed by name on the <xref href="PostSharp.Patterns.Caching.CachingServices.Profiles" data-throw-if-not-resolved="false"></xref> collection, which creates a profile the first time its name is requested.
+        Cached methods select a profile with the <xref href="PostSharp.Patterns.Caching.CacheAttribute.ProfileName" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName" data-throw-if-not-resolved="false"></xref> property,
+        and use the default profile (<xref href="PostSharp.Patterns.Caching.CachingServices.CachingProfileRegistry.Default" data-throw-if-not-resolved="false"></xref>) when they specify none.</p>
+    <p>A profile setting applies only to the properties that are not set by the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> or by a <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref>.
+        Unlike these custom attributes, a profile can be changed at run time, for example to disable caching with the <xref href="PostSharp.Patterns.Caching.CachingProfile.IsEnabled" data-throw-if-not-resolved="false"></xref> property.
+        Whether the <code>this</code> instance is part of the cache key cannot be set in a profile because it is resolved at build time.</p>
+    <p>Locking is configured only on profiles, with the <xref href="PostSharp.Patterns.Caching.CachingProfile.LockManager" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy" data-throw-if-not-resolved="false"></xref> properties.</p>
+  example: []
+  syntax:
+    content: 'public sealed class CachingProfile : ICacheItemConfiguration'
+    content.vb: Public NotInheritable Class CachingProfile Implements ICacheItemConfiguration
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-getting-started'
+    altText: 'Conceptual: Caching Method Return Values'
+  - linkType: HRef
+    linkId: '@cache-locking'
+    altText: 'Conceptual: Preventing Concurrent Execution of Cached Methods'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.CachingProfile.DefaultName
+  commentId: F:PostSharp.Patterns.Caching.CachingProfile.DefaultName
+  id: DefaultName
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: DefaultName
+  nameWithType: CachingProfile.DefaultName
+  fullName: PostSharp.Patterns.Caching.CachingProfile.DefaultName
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: The name of the default profile.
+  example: []
+  syntax:
+    content: public const string DefaultName = "default"
+    return:
+      type: System.String
+    content.vb: Public Const DefaultName As String = "default"
+- uid: PostSharp.Patterns.Caching.CachingProfile.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Caching.CachingProfile.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: CachingProfile(string)
+  nameWithType: CachingProfile.CachingProfile(string)
+  fullName: PostSharp.Patterns.Caching.CachingProfile.CachingProfile(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CachingProfile(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the profile. The comparison is case-insensitive.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub New(name As String)
+  overload: PostSharp.Patterns.Caching.CachingProfile.#ctor*
+  nameWithType.vb: CachingProfile.New(String)
+  fullName.vb: PostSharp.Patterns.Caching.CachingProfile.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Caching.CachingProfile.Name
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.Name
+  id: Name
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: CachingProfile.Name
+  fullName: PostSharp.Patterns.Caching.CachingProfile.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets the name of the profile. The comparison is case-insensitive.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Caching.CachingProfile.Name*
+- uid: PostSharp.Patterns.Caching.CachingProfile.IsEnabled
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.IsEnabled
+  id: IsEnabled
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: CachingProfile.IsEnabled
+  fullName: PostSharp.Patterns.Caching.CachingProfile.IsEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets a value indicating whether caching is enabled for the current profile.
+  example: []
+  syntax:
+    content: public bool IsEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEnabled As Boolean
+  overload: PostSharp.Patterns.Caching.CachingProfile.IsEnabled*
+- uid: PostSharp.Patterns.Caching.CachingProfile.AutoReload
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.AutoReload
+  id: AutoReload
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: AutoReload
+  nameWithType: CachingProfile.AutoReload
+  fullName: PostSharp.Patterns.Caching.CachingProfile.AutoReload
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the method calls are automatically reloaded (by re-evaluating the target method with the same arguments)
+
+    when the cache item is removed from the cache.
+  example: []
+  syntax:
+    content: public bool? AutoReload { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property AutoReload As Boolean?
+  overload: PostSharp.Patterns.Caching.CachingProfile.AutoReload*
+- uid: PostSharp.Patterns.Caching.CachingProfile.AbsoluteExpiration
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.AbsoluteExpiration
+  id: AbsoluteExpiration
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteExpiration
+  nameWithType: CachingProfile.AbsoluteExpiration
+  fullName: PostSharp.Patterns.Caching.CachingProfile.AbsoluteExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the total duration during which the result of the current method is stored in the cache. The absolute
+
+    expiration time is counted from the moment the method is evaluated and cached.
+  example: []
+  syntax:
+    content: public TimeSpan? AbsoluteExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: Public Property AbsoluteExpiration As TimeSpan?
+  overload: PostSharp.Patterns.Caching.CachingProfile.AbsoluteExpiration*
+- uid: PostSharp.Patterns.Caching.CachingProfile.SlidingExpiration
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.SlidingExpiration
+  id: SlidingExpiration
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: SlidingExpiration
+  nameWithType: CachingProfile.SlidingExpiration
+  fullName: PostSharp.Patterns.Caching.CachingProfile.SlidingExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the duration during which the result of the current method is stored in the cache after it has been
+
+    added to or accessed from the cache. The expiration is extended every time the value is accessed from the cache.
+  example: []
+  syntax:
+    content: public TimeSpan? SlidingExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: Public Property SlidingExpiration As TimeSpan?
+  overload: PostSharp.Patterns.Caching.CachingProfile.SlidingExpiration*
+- uid: PostSharp.Patterns.Caching.CachingProfile.Priority
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.Priority
+  id: Priority
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: CachingProfile.Priority
+  fullName: PostSharp.Patterns.Caching.CachingProfile.Priority
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the priority of the cached methods.
+  example: []
+  syntax:
+    content: public CacheItemPriority? Priority { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Patterns.Caching.Implementation.CacheItemPriority}
+    content.vb: Public Property Priority As CacheItemPriority?
+  overload: PostSharp.Patterns.Caching.CachingProfile.Priority*
+  implements:
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.Priority
+- uid: PostSharp.Patterns.Caching.CachingProfile.LockManager
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.LockManager
+  id: LockManager
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: LockManager
+  nameWithType: CachingProfile.LockManager
+  fullName: PostSharp.Patterns.Caching.CachingProfile.LockManager
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the lock manager used to synchronize the execution of methods
+
+    that are cached with the current profile. The default lock manager is <xref href="PostSharp.Patterns.Caching.Locking.NullLockManager" data-throw-if-not-resolved="false"></xref>,
+
+    which allows for concurrent execution of all methods. An alternative implementation is <xref href="PostSharp.Patterns.Caching.Locking.LocalLockManager" data-throw-if-not-resolved="false"></xref>,
+
+    which prevents concurrent execution of the same method with the same parameters, in the current process (or AppDomain).
+  example: []
+  syntax:
+    content: public ILockManager LockManager { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Locking.ILockManager
+    content.vb: Public Property LockManager As ILockManager
+  overload: PostSharp.Patterns.Caching.CachingProfile.LockManager*
+- uid: PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout
+  id: AcquireLockTimeout
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: AcquireLockTimeout
+  nameWithType: CachingProfile.AcquireLockTimeout
+  fullName: PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the maximum time that the caching aspect will wait for the <xref href="PostSharp.Patterns.Caching.CachingProfile.LockManager" data-throw-if-not-resolved="false"></xref> to acquire a lock.
+
+    To specify an infinite waiting time, set this property to <code>TimeSpan.FromMilliseconds( -1 )</code>. The default
+
+    behavior is to wait infinitely.
+  example: []
+  syntax:
+    content: public TimeSpan AcquireLockTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property AcquireLockTimeout As TimeSpan
+  overload: PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout*
+- uid: PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy
+  commentId: P:PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy
+  id: AcquireLockTimeoutStrategy
+  parent: PostSharp.Patterns.Caching.CachingProfile
+  langs:
+  - csharp
+  - vb
+  name: AcquireLockTimeoutStrategy
+  nameWithType: CachingProfile.AcquireLockTimeoutStrategy
+  fullName: PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the behavior when the caching aspect cannot acquire a lock because of a timeout. 
+
+    The default behavior is to throw a <xref href="System.TimeoutException" data-throw-if-not-resolved="false"></xref>. You can implement your own strategy by implementing
+
+    the <xref href="PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy" data-throw-if-not-resolved="false"></xref> interface. If the <xref href="PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout(System.String)" data-throw-if-not-resolved="false"></xref> does not return
+
+    any exception, the cached method will be evaluated (even without a lock).
+  example: []
+  syntax:
+    content: public IAcquireLockTimeoutStrategy AcquireLockTimeoutStrategy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy
+    content.vb: Public Property AcquireLockTimeoutStrategy As IAcquireLockTimeoutStrategy
+  overload: PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy*

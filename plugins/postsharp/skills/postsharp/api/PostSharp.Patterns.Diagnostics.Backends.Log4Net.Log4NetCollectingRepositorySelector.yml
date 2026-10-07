@@ -1,0 +1,440 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  id: Log4NetCollectingRepositorySelector
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.#ctor(log4net.Core.IRepositorySelector)
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.Reflection.Assembly,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.ExistsRepository(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetAllRepositories
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.Reflection.Assembly)
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.LoggerRepositoryCreatedEvent
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp
+  langs:
+  - csharp
+  - vb
+  name: Log4NetCollectingRepositorySelector
+  nameWithType: Log4NetCollectingRepositorySelector
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: >-
+    This class is a log4net repository selector. It allows you to send all your log4net logging into PostSharp, where it can be processed by any
+
+    PostSharp logging backend (including a log4net backend). See Remarks.
+  remarks: >-
+    To use this class, add initialization code similar to the following at the beginning of your application:
+
+
+    <pre><code class="lang-csharp">ILoggerRepository relay = Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp();
+
+    BasicConfigurator.Configure( relay );
+
+    LoggingServices.DefaultBackend = new Log4NetLoggingBackend(relay);</code></pre>
+
+
+    The first line sets an instance of <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector" data-throw-if-not-resolved="false"></xref> as the active <xref href="log4net.Core.IRepositorySelector" data-throw-if-not-resolved="false"></xref>.
+
+    As a result, all upcoming <code>LogManager.GetLogger(string)</code>
+
+    and similar calls get special redirection loggers. These loggers pass all messages to PostSharp instead of to log4net appenders.
+
+
+    <p>
+
+    The first line also returns a "relay repository". This is the only repository where logging is not redirected to PostSharp. On line 2,
+
+    we configure appenders for this repository. You may want to use <xref href="log4net.Config.XmlConfigurator" data-throw-if-not-resolved="false"></xref> here. On line 3, we pass that relay repository to PostSharp
+
+    so that all PostSharp logging goes into that relay repository and from there to your appenders.
+
+    This includes automatic logging, manual logging and the logging coming from log4net.
+
+    </p><p>
+
+    Call <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp" data-throw-if-not-resolved="false"></xref> before you create any log4net logger. Loggers created earlier are not redirected.
+
+    </p>
+  example: []
+  syntax:
+    content: 'public class Log4NetCollectingRepositorySelector : IRepositorySelector'
+    content.vb: Public Class Log4NetCollectingRepositorySelector Implements IRepositorySelector
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackend
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackend
+  - linkType: HRef
+    linkId: '@log4net'
+    altText: 'Conceptual: Logging with log4net'
+  inheritance:
+  - System.Object
+  implements:
+  - log4net.Core.IRepositorySelector
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp
+  id: RedirectLoggingToPostSharp
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: RedirectLoggingToPostSharp()
+  nameWithType: Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: >-
+    Sets the global <xref href="log4net.Core.LoggerManager.RepositorySelector" data-throw-if-not-resolved="false"></xref> to a log4net-to-PostSharp redirector so that all repositories and loggers created after this call
+
+    redirect all messages to PostSharp. Returns a "relay repository", which is the only repository that is not redirected to PostSharp.
+  example: []
+  syntax:
+    content: public static ILoggerRepository RedirectLoggingToPostSharp()
+    return:
+      type: log4net.Repository.ILoggerRepository
+      description: >-
+        The relay repository. You should configure it with appenders where you want the final log output to go.
+                    Pass it to <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackend" data-throw-if-not-resolved="false"></xref> so that logging done by PostSharp goes to your appenders.
+    content.vb: Public Shared Function RedirectLoggingToPostSharp() As ILoggerRepository
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.#ctor(log4net.Core.IRepositorySelector)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.#ctor(log4net.Core.IRepositorySelector)
+  id: '#ctor(log4net.Core.IRepositorySelector)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: Log4NetCollectingRepositorySelector(IRepositorySelector)
+  nameWithType: Log4NetCollectingRepositorySelector.Log4NetCollectingRepositorySelector(IRepositorySelector)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.Log4NetCollectingRepositorySelector(log4net.Core.IRepositorySelector)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector" data-throw-if-not-resolved="false"></xref> class and creates the relay repository. See the remarks of the class. Consider using the
+
+    static method <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp" data-throw-if-not-resolved="false"></xref> instead.
+  example: []
+  syntax:
+    content: public Log4NetCollectingRepositorySelector(IRepositorySelector originalRepositorySelector)
+    parameters:
+    - id: originalRepositorySelector
+      type: log4net.Core.IRepositorySelector
+      description: The selector that should be used to get or create the relay repository.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub New(originalRepositorySelector As IRepositorySelector)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.#ctor*
+  nameWithType.vb: Log4NetCollectingRepositorySelector.New(IRepositorySelector)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.New(log4net.Core.IRepositorySelector)
+  name.vb: New(IRepositorySelector)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.Reflection.Assembly)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.Reflection.Assembly)
+  id: GetRepository(System.Reflection.Assembly)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: GetRepository(Assembly)
+  nameWithType: Log4NetCollectingRepositorySelector.GetRepository(Assembly)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.Reflection.Assembly)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Gets the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref> for the specified assembly.
+  remarks: >-
+    <p>
+
+    Gets the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref> for the specified assembly.
+
+    </p>
+
+    <p>
+
+    How the association between <xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref> and <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>
+
+    is made is not defined. The implementation may choose any method for
+
+    this association. The results of this method must be repeatable, i.e.
+
+    when called again with the same arguments the result must be the
+
+    save value.
+
+    </p>
+  example: []
+  syntax:
+    content: public ILoggerRepository GetRepository(Assembly assembly)
+    parameters:
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: The assembly to use to look up to the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>
+    return:
+      type: log4net.Repository.ILoggerRepository
+      description: The <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref> for the assembly.
+    content.vb: Public Function GetRepository(assembly As Assembly) As ILoggerRepository
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository*
+  implements:
+  - log4net.Core.IRepositorySelector.GetRepository(System.Reflection.Assembly)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(System.String)
+  id: GetRepository(System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: GetRepository(string)
+  nameWithType: Log4NetCollectingRepositorySelector.GetRepository(string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: >-
+    Returns the "relay repository" if <code class="paramref">repositoryName</code> corresponds to it. Otherwise, returns a repository of
+
+    the type <xref href="PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectionRepository" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ILoggerRepository GetRepository(string repositoryName)
+    parameters:
+    - id: repositoryName
+      type: System.String
+      description: The name used to look up the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: log4net.Repository.ILoggerRepository
+      description: The named <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetRepository(repositoryName As String) As ILoggerRepository
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository*
+  implements:
+  - log4net.Core.IRepositorySelector.GetRepository(System.String)
+  nameWithType.vb: Log4NetCollectingRepositorySelector.GetRepository(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetRepository(String)
+  name.vb: GetRepository(String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.Reflection.Assembly,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.Reflection.Assembly,System.Type)
+  id: CreateRepository(System.Reflection.Assembly,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: CreateRepository(Assembly, Type)
+  nameWithType: Log4NetCollectingRepositorySelector.CreateRepository(Assembly, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.Reflection.Assembly, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Creates a new repository for the assembly specified.
+  remarks: >-
+    <p>
+
+    The <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref> created will be associated with the domain
+
+    specified such that a call to <xref href="log4net.Core.IRepositorySelector.GetRepository(System.Reflection.Assembly)" data-throw-if-not-resolved="false"></xref> with the
+
+    same assembly specified will return the same repository instance.
+
+    </p>
+
+    <p>
+
+    How the association between <xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref> and <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>
+
+    is made is not defined. The implementation may choose any method for
+
+    this association.
+
+    </p>
+  example: []
+  syntax:
+    content: public ILoggerRepository CreateRepository(Assembly assembly, Type repositoryType)
+    parameters:
+    - id: assembly
+      type: System.Reflection.Assembly
+      description: The assembly to use to create the domain to associate with the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+    - id: repositoryType
+      type: System.Type
+      description: The type of repository to create, must implement <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: log4net.Repository.ILoggerRepository
+      description: The repository created.
+    content.vb: Public Function CreateRepository(assembly As Assembly, repositoryType As Type) As ILoggerRepository
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository*
+  implements:
+  - log4net.Core.IRepositorySelector.CreateRepository(System.Reflection.Assembly,System.Type)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(System.String,System.Type)
+  id: CreateRepository(System.String,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: CreateRepository(string, Type)
+  nameWithType: Log4NetCollectingRepositorySelector.CreateRepository(string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(string, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Creates a new repository with the name specified.
+  remarks: >-
+    <p>
+
+    The <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref> created will be associated with the name
+
+    specified such that a call to <xref href="log4net.Core.IRepositorySelector.GetRepository(System.String)" data-throw-if-not-resolved="false"></xref> with the
+
+    same name will return the same repository instance.
+
+    </p>
+  example: []
+  syntax:
+    content: public ILoggerRepository CreateRepository(string repositoryName, Type repositoryType)
+    parameters:
+    - id: repositoryName
+      type: System.String
+      description: The name to associate with the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+    - id: repositoryType
+      type: System.Type
+      description: The type of repository to create, must implement <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: log4net.Repository.ILoggerRepository
+      description: The repository created.
+    content.vb: Public Function CreateRepository(repositoryName As String, repositoryType As Type) As ILoggerRepository
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository*
+  implements:
+  - log4net.Core.IRepositorySelector.CreateRepository(System.String,System.Type)
+  nameWithType.vb: Log4NetCollectingRepositorySelector.CreateRepository(String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.CreateRepository(String, System.Type)
+  name.vb: CreateRepository(String, Type)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.ExistsRepository(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.ExistsRepository(System.String)
+  id: ExistsRepository(System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: ExistsRepository(string)
+  nameWithType: Log4NetCollectingRepositorySelector.ExistsRepository(string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.ExistsRepository(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Test if a named repository exists
+  remarks: >-
+    <p>
+
+    Test if a named repository exists. Use <xref href="log4net.Core.IRepositorySelector.CreateRepository(System.Reflection.Assembly%2cSystem.Type)" data-throw-if-not-resolved="false"></xref>
+
+    to create a new repository and <xref href="log4net.Core.IRepositorySelector.GetRepository(System.Reflection.Assembly)" data-throw-if-not-resolved="false"></xref> to retrieve 
+
+    a repository.
+
+    </p>
+  example: []
+  syntax:
+    content: public bool ExistsRepository(string repositoryName)
+    parameters:
+    - id: repositoryName
+      type: System.String
+      description: the named repository to check
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the repository exists
+    content.vb: Public Function ExistsRepository(repositoryName As String) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.ExistsRepository*
+  implements:
+  - log4net.Core.IRepositorySelector.ExistsRepository(System.String)
+  nameWithType.vb: Log4NetCollectingRepositorySelector.ExistsRepository(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.ExistsRepository(String)
+  name.vb: ExistsRepository(String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetAllRepositories
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetAllRepositories
+  id: GetAllRepositories
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: GetAllRepositories()
+  nameWithType: Log4NetCollectingRepositorySelector.GetAllRepositories()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetAllRepositories()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Gets an array of all currently defined repositories.
+  remarks: >-
+    <p>
+
+    Gets an array of all repositories created by this selector.
+
+    </p>
+  example: []
+  syntax:
+    content: public ILoggerRepository[] GetAllRepositories()
+    return:
+      type: log4net.Repository.ILoggerRepository[]
+      description: >-
+        An array of the <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref> instances created by 
+
+        this <xref href="log4net.Core.IRepositorySelector" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetAllRepositories() As ILoggerRepository()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.GetAllRepositories*
+  implements:
+  - log4net.Core.IRepositorySelector.GetAllRepositories
+- uid: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.LoggerRepositoryCreatedEvent
+  commentId: E:PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.LoggerRepositoryCreatedEvent
+  id: LoggerRepositoryCreatedEvent
+  parent: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector
+  langs:
+  - csharp
+  - vb
+  name: LoggerRepositoryCreatedEvent
+  nameWithType: Log4NetCollectingRepositorySelector.LoggerRepositoryCreatedEvent
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetCollectingRepositorySelector.LoggerRepositoryCreatedEvent
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Log4Net
+  summary: Event to notify that a logger repository has been created.
+  remarks: >-
+    <p>
+
+    Event raised when a new repository is created.
+
+    The event source will be this selector. The event args will
+
+    be a <xref href="log4net.Core.LoggerRepositoryCreationEventArgs" data-throw-if-not-resolved="false"></xref> which
+
+    holds the newly created <xref href="log4net.Repository.ILoggerRepository" data-throw-if-not-resolved="false"></xref>.
+
+    </p>
+  example: []
+  syntax:
+    content: public event LoggerRepositoryCreationEventHandler LoggerRepositoryCreatedEvent
+    return:
+      type: log4net.Core.LoggerRepositoryCreationEventHandler
+      description: Event to notify that a logger repository has been created.
+    content.vb: Public Event LoggerRepositoryCreatedEvent As LoggerRepositoryCreationEventHandler
+  implements:
+  - log4net.Core.IRepositorySelector.LoggerRepositoryCreatedEvent

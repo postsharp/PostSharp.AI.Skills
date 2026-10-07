@@ -1,0 +1,194 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  commentId: T:PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  id: IHashSetDynamicAdvice`1
+  parent: PostSharp.Patterns.Collections.Advices
+  children:
+  - PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.AddItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  - PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ChangeMany(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}},System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  - PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  - PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.RemoveItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  - PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  langs:
+  - csharp
+  - vb
+  name: IHashSetDynamicAdvice<T>
+  nameWithType: IHashSetDynamicAdvice<T>
+  fullName: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Defines the semantics of a dynamic advice that can be applied to an <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IHashSetDynamicAdvice<T> : ICollectionDynamicAdviceBase, IDynamicAdvice, IDynamicInterfaceImplementation'
+    typeParameters:
+    - id: T
+      description: The type of the collection items.
+    content.vb: Public Interface IHashSetDynamicAdvice(Of T) Inherits ICollectionDynamicAdviceBase, IDynamicAdvice, IDynamicInterfaceImplementation
+  derivedClasses:
+  - PostSharp.Patterns.Collections.Advices.HashSetDynamicAdvice`1
+  inheritedMembers:
+  - PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  - PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  nameWithType.vb: IHashSetDynamicAdvice(Of T)
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T)
+  name.vb: IHashSetDynamicAdvice(Of T)
+- uid: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.AddItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.AddItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  id: AddItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  parent: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: AddItem(T, AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  nameWithType: IHashSetDynamicAdvice<T>.AddItem(T, AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>.AddItem(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Adds an item to the hash set.
+  example: []
+  syntax:
+    content: void AddItem(T item, AdviceEnumerator<IHashSetDynamicAdvice<T>> nextAdvices)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: ''
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1}
+      description: ''
+    content.vb: Sub AddItem(item As T, nextAdvices As AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  overload: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.AddItem*
+  nameWithType.vb: IHashSetDynamicAdvice(Of T).AddItem(T, AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T).AddItem(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T)))
+  name.vb: AddItem(T, AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+- uid: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.RemoveItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.RemoveItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  id: RemoveItem(`0,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  parent: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveItem(T, AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  nameWithType: IHashSetDynamicAdvice<T>.RemoveItem(T, AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>.RemoveItem(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Removes an item from the hash set.
+  example: []
+  syntax:
+    content: void RemoveItem(T item, AdviceEnumerator<IHashSetDynamicAdvice<T>> nextAdvices)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: ''
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1}
+      description: ''
+    content.vb: Sub RemoveItem(item As T, nextAdvices As AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  overload: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.RemoveItem*
+  nameWithType.vb: IHashSetDynamicAdvice(Of T).RemoveItem(T, AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T).RemoveItem(T, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T)))
+  name.vb: RemoveItem(T, AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+- uid: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  id: ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  parent: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: ClearItems(AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  nameWithType: IHashSetDynamicAdvice<T>.ClearItems(AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Removes all items from the hash set.
+  example: []
+  syntax:
+    content: void ClearItems(AdviceEnumerator<IHashSetDynamicAdvice<T>> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1}
+      description: ''
+    content.vb: Sub ClearItems(nextAdvices As AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  overload: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ClearItems*
+  nameWithType.vb: IHashSetDynamicAdvice(Of T).ClearItems(AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T).ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T)))
+  name.vb: ClearItems(AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+- uid: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ChangeMany(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}},System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ChangeMany(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}},System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  id: ChangeMany(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}},System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  parent: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: ChangeMany(AdviceEnumerator<IHashSetDynamicAdvice<T>>, IList<T>, IList<T>)
+  nameWithType: IHashSetDynamicAdvice<T>.ChangeMany(AdviceEnumerator<IHashSetDynamicAdvice<T>>, IList<T>, IList<T>)
+  fullName: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>.ChangeMany(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>>, System.Collections.Generic.IList<T>, System.Collections.Generic.IList<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Adds and/or removes several items to or from the hash set.
+  example: []
+  syntax:
+    content: void ChangeMany(AdviceEnumerator<IHashSetDynamicAdvice<T>> nextAdvices, IList<T> itemsToAdd, IList<T> itemsToRemove)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1}
+      description: ''
+    - id: itemsToAdd
+      type: System.Collections.Generic.IList{{T}}
+      description: ''
+    - id: itemsToRemove
+      type: System.Collections.Generic.IList{{T}}
+      description: ''
+    content.vb: Sub ChangeMany(nextAdvices As AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)), itemsToAdd As IList(Of T), itemsToRemove As IList(Of T))
+  overload: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ChangeMany*
+  nameWithType.vb: IHashSetDynamicAdvice(Of T).ChangeMany(AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)), IList(Of T), IList(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T).ChangeMany(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T)), System.Collections.Generic.IList(Of T), System.Collections.Generic.IList(Of T))
+  name.vb: ChangeMany(AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)), IList(Of T), IList(Of T))
+- uid: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  id: ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{`0}})
+  parent: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1
+  langs:
+  - csharp
+  - vb
+  name: ToArray(AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  nameWithType: IHashSetDynamicAdvice<T>.ToArray(AdviceEnumerator<IHashSetDynamicAdvice<T>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Copies the hash set to an array.
+  example: []
+  syntax:
+    content: T[] ToArray(AdviceEnumerator<IHashSetDynamicAdvice<T>> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1}
+      description: ''
+    return:
+      type: '{T}[]'
+      description: ''
+    content.vb: Function ToArray(nextAdvices As AdviceEnumerator(Of IHashSetDynamicAdvice(Of T))) As T()
+  overload: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice`1.ToArray*
+  nameWithType.vb: IHashSetDynamicAdvice(Of T).ToArray(AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T).ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice(Of T)))
+  name.vb: ToArray(AdviceEnumerator(Of IHashSetDynamicAdvice(Of T)))

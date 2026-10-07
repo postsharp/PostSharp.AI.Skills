@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.RecordingScopeOption
+  commentId: T:PostSharp.Patterns.Recording.RecordingScopeOption
+  id: RecordingScopeOption
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.RecordingScopeOption.Atomic
+  - PostSharp.Patterns.Recording.RecordingScopeOption.Default
+  - PostSharp.Patterns.Recording.RecordingScopeOption.Skip
+  langs:
+  - csharp
+  - vb
+  name: RecordingScopeOption
+  nameWithType: RecordingScopeOption
+  fullName: PostSharp.Patterns.Recording.RecordingScopeOption
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Enumerates the kinds of recording scope.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public enum RecordingScopeOption
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Enum RecordingScopeOption
+  seealso:
+  - linkId: PostSharp.Patterns.Recording.RecordingScope
+    commentId: T:PostSharp.Patterns.Recording.RecordingScope
+  - linkId: PostSharp.Patterns.Recording.RecordingScopeAttribute
+    commentId: T:PostSharp.Patterns.Recording.RecordingScopeAttribute
+  - linkId: PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+    commentId: M:PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.RecordingScopeOption.Default
+  commentId: F:PostSharp.Patterns.Recording.RecordingScopeOption.Default
+  id: Default
+  parent: PostSharp.Patterns.Recording.RecordingScopeOption
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: RecordingScopeOption.Default
+  fullName: PostSharp.Patterns.Recording.RecordingScopeOption.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: For declarative scopes, a <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> is automatically opened for the first public method of a recordable object on the call stack.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+- uid: PostSharp.Patterns.Recording.RecordingScopeOption.Skip
+  commentId: F:PostSharp.Patterns.Recording.RecordingScopeOption.Skip
+  id: Skip
+  parent: PostSharp.Patterns.Recording.RecordingScopeOption
+  langs:
+  - csharp
+  - vb
+  name: Skip
+  nameWithType: RecordingScopeOption.Skip
+  fullName: PostSharp.Patterns.Recording.RecordingScopeOption.Skip
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Prevents a <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> from being automatically opened for the target method. Cannot be used with <xref href="PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Skip = 1
+    return:
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+- uid: PostSharp.Patterns.Recording.RecordingScopeOption.Atomic
+  commentId: F:PostSharp.Patterns.Recording.RecordingScopeOption.Atomic
+  id: Atomic
+  parent: PostSharp.Patterns.Recording.RecordingScopeOption
+  langs:
+  - csharp
+  - vb
+  name: Atomic
+  nameWithType: RecordingScopeOption.Atomic
+  fullName: PostSharp.Patterns.Recording.RecordingScopeOption.Atomic
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Causes changes in the <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> to be rolled back if the scope execution is not successful. In the case of a declarative scope (<xref href="PostSharp.Patterns.Recording.RecordingScopeAttribute" data-throw-if-not-resolved="false"></xref>), 
+
+    it means that changes made by the method will be rolled back if the method results in an exception. For imperative scopes (<xref href="PostSharp.Patterns.Recording.Recorder.OpenScope(PostSharp.Patterns.Recording.RecordingScopeOption)" data-throw-if-not-resolved="false"></xref>),
+
+    the changes will be rolled back if the scope is disposed by the <xref href="PostSharp.Patterns.Recording.RecordingScope.Dispose" data-throw-if-not-resolved="false"></xref> method without previous call to the <xref href="PostSharp.Patterns.Recording.RecordingScope.Complete" data-throw-if-not-resolved="false"></xref> method.
+
+    Unlike normal scopes, atomic scopes are nested. However, only the top scope can be seen in the <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref> collections.
+  example: []
+  syntax:
+    content: Atomic = 2
+    return:
+      type: PostSharp.Patterns.Recording.RecordingScopeOption

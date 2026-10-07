@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+  id: CallerAttributes
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.None
+  langs:
+  - csharp
+  - vb
+  name: CallerAttributes
+  nameWithType: CallerAttributes
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Possible values of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.Attributes" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CallerAttributes
+    content.vb: >-
+      <Flags>
+
+      Public Enum CallerAttributes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.None
+  commentId: F:PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.None
+  id: None
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CallerAttributes.None
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Default.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.IsAsync
+  commentId: F:PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.IsAsync
+  id: IsAsync
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+  langs:
+  - csharp
+  - vb
+  name: IsAsync
+  nameWithType: CallerAttributes.IsAsync
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes.IsAsync
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: The caller is an <code>async</code> method.
+  example: []
+  syntax:
+    content: IsAsync = 1
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes

@@ -1,0 +1,523 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingProfile
+  id: LoggingProfile
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.AllowDynamicEnabling
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.DefaultOptions
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.Description
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.EnabledRecordKinds
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.EnsureNotFrozen
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.ExceptionOptions
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.ExecutionTimeThreshold
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.Freeze
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.GetAbstractSource(System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeExecutionTime
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeSourceLineInfo
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.Name
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.Role
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.ToString
+  langs:
+  - csharp
+  - vb
+  name: LoggingProfile
+  nameWithType: LoggingProfile
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Logging profiles are named configurations of logging aspects and influence the way PostSharp generates the
+
+    code instrumentation. They are typically instantiated in <code>postsharp.config</code>.
+  remarks: >-
+    <p>
+        Logging profiles can be referred to from the <xref href="PostSharp.Patterns.Diagnostics.LogAttribute" data-throw-if-not-resolved="false"></xref>. There are three system-defined logging profiles: <code>Default</code>
+        (the default profile for <xref href="PostSharp.Patterns.Diagnostics.LogAttribute" data-throw-if-not-resolved="false"></xref>), <code>Exceptions</code> (default for <xref href="PostSharp.Patterns.Diagnostics.LogExceptionAttribute" data-throw-if-not-resolved="false"></xref>), and <code>Audit</code>
+        (default for <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditAttribute" data-throw-if-not-resolved="false"></xref>).</p>
+    <p>Define or change a profile with a <code>LoggingProfile</code> element under <code>Logging/Profiles</code> in <code>postsharp.config</code>. The settings of a profile
+        with the name of a system-defined profile override the settings of that profile. To use a new profile, pass its name to the
+        <xref href="PostSharp.Patterns.Diagnostics.LogAttribute.%23ctor(System.String)" data-throw-if-not-resolved="false"></xref> constructor. Because profiles affect the generated code, rebuild the project after changing them.</p>
+    <p>Profiles contain only build-time options. Run-time options, such as the formatting of text records, are set on the
+        <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.Options" data-throw-if-not-resolved="false"></xref> property of the backend, and apply to all profiles that use this backend.</p>
+  example: []
+  syntax:
+    content: >-
+      [Serializer(typeof(LoggingProfile.Serializer))]
+
+      public class LoggingProfile
+    content.vb: >-
+      <Serializer(GetType(LoggingProfile.Serializer))>
+
+      Public Class LoggingProfile
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.LoggingOptions
+    commentId: T:PostSharp.Patterns.Diagnostics.LoggingOptions
+  - linkType: HRef
+    linkId: '@logging-customizing'
+    altText: 'Conceptual: Formatting Log Records'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Diagnostics.LoggingProfile.Serializer
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.EnsureNotFrozen
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProfile.EnsureNotFrozen
+  id: EnsureNotFrozen
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: EnsureNotFrozen()
+  nameWithType: LoggingProfile.EnsureNotFrozen()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.EnsureNotFrozen()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Throws an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> if the <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.Freeze" data-throw-if-not-resolved="false"></xref> method has been called on this object.
+  example: []
+  syntax:
+    content: protected void EnsureNotFrozen()
+    content.vb: Protected Sub EnsureNotFrozen()
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.EnsureNotFrozen*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.Freeze
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProfile.Freeze
+  id: Freeze
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: Freeze()
+  nameWithType: LoggingProfile.Freeze()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.Freeze()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Prevents changes in the current object.
+  example: []
+  syntax:
+    content: protected virtual void Freeze()
+    content.vb: Protected Overridable Sub Freeze()
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.Freeze*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.GetAbstractSource(System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProfile.GetAbstractSource(System.Type)
+  id: GetAbstractSource(System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: GetAbstractSource(Type)
+  nameWithType: LoggingProfile.GetAbstractSource(Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.GetAbstractSource(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingAbstractSource" data-throw-if-not-resolved="false"></xref> for a given <xref href="System.Type" data-throw-if-not-resolved="false"></xref> in the current profile.
+  remarks: >-
+    <p>When this method fails with an exception, the exception is reported to the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.ExceptionHandler" data-throw-if-not-resolved="false"></xref>,
+        and a <xref href="PostSharp.Patterns.Diagnostics.LoggingAbstractSource" data-throw-if-not-resolved="false"></xref> bound to the <xref href="PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend" data-throw-if-not-resolved="false"></xref> is returned.
+        </p>
+  example: []
+  syntax:
+    content: public LoggingAbstractSource GetAbstractSource(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingAbstractSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingAbstractSource" data-throw-if-not-resolved="false"></xref> for the given <code class="paramref">type</code> and the <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.Role" data-throw-if-not-resolved="false"></xref> of the current <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetAbstractSource(type As Type) As LoggingAbstractSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.GetAbstractSource*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProfile.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LoggingProfile.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.ToString*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: LoggingProfile()
+  nameWithType: LoggingProfile.LoggingProfile()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.LoggingProfile()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  syntax:
+    content: public LoggingProfile()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor*
+  nameWithType.vb: LoggingProfile.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingProfile.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: LoggingProfile(PortableFormatterConstructorContext)
+  nameWithType: LoggingProfile.LoggingProfile(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.LoggingProfile(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  syntax:
+    content: protected LoggingProfile(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.#ctor*
+  nameWithType.vb: LoggingProfile.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingProfile.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.DefaultOptions
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.DefaultOptions
+  id: DefaultOptions
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: DefaultOptions
+  nameWithType: LoggingProfile.DefaultOptions
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.DefaultOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the options for "normal" records, for example method entry, method success, or value change.
+  example: []
+  syntax:
+    content: public LoggingOptions DefaultOptions { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingOptions
+    content.vb: Public Property DefaultOptions As LoggingOptions
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.DefaultOptions*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.ExceptionOptions
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.ExceptionOptions
+  id: ExceptionOptions
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: ExceptionOptions
+  nameWithType: LoggingProfile.ExceptionOptions
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.ExceptionOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the options for "exception" records, for example method exceptions or slow executions.
+  example: []
+  syntax:
+    content: public LoggingOptions ExceptionOptions { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingOptions
+    content.vb: Public Property ExceptionOptions As LoggingOptions
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.ExceptionOptions*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.Role
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.Role
+  id: Role
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: LoggingProfile.Role
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.Role
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the role of the current profile. Profiles of different roles can have different run-time options, including different
+
+    backends. See <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.Roles" data-throw-if-not-resolved="false"></xref> to access role-based run-time options.
+  example: []
+  syntax:
+    content: public string Role { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Role As String
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.Role*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.ExecutionTimeThreshold
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.ExecutionTimeThreshold
+  id: ExecutionTimeThreshold
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: ExecutionTimeThreshold
+  nameWithType: LoggingProfile.ExecutionTimeThreshold
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.ExecutionTimeThreshold
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the warning threshold, in milliseconds.
+
+    If the execution of a method takes longer than that, its success is logged with <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>,
+
+    and the time it took is logged.
+
+    If the value is <code>0</code>, this feature is disabled.
+  example: []
+  syntax:
+    content: public int ExecutionTimeThreshold { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ExecutionTimeThreshold As Integer
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.ExecutionTimeThreshold*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeExecutionTime
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeExecutionTime
+  id: IncludeExecutionTime
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: IncludeExecutionTime
+  nameWithType: LoggingProfile.IncludeExecutionTime
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeExecutionTime
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the execution time of a method should be tracked and logged on exit.
+  example: []
+  syntax:
+    content: public bool IncludeExecutionTime { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeExecutionTime As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeExecutionTime*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask
+  id: IncludeAwaitedTask
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: IncludeAwaitedTask
+  nameWithType: LoggingProfile.IncludeAwaitedTask
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the operand of the <code>await</code> operator should be included in the log.
+  example: []
+  syntax:
+    content: public bool IncludeAwaitedTask { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeAwaitedTask As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeSourceLineInfo
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeSourceLineInfo
+  id: IncludeSourceLineInfo
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: IncludeSourceLineInfo
+  nameWithType: LoggingProfile.IncludeSourceLineInfo
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeSourceLineInfo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether source-line information should be included in the log.
+  example: []
+  syntax:
+    content: public bool IncludeSourceLineInfo { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeSourceLineInfo As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeSourceLineInfo*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.AllowDynamicEnabling
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.AllowDynamicEnabling
+  id: AllowDynamicEnabling
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: AllowDynamicEnabling
+  nameWithType: LoggingProfile.AllowDynamicEnabling
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.AllowDynamicEnabling
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether logging can be dynamically enabled or disabled after initialization. The default value of this property
+
+    is <code>true</code>. When it is set to <code>false</code>, PostSharp generates code that allows the JIT compiler to completely remove logging instructions
+
+    for types that are not enabled.
+  remarks: >-
+    <p>When this property is <code>false</code>, the generated code evaluates once, in static fields, whether each log level is enabled for the
+        logged type. Changes to the verbosity made after these fields are initialized are ignored for this type. Configure the
+        <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> when the application initializes, before the logged code runs.</p>
+  example: []
+  syntax:
+    content: public bool AllowDynamicEnabling { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowDynamicEnabling As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.AllowDynamicEnabling*
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.EnabledRecordKinds
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.EnabledRecordKinds
+  id: EnabledRecordKinds
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: EnabledRecordKinds
+  nameWithType: LoggingProfile.EnabledRecordKinds
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.EnabledRecordKinds
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the set of record kinds that are enabled for the given profile. Change it with care. Not all combinations are tested.
+  example: []
+  syntax:
+    content: public LogRecordKind EnabledRecordKinds { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+    content.vb: Public Property EnabledRecordKinds As LogRecordKind
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.EnabledRecordKinds*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.Name
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.Name
+  id: Name
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LoggingProfile.Name
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the name of the current profile. The name of the profile should match the constructor argument
+
+    of the <xref href="PostSharp.Patterns.Diagnostics.LogAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.Name*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.Description
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.Description
+  id: Description
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: LoggingProfile.Description
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.Description
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a human-readable description for the current profile. The description is used only when representing
+
+    the profile in PostSharp Tools for Visual Studio.
+  example: []
+  syntax:
+    content: public string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.Description*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProfile.Backend
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProfile.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Diagnostics.LoggingProfile
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: LoggingProfile.Backend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProfile.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> associated with the current profile.
+  example: []
+  syntax:
+    content: public LoggingBackend Backend { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+    content.vb: Public ReadOnly Property Backend As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.LoggingProfile.Backend*

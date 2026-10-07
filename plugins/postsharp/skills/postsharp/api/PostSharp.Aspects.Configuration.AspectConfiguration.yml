@@ -1,0 +1,197 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Configuration.AspectConfiguration
+  commentId: T:PostSharp.Aspects.Configuration.AspectConfiguration
+  id: AspectConfiguration
+  parent: PostSharp.Aspects.Configuration
+  children:
+  - PostSharp.Aspects.Configuration.AspectConfiguration.#ctor
+  - PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority
+  - PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies
+  - PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType
+  - PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: AspectConfiguration
+  nameWithType: AspectConfiguration
+  fullName: PostSharp.Aspects.Configuration.AspectConfiguration
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Configuration of an <xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Every concrete aspect class has a corresponding configuration class derived from <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>The weaver gets the configuration of an aspect at build time, from two sources. Declaratively, from the configuration
+            custom attribute (derived from <xref href="PostSharp.Aspects.Configuration.AspectConfigurationAttribute" data-throw-if-not-resolved="false"></xref>) applied to the aspect class or to one of its base classes.
+            Imperatively, from <xref href="PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)" data-throw-if-not-resolved="false"></xref>, which <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> implements by calling
+            configuration methods that you can override. A property set by the custom attribute takes precedence over the value provided
+            imperatively. When the custom attribute sets the same property on several classes of the hierarchy, the value from the most
+            derived class wins.</p>
+  example: []
+  syntax:
+    content: public class AspectConfiguration
+    content.vb: Public Class AspectConfiguration
+  seealso:
+  - linkId: PostSharp.Aspects.Configuration.AspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.AspectConfigurationAttribute
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  - PostSharp.Aspects.Configuration.CustomAttributeIntroductionAspectConfiguration
+  - PostSharp.Aspects.Configuration.EventInterceptionAspectConfiguration
+  - PostSharp.Aspects.Configuration.LocationInterceptionAspectConfiguration
+  - PostSharp.Aspects.Configuration.ManagedResourceIntroductionAspectConfiguration
+  - PostSharp.Aspects.Configuration.MethodInterceptionAspectConfiguration
+  - PostSharp.Aspects.Configuration.OnExceptionAspectConfiguration
+  - PostSharp.Aspects.Configuration.OnMethodBoundaryAspectConfiguration
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Configuration.AspectConfiguration.#ctor
+  commentId: M:PostSharp.Aspects.Configuration.AspectConfiguration.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Configuration.AspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: AspectConfiguration()
+  nameWithType: AspectConfiguration.AspectConfiguration()
+  fullName: PostSharp.Aspects.Configuration.AspectConfiguration.AspectConfiguration()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  syntax:
+    content: public AspectConfiguration()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Configuration.AspectConfiguration.#ctor*
+  nameWithType.vb: AspectConfiguration.New()
+  fullName.vb: PostSharp.Aspects.Configuration.AspectConfiguration.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority
+  commentId: P:PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority
+  id: AspectPriority
+  parent: PostSharp.Aspects.Configuration.AspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: AspectPriority
+  nameWithType: AspectConfiguration.AspectPriority
+  fullName: PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Gets or sets the aspect priority. Aspects with smaller priority are processed first. The default priority is zero.
+  remarks: >-
+    Whenever possible, use dependencies (the <xref href="PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies" data-throw-if-not-resolved="false"></xref> collection) to specify the ordering of aspects.
+
+    Unlike priorities, dependencies scale up in complexity, which can be important in larger projects.
+  example: []
+  syntax:
+    content: public int? AspectPriority { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property AspectPriority As Integer?
+  overload: PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-dependencies'
+    altText: 'Conceptual: Coping with Several Aspects on the Same Target'
+- uid: PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType
+  commentId: P:PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType
+  id: SerializerType
+  parent: PostSharp.Aspects.Configuration.AspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SerializerType
+  nameWithType: AspectConfiguration.SerializerType
+  fullName: PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: >-
+    Gets or sets the type of the serializer that will be used
+
+    to serialize the current aspect.
+  remarks: >-
+    <p>The type assigned to this property must derive from the <xref href="PostSharp.Aspects.Serialization.AspectSerializer" data-throw-if-not-resolved="false"></xref> class
+          and have a default constructor. Use <xref href="PostSharp.Aspects.Serialization.MsilAspectSerializer" data-throw-if-not-resolved="false"></xref> to specify that the aspect will not
+          be serialized, but will be constructed using MSIL instructions.</p>
+    <p>When this property is not set, the weaver chooses the serializer from the custom attributes of the aspect class:
+            <xref href="PostSharp.Aspects.Serialization.PortableAspectSerializer" data-throw-if-not-resolved="false"></xref> for a class annotated with <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref>,
+            or a serializer based on the .NET binary formatter for a class annotated with <xref href="System.SerializableAttribute" data-throw-if-not-resolved="false"></xref>.
+            The binary formatter is insecure, and the build fails unless its use is explicitly allowed.</p>
+  example: []
+  syntax:
+    content: public TypeIdentity SerializerType { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.TypeIdentity
+    content.vb: Public Property SerializerType As TypeIdentity
+  overload: PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-serialization'
+    altText: 'Conceptual: Understanding Aspect Serialization'
+- uid: PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies
+  commentId: P:PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies
+  id: Dependencies
+  parent: PostSharp.Aspects.Configuration.AspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Dependencies
+  nameWithType: AspectConfiguration.Dependencies
+  fullName: PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Gets or sets the collection of dependencies.
+  example: []
+  syntax:
+    content: public AspectDependencyAttributeCollection Dependencies { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyAttributeCollection
+    content.vb: Public Property Dependencies As AspectDependencyAttributeCollection
+  overload: PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies*
+- uid: PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction
+  commentId: P:PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction
+  id: UnsupportedTargetAction
+  parent: PostSharp.Aspects.Configuration.AspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedTargetAction
+  nameWithType: AspectConfiguration.UnsupportedTargetAction
+  fullName: PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Gets or sets the action to take when the aspect is applied to an unsupported target element.
+  example: []
+  syntax:
+    content: public UnsupportedTargetAction? UnsupportedTargetAction { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Aspects.UnsupportedTargetAction}
+    content.vb: Public Property UnsupportedTargetAction As UnsupportedTargetAction?
+  overload: PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction*

@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.NullTaskSentinel
+  commentId: T:PostSharp.Aspects.NullTaskSentinel
+  id: NullTaskSentinel
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.NullTaskSentinel.#ctor
+  - PostSharp.Aspects.NullTaskSentinel.Instance
+  langs:
+  - csharp
+  - vb
+  name: NullTaskSentinel
+  nameWithType: NullTaskSentinel
+  fullName: PostSharp.Aspects.NullTaskSentinel
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    The singleton instance of this class is assigned to the <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref> property when
+
+    an <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> aspect is applied semantically to a method and the target method returns a null task.
+  remarks: >-
+    When an <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> aspect is applied semantically to a method, then the <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref> property
+
+    represents the result of executing the task returned by the method. If the method returns a null task, then the result is undefined. The <xref href="PostSharp.Aspects.NullTaskSentinel.Instance" data-throw-if-not-resolved="false"></xref>
+
+    is used to represent this case.
+  example: []
+  syntax:
+    content: public sealed class NullTaskSentinel
+    content.vb: Public NotInheritable Class NullTaskSentinel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.NullTaskSentinel.#ctor
+  commentId: M:PostSharp.Aspects.NullTaskSentinel.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.NullTaskSentinel
+  langs:
+  - csharp
+  - vb
+  name: NullTaskSentinel()
+  nameWithType: NullTaskSentinel.NullTaskSentinel()
+  fullName: PostSharp.Aspects.NullTaskSentinel.NullTaskSentinel()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  syntax:
+    content: public NullTaskSentinel()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.NullTaskSentinel.#ctor*
+  nameWithType.vb: NullTaskSentinel.New()
+  fullName.vb: PostSharp.Aspects.NullTaskSentinel.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.NullTaskSentinel.Instance
+  commentId: P:PostSharp.Aspects.NullTaskSentinel.Instance
+  id: Instance
+  parent: PostSharp.Aspects.NullTaskSentinel
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: NullTaskSentinel.Instance
+  fullName: PostSharp.Aspects.NullTaskSentinel.Instance
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    The singleton instance that is assigned to the <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref> property when
+
+    an <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> aspect is applied semantically to a method and the target method returns a null task.
+  example: []
+  syntax:
+    content: public static NullTaskSentinel Instance { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.NullTaskSentinel
+    content.vb: Public Shared ReadOnly Property Instance As NullTaskSentinel
+  overload: PostSharp.Aspects.NullTaskSentinel.Instance*

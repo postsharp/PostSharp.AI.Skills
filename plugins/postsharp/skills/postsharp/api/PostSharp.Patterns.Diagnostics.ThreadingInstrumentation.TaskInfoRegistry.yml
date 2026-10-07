@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry
+  commentId: T:PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry
+  id: TaskInfoRegistry
+  parent: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  children:
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.GetTaskInfo(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.RegisterMethod(System.Threading.Tasks.Task,System.Reflection.MethodInfo,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  langs:
+  - csharp
+  - vb
+  name: TaskInfoRegistry
+  nameWithType: TaskInfoRegistry
+  fullName: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  summary: >-
+    Stores additional information about instances of the <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> class. This class
+
+    is populated by the <xref href="PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy" data-throw-if-not-resolved="false"></xref> and consumed by the Logging component.
+  example: []
+  syntax:
+    content: public static class TaskInfoRegistry
+    content.vb: Public Module TaskInfoRegistry
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.RegisterMethod(System.Threading.Tasks.Task,System.Reflection.MethodInfo,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  commentId: M:PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.RegisterMethod(System.Threading.Tasks.Task,System.Reflection.MethodInfo,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  id: RegisterMethod(System.Threading.Tasks.Task,System.Reflection.MethodInfo,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  parent: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry
+  langs:
+  - csharp
+  - vb
+  name: RegisterMethod(Task, MethodInfo, CallerInfo)
+  nameWithType: TaskInfoRegistry.RegisterMethod(Task, MethodInfo, CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.RegisterMethod(System.Threading.Tasks.Task, System.Reflection.MethodInfo, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  summary: Associates a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> with the <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> that created it.
+  example: []
+  syntax:
+    content: public static void RegisterMethod(Task task, MethodInfo method, CallerInfo callerInfo)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.Task
+      description: The <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> returned by <code class="paramref">method</code>.
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: The method that returned <code class="paramref">task</code>.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the code calling the <code class="paramref">method</code>.
+    content.vb: Public Shared Sub RegisterMethod(task As Task, method As MethodInfo, callerInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.RegisterMethod*
+- uid: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.GetTaskInfo(System.Threading.Tasks.Task)
+  commentId: M:PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.GetTaskInfo(System.Threading.Tasks.Task)
+  id: GetTaskInfo(System.Threading.Tasks.Task)
+  parent: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry
+  langs:
+  - csharp
+  - vb
+  name: GetTaskInfo(Task)
+  nameWithType: TaskInfoRegistry.GetTaskInfo(Task)
+  fullName: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.GetTaskInfo(System.Threading.Tasks.Task)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfo" data-throw-if-not-resolved="false"></xref> for a specific <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static TaskInfo GetTaskInfo(Task task)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfo
+      description: >-
+        The <xref href="PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfo" data-throw-if-not-resolved="false"></xref> associated with <code class="paramref">task</code>, or <code>null</code> if no <xref href="PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfo" data-throw-if-not-resolved="false"></xref>
+                    is associated with <code class="paramref">task</code>.
+    content.vb: Public Shared Function GetTaskInfo(task As Task) As TaskInfo
+  overload: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfoRegistry.GetTaskInfo*

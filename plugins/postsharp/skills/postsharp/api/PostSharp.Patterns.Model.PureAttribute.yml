@@ -1,0 +1,204 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.PureAttribute
+  commentId: T:PostSharp.Patterns.Model.PureAttribute
+  id: PureAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.PureAttribute.#ctor
+  - PostSharp.Patterns.Model.PureAttribute.CompileTimeValidate(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: PureAttribute
+  nameWithType: PureAttribute
+  fullName: PostSharp.Patterns.Model.PureAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Custom attribute that, when applied on a method, specifies that this method is a pure function, that is, the method always
+
+    returns the same result given the same parameter values. In the context of <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref>,
+
+    it is also assumed that pure functions have only parameters of primitive types (<xref href="System.Int32" data-throw-if-not-resolved="false"></xref>, <xref href="System.String" data-throw-if-not-resolved="false"></xref>, and so on).
+
+    The <xref href="System.Object" data-throw-if-not-resolved="false"></xref> parameter type is also accepted, but then it is assumed that instances passed are immutable,
+
+    and changes to these objects will not be tracked.
+  remarks: >-
+    <p>The dependency analysis of the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> aspect cannot analyze calls to most static methods and to methods
+        of other classes, and reports an error when a property getter calls one. Mark such a helper method as pure to allow the call: the analysis
+        then accepts the call without analyzing the body of the method.</p>
+    <p>When you apply this attribute to a class, a struct or an assembly, it applies to all methods of that declaration.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Method, AllowMultiple = true)]
+
+      [MulticastAttributeUsage(MulticastTargets.Method, PersistMetaData = true, AllowMultiple = false)]
+
+      public sealed class PureAttribute : MulticastAttribute, IValidableAnnotation
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.Method, AllowMultiple:=True)>
+
+      <MulticastAttributeUsage(MulticastTargets.Method, PersistMetaData:=True, AllowMultiple:=False)>
+
+      Public NotInheritable Class PureAttribute Inherits MulticastAttribute Implements IValidableAnnotation
+  seealso:
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-customization'
+    altText: 'Conceptual: Handling Corner Cases of the NotifyPropertyChanged Aspect'
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-conceptual'
+    altText: 'Conceptual: Understanding the NotifyPropertyChanged Aspect'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 77
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 64
+    namedArguments:
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Model.PureAttribute.CompileTimeValidate(System.Object)
+  commentId: M:PostSharp.Patterns.Model.PureAttribute.CompileTimeValidate(System.Object)
+  id: CompileTimeValidate(System.Object)
+  parent: PostSharp.Patterns.Model.PureAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(object)
+  nameWithType: PureAttribute.CompileTimeValidate(object)
+  fullName: PostSharp.Patterns.Model.PureAttribute.CompileTimeValidate(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Method invoked at build time to ensure that the aspect has been applied to
+
+    the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message
+
+    or an exception of type <xref href="PostSharp.Extensibility.InvalidAnnotationException" data-throw-if-not-resolved="false"></xref> in case of error. Only returning <code>false</code> causes the aspect
+
+    to be silently ignored.
+  example: []
+  syntax:
+    content: public bool CompileTimeValidate(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: The target element.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable target, otherwise
+              <code>false</code>.
+    content.vb: Public Function CompileTimeValidate(target As Object) As Boolean
+  overload: PostSharp.Patterns.Model.PureAttribute.CompileTimeValidate*
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+  nameWithType.vb: PureAttribute.CompileTimeValidate(Object)
+  fullName.vb: PostSharp.Patterns.Model.PureAttribute.CompileTimeValidate(Object)
+  name.vb: CompileTimeValidate(Object)
+- uid: PostSharp.Patterns.Model.PureAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.PureAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.PureAttribute
+  langs:
+  - csharp
+  - vb
+  name: PureAttribute()
+  nameWithType: PureAttribute.PureAttribute()
+  fullName: PostSharp.Patterns.Model.PureAttribute.PureAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: public PureAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.PureAttribute.#ctor*
+  nameWithType.vb: PureAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.PureAttribute.New()
+  name.vb: New()

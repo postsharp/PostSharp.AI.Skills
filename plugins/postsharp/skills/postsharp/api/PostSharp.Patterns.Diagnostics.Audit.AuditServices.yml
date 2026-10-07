@@ -1,0 +1,66 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditServices
+  commentId: T:PostSharp.Patterns.Diagnostics.Audit.AuditServices
+  id: AuditServices
+  parent: PostSharp.Patterns.Diagnostics.Audit
+  children:
+  - PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished
+  langs:
+  - csharp
+  - vb
+  name: AuditServices
+  nameWithType: AuditServices
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Exposes a <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished" data-throw-if-not-resolved="false"></xref> event, which is raised whenever an audited method is executed.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")]
+
+      public static class AuditServices
+    content.vb: >-
+      <Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")>
+
+      Public Module AuditServices
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This feature has been moved to the sample PostSharp.Samples.Logging.Audit.
+- uid: PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished
+  commentId: E:PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished
+  id: RecordPublished
+  parent: PostSharp.Patterns.Diagnostics.Audit.AuditServices
+  langs:
+  - csharp
+  - vb
+  name: RecordPublished
+  nameWithType: AuditServices.RecordPublished
+  fullName: PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Audit
+  summary: Occurs whenever an audited method is executed.
+  example: []
+  syntax:
+    content: public static event EventHandler<AuditRecordEventArgs> RecordPublished
+    return:
+      type: System.EventHandler{PostSharp.Patterns.Diagnostics.Audit.AuditRecordEventArgs}
+    content.vb: Public Shared Event RecordPublished As EventHandler(Of AuditRecordEventArgs)

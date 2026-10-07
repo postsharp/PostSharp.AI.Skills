@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  commentId: T:PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  id: IEventLevelAspectBuildSemantics
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IEventLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.EventInfo,PostSharp.Aspects.AspectInfo)
+  langs:
+  - csharp
+  - vb
+  name: IEventLevelAspectBuildSemantics
+  nameWithType: IEventLevelAspectBuildSemantics
+  fullName: PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Build-time semantics of aspects that can be applied on events.
+  example: []
+  syntax:
+    content: 'public interface IEventLevelAspectBuildSemantics : IAspectBuildSemantics, IValidableAnnotation'
+    content.vb: Public Interface IEventLevelAspectBuildSemantics Inherits IAspectBuildSemantics, IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Aspects.EventLevelAspect
+    commentId: T:PostSharp.Aspects.EventLevelAspect
+  - linkId: PostSharp.Aspects.IEventLevelAspect
+    commentId: T:PostSharp.Aspects.IEventLevelAspect
+  derivedClasses:
+  - PostSharp.Aspects.EventInterceptionAspect
+  - PostSharp.Aspects.EventLevelAspect
+  - PostSharp.Patterns.Model.WeakEventAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+- uid: PostSharp.Aspects.IEventLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.EventInfo,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Aspects.IEventLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.EventInfo,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Reflection.EventInfo,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(EventInfo, AspectInfo)
+  nameWithType: IEventLevelAspectBuildSemantics.CompileTimeInitialize(EventInfo, AspectInfo)
+  fullName: PostSharp.Aspects.IEventLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.EventInfo, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: void CompileTimeInitialize(EventInfo targetEvent, AspectInfo aspectInfo)
+    parameters:
+    - id: targetEvent
+      type: System.Reflection.EventInfo
+      description: Event to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future use.
+    content.vb: Sub CompileTimeInitialize(targetEvent As EventInfo, aspectInfo As AspectInfo)
+  overload: PostSharp.Aspects.IEventLevelAspectBuildSemantics.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

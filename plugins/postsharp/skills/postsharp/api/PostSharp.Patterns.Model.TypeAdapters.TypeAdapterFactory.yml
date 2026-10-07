@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory
+  commentId: T:PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory
+  id: TypeAdapterFactory
+  parent: PostSharp.Patterns.Model.TypeAdapters
+  children:
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.#ctor
+  - PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.CreateTypeAdapter(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: TypeAdapterFactory
+  nameWithType: TypeAdapterFactory
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Factory class for the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> type. Implementations must have a public default constructor.
+  example: []
+  syntax:
+    content: public abstract class TypeAdapterFactory
+    content.vb: Public MustInherit Class TypeAdapterFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.CreateTypeAdapter(System.Type)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.CreateTypeAdapter(System.Type)
+  id: CreateTypeAdapter(System.Type)
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeAdapter(Type)
+  nameWithType: TypeAdapterFactory.CreateTypeAdapter(Type)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.CreateTypeAdapter(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Creates a <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> for a specific <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract TypeAdapter CreateTypeAdapter(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The target <xref href="System.Type" data-throw-if-not-resolved="false"></xref> for which the <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> should be created.
+    return:
+      type: PostSharp.Patterns.Model.TypeAdapters.TypeAdapter
+      description: A <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapter" data-throw-if-not-resolved="false"></xref> for <code class="paramref">type</code>.
+    content.vb: Public MustOverride Function CreateTypeAdapter(type As Type) As TypeAdapter
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.CreateTypeAdapter*
+- uid: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.#ctor
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory
+  langs:
+  - csharp
+  - vb
+  name: TypeAdapterFactory()
+  nameWithType: TypeAdapterFactory.TypeAdapterFactory()
+  fullName: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.TypeAdapterFactory()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  syntax:
+    content: protected TypeAdapterFactory()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.#ctor*
+  nameWithType.vb: TypeAdapterFactory.New()
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory.New()
+  name.vb: New()

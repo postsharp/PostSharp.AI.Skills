@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.ReplayKind
+  commentId: T:PostSharp.Patterns.Recording.ReplayKind
+  id: ReplayKind
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.ReplayKind.Redo
+  - PostSharp.Patterns.Recording.ReplayKind.Undo
+  langs:
+  - csharp
+  - vb
+  name: ReplayKind
+  nameWithType: ReplayKind
+  fullName: PostSharp.Patterns.Recording.ReplayKind
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Enumerates the kinds of situations in which the <xref href="PostSharp.Patterns.Recording.IRecordableCallback.OnReplaying(PostSharp.Patterns.Recording.ReplayKind%2cPostSharp.Patterns.Recording.ReplayContext)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed(PostSharp.Patterns.Recording.ReplayKind%2cPostSharp.Patterns.Recording.ReplayContext)" data-throw-if-not-resolved="false"></xref>
+
+    methods are invoked.
+  remarks: <p>Other reasons may be added in the future.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public enum ReplayKind
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Enum ReplayKind
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.ReplayKind.Undo
+  commentId: F:PostSharp.Patterns.Recording.ReplayKind.Undo
+  id: Undo
+  parent: PostSharp.Patterns.Recording.ReplayKind
+  langs:
+  - csharp
+  - vb
+  name: Undo
+  nameWithType: ReplayKind.Undo
+  fullName: PostSharp.Patterns.Recording.ReplayKind.Undo
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Undo operation.
+  example: []
+  syntax:
+    content: Undo = 0
+    return:
+      type: PostSharp.Patterns.Recording.ReplayKind
+- uid: PostSharp.Patterns.Recording.ReplayKind.Redo
+  commentId: F:PostSharp.Patterns.Recording.ReplayKind.Redo
+  id: Redo
+  parent: PostSharp.Patterns.Recording.ReplayKind
+  langs:
+  - csharp
+  - vb
+  name: Redo
+  nameWithType: ReplayKind.Redo
+  fullName: PostSharp.Patterns.Recording.ReplayKind.Redo
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Redo operation.
+  example: []
+  syntax:
+    content: Redo = 1
+    return:
+      type: PostSharp.Patterns.Recording.ReplayKind

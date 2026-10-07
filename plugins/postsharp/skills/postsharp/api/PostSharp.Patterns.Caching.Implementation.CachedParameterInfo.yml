@@ -1,0 +1,87 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CachedParameterInfo
+  id: CachedParameterInfo
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.IsIgnored
+  - PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.Parameter
+  langs:
+  - csharp
+  - vb
+  name: CachedParameterInfo
+  nameWithType: CachedParameterInfo
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Encapsulates information about a parameter of a method
+
+    being cached. Exposed by the <xref href="PostSharp.Patterns.Caching.Implementation.CachedMethodInfo" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public sealed class CachedParameterInfo
+    content.vb: Public NotInheritable Class CachedParameterInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.Parameter
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.Parameter
+  id: Parameter
+  parent: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo
+  langs:
+  - csharp
+  - vb
+  name: Parameter
+  nameWithType: CachedParameterInfo.Parameter
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.Parameter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref> of the parameter.
+  example: []
+  syntax:
+    content: public ParameterInfo Parameter { get; }
+    parameters: []
+    return:
+      type: System.Reflection.ParameterInfo
+    content.vb: Public ReadOnly Property Parameter As ParameterInfo
+  overload: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.Parameter*
+- uid: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.IsIgnored
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.IsIgnored
+  id: IsIgnored
+  parent: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo
+  langs:
+  - csharp
+  - vb
+  name: IsIgnored
+  nameWithType: CachedParameterInfo.IsIgnored
+  fullName: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.IsIgnored
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a value indicating whether the parameter should be excluded
+
+    from the cache key. When the value of this property is <code>false</code>,
+
+    the parameter should be included in the cache key.
+  example: []
+  syntax:
+    content: public bool IsIgnored { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsIgnored As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CachedParameterInfo.IsIgnored*

@@ -1,0 +1,198 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  id: ImportMemberAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.IsRequired
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MasterAspectMember
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MemberNames
+  - PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Order
+  langs:
+  - csharp
+  - vb
+  name: ImportMemberAdviceInstance
+  nameWithType: ImportMemberAdviceInstance
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Base class for <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.ImportMethodAdviceInstance" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class ImportMemberAdviceInstance : AdviceInstance'
+    content.vb: Public MustInherit Class ImportMemberAdviceInstance Inherits AdviceInstance
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IAdviceProvider
+    commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  derivedClasses:
+  - PostSharp.Aspects.Advices.ImportLocationAdviceInstance
+  - PostSharp.Aspects.Advices.ImportMethodAdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField
+  commentId: P:PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField
+  id: AspectField
+  parent: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectField
+  nameWithType: ImportMemberAdviceInstance.AspectField
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the field of the aspect class to which the field or property needs to be bound.
+  example: []
+  syntax:
+    content: public FieldInfo AspectField { get; }
+    parameters: []
+    return:
+      type: System.Reflection.FieldInfo
+    content.vb: Public ReadOnly Property AspectField As FieldInfo
+  overload: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField*
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.ImportMemberAdviceInstance.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: ImportMemberAdviceInstance.IsRequired
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets a value indicating whether a build-time error should be emitted if the member cannot be found.
+
+    If <code>false</code>, the binding field is <code>null</code> when the imported member is absent.
+  remarks: <p>This property is always <code>true</code> when the <xref href="PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member" data-throw-if-not-resolved="false"></xref> property is set.</p>
+  example: []
+  syntax:
+    content: public bool IsRequired { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.IsRequired*
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member
+  commentId: P:PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member
+  id: Member
+  parent: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Member
+  nameWithType: ImportMemberAdviceInstance.Member
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets the reflection object (<xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>) that needs to be
+
+    imported, or <code>null</code> if the exact member is unknown and must be matched by name and signature.
+  example: []
+  syntax:
+    content: public abstract object Member { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public MustOverride ReadOnly Property Member As Object
+  overload: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Member*
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MemberNames
+  commentId: P:PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MemberNames
+  id: MemberNames
+  parent: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MemberNames
+  nameWithType: ImportMemberAdviceInstance.MemberNames
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MemberNames
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the fallback list of possible names of the member to be imported.
+  example: []
+  syntax:
+    content: public abstract string[] MemberNames { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public MustOverride ReadOnly Property MemberNames As String()
+  overload: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MemberNames*
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Order
+  commentId: P:PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Order
+  id: Order
+  parent: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Order
+  nameWithType: ImportMemberAdviceInstance.Order
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Order
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets a value that determines whether the <xref href="PostSharp.Aspects.Advices.ImportMemberAdviceInstance.AspectField" data-throw-if-not-resolved="false"></xref> should be bound to the member
+
+    as resolved before or after introduction of new members into the target class by the current advice.
+  example: []
+  syntax:
+    content: public ImportMemberOrder Order { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.ImportMemberOrder
+    content.vb: Public ReadOnly Property Order As ImportMemberOrder
+  overload: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.Order*
+- uid: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MasterAspectMember
+  commentId: P:PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MasterAspectMember
+  id: MasterAspectMember
+  parent: PostSharp.Aspects.Advices.ImportMemberAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MasterAspectMember
+  nameWithType: ImportMemberAdviceInstance.MasterAspectMember
+  fullName: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MasterAspectMember
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the main field or method of the aspect class that the current <xref href="PostSharp.Aspects.Advices.AdviceInstance" data-throw-if-not-resolved="false"></xref> relates to.
+  example: []
+  syntax:
+    content: public override object MasterAspectMember { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides ReadOnly Property MasterAspectMember As Object
+  overridden: PostSharp.Aspects.Advices.AdviceInstance.MasterAspectMember
+  overload: PostSharp.Aspects.Advices.ImportMemberAdviceInstance.MasterAspectMember*

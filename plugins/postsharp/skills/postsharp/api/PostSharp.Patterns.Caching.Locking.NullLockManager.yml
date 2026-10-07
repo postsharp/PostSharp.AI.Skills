@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Locking.NullLockManager
+  commentId: T:PostSharp.Patterns.Caching.Locking.NullLockManager
+  id: NullLockManager
+  parent: PostSharp.Patterns.Caching.Locking
+  children:
+  - PostSharp.Patterns.Caching.Locking.NullLockManager.#ctor
+  - PostSharp.Patterns.Caching.Locking.NullLockManager.GetLock(System.String)
+  langs:
+  - csharp
+  - vb
+  name: NullLockManager
+  nameWithType: NullLockManager
+  fullName: PostSharp.Patterns.Caching.Locking.NullLockManager
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: An implementation of <xref href="PostSharp.Patterns.Caching.Locking.ILockManager" data-throw-if-not-resolved="false"></xref> which does not acquire any lock.
+  remarks: >-
+    <p>This is the default value of <xref href="PostSharp.Patterns.Caching.CachingProfile.LockManager" data-throw-if-not-resolved="false"></xref>. With this lock manager, several threads can evaluate the same cached method
+        with the same arguments at the same time. To prevent this within the current process, use <xref href="PostSharp.Patterns.Caching.Locking.LocalLockManager" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class NullLockManager : ILockManager'
+    content.vb: Public Class NullLockManager Implements ILockManager
+  seealso:
+  - linkType: HRef
+    linkId: '@cache-locking'
+    altText: 'Conceptual: Preventing Concurrent Execution of Cached Methods'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Locking.ILockManager
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Locking.NullLockManager.GetLock(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Locking.NullLockManager.GetLock(System.String)
+  id: GetLock(System.String)
+  parent: PostSharp.Patterns.Caching.Locking.NullLockManager
+  langs:
+  - csharp
+  - vb
+  name: GetLock(string)
+  nameWithType: NullLockManager.GetLock(string)
+  fullName: PostSharp.Patterns.Caching.Locking.NullLockManager.GetLock(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Gets a handle to a named lock. This method must return immediately. Waiting, if any, must be done in the <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public ILockHandle GetLock(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The name of the lock.
+    return:
+      type: PostSharp.Patterns.Caching.Locking.ILockHandle
+      description: A handle to the lock named <code class="paramref">key</code>.
+    content.vb: Public Function GetLock(key As String) As ILockHandle
+  overload: PostSharp.Patterns.Caching.Locking.NullLockManager.GetLock*
+  implements:
+  - PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(System.String)
+  nameWithType.vb: NullLockManager.GetLock(String)
+  fullName.vb: PostSharp.Patterns.Caching.Locking.NullLockManager.GetLock(String)
+  name.vb: GetLock(String)
+- uid: PostSharp.Patterns.Caching.Locking.NullLockManager.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Locking.NullLockManager.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Locking.NullLockManager
+  langs:
+  - csharp
+  - vb
+  name: NullLockManager()
+  nameWithType: NullLockManager.NullLockManager()
+  fullName: PostSharp.Patterns.Caching.Locking.NullLockManager.NullLockManager()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  syntax:
+    content: public NullLockManager()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Locking.NullLockManager.#ctor*
+  nameWithType.vb: NullLockManager.New()
+  fullName.vb: PostSharp.Patterns.Caching.Locking.NullLockManager.New()
+  name.vb: New()

@@ -1,0 +1,104 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ConcurrencyControllerFactory
+  commentId: T:PostSharp.Patterns.Threading.ConcurrencyControllerFactory
+  id: ConcurrencyControllerFactory
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateReaderWriterSynchronizedController
+  - PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateSynchronizedController
+  - PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateThreadUnsafeController
+  langs:
+  - csharp
+  - vb
+  name: ConcurrencyControllerFactory
+  nameWithType: ConcurrencyControllerFactory
+  fullName: PostSharp.Patterns.Threading.ConcurrencyControllerFactory
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Provides methods to create new instances of concurrency controllers.
+  example: []
+  syntax:
+    content: public static class ConcurrencyControllerFactory
+    content.vb: Public Module ConcurrencyControllerFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateThreadUnsafeController
+  commentId: M:PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateThreadUnsafeController
+  id: CreateThreadUnsafeController
+  parent: PostSharp.Patterns.Threading.ConcurrencyControllerFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateThreadUnsafeController()
+  nameWithType: ConcurrencyControllerFactory.CreateThreadUnsafeController()
+  fullName: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateThreadUnsafeController()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Creates a new concurrency controller for the thread-unsafe threading model (<xref href="PostSharp.Patterns.Threading.Models.ThreadUnsafeThreadingModel" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public static IConcurrencyController CreateThreadUnsafeController()
+    return:
+      type: PostSharp.Patterns.Threading.IConcurrencyController
+      description: A new instance of the thread-unsafe concurrency controller.
+    content.vb: Public Shared Function CreateThreadUnsafeController() As IConcurrencyController
+  overload: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateThreadUnsafeController*
+- uid: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateSynchronizedController
+  commentId: M:PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateSynchronizedController
+  id: CreateSynchronizedController
+  parent: PostSharp.Patterns.Threading.ConcurrencyControllerFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateSynchronizedController()
+  nameWithType: ConcurrencyControllerFactory.CreateSynchronizedController()
+  fullName: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateSynchronizedController()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Creates a new concurrency controller for the synchronized threading model (<xref href="PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public static IConcurrencyController CreateSynchronizedController()
+    return:
+      type: PostSharp.Patterns.Threading.IConcurrencyController
+      description: A new instance of the synchronized concurrency controller.
+    content.vb: Public Shared Function CreateSynchronizedController() As IConcurrencyController
+  overload: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateSynchronizedController*
+- uid: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateReaderWriterSynchronizedController
+  commentId: M:PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateReaderWriterSynchronizedController
+  id: CreateReaderWriterSynchronizedController
+  parent: PostSharp.Patterns.Threading.ConcurrencyControllerFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateReaderWriterSynchronizedController()
+  nameWithType: ConcurrencyControllerFactory.CreateReaderWriterSynchronizedController()
+  fullName: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateReaderWriterSynchronizedController()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Creates a new concurrency controller for the reader-writer-synchronized threading model (<xref href="PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public static IConcurrencyController CreateReaderWriterSynchronizedController()
+    return:
+      type: PostSharp.Patterns.Threading.IConcurrencyController
+      description: A new instance of the reader-writer-synchronized concurrency controller.
+    content.vb: Public Shared Function CreateReaderWriterSynchronizedController() As IConcurrencyController
+  overload: PostSharp.Patterns.Threading.ConcurrencyControllerFactory.CreateReaderWriterSynchronizedController*

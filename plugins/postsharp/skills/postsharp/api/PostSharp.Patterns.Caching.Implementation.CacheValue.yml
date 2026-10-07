@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheValue
+  id: CacheValue
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String})
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String})
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.Tags
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.Value
+  - PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: CacheValue
+  nameWithType: CacheValue
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: The return value of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItem(System.String%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> method. It represents an item retrieved from the cache. Items being stored in the cache are represented by the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public class CacheValue
+    content.vb: Public Class CacheValue
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Caching.Backends.MemoryCacheValue
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String})
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String})
+  id: '#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String})'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheValue
+  langs:
+  - csharp
+  - vb
+  name: CacheValue(object, IImmutableList<string>)
+  nameWithType: CacheValue.CacheValue(object, IImmutableList<string>)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue.CacheValue(object, System.Collections.Immutable.IImmutableList<string>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref> class without specifying the <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Tags" data-throw-if-not-resolved="false"></xref> list.
+  example: []
+  syntax:
+    content: public CacheValue(object value, IImmutableList<string> dependencies = null)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The cached value.
+    - id: dependencies
+      type: System.Collections.Immutable.IImmutableList{System.String}
+      description: The list of dependencies or <code>null</code> if there are no dependencies or dependencies were not requested.
+    content.vb: Public Sub New(value As Object, dependencies As IImmutableList(Of String) = Nothing)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor*
+  nameWithType.vb: CacheValue.New(Object, IImmutableList(Of String))
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheValue.New(Object, System.Collections.Immutable.IImmutableList(Of String))
+  name.vb: New(Object, IImmutableList(Of String))
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String})
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String})
+  id: '#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String})'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheValue
+  langs:
+  - csharp
+  - vb
+  name: CacheValue(object, IReadOnlyList<object>, IImmutableList<string>)
+  nameWithType: CacheValue.CacheValue(object, IReadOnlyList<object>, IImmutableList<string>)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue.CacheValue(object, System.Collections.Generic.IReadOnlyList<object>, System.Collections.Immutable.IImmutableList<string>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref> class and specifies the <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Tags" data-throw-if-not-resolved="false"></xref> list.
+  example: []
+  syntax:
+    content: public CacheValue(object value, IReadOnlyList<object> tags, IImmutableList<string> dependencies = null)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The cached value.
+    - id: tags
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: A secondary list of values, typically used by <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer" data-throw-if-not-resolved="false"></xref> implementations.
+    - id: dependencies
+      type: System.Collections.Immutable.IImmutableList{System.String}
+      description: The list of dependencies or <code>null</code> if there are no dependencies or dependencies were not requested.
+    content.vb: Public Sub New(value As Object, tags As IReadOnlyList(Of Object), dependencies As IImmutableList(Of String) = Nothing)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheValue.#ctor*
+  nameWithType.vb: CacheValue.New(Object, IReadOnlyList(Of Object), IImmutableList(Of String))
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheValue.New(Object, System.Collections.Generic.IReadOnlyList(Of Object), System.Collections.Immutable.IImmutableList(Of String))
+  name.vb: New(Object, IReadOnlyList(Of Object), IImmutableList(Of String))
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue(System.Object)
+  id: WithValue(System.Object)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheValue
+  langs:
+  - csharp
+  - vb
+  name: WithValue(object)
+  nameWithType: CacheValue.WithValue(object)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Returns a new <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref> with a different <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Value" data-throw-if-not-resolved="false"></xref> but identical <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CacheValue WithValue(object value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The new value.
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheValue
+      description: A new <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref> with a different <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Value" data-throw-if-not-resolved="false"></xref> but identical <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function WithValue(value As Object) As CacheValue
+  overload: PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue*
+  nameWithType.vb: CacheValue.WithValue(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheValue.WithValue(Object)
+  name.vb: WithValue(Object)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue.Value
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheValue.Value
+  id: Value
+  parent: PostSharp.Patterns.Caching.Implementation.CacheValue
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: CacheValue.Value
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue.Value
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the cached value.
+  example: []
+  syntax:
+    content: public object Value { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property Value As Object
+  overload: PostSharp.Patterns.Caching.Implementation.CacheValue.Value*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies
+  id: Dependencies
+  parent: PostSharp.Patterns.Caching.Implementation.CacheValue
+  langs:
+  - csharp
+  - vb
+  name: Dependencies
+  nameWithType: CacheValue.Dependencies
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the list of dependencies of the cache.
+  example: []
+  syntax:
+    content: public IImmutableList<string> Dependencies { get; }
+    parameters: []
+    return:
+      type: System.Collections.Immutable.IImmutableList{System.String}
+    content.vb: Public ReadOnly Property Dependencies As IImmutableList(Of String)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheValue.Tags
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheValue.Tags
+  id: Tags
+  parent: PostSharp.Patterns.Caching.Implementation.CacheValue
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: CacheValue.Tags
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheValue.Tags
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a list of tags, i.e. additional values to be cached, typically set
+
+    by backend enhancers.
+  example: []
+  syntax:
+    content: public IReadOnlyList<object> Tags { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+    content.vb: Public ReadOnly Property Tags As IReadOnlyList(Of Object)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheValue.Tags*

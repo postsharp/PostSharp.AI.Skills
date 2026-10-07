@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser
+  id: FormattingStringParser
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.#ctor(System.String)
+  - PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextParameter
+  - PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextSubstring
+  langs:
+  - csharp
+  - vb
+  name: FormattingStringParser
+  nameWithType: FormattingStringParser
+  fullName: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Represents a parser of the formatting string for custom messages of the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref> classes.
+  remarks: >-
+    <p>Use this parser when you implement your own type of message (<xref href="PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage" data-throw-if-not-resolved="false"></xref>) and want to support the formatting string
+        syntax of <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public struct FormattingStringParser
+    content.vb: Public Structure FormattingStringParser
+  seealso:
+  - linkType: HRef
+    linkId: '@log-custom-messages'
+    altText: 'Conceptual: Writing Custom Messages'
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser
+  langs:
+  - csharp
+  - vb
+  name: FormattingStringParser(string)
+  nameWithType: FormattingStringParser.FormattingStringParser(string)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.FormattingStringParser(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public FormattingStringParser(string formattingString)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The formatting string.
+    content.vb: Public Sub New(formattingString As String)
+  overload: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.#ctor*
+  nameWithType.vb: FormattingStringParser.New(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextSubstring
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextSubstring
+  id: GetNextSubstring
+  parent: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser
+  langs:
+  - csharp
+  - vb
+  name: GetNextSubstring()
+  nameWithType: FormattingStringParser.GetNextSubstring()
+  fullName: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextSubstring()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the next substring, up to the next parameter or the end of the string.
+  example: []
+  syntax:
+    content: public ArraySegment<char> GetNextSubstring()
+    return:
+      type: System.ArraySegment{System.Char}
+      description: The next substring.
+    content.vb: Public Function GetNextSubstring() As ArraySegment(Of Char)
+  overload: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextSubstring*
+- uid: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextParameter
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextParameter
+  id: GetNextParameter
+  parent: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser
+  langs:
+  - csharp
+  - vb
+  name: GetNextParameter()
+  nameWithType: FormattingStringParser.GetNextParameter()
+  fullName: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextParameter()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the next parameter name.
+  example: []
+  syntax:
+    content: public ArraySegment<char> GetNextParameter()
+    return:
+      type: System.ArraySegment{System.Char}
+      description: The name of the next parameter, or the default (null) value if there is no next parameter.
+    content.vb: Public Function GetNextParameter() As ArraySegment(Of Char)
+  overload: PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser.GetNextParameter*

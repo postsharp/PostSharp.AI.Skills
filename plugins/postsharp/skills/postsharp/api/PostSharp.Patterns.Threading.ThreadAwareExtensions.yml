@@ -1,0 +1,143 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadAwareExtensions
+  commentId: T:PostSharp.Patterns.Threading.ThreadAwareExtensions
+  id: ThreadAwareExtensions
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  - PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  - PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  langs:
+  - csharp
+  - vb
+  name: ThreadAwareExtensions
+  nameWithType: ThreadAwareExtensions
+  fullName: PostSharp.Patterns.Threading.ThreadAwareExtensions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Provides extension methods for the <xref href="PostSharp.Patterns.Threading.IThreadAware" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class ThreadAwareExtensions
+    content.vb: Public Module ThreadAwareExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  id: AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.ThreadAwareExtensions
+  langs:
+  - csharp
+  - vb
+  name: AcquireAccess(IThreadAware, ObjectAccessLevel)
+  nameWithType: ThreadAwareExtensions.AcquireAccess(IThreadAware, ObjectAccessLevel)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware, PostSharp.Patterns.Model.ObjectAccessLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Acquires access to the given object and returns the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>This method is guaranteed to acquire the controller of the <code class="paramref">instance</code> object. Invoking the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel%2cPostSharp.Patterns.Threading.ConcurrentAccessToken%40)" data-throw-if-not-resolved="false"></xref>
+        method directly does not offer this guarantee, as the controller can be changed between the moment the <xref href="PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController" data-throw-if-not-resolved="false"></xref> property
+        is retrieved and the moment the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel%2cPostSharp.Patterns.Threading.ConcurrentAccessToken%40)" data-throw-if-not-resolved="false"></xref> is invoked.</p>
+  example: []
+  syntax:
+    content: public static ConcurrentAccessToken AcquireAccess(this IThreadAware instance, ObjectAccessLevel objectAccessLevel)
+    parameters:
+    - id: instance
+      type: PostSharp.Patterns.Threading.IThreadAware
+      description: The instance for which access is required.
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The level of access required.
+    return:
+      type: PostSharp.Patterns.Threading.ConcurrentAccessToken
+      description: A <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> that should be disposed when access is no longer required.
+    content.vb: Public Shared Function AcquireAccess(instance As IThreadAware, objectAccessLevel As ObjectAccessLevel) As ConcurrentAccessToken
+  overload: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess*
+- uid: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  id: AcquireAccess(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.ThreadAwareExtensions
+  langs:
+  - csharp
+  - vb
+  name: AcquireAccess(IThreadAware, ObjectAccessLevel, ref ConcurrentAccessToken)
+  nameWithType: ThreadAwareExtensions.AcquireAccess(IThreadAware, ObjectAccessLevel, ref ConcurrentAccessToken)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware, PostSharp.Patterns.Model.ObjectAccessLevel, ref PostSharp.Patterns.Threading.ConcurrentAccessToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Acquires access for a given object and returns the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> as a reference parameter.
+  remarks: >-
+    <p>This method is guaranteed to acquire the controller of the <code class="paramref">instance</code> object. Invoking the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel%2cPostSharp.Patterns.Threading.ConcurrentAccessToken%40)" data-throw-if-not-resolved="false"></xref>
+        method directly does not offer this guarantee, as the controller can be changed between the moment the <xref href="PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController" data-throw-if-not-resolved="false"></xref> property
+        is retrieved and the moment the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel%2cPostSharp.Patterns.Threading.ConcurrentAccessToken%40)" data-throw-if-not-resolved="false"></xref> is invoked.</p>
+  example: []
+  syntax:
+    content: public static void AcquireAccess(this IThreadAware instance, ObjectAccessLevel objectAccessLevel, ref ConcurrentAccessToken concurrentAccessToken)
+    parameters:
+    - id: instance
+      type: PostSharp.Patterns.Threading.IThreadAware
+      description: The instance for which access is required.
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The level of access required.
+    - id: concurrentAccessToken
+      type: PostSharp.Patterns.Threading.ConcurrentAccessToken
+      description: On return, a <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> that should be disposed when access is no longer required.
+    content.vb: Public Shared Sub AcquireAccess(instance As IThreadAware, objectAccessLevel As ObjectAccessLevel, concurrentAccessToken As ConcurrentAccessToken)
+  overload: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess*
+  nameWithType.vb: ThreadAwareExtensions.AcquireAccess(IThreadAware, ObjectAccessLevel, ConcurrentAccessToken)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Threading.IThreadAware, PostSharp.Patterns.Model.ObjectAccessLevel, PostSharp.Patterns.Threading.ConcurrentAccessToken)
+  name.vb: AcquireAccess(IThreadAware, ObjectAccessLevel, ConcurrentAccessToken)
+- uid: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  id: AcquireAccessAsync(PostSharp.Patterns.Threading.IThreadAware,PostSharp.Patterns.Model.ObjectAccessLevel)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.ThreadAwareExtensions
+  langs:
+  - csharp
+  - vb
+  name: AcquireAccessAsync(IThreadAware, ObjectAccessLevel)
+  nameWithType: ThreadAwareExtensions.AcquireAccessAsync(IThreadAware, ObjectAccessLevel)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync(PostSharp.Patterns.Threading.IThreadAware, PostSharp.Patterns.Model.ObjectAccessLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Asynchronously acquires access for a given object.
+  remarks: >-
+    <p>This method is guaranteed to acquire the controller of the <code class="paramref">instance</code> object. Invoking the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)" data-throw-if-not-resolved="false"></xref>
+        method directly does not offer this guarantee, as the controller can be changed between the moment the <xref href="PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController" data-throw-if-not-resolved="false"></xref> property
+        is retrieved and the moment the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)" data-throw-if-not-resolved="false"></xref> is invoked.</p>
+  example: []
+  syntax:
+    content: public static ConcurrentAccessAwaiter AcquireAccessAsync(this IThreadAware instance, ObjectAccessLevel objectAccessLevel)
+    parameters:
+    - id: instance
+      type: PostSharp.Patterns.Threading.IThreadAware
+      description: The instance for which access is required.
+    - id: objectAccessLevel
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+      description: The level of access required.
+    return:
+      type: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+      description: A <xref href="PostSharp.Patterns.Threading.ConcurrentAccessAwaiter" data-throw-if-not-resolved="false"></xref> object that can be used to await access.
+    content.vb: Public Shared Function AcquireAccessAsync(instance As IThreadAware, objectAccessLevel As ObjectAccessLevel) As ConcurrentAccessAwaiter
+  overload: PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync*

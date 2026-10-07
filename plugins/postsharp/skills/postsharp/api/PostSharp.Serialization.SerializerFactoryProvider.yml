@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.SerializerFactoryProvider
+  commentId: T:PostSharp.Serialization.SerializerFactoryProvider
+  id: SerializerFactoryProvider
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.SerializerFactoryProvider.#ctor(PostSharp.Serialization.ISerializerFactoryProvider,PostSharp.Serialization.ActivatorProvider)
+  - PostSharp.Serialization.SerializerFactoryProvider.AddSerializer(System.Type,System.Type)
+  - PostSharp.Serialization.SerializerFactoryProvider.AddSerializer``2
+  - PostSharp.Serialization.SerializerFactoryProvider.BuiltIn
+  - PostSharp.Serialization.SerializerFactoryProvider.GetSerializerFactory(System.Type)
+  - PostSharp.Serialization.SerializerFactoryProvider.GetSurrogateType(System.Type)
+  - PostSharp.Serialization.SerializerFactoryProvider.MakeReadOnly
+  - PostSharp.Serialization.SerializerFactoryProvider.NextProvider
+  langs:
+  - csharp
+  - vb
+  name: SerializerFactoryProvider
+  nameWithType: SerializerFactoryProvider
+  fullName: PostSharp.Serialization.SerializerFactoryProvider
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Provides instances of the <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref> interface for object types that have been previously registered
+
+    using <xref href="PostSharp.Serialization.SerializerFactoryProvider.AddSerializer(System.Type%2cSystem.Type)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class SerializerFactoryProvider : ISerializerFactoryProvider'
+    content.vb: Public Class SerializerFactoryProvider Implements ISerializerFactoryProvider
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Serialization.ISerializerFactoryProvider
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Serialization.SerializerFactoryProvider.BuiltIn
+  commentId: F:PostSharp.Serialization.SerializerFactoryProvider.BuiltIn
+  id: BuiltIn
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: BuiltIn
+  nameWithType: SerializerFactoryProvider.BuiltIn
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.BuiltIn
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the <xref href="PostSharp.Serialization.SerializerFactoryProvider" data-throw-if-not-resolved="false"></xref> instance that supports built-in types.
+  example: []
+  syntax:
+    content: public static readonly SerializerFactoryProvider BuiltIn
+    return:
+      type: PostSharp.Serialization.SerializerFactoryProvider
+    content.vb: Public Shared ReadOnly BuiltIn As SerializerFactoryProvider
+- uid: PostSharp.Serialization.SerializerFactoryProvider.MakeReadOnly
+  commentId: M:PostSharp.Serialization.SerializerFactoryProvider.MakeReadOnly
+  id: MakeReadOnly
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: MakeReadOnly()
+  nameWithType: SerializerFactoryProvider.MakeReadOnly()
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.MakeReadOnly()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Forbids further changes to the current <xref href="PostSharp.Serialization.SerializerFactoryProvider" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void MakeReadOnly()
+    content.vb: Public Sub MakeReadOnly()
+  overload: PostSharp.Serialization.SerializerFactoryProvider.MakeReadOnly*
+- uid: PostSharp.Serialization.SerializerFactoryProvider.#ctor(PostSharp.Serialization.ISerializerFactoryProvider,PostSharp.Serialization.ActivatorProvider)
+  commentId: M:PostSharp.Serialization.SerializerFactoryProvider.#ctor(PostSharp.Serialization.ISerializerFactoryProvider,PostSharp.Serialization.ActivatorProvider)
+  id: '#ctor(PostSharp.Serialization.ISerializerFactoryProvider,PostSharp.Serialization.ActivatorProvider)'
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: SerializerFactoryProvider(ISerializerFactoryProvider, ActivatorProvider)
+  nameWithType: SerializerFactoryProvider.SerializerFactoryProvider(ISerializerFactoryProvider, ActivatorProvider)
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.SerializerFactoryProvider(PostSharp.Serialization.ISerializerFactoryProvider, PostSharp.Serialization.ActivatorProvider)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Initializes a new instance of the <xref href="PostSharp.Serialization.SerializerFactoryProvider" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public SerializerFactoryProvider(ISerializerFactoryProvider nextProvider, ActivatorProvider activatorProvider)
+    parameters:
+    - id: nextProvider
+      type: PostSharp.Serialization.ISerializerFactoryProvider
+      description: The next provider in the chain, or <code>null</code> if there is none.
+    - id: activatorProvider
+      type: PostSharp.Serialization.ActivatorProvider
+      description: ''
+    content.vb: Public Sub New(nextProvider As ISerializerFactoryProvider, activatorProvider As ActivatorProvider)
+  overload: PostSharp.Serialization.SerializerFactoryProvider.#ctor*
+  nameWithType.vb: SerializerFactoryProvider.New(ISerializerFactoryProvider, ActivatorProvider)
+  fullName.vb: PostSharp.Serialization.SerializerFactoryProvider.New(PostSharp.Serialization.ISerializerFactoryProvider, PostSharp.Serialization.ActivatorProvider)
+  name.vb: New(ISerializerFactoryProvider, ActivatorProvider)
+- uid: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer``2
+  commentId: M:PostSharp.Serialization.SerializerFactoryProvider.AddSerializer``2
+  id: AddSerializer``2
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: AddSerializer<TObject, TSerializer>()
+  nameWithType: SerializerFactoryProvider.AddSerializer<TObject, TSerializer>()
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer<TObject, TSerializer>()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Maps an object type to a serializer type (using generic type parameters).
+  example: []
+  syntax:
+    content: 'public void AddSerializer<TObject, TSerializer>() where TSerializer : ISerializer, new()'
+    typeParameters:
+    - id: TObject
+      description: The type of the serialized object.
+    - id: TSerializer
+      description: The type of the serializer.
+    content.vb: Public Sub AddSerializer(Of TObject, TSerializer As {ISerializer, New})()
+  overload: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer*
+  nameWithType.vb: SerializerFactoryProvider.AddSerializer(Of TObject, TSerializer)()
+  fullName.vb: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer(Of TObject, TSerializer)()
+  name.vb: AddSerializer(Of TObject, TSerializer)()
+- uid: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer(System.Type,System.Type)
+  commentId: M:PostSharp.Serialization.SerializerFactoryProvider.AddSerializer(System.Type,System.Type)
+  id: AddSerializer(System.Type,System.Type)
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: AddSerializer(Type, Type)
+  nameWithType: SerializerFactoryProvider.AddSerializer(Type, Type)
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer(System.Type, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Maps an object type to a serializer type.
+  example: []
+  syntax:
+    content: public void AddSerializer(Type objectType, Type serializerType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type of the serialized object.
+    - id: serializerType
+      type: System.Type
+      description: The type of the serializer. It must be derived from <xref href="PostSharp.Serialization.ISerializer" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub AddSerializer(objectType As Type, serializerType As Type)
+  overload: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer*
+- uid: PostSharp.Serialization.SerializerFactoryProvider.GetSurrogateType(System.Type)
+  commentId: M:PostSharp.Serialization.SerializerFactoryProvider.GetSurrogateType(System.Type)
+  id: GetSurrogateType(System.Type)
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSurrogateType(Type)
+  nameWithType: SerializerFactoryProvider.GetSurrogateType(Type)
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.GetSurrogateType(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the surrogate type for a given object type.
+  remarks: >-
+    <p>This method is called only during serialization. The surrogate type is the type whose name will be serialized; therefore, it will also
+                    be the type that will be deserialized.</p>
+    <p>It is not the responsibility of this class to call the next provider (<xref href="PostSharp.Serialization.ISerializerFactoryProvider.NextProvider" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: public virtual Type GetSurrogateType(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type of the object being serialized.
+    return:
+      type: System.Type
+      description: >-
+        The surrogate type for <code class="paramref">objectType</code>, or <code>null</code> (or <code class="paramref">objectType</code>) if <code class="paramref">objectType</code>
+                    does not require a surrogate type.
+    content.vb: Public Overridable Function GetSurrogateType(objectType As Type) As Type
+  overload: PostSharp.Serialization.SerializerFactoryProvider.GetSurrogateType*
+  implements:
+  - PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType(System.Type)
+- uid: PostSharp.Serialization.SerializerFactoryProvider.GetSerializerFactory(System.Type)
+  commentId: M:PostSharp.Serialization.SerializerFactoryProvider.GetSerializerFactory(System.Type)
+  id: GetSerializerFactory(System.Type)
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSerializerFactory(Type)
+  nameWithType: SerializerFactoryProvider.GetSerializerFactory(Type)
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.GetSerializerFactory(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the instance of <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>It is not the responsibility of this class to call the next provider (<xref href="PostSharp.Serialization.ISerializerFactoryProvider.NextProvider" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: public virtual ISerializerFactory GetSerializerFactory(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: >-
+        The type of object being serialized or deserialized. If a surrogate type has been specified during serialization,
+                    this parameter is set to the surrogate type during deserialization.
+    return:
+      type: PostSharp.Serialization.ISerializerFactory
+      description: >-
+        An instance of <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref> able to serialize or deserialize <code class="paramref">objectType</code>, or <code>null</code>
+                    if there is no known serializer factory for this object.
+    content.vb: Public Overridable Function GetSerializerFactory(objectType As Type) As ISerializerFactory
+  overload: PostSharp.Serialization.SerializerFactoryProvider.GetSerializerFactory*
+  implements:
+  - PostSharp.Serialization.ISerializerFactoryProvider.GetSerializerFactory(System.Type)
+- uid: PostSharp.Serialization.SerializerFactoryProvider.NextProvider
+  commentId: P:PostSharp.Serialization.SerializerFactoryProvider.NextProvider
+  id: NextProvider
+  parent: PostSharp.Serialization.SerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: NextProvider
+  nameWithType: SerializerFactoryProvider.NextProvider
+  fullName: PostSharp.Serialization.SerializerFactoryProvider.NextProvider
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the next provider in the chain.
+  example: []
+  syntax:
+    content: public ISerializerFactoryProvider NextProvider { get; }
+    parameters: []
+    return:
+      type: PostSharp.Serialization.ISerializerFactoryProvider
+    content.vb: Public ReadOnly Property NextProvider As ISerializerFactoryProvider
+  overload: PostSharp.Serialization.SerializerFactoryProvider.NextProvider*
+  implements:
+  - PostSharp.Serialization.ISerializerFactoryProvider.NextProvider

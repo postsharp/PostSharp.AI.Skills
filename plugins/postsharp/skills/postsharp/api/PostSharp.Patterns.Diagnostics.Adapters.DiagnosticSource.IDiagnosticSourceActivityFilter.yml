@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+  id: IDiagnosticSourceActivityFilter
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.CloseActivity(PostSharp.Patterns.Diagnostics.ILogActivity,System.Object)
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.OpenActivity(PostSharp.Patterns.Diagnostics.Custom.LogLevelSource,System.String,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,System.Object)
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey(System.Object,System.Object@)
+  langs:
+  - csharp
+  - vb
+  name: IDiagnosticSourceActivityFilter
+  nameWithType: IDiagnosticSourceActivityFilter
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: Defines how activities from a <code>DiagnosticListener</code> are translated into a PostSharp Logging activity.
+  example: []
+  syntax:
+    content: public interface IDiagnosticSourceActivityFilter
+    content.vb: Public Interface IDiagnosticSourceActivityFilter
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey(System.Object,System.Object@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey(System.Object,System.Object@)
+  id: TryGetCorrelationKey(System.Object,System.Object@)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+  langs:
+  - csharp
+  - vb
+  name: TryGetCorrelationKey(object, out object)
+  nameWithType: IDiagnosticSourceActivityFilter.TryGetCorrelationKey(object, out object)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey(object, out object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: >-
+    This method is called by <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref> when a message suffixed <code>.Start</code> or <code>.Stop</code> is captured. The implementation
+
+    must return the correlation object, that is, a property of the message that is identical for both the start and the stop messages. This correlation key
+
+    makes it possible to pair the messages as a single activity. When the implementation returns <code>null</code>, no activity is created.
+  example: []
+  syntax:
+    content: bool TryGetCorrelationKey(object message, out object correlationKey)
+    parameters:
+    - id: message
+      type: System.Object
+      description: The message value.
+    - id: correlationKey
+      type: System.Object
+      description: The output parameter that receives the correlation key.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the activity must be captured, <code>false</code> if it must be ignored.
+    content.vb: Function TryGetCorrelationKey(message As Object, correlationKey As Object) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey*
+  nameWithType.vb: IDiagnosticSourceActivityFilter.TryGetCorrelationKey(Object, Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey(Object, Object)
+  name.vb: TryGetCorrelationKey(Object, Object)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.OpenActivity(PostSharp.Patterns.Diagnostics.Custom.LogLevelSource,System.String,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.OpenActivity(PostSharp.Patterns.Diagnostics.Custom.LogLevelSource,System.String,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,System.Object)
+  id: OpenActivity(PostSharp.Patterns.Diagnostics.Custom.LogLevelSource,System.String,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@,System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+  langs:
+  - csharp
+  - vb
+  name: OpenActivity(LogLevelSource, string, ref CallerInfo, object)
+  nameWithType: IDiagnosticSourceActivityFilter.OpenActivity(LogLevelSource, string, ref CallerInfo, object)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.OpenActivity(PostSharp.Patterns.Diagnostics.Custom.LogLevelSource, string, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: This method is called by <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref> when a message suffixed <code>.Start</code> is captured. The implementation should open an activity and return it.
+  example: []
+  syntax:
+    content: ILogActivity OpenActivity(LogLevelSource logSource, string activityName, ref CallerInfo callerInfo, object message)
+    parameters:
+    - id: logSource
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+      description: The log source of the activity.
+    - id: activityName
+      type: System.String
+      description: The name of the activity.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: The output value is ignored.
+    - id: message
+      type: System.Object
+      description: The message value.
+    return:
+      type: PostSharp.Patterns.Diagnostics.ILogActivity
+      description: The new activity.
+    content.vb: Function OpenActivity(logSource As LogLevelSource, activityName As String, callerInfo As CallerInfo, message As Object) As ILogActivity
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.OpenActivity*
+  nameWithType.vb: IDiagnosticSourceActivityFilter.OpenActivity(LogLevelSource, String, CallerInfo, Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.OpenActivity(PostSharp.Patterns.Diagnostics.Custom.LogLevelSource, String, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo, Object)
+  name.vb: OpenActivity(LogLevelSource, String, CallerInfo, Object)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.CloseActivity(PostSharp.Patterns.Diagnostics.ILogActivity,System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.CloseActivity(PostSharp.Patterns.Diagnostics.ILogActivity,System.Object)
+  id: CloseActivity(PostSharp.Patterns.Diagnostics.ILogActivity,System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+  langs:
+  - csharp
+  - vb
+  name: CloseActivity(ILogActivity, object)
+  nameWithType: IDiagnosticSourceActivityFilter.CloseActivity(ILogActivity, object)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.CloseActivity(PostSharp.Patterns.Diagnostics.ILogActivity, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: This method is called by <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref> when a message suffixed <code>.Start</code> is captured. The implementation should close the activity.
+  example: []
+  syntax:
+    content: void CloseActivity(ILogActivity activity, object message)
+    parameters:
+    - id: activity
+      type: PostSharp.Patterns.Diagnostics.ILogActivity
+      description: The activity to close.
+    - id: message
+      type: System.Object
+      description: The message value.
+    content.vb: Sub CloseActivity(activity As ILogActivity, message As Object)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.CloseActivity*
+  nameWithType.vb: IDiagnosticSourceActivityFilter.CloseActivity(ILogActivity, Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.CloseActivity(PostSharp.Patterns.Diagnostics.ILogActivity, Object)
+  name.vb: CloseActivity(ILogActivity, Object)

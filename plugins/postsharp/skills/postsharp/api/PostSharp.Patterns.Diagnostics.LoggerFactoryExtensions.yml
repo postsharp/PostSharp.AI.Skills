@@ -1,0 +1,245 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  id: LoggerFactoryExtensions
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2)
+  - PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3)
+  - PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.Type)
+  langs:
+  - csharp
+  - vb
+  name: LoggerFactoryExtensions
+  nameWithType: LoggerFactoryExtensions
+  fullName: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Provides extension methods for the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class LoggerFactoryExtensions
+    content.vb: Public Module LoggerFactoryExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2,System.Type)
+  id: GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2,System.Type)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetLogSource(ILoggerFactory2, Type)
+  nameWithType: LoggerFactoryExtensions.GetLogSource(ILoggerFactory2, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for a given role and <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Provide an ILoggerFactory3.")]
+
+      public static LogSource GetLogSource(this ILoggerFactory2 factory, Type type)
+    parameters:
+    - id: factory
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: type
+      type: System.Type
+      description: The type that will emit the records.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">type</code>.
+    content.vb: >-
+      <Obsolete("Provide an ILoggerFactory3.")>
+
+      Public Shared Function GetLogSource(factory As ILoggerFactory2, type As Type) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Provide an ILoggerFactory3.
+- uid: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.Type)
+  id: GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.Type)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetLogSource(ILoggerFactory3, Type)
+  nameWithType: LoggerFactoryExtensions.GetLogSource(ILoggerFactory3, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for a given role and <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static LogSource GetLogSource(this ILoggerFactory3 factory, Type type)
+    parameters:
+    - id: factory
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: type
+      type: System.Type
+      description: The type that will emit the records.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">type</code>.
+    content.vb: Public Shared Function GetLogSource(factory As ILoggerFactory3, type As Type) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource*
+- uid: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.String)
+  id: GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3,System.String)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetLogSource(ILoggerFactory3, string)
+  nameWithType: LoggerFactoryExtensions.GetLogSource(ILoggerFactory3, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for a given role and <code class="paramref">sourceName</code>.
+  example: []
+  syntax:
+    content: public static LogSource GetLogSource(this ILoggerFactory3 factory, string sourceName)
+    parameters:
+    - id: factory
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: sourceName
+      type: System.String
+      description: The log source name to be used by the backend. Not all backends support creating sources by name.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">sourceName</code>.
+    content.vb: Public Shared Function GetLogSource(factory As ILoggerFactory3, sourceName As String) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource*
+  nameWithType.vb: LoggerFactoryExtensions.GetLogSource(ILoggerFactory3, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3, String)
+  name.vb: GetLogSource(ILoggerFactory3, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2)
+  id: GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetLogSource(ILoggerFactory2)
+  nameWithType: LoggerFactoryExtensions.GetLogSource(ILoggerFactory2)
+  fullName: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> for a given role and for the calling type.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Provide an ILoggerFactory3.")]
+
+      public static LogSource GetLogSource(this ILoggerFactory2 factory)
+    parameters:
+    - id: factory
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> for the calling type.
+    content.vb: >-
+      <Obsolete("Provide an ILoggerFactory3.")>
+
+      Public Shared Function GetLogSource(factory As ILoggerFactory2) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Provide an ILoggerFactory3.
+- uid: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3)
+  id: GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetLogSource(ILoggerFactory3)
+  nameWithType: LoggerFactoryExtensions.GetLogSource(ILoggerFactory3)
+  fullName: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> for a given role and for the calling type.
+  example: []
+  syntax:
+    content: public static LogSource GetLogSource(this ILoggerFactory3 factory)
+    parameters:
+    - id: factory
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> for the calling type.
+    content.vb: Public Shared Function GetLogSource(factory As ILoggerFactory3) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource*

@@ -1,0 +1,73 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1
+  id: ILoggingPropertyVisitor`1
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1.Visit``1(System.String,``0,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@,`0@)
+  langs:
+  - csharp
+  - vb
+  name: ILoggingPropertyVisitor<TState>
+  nameWithType: ILoggingPropertyVisitor<TState>
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor<TState>
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Defines a <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions%40%2c%600%40)" data-throw-if-not-resolved="false"></xref> method invoked for each property of
+
+    a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface ILoggingPropertyVisitor<TState>
+    typeParameters:
+    - id: TState
+      description: The type of an opaque value passed to the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions%40%2c%600%40)" data-throw-if-not-resolved="false"></xref> method.
+    content.vb: Public Interface ILoggingPropertyVisitor(Of TState)
+  nameWithType.vb: ILoggingPropertyVisitor(Of TState)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor(Of TState)
+  name.vb: ILoggingPropertyVisitor(Of TState)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1.Visit``1(System.String,``0,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@,`0@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1.Visit``1(System.String,``0,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@,`0@)
+  id: Visit``1(System.String,``0,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@,`0@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: Visit<TValue>(string, TValue, in LoggingPropertyOptions, ref TState)
+  nameWithType: ILoggingPropertyVisitor<TState>.Visit<TValue>(string, TValue, in LoggingPropertyOptions, ref TState)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor<TState>.Visit<TValue>(string, TValue, in PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions, ref TState)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Called for each property in a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Visit<TValue>(string name, TValue value, in LoggingPropertyOptions options, ref TState state)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+    - id: value
+      type: '{TValue}'
+      description: The property value.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: The property options.
+    - id: state
+      type: '{TState}'
+      description: >-
+        The state passed from the caller through the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData.VisitProperties%60%601(PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions%40)" data-throw-if-not-resolved="false"></xref>
+                    method.
+    typeParameters:
+    - id: TValue
+      description: The type of the property.
+    content.vb: Sub Visit(Of TValue)(name As String, value As TValue, options As LoggingPropertyOptions, state As TState)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor`1.Visit*
+  nameWithType.vb: ILoggingPropertyVisitor(Of TState).Visit(Of TValue)(String, TValue, LoggingPropertyOptions, TState)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor(Of TState).Visit(Of TValue)(String, TValue, PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions, TState)
+  name.vb: Visit(Of TValue)(String, TValue, LoggingPropertyOptions, TState)

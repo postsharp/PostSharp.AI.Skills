@@ -1,0 +1,121 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.StringFormatter
+  commentId: T:PostSharp.Patterns.Formatters.StringFormatter
+  id: StringFormatter
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.StringFormatter.Instance
+  - PostSharp.Patterns.Formatters.StringFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.StringFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.String)
+  langs:
+  - csharp
+  - vb
+  name: StringFormatter
+  nameWithType: StringFormatter
+  fullName: PostSharp.Patterns.Formatters.StringFormatter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: A formatter for <xref href="System.String" data-throw-if-not-resolved="false"></xref> values.
+  example: []
+  syntax:
+    content: 'public sealed class StringFormatter : Formatter<string>, IFormatter<string>, IOptionAwareFormatter, IFormatter'
+    content.vb: Public NotInheritable Class StringFormatter Inherits Formatter(Of String) Implements IFormatter(Of String), IOptionAwareFormatter, IFormatter
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.Formatter{System.String}
+  implements:
+  - PostSharp.Patterns.Formatters.IFormatter{System.String}
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  - PostSharp.Patterns.Formatters.IFormatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.Formatter{System.String}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.Formatter{System.String}.Attributes
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - PostSharp.Patterns.Formatters.IFormatter.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.IFormatter{System.String}.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions``1(PostSharp.Patterns.Formatters.FormattingOptions)
+- uid: PostSharp.Patterns.Formatters.StringFormatter.Instance
+  commentId: F:PostSharp.Patterns.Formatters.StringFormatter.Instance
+  id: Instance
+  parent: PostSharp.Patterns.Formatters.StringFormatter
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: StringFormatter.Instance
+  fullName: PostSharp.Patterns.Formatters.StringFormatter.Instance
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: The singleton instance of <xref href="PostSharp.Patterns.Formatters.StringFormatter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static readonly StringFormatter Instance
+    return:
+      type: PostSharp.Patterns.Formatters.StringFormatter
+    content.vb: Public Shared ReadOnly Instance As StringFormatter
+- uid: PostSharp.Patterns.Formatters.StringFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.String)
+  commentId: M:PostSharp.Patterns.Formatters.StringFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.String)
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.String)
+  parent: PostSharp.Patterns.Formatters.StringFormatter
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, string)
+  nameWithType: StringFormatter.Write(UnsafeStringBuilder, string)
+  fullName: PostSharp.Patterns.Formatters.StringFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: public override void Write(UnsafeStringBuilder stringBuilder, string value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.String
+      description: The value to be formatted.
+    content.vb: Public Overrides Sub Write(stringBuilder As UnsafeStringBuilder, value As String)
+  overridden: PostSharp.Patterns.Formatters.Formatter{System.String}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.String)
+  overload: PostSharp.Patterns.Formatters.StringFormatter.Write*
+  nameWithType.vb: StringFormatter.Write(UnsafeStringBuilder, String)
+  fullName.vb: PostSharp.Patterns.Formatters.StringFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, String)
+  name.vb: Write(UnsafeStringBuilder, String)
+- uid: PostSharp.Patterns.Formatters.StringFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  commentId: M:PostSharp.Patterns.Formatters.StringFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  id: WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  parent: PostSharp.Patterns.Formatters.StringFormatter
+  langs:
+  - csharp
+  - vb
+  name: WithOptions(FormattingOptions)
+  nameWithType: StringFormatter.WithOptions(FormattingOptions)
+  fullName: PostSharp.Patterns.Formatters.StringFormatter.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  example: []
+  syntax:
+    content: public override IOptionAwareFormatter WithOptions(FormattingOptions options)
+    parameters:
+    - id: options
+      type: PostSharp.Patterns.Formatters.FormattingOptions
+    return:
+      type: PostSharp.Patterns.Formatters.IOptionAwareFormatter
+    content.vb: Public Overrides Function WithOptions(options As FormattingOptions) As IOptionAwareFormatter
+  overridden: PostSharp.Patterns.Formatters.Formatter{System.String}.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  overload: PostSharp.Patterns.Formatters.StringFormatter.WithOptions*

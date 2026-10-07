@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  id: OpenTransactionExpressionModel`1
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.IsParentSampled
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Kind
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Level
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Request
+  langs:
+  - csharp
+  - vb
+  name: OpenTransactionExpressionModel<T>
+  nameWithType: OpenTransactionExpressionModel<T>
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel<T>
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: The type of the <code>t</code> parameters in the <code>if</code> and <code>sample</code> attributes of the transaction policy files.
+  remarks: >-
+    <p>The <code>type</code> attribute of the <code>policy</code> element determines <code class="typeparamref">T</code>: <code>AspNetCoreRequest</code> and
+        <code>AspNetFrameworkRequest</code> select the expression models of the ASP.NET adapters, and a custom transaction type selects the
+        expression model that its metadata defines.</p>
+  example: []
+  syntax:
+    content: 'public readonly struct OpenTransactionExpressionModel<T> : IFormattable'
+    typeParameters:
+    - id: T
+      description: The type of the model exposed by the request. See <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel%601.Request" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Structure OpenTransactionExpressionModel(Of T) Implements IFormattable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+    commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  - linkType: HRef
+    linkId: '@custom-logging-transactions'
+    altText: 'Conceptual: Defining Your Own Logging Transactions'
+  implements:
+  - PostSharp.Patterns.Formatters.IFormattable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: OpenTransactionExpressionModel(Of T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel(Of T)
+  name.vb: OpenTransactionExpressionModel(Of T)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Level
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Level
+  id: Level
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: OpenTransactionExpressionModel<T>.Level
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel<T>.Level
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> with which the transaction was opened.
+  example: []
+  syntax:
+    content: public LogLevel Level { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public ReadOnly Property Level As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Level*
+  nameWithType.vb: OpenTransactionExpressionModel(Of T).Level
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel(Of T).Level
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Kind
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Kind
+  id: Kind
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: OpenTransactionExpressionModel<T>.Kind
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel<T>.Kind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Gets the kind of activity.
+  example: []
+  syntax:
+    content: public LogActivityKind Kind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+    content.vb: Public ReadOnly Property Kind As LogActivityKind
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Kind*
+  nameWithType.vb: OpenTransactionExpressionModel(Of T).Kind
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel(Of T).Kind
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.IsParentSampled
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.IsParentSampled
+  id: IsParentSampled
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: IsParentSampled
+  nameWithType: OpenTransactionExpressionModel<T>.IsParentSampled
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel<T>.IsParentSampled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Gets a value indicating whether the parent request was logged as a result of sampling.
+
+    This means that a policy that had a sampling clause logged the parent request. It corresponds
+
+    to the <code>sampled</code> flag of the W3C Trace Context specification
+
+    (https://www.w3.org/TR/trace-context/#sampled-flag).
+  example: []
+  syntax:
+    content: public bool IsParentSampled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsParentSampled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.IsParentSampled*
+  nameWithType.vb: OpenTransactionExpressionModel(Of T).IsParentSampled
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel(Of T).IsParentSampled
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Request
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Request
+  id: Request
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: OpenTransactionExpressionModel<T>.Request
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel<T>.Request
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Gets the model of the request that causes the transaction to be opened. 
+
+    The type depends on the kind of transaction. For ASP.NET Core, this
+
+    property is of type <code>AspNetCoreRequestExpressionModel</code>, and for the legacy ASP.NET,
+
+    it is <code>AspNetFrameworkRequestExpressionModel</code>.
+  example: []
+  syntax:
+    content: public T Request { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property Request As T
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Request*
+  nameWithType.vb: OpenTransactionExpressionModel(Of T).Request
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel(Of T).Request

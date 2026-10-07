@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.WpfDispatcherFactory
+  commentId: T:PostSharp.Patterns.Threading.WpfDispatcherFactory
+  id: WpfDispatcherFactory
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.WpfDispatcherFactory.GetDispatcher(System.Windows.Threading.Dispatcher)
+  - PostSharp.Patterns.Threading.WpfDispatcherFactory.TryGetWpfDispatcher
+  langs:
+  - csharp
+  - vb
+  name: WpfDispatcherFactory
+  nameWithType: WpfDispatcherFactory
+  fullName: PostSharp.Patterns.Threading.WpfDispatcherFactory
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Provides access to the WPF Dispatcher without a direct dependency on WindowsBase.dll.
+
+    The dispatcher is found only if WindowsBase.dll is already loaded into the AppModel by another assembly.
+  example: []
+  syntax:
+    content: public static class WpfDispatcherFactory
+    content.vb: Public Module WpfDispatcherFactory
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.WpfDispatcherFactory.TryGetWpfDispatcher
+  commentId: M:PostSharp.Patterns.Threading.WpfDispatcherFactory.TryGetWpfDispatcher
+  id: TryGetWpfDispatcher
+  parent: PostSharp.Patterns.Threading.WpfDispatcherFactory
+  langs:
+  - csharp
+  - vb
+  name: TryGetWpfDispatcher()
+  nameWithType: WpfDispatcherFactory.TryGetWpfDispatcher()
+  fullName: PostSharp.Patterns.Threading.WpfDispatcherFactory.TryGetWpfDispatcher()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Returns the current WPF Dispatcher, or <code>null</code> if there is no current dispatcher.
+  example: []
+  syntax:
+    content: public static IDispatcher TryGetWpfDispatcher()
+    return:
+      type: PostSharp.Patterns.Threading.IDispatcher
+    content.vb: Public Shared Function TryGetWpfDispatcher() As IDispatcher
+  overload: PostSharp.Patterns.Threading.WpfDispatcherFactory.TryGetWpfDispatcher*
+- uid: PostSharp.Patterns.Threading.WpfDispatcherFactory.GetDispatcher(System.Windows.Threading.Dispatcher)
+  commentId: M:PostSharp.Patterns.Threading.WpfDispatcherFactory.GetDispatcher(System.Windows.Threading.Dispatcher)
+  id: GetDispatcher(System.Windows.Threading.Dispatcher)
+  parent: PostSharp.Patterns.Threading.WpfDispatcherFactory
+  langs:
+  - csharp
+  - vb
+  name: GetDispatcher(Dispatcher)
+  nameWithType: WpfDispatcherFactory.GetDispatcher(Dispatcher)
+  fullName: PostSharp.Patterns.Threading.WpfDispatcherFactory.GetDispatcher(System.Windows.Threading.Dispatcher)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Returns the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> wrapper for a given WPF <xref href="System.Windows.Threading.Dispatcher" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static IDispatcher GetDispatcher(Dispatcher dispatcher)
+    parameters:
+    - id: dispatcher
+      type: System.Windows.Threading.Dispatcher
+    return:
+      type: PostSharp.Patterns.Threading.IDispatcher
+    content.vb: Public Shared Function GetDispatcher(dispatcher As Dispatcher) As IDispatcher
+  overload: PostSharp.Patterns.Threading.WpfDispatcherFactory.GetDispatcher*

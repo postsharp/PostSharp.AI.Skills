@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IThreadAware
+  commentId: T:PostSharp.Patterns.Threading.IThreadAware
+  id: IThreadAware
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController
+  - PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  langs:
+  - csharp
+  - vb
+  name: IThreadAware
+  nameWithType: IThreadAware
+  fullName: PostSharp.Patterns.Threading.IThreadAware
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Interface implemented by objects that are aware of concurrency. Access to thread-aware objects is controlled by a concurrency controller (<xref href="PostSharp.Patterns.Threading.IConcurrencyController" data-throw-if-not-resolved="false"></xref>).
+
+    Any aspect implementing a threading model (<code>ThreadAwareObjectAttribute</code>) introduces this interface to the target class and ensures that accesses to this class go through
+
+    the controller.
+  remarks: >-
+    <p>
+        Thread-aware does not mean thread-safe. Check the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.IsSharable" data-throw-if-not-resolved="false"></xref> property of <xref href="PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController" data-throw-if-not-resolved="false"></xref> to determine
+        whether the current object can be shared between different threads.
+        </p>
+    <p>
+        A threading model can add this interface to an advisable collection, such as <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref>,
+        at run time. A cast of such a collection to <xref href="PostSharp.Patterns.Threading.IThreadAware" data-throw-if-not-resolved="false"></xref> fails; use <xref href="PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface%60%601(System.Object%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> instead.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement(AttributeId = 627500528741416983)]
+
+      public interface IThreadAware
+    content.vb: >-
+      <InternalImplement(AttributeId:=627500528741416983)>
+
+      Public Interface IThreadAware
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  extensionMethods:
+  - PostSharp.Patterns.Threading.IThreadAware.PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel,PostSharp.Patterns.Threading.ConcurrentAccessToken@)
+  - PostSharp.Patterns.Threading.IThreadAware.PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel)
+  - PostSharp.Patterns.Threading.IThreadAware.PostSharp.Patterns.Threading.ThreadAwareExtensions.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AttributeId
+      type: System.Int64
+      value: "627500528741416983"
+- uid: PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  commentId: M:PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  id: OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  parent: PostSharp.Patterns.Threading.IThreadAware
+  langs:
+  - csharp
+  - vb
+  name: OnParentControllerChanged(IConcurrencyController)
+  nameWithType: IThreadAware.OnParentControllerChanged(IConcurrencyController)
+  fullName: PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Notifies the object that the effective controller of its parent has changed.
+  example: []
+  syntax:
+    content: void OnParentControllerChanged(IConcurrencyController parentController)
+    parameters:
+    - id: parentController
+      type: PostSharp.Patterns.Threading.IConcurrencyController
+      description: The new parent controller, or <code>null</code>.
+    content.vb: Sub OnParentControllerChanged(parentController As IConcurrencyController)
+  overload: PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged*
+- uid: PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController
+  commentId: P:PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController
+  id: ConcurrencyController
+  parent: PostSharp.Patterns.Threading.IThreadAware
+  langs:
+  - csharp
+  - vb
+  name: ConcurrencyController
+  nameWithType: IThreadAware.ConcurrencyController
+  fullName: PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the concurrency controller for the current object.
+  example: []
+  syntax:
+    content: IConcurrencyController ConcurrencyController { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.IConcurrencyController
+    content.vb: ReadOnly Property ConcurrencyController As IConcurrencyController
+  overload: PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController*

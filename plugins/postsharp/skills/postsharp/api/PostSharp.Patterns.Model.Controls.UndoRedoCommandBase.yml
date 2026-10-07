@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  commentId: T:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  id: UndoRedoCommandBase
+  parent: PostSharp.Patterns.Model.Controls
+  children:
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(System.Object)
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecuteChanged
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(System.Object)
+  - PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder
+  langs:
+  - csharp
+  - vb
+  name: UndoRedoCommandBase
+  nameWithType: UndoRedoCommandBase
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Base class for <xref href="PostSharp.Patterns.Model.Controls.UndoCommand" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Model.Controls.RedoCommand" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public abstract class UndoRedoCommandBase : ICommand
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public MustInherit Class UndoRedoCommandBase Implements ICommand
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Model.Controls.RedoCommand
+  - PostSharp.Patterns.Model.Controls.UndoCommand
+  implements:
+  - System.Windows.Input.ICommand
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(System.Object)
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(System.Object)
+  id: CanExecute(System.Object)
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  langs:
+  - csharp
+  - vb
+  name: CanExecute(object)
+  nameWithType: UndoRedoCommandBase.CanExecute(object)
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: public bool CanExecute(object parameter)
+    parameters:
+    - id: parameter
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Function CanExecute(parameter As Object) As Boolean
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute*
+  implements:
+  - System.Windows.Input.ICommand.CanExecute(System.Object)
+  nameWithType.vb: UndoRedoCommandBase.CanExecute(Object)
+  fullName.vb: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecute(Object)
+  name.vb: CanExecute(Object)
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(System.Object)
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(System.Object)
+  id: Execute(System.Object)
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  langs:
+  - csharp
+  - vb
+  name: Execute(object)
+  nameWithType: UndoRedoCommandBase.Execute(object)
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: public void Execute(object parameter)
+    parameters:
+    - id: parameter
+      type: System.Object
+    content.vb: Public Sub Execute(parameter As Object)
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute*
+  implements:
+  - System.Windows.Input.ICommand.Execute(System.Object)
+  nameWithType.vb: UndoRedoCommandBase.Execute(Object)
+  fullName.vb: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Execute(Object)
+  name.vb: Execute(Object)
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder
+  id: Recorder
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  langs:
+  - csharp
+  - vb
+  name: Recorder
+  nameWithType: UndoRedoCommandBase.Recorder
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets the <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> bound to this command.
+  example: []
+  syntax:
+    content: public Recorder Recorder { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.Recorder
+    content.vb: Public ReadOnly Property Recorder As Recorder
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.Recorder*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecuteChanged
+  commentId: E:PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecuteChanged
+  id: CanExecuteChanged
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+  langs:
+  - csharp
+  - vb
+  name: CanExecuteChanged
+  nameWithType: UndoRedoCommandBase.CanExecuteChanged
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase.CanExecuteChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: public event EventHandler CanExecuteChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event CanExecuteChanged As EventHandler
+  implements:
+  - System.Windows.Input.ICommand.CanExecuteChanged

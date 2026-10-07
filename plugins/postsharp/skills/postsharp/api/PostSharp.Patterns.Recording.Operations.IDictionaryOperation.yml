@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  commentId: T:PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  id: IDictionaryOperation
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Dictionary
+  - PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Key
+  - PostSharp.Patterns.Recording.Operations.IDictionaryOperation.NewValue
+  - PostSharp.Patterns.Recording.Operations.IDictionaryOperation.OldValue
+  langs:
+  - csharp
+  - vb
+  name: IDictionaryOperation
+  nameWithType: IDictionaryOperation
+  fullName: PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Weakly typed interface for the <xref href="PostSharp.Patterns.Recording.Operations.DictionaryOperation%602" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface IDictionaryOperation : IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface IDictionaryOperation Inherits IOperationDescriptor
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operations.AddDictionaryItemOperation`2
+  - PostSharp.Patterns.Recording.Operations.ClearDictionaryOperation`2
+  - PostSharp.Patterns.Recording.Operations.DictionaryOperation`2
+  - PostSharp.Patterns.Recording.Operations.RemoveDictionaryItemOperation`2
+  - PostSharp.Patterns.Recording.Operations.SetDictionaryItemOperation`2
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Dictionary
+  commentId: P:PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Dictionary
+  id: Dictionary
+  parent: PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  langs:
+  - csharp
+  - vb
+  name: Dictionary
+  nameWithType: IDictionaryOperation.Dictionary
+  fullName: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Dictionary
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the collection on which the operation was performed.
+  example: []
+  syntax:
+    content: IDictionary Dictionary { get; }
+    parameters: []
+    return:
+      type: System.Collections.IDictionary
+    content.vb: ReadOnly Property Dictionary As IDictionary
+  overload: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Dictionary*
+- uid: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Key
+  commentId: P:PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Key
+  id: Key
+  parent: PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: IDictionaryOperation.Key
+  fullName: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Key
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the key of the dictionary entry affected by the operation.
+  example: []
+  syntax:
+    content: object Key { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property Key As Object
+  overload: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.Key*
+- uid: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.NewValue
+  commentId: P:PostSharp.Patterns.Recording.Operations.IDictionaryOperation.NewValue
+  id: NewValue
+  parent: PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  langs:
+  - csharp
+  - vb
+  name: NewValue
+  nameWithType: IDictionaryOperation.NewValue
+  fullName: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.NewValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the value of the dictionary entry after the operation.
+  example: []
+  syntax:
+    content: object NewValue { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property NewValue As Object
+  overload: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.NewValue*
+- uid: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.OldValue
+  commentId: P:PostSharp.Patterns.Recording.Operations.IDictionaryOperation.OldValue
+  id: OldValue
+  parent: PostSharp.Patterns.Recording.Operations.IDictionaryOperation
+  langs:
+  - csharp
+  - vb
+  name: OldValue
+  nameWithType: IDictionaryOperation.OldValue
+  fullName: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.OldValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the value of the dictionary entry before the operation.
+  example: []
+  syntax:
+    content: object OldValue { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property OldValue As Object
+  overload: PostSharp.Patterns.Recording.Operations.IDictionaryOperation.OldValue*

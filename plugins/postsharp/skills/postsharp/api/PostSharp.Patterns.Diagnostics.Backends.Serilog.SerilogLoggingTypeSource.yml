@@ -1,0 +1,204 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  id: SerilogLoggingTypeSource
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Backend
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Logger
+  langs:
+  - csharp
+  - vb
+  name: SerilogLoggingTypeSource
+  nameWithType: SerilogLoggingTypeSource
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class SerilogLoggingTypeSource : LoggingTypeSource, IContextLocalLogger, ILoggerExceptionHandler'
+    content.vb: Public Class SerilogLoggingTypeSource Inherits LoggingTypeSource Implements IContextLocalLogger, ILoggerExceptionHandler
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.IContextLocalLogger
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerExceptionHandler
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.SetLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Parent
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Role
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Name
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.DisplayName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.FullName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.DisplayFullName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Level
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: SerilogLoggingTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: SerilogLoggingTypeSource.SerilogLoggingTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.SerilogLoggingTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the other constructor.")]
+
+      public SerilogLoggingTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    - id: type
+      type: System.Type
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> being logged.
+    content.vb: >-
+      <Obsolete("Use the other constructor.")>
+
+      Public Sub New(parent As LoggingNamespaceSource, type As Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the other constructor.
+  nameWithType.vb: SerilogLoggingTypeSource.New(LoggingNamespaceSource, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.New(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  name.vb: New(LoggingNamespaceSource, Type)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: SerilogLoggingTypeSource(LoggingNamespaceSource, string, Type)
+  nameWithType: SerilogLoggingTypeSource.SerilogLoggingTypeSource(LoggingNamespaceSource, string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.SerilogLoggingTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, string, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public SerilogLoggingTypeSource(LoggingNamespaceSource parent, string sourceName, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    - id: sourceName
+      type: System.String
+      description: The name of the log source. It is usually the full name of the type being logged.
+    - id: type
+      type: System.Type
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> being logged. This parameter is optional.
+    content.vb: Public Sub New(parent As LoggingNamespaceSource, sourceName As String, type As Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.#ctor*
+  nameWithType.vb: SerilogLoggingTypeSource.New(LoggingNamespaceSource, String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.New(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, String, System.Type)
+  name.vb: New(LoggingNamespaceSource, String, Type)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: IsBackendEnabled(LogLevel)
+  nameWithType: SerilogLoggingTypeSource.IsBackendEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Checks whether logging is enabled in the backend for the given level.
+  remarks: <p>The result of this method is cached. To invalidate the cache, call the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: protected override bool IsBackendEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    return:
+      type: System.Boolean
+    content.vb: Protected Overrides Function IsBackendEnabled(level As LogLevel) As Boolean
+  overridden: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.IsBackendEnabled*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Logger
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Logger
+  id: Logger
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: Logger
+  nameWithType: SerilogLoggingTypeSource.Logger
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Logger
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Gets the <xref href="Serilog.ILogger" data-throw-if-not-resolved="false"></xref> associated with the current <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ILogger Logger { get; }
+    parameters: []
+    return:
+      type: Serilog.ILogger
+    content.vb: Public ReadOnly Property Logger As ILogger
+  overload: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Logger*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Backend
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: SerilogLoggingTypeSource.Backend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Gets the parent <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public SerilogLoggingBackend Backend { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingBackend
+    content.vb: Public ReadOnly Property Backend As SerilogLoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource.Backend*

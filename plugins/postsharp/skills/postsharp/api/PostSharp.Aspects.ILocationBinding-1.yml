@@ -1,0 +1,127 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ILocationBinding`1
+  commentId: T:PostSharp.Aspects.ILocationBinding`1
+  id: ILocationBinding`1
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ILocationBinding`1.GetValue(System.Object@,PostSharp.Aspects.Arguments)
+  - PostSharp.Aspects.ILocationBinding`1.SetValue(System.Object@,PostSharp.Aspects.Arguments,`0)
+  langs:
+  - csharp
+  - vb
+  name: ILocationBinding<T>
+  nameWithType: ILocationBinding<T>
+  fullName: PostSharp.Aspects.ILocationBinding<T>
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: A strongly-typed variant of <xref href="PostSharp.Aspects.ILocationBinding" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface ILocationBinding<T> : ILocationBinding'
+    typeParameters:
+    - id: T
+      description: The type of the field or property.
+    content.vb: Public Interface ILocationBinding(Of T) Inherits ILocationBinding
+  inheritedMembers:
+  - PostSharp.Aspects.ILocationBinding.SetValue(System.Object@,PostSharp.Aspects.Arguments,System.Object)
+  - PostSharp.Aspects.ILocationBinding.Execute``1(PostSharp.Aspects.ILocationBindingAction{{TPayload}},{TPayload}@)
+  - PostSharp.Aspects.ILocationBinding.LocationInfo
+  - PostSharp.Aspects.ILocationBinding.LocationType
+  - PostSharp.Aspects.ILocationBinding.DeclarationIdentifier
+  extensionMethods:
+  - PostSharp.Aspects.ILocationBinding.PostSharp.Aspects.LocationBindingExtensions.GetValue(System.Object,PostSharp.Aspects.Arguments)
+  - PostSharp.Aspects.ILocationBinding.PostSharp.Aspects.LocationBindingExtensions.GetValue(System.Object)
+  - PostSharp.Aspects.ILocationBinding.PostSharp.Aspects.LocationBindingExtensions.SetValue(System.Object,PostSharp.Aspects.Arguments,System.Object)
+  - PostSharp.Aspects.ILocationBinding.PostSharp.Aspects.LocationBindingExtensions.SetValue(System.Object,System.Object)
+  - PostSharp.Aspects.ILocationBinding`1.PostSharp.Aspects.LocationBindingExtensions.GetValue``1(System.Object,PostSharp.Aspects.Arguments)
+  - PostSharp.Aspects.ILocationBinding`1.PostSharp.Aspects.LocationBindingExtensions.GetValue``1(System.Object)
+  - PostSharp.Aspects.ILocationBinding`1.PostSharp.Aspects.LocationBindingExtensions.SetValue``1(System.Object,{T})
+  - PostSharp.Aspects.ILocationBinding`1.PostSharp.Aspects.LocationBindingExtensions.SetValue``1(System.Object,PostSharp.Aspects.Arguments,{T})
+  nameWithType.vb: ILocationBinding(Of T)
+  fullName.vb: PostSharp.Aspects.ILocationBinding(Of T)
+  name.vb: ILocationBinding(Of T)
+- uid: PostSharp.Aspects.ILocationBinding`1.GetValue(System.Object@,PostSharp.Aspects.Arguments)
+  commentId: M:PostSharp.Aspects.ILocationBinding`1.GetValue(System.Object@,PostSharp.Aspects.Arguments)
+  id: GetValue(System.Object@,PostSharp.Aspects.Arguments)
+  parent: PostSharp.Aspects.ILocationBinding`1
+  langs:
+  - csharp
+  - vb
+  name: GetValue(ref object, Arguments)
+  nameWithType: ILocationBinding<T>.GetValue(ref object, Arguments)
+  fullName: PostSharp.Aspects.ILocationBinding<T>.GetValue(ref object, PostSharp.Aspects.Arguments)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Invokes the <code>Get</code> semantic on the next node in the chain of invocation.
+  remarks: >-
+    <p>
+      The
+      <code class="paramref">instance</code>
+      parameter is passed by reference so that instance methods of value types (
+      <code>struct</code>
+      in C#) are allowed to change the value of the instance.
+    </p>
+  example: []
+  syntax:
+    content: T GetValue(ref object instance, Arguments index)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: Target instance from which the field or property should be retrieved (<code>null</code> if the field or property is static).
+    - id: index
+      type: PostSharp.Aspects.Arguments
+      description: Index arguments, if the location is an indexer property.
+    return:
+      type: '{T}'
+      description: The value stored at the location.
+    content.vb: Function GetValue(instance As Object, index As Arguments) As T
+  overload: PostSharp.Aspects.ILocationBinding`1.GetValue*
+  nameWithType.vb: ILocationBinding(Of T).GetValue(Object, Arguments)
+  fullName.vb: PostSharp.Aspects.ILocationBinding(Of T).GetValue(Object, PostSharp.Aspects.Arguments)
+  name.vb: GetValue(Object, Arguments)
+- uid: PostSharp.Aspects.ILocationBinding`1.SetValue(System.Object@,PostSharp.Aspects.Arguments,`0)
+  commentId: M:PostSharp.Aspects.ILocationBinding`1.SetValue(System.Object@,PostSharp.Aspects.Arguments,`0)
+  id: SetValue(System.Object@,PostSharp.Aspects.Arguments,`0)
+  parent: PostSharp.Aspects.ILocationBinding`1
+  langs:
+  - csharp
+  - vb
+  name: SetValue(ref object, Arguments, T)
+  nameWithType: ILocationBinding<T>.SetValue(ref object, Arguments, T)
+  fullName: PostSharp.Aspects.ILocationBinding<T>.SetValue(ref object, PostSharp.Aspects.Arguments, T)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Invokes the <code>Set</code> semantic on the next node in the chain of invocation.
+  remarks: >-
+    <p>
+      The
+      <code class="paramref">instance</code>
+      parameter is passed by reference so that instance methods of value types (
+      <code>struct</code>
+      in C#) are allowed to change the value of the instance.
+    </p>
+  example: []
+  syntax:
+    content: void SetValue(ref object instance, Arguments index, T value)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: Target instance from which the field or property should be retrieved (<code>null</code> if the field or property is static).
+    - id: index
+      type: PostSharp.Aspects.Arguments
+      description: Index arguments, if the location is an indexer property.
+    - id: value
+      type: '{T}'
+      description: New value to be stored at the location.
+    content.vb: Sub SetValue(instance As Object, index As Arguments, value As T)
+  overload: PostSharp.Aspects.ILocationBinding`1.SetValue*
+  nameWithType.vb: ILocationBinding(Of T).SetValue(Object, Arguments, T)
+  fullName.vb: PostSharp.Aspects.ILocationBinding(Of T).SetValue(Object, PostSharp.Aspects.Arguments, T)
+  name.vb: SetValue(Object, Arguments, T)

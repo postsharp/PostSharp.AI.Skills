@@ -1,0 +1,218 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IEventInterceptionAspect
+  commentId: T:PostSharp.Aspects.IEventInterceptionAspect
+  id: IEventInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: IEventInterceptionAspect
+  nameWithType: IEventInterceptionAspect
+  fullName: PostSharp.Aspects.IEventInterceptionAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Runtime semantics of an aspect that, when applied on an event, intercepts invocations of its <code>Add</code> (<xref href="PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>), 
+
+    <code>Remove</code> (<xref href="PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) and <code>Invoke</code> (<xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) semantics.
+  remarks: >-
+    <p>
+            For details, see <xref href="PostSharp.Aspects.EventInterceptionAspect" data-throw-if-not-resolved="false"></xref>.
+          </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IEventInterceptionAspect : IEventLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IEventInterceptionAspect Inherits IEventLevelAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.EventInterceptionAspect
+  - PostSharp.Patterns.Model.WeakEventAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IEventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  commentId: M:PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  id: OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  parent: PostSharp.Aspects.IEventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnAddHandler(EventInterceptionArgs)
+  nameWithType: IEventInterceptionAspect.OnAddHandler(EventInterceptionArgs)
+  fullName: PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Add</code> semantic of the event to which the current aspect is applied,
+
+    i.e. when a new delegate is added to this event.
+  remarks: >-
+    <p>
+               This advice does not intercept the initializer of a field-like event. If you want to intercept the adding of all handlers,
+            do not use event initializers. Add the initial handler in the constructor instead.
+              </p>
+        <br />
+        <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnAddHandler(EventInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.EventInterceptionArgs
+      description: Handler arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnAddHandler(args As EventInterceptionArgs)
+  overload: PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  commentId: M:PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  id: OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  parent: PostSharp.Aspects.IEventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveHandler(EventInterceptionArgs)
+  nameWithType: IEventInterceptionAspect.OnRemoveHandler(EventInterceptionArgs)
+  fullName: PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Remove</code> semantic of the event to which the current aspect is applied,
+
+    i.e. when a delegate is removed from this event.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnRemoveHandler(EventInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.EventInterceptionArgs
+      description: Handler arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnRemoveHandler(args As EventInterceptionArgs)
+  overload: PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  commentId: M:PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  id: OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  parent: PostSharp.Aspects.IEventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInvokeHandler(EventInterceptionArgs)
+  nameWithType: IEventInterceptionAspect.OnInvokeHandler(EventInterceptionArgs)
+  fullName: PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked when the event to which the current aspect is applied is fired, for each delegate
+
+    of this event, and instead of invoking this delegate.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+        <br />
+        <div class="NOTE"><h5>note</h5><p>
+      The
+      <b>Invoke Event Handler</b>
+      semantic is different from normal event firing.
+      Indeed, when you fire an event, all handlers that were added to this event are fired. However, the current method
+      invokes only a single handler: the one passed to the
+      <code>handler</code>
+      parameter.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnInvokeHandler(EventInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.EventInterceptionArgs
+      description: Handler arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnInvokeHandler(args As EventInterceptionArgs)
+  overload: PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

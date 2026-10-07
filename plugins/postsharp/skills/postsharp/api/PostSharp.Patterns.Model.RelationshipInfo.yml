@@ -1,0 +1,331 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.RelationshipInfo
+  commentId: T:PostSharp.Patterns.Model.RelationshipInfo
+  id: RelationshipInfo
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.RelationshipInfo.#ctor(PostSharp.Patterns.Model.RelationshipKind,PostSharp.Patterns.Model.RelationshipKind)
+  - PostSharp.Patterns.Model.RelationshipInfo.Equals(PostSharp.Patterns.Model.RelationshipInfo)
+  - PostSharp.Patterns.Model.RelationshipInfo.Equals(System.Object)
+  - PostSharp.Patterns.Model.RelationshipInfo.GetHashCode
+  - PostSharp.Patterns.Model.RelationshipInfo.ItemsRelationship
+  - PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviors
+  - PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviorsToItems
+  - PostSharp.Patterns.Model.RelationshipInfo.Relationship
+  - PostSharp.Patterns.Model.RelationshipInfo.op_Equality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  - PostSharp.Patterns.Model.RelationshipInfo.op_Inequality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  langs:
+  - csharp
+  - vb
+  name: RelationshipInfo
+  nameWithType: RelationshipInfo
+  fullName: PostSharp.Patterns.Model.RelationshipInfo
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Describes the relationship between a parent and a child.
+  remarks: >-
+    <p>A <xref href="PostSharp.Patterns.Model.TypeAdapters.FieldRule" data-throw-if-not-resolved="false"></xref> returns a <xref href="PostSharp.Patterns.Model.RelationshipInfo" data-throw-if-not-resolved="false"></xref> from its <xref href="PostSharp.Patterns.Model.TypeAdapters.FieldRule.GetRelationshipInfo(System.Reflection.FieldInfo)" data-throw-if-not-resolved="false"></xref>
+        method to classify a field that has no <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Model.ReferenceAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.ParentAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+        For example, <code>new RelationshipInfo( RelationshipKind.None, RelationshipKind.Reference )</code> marks the field as a reference.</p>
+  example: []
+  syntax:
+    content: >-
+      [Serializer(typeof(RelationshipInfo.Serializer))]
+
+      public struct RelationshipInfo : IEquatable<RelationshipInfo>
+    content.vb: >-
+      <Serializer(GetType(RelationshipInfo.Serializer))>
+
+      Public Structure RelationshipInfo Implements IEquatable(Of RelationshipInfo)
+  seealso:
+  - linkType: HRef
+    linkId: '@aggregatable-adding-programmatically'
+    altText: 'Conceptual: Rule-Based Annotation'
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Model.RelationshipInfo}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.RelationshipInfo.Serializer
+- uid: PostSharp.Patterns.Model.RelationshipInfo.#ctor(PostSharp.Patterns.Model.RelationshipKind,PostSharp.Patterns.Model.RelationshipKind)
+  commentId: M:PostSharp.Patterns.Model.RelationshipInfo.#ctor(PostSharp.Patterns.Model.RelationshipKind,PostSharp.Patterns.Model.RelationshipKind)
+  id: '#ctor(PostSharp.Patterns.Model.RelationshipKind,PostSharp.Patterns.Model.RelationshipKind)'
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: RelationshipInfo(RelationshipKind, RelationshipKind)
+  nameWithType: RelationshipInfo.RelationshipInfo(RelationshipKind, RelationshipKind)
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.RelationshipInfo(PostSharp.Patterns.Model.RelationshipKind, PostSharp.Patterns.Model.RelationshipKind)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.RelationshipInfo" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public RelationshipInfo(RelationshipKind itemsRelationship, RelationshipKind relationship = RelationshipKind.Child)
+    parameters:
+    - id: itemsRelationship
+      type: PostSharp.Patterns.Model.RelationshipKind
+      description: The kind of relationship of items of the child collection relative to the child collection.
+    - id: relationship
+      type: PostSharp.Patterns.Model.RelationshipKind
+      description: >-
+        The kind of relationship of the child relative to the parent. Valid values are <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="PostSharp.Patterns.Model.RelationshipKind.ChildOrParentSurrogate" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.RelationshipKind.Reference" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(itemsRelationship As RelationshipKind, relationship As RelationshipKind = RelationshipKind.Child)
+  overload: PostSharp.Patterns.Model.RelationshipInfo.#ctor*
+  nameWithType.vb: RelationshipInfo.New(RelationshipKind, RelationshipKind)
+  fullName.vb: PostSharp.Patterns.Model.RelationshipInfo.New(PostSharp.Patterns.Model.RelationshipKind, PostSharp.Patterns.Model.RelationshipKind)
+  name.vb: New(RelationshipKind, RelationshipKind)
+- uid: PostSharp.Patterns.Model.RelationshipInfo.Equals(PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.RelationshipInfo.Equals(PostSharp.Patterns.Model.RelationshipInfo)
+  id: Equals(PostSharp.Patterns.Model.RelationshipInfo)
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: Equals(RelationshipInfo)
+  nameWithType: RelationshipInfo.Equals(RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.Equals(PostSharp.Patterns.Model.RelationshipInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  example: []
+  syntax:
+    content: public bool Equals(RelationshipInfo other)
+    parameters:
+    - id: other
+      type: PostSharp.Patterns.Model.RelationshipInfo
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As RelationshipInfo) As Boolean
+  overload: PostSharp.Patterns.Model.RelationshipInfo.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Model.RelationshipInfo}.Equals(PostSharp.Patterns.Model.RelationshipInfo)
+- uid: PostSharp.Patterns.Model.RelationshipInfo.Equals(System.Object)
+  commentId: M:PostSharp.Patterns.Model.RelationshipInfo.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: RelationshipInfo.Equals(object)
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: PostSharp.Patterns.Model.RelationshipInfo.Equals*
+  nameWithType.vb: RelationshipInfo.Equals(Object)
+  fullName.vb: PostSharp.Patterns.Model.RelationshipInfo.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Patterns.Model.RelationshipInfo.GetHashCode
+  commentId: M:PostSharp.Patterns.Model.RelationshipInfo.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: RelationshipInfo.GetHashCode()
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: PostSharp.Patterns.Model.RelationshipInfo.GetHashCode*
+- uid: PostSharp.Patterns.Model.RelationshipInfo.op_Equality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.RelationshipInfo.op_Equality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  id: op_Equality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: operator ==(RelationshipInfo, RelationshipInfo)
+  nameWithType: RelationshipInfo.operator ==(RelationshipInfo, RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.operator ==(PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.RelationshipInfo)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether two instances of the <xref href="PostSharp.Patterns.Model.RelationshipInfo" data-throw-if-not-resolved="false"></xref> type are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(RelationshipInfo left, RelationshipInfo right)
+    parameters:
+    - id: left
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The first instance.
+    - id: right
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The second instance.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator =(left As RelationshipInfo, right As RelationshipInfo) As Boolean
+  overload: PostSharp.Patterns.Model.RelationshipInfo.op_Equality*
+  nameWithType.vb: RelationshipInfo.=(RelationshipInfo, RelationshipInfo)
+  fullName.vb: PostSharp.Patterns.Model.RelationshipInfo.=(PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.RelationshipInfo)
+  name.vb: =(RelationshipInfo, RelationshipInfo)
+- uid: PostSharp.Patterns.Model.RelationshipInfo.op_Inequality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  commentId: M:PostSharp.Patterns.Model.RelationshipInfo.op_Inequality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  id: op_Inequality(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.RelationshipInfo)
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: operator !=(RelationshipInfo, RelationshipInfo)
+  nameWithType: RelationshipInfo.operator !=(RelationshipInfo, RelationshipInfo)
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.operator !=(PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.RelationshipInfo)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether two instances of the <xref href="PostSharp.Patterns.Model.RelationshipInfo" data-throw-if-not-resolved="false"></xref> type are equal.
+  example: []
+  syntax:
+    content: public static bool operator !=(RelationshipInfo left, RelationshipInfo right)
+    parameters:
+    - id: left
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The first instance.
+    - id: right
+      type: PostSharp.Patterns.Model.RelationshipInfo
+      description: The second instance.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator <>(left As RelationshipInfo, right As RelationshipInfo) As Boolean
+  overload: PostSharp.Patterns.Model.RelationshipInfo.op_Inequality*
+  nameWithType.vb: RelationshipInfo.<>(RelationshipInfo, RelationshipInfo)
+  fullName.vb: PostSharp.Patterns.Model.RelationshipInfo.<>(PostSharp.Patterns.Model.RelationshipInfo, PostSharp.Patterns.Model.RelationshipInfo)
+  name.vb: <>(RelationshipInfo, RelationshipInfo)
+- uid: PostSharp.Patterns.Model.RelationshipInfo.Relationship
+  commentId: P:PostSharp.Patterns.Model.RelationshipInfo.Relationship
+  id: Relationship
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: Relationship
+  nameWithType: RelationshipInfo.Relationship
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.Relationship
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets the kind of relationship of the child relative to the parent. Valid values are <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="PostSharp.Patterns.Model.RelationshipKind.ChildOrParentSurrogate" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.RelationshipKind.Reference" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public readonly RelationshipKind Relationship { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: Public ReadOnly Property Relationship As RelationshipKind
+  overload: PostSharp.Patterns.Model.RelationshipInfo.Relationship*
+- uid: PostSharp.Patterns.Model.RelationshipInfo.ItemsRelationship
+  commentId: P:PostSharp.Patterns.Model.RelationshipInfo.ItemsRelationship
+  id: ItemsRelationship
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: ItemsRelationship
+  nameWithType: RelationshipInfo.ItemsRelationship
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.ItemsRelationship
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the kind of relationship of items of the child collection relative to the child collection.
+  example: []
+  syntax:
+    content: public readonly RelationshipKind ItemsRelationship { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: Public ReadOnly Property ItemsRelationship As RelationshipKind
+  overload: PostSharp.Patterns.Model.RelationshipInfo.ItemsRelationship*
+- uid: PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviors
+  commentId: P:PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviors
+  id: PropagateBehaviors
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: PropagateBehaviors
+  nameWithType: RelationshipInfo.PropagateBehaviors
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviors
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets a value indicating whether behaviors of the parent should be propagated to objects assigned to the field.
+  example: []
+  syntax:
+    content: public readonly bool PropagateBehaviors { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property PropagateBehaviors As Boolean
+  overload: PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviors*
+- uid: PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviorsToItems
+  commentId: P:PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviorsToItems
+  id: PropagateBehaviorsToItems
+  parent: PostSharp.Patterns.Model.RelationshipInfo
+  langs:
+  - csharp
+  - vb
+  name: PropagateBehaviorsToItems
+  nameWithType: RelationshipInfo.PropagateBehaviorsToItems
+  fullName: PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviorsToItems
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets a value indicating whether behaviors of the parent should be propagated to objects added to collections assigned to this field.
+
+    This property is ignored if <xref href="PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviors" data-throw-if-not-resolved="false"></xref> is <code>false</code>.
+  example: []
+  syntax:
+    content: public readonly bool PropagateBehaviorsToItems { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property PropagateBehaviorsToItems As Boolean
+  overload: PostSharp.Patterns.Model.RelationshipInfo.PropagateBehaviorsToItems*

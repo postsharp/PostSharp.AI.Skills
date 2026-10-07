@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  id: CustomLogRecordAttributes
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.None
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescription
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescriptionAndOutcome
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityOutcome
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteMessage
+  langs:
+  - csharp
+  - vb
+  name: CustomLogRecordAttributes
+  nameWithType: CustomLogRecordAttributes
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Attributes of the <xref href="PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions" data-throw-if-not-resolved="false"></xref> class. Describes how the <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> will be used.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum CustomLogRecordAttributes
+    content.vb: >-
+      <Flags>
+
+      Public Enum CustomLogRecordAttributes
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.None
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.None
+  id: None
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: CustomLogRecordAttributes.None
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Legacy value set by <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref> implementations. No information is provided by the caller.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescription
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescription
+  id: WriteActivityDescription
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  langs:
+  - csharp
+  - vb
+  name: WriteActivityDescription
+  nameWithType: CustomLogRecordAttributes.WriteActivityDescription
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescription
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> will be used to write the context description.
+  example: []
+  syntax:
+    content: WriteActivityDescription = 1
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityOutcome
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityOutcome
+  id: WriteActivityOutcome
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  langs:
+  - csharp
+  - vb
+  name: WriteActivityOutcome
+  nameWithType: CustomLogRecordAttributes.WriteActivityOutcome
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityOutcome
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> will be used to write the context outcome.
+  example: []
+  syntax:
+    content: WriteActivityOutcome = 2
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescriptionAndOutcome
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescriptionAndOutcome
+  id: WriteActivityDescriptionAndOutcome
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  langs:
+  - csharp
+  - vb
+  name: WriteActivityDescriptionAndOutcome
+  nameWithType: CustomLogRecordAttributes.WriteActivityDescriptionAndOutcome
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteActivityDescriptionAndOutcome
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> will be used to write the context description and outcome.
+  example: []
+  syntax:
+    content: WriteActivityDescriptionAndOutcome = WriteActivityDescription | WriteActivityOutcome
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+    content.vb: WriteActivityDescriptionAndOutcome = WriteActivityDescription Or WriteActivityOutcome
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteMessage
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteMessage
+  id: WriteMessage
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+  langs:
+  - csharp
+  - vb
+  name: WriteMessage
+  nameWithType: CustomLogRecordAttributes.WriteMessage
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes.WriteMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> will be used to write a standalone message.
+  example: []
+  syntax:
+    content: WriteMessage = 4
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes

@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  id: LogRecordInfo
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.#ctor(PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.LoggingOptions,System.Int64)
+  - PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Id
+  - PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Options
+  - PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.RecordKind
+  langs:
+  - csharp
+  - vb
+  name: LogRecordInfo
+  nameWithType: LogRecordInfo
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Contains information about a log record.
+  example: []
+  syntax:
+    content: public struct LogRecordInfo
+    content.vb: Public Structure LogRecordInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.#ctor(PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.LoggingOptions,System.Int64)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.#ctor(PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.LoggingOptions,System.Int64)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.LoggingOptions,System.Int64)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: LogRecordInfo(LogRecordKind, LoggingOptions, long)
+  nameWithType: LogRecordInfo.LogRecordInfo(LogRecordKind, LoggingOptions, long)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.LogRecordInfo(PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.LoggingOptions, long)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public LogRecordInfo(LogRecordKind recordKind, LoggingOptions options, long id)
+    parameters:
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The record kind.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.LoggingOptions
+      description: The options.
+    - id: id
+      type: System.Int64
+      description: The unique identifier of the record, used for caching.
+    content.vb: Public Sub New(recordKind As LogRecordKind, options As LoggingOptions, id As Long)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.#ctor*
+  nameWithType.vb: LogRecordInfo.New(LogRecordKind, LoggingOptions, Long)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.New(PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.LoggingOptions, Long)
+  name.vb: New(LogRecordKind, LoggingOptions, Long)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: LogRecordInfo.Options
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingOptions" data-throw-if-not-resolved="false"></xref> that apply to this record.
+  example: []
+  syntax:
+    content: public readonly LoggingOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingOptions
+    content.vb: Public ReadOnly Property Options As LoggingOptions
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Options*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.RecordKind
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.RecordKind
+  id: RecordKind
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: RecordKind
+  nameWithType: LogRecordInfo.RecordKind
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.RecordKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the kind of this record (for example, <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.MethodEntry" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public readonly LogRecordKind RecordKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+    content.vb: Public ReadOnly Property RecordKind As LogRecordKind
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.RecordKind*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Id
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Id
+  id: Id
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: LogRecordInfo.Id
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Id
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the unique identifier of the static parts of the record, which can be used for caching the message template.
+  example: []
+  syntax:
+    content: public readonly long Id { get; }
+    parameters: []
+    return:
+      type: System.Int64
+    content.vb: Public ReadOnly Property Id As Long
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo.Id*

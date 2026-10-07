@@ -1,0 +1,116 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  commentId: T:PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  id: RefStructSurrogate
+  parent: PostSharp.Patterns.Diagnostics.Formatters
+  children:
+  - PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.#ctor(System.String)
+  - PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  - PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString
+  langs:
+  - csharp
+  - vb
+  name: RefStructSurrogate
+  nameWithType: RefStructSurrogate
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: >-
+    Struct that is passed to <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder.SetParameter%60%601(System.Int32%2cSystem.String%2cPostSharp.Reflection.ParameterKind%2cSystem.String%2c%60%600)" data-throw-if-not-resolved="false"></xref>
+
+    when the parameter is of a <code>ref struct</code> type. This struct wraps the return value of the <xref href="PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString" data-throw-if-not-resolved="false"></xref> method
+
+    of the <code>ref struct</code>.
+  example: []
+  syntax:
+    content: 'public struct RefStructSurrogate : IFormattable'
+    content.vb: Public Structure RefStructSurrogate Implements IFormattable
+  implements:
+  - PostSharp.Patterns.Formatters.IFormattable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  langs:
+  - csharp
+  - vb
+  name: RefStructSurrogate(string)
+  nameWithType: RefStructSurrogate.RefStructSurrogate(string)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.RefStructSurrogate(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public RefStructSurrogate(string toStringValue)
+    parameters:
+    - id: toStringValue
+      type: System.String
+      description: The value of the <xref href="PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString" data-throw-if-not-resolved="false"></xref> method for the <code>ref struct</code>.
+    content.vb: Public Sub New(toStringValue As String)
+  overload: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.#ctor*
+  nameWithType.vb: RefStructSurrogate.New(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  id: Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  parent: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  langs:
+  - csharp
+  - vb
+  name: Format(UnsafeStringBuilder, FormattingRole)
+  nameWithType: RefStructSurrogate.Format(UnsafeStringBuilder, FormattingRole)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder, PostSharp.Patterns.Formatters.FormattingRole)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Appends a description of the current object to a given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Format(UnsafeStringBuilder stringBuilder, FormattingRole role)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> to which the object description should be written.
+    - id: role
+      type: PostSharp.Patterns.Formatters.FormattingRole
+      description: An object that describes the context in which the object is being formatted, such as caching or logging.
+    content.vb: Public Sub Format(stringBuilder As UnsafeStringBuilder, role As FormattingRole)
+  overload: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.Format*
+  implements:
+  - PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+- uid: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: RefStructSurrogate.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate.ToString*

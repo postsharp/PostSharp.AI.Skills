@@ -1,0 +1,191 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.WeakEventAttribute
+  commentId: T:PostSharp.Patterns.Model.WeakEventAttribute
+  id: WeakEventAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.WeakEventAttribute.#ctor
+  - PostSharp.Patterns.Model.WeakEventAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  langs:
+  - csharp
+  - vb
+  name: WeakEventAttribute
+  nameWithType: WeakEventAttribute
+  fullName: PostSharp.Patterns.Model.WeakEventAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Aspect that, when applied to an event, prevents the target event from holding a strong reference to event handlers.
+
+    Therefore, the aspect prevents the event from preventing clients from being garbage collected.
+  remarks: >-
+    <p>Event clients do not need to keep a strong reference to the delegates passed to a weak event. The <xref href="PostSharp.Patterns.Model.WeakEventAttribute" data-throw-if-not-resolved="false"></xref> implementation
+        will keep delegate instances alive as long as the event client (that is, the object that the <xref href="System.Delegate.Target" data-throw-if-not-resolved="false"></xref> property points to) is alive, but no longer.
+        </p>
+    <p>Clients do not need to unregister their handlers, or implement <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> to do it, unless the handler must stop
+        receiving events before the client is garbage collected.</p>
+    <p>To make all events of an assembly or a namespace weak, apply this attribute at assembly level and use attribute multicasting.</p>
+  example: []
+  syntax:
+    content: >-
+      [LinesOfCodeAvoided(6)]
+
+      [Serializer(typeof(WeakEventAttribute.Serializer))]
+
+      public sealed class WeakEventAttribute : EventInterceptionAspect, IEventLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IEventInterceptionAspect, IEventLevelAspect, IInstanceScopedAspect, IAspect
+    content.vb: >-
+      <LinesOfCodeAvoided(6)>
+
+      <Serializer(GetType(WeakEventAttribute.Serializer))>
+
+      Public NotInheritable Class WeakEventAttribute Inherits EventInterceptionAspect Implements IEventLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IEventInterceptionAspect, IEventLevelAspect, IInstanceScopedAspect, IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@weak-event'
+    altText: 'Conceptual: Weak Event'
+  - linkType: HRef
+    linkId: '@attribute-multicasting'
+    altText: 'Conceptual: Adding Aspects to Multiple Declarations Using Attributes'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.EventLevelAspect
+  - PostSharp.Aspects.EventInterceptionAspect
+  implements:
+  - PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IEventInterceptionAspect
+  - PostSharp.Aspects.IEventLevelAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.EventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  - PostSharp.Aspects.EventLevelAspect.CompileTimeInitialize(System.Reflection.EventInfo,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.EventLevelAspect.CompileTimeValidate(System.Reflection.EventInfo)
+  - PostSharp.Aspects.EventLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 6
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.WeakEventAttribute.Serializer
+- uid: PostSharp.Patterns.Model.WeakEventAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.WeakEventAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.WeakEventAttribute
+  langs:
+  - csharp
+  - vb
+  name: WeakEventAttribute()
+  nameWithType: WeakEventAttribute.WeakEventAttribute()
+  fullName: PostSharp.Patterns.Model.WeakEventAttribute.WeakEventAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.WeakEventAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public WeakEventAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Model.WeakEventAttribute.#ctor*
+  nameWithType.vb: WeakEventAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.WeakEventAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Model.WeakEventAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Model.WeakEventAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Model.WeakEventAttribute
+  langs:
+  - csharp
+  - vb
+  name: WeakEventAttribute(PortableFormatterConstructorContext)
+  nameWithType: WeakEventAttribute.WeakEventAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Model.WeakEventAttribute.WeakEventAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected WeakEventAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Model.WeakEventAttribute.#ctor*
+  nameWithType.vb: WeakEventAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Model.WeakEventAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

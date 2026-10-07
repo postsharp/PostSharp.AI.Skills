@@ -1,0 +1,180 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  id: DiagnosticSourceCollectingListener
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor(System.String[],PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Dispose
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity(System.String,PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Subscribe
+  langs:
+  - csharp
+  - vb
+  name: DiagnosticSourceCollectingListener
+  nameWithType: DiagnosticSourceCollectingListener
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: >-
+    Subscribes to <xref href="System.Diagnostics.DiagnosticListener" data-throw-if-not-resolved="false"></xref> and emits messages and activities to PostSharp Logging. After calling the constructor,
+
+    you must call the <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity(System.String%2cPostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)" data-throw-if-not-resolved="false"></xref>
+
+    and then <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Subscribe" data-throw-if-not-resolved="false"></xref> methods to start listening to events.
+  example: []
+  syntax:
+    content: 'public sealed class DiagnosticSourceCollectingListener : IObserver<DiagnosticListener>, IDisposable'
+    content.vb: Public NotInheritable Class DiagnosticSourceCollectingListener Implements IObserver(Of DiagnosticListener), IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IObserver{System.Diagnostics.DiagnosticListener}
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor(System.String[],PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor(System.String[],PostSharp.Patterns.Diagnostics.LogLevel)
+  id: '#ctor(System.String[],PostSharp.Patterns.Diagnostics.LogLevel)'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  langs:
+  - csharp
+  - vb
+  name: DiagnosticSourceCollectingListener(string[], LogLevel)
+  nameWithType: DiagnosticSourceCollectingListener.DiagnosticSourceCollectingListener(string[], LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.DiagnosticSourceCollectingListener(string[], PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref> class and specifies the list of sources to follow.
+  example: []
+  syntax:
+    content: public DiagnosticSourceCollectingListener(string[] listenersToFollow, LogLevel logLevel = LogLevel.Debug)
+    parameters:
+    - id: listenersToFollow
+      type: System.String[]
+      description: The list of listeners to follow.
+    - id: logLevel
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> of messages and activities created from this <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(listenersToFollow As String(), logLevel As LogLevel = LogLevel.Debug)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor*
+  nameWithType.vb: DiagnosticSourceCollectingListener.New(String(), LogLevel)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.New(String(), PostSharp.Patterns.Diagnostics.LogLevel)
+  name.vb: New(String(), LogLevel)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LogLevel)'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  langs:
+  - csharp
+  - vb
+  name: DiagnosticSourceCollectingListener(LogLevel)
+  nameWithType: DiagnosticSourceCollectingListener.DiagnosticSourceCollectingListener(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.DiagnosticSourceCollectingListener(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref> class and subscribes to all sources.
+  example: []
+  syntax:
+    content: public DiagnosticSourceCollectingListener(LogLevel logLevel = LogLevel.Debug)
+    parameters:
+    - id: logLevel
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> of messages and activities created from this <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(logLevel As LogLevel = LogLevel.Debug)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.#ctor*
+  nameWithType.vb: DiagnosticSourceCollectingListener.New(LogLevel)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.New(PostSharp.Patterns.Diagnostics.LogLevel)
+  name.vb: New(LogLevel)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity(System.String,PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity(System.String,PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)
+  id: FollowActivity(System.String,PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  langs:
+  - csharp
+  - vb
+  name: FollowActivity(string, IDiagnosticSourceActivityFilter)
+  nameWithType: DiagnosticSourceCollectingListener.FollowActivity(string, IDiagnosticSourceActivityFilter)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity(string, PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: Follows a specific activity.
+  example: []
+  syntax:
+    content: public void FollowActivity(string activityName, IDiagnosticSourceActivityFilter filter = null)
+    parameters:
+    - id: activityName
+      type: System.String
+      description: The name of the activity to follow.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: filter
+      type: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter
+      description: >-
+        Determines how a <xref href="System.Diagnostics.DiagnosticListener" data-throw-if-not-resolved="false"></xref> activity must
+                    be translated into a PostSharp Logging activity. This parameter is mandatory under .NET Framework
+                    because there is no way to automatically implement the <xref href="PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter.TryGetCorrelationKey(System.Object%2cSystem.Object%40)" data-throw-if-not-resolved="false"></xref>
+                    method. It is optional under .NET Core.
+    content.vb: Public Sub FollowActivity(activityName As String, filter As IDiagnosticSourceActivityFilter = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity*
+  nameWithType.vb: DiagnosticSourceCollectingListener.FollowActivity(String, IDiagnosticSourceActivityFilter)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.FollowActivity(String, PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.IDiagnosticSourceActivityFilter)
+  name.vb: FollowActivity(String, IDiagnosticSourceActivityFilter)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Subscribe
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Subscribe
+  id: Subscribe
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  langs:
+  - csharp
+  - vb
+  name: Subscribe()
+  nameWithType: DiagnosticSourceCollectingListener.Subscribe()
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Subscribe()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  summary: Subscribes to event sources.
+  example: []
+  syntax:
+    content: public void Subscribe()
+    content.vb: Public Sub Subscribe()
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Subscribe*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: DiagnosticSourceCollectingListener.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.Adapters.DiagnosticSource.DiagnosticSourceCollectingListener.Dispose*
+  implements:
+  - System.IDisposable.Dispose

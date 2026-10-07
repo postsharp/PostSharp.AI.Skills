@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.Property`2
+  commentId: T:PostSharp.Aspects.Advices.Property`2
+  id: Property`2
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.Property`2.Get
+  - PostSharp.Aspects.Advices.Property`2.Set
+  langs:
+  - csharp
+  - vb
+  name: Property<TValue, TIndex>
+  nameWithType: Property<TValue, TIndex>
+  fullName: PostSharp.Aspects.Advices.Property<TValue, TIndex>
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Mimics the semantics of a property accepting a single index parameter, for use
+
+    with the <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref> aspect extension.
+  example: []
+  syntax:
+    content: public sealed class Property<TValue, TIndex>
+    typeParameters:
+    - id: TValue
+      description: Property value type.
+    - id: TIndex
+      description: Property index type.
+    content.vb: Public NotInheritable Class [Property](Of TValue, TIndex)
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.Property`1
+    commentId: T:PostSharp.Aspects.Advices.Property`1
+  - linkId: PostSharp.Aspects.Advices.PropertyGetter`2
+    commentId: T:PostSharp.Aspects.Advices.PropertyGetter`2
+  - linkId: PostSharp.Aspects.Advices.PropertySetter`2
+    commentId: T:PostSharp.Aspects.Advices.PropertySetter`2
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  - linkType: HRef
+    linkId: '@members'
+    altText: 'Conceptual: Accessing Members of the Target Class'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: Property(Of TValue, TIndex)
+  fullName.vb: PostSharp.Aspects.Advices.Property(Of TValue, TIndex)
+  name.vb: Property(Of TValue, TIndex)
+- uid: PostSharp.Aspects.Advices.Property`2.Get
+  commentId: P:PostSharp.Aspects.Advices.Property`2.Get
+  id: Get
+  parent: PostSharp.Aspects.Advices.Property`2
+  langs:
+  - csharp
+  - vb
+  name: Get
+  nameWithType: Property<TValue, TIndex>.Get
+  fullName: PostSharp.Aspects.Advices.Property<TValue, TIndex>.Get
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets a delegate that can invoke the <code>get</code> accessor
+
+    of the imported property.
+  example: []
+  syntax:
+    content: public PropertyGetter<TValue, TIndex> Get { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.PropertyGetter{{TValue},{TIndex}}
+    content.vb: Public ReadOnly Property [Get] As PropertyGetter(Of TValue, TIndex)
+  overload: PostSharp.Aspects.Advices.Property`2.Get*
+  nameWithType.vb: Property(Of TValue, TIndex).Get
+  fullName.vb: PostSharp.Aspects.Advices.Property(Of TValue, TIndex).Get
+- uid: PostSharp.Aspects.Advices.Property`2.Set
+  commentId: P:PostSharp.Aspects.Advices.Property`2.Set
+  id: Set
+  parent: PostSharp.Aspects.Advices.Property`2
+  langs:
+  - csharp
+  - vb
+  name: Set
+  nameWithType: Property<TValue, TIndex>.Set
+  fullName: PostSharp.Aspects.Advices.Property<TValue, TIndex>.Set
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets a delegate that can invoke the <code>set</code> accessor
+
+    of the imported property.
+  example: []
+  syntax:
+    content: public PropertySetter<TValue, TIndex> Set { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.PropertySetter{{TValue},{TIndex}}
+    content.vb: Public ReadOnly Property [Set] As PropertySetter(Of TValue, TIndex)
+  overload: PostSharp.Aspects.Advices.Property`2.Set*
+  nameWithType.vb: Property(Of TValue, TIndex).Set
+  fullName.vb: PostSharp.Aspects.Advices.Property(Of TValue, TIndex).Set

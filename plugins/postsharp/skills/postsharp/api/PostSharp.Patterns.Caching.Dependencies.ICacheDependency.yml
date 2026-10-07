@@ -1,0 +1,67 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+  commentId: T:PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+  id: ICacheDependency
+  parent: PostSharp.Patterns.Caching.Dependencies
+  children:
+  - PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey
+  langs:
+  - csharp
+  - vb
+  name: ICacheDependency
+  nameWithType: ICacheDependency
+  fullName: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  summary: >-
+    Interface that must be implemented by classes that need to be used as cache dependencies,
+
+    for use with the <xref href="PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref> method.
+
+    Alternatively, custom classes may implement the <xref href="PostSharp.Patterns.Formatters.IFormattable" data-throw-if-not-resolved="false"></xref> interface or simply
+
+    the <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>Implementing this interface encapsulates the generation of the dependency key in the dependency object, so that the cached method and
+        the invalidating method cannot build different keys. Add the dependency from the cached method by calling
+        <xref href="PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref> on <xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref>, and invalidate it by calling
+        <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref>. The string returned by <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey" data-throw-if-not-resolved="false"></xref> is used as the dependency key as is.</p>
+    <p>When you cannot modify the dependency class, register a formatter for it instead.</p>
+  example: []
+  syntax:
+    content: public interface ICacheDependency
+    content.vb: Public Interface ICacheDependency
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-dependencies'
+    altText: 'Conceptual: Working with Cache Dependencies'
+  derivedClasses:
+  - PostSharp.Patterns.Caching.Dependencies.ObjectDependency
+  - PostSharp.Patterns.Caching.Dependencies.StringDependency
+- uid: PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey
+  commentId: M:PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey
+  id: GetCacheKey
+  parent: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+  langs:
+  - csharp
+  - vb
+  name: GetCacheKey()
+  nameWithType: ICacheDependency.GetCacheKey()
+  fullName: PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  summary: Gets a string that uniquely represents the current object.
+  remarks: <p>The returned key should be globally unique, not just unique within the class implementing the method.</p>
+  example: []
+  syntax:
+    content: string GetCacheKey()
+    return:
+      type: System.String
+      description: A string that uniquely represents the current object.
+    content.vb: Function GetCacheKey() As String
+  overload: PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey*

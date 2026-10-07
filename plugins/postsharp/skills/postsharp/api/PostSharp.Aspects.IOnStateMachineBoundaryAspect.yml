@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IOnStateMachineBoundaryAspect
+  commentId: T:PostSharp.Aspects.IOnStateMachineBoundaryAspect
+  id: IOnStateMachineBoundaryAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnYield(PostSharp.Aspects.MethodExecutionArgs)
+  langs:
+  - csharp
+  - vb
+  name: IOnStateMachineBoundaryAspect
+  nameWithType: IOnStateMachineBoundaryAspect
+  fullName: PostSharp.Aspects.IOnStateMachineBoundaryAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Extends the <xref href="PostSharp.Aspects.IOnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> interface with two advices
+
+    to be applied on state machines.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IOnStateMachineBoundaryAspect : IOnMethodBoundaryAspect, IMethodLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IOnStateMachineBoundaryAspect Inherits IOnMethodBoundaryAspect, IMethodLevelAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.OnMethodBoundaryAspect
+  inheritedMembers:
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnResume(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnStateMachineBoundaryAspect
+  langs:
+  - csharp
+  - vb
+  name: OnResume(MethodExecutionArgs)
+  nameWithType: IOnStateMachineBoundaryAspect.OnResume(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method executed when a state machine resumes execution after a <code>yield return</code> or
+
+    <code>await</code> statement.
+  remarks: >-
+    <p>For iterator methods, this advice is executed before the <xref href="System.Collections.IEnumerator.MoveNext" data-throw-if-not-resolved="false"></xref> method.
+        However, the very first call of <xref href="System.Collections.IEnumerator.MoveNext" data-throw-if-not-resolved="false"></xref> maps to <xref href="PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>.
+        </p>
+    <p>In async methods, the advice is executed just after the state machine restarts execution after it has waited
+        as a result of the <code>await</code> statement.</p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnResume(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: >-
+        Event arguments specifying which method
+                      is being executed and which are its arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnResume(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnResume*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnYield(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnYield(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnYield(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnStateMachineBoundaryAspect
+  langs:
+  - csharp
+  - vb
+  name: OnYield(MethodExecutionArgs)
+  nameWithType: IOnStateMachineBoundaryAspect.OnYield(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnYield(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method executed when a state machine yields, as the result of a <code>yield return</code> or
+
+    <code>await</code> statement.
+  remarks: >-
+    <p>In iterator methods, this advice is executed exactly at the <code>yield return</code> statement.</p>
+
+    <p>
+        In async methods, the advice is executed just after the state machine starts waiting as a result of the <code>await</code> statement.
+         If the operand of the <code>await</code> statement is an operation that completed synchronously, the state machine
+        does not yield, and the <xref href="PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnYield(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> advice is not invoked.
+         </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnYield(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: >-
+        Event arguments specifying which method
+                      is being executed and which are its arguments. In iterator methods, the <xref href="PostSharp.Aspects.MethodExecutionArgs.YieldValue" data-throw-if-not-resolved="false"></xref>
+                    property gives access to the operand of the <code>yield return</code> statement.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnYield(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnStateMachineBoundaryAspect.OnYield*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

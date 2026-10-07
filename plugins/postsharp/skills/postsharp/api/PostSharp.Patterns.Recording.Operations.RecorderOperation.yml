@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.RecorderOperation
+  commentId: T:PostSharp.Patterns.Recording.Operations.RecorderOperation
+  id: RecorderOperation
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder
+  - PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects(System.Action{System.Object})
+  langs:
+  - csharp
+  - vb
+  name: RecorderOperation
+  nameWithType: RecorderOperation
+  fullName: PostSharp.Patterns.Recording.Operations.RecorderOperation
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: >-
+    An <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> on a <xref href="PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder" data-throw-if-not-resolved="false"></xref>, specifically a base class for
+
+    <xref href="PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Recording.Operations.DetachObjectFromRecorderOperation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public abstract class RecorderOperation : Operation, IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public MustInherit Class RecorderOperation Inherits Operation Implements IOperationDescriptor
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-conceptual'
+    altText: 'Conceptual: Understanding the Recordable Aspect'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operations.AttachObjectToRecorderOperation
+  - PostSharp.Patterns.Recording.Operations.DetachObjectFromRecorderOperation
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operation.GetMergeStatus(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.Operation.Merge(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - PostSharp.Patterns.Recording.Operation.OperationKind
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects(System.Action{System.Object})
+  commentId: M:PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects(System.Action{System.Object})
+  id: VisitAffectedObjects(System.Action{System.Object})
+  parent: PostSharp.Patterns.Recording.Operations.RecorderOperation
+  langs:
+  - csharp
+  - vb
+  name: VisitAffectedObjects(Action<object>)
+  nameWithType: RecorderOperation.VisitAffectedObjects(Action<object>)
+  fullName: PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects(System.Action<object>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Executes a given action on all recordable objects involved with the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override void VisitAffectedObjects(Action<object> action)
+    parameters:
+    - id: action
+      type: System.Action{System.Object}
+      description: ''
+    content.vb: Public Overrides Sub VisitAffectedObjects(action As Action(Of Object))
+  overridden: PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action{System.Object})
+  overload: PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects*
+  nameWithType.vb: RecorderOperation.VisitAffectedObjects(Action(Of Object))
+  fullName.vb: PostSharp.Patterns.Recording.Operations.RecorderOperation.VisitAffectedObjects(System.Action(Of Object))
+  name.vb: VisitAffectedObjects(Action(Of Object))
+- uid: PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder
+  commentId: P:PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder
+  id: Recorder
+  parent: PostSharp.Patterns.Recording.Operations.RecorderOperation
+  langs:
+  - csharp
+  - vb
+  name: Recorder
+  nameWithType: RecorderOperation.Recorder
+  fullName: PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the <xref href="PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder" data-throw-if-not-resolved="false"></xref> to which the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> relates.
+  example: []
+  syntax:
+    content: public Recorder Recorder { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.Recorder
+    content.vb: Public ReadOnly Property Recorder As Recorder
+  overload: PostSharp.Patterns.Recording.Operations.RecorderOperation.Recorder*

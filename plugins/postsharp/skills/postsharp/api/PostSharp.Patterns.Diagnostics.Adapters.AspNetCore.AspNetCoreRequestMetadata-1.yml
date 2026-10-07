@@ -1,0 +1,281 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  id: AspNetCoreRequestMetadata`1
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.#ctor(System.String)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty(Microsoft.AspNetCore.Http.HttpContext)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty(System.Object)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties``1(Microsoft.AspNetCore.Http.HttpContext,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties``1(System.Object,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperty``2(System.String,``1,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@)
+  langs:
+  - csharp
+  - vb
+  name: AspNetCoreRequestMetadata<T>
+  nameWithType: AspNetCoreRequestMetadata<T>
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: >-
+    A base implementation of <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> for ASP.NET Core incoming HTTP requests.
+
+    You can derive from this class if you want to expose your own expression model. The default implementation
+
+    is the non-generic <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata" data-throw-if-not-resolved="false"></xref>, which exposes <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestExpressionModel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class AspNetCoreRequestMetadata<T> : LogEventMetadata<T>'
+    typeParameters:
+    - id: T
+      description: The type of the expression model.
+    content.vb: Public MustInherit Class AspNetCoreRequestMetadata(Of T) Inherits LogEventMetadata(Of T)
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata{{T}}
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata{{T}}.GetExpressionModel(System.Object)
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.GetPropertyOptions(System.String)
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.Name
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T)
+  name.vb: AspNetCoreRequestMetadata(Of T)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: AspNetCoreRequestMetadata(string)
+  nameWithType: AspNetCoreRequestMetadata<T>.AspNetCoreRequestMetadata(string)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>.AspNetCoreRequestMetadata(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected AspNetCoreRequestMetadata(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the (singleton) instance.
+    content.vb: Protected Sub New(name As String)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.#ctor*
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T).New(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T).New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperty``2(System.String,``1,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperty``2(System.String,``1,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@)
+  id: VisitProperty``2(System.String,``1,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: VisitProperty<TVisitorState, TValue>(string, TValue, ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in LoggingPropertyOptions)
+  nameWithType: AspNetCoreRequestMetadata<T>.VisitProperty<TVisitorState, TValue>(string, TValue, ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in LoggingPropertyOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>.VisitProperty<TVisitorState, TValue>(string, TValue, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: >-
+    Called by <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata%601.VisitProperties%60%601(Microsoft.AspNetCore.Http.HttpContext%2cPostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions%40)" data-throw-if-not-resolved="false"></xref>
+
+    for each property. The default implementation filters out null or empty properties. You can override this method
+
+    to change the default filtering.
+  example: []
+  syntax:
+    content: protected virtual void VisitProperty<TVisitorState, TValue>(string name, TValue value, ILoggingPropertyVisitor<TVisitorState> visitor, ref TVisitorState visitorState, in LoggingPropertyOptions options = default)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+    - id: value
+      type: '{TValue}'
+      description: The property value.
+    - id: visitor
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TVisitorState}}
+      description: >-
+        The visitor whose <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions%40%2c%600%40)" data-throw-if-not-resolved="false"></xref>
+                    method is invoked.
+    - id: visitorState
+      type: '{TVisitorState}'
+      description: An opaque state passed to the <code class="paramref">visitor</code>.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: The property options.
+    typeParameters:
+    - id: TVisitorState
+      description: The type of the opaque state passed to <code class="paramref">visitor</code>.
+    - id: TValue
+      description: The type of the property.
+    content.vb: Protected Overridable Sub VisitProperty(Of TVisitorState, TValue)(name As String, value As TValue, visitor As ILoggingPropertyVisitor(Of TVisitorState), visitorState As TVisitorState, options As LoggingPropertyOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperty*
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T).VisitProperty(Of TVisitorState, TValue)(String, TValue, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T).VisitProperty(Of TVisitorState, TValue)(String, TValue, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions)
+  name.vb: VisitProperty(Of TVisitorState, TValue)(String, TValue, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyOptions)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty(System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty(System.Object)
+  id: HasInheritedProperty(System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: HasInheritedProperty(object)
+  nameWithType: AspNetCoreRequestMetadata<T>.HasInheritedProperty(object)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>.HasInheritedProperty(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: Determines whether the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> contains any inherited property. The implementation of this method must not allocate heap memory.
+  example: []
+  syntax:
+    content: public override sealed bool HasInheritedProperty(object data)
+    parameters:
+    - id: data
+      type: System.Object
+      description: The raw CLR object, typically <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData.Data" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> contains any inherited property, otherwise <code>false</code>.
+    content.vb: Public NotOverridable Overrides Function HasInheritedProperty(data As Object) As Boolean
+  overridden: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.HasInheritedProperty(System.Object)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty*
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T).HasInheritedProperty(Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T).HasInheritedProperty(Object)
+  name.vb: HasInheritedProperty(Object)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty(Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty(Microsoft.AspNetCore.Http.HttpContext)
+  id: HasInheritedProperty(Microsoft.AspNetCore.Http.HttpContext)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: HasInheritedProperty(HttpContext)
+  nameWithType: AspNetCoreRequestMetadata<T>.HasInheritedProperty(HttpContext)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>.HasInheritedProperty(Microsoft.AspNetCore.Http.HttpContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: >-
+    Determines whether a given <xref href="Microsoft.AspNetCore.Http.HttpContext" data-throw-if-not-resolved="false"></xref> defines inherited properties. The default implementation
+
+    returns <code>true</code> if the request has a <code>Correlation-Context</code> header.
+  example: []
+  syntax:
+    content: protected virtual bool HasInheritedProperty(HttpContext httpContext)
+    parameters:
+    - id: httpContext
+      type: Microsoft.AspNetCore.Http.HttpContext
+      description: The <xref href="Microsoft.AspNetCore.Http.HttpContext" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">httpContext</code> defines inherited properties, otherwise <code>false</code>.
+    content.vb: Protected Overridable Function HasInheritedProperty(httpContext As HttpContext) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.HasInheritedProperty*
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T).HasInheritedProperty(HttpContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T).HasInheritedProperty(Microsoft.AspNetCore.Http.HttpContext)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties``1(Microsoft.AspNetCore.Http.HttpContext,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties``1(Microsoft.AspNetCore.Http.HttpContext,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  id: VisitProperties``1(Microsoft.AspNetCore.Http.HttpContext,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: VisitProperties<TVisitorState>(HttpContext, ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in LoggingPropertyVisitorOptions)
+  nameWithType: AspNetCoreRequestMetadata<T>.VisitProperties<TVisitorState>(HttpContext, ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in LoggingPropertyVisitorOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>.VisitProperties<TVisitorState>(Microsoft.AspNetCore.Http.HttpContext, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: >-
+    Invokes the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions%40%2c%600%40)" data-throw-if-not-resolved="false"></xref>
+
+    method for all properties defined from a given <xref href="Microsoft.AspNetCore.Http.HttpContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual void VisitProperties<TVisitorState>(HttpContext httpContext, ILoggingPropertyVisitor<TVisitorState> visitor, ref TVisitorState visitorState, in LoggingPropertyVisitorOptions visitorOptions)
+    parameters:
+    - id: httpContext
+      type: Microsoft.AspNetCore.Http.HttpContext
+      description: The <xref href="Microsoft.AspNetCore.Http.HttpContext" data-throw-if-not-resolved="false"></xref>.
+    - id: visitor
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TVisitorState}}
+      description: >-
+        The visitor whose <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor%601.Visit%60%601(System.String%2c%60%600%2cPostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions%40%2c%600%40)" data-throw-if-not-resolved="false"></xref>
+                    method is invoked.
+    - id: visitorState
+      type: '{TVisitorState}'
+      description: An opaque state passed to the <code class="paramref">visitor</code>.
+    - id: visitorOptions
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+      description: The visitor options.
+    typeParameters:
+    - id: TVisitorState
+      description: The type of the opaque state passed to <code class="paramref">visitor</code>.
+    content.vb: Protected Overridable Sub VisitProperties(Of TVisitorState)(httpContext As HttpContext, visitor As ILoggingPropertyVisitor(Of TVisitorState), visitorState As TVisitorState, visitorOptions As LoggingPropertyVisitorOptions)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties*
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T).VisitProperties(Of TVisitorState)(HttpContext, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyVisitorOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T).VisitProperties(Of TVisitorState)(Microsoft.AspNetCore.Http.HttpContext, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions)
+  name.vb: VisitProperties(Of TVisitorState)(HttpContext, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyVisitorOptions)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties``1(System.Object,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties``1(System.Object,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  id: VisitProperties``1(System.Object,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{``0},``0@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: VisitProperties<TVisitorState>(object, ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in LoggingPropertyVisitorOptions)
+  nameWithType: AspNetCoreRequestMetadata<T>.VisitProperties<TVisitorState>(object, ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in LoggingPropertyVisitorOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata<T>.VisitProperties<TVisitorState>(object, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor<TVisitorState>, ref TVisitorState, in PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: Invokes an action for each property in the raw CLR object of a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override sealed void VisitProperties<TVisitorState>(object data, ILoggingPropertyVisitor<TVisitorState> visitor, ref TVisitorState visitorState, in LoggingPropertyVisitorOptions visitorOptions = default)
+    parameters:
+    - id: data
+      type: System.Object
+      description: The raw CLR object, typically <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData.Data" data-throw-if-not-resolved="false"></xref>.
+    - id: visitor
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TVisitorState}}
+      description: The visitor.
+    - id: visitorState
+      type: '{TVisitorState}'
+      description: An opaque value passed to <code class="paramref">visitor</code>.
+    - id: visitorOptions
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions
+      description: The options that determine which properties need to be visited. By default, all properties are visited.
+    typeParameters:
+    - id: TVisitorState
+      description: The type of the <code class="paramref">visitorState</code> parameter, an opaque value passed to <code class="paramref">visitor</code>.
+    content.vb: Public NotOverridable Overrides Sub VisitProperties(Of TVisitorState)(data As Object, visitor As ILoggingPropertyVisitor(Of TVisitorState), visitorState As TVisitorState, visitorOptions As LoggingPropertyVisitorOptions = Nothing)
+  overridden: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.VisitProperties``1(System.Object,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TVisitorState}},{TVisitorState}@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1.VisitProperties*
+  nameWithType.vb: AspNetCoreRequestMetadata(Of T).VisitProperties(Of TVisitorState)(Object, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyVisitorOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata(Of T).VisitProperties(Of TVisitorState)(Object, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions)
+  name.vb: VisitProperties(Of TVisitorState)(Object, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyVisitorOptions)

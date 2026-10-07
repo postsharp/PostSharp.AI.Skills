@@ -1,0 +1,395 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind
+  commentId: T:PostSharp.Patterns.Diagnostics.LogRecordKind
+  id: LogRecordKind
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodAwait
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodResume
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityEntry
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityException
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityFailure
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivitySuccess
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.CustomRecord
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.ExecutionPoint
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorMoveNext
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorYield
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.MethodEntry
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.MethodOvertime
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.MethodSuccess
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.None
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.ValueChanged
+  langs:
+  - csharp
+  - vb
+  name: LogRecordKind
+  nameWithType: LogRecordKind
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Specifies the kinds of log records.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum LogRecordKind
+    content.vb: >-
+      <Flags>
+
+      Public Enum LogRecordKind
+  extensionMethods:
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.PostSharp.Patterns.Diagnostics.LogRecordKindExtensions.IsClose
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.PostSharp.Patterns.Diagnostics.LogRecordKindExtensions.IsCloseCustomActivity
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.PostSharp.Patterns.Diagnostics.LogRecordKindExtensions.IsCustom
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.PostSharp.Patterns.Diagnostics.LogRecordKindExtensions.IsOpen
+  - PostSharp.Patterns.Diagnostics.LogRecordKind.PostSharp.Patterns.Diagnostics.LogRecordKindExtensions.IsStandalone
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.None
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.None
+  id: None
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LogRecordKind.None
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: The value was not set.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodEntry
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.MethodEntry
+  id: MethodEntry
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: MethodEntry
+  nameWithType: LogRecordKind.MethodEntry
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodEntry
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Before a method executes.
+  example: []
+  syntax:
+    content: MethodEntry = 2
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodSuccess
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.MethodSuccess
+  id: MethodSuccess
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: MethodSuccess
+  nameWithType: LogRecordKind.MethodSuccess
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodSuccess
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: After a method executes successfully.
+  example: []
+  syntax:
+    content: MethodSuccess = 4
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException
+  id: MethodException
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: MethodException
+  nameWithType: LogRecordKind.MethodException
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodException
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: After a failed method execution (the method threw an exception).
+  example: []
+  syntax:
+    content: MethodException = 8
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodAwait
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodAwait
+  id: AsyncMethodAwait
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: AsyncMethodAwait
+  nameWithType: LogRecordKind.AsyncMethodAwait
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodAwait
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Before an async method suspends execution.
+  example: []
+  syntax:
+    content: AsyncMethodAwait = 16
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodResume
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodResume
+  id: AsyncMethodResume
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: AsyncMethodResume
+  nameWithType: LogRecordKind.AsyncMethodResume
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.AsyncMethodResume
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: After an async method resumes execution.
+  example: []
+  syntax:
+    content: AsyncMethodResume = 32
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.ValueChanged
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.ValueChanged
+  id: ValueChanged
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: ValueChanged
+  nameWithType: LogRecordKind.ValueChanged
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.ValueChanged
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: When the value of a field or property changes.
+  example: []
+  syntax:
+    content: ValueChanged = 64
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomRecord
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.CustomRecord
+  id: CustomRecord
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: CustomRecord
+  nameWithType: LogRecordKind.CustomRecord
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomRecord
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: A custom record (emitted by <xref href="PostSharp.Patterns.Diagnostics.Logger.Write(PostSharp.Patterns.Diagnostics.LogLevel%2cSystem.String)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: CustomRecord = 128
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityEntry
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityEntry
+  id: CustomActivityEntry
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: CustomActivityEntry
+  nameWithType: LogRecordKind.CustomActivityEntry
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityEntry
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Before a custom activity (emitted by <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: CustomActivityEntry = 256
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityException
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityException
+  id: CustomActivityException
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: CustomActivityException
+  nameWithType: LogRecordKind.CustomActivityException
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityException
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: When a custom activity fails with an exception (emitted by <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: CustomActivityException = 512
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivitySuccess
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivitySuccess
+  id: CustomActivitySuccess
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: CustomActivitySuccess
+  nameWithType: LogRecordKind.CustomActivitySuccess
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivitySuccess
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: When a custom activity succeeds (emitted by <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: CustomActivitySuccess = 1024
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityFailure
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityFailure
+  id: CustomActivityFailure
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: CustomActivityFailure
+  nameWithType: LogRecordKind.CustomActivityFailure
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityFailure
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: When a custom activity fails with a custom message (emitted by <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: CustomActivityFailure = 2048
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorYield
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorYield
+  id: IteratorYield
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: IteratorYield
+  nameWithType: LogRecordKind.IteratorYield
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorYield
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: When an iterator yields a result.
+  example: []
+  syntax:
+    content: IteratorYield = 4096
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorMoveNext
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorMoveNext
+  id: IteratorMoveNext
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: IteratorMoveNext
+  nameWithType: LogRecordKind.IteratorMoveNext
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.IteratorMoveNext
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Before the <xref href="System.Collections.IEnumerator.MoveNext" data-throw-if-not-resolved="false"></xref> method of an iterator executes.
+  example: []
+  syntax:
+    content: IteratorMoveNext = 8192
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.ExecutionPoint
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.ExecutionPoint
+  id: ExecutionPoint
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: ExecutionPoint
+  nameWithType: LogRecordKind.ExecutionPoint
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.ExecutionPoint
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: A record emitted by <xref href="PostSharp.Patterns.Diagnostics.Logger.WriteExecutionPoint" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ExecutionPoint = 16384
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodOvertime
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.MethodOvertime
+  id: MethodOvertime
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: MethodOvertime
+  nameWithType: LogRecordKind.MethodOvertime
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.MethodOvertime
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: After a method executes successfully but takes longer than the threshold.
+  example: []
+  syntax:
+    content: MethodOvertime = 32768
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+- uid: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit
+  commentId: F:PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit
+  id: CustomActivityExit
+  parent: PostSharp.Patterns.Diagnostics.LogRecordKind
+  langs:
+  - csharp
+  - vb
+  name: CustomActivityExit
+  nameWithType: LogRecordKind.CustomActivityExit
+  fullName: PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Any exit of a custom activity when it is not known whether the execution succeeded or failed.
+  example: []
+  syntax:
+    content: CustomActivityExit = 65536
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind

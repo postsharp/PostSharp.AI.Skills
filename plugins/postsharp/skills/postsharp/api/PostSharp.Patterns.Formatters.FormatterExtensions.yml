@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.FormatterExtensions
+  commentId: T:PostSharp.Patterns.Formatters.FormatterExtensions
+  id: FormatterExtensions
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.IFormatter,PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions``1(PostSharp.Patterns.Formatters.IFormatter{``0},PostSharp.Patterns.Formatters.FormattingOptions)
+  langs:
+  - csharp
+  - vb
+  name: FormatterExtensions
+  nameWithType: FormatterExtensions
+  fullName: PostSharp.Patterns.Formatters.FormatterExtensions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Extension methods for the <xref href="PostSharp.Patterns.Formatters.IFormatter" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class FormatterExtensions
+    content.vb: Public Module FormatterExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions``1(PostSharp.Patterns.Formatters.IFormatter{``0},PostSharp.Patterns.Formatters.FormattingOptions)
+  commentId: M:PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions``1(PostSharp.Patterns.Formatters.IFormatter{``0},PostSharp.Patterns.Formatters.FormattingOptions)
+  id: WithOptions``1(PostSharp.Patterns.Formatters.IFormatter{``0},PostSharp.Patterns.Formatters.FormattingOptions)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Formatters.FormatterExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithOptions<T>(IFormatter<T>, FormattingOptions)
+  nameWithType: FormatterExtensions.WithOptions<T>(IFormatter<T>, FormattingOptions)
+  fullName: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions<T>(PostSharp.Patterns.Formatters.IFormatter<T>, PostSharp.Patterns.Formatters.FormattingOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Returns a copy of the current formatter, but for different options.
+  example: []
+  syntax:
+    content: public static IFormatter<T> WithOptions<T>(this IFormatter<T> formatter, FormattingOptions options)
+    parameters:
+    - id: formatter
+      type: PostSharp.Patterns.Formatters.IFormatter{{T}}
+      description: The original formatter.
+    - id: options
+      type: PostSharp.Patterns.Formatters.FormattingOptions
+      description: The new options.
+    typeParameters:
+    - id: T
+    return:
+      type: PostSharp.Patterns.Formatters.IFormatter{{T}}
+      description: A copy of the current formatter with the new <code class="paramref">options</code>.
+    content.vb: Public Shared Function WithOptions(Of T)(formatter As IFormatter(Of T), options As FormattingOptions) As IFormatter(Of T)
+  overload: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions*
+  nameWithType.vb: FormatterExtensions.WithOptions(Of T)(IFormatter(Of T), FormattingOptions)
+  fullName.vb: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(Of T)(PostSharp.Patterns.Formatters.IFormatter(Of T), PostSharp.Patterns.Formatters.FormattingOptions)
+  name.vb: WithOptions(Of T)(IFormatter(Of T), FormattingOptions)
+- uid: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.IFormatter,PostSharp.Patterns.Formatters.FormattingOptions)
+  commentId: M:PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.IFormatter,PostSharp.Patterns.Formatters.FormattingOptions)
+  id: WithOptions(PostSharp.Patterns.Formatters.IFormatter,PostSharp.Patterns.Formatters.FormattingOptions)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Formatters.FormatterExtensions
+  langs:
+  - csharp
+  - vb
+  name: WithOptions(IFormatter, FormattingOptions)
+  nameWithType: FormatterExtensions.WithOptions(IFormatter, FormattingOptions)
+  fullName: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.IFormatter, PostSharp.Patterns.Formatters.FormattingOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Returns a copy of the current formatter, but for different options.
+  example: []
+  syntax:
+    content: public static IFormatter WithOptions(this IFormatter formatter, FormattingOptions options)
+    parameters:
+    - id: formatter
+      type: PostSharp.Patterns.Formatters.IFormatter
+      description: The original formatter.
+    - id: options
+      type: PostSharp.Patterns.Formatters.FormattingOptions
+      description: The new options.
+    return:
+      type: PostSharp.Patterns.Formatters.IFormatter
+      description: A copy of the current formatter with the new <code class="paramref">options</code>.
+    content.vb: Public Shared Function WithOptions(formatter As IFormatter, options As FormattingOptions) As IFormatter
+  overload: PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions*

@@ -1,0 +1,232 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind
+  commentId: T:PostSharp.Patterns.Caching.Resilience.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Caching.Resilience
+  children:
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.Background
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.CleanUp
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.Collect
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsDependency
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsItem
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.GetItem
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.InvalidateDependency
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.None
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.RemoveItem
+  - PostSharp.Patterns.Caching.Resilience.OperationKind.SetItem
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: OperationKind
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Enumerates the kinds of operations for <xref href="PostSharp.Patterns.Caching.Resilience.IRetryPolicy.TryAsync(PostSharp.Patterns.Caching.Resilience.OperationKind%2cSystem.Int32%2cSystem.Exception%2cSystem.Object%40%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum OperationKind
+    content.vb: Public Enum OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.None
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.None
+  id: None
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: OperationKind.None
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: An operation of an unspecified type.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.InvalidateDependency
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.InvalidateDependency
+  id: InvalidateDependency
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: InvalidateDependency
+  nameWithType: OperationKind.InvalidateDependency
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.InvalidateDependency
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependency(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: InvalidateDependency = 1
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.Collect
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.Collect
+  id: Collect
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: Collect
+  nameWithType: OperationKind.Collect
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.Collect
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Garbage collection.
+  example: []
+  syntax:
+    content: Collect = 2
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.CleanUp
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.CleanUp
+  id: CleanUp
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: CleanUp
+  nameWithType: OperationKind.CleanUp
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.CleanUp
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Clean up.
+  example: []
+  syntax:
+    content: CleanUp = 3
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.SetItem
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.SetItem
+  id: SetItem
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: SetItem
+  nameWithType: OperationKind.SetItem
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.SetItem
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItem(System.String%2cPostSharp.Patterns.Caching.Implementation.CacheItem)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: SetItem = 4
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsItem
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsItem
+  id: ContainsItem
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: ContainsItem
+  nameWithType: OperationKind.ContainsItem
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsItem
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItem(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ContainsItem = 5
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.RemoveItem
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.RemoveItem
+  id: RemoveItem
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: RemoveItem
+  nameWithType: OperationKind.RemoveItem
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.RemoveItem
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: RemoveItem = 6
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsDependency
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsDependency
+  id: ContainsDependency
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: ContainsDependency
+  nameWithType: OperationKind.ContainsDependency
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.ContainsDependency
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependency(System.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ContainsDependency = 7
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.GetItem
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.GetItem
+  id: GetItem
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: GetItem
+  nameWithType: OperationKind.GetItem
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.GetItem
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItem(System.String%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: GetItem = 8
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind
+- uid: PostSharp.Patterns.Caching.Resilience.OperationKind.Background
+  commentId: F:PostSharp.Patterns.Caching.Resilience.OperationKind.Background
+  id: Background
+  parent: PostSharp.Patterns.Caching.Resilience.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: Background
+  nameWithType: OperationKind.Background
+  fullName: PostSharp.Patterns.Caching.Resilience.OperationKind.Background
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: A background (non-blocking) operation.
+  example: []
+  syntax:
+    content: Background = 9
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.OperationKind

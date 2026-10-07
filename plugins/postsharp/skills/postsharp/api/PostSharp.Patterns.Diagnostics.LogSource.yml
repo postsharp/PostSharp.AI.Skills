@@ -1,0 +1,687 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LogSource
+  commentId: T:PostSharp.Patterns.Diagnostics.LogSource
+  id: LogSource
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.LogSource.Critical
+  - PostSharp.Patterns.Diagnostics.LogSource.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LogSource.Debug
+  - PostSharp.Patterns.Diagnostics.LogSource.Default
+  - PostSharp.Patterns.Diagnostics.LogSource.Error
+  - PostSharp.Patterns.Diagnostics.LogSource.Failure
+  - PostSharp.Patterns.Diagnostics.LogSource.ForCurrentType
+  - PostSharp.Patterns.Diagnostics.LogSource.ForSource(System.String)
+  - PostSharp.Patterns.Diagnostics.LogSource.ForType(System.Type)
+  - PostSharp.Patterns.Diagnostics.LogSource.Get
+  - PostSharp.Patterns.Diagnostics.LogSource.Get(System.String)
+  - PostSharp.Patterns.Diagnostics.LogSource.Get(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LogSource.Get(System.Type,System.String)
+  - PostSharp.Patterns.Diagnostics.LogSource.Info
+  - PostSharp.Patterns.Diagnostics.LogSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LogSource.None
+  - PostSharp.Patterns.Diagnostics.LogSource.Trace
+  - PostSharp.Patterns.Diagnostics.LogSource.Warning
+  - PostSharp.Patterns.Diagnostics.LogSource.WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LogSource.WriteExecutionPoint
+  langs:
+  - csharp
+  - vb
+  name: LogSource
+  nameWithType: LogSource
+  fullName: PostSharp.Patterns.Diagnostics.LogSource
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Allows writing log messages and tracing the execution of activities. This class is optimized for use with C# 7.2 or later.
+
+    For previous compiler versions, consider using the legacy <xref href="PostSharp.Patterns.Diagnostics.LogSource.Logger" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>
+        Instances of this class are immutable. 
+        </p>
+    <p>
+        You should typically have one instance of this class per type.
+        Use <xref href="PostSharp.Patterns.Diagnostics.LogSource.Get" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2%2cSystem.Type)" data-throw-if-not-resolved="false"></xref> to get an instance of this class for the current type.
+        </p>
+    <p>
+        The <xref href="PostSharp.Patterns.Diagnostics.LogSource.Default" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.LogSource.Failure" data-throw-if-not-resolved="false"></xref> properties resolve to <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Error" data-throw-if-not-resolved="false"></xref>.
+        To change these levels for several types from a central place, configure a prototype instance with <xref href="PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel%2cPostSharp.Patterns.Diagnostics.LogLevel)" data-throw-if-not-resolved="false"></xref>,
+        then derive the instance of each type from it with <xref href="PostSharp.Patterns.Diagnostics.LogSource.ForCurrentType" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogSource.ForType(System.Type)" data-throw-if-not-resolved="false"></xref>.
+        The failure level is also the level of the closing message of an activity that fails.
+        </p>
+    <p>
+        Projects that use this class should be processed by PostSharp. Otherwise, the caller information is determined at run time by walking the call stack, which is slower.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp("PostSharp.Patterns.Common.Weaver", "AddCallerInfoTask", AnyTypeReference = true)]
+
+      public sealed class LogSource
+    content.vb: >-
+      <RequirePostSharp("PostSharp.Patterns.Common.Weaver", "AddCallerInfoTask", AnyTypeReference:=True)>
+
+      Public NotInheritable Class LogSource
+  seealso:
+  - linkType: HRef
+    linkId: '@manual-logging'
+    altText: 'Conceptual: Adding Manual Logging'
+  - linkType: HRef
+    linkId: '@log-custom-messages'
+    altText: 'Conceptual: Writing Custom Messages'
+  - linkType: HRef
+    linkId: '@log-custom-activities'
+    altText: 'Conceptual: Working with Custom Activities'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: PostSharp.Patterns.Common.Weaver
+    - type: System.String
+      value: AddCallerInfoTask
+    namedArguments:
+    - name: AnyTypeReference
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Patterns.Diagnostics.LogSource.ForType(System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.ForType(System.Type)
+  id: ForType(System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: ForType(Type)
+  nameWithType: LogSource.ForType(Type)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.ForType(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a new <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> that keeps all the configuration of the current instance but is for a different type.
+  example: []
+  syntax:
+    content: public LogSource ForType(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> for which the <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> should be created.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">type</code>.
+    content.vb: Public Function ForType(type As Type) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.ForType*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.ForSource(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.ForSource(System.String)
+  id: ForSource(System.String)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: ForSource(string)
+  nameWithType: LogSource.ForSource(string)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.ForSource(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a new <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> that keeps all the configuration of the current instance but is for a source name.
+  example: []
+  syntax:
+    content: public LogSource ForSource(string sourceName)
+    parameters:
+    - id: sourceName
+      type: System.String
+      description: The name of the source for which the <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> should be created.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for <code class="paramref">sourceName</code>.
+    content.vb: Public Function ForSource(sourceName As String) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.ForSource*
+  nameWithType.vb: LogSource.ForSource(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogSource.ForSource(String)
+  name.vb: ForSource(String)
+- uid: PostSharp.Patterns.Diagnostics.LogSource.ForCurrentType
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.ForCurrentType
+  id: ForCurrentType
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: ForCurrentType()
+  nameWithType: LogSource.ForCurrentType()
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.ForCurrentType()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a new <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> that keeps all the configuration of the current instance but is for the calling type.
+  example: []
+  syntax:
+    content: public LogSource ForCurrentType()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for the calling type.
+    content.vb: Public Function ForCurrentType() As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.ForCurrentType*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Get
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.Get
+  id: Get
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Get()
+  nameWithType: LogSource.Get()
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Get()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for the calling type.
+  example: []
+  syntax:
+    content: public static LogSource Get()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for the calling type.
+    content.vb: Public Shared Function [Get]() As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Get*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Get(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.Get(System.String)
+  id: Get(System.String)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Get(string)
+  nameWithType: LogSource.Get(string)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Get(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a log source associated with a specific source name.
+  example: []
+  syntax:
+    content: public static LogSource Get(string sourceName)
+    parameters:
+    - id: sourceName
+      type: System.String
+      description: The name that the logging backend associates with a log source.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+    content.vb: Public Shared Function [Get](sourceName As String) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Get*
+  nameWithType.vb: LogSource.Get(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogSource.Get(String)
+  name.vb: Get(String)
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Get(System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.Get(System.String,System.String)
+  id: Get(System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Get(string, string)
+  nameWithType: LogSource.Get(string, string)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Get(string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a log source for a specified role and source name.
+  example: []
+  syntax:
+    content: public static LogSource Get(string sourceName, string role = null)
+    parameters:
+    - id: sourceName
+      type: System.String
+      description: The source name. It is a dotted name.
+    - id: role
+      type: System.String
+      description: A role name. See <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for the specified role and source name.
+    content.vb: Public Shared Function [Get](sourceName As String, role As String = Nothing) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Get*
+  nameWithType.vb: LogSource.Get(String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogSource.Get(String, String)
+  name.vb: Get(String, String)
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Get(System.Type,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.Get(System.Type,System.String)
+  id: Get(System.Type,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Get(Type, string)
+  nameWithType: LogSource.Get(Type, string)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Get(System.Type, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a log source for a specified role and <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static LogSource Get(Type type, string role = null)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type.
+    - id: role
+      type: System.String
+      description: See <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for the specified role and type.
+    content.vb: Public Shared Function [Get](type As Type, role As String = Nothing) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Get*
+  nameWithType.vb: LogSource.Get(Type, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogSource.Get(System.Type, String)
+  name.vb: Get(Type, String)
+- uid: PostSharp.Patterns.Diagnostics.LogSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled(LogLevel)
+  nameWithType: LogSource.IsEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Determines whether logging is enabled in the current <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> for a given <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool IsEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if logging is enabled for <code class="paramref">level</code>, otherwise <code>false</code>.
+    content.vb: Public Function IsEnabled(level As LogLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LogSource.IsEnabled*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: WithLevel(LogLevel)
+  nameWithType: LogSource.WithLevel(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.WithLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with a specified <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>This method is properly optimized. Subsequent calls with the same parameter value will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource WithLevel(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The desired <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+      description: A fluent API object that allows writing messages with the specified <code class="paramref">level</code>.
+    content.vb: Public Function WithLevel(level As LogLevel) As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.WithLevel*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogLevel)
+  id: WithLevels(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: WithLevels(LogLevel, LogLevel)
+  nameWithType: LogSource.WithLevels(LogLevel, LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a new <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> that is based on the current instance but overrides the default logging levels.
+  example: []
+  syntax:
+    content: public LogSource WithLevels(LogLevel defaultLevel, LogLevel failureLevel)
+    parameters:
+    - id: defaultLevel
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Diagnostics.LogSource.Default" data-throw-if-not-resolved="false"></xref> severity (also used for the start and success messages of activities).
+    - id: failureLevel
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Diagnostics.LogSource.Failure" data-throw-if-not-resolved="false"></xref> severity (also used for the failure messages of activities).
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> with the specified log levels.
+    content.vb: Public Function WithLevels(defaultLevel As LogLevel, failureLevel As LogLevel) As LogSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.WithLevels*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.WriteExecutionPoint
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.WriteExecutionPoint
+  id: WriteExecutionPoint
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: WriteExecutionPoint()
+  nameWithType: LogSource.WriteExecutionPoint()
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.WriteExecutionPoint()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Emits a log record with the source file and line of the caller.
+  example: []
+  syntax:
+    content: public void WriteExecutionPoint()
+    content.vb: Public Sub WriteExecutionPoint()
+  overload: PostSharp.Patterns.Diagnostics.LogSource.WriteExecutionPoint*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: ApplyTransactionRequirements(ref OpenActivityOptions)
+  nameWithType: LogSource.ApplyTransactionRequirements(ref OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(ref PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Evaluates whether a transaction needs to be opened for a specified <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> and updates
+
+    its <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement" data-throw-if-not-resolved="false"></xref> property.
+
+    This method must be invoked before calling <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref>.
+
+    It is not called automatically.
+  example: []
+  syntax:
+    content: public void ApplyTransactionRequirements(ref OpenActivityOptions openActivityOptions)
+    parameters:
+    - id: openActivityOptions
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: >-
+        The options of the activity to be opened. This method updates the 
+                    <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions.TransactionRequirement" data-throw-if-not-resolved="false"></xref> property of this parameter.
+    content.vb: Public Sub ApplyTransactionRequirements(openActivityOptions As OpenActivityOptions)
+  overload: PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements*
+  nameWithType.vb: LogSource.ApplyTransactionRequirements(OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogSource.ApplyTransactionRequirements(PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: ApplyTransactionRequirements(OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.LogSource.CurrentContext
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.CurrentContext
+  id: CurrentContext
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: CurrentContext
+  nameWithType: LogSource.CurrentContext
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.CurrentContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public ILoggingContext CurrentContext { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+    content.vb: Public ReadOnly Property CurrentContext As ILoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LogSource.CurrentContext*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.None
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.None
+  id: None
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: LogSource.None
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.None
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref> severity. Such activities are never displayed,
+
+    but they can define properties that child activities and messages can inherit.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource None { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property None As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.None*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Default
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Default
+  id: Default
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: LogSource.Default
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Default
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the default severity of the current <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref>. The default severity is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref>,
+
+    unless it has been overridden by the <xref href="PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel%2cPostSharp.Patterns.Diagnostics.LogLevel)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Default { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property [Default] As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Default*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Failure
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Failure
+  id: Failure
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Failure
+  nameWithType: LogSource.Failure
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Failure
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the default failure severity of the current <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref>. The default severity is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Error" data-throw-if-not-resolved="false"></xref>,
+
+    unless it has been overridden by the <xref href="PostSharp.Patterns.Diagnostics.LogSource.WithLevels(PostSharp.Patterns.Diagnostics.LogLevel%2cPostSharp.Patterns.Diagnostics.LogLevel)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Failure { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property Failure As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Failure*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Critical
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Critical
+  id: Critical
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Critical
+  nameWithType: LogSource.Critical
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Critical
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Critical" data-throw-if-not-resolved="false"></xref> severity.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Critical { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property Critical As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Critical*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Error
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Error
+  id: Error
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: LogSource.Error
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Error
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Error" data-throw-if-not-resolved="false"></xref> severity.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Error { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property [Error] As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Error*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Warning
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Warning
+  id: Warning
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Warning
+  nameWithType: LogSource.Warning
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Warning
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref> severity.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Warning { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property Warning As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Warning*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Info
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Info
+  id: Info
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Info
+  nameWithType: LogSource.Info
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Info
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> severity.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Info { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property Info As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Info*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Trace
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Trace
+  id: Trace
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Trace
+  nameWithType: LogSource.Trace
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Trace
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Trace" data-throw-if-not-resolved="false"></xref> severity.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Trace { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property Trace As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Trace*
+- uid: PostSharp.Patterns.Diagnostics.LogSource.Debug
+  commentId: P:PostSharp.Patterns.Diagnostics.LogSource.Debug
+  id: Debug
+  parent: PostSharp.Patterns.Diagnostics.LogSource
+  langs:
+  - csharp
+  - vb
+  name: Debug
+  nameWithType: LogSource.Debug
+  fullName: PostSharp.Patterns.Diagnostics.LogSource.Debug
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource" data-throw-if-not-resolved="false"></xref> that exposes methods to write messages and open activities with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref> severity.
+  remarks: <p>This property is properly optimized. Subsequent calls will return the same instance.</p>
+  example: []
+  syntax:
+    content: public LogLevelSource Debug { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogLevelSource
+    content.vb: Public ReadOnly Property Debug As LogLevelSource
+  overload: PostSharp.Patterns.Diagnostics.LogSource.Debug*

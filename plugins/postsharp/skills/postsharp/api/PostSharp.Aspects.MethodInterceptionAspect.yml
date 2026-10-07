@@ -1,0 +1,483 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.MethodInterceptionAspect
+  commentId: T:PostSharp.Aspects.MethodInterceptionAspect
+  id: MethodInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.MethodInterceptionAspect.#ctor
+  - PostSharp.Aspects.MethodInterceptionAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds
+  - PostSharp.Aspects.MethodInterceptionAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.MethodBase)
+  - PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  langs:
+  - csharp
+  - vb
+  name: MethodInterceptionAspect
+  nameWithType: MethodInterceptionAspect
+  fullName: PostSharp.Aspects.MethodInterceptionAspect
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Aspect that, when applied on a method, intercepts invocations of this method.
+  remarks: >-
+    <p>Applying a <xref href="PostSharp.Aspects.MethodInterceptionAspect" data-throw-if-not-resolved="false"></xref> to a method results in the body of this method being replaced by a call to the aspect <xref href="PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method of the current class. 
+            The original method body is moved into a new method, which can be called by the aspect by invoking the <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref> method,
+            or by using the <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref> object.</p>
+        <div class="NOTE"><h5>note</h5><p>
+            PostSharp creates a local copy of all by-reference parameters (<code>in</code>, <code>out</code>, <code>ref</code>). This local copy is passed to the intercepted method, not the original argument.
+            This may have unwanted effects on multi-threaded code, because the argument value is not changed at the same moment as before.
+            It may also have unwanted effects when the aspect is applied to a P-Invoke method,
+            because a by-reference parameter could represent the starting address of a larger buffer.
+            </p></div>
+        <p>When the target method returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> intercepts only the code that creates the task,
+            not the asynchronous operation it represents. To intercept the whole operation, for example to handle its exceptions or its result,
+            override <xref href="PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> and call <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>. This is called <i>semantic advising</i>;
+            see the <xref href="PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds" data-throw-if-not-resolved="false"></xref> property.</p>
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+        All classes implementing
+        <xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>
+        should typically be marked as serializable
+        using the 
+        <xref href="System.SerializableAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref> custom attribute. Fields that
+        are only used at runtime (and unknown at compile-time) should be carefully
+        marked with the <xref href="System.NonSerializedAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PNonSerializedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+        When another aspect serializer (such as <xref href="PostSharp.Aspects.Serialization.MsilAspectSerializer" data-throw-if-not-resolved="false"></xref>) is used,
+        it is not necessary to mark the aspect class as serializable.
+        For more information, see
+        <a href="@aspect-serialization">Aspect Serialization</a>.
+      </p></div>
+        </p>
+        <a href="@aspect-serialization">
+      Conceptual: Understanding Aspect Serialization
+    </a>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Method|MulticastTargets.InstanceConstructor, AllowMultiple = true, AllowExternalAssemblies = true, PersistMetaData = false, TargetMemberAttributes = MulticastAttributes.NonAbstract)]
+
+      [HasInheritedAttribute]
+
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Event|AttributeTargets.Interface, AllowMultiple = true)]
+
+      [AspectConfigurationAttributeType(typeof(MethodInterceptionAspectConfigurationAttribute))]
+
+      [Serializer(null)]
+
+      public abstract class MethodInterceptionAspect : MethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.MethodOrMulticastTargets.InstanceConstructor, AllowMultiple:=True, AllowExternalAssemblies:=True, PersistMetaData:=False, TargetMemberAttributes:=MulticastAttributes.NonAbstract)>
+
+      <HasInheritedAttribute>
+
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.EventOrAttributeTargets.Interface, AllowMultiple:=True)>
+
+      <AspectConfigurationAttributeType(GetType(MethodInterceptionAspectConfigurationAttribute))>
+
+      <Serializer(Nothing)>
+
+      Public MustInherit Class MethodInterceptionAspect Inherits MethodLevelAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.Configuration.MethodInterceptionAspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.MethodInterceptionAspectConfigurationAttribute
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+  - linkType: HRef
+    linkId: '@method-interception'
+    altText: 'Conceptual: Intercepting Methods'
+  - linkType: HRef
+    linkId: '@semantic-advising'
+    altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.MethodLevelAspect
+  derivedClasses:
+  - PostSharp.Patterns.Caching.CacheAttribute
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  - PostSharp.Patterns.Threading.BackgroundAttribute
+  implements:
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.MethodLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 192
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: AllowExternalAssemblies
+      type: System.Boolean
+      value: true
+    - name: PersistMetaData
+      type: System.Boolean
+      value: false
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 1024
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1741
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Aspects.Configuration.AspectConfigurationAttributeTypeAttribute
+    ctor: PostSharp.Aspects.Configuration.AspectConfigurationAttributeTypeAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Aspects.Configuration.MethodInterceptionAspectConfigurationAttribute
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+- uid: PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  commentId: M:PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  id: OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInvoke(MethodInterceptionArgs)
+  nameWithType: MethodInterceptionAspect.OnInvoke(MethodInterceptionArgs)
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method invoked instead of the method to which the aspect has been applied.
+  remarks: >-
+    <p>The implementation of <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> may invoke <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref>, may schedule it for invocation from another thread, or
+            may completely skip its invocation. Alternatively, it may use <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>. Before returning to the caller, the <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method must set the return value (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>)
+            and all output arguments (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.Arguments" data-throw-if-not-resolved="false"></xref>). Otherwise, the target method may fail with a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. These
+            are normally set by calling <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnInvoke(MethodInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodInterceptionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnInvoke(args As MethodInterceptionArgs)
+  overload: PostSharp.Aspects.MethodInterceptionAspect.OnInvoke*
+  seealso:
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+  implements:
+  - PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  commentId: M:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  id: OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInvokeAsync(MethodInterceptionArgs)
+  nameWithType: MethodInterceptionAspect.OnInvokeAsync(MethodInterceptionArgs)
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method invoked instead of the method to which the aspect has been applied.
+  remarks: >-
+    <p>The implementation of <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> may invoke <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>, may schedule it for invocation from another thread, or
+            may completely skip its invocation. Alternatively, it may use <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>. Before returning to the caller,
+            the <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method must set the return value (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>),
+            otherwise the target method may fail with a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. It is normally set by calling <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>
+            If semantic advising applies to a method and the method is an async method or returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, then <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> is called for that method instead of <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+          </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual Task OnInvokeAsync(MethodInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodInterceptionArgs
+      description: Advice arguments.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Function OnInvokeAsync(args As MethodInterceptionArgs) As Task
+  overload: PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync*
+  seealso:
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+  implements:
+  - PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.MethodInterceptionAspect.CreateAspectConfiguration
+  commentId: M:PostSharp.Aspects.MethodInterceptionAspect.CreateAspectConfiguration
+  id: CreateAspectConfiguration
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: CreateAspectConfiguration()
+  nameWithType: MethodInterceptionAspect.CreateAspectConfiguration()
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.CreateAspectConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to create a concrete <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> instance specifically
+
+    for the current <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> type.
+  remarks: >-
+    This method should not set up the returned <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>. After the current method has
+
+    returned, the <xref href="PostSharp.Aspects.Aspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method will be invoked, and that method is responsible
+
+    for setting up the <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: protected override AspectConfiguration CreateAspectConfiguration()
+    return:
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        A new and empty instance of <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>, whose concrete type corresponds to
+                      the concrete type of the <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function CreateAspectConfiguration() As AspectConfiguration
+  overridden: PostSharp.Aspects.Aspect.CreateAspectConfiguration
+  overload: PostSharp.Aspects.MethodInterceptionAspect.CreateAspectConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+- uid: PostSharp.Aspects.MethodInterceptionAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.MethodBase)
+  commentId: M:PostSharp.Aspects.MethodInterceptionAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.MethodBase)
+  id: SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.MethodBase)
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: SetAspectConfiguration(AspectConfiguration, MethodBase)
+  nameWithType: MethodInterceptionAspect.SetAspectConfiguration(AspectConfiguration, MethodBase)
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration, System.Reflection.MethodBase)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to set up an <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> object according to the current 
+
+    <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> instance and a specified target element of the current aspect.
+  remarks: >-
+    <p>Classes overriding this method must always invoke the base implementation before performing their own
+            changes to the 
+            <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: protected override void SetAspectConfiguration(AspectConfiguration aspectConfiguration, MethodBase targetMethod)
+    parameters:
+    - id: aspectConfiguration
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        The <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> instance previously returned by the
+                      <xref href="PostSharp.Aspects.Aspect.CreateAspectConfiguration" data-throw-if-not-resolved="false"></xref> method.
+    - id: targetMethod
+      type: System.Reflection.MethodBase
+      description: Method to which the current aspect has been applied.
+    content.vb: Protected Overrides Sub SetAspectConfiguration(aspectConfiguration As AspectConfiguration, targetMethod As MethodBase)
+  overridden: PostSharp.Aspects.MethodLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.MethodBase)
+  overload: PostSharp.Aspects.MethodInterceptionAspect.SetAspectConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+- uid: PostSharp.Aspects.MethodInterceptionAspect.#ctor
+  commentId: M:PostSharp.Aspects.MethodInterceptionAspect.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: MethodInterceptionAspect()
+  nameWithType: MethodInterceptionAspect.MethodInterceptionAspect()
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.MethodInterceptionAspect()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  syntax:
+    content: protected MethodInterceptionAspect()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Aspects.MethodInterceptionAspect.#ctor*
+  nameWithType.vb: MethodInterceptionAspect.New()
+  fullName.vb: PostSharp.Aspects.MethodInterceptionAspect.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds
+  commentId: P:PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds
+  id: SemanticallyAdvisedMethodKinds
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: SemanticallyAdvisedMethodKinds
+  nameWithType: MethodInterceptionAspect.SemanticallyAdvisedMethodKinds
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Gets or sets which target methods are advised semantically. This affects the behavior of the aspect when it is applied to
+
+    iterator or async methods, which are compiled into state machines.
+  remarks: >-
+    <p>
+        Semantic advising results in an aspect that is consistent with the level of abstraction of the programming language. This is the default behavior.
+        You can disable semantic advising using this property to be consistent with the level of abstraction
+        of MSIL and for backward compatibility with the versions of PostSharp prior to 3.1.
+        </p>
+    <p>
+        The value is read at build time, so set it in the constructor of the aspect.
+        </p>
+  example: []
+  syntax:
+    content: protected SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+    content.vb: Protected Property SemanticallyAdvisedMethodKinds As SemanticallyAdvisedMethodKinds
+  overload: PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds*
+  seealso:
+  - linkType: HRef
+    linkId: '@semantic-advising'
+    altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'
+- uid: PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  commentId: P:PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  id: UnsupportedTargetAction
+  parent: PostSharp.Aspects.MethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: UnsupportedTargetAction
+  nameWithType: MethodInterceptionAspect.UnsupportedTargetAction
+  fullName: PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets or sets the action to take when the aspect is applied to an async method with an unsupported return value type.
+  remarks: >-
+    <p>
+        Starting with C# 7, async methods can have return types other than <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> or <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref>.
+        Async method interception does not support such async methods. By default, a build error is raised whenever
+        async method interception is applied to a method that returns an awaitable type other than <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> or <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref>.
+        </p>
+    <p>
+        Set this property to change how unsupported async methods are handled at compile time.
+        </p>
+  example: []
+  syntax:
+    content: public UnsupportedTargetAction UnsupportedTargetAction { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.UnsupportedTargetAction
+    content.vb: Public Property UnsupportedTargetAction As UnsupportedTargetAction
+  overload: PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction*

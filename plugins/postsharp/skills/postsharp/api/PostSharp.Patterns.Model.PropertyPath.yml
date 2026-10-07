@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.PropertyPath
+  commentId: T:PostSharp.Patterns.Model.PropertyPath
+  id: PropertyPath
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.PropertyPath.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Model.PropertyPath.Equals(PostSharp.Patterns.Model.PropertyPath)
+  - PostSharp.Patterns.Model.PropertyPath.Equals(System.Object)
+  - PostSharp.Patterns.Model.PropertyPath.GetHashCode
+  - PostSharp.Patterns.Model.PropertyPath.ToString
+  langs:
+  - csharp
+  - vb
+  name: PropertyPath
+  nameWithType: PropertyPath
+  fullName: PostSharp.Patterns.Model.PropertyPath
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Represents an immutable property path. All components are interned.
+  example: []
+  syntax:
+    content: >-
+      [Serializer(typeof(PropertyPath.Serializer))]
+
+      public sealed class PropertyPath : ISerializationCallback, IEquatable<PropertyPath>
+    content.vb: >-
+      <Serializer(GetType(PropertyPath.Serializer))>
+
+      Public NotInheritable Class PropertyPath Implements ISerializationCallback, IEquatable(Of PropertyPath)
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Serialization.ISerializationCallback
+  - System.IEquatable{PostSharp.Patterns.Model.PropertyPath}
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.PropertyPath.Serializer
+- uid: PostSharp.Patterns.Model.PropertyPath.GetHashCode
+  commentId: M:PostSharp.Patterns.Model.PropertyPath.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Patterns.Model.PropertyPath
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: PropertyPath.GetHashCode()
+  fullName: PostSharp.Patterns.Model.PropertyPath.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: PostSharp.Patterns.Model.PropertyPath.GetHashCode*
+- uid: PostSharp.Patterns.Model.PropertyPath.Equals(System.Object)
+  commentId: M:PostSharp.Patterns.Model.PropertyPath.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Patterns.Model.PropertyPath
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: PropertyPath.Equals(object)
+  fullName: PostSharp.Patterns.Model.PropertyPath.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: PostSharp.Patterns.Model.PropertyPath.Equals*
+  nameWithType.vb: PropertyPath.Equals(Object)
+  fullName.vb: PostSharp.Patterns.Model.PropertyPath.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Patterns.Model.PropertyPath.Equals(PostSharp.Patterns.Model.PropertyPath)
+  commentId: M:PostSharp.Patterns.Model.PropertyPath.Equals(PostSharp.Patterns.Model.PropertyPath)
+  id: Equals(PostSharp.Patterns.Model.PropertyPath)
+  parent: PostSharp.Patterns.Model.PropertyPath
+  langs:
+  - csharp
+  - vb
+  name: Equals(PropertyPath)
+  nameWithType: PropertyPath.Equals(PropertyPath)
+  fullName: PostSharp.Patterns.Model.PropertyPath.Equals(PostSharp.Patterns.Model.PropertyPath)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether the current <xref href="PostSharp.Patterns.Model.PropertyPath" data-throw-if-not-resolved="false"></xref> is equal to another.
+  example: []
+  syntax:
+    content: public bool Equals(PropertyPath other)
+    parameters:
+    - id: other
+      type: PostSharp.Patterns.Model.PropertyPath
+      description: Another <xref href="PostSharp.Patterns.Model.PropertyPath" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current <xref href="PostSharp.Patterns.Model.PropertyPath" data-throw-if-not-resolved="false"></xref> equals <code class="paramref">other</code>, otherwise <code>false</code>.
+    content.vb: Public Function Equals(other As PropertyPath) As Boolean
+  overload: PostSharp.Patterns.Model.PropertyPath.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Model.PropertyPath}.Equals(PostSharp.Patterns.Model.PropertyPath)
+- uid: PostSharp.Patterns.Model.PropertyPath.ToString
+  commentId: M:PostSharp.Patterns.Model.PropertyPath.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Model.PropertyPath
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PropertyPath.ToString()
+  fullName: PostSharp.Patterns.Model.PropertyPath.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Model.PropertyPath.ToString*
+- uid: PostSharp.Patterns.Model.PropertyPath.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Model.PropertyPath.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Model.PropertyPath
+  langs:
+  - csharp
+  - vb
+  name: PropertyPath(PortableFormatterConstructorContext)
+  nameWithType: PropertyPath.PropertyPath(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Model.PropertyPath.PropertyPath(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected PropertyPath(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Model.PropertyPath.#ctor*
+  nameWithType.vb: PropertyPath.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Model.PropertyPath.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

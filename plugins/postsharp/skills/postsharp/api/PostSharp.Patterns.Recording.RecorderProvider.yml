@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.RecorderProvider
+  commentId: T:PostSharp.Patterns.Recording.RecorderProvider
+  id: RecorderProvider
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.RecorderProvider.#ctor(PostSharp.Patterns.Recording.RecorderProvider)
+  - PostSharp.Patterns.Recording.RecorderProvider.GetRecorder(System.Object)
+  - PostSharp.Patterns.Recording.RecorderProvider.GetRecorderCore(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: RecorderProvider
+  nameWithType: RecorderProvider
+  fullName: PostSharp.Patterns.Recording.RecorderProvider
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Abstract class that represents a node in the chain of responsibility, starting at the <xref href="PostSharp.Patterns.Recording.RecordingServices.RecorderProvider" data-throw-if-not-resolved="false"></xref> property,
+
+    whose role is to provide a default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> to recordable objects.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Recording.RecordableAttribute" data-throw-if-not-resolved="false"></xref> aspect uses this chain to attach objects whose <xref href="PostSharp.Patterns.Recording.RecordableAttribute.AutoRecord" data-throw-if-not-resolved="false"></xref> property
+        is <code>true</code>. To use a custom provider, assign it to the <xref href="PostSharp.Patterns.Recording.RecordingServices.RecorderProvider" data-throw-if-not-resolved="false"></xref> property and pass the previous value
+        of this property to its constructor.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public abstract class RecorderProvider
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public MustInherit Class RecorderProvider
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-recorder'
+    altText: 'Conceptual: Assigning Recorders Manually'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.RecorderProvider.#ctor(PostSharp.Patterns.Recording.RecorderProvider)
+  commentId: M:PostSharp.Patterns.Recording.RecorderProvider.#ctor(PostSharp.Patterns.Recording.RecorderProvider)
+  id: '#ctor(PostSharp.Patterns.Recording.RecorderProvider)'
+  parent: PostSharp.Patterns.Recording.RecorderProvider
+  langs:
+  - csharp
+  - vb
+  name: RecorderProvider(RecorderProvider)
+  nameWithType: RecorderProvider.RecorderProvider(RecorderProvider)
+  fullName: PostSharp.Patterns.Recording.RecorderProvider.RecorderProvider(PostSharp.Patterns.Recording.RecorderProvider)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.RecorderProvider" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected RecorderProvider(RecorderProvider next)
+    parameters:
+    - id: next
+      type: PostSharp.Patterns.Recording.RecorderProvider
+      description: The next instance in the chain of responsibility.
+    content.vb: Protected Sub New([next] As RecorderProvider)
+  overload: PostSharp.Patterns.Recording.RecorderProvider.#ctor*
+  nameWithType.vb: RecorderProvider.New(RecorderProvider)
+  fullName.vb: PostSharp.Patterns.Recording.RecorderProvider.New(PostSharp.Patterns.Recording.RecorderProvider)
+  name.vb: New(RecorderProvider)
+- uid: PostSharp.Patterns.Recording.RecorderProvider.GetRecorder(System.Object)
+  commentId: M:PostSharp.Patterns.Recording.RecorderProvider.GetRecorder(System.Object)
+  id: GetRecorder(System.Object)
+  parent: PostSharp.Patterns.Recording.RecorderProvider
+  langs:
+  - csharp
+  - vb
+  name: GetRecorder(object)
+  nameWithType: RecorderProvider.GetRecorder(object)
+  fullName: PostSharp.Patterns.Recording.RecorderProvider.GetRecorder(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> for a given object. This method goes through the whole chain of responsibility.
+  example: []
+  syntax:
+    content: public Recorder GetRecorder(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: >-
+        The object for which the default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> is required, or <code>null</code>
+                    if the global default provider (exposed for convenience by the <xref href="PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder" data-throw-if-not-resolved="false"></xref> property)
+                    is required.
+    return:
+      type: PostSharp.Patterns.Recording.Recorder
+      description: >-
+        The <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> for <code class="paramref">obj</code>, or <code>null</code> if no <xref href="PostSharp.Patterns.Recording.RecorderProvider" data-throw-if-not-resolved="false"></xref> in the chain of responsibility
+                    knows how to provide a <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> for <code class="paramref">obj</code>.
+    content.vb: Public Function GetRecorder(obj As Object) As Recorder
+  overload: PostSharp.Patterns.Recording.RecorderProvider.GetRecorder*
+  nameWithType.vb: RecorderProvider.GetRecorder(Object)
+  fullName.vb: PostSharp.Patterns.Recording.RecorderProvider.GetRecorder(Object)
+  name.vb: GetRecorder(Object)
+- uid: PostSharp.Patterns.Recording.RecorderProvider.GetRecorderCore(System.Object)
+  commentId: M:PostSharp.Patterns.Recording.RecorderProvider.GetRecorderCore(System.Object)
+  id: GetRecorderCore(System.Object)
+  parent: PostSharp.Patterns.Recording.RecorderProvider
+  langs:
+  - csharp
+  - vb
+  name: GetRecorderCore(object)
+  nameWithType: RecorderProvider.GetRecorderCore(object)
+  fullName: PostSharp.Patterns.Recording.RecorderProvider.GetRecorderCore(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> for a given object.
+  example: []
+  syntax:
+    content: protected abstract Recorder GetRecorderCore(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: >-
+        The object for which the default <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> is required, or <code>null</code>
+                    if the global default provider (exposed for convenience by the <xref href="PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder" data-throw-if-not-resolved="false"></xref> property)
+                    is required.
+    return:
+      type: PostSharp.Patterns.Recording.Recorder
+      description: >-
+        The <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> for <code class="paramref">obj</code>, or <code>null</code> if the current <xref href="PostSharp.Patterns.Recording.RecorderProvider" data-throw-if-not-resolved="false"></xref> does not know
+                    how to provide a <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> for <code class="paramref">obj</code>, in which case the caller shall invoke the next <xref href="PostSharp.Patterns.Recording.RecorderProvider" data-throw-if-not-resolved="false"></xref>
+                    in the chain of responsibility.
+    content.vb: Protected MustOverride Function GetRecorderCore(obj As Object) As Recorder
+  overload: PostSharp.Patterns.Recording.RecorderProvider.GetRecorderCore*
+  nameWithType.vb: RecorderProvider.GetRecorderCore(Object)
+  fullName.vb: PostSharp.Patterns.Recording.RecorderProvider.GetRecorderCore(Object)
+  name.vb: GetRecorderCore(Object)

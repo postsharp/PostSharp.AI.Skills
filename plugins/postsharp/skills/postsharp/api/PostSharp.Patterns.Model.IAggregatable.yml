@@ -1,0 +1,180 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.IAggregatable
+  commentId: T:PostSharp.Patterns.Model.IAggregatable
+  id: IAggregatable
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.IAggregatable.AncestorChanged
+  - PostSharp.Patterns.Model.IAggregatable.Parent
+  - PostSharp.Patterns.Model.IAggregatable.ParentChanged
+  - PostSharp.Patterns.Model.IAggregatable.ParentRelationship
+  - PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IAggregatable
+  nameWithType: IAggregatable
+  fullName: PostSharp.Patterns.Model.IAggregatable
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Defines members (principally <xref href="PostSharp.Patterns.Model.IAggregatable.Parent" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>) that make it possible to consume parent-child relationships in an object tree.
+  remarks: >-
+    <p>If a class implements this interface, it must also implement <xref href="PostSharp.Patterns.Model.IAttachable" data-throw-if-not-resolved="false"></xref>. These two interfaces
+                 have been separated for clarity, since <xref href="PostSharp.Patterns.Model.IAttachable" data-throw-if-not-resolved="false"></xref> should normally not be consumed from user code.</p>
+    <p>The <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect introduces this interface after compilation, so the C# compiler does not know that the target class
+                 implements it. To get the interface from source code, use <xref href="PostSharp.Post.Cast%60%602(%60%600)" data-throw-if-not-resolved="false"></xref> or
+                 <xref href="PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface%60%601(System.Object%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref>. Advisable collections, such as
+                 <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref>, receive this interface at run time, so only
+                 <xref href="PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface%60%601(System.Object%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> can return it.</p>
+  example: []
+  syntax:
+    content: public interface IAggregatable
+    content.vb: Public Interface IAggregatable
+  seealso:
+  - linkType: HRef
+    linkId: '@aggregatable-visitor'
+    altText: 'Conceptual: Enumerating Child Objects (Visitor)'
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  derivedClasses:
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  extensionMethods:
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(System.Object)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+- uid: PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  commentId: M:PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  id: VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  parent: PostSharp.Patterns.Model.IAggregatable
+  langs:
+  - csharp
+  - vb
+  name: VisitChildren(ChildVisitor, ChildVisitorOptions, object)
+  nameWithType: IAggregatable.VisitChildren(ChildVisitor, ChildVisitorOptions, object)
+  fullName: PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor, PostSharp.Patterns.Model.ChildVisitorOptions, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Executes an action for all direct children of the current object.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>If a parent is bound to a child through several relationships (for instance several fields), the <code class="paramref">visitor</code> delegate
+        will be invoked several times, once for each relationship. Store visited children into a <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> if you need to perform an action only once per child.</p></div>
+  example: []
+  syntax:
+    content: bool VisitChildren(ChildVisitor visitor, ChildVisitorOptions options = ChildVisitorOptions.None, object state = null)
+    parameters:
+    - id: visitor
+      type: PostSharp.Patterns.Model.ChildVisitor
+      description: The action to be executed for each child.
+    - id: options
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+      description: The options. The default behavior is to enumerate all children, but ignore parent surrogates.
+    - id: state
+      type: System.Object
+      description: An opaque state object that is passed to <code class="paramref">visitor</code>.
+    return:
+      type: System.Boolean
+      description: <code>false</code> if <code class="paramref">visitor</code> returned <code>false</code>, otherwise <code>true</code>.
+    content.vb: Function VisitChildren(visitor As ChildVisitor, options As ChildVisitorOptions = ChildVisitorOptions.None, state As Object = Nothing) As Boolean
+  overload: PostSharp.Patterns.Model.IAggregatable.VisitChildren*
+  nameWithType.vb: IAggregatable.VisitChildren(ChildVisitor, ChildVisitorOptions, Object)
+  fullName.vb: PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor, PostSharp.Patterns.Model.ChildVisitorOptions, Object)
+  name.vb: VisitChildren(ChildVisitor, ChildVisitorOptions, Object)
+- uid: PostSharp.Patterns.Model.IAggregatable.Parent
+  commentId: P:PostSharp.Patterns.Model.IAggregatable.Parent
+  id: Parent
+  parent: PostSharp.Patterns.Model.IAggregatable
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: IAggregatable.Parent
+  fullName: PostSharp.Patterns.Model.IAggregatable.Parent
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the parent of the current object.
+  example: []
+  syntax:
+    content: object Parent { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property Parent As Object
+  overload: PostSharp.Patterns.Model.IAggregatable.Parent*
+- uid: PostSharp.Patterns.Model.IAggregatable.ParentRelationship
+  commentId: P:PostSharp.Patterns.Model.IAggregatable.ParentRelationship
+  id: ParentRelationship
+  parent: PostSharp.Patterns.Model.IAggregatable
+  langs:
+  - csharp
+  - vb
+  name: ParentRelationship
+  nameWithType: IAggregatable.ParentRelationship
+  fullName: PostSharp.Patterns.Model.IAggregatable.ParentRelationship
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the relationship between the current object and its parent. Valid values are <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: RelationshipKind ParentRelationship { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: ReadOnly Property ParentRelationship As RelationshipKind
+  overload: PostSharp.Patterns.Model.IAggregatable.ParentRelationship*
+- uid: PostSharp.Patterns.Model.IAggregatable.ParentChanged
+  commentId: E:PostSharp.Patterns.Model.IAggregatable.ParentChanged
+  id: ParentChanged
+  parent: PostSharp.Patterns.Model.IAggregatable
+  langs:
+  - csharp
+  - vb
+  name: ParentChanged
+  nameWithType: IAggregatable.ParentChanged
+  fullName: PostSharp.Patterns.Model.IAggregatable.ParentChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Occurs when the <xref href="PostSharp.Patterns.Model.IAggregatable.Parent" data-throw-if-not-resolved="false"></xref> property changes.
+  example: []
+  syntax:
+    content: event EventHandler ParentChanged
+    return:
+      type: System.EventHandler
+    content.vb: Event ParentChanged As EventHandler
+- uid: PostSharp.Patterns.Model.IAggregatable.AncestorChanged
+  commentId: E:PostSharp.Patterns.Model.IAggregatable.AncestorChanged
+  id: AncestorChanged
+  parent: PostSharp.Patterns.Model.IAggregatable
+  langs:
+  - csharp
+  - vb
+  name: AncestorChanged
+  nameWithType: IAggregatable.AncestorChanged
+  fullName: PostSharp.Patterns.Model.IAggregatable.AncestorChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Occurs when any ancestor changes. An ancestor is the parent of the current object or the parent of an ancestor of the current object.
+  remarks: >-
+    <p>The <code>sender</code> parameter of the event handler will be set to the current object. The <xref href="PostSharp.Patterns.Model.AncestorChangedEventArgs.Child" data-throw-if-not-resolved="false"></xref> property of the
+        <xref href="PostSharp.Patterns.Model.AncestorChangedEventArgs" data-throw-if-not-resolved="false"></xref> object will be set to the object whose <xref href="PostSharp.Patterns.Model.IAggregatable.Parent" data-throw-if-not-resolved="false"></xref> actually changed. To retrieve the new ancestor,
+        use <code>args.Child.QueryInterface&lt;IAggregatable&gt;().Parent</code>.</p>
+  example: []
+  syntax:
+    content: event EventHandler<AncestorChangedEventArgs> AncestorChanged
+    return:
+      type: System.EventHandler{PostSharp.Patterns.Model.AncestorChangedEventArgs}
+    content.vb: Event AncestorChanged As EventHandler(Of AncestorChangedEventArgs)

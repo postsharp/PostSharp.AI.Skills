@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.ContractExceptionFactory
+  commentId: T:PostSharp.Patterns.Contracts.ContractExceptionFactory
+  id: ContractExceptionFactory
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.ContractExceptionFactory.#ctor(PostSharp.Patterns.Contracts.ContractExceptionFactory)
+  - PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  langs:
+  - csharp
+  - vb
+  name: ContractExceptionFactory
+  nameWithType: ContractExceptionFactory
+  fullName: PostSharp.Patterns.Contracts.ContractExceptionFactory
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Base class for contract exception factories. Implements the chain of responsibility between concrete exception factories.
+  remarks: >-
+    <p>To change the exceptions that contracts throw, derive a class from <xref href="PostSharp.Patterns.Contracts.ContractExceptionFactory" data-throw-if-not-resolved="false"></xref> and override the <xref href="PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)" data-throw-if-not-resolved="false"></xref> method.
+        Return an exception for the cases that your factory handles, and call the base implementation for the others, which invokes the next factory in the chain.
+        At application startup, assign an instance of your factory to <xref href="PostSharp.Patterns.Contracts.ContractServices.ExceptionFactory" data-throw-if-not-resolved="false"></xref>, and pass the previous value of this property to the constructor.</p>
+    <p>The default factory creates <xref href="System.ArgumentException" data-throw-if-not-resolved="false"></xref>, <xref href="System.ArgumentNullException" data-throw-if-not-resolved="false"></xref>, <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Contracts.PostconditionFailedException" data-throw-if-not-resolved="false"></xref>,
+        with a message obtained from <xref href="PostSharp.Patterns.Contracts.ContractServices.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref>. When no factory of the chain handles the requested exception type,
+        the base implementation throws an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>Custom contracts can create their exceptions through <xref href="PostSharp.Patterns.Contracts.ContractServices.ExceptionFactory" data-throw-if-not-resolved="false"></xref>, so that the same customizations apply to them.</p>
+  example: []
+  syntax:
+    content: public abstract class ContractExceptionFactory
+    content.vb: Public MustInherit Class ContractExceptionFactory
+  seealso:
+  - linkId: PostSharp.Patterns.Contracts.ContractExceptionInfo
+    commentId: T:PostSharp.Patterns.Contracts.ContractExceptionInfo
+  - linkId: PostSharp.Patterns.Contracts.ContractServices
+    commentId: T:PostSharp.Patterns.Contracts.ContractServices
+  - linkType: HRef
+    linkId: '@contract-custom-exceptions'
+    altText: 'Conceptual: Customizing Contract Exceptions'
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Contracts.DefaultContractExceptionFactory
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Contracts.ContractExceptionFactory.#ctor(PostSharp.Patterns.Contracts.ContractExceptionFactory)
+  commentId: M:PostSharp.Patterns.Contracts.ContractExceptionFactory.#ctor(PostSharp.Patterns.Contracts.ContractExceptionFactory)
+  id: '#ctor(PostSharp.Patterns.Contracts.ContractExceptionFactory)'
+  parent: PostSharp.Patterns.Contracts.ContractExceptionFactory
+  langs:
+  - csharp
+  - vb
+  name: ContractExceptionFactory(ContractExceptionFactory)
+  nameWithType: ContractExceptionFactory.ContractExceptionFactory(ContractExceptionFactory)
+  fullName: PostSharp.Patterns.Contracts.ContractExceptionFactory.ContractExceptionFactory(PostSharp.Patterns.Contracts.ContractExceptionFactory)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.ContractExceptionFactory" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected ContractExceptionFactory(ContractExceptionFactory next)
+    parameters:
+    - id: next
+      type: PostSharp.Patterns.Contracts.ContractExceptionFactory
+      description: The next factory in the chain.
+    content.vb: Protected Sub New([next] As ContractExceptionFactory)
+  overload: PostSharp.Patterns.Contracts.ContractExceptionFactory.#ctor*
+  nameWithType.vb: ContractExceptionFactory.New(ContractExceptionFactory)
+  fullName.vb: PostSharp.Patterns.Contracts.ContractExceptionFactory.New(PostSharp.Patterns.Contracts.ContractExceptionFactory)
+  name.vb: New(ContractExceptionFactory)
+- uid: PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  commentId: M:PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  id: CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  parent: PostSharp.Patterns.Contracts.ContractExceptionFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateException(ContractExceptionInfo)
+  nameWithType: ContractExceptionFactory.CreateException(ContractExceptionInfo)
+  fullName: PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Creates the exception based on the contents of <xref href="PostSharp.Patterns.Contracts.ContractExceptionInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public virtual Exception CreateException(ContractExceptionInfo exceptionInfo)
+    parameters:
+    - id: exceptionInfo
+      type: PostSharp.Patterns.Contracts.ContractExceptionInfo
+      description: Information to be used for the creation of the requested exception.
+    return:
+      type: System.Exception
+      description: The requested exception.
+    content.vb: Public Overridable Function CreateException(exceptionInfo As ContractExceptionInfo) As Exception
+  overload: PostSharp.Patterns.Contracts.ContractExceptionFactory.CreateException*

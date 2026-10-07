@@ -1,0 +1,95 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase
+  commentId: T:PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase
+  id: ICollectionDynamicAdviceBase
+  parent: PostSharp.Patterns.Collections.Advices
+  children:
+  - PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  - PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  langs:
+  - csharp
+  - vb
+  name: ICollectionDynamicAdviceBase
+  nameWithType: ICollectionDynamicAdviceBase
+  fullName: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Base interface for all dynamic advices that apply to collection-like types.
+  example: []
+  syntax:
+    content: 'public interface ICollectionDynamicAdviceBase : IDynamicAdvice, IDynamicInterfaceImplementation'
+    content.vb: Public Interface ICollectionDynamicAdviceBase Inherits IDynamicAdvice, IDynamicInterfaceImplementation
+  derivedClasses:
+  - PostSharp.Patterns.Collections.Advices.CollectionDynamicAdvice`1
+  - PostSharp.Patterns.Collections.Advices.DictionaryDynamicAdvice`2
+  - PostSharp.Patterns.Collections.Advices.HashSetDynamicAdvice`1
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+- uid: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  commentId: M:PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  id: IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  parent: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly(AdviceEnumerator<ICollectionDynamicAdviceBase>)
+  nameWithType: ICollectionDynamicAdviceBase.IsReadOnly(AdviceEnumerator<ICollectionDynamicAdviceBase>)
+  fullName: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Determines whether the advised collection is read-only.
+  example: []
+  syntax:
+    content: bool IsReadOnly(AdviceEnumerator<ICollectionDynamicAdviceBase> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase}
+      description: The next advice in the chain of responsibility.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the advised collection is read-only, otherwise <code>false</code>.
+    content.vb: Function IsReadOnly(nextAdvices As AdviceEnumerator(Of ICollectionDynamicAdviceBase)) As Boolean
+  overload: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly*
+  nameWithType.vb: ICollectionDynamicAdviceBase.IsReadOnly(AdviceEnumerator(Of ICollectionDynamicAdviceBase))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase))
+  name.vb: IsReadOnly(AdviceEnumerator(Of ICollectionDynamicAdviceBase))
+- uid: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  commentId: M:PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  id: IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  parent: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase
+  langs:
+  - csharp
+  - vb
+  name: IsSynchronized(AdviceEnumerator<ICollectionDynamicAdviceBase>)
+  nameWithType: ICollectionDynamicAdviceBase.IsSynchronized(AdviceEnumerator<ICollectionDynamicAdviceBase>)
+  fullName: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Determines whether the advised collection is synchronized (that is, thread-safe).
+  example: []
+  syntax:
+    content: bool IsSynchronized(AdviceEnumerator<ICollectionDynamicAdviceBase> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase}
+      description: The next advice in the chain of responsibility.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the advised collection is synchronized (that is, thread-safe), otherwise <code>false</code>.
+    content.vb: Function IsSynchronized(nextAdvices As AdviceEnumerator(Of ICollectionDynamicAdviceBase)) As Boolean
+  overload: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized*
+  nameWithType.vb: ICollectionDynamicAdviceBase.IsSynchronized(AdviceEnumerator(Of ICollectionDynamicAdviceBase))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase))
+  name.vb: IsSynchronized(AdviceEnumerator(Of ICollectionDynamicAdviceBase))

@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.DescendantVisitorStatus
+  commentId: T:PostSharp.Patterns.Model.DescendantVisitorStatus
+  id: DescendantVisitorStatus
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithChildren
+  - PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithSiblings
+  - PostSharp.Patterns.Model.DescendantVisitorStatus.Default
+  - PostSharp.Patterns.Model.DescendantVisitorStatus.Stop
+  langs:
+  - csharp
+  - vb
+  name: DescendantVisitorStatus
+  nameWithType: DescendantVisitorStatus
+  fullName: PostSharp.Patterns.Model.DescendantVisitorStatus
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: The type of the return value of <xref href="PostSharp.Patterns.Model.ChildVisitor" data-throw-if-not-resolved="false"></xref>. It determines how the visitor should continue enumerating other objects.
+  example: []
+  syntax:
+    content: public enum DescendantVisitorStatus
+    content.vb: Public Enum DescendantVisitorStatus
+- uid: PostSharp.Patterns.Model.DescendantVisitorStatus.Default
+  commentId: F:PostSharp.Patterns.Model.DescendantVisitorStatus.Default
+  id: Default
+  parent: PostSharp.Patterns.Model.DescendantVisitorStatus
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: DescendantVisitorStatus.Default
+  fullName: PostSharp.Patterns.Model.DescendantVisitorStatus.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Equivalent to <xref href="PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithChildren" data-throw-if-not-resolved="false"></xref> for <xref href="PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable%2cPostSharp.Patterns.Model.DescendantVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithSiblings" data-throw-if-not-resolved="false"></xref> for <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Model.DescendantVisitorStatus
+- uid: PostSharp.Patterns.Model.DescendantVisitorStatus.Stop
+  commentId: F:PostSharp.Patterns.Model.DescendantVisitorStatus.Stop
+  id: Stop
+  parent: PostSharp.Patterns.Model.DescendantVisitorStatus
+  langs:
+  - csharp
+  - vb
+  name: Stop
+  nameWithType: DescendantVisitorStatus.Stop
+  fullName: PostSharp.Patterns.Model.DescendantVisitorStatus.Stop
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Immediately stops enumeration and returns to the caller.
+  example: []
+  syntax:
+    content: Stop = 1
+    return:
+      type: PostSharp.Patterns.Model.DescendantVisitorStatus
+- uid: PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithChildren
+  commentId: F:PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithChildren
+  id: ContinueWithChildren
+  parent: PostSharp.Patterns.Model.DescendantVisitorStatus
+  langs:
+  - csharp
+  - vb
+  name: ContinueWithChildren
+  nameWithType: DescendantVisitorStatus.ContinueWithChildren
+  fullName: PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithChildren
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Continues enumerating the children of the current node, then the sibling nodes. This value is not supported by the
+
+    <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: ContinueWithChildren = 2
+    return:
+      type: PostSharp.Patterns.Model.DescendantVisitorStatus
+- uid: PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithSiblings
+  commentId: F:PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithSiblings
+  id: ContinueWithSiblings
+  parent: PostSharp.Patterns.Model.DescendantVisitorStatus
+  langs:
+  - csharp
+  - vb
+  name: ContinueWithSiblings
+  nameWithType: DescendantVisitorStatus.ContinueWithSiblings
+  fullName: PostSharp.Patterns.Model.DescendantVisitorStatus.ContinueWithSiblings
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Continues enumerating the siblings of the current node, but does not enumerate the child nodes.
+  example: []
+  syntax:
+    content: ContinueWithSiblings = 3
+    return:
+      type: PostSharp.Patterns.Model.DescendantVisitorStatus

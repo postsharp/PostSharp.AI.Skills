@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+  id: LoggingExceptionInfo
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Exception
+  - PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Source
+  langs:
+  - csharp
+  - vb
+  name: LoggingExceptionInfo
+  nameWithType: LoggingExceptionInfo
+  fullName: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Arguments of the <xref href="PostSharp.Patterns.Diagnostics.ILoggingExceptionHandler.OnInternalException(PostSharp.Patterns.Diagnostics.LoggingExceptionInfo)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public sealed class LoggingExceptionInfo
+    content.vb: Public NotInheritable Class LoggingExceptionInfo
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Backend
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: LoggingExceptionInfo.Backend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> from which the exception stems, or <code>null</code>.
+  example: []
+  syntax:
+    content: public LoggingBackend Backend { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+    content.vb: Public ReadOnly Property Backend As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Backend*
+- uid: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Source
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Source
+  id: Source
+  parent: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: LoggingExceptionInfo.Source
+  fullName: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Source
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref> to which the exception is related, or <code>null</code>.
+  example: []
+  syntax:
+    content: public LoggingNamespaceSource Source { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    content.vb: Public ReadOnly Property Source As LoggingNamespaceSource
+  overload: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Source*
+- uid: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Exception
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Exception
+  id: Exception
+  parent: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo
+  langs:
+  - csharp
+  - vb
+  name: Exception
+  nameWithType: LoggingExceptionInfo.Exception
+  fullName: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Exception
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets the <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> object, or <code>null</code> if the <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>
+
+    object has been lost, which is the case when there is an exception while logging.
+  example: []
+  syntax:
+    content: public Exception Exception { get; }
+    parameters: []
+    return:
+      type: System.Exception
+    content.vb: Public ReadOnly Property Exception As Exception
+  overload: PostSharp.Patterns.Diagnostics.LoggingExceptionInfo.Exception*

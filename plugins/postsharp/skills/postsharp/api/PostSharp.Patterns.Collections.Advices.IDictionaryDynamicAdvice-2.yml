@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  commentId: T:PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  id: IDictionaryDynamicAdvice`2
+  parent: PostSharp.Patterns.Collections.Advices
+  children:
+  - PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.AddItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  - PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  - PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.RemoveItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  - PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.SetItem(`0,`1,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  - PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  langs:
+  - csharp
+  - vb
+  name: IDictionaryDynamicAdvice<TKey, TValue>
+  nameWithType: IDictionaryDynamicAdvice<TKey, TValue>
+  fullName: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Defines the semantics of a dynamic advice that can be applied to an <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IDictionaryDynamicAdvice<TKey, TValue> : ICollectionDynamicAdviceBase, IDynamicAdvice, IDynamicInterfaceImplementation'
+    typeParameters:
+    - id: TKey
+      description: The type of the dictionary keys.
+    - id: TValue
+      description: The type of the dictionary values.
+    content.vb: Public Interface IDictionaryDynamicAdvice(Of TKey, TValue) Inherits ICollectionDynamicAdviceBase, IDynamicAdvice, IDynamicInterfaceImplementation
+  derivedClasses:
+  - PostSharp.Patterns.Collections.Advices.DictionaryDynamicAdvice`2
+  inheritedMembers:
+  - PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsReadOnly(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  - PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase.IsSynchronized(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdviceBase})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  nameWithType.vb: IDictionaryDynamicAdvice(Of TKey, TValue)
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue)
+  name.vb: IDictionaryDynamicAdvice(Of TKey, TValue)
+- uid: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.AddItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.AddItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  id: AddItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  parent: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  langs:
+  - csharp
+  - vb
+  name: AddItem(TKey, TValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  nameWithType: IDictionaryDynamicAdvice<TKey, TValue>.AddItem(TKey, TValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>.AddItem(TKey, TValue, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Adds an item to the dictionary.
+  example: []
+  syntax:
+    content: void AddItem(TKey key, TValue value, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>> nextAdvices)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: ''
+    - id: value
+      type: '{TValue}'
+      description: ''
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2}
+      description: ''
+    content.vb: Sub AddItem(key As TKey, value As TValue, nextAdvices As AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  overload: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.AddItem*
+  nameWithType.vb: IDictionaryDynamicAdvice(Of TKey, TValue).AddItem(TKey, TValue, AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue).AddItem(TKey, TValue, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue)))
+  name.vb: AddItem(TKey, TValue, AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+- uid: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.SetItem(`0,`1,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.SetItem(`0,`1,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  id: SetItem(`0,`1,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  parent: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  langs:
+  - csharp
+  - vb
+  name: SetItem(TKey, TValue, TValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  nameWithType: IDictionaryDynamicAdvice<TKey, TValue>.SetItem(TKey, TValue, TValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>.SetItem(TKey, TValue, TValue, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Replaces an item with another one in the dictionary.
+  example: []
+  syntax:
+    content: void SetItem(TKey key, TValue value, TValue oldValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>> nextAdvices)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: ''
+    - id: value
+      type: '{TValue}'
+      description: ''
+    - id: oldValue
+      type: '{TValue}'
+      description: ''
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2}
+      description: ''
+    content.vb: Sub SetItem(key As TKey, value As TValue, oldValue As TValue, nextAdvices As AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  overload: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.SetItem*
+  nameWithType.vb: IDictionaryDynamicAdvice(Of TKey, TValue).SetItem(TKey, TValue, TValue, AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue).SetItem(TKey, TValue, TValue, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue)))
+  name.vb: SetItem(TKey, TValue, TValue, AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+- uid: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.RemoveItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.RemoveItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  id: RemoveItem(`0,`1,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  parent: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  langs:
+  - csharp
+  - vb
+  name: RemoveItem(TKey, TValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  nameWithType: IDictionaryDynamicAdvice<TKey, TValue>.RemoveItem(TKey, TValue, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>.RemoveItem(TKey, TValue, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Removes an item from the dictionary.
+  example: []
+  syntax:
+    content: void RemoveItem(TKey key, TValue value, AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>> nextAdvices)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: ''
+    - id: value
+      type: '{TValue}'
+      description: ''
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2}
+      description: ''
+    content.vb: Sub RemoveItem(key As TKey, value As TValue, nextAdvices As AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  overload: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.RemoveItem*
+  nameWithType.vb: IDictionaryDynamicAdvice(Of TKey, TValue).RemoveItem(TKey, TValue, AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue).RemoveItem(TKey, TValue, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue)))
+  name.vb: RemoveItem(TKey, TValue, AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+- uid: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  id: ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  parent: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  langs:
+  - csharp
+  - vb
+  name: ClearItems(AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  nameWithType: IDictionaryDynamicAdvice<TKey, TValue>.ClearItems(AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>.ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Empties the dictionary.
+  example: []
+  syntax:
+    content: void ClearItems(AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2}
+      description: ''
+    content.vb: Sub ClearItems(nextAdvices As AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  overload: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ClearItems*
+  nameWithType.vb: IDictionaryDynamicAdvice(Of TKey, TValue).ClearItems(AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue).ClearItems(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue)))
+  name.vb: ClearItems(AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+- uid: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  commentId: M:PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  id: ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{`0,`1}})
+  parent: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2
+  langs:
+  - csharp
+  - vb
+  name: ToArray(AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  nameWithType: IDictionaryDynamicAdvice<TKey, TValue>.ToArray(AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>>)
+  fullName: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>.ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice<TKey, TValue>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Copies the dictionary to an array of keys and values.
+  example: []
+  syntax:
+    content: KeyValuePair<TKey, TValue>[] ToArray(AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>> nextAdvices)
+    parameters:
+    - id: nextAdvices
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2}
+      description: ''
+    return:
+      type: System.Collections.Generic.KeyValuePair{{TKey},{TValue}}[]
+      description: ''
+    content.vb: Function ToArray(nextAdvices As AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue))) As KeyValuePair(Of TKey, TValue)()
+  overload: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice`2.ToArray*
+  nameWithType.vb: IDictionaryDynamicAdvice(Of TKey, TValue).ToArray(AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))
+  fullName.vb: PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue).ToArray(PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice(Of TKey, TValue)))
+  name.vb: ToArray(AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue)))

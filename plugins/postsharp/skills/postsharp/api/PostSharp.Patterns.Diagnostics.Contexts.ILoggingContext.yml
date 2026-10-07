@@ -1,0 +1,257 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  id: ILoggingContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{``0},``0@,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsDisposed
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.RecycleId
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId
+  langs:
+  - csharp
+  - vb
+  name: ILoggingContext
+  nameWithType: ILoggingContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Defines the minimal semantics of a logging context required by the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement(AttributeId = 627500528741416984)]
+
+      public interface ILoggingContext : IDisposable
+    content.vb: >-
+      <InternalImplement(AttributeId:=627500528741416984)>
+
+      Public Interface ILoggingContext Inherits IDisposable
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogAsyncMethodLoggingContext
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogEphemeralLoggingContext
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogIteratorLoggingContext
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSyncMethodLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+  inheritedMembers:
+  - System.IDisposable.Dispose
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AttributeId
+      type: System.Int64
+      value: "627500528741416984"
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  id: ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  langs:
+  - csharp
+  - vb
+  name: ForEachProperty(LoggingPropertyVisitor<object>, bool)
+  nameWithType: ILoggingContext.ForEachProperty(LoggingPropertyVisitor<object>, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<object>, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Invokes a delegate for each property defined in the current logging context and optionally in its ancestor contexts.
+  remarks: <p>This method will visit all properties regardless of their name. If several properties have the same name, they will be visited several times.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use LoggingContext.VisitProperties.")]
+
+      void ForEachProperty(LoggingPropertyVisitor<object> visitor, bool includeAncestors = true)
+    parameters:
+    - id: visitor
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object}
+      description: The delegate to invoke. The <code>state</code> parameter of the delegate will be assigned to a dummy variable.
+    - id: includeAncestors
+      type: System.Boolean
+      description: <code>true</code> if ancestor contexts should be visited, <code>false</code> if only the current context should be visited.
+    content.vb: >-
+      <Obsolete("Use LoggingContext.VisitProperties.")>
+
+      Sub ForEachProperty(visitor As LoggingPropertyVisitor(Of Object), includeAncestors As Boolean = True)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use LoggingContext.VisitProperties.
+  nameWithType.vb: ILoggingContext.ForEachProperty(LoggingPropertyVisitor(Of Object), Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of Object), Boolean)
+  name.vb: ForEachProperty(LoggingPropertyVisitor(Of Object), Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{``0},``0@,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{``0},``0@,System.Boolean)
+  id: ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{``0},``0@,System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  langs:
+  - csharp
+  - vb
+  name: ForEachProperty<T>(LoggingPropertyVisitor<T>, ref T, bool)
+  nameWithType: ILoggingContext.ForEachProperty<T>(LoggingPropertyVisitor<T>, ref T, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty<T>(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<T>, ref T, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Invokes a delegate for each property defined in the current logging context and optionally in its ancestor contexts, and passes a state object
+
+    to the delegate.
+  remarks: <p>This method will visit all properties regardless of their name. If several properties have the same name, they will be visited several times.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use LoggingContext.VisitProperties.")]
+
+      void ForEachProperty<T>(LoggingPropertyVisitor<T> visitor, ref T state, bool includeAncestors = true)
+    parameters:
+    - id: visitor
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{{T}}
+      description: The delegate to invoke. The <code>state</code> parameter of the delegate will be assigned to a dummy variable.
+    - id: state
+      type: '{T}'
+      description: The state object that will be passed to the <code class="paramref">visitor</code> delegate.
+    - id: includeAncestors
+      type: System.Boolean
+      description: <code>true</code> if ancestor contexts should be visited, <code>false</code> if only the current context should be visited.
+    typeParameters:
+    - id: T
+      description: The type of the state passed to the <code class="paramref">visitor</code> delegate.
+    content.vb: >-
+      <Obsolete("Use LoggingContext.VisitProperties.")>
+
+      Sub ForEachProperty(Of T)(visitor As LoggingPropertyVisitor(Of T), state As T, includeAncestors As Boolean = True)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use LoggingContext.VisitProperties.
+  nameWithType.vb: ILoggingContext.ForEachProperty(Of T)(LoggingPropertyVisitor(Of T), T, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(Of T)(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of T), T, Boolean)
+  name.vb: ForEachProperty(Of T)(LoggingPropertyVisitor(Of T), T, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsDisposed
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsDisposed
+  id: IsDisposed
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  langs:
+  - csharp
+  - vb
+  name: IsDisposed
+  nameWithType: ILoggingContext.IsDisposed
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsDisposed
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Gets a value indicating whether the context is currently disposed. Contexts can be recycled, therefore the
+
+    disposed state is not the final state.
+  example: []
+  syntax:
+    content: bool IsDisposed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsDisposed As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsDisposed*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.RecycleId
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.RecycleId
+  id: RecycleId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  langs:
+  - csharp
+  - vb
+  name: RecycleId
+  nameWithType: ILoggingContext.RecycleId
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.RecycleId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets an integer that is incremented every time the current instance is being recycled.
+  example: []
+  syntax:
+    content: int RecycleId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property RecycleId As Integer
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.RecycleId*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsAsync
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsAsync
+  id: IsAsync
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  langs:
+  - csharp
+  - vb
+  name: IsAsync
+  nameWithType: ILoggingContext.IsAsync
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsAsync
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a value indicating whether the context represents an <code>async</code> method or a custom activity in an <code>async</code> method.
+  example: []
+  syntax:
+    content: bool IsAsync { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsAsync As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsAsync*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId
+  id: SyntheticId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  langs:
+  - csharp
+  - vb
+  name: SyntheticId
+  nameWithType: ILoggingContext.SyntheticId
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a cross-process globally unique identifier for the current context.
+  remarks: <p>Use this identifier to correlate the log records of a logical operation across processes.</p>
+  example: []
+  syntax:
+    content: string SyntheticId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property SyntheticId As String
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId*
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'

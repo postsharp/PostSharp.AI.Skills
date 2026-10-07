@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Locking.ILockManager
+  commentId: T:PostSharp.Patterns.Caching.Locking.ILockManager
+  id: ILockManager
+  parent: PostSharp.Patterns.Caching.Locking
+  children:
+  - PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(System.String)
+  langs:
+  - csharp
+  - vb
+  name: ILockManager
+  nameWithType: ILockManager
+  fullName: PostSharp.Patterns.Caching.Locking.ILockManager
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Provides instances of named locks.
+  remarks: >-
+    <p>Two implementations are provided: <xref href="PostSharp.Patterns.Caching.Locking.NullLockManager" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.Locking.LocalLockManager" data-throw-if-not-resolved="false"></xref>.
+        To change the lock manager, set the <xref href="PostSharp.Patterns.Caching.CachingProfile.LockManager" data-throw-if-not-resolved="false"></xref> property.</p>
+    <p>The caching aspect requests a lock named after the cache key when a cached method is not found in the cache, so that only one caller
+        evaluates the method for a given set of arguments. To prevent concurrent evaluation across processes or machines, implement this interface
+        and <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle" data-throw-if-not-resolved="false"></xref> on top of a distributed lock.</p>
+  example: []
+  syntax:
+    content: public interface ILockManager
+    content.vb: Public Interface ILockManager
+  seealso:
+  - linkId: PostSharp.Patterns.Caching.Locking.ILockHandle
+    commentId: T:PostSharp.Patterns.Caching.Locking.ILockHandle
+  - linkType: HRef
+    linkId: '@cache-locking'
+    altText: 'Conceptual: Preventing Concurrent Execution of Cached Methods'
+  derivedClasses:
+  - PostSharp.Patterns.Caching.Locking.LocalLockManager
+  - PostSharp.Patterns.Caching.Locking.NullLockManager
+- uid: PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(System.String)
+  id: GetLock(System.String)
+  parent: PostSharp.Patterns.Caching.Locking.ILockManager
+  langs:
+  - csharp
+  - vb
+  name: GetLock(string)
+  nameWithType: ILockManager.GetLock(string)
+  fullName: PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Gets a handle to a named lock. This method must return immediately. Waiting, if any, must be done in the <xref href="PostSharp.Patterns.Caching.Locking.ILockHandle.Acquire(System.TimeSpan%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: ILockHandle GetLock(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The name of the lock.
+    return:
+      type: PostSharp.Patterns.Caching.Locking.ILockHandle
+      description: A handle to the lock named <code class="paramref">key</code>.
+    content.vb: Function GetLock(key As String) As ILockHandle
+  overload: PostSharp.Patterns.Caching.Locking.ILockManager.GetLock*
+  nameWithType.vb: ILockManager.GetLock(String)
+  fullName.vb: PostSharp.Patterns.Caching.Locking.ILockManager.GetLock(String)
+  name.vb: GetLock(String)

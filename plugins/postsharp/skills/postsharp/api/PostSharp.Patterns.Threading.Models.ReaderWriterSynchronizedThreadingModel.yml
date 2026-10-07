@@ -1,0 +1,90 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel
+  commentId: T:PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel
+  id: ReaderWriterSynchronizedThreadingModel
+  parent: PostSharp.Patterns.Threading.Models
+  children:
+  - PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsBlocking
+  - PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsThreadSafe
+  langs:
+  - csharp
+  - vb
+  name: ReaderWriterSynchronizedThreadingModel
+  nameWithType: ReaderWriterSynchronizedThreadingModel
+  fullName: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    The <xref href="PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref> class describes a threading model where several threads can have concurrent read-only access,
+
+    but where writing to the object requires exclusive access.
+
+    To use the <xref href="PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref>, apply the <xref href="PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to a class.
+  example: []
+  syntax:
+    content: 'public sealed class ReaderWriterSynchronizedThreadingModel : ThreadingModel'
+    content.vb: Public NotInheritable Class ReaderWriterSynchronizedThreadingModel Inherits ThreadingModel
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Threading.ThreadingModel
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadingModel.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsBlocking
+  commentId: P:PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsBlocking
+  id: IsBlocking
+  parent: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsBlocking
+  nameWithType: ReaderWriterSynchronizedThreadingModel.IsBlocking
+  fullName: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsBlocking
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Threading.ThreadingModel" data-throw-if-not-resolved="false"></xref> has blocking semantics, that is, whether the threading model may cause the executing thread
+
+    to be blocked, for instance when waiting for a lock.
+  example: []
+  syntax:
+    content: public override bool IsBlocking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsBlocking As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsBlocking
+  overload: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsBlocking*
+- uid: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsThreadSafe
+  commentId: P:PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsThreadSafe
+  id: IsThreadSafe
+  parent: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsThreadSafe
+  nameWithType: ReaderWriterSynchronizedThreadingModel.IsThreadSafe
+  fullName: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsThreadSafe
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: Gets a value indicating whether the threading model is possibly thread safe.
+  example: []
+  syntax:
+    content: public override bool IsThreadSafe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsThreadSafe As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsThreadSafe
+  overload: PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel.IsThreadSafe*

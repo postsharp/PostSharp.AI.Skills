@@ -1,0 +1,732 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  commentId: T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  id: RedisCachingBackendConfiguration
+  parent: PostSharp.Patterns.Caching.Backends.Redis
+  children:
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.#ctor
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundRecoveryRetryPolicy
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksMaxConcurrency
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CheckFrozen
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Clone
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ConnectionTimeout
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CreateSerializer
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DefaultExpiration
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ExceptionHandlingPolicy
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.InvalidationMaxConcurrency
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsFrozen
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyCompressingThreshold
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.OwnsConnection
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ReadCommandFlags
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionMaxRetries
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionRetryPolicy
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.WriteCommandFlags
+  langs:
+  - csharp
+  - vb
+  name: RedisCachingBackendConfiguration
+  nameWithType: RedisCachingBackendConfiguration
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Configuration for <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The configuration becomes read-only when it is passed to <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>.
+        Use <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Clone" data-throw-if-not-resolved="false"></xref> to get a modifiable copy.</p>
+  example: []
+  syntax:
+    content: 'public class RedisCachingBackendConfiguration : ICloneable'
+    content.vb: Public Class RedisCachingBackendConfiguration Implements ICloneable
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+  inheritance:
+  - System.Object
+  implements:
+  - System.ICloneable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CheckFrozen
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CheckFrozen
+  id: CheckFrozen
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: CheckFrozen()
+  nameWithType: RedisCachingBackendConfiguration.CheckFrozen()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CheckFrozen()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Throws an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> if the object has been frozen.
+  example: []
+  syntax:
+    content: protected void CheckFrozen()
+    content.vb: Protected Sub CheckFrozen()
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CheckFrozen*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: The object has been frozen.
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Clone
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Clone
+  id: Clone
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: RedisCachingBackendConfiguration.Clone()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Clone()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Returns a non-frozen clone of the current instance.
+  example: []
+  syntax:
+    content: public RedisCachingBackendConfiguration Clone()
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+      description: A non-frozen clone of the current instance.
+    content.vb: Public Function Clone() As RedisCachingBackendConfiguration
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Clone*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: RedisCachingBackendConfiguration()
+  nameWithType: RedisCachingBackendConfiguration.RedisCachingBackendConfiguration()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.RedisCachingBackendConfiguration()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  syntax:
+    content: public RedisCachingBackendConfiguration()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.#ctor*
+  nameWithType.vb: RedisCachingBackendConfiguration.New()
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix
+  id: KeyPrefix
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: KeyPrefix
+  nameWithType: RedisCachingBackendConfiguration.KeyPrefix
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets the prefix for the keys of all Redis items created by the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>. The default value is <code>cache</code>.
+  remarks: >-
+    <p>Set a value that identifies the application and the version of its data model, so that several applications or versions can share
+        the same Redis database. Change the value when the serialized form of the cached data changes incompatibly.
+        The value cannot contain the <code>:</code> character.</p>
+  example: []
+  syntax:
+    content: public string KeyPrefix { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property KeyPrefix As String
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database
+  id: Database
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Database
+  nameWithType: RedisCachingBackendConfiguration.Database
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets the index of the database to use. The default value is <code>-1</code> (automatic selection).
+  example: []
+  syntax:
+    content: public int Database { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Database As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.Database*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CreateSerializer
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CreateSerializer
+  id: CreateSerializer
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: CreateSerializer
+  nameWithType: RedisCachingBackendConfiguration.CreateSerializer
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CreateSerializer
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets a function that creates the serializer used to serialize objects into byte arrays (and conversely).
+
+    The default value is <code>null</code>, which means that <xref href="PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer" data-throw-if-not-resolved="false"></xref> will be used.
+  example: []
+  syntax:
+    content: public Func<ISerializer> CreateSerializer { get; set; }
+    parameters: []
+    return:
+      type: System.Func{PostSharp.Patterns.Caching.Serializers.ISerializer}
+    content.vb: Public Property CreateSerializer As Func(Of ISerializer)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.CreateSerializer*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.OwnsConnection
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.OwnsConnection
+  id: OwnsConnection
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: OwnsConnection
+  nameWithType: RedisCachingBackendConfiguration.OwnsConnection
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.OwnsConnection
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> should dispose the Redis connection when the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>
+
+    itself is disposed.
+  example: []
+  syntax:
+    content: public bool OwnsConnection { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property OwnsConnection As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.OwnsConnection*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionMaxRetries
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionMaxRetries
+  id: TransactionMaxRetries
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: TransactionMaxRetries
+  nameWithType: RedisCachingBackendConfiguration.TransactionMaxRetries
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionMaxRetries
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the number of times Redis transactions are retried when they fail due to a data conflict, before an exception
+
+    is raised. The default value is <code>5</code>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use TransactionRetryPolicy.")]
+
+      public int TransactionMaxRetries { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("Use TransactionRetryPolicy.")>
+
+      Public Property TransactionMaxRetries As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionMaxRetries*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use TransactionRetryPolicy.
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionRetryPolicy
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionRetryPolicy
+  id: TransactionRetryPolicy
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: TransactionRetryPolicy
+  nameWithType: RedisCachingBackendConfiguration.TransactionRetryPolicy
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionRetryPolicy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the <xref href="PostSharp.Patterns.Caching.Resilience.IRetryPolicy" data-throw-if-not-resolved="false"></xref> that handles the retry loop
+
+    of Redis transactions. The default value is the default instance of
+
+    the <xref href="PostSharp.Patterns.Caching.Resilience.TransactionRetryPolicy" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public IRetryPolicy TransactionRetryPolicy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.IRetryPolicy
+    content.vb: Public Property TransactionRetryPolicy As IRetryPolicy
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.TransactionRetryPolicy*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy
+  id: BackgroundTasksRetryPolicy
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: BackgroundTasksRetryPolicy
+  nameWithType: RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the <xref href="PostSharp.Patterns.Caching.Resilience.IRetryPolicy" data-throw-if-not-resolved="false"></xref> that handles the retries of background (non-blocking)
+
+    operations. The default value is the default instance of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public IRetryPolicy BackgroundTasksRetryPolicy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.IRetryPolicy
+    content.vb: Public Property BackgroundTasksRetryPolicy As IRetryPolicy
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksMaxConcurrency
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksMaxConcurrency
+  id: BackgroundTasksMaxConcurrency
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: BackgroundTasksMaxConcurrency
+  nameWithType: RedisCachingBackendConfiguration.BackgroundTasksMaxConcurrency
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksMaxConcurrency
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the maximum number of concurrent background tasks. This number must be kept low
+
+    to avoid overloading the system or the cache with bursts, for example when Redis processes evictions. The default value is 25.
+  example: []
+  syntax:
+    content: public int BackgroundTasksMaxConcurrency { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BackgroundTasksMaxConcurrency As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksMaxConcurrency*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold
+  id: BackgroundTasksOverloadedThreshold
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: BackgroundTasksOverloadedThreshold
+  nameWithType: RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the number of tasks over which the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> notifies its state as overloaded
+
+    through the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded" data-throw-if-not-resolved="false"></xref> property and the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged" data-throw-if-not-resolved="false"></xref>
+
+    event. The default value is 125. The <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> component stops processing real-time eviction and expiration
+
+    notifications when the component is overloaded.
+  example: []
+  syntax:
+    content: public int BackgroundTasksOverloadedThreshold { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property BackgroundTasksOverloadedThreshold As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundRecoveryRetryPolicy
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundRecoveryRetryPolicy
+  id: BackgroundRecoveryRetryPolicy
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: BackgroundRecoveryRetryPolicy
+  nameWithType: RedisCachingBackendConfiguration.BackgroundRecoveryRetryPolicy
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundRecoveryRetryPolicy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the <xref href="PostSharp.Patterns.Caching.Resilience.IRetryPolicy" data-throw-if-not-resolved="false"></xref> that handles the retry loop
+
+    of background recovery actions (see <xref href="PostSharp.Patterns.Caching.Resilience.RecoveryAction.InvalidateDependencyInBackground" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Resilience.RecoveryAction.RemoveItemInBackground" data-throw-if-not-resolved="false"></xref>).
+
+    The default value is the default instance of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksRetryPolicy" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public IRetryPolicy BackgroundRecoveryRetryPolicy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.IRetryPolicy
+    content.vb: Public Property BackgroundRecoveryRetryPolicy As IRetryPolicy
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundRecoveryRetryPolicy*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies
+  id: SupportsDependencies
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SupportsDependencies
+  nameWithType: RedisCachingBackendConfiguration.SupportsDependencies
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> should support dependencies. When this property is used,
+
+    the <xref href="PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" data-throw-if-not-resolved="false"></xref> class is used instead of <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>. When dependencies
+
+    are enabled, at least one instance of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref> must run.
+  example: []
+  syntax:
+    content: public bool SupportsDependencies { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsDependencies As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents
+  id: SupportsEvents
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SupportsEvents
+  nameWithType: RedisCachingBackendConfiguration.SupportsEvents
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> supports raising events. It is disabled by default.
+  example: []
+  syntax:
+    content: public bool SupportsEvents { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SupportsEvents As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached
+  id: IsLocallyCached
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsLocallyCached
+  nameWithType: RedisCachingBackendConfiguration.IsLocallyCached
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets a value indicating whether a <xref href="PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" data-throw-if-not-resolved="false"></xref> should be added in front of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The local cache reduces the latency and the deserialization cost of cache hits. It is invalidated through events that other nodes publish
+        through Redis publish/subscribe channels, and a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> publishes these events only when <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents" data-throw-if-not-resolved="false"></xref> is <code>true</code>.
+        Therefore, if one node enables this property, all nodes that share the cache must enable <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsEvents" data-throw-if-not-resolved="false"></xref>.
+        Invalidation is asynchronous, so different nodes can return different values for a short time.</p>
+  example: []
+  syntax:
+    content: public bool IsLocallyCached { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLocallyCached As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DefaultExpiration
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DefaultExpiration
+  id: DefaultExpiration
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DefaultExpiration
+  nameWithType: RedisCachingBackendConfiguration.DefaultExpiration
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DefaultExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the default expiration time of cached items.
+
+    All items that do not have an explicit expiration time are automatically expired according to the value
+
+    of this property, unless they have the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItemPriority.NotRemovable" data-throw-if-not-resolved="false"></xref> priority.
+
+    The default value is 30 days.
+  example: []
+  syntax:
+    content: public TimeSpan DefaultExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property DefaultExpiration As TimeSpan
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DefaultExpiration*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsFrozen
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsFrozen
+  id: IsFrozen
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsFrozen
+  nameWithType: RedisCachingBackendConfiguration.IsFrozen
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsFrozen
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets a value indicating whether the current instance is frozen, that is, read-only.
+  example: []
+  syntax:
+    content: public bool IsFrozen { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFrozen As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsFrozen*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ConnectionTimeout
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ConnectionTimeout
+  id: ConnectionTimeout
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ConnectionTimeout
+  nameWithType: RedisCachingBackendConfiguration.ConnectionTimeout
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ConnectionTimeout
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the time that the Redis backend waits for a Redis connection.
+
+    When you create a new Redis backend, a <xref href="System.TimeoutException" data-throw-if-not-resolved="false"></xref> is thrown if it does not connect to a Redis server within this time.
+  remarks: The default value is 1 minute.
+  example: []
+  syntax:
+    content: public TimeSpan ConnectionTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property ConnectionTimeout As TimeSpan
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ConnectionTimeout*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ReadCommandFlags
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ReadCommandFlags
+  id: ReadCommandFlags
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ReadCommandFlags
+  nameWithType: RedisCachingBackendConfiguration.ReadCommandFlags
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ReadCommandFlags
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets the <xref href="StackExchange.Redis.CommandFlags" data-throw-if-not-resolved="false"></xref> for read Redis operations.
+  example: []
+  syntax:
+    content: public CommandFlags ReadCommandFlags { get; set; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.CommandFlags
+    content.vb: Public Property ReadCommandFlags As CommandFlags
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ReadCommandFlags*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.WriteCommandFlags
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.WriteCommandFlags
+  id: WriteCommandFlags
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: WriteCommandFlags
+  nameWithType: RedisCachingBackendConfiguration.WriteCommandFlags
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.WriteCommandFlags
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets the <xref href="StackExchange.Redis.CommandFlags" data-throw-if-not-resolved="false"></xref> for write Redis operations.
+  example: []
+  syntax:
+    content: public CommandFlags WriteCommandFlags { get; set; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.CommandFlags
+    content.vb: Public Property WriteCommandFlags As CommandFlags
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.WriteCommandFlags*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ExceptionHandlingPolicy
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ExceptionHandlingPolicy
+  id: ExceptionHandlingPolicy
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ExceptionHandlingPolicy
+  nameWithType: RedisCachingBackendConfiguration.ExceptionHandlingPolicy
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ExceptionHandlingPolicy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the <xref href="PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy" data-throw-if-not-resolved="false"></xref>, which determines how exceptions in the
+
+    <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> component are handled. The default value is an instance of the <xref href="PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy" data-throw-if-not-resolved="false"></xref>
+
+    class.
+  example: []
+  syntax:
+    content: public IExceptionHandlingPolicy ExceptionHandlingPolicy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy
+    content.vb: Public Property ExceptionHandlingPolicy As IExceptionHandlingPolicy
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.ExceptionHandlingPolicy*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyCompressingThreshold
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyCompressingThreshold
+  id: KeyCompressingThreshold
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: KeyCompressingThreshold
+  nameWithType: RedisCachingBackendConfiguration.KeyCompressingThreshold
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyCompressingThreshold
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets or sets the length threshold over which cache keys are hashed. The default value is 127.
+  example: []
+  syntax:
+    content: public int KeyCompressingThreshold { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property KeyCompressingThreshold As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyCompressingThreshold*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout
+  id: DisposeTimeout
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DisposeTimeout
+  nameWithType: RedisCachingBackendConfiguration.DisposeTimeout
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the timeout of the Dispose methods if no cancellation token is provided.
+
+    The default value is 30 seconds. Note that there are still some situations where the Dispose operation cannot be canceled
+
+    or timed out.
+  example: []
+  syntax:
+    content: public TimeSpan DisposeTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property DisposeTimeout As TimeSpan
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.InvalidationMaxConcurrency
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.InvalidationMaxConcurrency
+  id: InvalidationMaxConcurrency
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+  langs:
+  - csharp
+  - vb
+  name: InvalidationMaxConcurrency
+  nameWithType: RedisCachingBackendConfiguration.InvalidationMaxConcurrency
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.InvalidationMaxConcurrency
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets or sets the maximum number of items that can be invalidated concurrently by a single call of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependency(System.String)" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItem(System.String%2cPostSharp.Patterns.Caching.Implementation.CacheItem)" data-throw-if-not-resolved="false"></xref> method (or their asynchronous equivalents). The aim of this setting is to
+
+    prevent the invalidation of large graphs from overloading the system. Instead, only the expensive invalidation operations will be throttled.
+  example: []
+  syntax:
+    content: public int InvalidationMaxConcurrency { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property InvalidationMaxConcurrency As Integer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.InvalidationMaxConcurrency*

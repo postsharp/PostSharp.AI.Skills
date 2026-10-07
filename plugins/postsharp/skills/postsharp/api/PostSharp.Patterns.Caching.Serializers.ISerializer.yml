@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Serializers.ISerializer
+  commentId: T:PostSharp.Patterns.Caching.Serializers.ISerializer
+  id: ISerializer
+  parent: PostSharp.Patterns.Caching.Serializers
+  children:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(System.Byte[])
+  - PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ISerializer
+  nameWithType: ISerializer
+  fullName: PostSharp.Patterns.Caching.Serializers.ISerializer
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Serializes an object into a byte array and deserializes the byte array back.
+  example: []
+  syntax:
+    content: public interface ISerializer
+    content.vb: Public Interface ISerializer
+  derivedClasses:
+  - PostSharp.Patterns.Caching.Serializers.BinarySerializer
+  - PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  - PostSharp.Patterns.Caching.Serializers.PortableSerializer
+- uid: PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(System.Object)
+  id: Serialize(System.Object)
+  parent: PostSharp.Patterns.Caching.Serializers.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: Serialize(object)
+  nameWithType: ISerializer.Serialize(object)
+  fullName: PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Serializes an object into a byte array.
+  example: []
+  syntax:
+    content: byte[] Serialize(object value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The object to serialize.
+    return:
+      type: System.Byte[]
+      description: A byte array representing <code class="paramref">value</code>.
+    content.vb: Function Serialize(value As Object) As Byte()
+  overload: PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize*
+  nameWithType.vb: ISerializer.Serialize(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(Object)
+  name.vb: Serialize(Object)
+- uid: PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(System.Byte[])
+  commentId: M:PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(System.Byte[])
+  id: Deserialize(System.Byte[])
+  parent: PostSharp.Patterns.Caching.Serializers.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(byte[])
+  nameWithType: ISerializer.Deserialize(byte[])
+  fullName: PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(byte[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Deserializes a byte array into an object.
+  example: []
+  syntax:
+    content: object Deserialize(byte[] array)
+    parameters:
+    - id: array
+      type: System.Byte[]
+      description: A byte array.
+    return:
+      type: System.Object
+      description: The object represented by <code class="paramref">array</code>.
+    content.vb: Function Deserialize(array As Byte()) As Object
+  overload: PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize*
+  nameWithType.vb: ISerializer.Deserialize(Byte())
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(Byte())
+  name.vb: Deserialize(Byte())

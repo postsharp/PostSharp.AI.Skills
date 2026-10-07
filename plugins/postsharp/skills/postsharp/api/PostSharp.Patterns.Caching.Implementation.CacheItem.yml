@@ -1,0 +1,425 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheItem
+  id: CacheItem
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Configuration
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Dependencies
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(System.Object)
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.GetHashCode
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Tags
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Timestamp
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Value
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.op_Equality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.op_Inequality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  langs:
+  - csharp
+  - vb
+  name: CacheItem
+  nameWithType: CacheItem
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Represents an item being added to the cache.
+  example: []
+  syntax:
+    content: >-
+      [ImportSerializer(typeof(ImmutableList<>), typeof(ImmutableListPortableSerializer<>))]
+
+      [Serializer(typeof(CacheItem.Serializer))]
+
+      public sealed class CacheItem : IEquatable<CacheItem>
+    content.vb: >-
+      <ImportSerializer(GetType(ImmutableList(Of )), GetType(ImmutableListPortableSerializer(Of )))>
+
+      <Serializer(GetType(CacheItem.Serializer))>
+
+      Public NotInheritable Class CacheItem Implements IEquatable(Of CacheItem)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Caching.Implementation.CacheItem}
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Caching.Implementation.CacheItem.Serializer
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  id: '#ctor(System.Object,System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: CacheItem(object, IImmutableList<string>, CacheItemConfiguration)
+  nameWithType: CacheItem.CacheItem(object, IImmutableList<string>, CacheItemConfiguration)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.CacheItem(object, System.Collections.Immutable.IImmutableList<string>, PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref> class without specifying the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem.Tags" data-throw-if-not-resolved="false"></xref> list.
+  example: []
+  syntax:
+    content: public CacheItem(object value, IImmutableList<string> dependencies = null, CacheItemConfiguration configuration = null)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be cached (<code>null</code> is a valid value).
+    - id: dependencies
+      type: System.Collections.Immutable.IImmutableList{System.String}
+      description: A list of dependencies, or <code>null</code> if there is no dependency.
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration
+      description: The configuration of the cache item, or <code>null</code> to use the default configuration.
+    content.vb: Public Sub New(value As Object, dependencies As IImmutableList(Of String) = Nothing, configuration As CacheItemConfiguration = Nothing)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor*
+  nameWithType.vb: CacheItem.New(Object, IImmutableList(Of String), CacheItemConfiguration)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheItem.New(Object, System.Collections.Immutable.IImmutableList(Of String), PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  name.vb: New(Object, IImmutableList(Of String), CacheItemConfiguration)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  id: '#ctor(System.Object,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Immutable.IImmutableList{System.String},PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: CacheItem(object, IReadOnlyList<object>, IImmutableList<string>, CacheItemConfiguration)
+  nameWithType: CacheItem.CacheItem(object, IReadOnlyList<object>, IImmutableList<string>, CacheItemConfiguration)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.CacheItem(object, System.Collections.Generic.IReadOnlyList<object>, System.Collections.Immutable.IImmutableList<string>, PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref> class and specifies the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem.Tags" data-throw-if-not-resolved="false"></xref> list.
+  example: []
+  syntax:
+    content: public CacheItem(object value, IReadOnlyList<object> tags, IImmutableList<string> dependencies = null, CacheItemConfiguration configuration = null)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be cached (<code>null</code> is a valid value).
+    - id: tags
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+      description: A secondary list of values, typically used by <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer" data-throw-if-not-resolved="false"></xref> implementations.
+    - id: dependencies
+      type: System.Collections.Immutable.IImmutableList{System.String}
+      description: A list of dependencies, or <code>null</code> if there is no dependency.
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration
+      description: The configuration of the cache item, or <code>null</code> to use the default configuration.
+    content.vb: Public Sub New(value As Object, tags As IReadOnlyList(Of Object), dependencies As IImmutableList(Of String) = Nothing, configuration As CacheItemConfiguration = Nothing)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor*
+  nameWithType.vb: CacheItem.New(Object, IReadOnlyList(Of Object), IImmutableList(Of String), CacheItemConfiguration)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheItem.New(Object, System.Collections.Generic.IReadOnlyList(Of Object), System.Collections.Immutable.IImmutableList(Of String), PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration)
+  name.vb: New(Object, IReadOnlyList(Of Object), IImmutableList(Of String), CacheItemConfiguration)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: CacheItem.Equals(object)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals*
+  nameWithType.vb: CacheItem.Equals(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.op_Equality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.op_Equality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  id: op_Equality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: operator ==(CacheItem, CacheItem)
+  nameWithType: CacheItem.operator ==(CacheItem, CacheItem)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.operator ==(PostSharp.Patterns.Caching.Implementation.CacheItem, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Determines whether two instances of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref> class are structurally equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(CacheItem first, CacheItem second)
+    parameters:
+    - id: first
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: A <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+    - id: second
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: A <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">first</code> equals <code class="paramref">second</code>, otherwise <code>false</code>.
+    content.vb: Public Shared Operator =(first As CacheItem, second As CacheItem) As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.op_Equality*
+  nameWithType.vb: CacheItem.=(CacheItem, CacheItem)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheItem.=(PostSharp.Patterns.Caching.Implementation.CacheItem, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  name.vb: =(CacheItem, CacheItem)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.op_Inequality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.op_Inequality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  id: op_Inequality(PostSharp.Patterns.Caching.Implementation.CacheItem,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: operator !=(CacheItem, CacheItem)
+  nameWithType: CacheItem.operator !=(CacheItem, CacheItem)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.operator !=(PostSharp.Patterns.Caching.Implementation.CacheItem, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Determines whether two instances of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref> class are structurally different.
+  example: []
+  syntax:
+    content: public static bool operator !=(CacheItem first, CacheItem second)
+    parameters:
+    - id: first
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: A <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+    - id: second
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: A <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">first</code> is different from <code class="paramref">second</code>, otherwise <code>false</code>.
+    content.vb: Public Shared Operator <>(first As CacheItem, second As CacheItem) As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.op_Inequality*
+  nameWithType.vb: CacheItem.<>(CacheItem, CacheItem)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheItem.<>(PostSharp.Patterns.Caching.Implementation.CacheItem, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  name.vb: <>(CacheItem, CacheItem)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(PostSharp.Patterns.Caching.Implementation.CacheItem)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(PostSharp.Patterns.Caching.Implementation.CacheItem)
+  id: Equals(PostSharp.Patterns.Caching.Implementation.CacheItem)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Equals(CacheItem)
+  nameWithType: CacheItem.Equals(CacheItem)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals(PostSharp.Patterns.Caching.Implementation.CacheItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Determines whether the current <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref> is structurally equal to another <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Equals(CacheItem other)
+    parameters:
+    - id: other
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: A <xref href="PostSharp.Patterns.Caching.Implementation.CacheItem" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if both items are equal, otherwise <code>false</code>.
+    content.vb: Public Function Equals(other As CacheItem) As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Caching.Implementation.CacheItem}.Equals(PostSharp.Patterns.Caching.Implementation.CacheItem)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.GetHashCode
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: CacheItem.GetHashCode()
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.GetHashCode*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: CacheItem(PortableFormatterConstructorContext)
+  nameWithType: CacheItem.CacheItem(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.CacheItem(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  syntax:
+    content: protected CacheItem(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.#ctor*
+  nameWithType.vb: CacheItem.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheItem.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Timestamp
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItem.Timestamp
+  id: Timestamp
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: CacheItem.Timestamp
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Timestamp
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the time when the item was instantiated. This is useful in non-blocking cache handling, when a set request
+
+    might be processed several seconds after it has been ordered.
+  example: []
+  syntax:
+    content: public DateTime Timestamp { get; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public ReadOnly Property Timestamp As Date
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Timestamp*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Tags
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItem.Tags
+  id: Tags
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Tags
+  nameWithType: CacheItem.Tags
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Tags
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a list of tags, i.e. additional values to be cached, typically set
+
+    by backend enhancers.
+  example: []
+  syntax:
+    content: public IReadOnlyList<object> Tags { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{System.Object}
+    content.vb: Public ReadOnly Property Tags As IReadOnlyList(Of Object)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Tags*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Value
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItem.Value
+  id: Value
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: CacheItem.Value
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Value
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the value to be cached (<code>null</code> is a valid value).
+  example: []
+  syntax:
+    content: public object Value { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property Value As Object
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Value*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Dependencies
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItem.Dependencies
+  id: Dependencies
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Dependencies
+  nameWithType: CacheItem.Dependencies
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Dependencies
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the list of dependencies of the current item, or <code>null</code>
+
+    if there is no dependency.
+  example: []
+  syntax:
+    content: public IImmutableList<string> Dependencies { get; }
+    parameters: []
+    return:
+      type: System.Collections.Immutable.IImmutableList{System.String}
+    content.vb: Public ReadOnly Property Dependencies As IImmutableList(Of String)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Dependencies*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItem.Configuration
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItem.Configuration
+  id: Configuration
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItem
+  langs:
+  - csharp
+  - vb
+  name: Configuration
+  nameWithType: CacheItem.Configuration
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItem.Configuration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the <xref href="PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration" data-throw-if-not-resolved="false"></xref> for the current item,
+
+    or <code>null</code> to use the default configuration.
+  example: []
+  syntax:
+    content: public CacheItemConfiguration Configuration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration
+    content.vb: Public ReadOnly Property Configuration As CacheItemConfiguration
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItem.Configuration*

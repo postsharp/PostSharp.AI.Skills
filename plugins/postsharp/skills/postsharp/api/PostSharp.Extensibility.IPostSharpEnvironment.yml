@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IPostSharpEnvironment
+  commentId: T:PostSharp.Extensibility.IPostSharpEnvironment
+  id: IPostSharpEnvironment
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IPostSharpEnvironment.CurrentProject
+  - PostSharp.Extensibility.IPostSharpEnvironment.LoadAssemblyFromFile(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IPostSharpEnvironment
+  nameWithType: IPostSharpEnvironment
+  fullName: PostSharp.Extensibility.IPostSharpEnvironment
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Provides information about the current <code>PostSharp</code> environment.
+  example: []
+  syntax:
+    content: public interface IPostSharpEnvironment
+    content.vb: Public Interface IPostSharpEnvironment
+- uid: PostSharp.Extensibility.IPostSharpEnvironment.LoadAssemblyFromFile(System.String)
+  commentId: M:PostSharp.Extensibility.IPostSharpEnvironment.LoadAssemblyFromFile(System.String)
+  id: LoadAssemblyFromFile(System.String)
+  parent: PostSharp.Extensibility.IPostSharpEnvironment
+  langs:
+  - csharp
+  - vb
+  name: LoadAssemblyFromFile(string)
+  nameWithType: IPostSharpEnvironment.LoadAssemblyFromFile(string)
+  fullName: PostSharp.Extensibility.IPostSharpEnvironment.LoadAssemblyFromFile(string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Loads an <xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref> given its file name.
+  remarks: >-
+    <p>
+            Use this method instead of <xref href="System.Reflection.Assembly.LoadFile(System.String)" data-throw-if-not-resolved="false"></xref>.
+          </p>
+    <div class="NOTE"><h5>note</h5><p>
+            You cannot load two assemblies with different paths and the same identity (strong name) into PostSharp.
+          </p></div>
+  example: []
+  syntax:
+    content: Assembly LoadAssemblyFromFile(string fileName)
+    parameters:
+    - id: fileName
+      type: System.String
+      description: The full path of the assembly.
+    return:
+      type: System.Reflection.Assembly
+      description: The <xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function LoadAssemblyFromFile(fileName As String) As Assembly
+  overload: PostSharp.Extensibility.IPostSharpEnvironment.LoadAssemblyFromFile*
+  nameWithType.vb: IPostSharpEnvironment.LoadAssemblyFromFile(String)
+  fullName.vb: PostSharp.Extensibility.IPostSharpEnvironment.LoadAssemblyFromFile(String)
+  name.vb: LoadAssemblyFromFile(String)
+- uid: PostSharp.Extensibility.IPostSharpEnvironment.CurrentProject
+  commentId: P:PostSharp.Extensibility.IPostSharpEnvironment.CurrentProject
+  id: CurrentProject
+  parent: PostSharp.Extensibility.IPostSharpEnvironment
+  langs:
+  - csharp
+  - vb
+  name: CurrentProject
+  nameWithType: IPostSharpEnvironment.CurrentProject
+  fullName: PostSharp.Extensibility.IPostSharpEnvironment.CurrentProject
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the currently executing project.
+  example: []
+  syntax:
+    content: IProject CurrentProject { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.IProject
+      description: The current project, or <code>null</code> if there is no current project.
+    content.vb: ReadOnly Property CurrentProject As IProject
+  overload: PostSharp.Extensibility.IPostSharpEnvironment.CurrentProject*

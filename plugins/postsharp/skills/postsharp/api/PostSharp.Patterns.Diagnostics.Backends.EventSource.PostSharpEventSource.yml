@@ -1,0 +1,213 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  id: PostSharpEventSource
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.String,PostSharp.Patterns.Formatters.UnsafeString,PostSharp.Patterns.Formatters.UnsafeString,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: PostSharpEventSource
+  nameWithType: PostSharpEventSource
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource" data-throw-if-not-resolved="false"></xref> targeted by <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [EventSource(Name = "PostSharp-Patterns-Diagnostics")]
+
+      [Guid("2c1bb382-ddd6-4f97-859c-7c21d3c726a4")]
+
+      public class PostSharpEventSource : EventSource, IDisposable
+    content.vb: >-
+      <EventSource(Name:="PostSharp-Patterns-Diagnostics")>
+
+      <Guid("2c1bb382-ddd6-4f97-859c-7c21d3c726a4")>
+
+      Public Class PostSharpEventSource Inherits EventSource Implements IDisposable
+  inheritance:
+  - System.Object
+  - System.Diagnostics.Tracing.EventSource
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Diagnostics.Tracing.EventSource.IsEnabled
+  - System.Diagnostics.Tracing.EventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel,System.Diagnostics.Tracing.EventKeywords)
+  - System.Diagnostics.Tracing.EventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel,System.Diagnostics.Tracing.EventKeywords,System.Diagnostics.Tracing.EventChannel)
+  - System.Diagnostics.Tracing.EventSource.GetGuid(System.Type)
+  - System.Diagnostics.Tracing.EventSource.GetName(System.Type)
+  - System.Diagnostics.Tracing.EventSource.GenerateManifest(System.Type,System.String)
+  - System.Diagnostics.Tracing.EventSource.GenerateManifest(System.Type,System.String,System.Diagnostics.Tracing.EventManifestOptions)
+  - System.Diagnostics.Tracing.EventSource.GetSources
+  - System.Diagnostics.Tracing.EventSource.SendCommand(System.Diagnostics.Tracing.EventSource,System.Diagnostics.Tracing.EventCommand,System.Collections.Generic.IDictionary{System.String,System.String})
+  - System.Diagnostics.Tracing.EventSource.GetTrait(System.String)
+  - System.Diagnostics.Tracing.EventSource.ToString
+  - System.Diagnostics.Tracing.EventSource.SetCurrentThreadActivityId(System.Guid)
+  - System.Diagnostics.Tracing.EventSource.SetCurrentThreadActivityId(System.Guid,System.Guid@)
+  - System.Diagnostics.Tracing.EventSource.OnEventCommand(System.Diagnostics.Tracing.EventCommandEventArgs)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int32)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int32,System.Int32)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int32,System.Int32,System.Int32)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int64)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int64,System.Int64)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int64,System.Int64,System.Int64)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.String)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.String,System.String)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.String,System.String,System.String)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.String,System.Int32)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.String,System.Int32,System.Int32)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.String,System.Int64)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int64,System.String)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int32,System.String)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Byte[])
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Int64,System.Byte[])
+  - System.Diagnostics.Tracing.EventSource.WriteEventCore(System.Int32,System.Int32,System.Diagnostics.Tracing.EventSource.EventData*)
+  - System.Diagnostics.Tracing.EventSource.WriteEventWithRelatedActivityIdCore(System.Int32,System.Guid*,System.Int32,System.Diagnostics.Tracing.EventSource.EventData*)
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Diagnostics.Tracing.EventSource.EventSourcePrimitive[])
+  - System.Diagnostics.Tracing.EventSource.WriteEvent(System.Int32,System.Object[])
+  - System.Diagnostics.Tracing.EventSource.WriteEventWithRelatedActivityId(System.Int32,System.Guid,System.Object[])
+  - System.Diagnostics.Tracing.EventSource.Dispose
+  - System.Diagnostics.Tracing.EventSource.Dispose(System.Boolean)
+  - System.Diagnostics.Tracing.EventSource.Write(System.String)
+  - System.Diagnostics.Tracing.EventSource.Write(System.String,System.Diagnostics.Tracing.EventSourceOptions)
+  - System.Diagnostics.Tracing.EventSource.Write``1(System.String,{T})
+  - System.Diagnostics.Tracing.EventSource.Write``1(System.String,System.Diagnostics.Tracing.EventSourceOptions,{T})
+  - System.Diagnostics.Tracing.EventSource.Write``1(System.String,System.Diagnostics.Tracing.EventSourceOptions@,{T}@)
+  - System.Diagnostics.Tracing.EventSource.Write``1(System.String,System.Diagnostics.Tracing.EventSourceOptions@,System.Guid@,System.Guid@,{T}@)
+  - System.Diagnostics.Tracing.EventSource.Name
+  - System.Diagnostics.Tracing.EventSource.Guid
+  - System.Diagnostics.Tracing.EventSource.Settings
+  - System.Diagnostics.Tracing.EventSource.ConstructionException
+  - System.Diagnostics.Tracing.EventSource.CurrentThreadActivityId
+  - System.Diagnostics.Tracing.EventSource.EventCommandExecuted
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.Diagnostics.Tracing.EventSourceAttribute
+    ctor: System.Diagnostics.Tracing.EventSourceAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: PostSharp-Patterns-Diagnostics
+  - type: System.Runtime.InteropServices.GuidAttribute
+    ctor: System.Runtime.InteropServices.GuidAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: 2c1bb382-ddd6-4f97-859c-7c21d3c726a4
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  langs:
+  - csharp
+  - vb
+  name: PostSharpEventSource()
+  nameWithType: PostSharpEventSource.PostSharpEventSource()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.PostSharpEventSource()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public PostSharpEventSource()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.#ctor*
+  nameWithType.vb: PostSharpEventSource.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)
+  id: IsEnabled(System.Diagnostics.Tracing.EventLevel)
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled(EventLevel)
+  nameWithType: PostSharpEventSource.IsEnabled(EventLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled(System.Diagnostics.Tracing.EventLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Checks whether logging for the given level is enabled.
+  example: []
+  syntax:
+    content: public bool IsEnabled(EventLevel level)
+    parameters:
+    - id: level
+      type: System.Diagnostics.Tracing.EventLevel
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsEnabled(level As EventLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.IsEnabled*
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.String,PostSharp.Patterns.Formatters.UnsafeString,PostSharp.Patterns.Formatters.UnsafeString,System.Int32)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.String,PostSharp.Patterns.Formatters.UnsafeString,PostSharp.Patterns.Formatters.UnsafeString,System.Int32)
+  id: Log(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.String,PostSharp.Patterns.Formatters.UnsafeString,PostSharp.Patterns.Formatters.UnsafeString,System.Int32)
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  langs:
+  - csharp
+  - vb
+  name: Log(LogLevel, LogRecordKind, string, string, UnsafeString, UnsafeString, int)
+  nameWithType: PostSharpEventSource.Log(LogLevel, LogRecordKind, string, string, UnsafeString, UnsafeString, int)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, string, PostSharp.Patterns.Formatters.UnsafeString, PostSharp.Patterns.Formatters.UnsafeString, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Emits a log record.
+  example: []
+  syntax:
+    content: >-
+      [NonEvent]
+
+      public void Log(LogLevel logLevel, LogRecordKind recordKind, string role, string type, UnsafeString contextDescription, UnsafeString message, int indentLevel)
+    parameters:
+    - id: logLevel
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The log level.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The record kind.
+    - id: role
+      type: System.String
+      description: The logging role (see <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref>).
+    - id: type
+      type: System.String
+      description: The full name of the type that emits the record.
+    - id: contextDescription
+      type: PostSharp.Patterns.Formatters.UnsafeString
+      description: The context description.
+    - id: message
+      type: PostSharp.Patterns.Formatters.UnsafeString
+      description: The message.
+    - id: indentLevel
+      type: System.Int32
+      description: The indentation level.
+    content.vb: >-
+      <NonEvent>
+
+      Public Sub Log(logLevel As LogLevel, recordKind As LogRecordKind, role As String, type As String, contextDescription As UnsafeString, message As UnsafeString, indentLevel As Integer)
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log*
+  attributes:
+  - type: System.Diagnostics.Tracing.NonEventAttribute
+    ctor: System.Diagnostics.Tracing.NonEventAttribute.#ctor
+    arguments: []
+  nameWithType.vb: PostSharpEventSource.Log(LogLevel, LogRecordKind, String, String, UnsafeString, UnsafeString, Integer)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.Log(PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, String, PostSharp.Patterns.Formatters.UnsafeString, PostSharp.Patterns.Formatters.UnsafeString, Integer)
+  name.vb: Log(LogLevel, LogRecordKind, String, String, UnsafeString, UnsafeString, Integer)

@@ -1,0 +1,180 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadAccessException
+  commentId: T:PostSharp.Patterns.Threading.ThreadAccessException
+  id: ThreadAccessException
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadAccessException.#ctor
+  - PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.String)
+  - PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.String,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: ThreadAccessException
+  nameWithType: ThreadAccessException
+  fullName: PostSharp.Patterns.Threading.ThreadAccessException
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Exception thrown when the calling thread does not have access to the object.
+  remarks: >-
+    <p>This exception is raised when the calling thread accesses the object without going through a public method.</p>
+
+    <p>For the <xref href="PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref>, the exception may mean that a public method was not annotated
+        with an access custom attribute (<xref href="PostSharp.Patterns.Threading.ReaderAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.WriterAttribute" data-throw-if-not-resolved="false"></xref> and others).</p>
+    <p>The exception is thrown by the <xref href="PostSharp.Patterns.Threading.SynchronizedAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Threading.ThreadUnsafeAttribute" data-throw-if-not-resolved="false"></xref>
+        threading models when run-time verification is enabled. A typical cause is a private method invoked as a callback, for instance an event handler;
+        add the <xref href="PostSharp.Patterns.Threading.EntryPointAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to such methods.</p>
+  example: []
+  syntax:
+    content: 'public class ThreadAccessException : ThreadingException, ISerializable'
+    content.vb: Public Class ThreadAccessException Inherits ThreadingException Implements ISerializable
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.EntryPointAttribute
+    commentId: T:PostSharp.Patterns.Threading.EntryPointAttribute
+  - linkType: HRef
+    linkId: '@synchronized'
+    altText: 'Conceptual: Synchronized Threading Model'
+  - linkType: HRef
+    linkId: '@reader-writer-synchronized'
+    altText: 'Conceptual: Reader/Writer Synchronized Threading Model'
+  - linkType: HRef
+    linkId: '@thread-unsafe'
+    altText: 'Conceptual: Thread-Unsafe Threading Model'
+  inheritance:
+  - System.Object
+  - System.Exception
+  - PostSharp.Patterns.Threading.ThreadingException
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.ToString
+  - System.Exception.GetType
+  - System.Exception.TargetSite
+  - System.Exception.Message
+  - System.Exception.Data
+  - System.Exception.InnerException
+  - System.Exception.HelpLink
+  - System.Exception.Source
+  - System.Exception.HResult
+  - System.Exception.StackTrace
+  - System.Exception.SerializeObjectState
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ThreadAccessException.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ThreadAccessException.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ThreadAccessException
+  langs:
+  - csharp
+  - vb
+  name: ThreadAccessException()
+  nameWithType: ThreadAccessException.ThreadAccessException()
+  fullName: PostSharp.Patterns.Threading.ThreadAccessException.ThreadAccessException()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref> class with the default error message.
+  example: []
+  syntax:
+    content: public ThreadAccessException()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ThreadAccessException.#ctor*
+  nameWithType.vb: ThreadAccessException.New()
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAccessException.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Threading.ThreadAccessException
+  langs:
+  - csharp
+  - vb
+  name: ThreadAccessException(string)
+  nameWithType: ThreadAccessException.ThreadAccessException(string)
+  fullName: PostSharp.Patterns.Threading.ThreadAccessException.ThreadAccessException(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref> class with a given error message.
+  example: []
+  syntax:
+    content: public ThreadAccessException(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    content.vb: Public Sub New(message As String)
+  overload: PostSharp.Patterns.Threading.ThreadAccessException.#ctor*
+  nameWithType.vb: ThreadAccessException.New(String)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAccessException.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.String,System.Exception)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.String,System.Exception)
+  id: '#ctor(System.String,System.Exception)'
+  parent: PostSharp.Patterns.Threading.ThreadAccessException
+  langs:
+  - csharp
+  - vb
+  name: ThreadAccessException(string, Exception)
+  nameWithType: ThreadAccessException.ThreadAccessException(string, Exception)
+  fullName: PostSharp.Patterns.Threading.ThreadAccessException.ThreadAccessException(string, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref> class with a given error message and inner exception.
+  example: []
+  syntax:
+    content: public ThreadAccessException(string message, Exception inner)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    - id: inner
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> wrapped by the new <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(message As String, inner As Exception)
+  overload: PostSharp.Patterns.Threading.ThreadAccessException.#ctor*
+  nameWithType.vb: ThreadAccessException.New(String, Exception)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAccessException.New(String, System.Exception)
+  name.vb: New(String, Exception)
+- uid: PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAccessException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: PostSharp.Patterns.Threading.ThreadAccessException
+  langs:
+  - csharp
+  - vb
+  name: ThreadAccessException(SerializationInfo, StreamingContext)
+  nameWithType: ThreadAccessException.ThreadAccessException(SerializationInfo, StreamingContext)
+  fullName: PostSharp.Patterns.Threading.ThreadAccessException.ThreadAccessException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref> class with serialized data.
+  example: []
+  syntax:
+    content: protected ThreadAccessException(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: The object that holds the serialized object data.
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: The contextual information about the source or destination.
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: PostSharp.Patterns.Threading.ThreadAccessException.#ctor*
+  nameWithType.vb: ThreadAccessException.New(SerializationInfo, StreamingContext)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAccessException.New(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  name.vb: New(SerializationInfo, StreamingContext)

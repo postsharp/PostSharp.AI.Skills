@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel
+  commentId: T:PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel
+  id: SynchronizedThreadingModel
+  parent: PostSharp.Patterns.Threading.Models
+  children:
+  - PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsBlocking
+  - PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsThreadSafe
+  langs:
+  - csharp
+  - vb
+  name: SynchronizedThreadingModel
+  nameWithType: SynchronizedThreadingModel
+  fullName: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    The <xref href="PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref> class describes a threading model where only a single thread can access the object at a time.
+
+    To use the <xref href="PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref>, apply the <xref href="PostSharp.Patterns.Threading.SynchronizedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to a class.
+  example: []
+  syntax:
+    content: 'public sealed class SynchronizedThreadingModel : ThreadingModel'
+    content.vb: Public NotInheritable Class SynchronizedThreadingModel Inherits ThreadingModel
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Threading.ThreadingModel
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadingModel.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsBlocking
+  commentId: P:PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsBlocking
+  id: IsBlocking
+  parent: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsBlocking
+  nameWithType: SynchronizedThreadingModel.IsBlocking
+  fullName: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsBlocking
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Threading.ThreadingModel" data-throw-if-not-resolved="false"></xref> has blocking semantics, that is, whether the threading model may cause the executing thread
+
+    to be blocked, for instance when waiting for a lock.
+  example: []
+  syntax:
+    content: public override bool IsBlocking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsBlocking As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsBlocking
+  overload: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsBlocking*
+- uid: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsThreadSafe
+  commentId: P:PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsThreadSafe
+  id: IsThreadSafe
+  parent: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsThreadSafe
+  nameWithType: SynchronizedThreadingModel.IsThreadSafe
+  fullName: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsThreadSafe
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: Gets a value indicating whether the threading model is possibly thread safe.
+  example: []
+  syntax:
+    content: public override bool IsThreadSafe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsThreadSafe As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsThreadSafe
+  overload: PostSharp.Patterns.Threading.Models.SynchronizedThreadingModel.IsThreadSafe*

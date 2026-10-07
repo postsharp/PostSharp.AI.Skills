@@ -1,0 +1,164 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  id: CustomLogRecordOptions
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Attributes
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Data
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Kind
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Level
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Properties
+  langs:
+  - csharp
+  - vb
+  name: CustomLogRecordOptions
+  nameWithType: CustomLogRecordOptions
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Options of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem%2cPostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions%40)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public readonly struct CustomLogRecordOptions
+    content.vb: Public Structure CustomLogRecordOptions
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Level
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Level
+  id: Level
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: CustomLogRecordOptions.Level
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Level
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the severity of the log record.
+  example: []
+  syntax:
+    content: public LogLevel Level { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public ReadOnly Property Level As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Level*
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Kind
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Kind
+  id: Kind
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: CustomLogRecordOptions.Kind
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Kind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets the kind of the log record, typically <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityEntry" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit" data-throw-if-not-resolved="false"></xref>,
+
+    or <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.CustomRecord" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LogRecordKind Kind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+    content.vb: Public ReadOnly Property Kind As LogRecordKind
+  overload: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Kind*
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Attributes
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Attributes
+  id: Attributes
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: CustomLogRecordOptions.Attributes
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Attributes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the attributes that describe how the <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> will be used.
+  example: []
+  syntax:
+    content: public CustomLogRecordAttributes Attributes { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+    content.vb: Public ReadOnly Property Attributes As CustomLogRecordAttributes
+  overload: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Attributes*
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Properties
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Properties
+  id: Properties
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: CustomLogRecordOptions.Properties
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Properties
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the activity properties.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Provide a LogEventData.")]
+
+      public LoggingProperty[] Properties { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty[]
+    content.vb: >-
+      <Obsolete("Provide a LogEventData.")>
+
+      Public ReadOnly Property Properties As LoggingProperty()
+  overload: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Properties*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Provide a LogEventData.
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Data
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Data
+  id: Data
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: CustomLogRecordOptions.Data
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Data
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref> for the current record.
+  example: []
+  syntax:
+    content: public LogEventData Data { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventData
+    content.vb: Public ReadOnly Property Data As LogEventData
+  overload: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordOptions.Data*

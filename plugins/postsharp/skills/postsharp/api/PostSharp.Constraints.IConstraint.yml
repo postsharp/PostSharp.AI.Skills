@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Constraints.IConstraint
+  commentId: T:PostSharp.Constraints.IConstraint
+  id: IConstraint
+  parent: PostSharp.Constraints
+  children:
+  - PostSharp.Constraints.IConstraint.ValidateConstraint(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IConstraint
+  nameWithType: IConstraint
+  fullName: PostSharp.Constraints.IConstraint
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: >-
+    A constraint is a piece of validation logic executed at build time. Constraints
+
+    are applied to elements of code (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+
+    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>),
+
+    typically (but not necessarily) using custom attributes or <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: ''
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp(null, "ArchitectureConstraint")]
+
+      public interface IConstraint
+    content.vb: >-
+      <RequirePostSharp(Nothing, "ArchitectureConstraint")>
+
+      Public Interface IConstraint
+  derivedClasses:
+  - PostSharp.Constraints.ComponentInternalAttribute
+  - PostSharp.Constraints.Constraint
+  - PostSharp.Constraints.ExperimentalAttribute
+  - PostSharp.Constraints.InternalAttribute
+  - PostSharp.Constraints.InternalImplementAttribute
+  - PostSharp.Constraints.NamingConventionAttribute
+  - PostSharp.Constraints.ParameterValueConstraint
+  - PostSharp.Constraints.ProtectedAttribute
+  - PostSharp.Constraints.ReferenceConstraint
+  - PostSharp.Constraints.ReferentialConstraint
+  - PostSharp.Constraints.ScalarConstraint
+  - PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+    - type: System.String
+      value: ArchitectureConstraint
+- uid: PostSharp.Constraints.IConstraint.ValidateConstraint(System.Object)
+  commentId: M:PostSharp.Constraints.IConstraint.ValidateConstraint(System.Object)
+  id: ValidateConstraint(System.Object)
+  parent: PostSharp.Constraints.IConstraint
+  langs:
+  - csharp
+  - vb
+  name: ValidateConstraint(object)
+  nameWithType: IConstraint.ValidateConstraint(object)
+  fullName: PostSharp.Constraints.IConstraint.ValidateConstraint(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Constraints
+  summary: >-
+    Validates that the constraint has been applied to a valid element of code. When this
+
+    method returns <code>false</code>, the constraint is silently ignored.
+  example: []
+  syntax:
+    content: bool ValidateConstraint(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: The element of code to which the constraint is applied.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the constraint has been applied to a valid element of code, otherwise <code>false</code>.
+    content.vb: Function ValidateConstraint(target As Object) As Boolean
+  overload: PostSharp.Constraints.IConstraint.ValidateConstraint*
+  nameWithType.vb: IConstraint.ValidateConstraint(Object)
+  fullName.vb: PostSharp.Constraints.IConstraint.ValidateConstraint(Object)
+  name.vb: ValidateConstraint(Object)

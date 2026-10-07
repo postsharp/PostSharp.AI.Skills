@@ -1,0 +1,202 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  commentId: T:PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  id: ThreadUnsafeAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  langs:
+  - csharp
+  - vb
+  name: ThreadUnsafeAttribute
+  nameWithType: ThreadUnsafeAttribute
+  fullName: PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a type, ensures that only one thread executes in methods of this type.
+
+    When more than one thread accesses methods of this type, a <xref href="PostSharp.Patterns.Threading.ConcurrentAccessException" data-throw-if-not-resolved="false"></xref> is thrown.
+  remarks: >-
+    <p>Use this model for objects that must never be accessed concurrently, to detect violations deterministically instead of corrupting the object.
+        Public and internal methods acquire exclusive access to the object, like in the <xref href="PostSharp.Patterns.Threading.SynchronizedAttribute" data-throw-if-not-resolved="false"></xref> model, but a thread that cannot
+        acquire access immediately throws a <xref href="PostSharp.Patterns.Threading.ConcurrentAccessException" data-throw-if-not-resolved="false"></xref> instead of waiting. Accessing a field from a thread that has not acquired
+        access results in a <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>These checks are run-time verifications: they are performed only when <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled" data-throw-if-not-resolved="false"></xref> is <code>true</code>,
+        which is the default in debug builds only. A build-time error is emitted when the class has public or internal fields.</p>
+  example: []
+  syntax:
+    content: >-
+      [Metric("UsedFeatures", "PostSharp.Patterns.Threading.ThreadUnsafe")]
+
+      [Serializer(typeof(ThreadUnsafeAttribute.Serializer))]
+
+      public sealed class ThreadUnsafeAttribute : ThreadAwareAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface
+    content.vb: >-
+      <Metric("UsedFeatures", "PostSharp.Patterns.Threading.ThreadUnsafe")>
+
+      <Serializer(GetType(ThreadUnsafeAttribute.Serializer))>
+
+      Public NotInheritable Class ThreadUnsafeAttribute Inherits ThreadAwareAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface
+  seealso:
+  - linkType: HRef
+    linkId: '@thread-unsafe'
+    altText: 'Conceptual: Thread-Unsafe Threading Model'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.Threading.IThreadAware
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Threading.ThreadUnsafe
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  langs:
+  - csharp
+  - vb
+  name: ThreadUnsafeAttribute()
+  nameWithType: ThreadUnsafeAttribute.ThreadUnsafeAttribute()
+  fullName: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.ThreadUnsafeAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadUnsafeAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ThreadUnsafeAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor*
+  nameWithType.vb: ThreadUnsafeAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  langs:
+  - csharp
+  - vb
+  name: ThreadUnsafeAttribute(PortableFormatterConstructorContext)
+  nameWithType: ThreadUnsafeAttribute.ThreadUnsafeAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.ThreadUnsafeAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected ThreadUnsafeAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.#ctor*
+  nameWithType.vb: ThreadUnsafeAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadUnsafeAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

@@ -1,0 +1,221 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.ICachingContext
+  commentId: T:PostSharp.Patterns.Caching.ICachingContext
+  id: ICachingContext
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable{PostSharp.Patterns.Caching.Dependencies.ICacheDependency})
+  - PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable{System.String})
+  - PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  - PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.Object)
+  - PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.String)
+  - PostSharp.Patterns.Caching.ICachingContext.Kind
+  - PostSharp.Patterns.Caching.ICachingContext.Parent
+  langs:
+  - csharp
+  - vb
+  name: ICachingContext
+  nameWithType: ICachingContext
+  fullName: PostSharp.Patterns.Caching.ICachingContext
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Represents the context in which a method being cached is executing.
+  remarks: >-
+    <p>Get the current context from <xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref>. Dependencies added to it while a cached method is being evaluated
+        are attached to the cached result, which is removed from the cache when one of its dependencies is invalidated through <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref>.
+        Outside of a cached method, the current context ignores the dependencies added to it.</p>
+    <p>The context flows to the methods called by the cached method. When the backend supports dependencies, a cached method called by another cached method
+        becomes a dependency of the caller, even when its result comes from the cache. To prevent this propagation, for example for a task that the cached method
+        starts and does not wait for, use <xref href="PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public interface ICachingContext
+    content.vb: Public Interface ICachingContext
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-dependencies'
+    altText: 'Conceptual: Working with Cache Dependencies'
+- uid: PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable{System.String})
+  id: AddDependencies(System.Collections.Generic.IEnumerable{System.String})
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: AddDependencies(IEnumerable<string>)
+  nameWithType: ICachingContext.AddDependencies(IEnumerable<string>)
+  fullName: PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Adds a set of dependencies represented as keys to the current context.
+  example: []
+  syntax:
+    content: void AddDependencies(IEnumerable<string> dependencies)
+    parameters:
+    - id: dependencies
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: A set of dependency keys.
+    content.vb: Sub AddDependencies(dependencies As IEnumerable(Of String))
+  overload: PostSharp.Patterns.Caching.ICachingContext.AddDependencies*
+  nameWithType.vb: ICachingContext.AddDependencies(IEnumerable(Of String))
+  fullName.vb: PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable(Of String))
+  name.vb: AddDependencies(IEnumerable(Of String))
+- uid: PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable{PostSharp.Patterns.Caching.Dependencies.ICacheDependency})
+  commentId: M:PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable{PostSharp.Patterns.Caching.Dependencies.ICacheDependency})
+  id: AddDependencies(System.Collections.Generic.IEnumerable{PostSharp.Patterns.Caching.Dependencies.ICacheDependency})
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: AddDependencies(IEnumerable<ICacheDependency>)
+  nameWithType: ICachingContext.AddDependencies(IEnumerable<ICacheDependency>)
+  fullName: PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable<PostSharp.Patterns.Caching.Dependencies.ICacheDependency>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Adds a set of dependencies represented as <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref> to the current context.
+  example: []
+  syntax:
+    content: void AddDependencies(IEnumerable<ICacheDependency> dependencies)
+    parameters:
+    - id: dependencies
+      type: System.Collections.Generic.IEnumerable{PostSharp.Patterns.Caching.Dependencies.ICacheDependency}
+      description: A set of <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Sub AddDependencies(dependencies As IEnumerable(Of ICacheDependency))
+  overload: PostSharp.Patterns.Caching.ICachingContext.AddDependencies*
+  nameWithType.vb: ICachingContext.AddDependencies(IEnumerable(Of ICacheDependency))
+  fullName.vb: PostSharp.Patterns.Caching.ICachingContext.AddDependencies(System.Collections.Generic.IEnumerable(Of PostSharp.Patterns.Caching.Dependencies.ICacheDependency))
+  name.vb: AddDependencies(IEnumerable(Of ICacheDependency))
+- uid: PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.String)
+  commentId: M:PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.String)
+  id: AddDependency(System.String)
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: AddDependency(string)
+  nameWithType: ICachingContext.AddDependency(string)
+  fullName: PostSharp.Patterns.Caching.ICachingContext.AddDependency(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Adds a dependency represented as a key to the current context.
+  example: []
+  syntax:
+    content: void AddDependency(string dependency)
+    parameters:
+    - id: dependency
+      type: System.String
+      description: A dependency key.
+    content.vb: Sub AddDependency(dependency As String)
+  overload: PostSharp.Patterns.Caching.ICachingContext.AddDependency*
+  nameWithType.vb: ICachingContext.AddDependency(String)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingContext.AddDependency(String)
+  name.vb: AddDependency(String)
+- uid: PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.Object)
+  id: AddDependency(System.Object)
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: AddDependency(object)
+  nameWithType: ICachingContext.AddDependency(object)
+  fullName: PostSharp.Patterns.Caching.ICachingContext.AddDependency(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Adds a dependency <xref href="System.Object" data-throw-if-not-resolved="false"></xref> to the current context. Calling this method is equivalent to wrapping the <xref href="System.Object" data-throw-if-not-resolved="false"></xref>
+
+    into an <xref href="PostSharp.Patterns.Caching.Dependencies.ObjectDependency" data-throw-if-not-resolved="false"></xref> and calling the <xref href="PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref> overload.
+  example: []
+  syntax:
+    content: void AddDependency(object dependency)
+    parameters:
+    - id: dependency
+      type: System.Object
+      description: A dependency object.
+    content.vb: Sub AddDependency(dependency As Object)
+  overload: PostSharp.Patterns.Caching.ICachingContext.AddDependency*
+  nameWithType.vb: ICachingContext.AddDependency(Object)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingContext.AddDependency(Object)
+  name.vb: AddDependency(Object)
+- uid: PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  commentId: M:PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  id: AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: AddDependency(ICacheDependency)
+  nameWithType: ICachingContext.AddDependency(ICacheDependency)
+  fullName: PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Adds a dependency represented as an <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref> to the current context.
+  example: []
+  syntax:
+    content: void AddDependency(ICacheDependency dependency)
+    parameters:
+    - id: dependency
+      type: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+      description: A dependency.
+    content.vb: Sub AddDependency(dependency As ICacheDependency)
+  overload: PostSharp.Patterns.Caching.ICachingContext.AddDependency*
+- uid: PostSharp.Patterns.Caching.ICachingContext.Parent
+  commentId: P:PostSharp.Patterns.Caching.ICachingContext.Parent
+  id: Parent
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: ICachingContext.Parent
+  fullName: PostSharp.Patterns.Caching.ICachingContext.Parent
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets the parent context.
+  example: []
+  syntax:
+    content: ICachingContext Parent { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.ICachingContext
+    content.vb: ReadOnly Property Parent As ICachingContext
+  overload: PostSharp.Patterns.Caching.ICachingContext.Parent*
+- uid: PostSharp.Patterns.Caching.ICachingContext.Kind
+  commentId: P:PostSharp.Patterns.Caching.ICachingContext.Kind
+  id: Kind
+  parent: PostSharp.Patterns.Caching.ICachingContext
+  langs:
+  - csharp
+  - vb
+  name: Kind
+  nameWithType: ICachingContext.Kind
+  fullName: PostSharp.Patterns.Caching.ICachingContext.Kind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets the kind of <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: CachingContextKind Kind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.CachingContextKind
+    content.vb: ReadOnly Property Kind As CachingContextKind
+  overload: PostSharp.Patterns.Caching.ICachingContext.Kind*

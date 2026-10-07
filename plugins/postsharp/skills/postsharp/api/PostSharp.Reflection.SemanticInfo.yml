@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.SemanticInfo
+  commentId: T:PostSharp.Reflection.SemanticInfo
+  id: SemanticInfo
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.SemanticInfo.DisplayName
+  - PostSharp.Reflection.SemanticInfo.IsCompilerGenerated
+  - PostSharp.Reflection.SemanticInfo.IsForceMulticastSelectable
+  - PostSharp.Reflection.SemanticInfo.IsSelectable
+  - PostSharp.Reflection.SemanticInfo.Semantic
+  langs:
+  - csharp
+  - vb
+  name: SemanticInfo
+  nameWithType: SemanticInfo
+  fullName: PostSharp.Reflection.SemanticInfo
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: >-
+    Provides information about the semantic of a declaration in the source programming language.
+
+    For instance, in C#, an MSIL method can be a property getter, an operator, an anonymous method, and so on.
+  example: []
+  syntax:
+    content: public struct SemanticInfo
+    content.vb: Public Structure SemanticInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Reflection.SemanticInfo.Semantic
+  commentId: P:PostSharp.Reflection.SemanticInfo.Semantic
+  id: Semantic
+  parent: PostSharp.Reflection.SemanticInfo
+  langs:
+  - csharp
+  - vb
+  name: Semantic
+  nameWithType: SemanticInfo.Semantic
+  fullName: PostSharp.Reflection.SemanticInfo.Semantic
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the semantic of the MSIL method in the source language.
+  example: []
+  syntax:
+    content: public readonly Semantics Semantic { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.Semantics
+    content.vb: Public ReadOnly Property Semantic As Semantics
+  overload: PostSharp.Reflection.SemanticInfo.Semantic*
+- uid: PostSharp.Reflection.SemanticInfo.IsCompilerGenerated
+  commentId: P:PostSharp.Reflection.SemanticInfo.IsCompilerGenerated
+  id: IsCompilerGenerated
+  parent: PostSharp.Reflection.SemanticInfo
+  langs:
+  - csharp
+  - vb
+  name: IsCompilerGenerated
+  nameWithType: SemanticInfo.IsCompilerGenerated
+  fullName: PostSharp.Reflection.SemanticInfo.IsCompilerGenerated
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a value indicating whether the declaration is compiler-generated.
+  example: []
+  syntax:
+    content: public bool IsCompilerGenerated { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCompilerGenerated As Boolean
+  overload: PostSharp.Reflection.SemanticInfo.IsCompilerGenerated*
+- uid: PostSharp.Reflection.SemanticInfo.IsSelectable
+  commentId: P:PostSharp.Reflection.SemanticInfo.IsSelectable
+  id: IsSelectable
+  parent: PostSharp.Reflection.SemanticInfo
+  langs:
+  - csharp
+  - vb
+  name: IsSelectable
+  nameWithType: SemanticInfo.IsSelectable
+  fullName: PostSharp.Reflection.SemanticInfo.IsSelectable
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a value indicating whether the declaration can be safely selected in a pointcut using the standard <code>System.Reflection</code> API.
+  remarks: >-
+    This property is <code>false</code> for declarations such as anonymous methods or local functions because their MSIL implementation
+
+    can move from one type to another because of a mere change of the method body in C#. It is also <code>false</code> for
+
+    implementation details such as anonymous method cache fields, or closure types, which should never be advised.
+  example: []
+  syntax:
+    content: public bool IsSelectable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSelectable As Boolean
+  overload: PostSharp.Reflection.SemanticInfo.IsSelectable*
+- uid: PostSharp.Reflection.SemanticInfo.IsForceMulticastSelectable
+  commentId: P:PostSharp.Reflection.SemanticInfo.IsForceMulticastSelectable
+  id: IsForceMulticastSelectable
+  parent: PostSharp.Reflection.SemanticInfo
+  langs:
+  - csharp
+  - vb
+  name: IsForceMulticastSelectable
+  nameWithType: SemanticInfo.IsForceMulticastSelectable
+  fullName: PostSharp.Reflection.SemanticInfo.IsForceMulticastSelectable
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a value indicating whether the declaration is forced to be selectable by the multicast engine even if it would normally not be.
+  example: []
+  syntax:
+    content: public bool IsForceMulticastSelectable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsForceMulticastSelectable As Boolean
+  overload: PostSharp.Reflection.SemanticInfo.IsForceMulticastSelectable*
+- uid: PostSharp.Reflection.SemanticInfo.DisplayName
+  commentId: P:PostSharp.Reflection.SemanticInfo.DisplayName
+  id: DisplayName
+  parent: PostSharp.Reflection.SemanticInfo
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: SemanticInfo.DisplayName
+  fullName: PostSharp.Reflection.SemanticInfo.DisplayName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a human-readable description of the <xref href="PostSharp.Reflection.SemanticInfo.Semantic" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public string DisplayName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DisplayName As String
+  overload: PostSharp.Reflection.SemanticInfo.DisplayName*

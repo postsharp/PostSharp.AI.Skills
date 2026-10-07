@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.StateAttribute
+  commentId: T:PostSharp.Aspects.Advices.StateAttribute
+  id: StateAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.StateAttribute.#ctor(PostSharp.Aspects.Advices.StateScope)
+  - PostSharp.Aspects.Advices.StateAttribute.#ctor(PostSharp.Aspects.Advices.StateScope,System.String)
+  - PostSharp.Aspects.Advices.StateAttribute.Scope
+  - PostSharp.Aspects.Advices.StateAttribute.SlotName
+  langs:
+  - csharp
+  - vb
+  name: StateAttribute
+  nameWithType: StateAttribute
+  fullName: PostSharp.Aspects.Advices.StateAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Binds a parameter of an advice method to a variable shared by the advices of an advice group, for instance to pass a value from
+
+    <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref> to <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+        Each variable is a slot identified by its name, which is <xref href="PostSharp.Aspects.Advices.StateAttribute.SlotName" data-throw-if-not-resolved="false"></xref>, or the name of the parameter when <xref href="PostSharp.Aspects.Advices.StateAttribute.SlotName" data-throw-if-not-resolved="false"></xref> is <code>null</code>.
+        The advices of one group that bind the same slot share one variable, and all their parameters must have the same type. The variable
+        lives for one invocation of the target method, as specified by <xref href="PostSharp.Aspects.Advices.StateScope.MethodInvocation" data-throw-if-not-resolved="false"></xref>, and its initial value is the
+        default value of its type. In an async method or an iterator, the variable is a field of the state machine, so it keeps its value
+        across <code>await</code> and <code>yield</code> statements.
+        </p>
+    <p>
+        A <code>ref</code> or <code>out</code> parameter can change the value of the variable. A parameter without modifier, or an <code>in</code> parameter, receives the
+        current value.
+        </p>
+  example: []
+  syntax:
+    content: 'public sealed class StateAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class StateAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.StateAttribute.#ctor(PostSharp.Aspects.Advices.StateScope)
+  commentId: M:PostSharp.Aspects.Advices.StateAttribute.#ctor(PostSharp.Aspects.Advices.StateScope)
+  id: '#ctor(PostSharp.Aspects.Advices.StateScope)'
+  parent: PostSharp.Aspects.Advices.StateAttribute
+  langs:
+  - csharp
+  - vb
+  name: StateAttribute(StateScope)
+  nameWithType: StateAttribute.StateAttribute(StateScope)
+  fullName: PostSharp.Aspects.Advices.StateAttribute.StateAttribute(PostSharp.Aspects.Advices.StateScope)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.StateAttribute" data-throw-if-not-resolved="false"></xref> class with a slot named after the parameter.
+  example: []
+  syntax:
+    content: public StateAttribute(StateScope scope)
+    parameters:
+    - id: scope
+      type: PostSharp.Aspects.Advices.StateScope
+      description: The lifetime of the variable.
+    content.vb: Public Sub New(scope As StateScope)
+  overload: PostSharp.Aspects.Advices.StateAttribute.#ctor*
+  nameWithType.vb: StateAttribute.New(StateScope)
+  fullName.vb: PostSharp.Aspects.Advices.StateAttribute.New(PostSharp.Aspects.Advices.StateScope)
+  name.vb: New(StateScope)
+- uid: PostSharp.Aspects.Advices.StateAttribute.#ctor(PostSharp.Aspects.Advices.StateScope,System.String)
+  commentId: M:PostSharp.Aspects.Advices.StateAttribute.#ctor(PostSharp.Aspects.Advices.StateScope,System.String)
+  id: '#ctor(PostSharp.Aspects.Advices.StateScope,System.String)'
+  parent: PostSharp.Aspects.Advices.StateAttribute
+  langs:
+  - csharp
+  - vb
+  name: StateAttribute(StateScope, string)
+  nameWithType: StateAttribute.StateAttribute(StateScope, string)
+  fullName: PostSharp.Aspects.Advices.StateAttribute.StateAttribute(PostSharp.Aspects.Advices.StateScope, string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.StateAttribute" data-throw-if-not-resolved="false"></xref> class with a slot of a given name.
+  example: []
+  syntax:
+    content: public StateAttribute(StateScope scope, string slotName)
+    parameters:
+    - id: scope
+      type: PostSharp.Aspects.Advices.StateScope
+      description: The lifetime of the variable.
+    - id: slotName
+      type: System.String
+      description: The name of the slot, which identifies the variable among the advices of the group.
+    content.vb: Public Sub New(scope As StateScope, slotName As String)
+  overload: PostSharp.Aspects.Advices.StateAttribute.#ctor*
+  nameWithType.vb: StateAttribute.New(StateScope, String)
+  fullName.vb: PostSharp.Aspects.Advices.StateAttribute.New(PostSharp.Aspects.Advices.StateScope, String)
+  name.vb: New(StateScope, String)
+- uid: PostSharp.Aspects.Advices.StateAttribute.Scope
+  commentId: P:PostSharp.Aspects.Advices.StateAttribute.Scope
+  id: Scope
+  parent: PostSharp.Aspects.Advices.StateAttribute
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: StateAttribute.Scope
+  fullName: PostSharp.Aspects.Advices.StateAttribute.Scope
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the lifetime of the variable.
+  example: []
+  syntax:
+    content: public StateScope Scope { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.StateScope
+    content.vb: Public ReadOnly Property Scope As StateScope
+  overload: PostSharp.Aspects.Advices.StateAttribute.Scope*
+- uid: PostSharp.Aspects.Advices.StateAttribute.SlotName
+  commentId: P:PostSharp.Aspects.Advices.StateAttribute.SlotName
+  id: SlotName
+  parent: PostSharp.Aspects.Advices.StateAttribute
+  langs:
+  - csharp
+  - vb
+  name: SlotName
+  nameWithType: StateAttribute.SlotName
+  fullName: PostSharp.Aspects.Advices.StateAttribute.SlotName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the name of the slot, or <code>null</code> when the slot is named after the parameter.
+  example: []
+  syntax:
+    content: public string SlotName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SlotName As String
+  overload: PostSharp.Aspects.Advices.StateAttribute.SlotName*

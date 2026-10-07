@@ -1,0 +1,317 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  id: ConsoleTheme
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme)
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.AddHightlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Freeze
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.HightlightedStyles
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.NormalStyles
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.RemoveHighlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.SupportsAnsiCodes
+  langs:
+  - csharp
+  - vb
+  name: ConsoleTheme
+  nameWithType: ConsoleTheme
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: A simple implementation of a color theme that allows only for two colors per <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Each part of a log record is rendered with either the normal style (<xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.NormalStyles" data-throw-if-not-resolved="false"></xref>) or the highlighted style
+        (<xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.HightlightedStyles" data-throw-if-not-resolved="false"></xref>) of the record level. By default, variable parts such as parameter values, return values, execution
+        times and exceptions are highlighted. Call <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.AddHightlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.RemoveHighlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)" data-throw-if-not-resolved="false"></xref> to change which
+        items are highlighted.</p>
+    <p>To customize an existing theme such as <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark" data-throw-if-not-resolved="false"></xref>, call <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone" data-throw-if-not-resolved="false"></xref> or the copy constructor and edit
+        the copy. A theme on which <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Freeze" data-throw-if-not-resolved="false"></xref> has been called, including <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes.Dark" data-throw-if-not-resolved="false"></xref>, throws an
+        <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> when it is modified.</p>
+    <p>When two styles per level are not enough, override <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(System.String%2cPostSharp.Patterns.Diagnostics.LogLevel%2cPostSharp.Patterns.Diagnostics.LogRecordKind%2cPostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)" data-throw-if-not-resolved="false"></xref> or implement <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme" data-throw-if-not-resolved="false"></xref> directly.
+        Assign the theme to <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackendOptions.Theme" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class ConsoleTheme : IConsoleTheme'
+    content.vb: Public Class ConsoleTheme Implements IConsoleTheme
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemes
+  - linkType: HRef
+    linkId: '@logging-console'
+    altText: 'Conceptual: Logging with System.Console'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: ConsoleTheme(bool)
+  nameWithType: ConsoleTheme.ConsoleTheme(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.ConsoleTheme(bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ConsoleTheme(bool supportsAnsiCodes = true)
+    parameters:
+    - id: supportsAnsiCodes
+      type: System.Boolean
+      description: <code>true</code> if the theme supports VT ANSI codes, otherwise <code>false</code>.
+    content.vb: Public Sub New(supportsAnsiCodes As Boolean = True)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor*
+  nameWithType.vb: ConsoleTheme.New(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.New(Boolean)
+  name.vb: New(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: ConsoleTheme(ConsoleTheme)
+  nameWithType: ConsoleTheme.ConsoleTheme(ConsoleTheme)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.ConsoleTheme(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref> class and copies all values from another <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ConsoleTheme(ConsoleTheme model)
+    parameters:
+    - id: model
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref> from which all values will be copied.
+    content.vb: Public Sub New(model As ConsoleTheme)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.#ctor*
+  nameWithType.vb: ConsoleTheme.New(ConsoleTheme)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.New(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme)
+  name.vb: New(ConsoleTheme)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.AddHightlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.AddHightlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  id: AddHightlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: AddHightlightedItem(ConsoleThemeItem)
+  nameWithType: ConsoleTheme.AddHightlightedItem(ConsoleThemeItem)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.AddHightlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Specifies that a <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem" data-throw-if-not-resolved="false"></xref> should be formatted using the highlighted style.
+  example: []
+  syntax:
+    content: public void AddHightlightedItem(ConsoleThemeItem item)
+    parameters:
+    - id: item
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub AddHightlightedItem(item As ConsoleThemeItem)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.AddHightlightedItem*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.RemoveHighlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.RemoveHighlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  id: RemoveHighlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: RemoveHighlightedItem(ConsoleThemeItem)
+  nameWithType: ConsoleTheme.RemoveHighlightedItem(ConsoleThemeItem)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.RemoveHighlightedItem(PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Specifies that a <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem" data-throw-if-not-resolved="false"></xref> should be formatted using the normal style.
+  example: []
+  syntax:
+    content: public void RemoveHighlightedItem(ConsoleThemeItem item)
+    parameters:
+    - id: item
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub RemoveHighlightedItem(item As ConsoleThemeItem)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.RemoveHighlightedItem*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  id: GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: GetStyle(string, LogLevel, LogRecordKind, ConsoleThemeItem)
+  nameWithType: ConsoleTheme.GetStyle(string, LogLevel, LogRecordKind, ConsoleThemeItem)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(string, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle" data-throw-if-not-resolved="false"></xref> for a specific theme item.
+  example: []
+  syntax:
+    content: public virtual ConsoleThemeStyle GetStyle(string role, LogLevel level, LogRecordKind kind, ConsoleThemeItem item)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role of the log record.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The level of the log record.
+    - id: kind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the log record.
+    - id: item
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem
+      description: The kind of item inside the log record.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overridable Function GetStyle(role As String, level As LogLevel, kind As LogRecordKind, item As ConsoleThemeItem) As ConsoleThemeStyle
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  nameWithType.vb: ConsoleTheme.GetStyle(String, LogLevel, LogRecordKind, ConsoleThemeItem)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(String, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)
+  name.vb: GetStyle(String, LogLevel, LogRecordKind, ConsoleThemeItem)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone
+  id: Clone
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: ConsoleTheme.Clone()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Returns an editable copy of the current <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ConsoleTheme Clone()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+      description: An editable copy of the current <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function Clone() As ConsoleTheme
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Clone*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Freeze
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Freeze
+  id: Freeze
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: Freeze()
+  nameWithType: ConsoleTheme.Freeze()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Freeze()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Prevents modifications to the current <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Freeze()
+    content.vb: Public Sub Freeze()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.Freeze*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.NormalStyles
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.NormalStyles
+  id: NormalStyles
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: NormalStyles
+  nameWithType: ConsoleTheme.NormalStyles
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.NormalStyles
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the styles used for normal text.
+  example: []
+  syntax:
+    content: public LogLevelArray<ConsoleThemeStyle> NormalStyles { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.LogLevelArray{PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle}
+    content.vb: Public ReadOnly Property NormalStyles As LogLevelArray(Of ConsoleThemeStyle)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.NormalStyles*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.HightlightedStyles
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.HightlightedStyles
+  id: HightlightedStyles
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: HightlightedStyles
+  nameWithType: ConsoleTheme.HightlightedStyles
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.HightlightedStyles
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the styles used for highlighted text.
+  example: []
+  syntax:
+    content: public LogLevelArray<ConsoleThemeStyle> HightlightedStyles { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Console.LogLevelArray{PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle}
+    content.vb: Public ReadOnly Property HightlightedStyles As LogLevelArray(Of ConsoleThemeStyle)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.HightlightedStyles*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.SupportsAnsiCodes
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.SupportsAnsiCodes
+  id: SupportsAnsiCodes
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme
+  langs:
+  - csharp
+  - vb
+  name: SupportsAnsiCodes
+  nameWithType: ConsoleTheme.SupportsAnsiCodes
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.SupportsAnsiCodes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets a value indicating whether the theme supports VT escape codes.
+  example: []
+  syntax:
+    content: public bool SupportsAnsiCodes { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property SupportsAnsiCodes As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.SupportsAnsiCodes*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme.SupportsAnsiCodes

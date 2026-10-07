@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.CustomAttributeIntroductionAspect
+  commentId: T:PostSharp.Aspects.CustomAttributeIntroductionAspect
+  id: CustomAttributeIntroductionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor(PostSharp.Reflection.ObjectConstruction)
+  - PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor(System.Reflection.CustomAttributeData)
+  - PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttribute
+  langs:
+  - csharp
+  - vb
+  name: CustomAttributeIntroductionAspect
+  nameWithType: CustomAttributeIntroductionAspect
+  fullName: PostSharp.Aspects.CustomAttributeIntroductionAspect
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Aspect that, when applied to a target, adds a custom attribute to this target.
+  remarks: >-
+    <p>
+            There are two ways to specify a custom attribute: using an
+            <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref> (to construct a new custom attribute), 
+            or using a <xref href="System.Reflection.CustomAttributeData" data-throw-if-not-resolved="false"></xref> (to copy a custom attribute reflected 
+            using one of the overloads of the method <xref href="System.Reflection.CustomAttributeData.GetCustomAttributes(System.Reflection.Assembly)" data-throw-if-not-resolved="false"></xref>).
+          </p>
+    <div class="NOTE"><h5>note</h5><p>
+            This aspect is not a custom attribute. You have to create another aspect
+            implementing <xref href="PostSharp.Aspects.IAspectProvider" data-throw-if-not-resolved="false"></xref> and have the method <xref href="PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)" data-throw-if-not-resolved="false"></xref>
+            return instances of this aspect.
+          </p></div>
+  example: []
+  syntax:
+    content: >-
+      [LinesOfCodeAvoided(1)]
+
+      public sealed class CustomAttributeIntroductionAspect : ICustomAttributeIntroductionAspect, IAspect, IAspectBuildSemantics, IValidableAnnotation
+    content.vb: >-
+      <LinesOfCodeAvoided(1)>
+
+      Public NotInheritable Class CustomAttributeIntroductionAspect Implements ICustomAttributeIntroductionAspect, IAspect, IAspectBuildSemantics, IValidableAnnotation
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-provider'
+    altText: 'Conceptual: Adding Aspects Dynamically'
+  - linkType: HRef
+    linkId: '@attribute-introduction'
+    altText: 'Conceptual: Introducing Custom Attributes'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Aspects.ICustomAttributeIntroductionAspect
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+- uid: PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor(PostSharp.Reflection.ObjectConstruction)
+  commentId: M:PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor(PostSharp.Reflection.ObjectConstruction)
+  id: '#ctor(PostSharp.Reflection.ObjectConstruction)'
+  parent: PostSharp.Aspects.CustomAttributeIntroductionAspect
+  langs:
+  - csharp
+  - vb
+  name: CustomAttributeIntroductionAspect(ObjectConstruction)
+  nameWithType: CustomAttributeIntroductionAspect.CustomAttributeIntroductionAspect(ObjectConstruction)
+  fullName: PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttributeIntroductionAspect(PostSharp.Reflection.ObjectConstruction)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.CustomAttributeIntroductionAspect" data-throw-if-not-resolved="false"></xref> class by specifying an <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CustomAttributeIntroductionAspect(ObjectConstruction attribute)
+    parameters:
+    - id: attribute
+      type: PostSharp.Reflection.ObjectConstruction
+      description: Construction of the custom attribute to be added to the target.
+    content.vb: Public Sub New(attribute As ObjectConstruction)
+  overload: PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor*
+  nameWithType.vb: CustomAttributeIntroductionAspect.New(ObjectConstruction)
+  fullName.vb: PostSharp.Aspects.CustomAttributeIntroductionAspect.New(PostSharp.Reflection.ObjectConstruction)
+  name.vb: New(ObjectConstruction)
+- uid: PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor(System.Reflection.CustomAttributeData)
+  commentId: M:PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor(System.Reflection.CustomAttributeData)
+  id: '#ctor(System.Reflection.CustomAttributeData)'
+  parent: PostSharp.Aspects.CustomAttributeIntroductionAspect
+  langs:
+  - csharp
+  - vb
+  name: CustomAttributeIntroductionAspect(CustomAttributeData)
+  nameWithType: CustomAttributeIntroductionAspect.CustomAttributeIntroductionAspect(CustomAttributeData)
+  fullName: PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttributeIntroductionAspect(System.Reflection.CustomAttributeData)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.CustomAttributeIntroductionAspect" data-throw-if-not-resolved="false"></xref> class by specifying a
+
+    <xref href="System.Reflection.CustomAttributeData" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CustomAttributeIntroductionAspect(CustomAttributeData customAttributeData)
+    parameters:
+    - id: customAttributeData
+      type: System.Reflection.CustomAttributeData
+      description: Construction of the custom attribute to be added to the target.
+    content.vb: Public Sub New(customAttributeData As CustomAttributeData)
+  overload: PostSharp.Aspects.CustomAttributeIntroductionAspect.#ctor*
+  nameWithType.vb: CustomAttributeIntroductionAspect.New(CustomAttributeData)
+  fullName.vb: PostSharp.Aspects.CustomAttributeIntroductionAspect.New(System.Reflection.CustomAttributeData)
+  name.vb: New(CustomAttributeData)
+- uid: PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttribute
+  commentId: P:PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttribute
+  id: CustomAttribute
+  parent: PostSharp.Aspects.CustomAttributeIntroductionAspect
+  langs:
+  - csharp
+  - vb
+  name: CustomAttribute
+  nameWithType: CustomAttributeIntroductionAspect.CustomAttribute
+  fullName: PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttribute
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the construction of the custom attribute that must be applied to the target of this aspect.
+  example: []
+  syntax:
+    content: public ObjectConstruction CustomAttribute { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.ObjectConstruction
+    content.vb: Public ReadOnly Property CustomAttribute As ObjectConstruction
+  overload: PostSharp.Aspects.CustomAttributeIntroductionAspect.CustomAttribute*

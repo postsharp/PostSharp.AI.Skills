@@ -1,0 +1,168 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  commentId: T:PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  id: IDynamicAdvice
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  - PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  langs:
+  - csharp
+  - vb
+  name: IDynamicAdvice
+  nameWithType: IDynamicAdvice
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Represents an advice that can be injected dynamically into a dynamically-advisable object.
+  remarks: >-
+    <p>
+        Dynamic advices form a chain of responsibility. Specific interfaces derived from <xref href="PostSharp.Patterns.DynamicAdvising.IDynamicAdvice" data-throw-if-not-resolved="false"></xref> (such as <xref href="PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdvice%601" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice%602" data-throw-if-not-resolved="false"></xref>)
+        define the semantics of the corresponding specific advised type (such as <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>). The last node in the chain of implementation
+        is the actual collection implementation.
+        </p>
+  example: []
+  syntax:
+    content: 'public interface IDynamicAdvice : IDynamicInterfaceImplementation'
+    content.vb: Public Interface IDynamicAdvice Inherits IDynamicInterfaceImplementation
+  derivedClasses:
+  - PostSharp.Patterns.Collections.Advices.CollectionDynamicAdvice`1
+  - PostSharp.Patterns.Collections.Advices.DictionaryDynamicAdvice`2
+  - PostSharp.Patterns.Collections.Advices.HashSetDynamicAdvice`1
+  - PostSharp.Patterns.DynamicAdvising.DynamicAdvice
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface``1
+  id: QueryInterface``1
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  langs:
+  - csharp
+  - vb
+  name: QueryInterface<T>()
+  nameWithType: IDynamicAdvice.QueryInterface<T>()
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets the implementation of an interface.
+  example: []
+  syntax:
+    content: 'T QueryInterface<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The interface type.
+    return:
+      type: '{T}'
+      description: The implementation of interface <code class="typeparamref">T</code>, or <code>null</code> if the advice does not implement this interface.
+    content.vb: Function QueryInterface(Of T As Class)() As T
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface*
+  nameWithType.vb: IDynamicAdvice.QueryInterface(Of T)()
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.QueryInterface(Of T)()
+  name.vb: QueryInterface(Of T)()
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: IDynamicAdvice.Dispose()
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Disposes the current advice. We do not use <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> so that advices are not cast to <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> by default.
+  example: []
+  syntax:
+    content: void Dispose()
+    content.vb: Sub Dispose()
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Dispose*
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  id: Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  langs:
+  - csharp
+  - vb
+  name: Initialize(IQueryInterface, AdviceEnumerator<IDynamicAdvice>)
+  nameWithType: IDynamicAdvice.Initialize(IQueryInterface, AdviceEnumerator<IDynamicAdvice>)
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator<PostSharp.Patterns.DynamicAdvising.IDynamicAdvice>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Initializes the current advice.
+  example: []
+  syntax:
+    content: void Initialize(IQueryInterface parent, AdviceEnumerator<IDynamicAdvice> nextAdvice)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+      description: The parent, dynamically-advisable object.
+    - id: nextAdvice
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.DynamicAdvising.IDynamicAdvice}
+      description: The next advice in the chain.
+    content.vb: Sub Initialize(parent As IQueryInterface, nextAdvice As AdviceEnumerator(Of IDynamicAdvice))
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize*
+  nameWithType.vb: IDynamicAdvice.Initialize(IQueryInterface, AdviceEnumerator(Of IDynamicAdvice))
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Initialize(PostSharp.Patterns.DynamicAdvising.IQueryInterface, PostSharp.Patterns.DynamicAdvising.AdviceEnumerator(Of PostSharp.Patterns.DynamicAdvising.IDynamicAdvice))
+  name.vb: Initialize(IQueryInterface, AdviceEnumerator(Of IDynamicAdvice))
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  commentId: P:PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  id: Order
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  langs:
+  - csharp
+  - vb
+  name: Order
+  nameWithType: IDynamicAdvice.Order
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets the execution order of the dynamic advice. See <xref href="PostSharp.Patterns.DynamicAdvising.DynamicAdviceOrder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: int Order { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Order As Integer
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Order*
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  commentId: P:PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  id: Identity
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice
+  langs:
+  - csharp
+  - vb
+  name: Identity
+  nameWithType: IDynamicAdvice.Identity
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: >-
+    Gets the type identity of the advice, which should correspond to the first parameter of the <xref href="PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type%2cSystem.Func%7bPostSharp.Patterns.DynamicAdvising.IQueryInterface%2cPostSharp.Patterns.DynamicAdvising.IDynamicAdvice%7d)" data-throw-if-not-resolved="false"></xref> method.
+
+    This is typically the generic type definition of the advice.
+  example: []
+  syntax:
+    content: Type Identity { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property Identity As Type
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicAdvice.Identity*

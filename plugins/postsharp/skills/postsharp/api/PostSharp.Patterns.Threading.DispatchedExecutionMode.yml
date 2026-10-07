@@ -1,0 +1,121 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.DispatchedExecutionMode
+  commentId: T:PostSharp.Patterns.Threading.DispatchedExecutionMode
+  id: DispatchedExecutionMode
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking
+  - PostSharp.Patterns.Threading.DispatchedExecutionMode.Default
+  - PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlocking
+  - PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlockingContextSwitch
+  langs:
+  - csharp
+  - vb
+  name: DispatchedExecutionMode
+  nameWithType: DispatchedExecutionMode
+  fullName: PostSharp.Patterns.Threading.DispatchedExecutionMode
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Specifies whether the caller of a dispatched method (see <xref href="PostSharp.Patterns.Threading.DispatchedAttribute" data-throw-if-not-resolved="false"></xref>)
+
+    waits for the called method.
+  example: []
+  syntax:
+    content: public enum DispatchedExecutionMode
+    content.vb: Public Enum DispatchedExecutionMode
+- uid: PostSharp.Patterns.Threading.DispatchedExecutionMode.Default
+  commentId: F:PostSharp.Patterns.Threading.DispatchedExecutionMode.Default
+  id: Default
+  parent: PostSharp.Patterns.Threading.DispatchedExecutionMode
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: DispatchedExecutionMode.Default
+  fullName: PostSharp.Patterns.Threading.DispatchedExecutionMode.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Default (<xref href="PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Threading.DispatchedExecutionMode
+- uid: PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking
+  commentId: F:PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking
+  id: Blocking
+  parent: PostSharp.Patterns.Threading.DispatchedExecutionMode
+  langs:
+  - csharp
+  - vb
+  name: Blocking
+  nameWithType: DispatchedExecutionMode.Blocking
+  fullName: PostSharp.Patterns.Threading.DispatchedExecutionMode.Blocking
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: The caller waits for the called method in all cases.
+  example: []
+  syntax:
+    content: Blocking = 0
+    return:
+      type: PostSharp.Patterns.Threading.DispatchedExecutionMode
+- uid: PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlocking
+  commentId: F:PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlocking
+  id: NonBlocking
+  parent: PostSharp.Patterns.Threading.DispatchedExecutionMode
+  langs:
+  - csharp
+  - vb
+  name: NonBlocking
+  nameWithType: DispatchedExecutionMode.NonBlocking
+  fullName: PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlocking
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    The caller never waits for the called method. The method is enqueued
+
+    for later execution even on the same context. Methods that have a non-<code>void</code> return type or 
+
+    <code>ref</code> or <code>out</code> parameters cannot be dispatched in non-blocking mode.
+  example: []
+  syntax:
+    content: NonBlocking = 1
+    return:
+      type: PostSharp.Patterns.Threading.DispatchedExecutionMode
+- uid: PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlockingContextSwitch
+  commentId: F:PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlockingContextSwitch
+  id: NonBlockingContextSwitch
+  parent: PostSharp.Patterns.Threading.DispatchedExecutionMode
+  langs:
+  - csharp
+  - vb
+  name: NonBlockingContextSwitch
+  nameWithType: DispatchedExecutionMode.NonBlockingContextSwitch
+  fullName: PostSharp.Patterns.Threading.DispatchedExecutionMode.NonBlockingContextSwitch
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    If the caller context equals the target context (for example, if the caller is the UI thread and the object is affine
+
+    to the UI thread), the method is invoked immediately in the current context in a blocking way. Otherwise,
+
+    if a context switch is necessary, the method call is enqueued for later execution and the caller continues without waiting.
+
+    Methods that have a non-<code>void</code> return type or <code>ref</code> or <code>out</code> parameters cannot be dispatched in non-blocking mode.
+  example: []
+  syntax:
+    content: NonBlockingContextSwitch = 2
+    return:
+      type: PostSharp.Patterns.Threading.DispatchedExecutionMode

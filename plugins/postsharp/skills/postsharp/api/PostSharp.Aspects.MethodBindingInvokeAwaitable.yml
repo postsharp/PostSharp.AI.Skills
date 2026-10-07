@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.MethodBindingInvokeAwaitable
+  commentId: T:PostSharp.Aspects.MethodBindingInvokeAwaitable
+  id: MethodBindingInvokeAwaitable
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.MethodBindingInvokeAwaitable.GetAwaiter
+  - PostSharp.Aspects.MethodBindingInvokeAwaitable.GetTask
+  langs:
+  - csharp
+  - vb
+  name: MethodBindingInvokeAwaitable
+  nameWithType: MethodBindingInvokeAwaitable
+  fullName: PostSharp.Aspects.MethodBindingInvokeAwaitable
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Represents the awaitable result of the asynchronous method invocation.
+
+    Await this value to get the <code>System.Object</code> instance containing the return value of the async method.
+
+    The result of the await is <code>null</code> for async methods that do not return any value.
+  example: []
+  syntax:
+    content: public struct MethodBindingInvokeAwaitable
+    content.vb: Public Structure MethodBindingInvokeAwaitable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.MethodBindingInvokeAwaitable.GetAwaiter
+  commentId: M:PostSharp.Aspects.MethodBindingInvokeAwaitable.GetAwaiter
+  id: GetAwaiter
+  parent: PostSharp.Aspects.MethodBindingInvokeAwaitable
+  langs:
+  - csharp
+  - vb
+  name: GetAwaiter()
+  nameWithType: MethodBindingInvokeAwaitable.GetAwaiter()
+  fullName: PostSharp.Aspects.MethodBindingInvokeAwaitable.GetAwaiter()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets an awaiter used to await the asynchronous method invocation.
+  example: []
+  syntax:
+    content: public MethodBindingInvokeAwaiter GetAwaiter()
+    return:
+      type: PostSharp.Aspects.MethodBindingInvokeAwaiter
+      description: The <xref href="PostSharp.Aspects.MethodBindingInvokeAwaiter" data-throw-if-not-resolved="false"></xref> used to await the asynchronous method invocation.
+    content.vb: Public Function GetAwaiter() As MethodBindingInvokeAwaiter
+  overload: PostSharp.Aspects.MethodBindingInvokeAwaitable.GetAwaiter*
+- uid: PostSharp.Aspects.MethodBindingInvokeAwaitable.GetTask
+  commentId: M:PostSharp.Aspects.MethodBindingInvokeAwaitable.GetTask
+  id: GetTask
+  parent: PostSharp.Aspects.MethodBindingInvokeAwaitable
+  langs:
+  - csharp
+  - vb
+  name: GetTask()
+  nameWithType: MethodBindingInvokeAwaitable.GetTask()
+  fullName: PostSharp.Aspects.MethodBindingInvokeAwaitable.GetTask()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the underlying task that was returned by the asynchronous method invocation.
+  example: []
+  syntax:
+    content: public Task GetTask()
+    return:
+      type: System.Threading.Tasks.Task
+      description: The <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> instance returned by the asynchronous method.
+    content.vb: Public Function GetTask() As Task
+  overload: PostSharp.Aspects.MethodBindingInvokeAwaitable.GetTask*

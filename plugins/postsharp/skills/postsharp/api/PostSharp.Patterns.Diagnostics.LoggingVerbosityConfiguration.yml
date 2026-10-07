@@ -1,0 +1,539 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  id: LoggingVerbosityConfiguration
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Finalize
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Freeze
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.FromXml(System.Xml.Linq.XElement)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsReadOnly
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Reset
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use
+  langs:
+  - csharp
+  - vb
+  name: LoggingVerbosityConfiguration
+  nameWithType: LoggingVerbosityConfiguration
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Manages the configuration of the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for individual types and namespaces. This class is exposed by the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity" data-throw-if-not-resolved="false"></xref> property.
+
+    To create a new instance of this class, call <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>This class is not meant to be derived because it is heavyweight and therefore
+         the number of instances should be minimal. To store context-sensitive information, another mechanism should be used.</p>
+    <p>The <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity" data-throw-if-not-resolved="false"></xref> property gives the configuration of the default execution context. The default
+         minimum level is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref>. Setting the level of a namespace overrides the levels of its child namespaces and types,
+         so set the level of a parent namespace before the levels of its children.</p>
+    <p>To change the verbosity for a specific execution context only, for instance a web request, create an instance once with
+         <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>, store it, and call <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use" data-throw-if-not-resolved="false"></xref> when the request starts. Dispose the returned
+         object when the request ends. Do not create an instance for each request.</p>
+  example: []
+  syntax:
+    content: 'public class LoggingVerbosityConfiguration : IDisposable'
+    content.vb: Public Class LoggingVerbosityConfiguration Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use
+  id: Use
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Use()
+  nameWithType: LoggingVerbosityConfiguration.Use()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Uses the current <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> for the current execution context.
+  example: []
+  syntax:
+    content: public LoggingContextLocalConfigurationScope Use()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+      description: An opaque and disposable cookie that allows changing the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> back to its original value.
+    content.vb: Public Function Use() As LoggingContextLocalConfigurationScope
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type,System.String)
+  id: SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SetMinimalLevelForType(LogLevel, Type, string)
+  nameWithType: LoggingVerbosityConfiguration.SetMinimalLevelForType(LogLevel, Type, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel, System.Type, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for a specific <xref href="System.Type" data-throw-if-not-resolved="false"></xref> and role.
+  example: []
+  syntax:
+    content: public void SetMinimalLevelForType(LogLevel level, Type type, string role)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for which logging should be enabled. If this is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref>, logging will not be enabled at all.
+    - id: type
+      type: System.Type
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: role
+      type: System.String
+      description: The role (typically a value from the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type).
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub SetMinimalLevelForType(level As LogLevel, type As Type, role As String)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType*
+  nameWithType.vb: LoggingVerbosityConfiguration.SetMinimalLevelForType(LogLevel, Type, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel, System.Type, String)
+  name.vb: SetMinimalLevelForType(LogLevel, Type, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type)
+  id: SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SetMinimalLevelForType(LogLevel, Type)
+  nameWithType: LoggingVerbosityConfiguration.SetMinimalLevelForType(LogLevel, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType(PostSharp.Patterns.Diagnostics.LogLevel, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for a specific <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void SetMinimalLevelForType(LogLevel level, Type type)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for which logging should be enabled. If this is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref>, logging will not be enabled at all.
+    - id: type
+      type: System.Type
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub SetMinimalLevelForType(level As LogLevel, type As Type)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForType*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String,System.String)
+  id: SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SetMinimalLevelForNamespace(LogLevel, string, string)
+  nameWithType: LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(LogLevel, string, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel, string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for a specific namespace and role.
+  remarks: <p>This method overrides the verbosity of all child namespaces and types.</p>
+  example: []
+  syntax:
+    content: public void SetMinimalLevelForNamespace(LogLevel level, string ns, string role)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for which logging should be enabled. If this is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref>, logging will not be enabled at all.
+    - id: ns
+      type: System.String
+      description: The namespace.
+    - id: role
+      type: System.String
+      description: The role (typically a value from the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type).
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub SetMinimalLevelForNamespace(level As LogLevel, ns As String, role As String)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace*
+  nameWithType.vb: LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(LogLevel, String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel, String, String)
+  name.vb: SetMinimalLevelForNamespace(LogLevel, String, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  id: SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SetMinimalLevelForNamespace(LogLevel, string)
+  nameWithType: LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(LogLevel, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for a specific namespace and all roles except system roles.
+  remarks: <p>This method overrides the verbosity of all child namespaces and types.</p>
+  example: []
+  syntax:
+    content: public void SetMinimalLevelForNamespace(LogLevel level, string ns)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for which logging should be enabled. If this is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref>, logging will not be enabled at all.
+    - id: ns
+      type: System.String
+      description: The namespace.
+    content.vb: Public Sub SetMinimalLevelForNamespace(level As LogLevel, ns As String)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace*
+  nameWithType.vb: LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(LogLevel, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel, String)
+  name.vb: SetMinimalLevelForNamespace(LogLevel, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SetMinimalLevel(LogLevel)
+  nameWithType: LoggingVerbosityConfiguration.SetMinimalLevel(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for all namespaces, types, and roles except system roles.
+  remarks: <p>This method overrides the verbosity of all namespaces, types and roles.</p>
+  example: []
+  syntax:
+    content: public void SetMinimalLevel(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for which logging should be enabled. If this is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref>, logging will not be enabled at all.
+    content.vb: Public Sub SetMinimalLevel(level As LogLevel)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  id: SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SetMinimalLevel(LogLevel, string)
+  nameWithType: LoggingVerbosityConfiguration.SetMinimalLevel(LogLevel, string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for all namespaces and types for a specific role.
+  remarks: <p>This method overrides the verbosity of all namespaces and types.</p>
+  example: []
+  syntax:
+    content: public void SetMinimalLevel(LogLevel level, string role)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for which logging should be enabled. If this is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.None" data-throw-if-not-resolved="false"></xref>, logging will not be enabled at all.
+    - id: role
+      type: System.String
+      description: The role (typically a value from the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> type).
+    content.vb: Public Sub SetMinimalLevel(level As LogLevel, role As String)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel*
+  nameWithType.vb: LoggingVerbosityConfiguration.SetMinimalLevel(LogLevel, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevel(PostSharp.Patterns.Diagnostics.LogLevel, String)
+  name.vb: SetMinimalLevel(LogLevel, String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Freeze
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Freeze
+  id: Freeze
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Freeze()
+  nameWithType: LoggingVerbosityConfiguration.Freeze()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Freeze()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Prevents further modifications in the current object.
+  example: []
+  syntax:
+    content: public void Freeze()
+    content.vb: Public Sub Freeze()
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Freeze*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Reset
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Reset
+  id: Reset
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Reset()
+  nameWithType: LoggingVerbosityConfiguration.Reset()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Reset()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Resets all settings to their default value (that is, <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref> level for everything).
+  example: []
+  syntax:
+    content: public void Reset()
+    content.vb: Public Sub Reset()
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Reset*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: LoggingVerbosityConfiguration.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: ''
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose*
+  nameWithType.vb: LoggingVerbosityConfiguration.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Finalize
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Finalize
+  id: Finalize
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ~LoggingVerbosityConfiguration()
+  nameWithType: LoggingVerbosityConfiguration.~LoggingVerbosityConfiguration()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.~LoggingVerbosityConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Finalizes the current object.
+  example: []
+  syntax:
+    content: protected ~LoggingVerbosityConfiguration()
+    content.vb: 'Protected '
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: LoggingVerbosityConfiguration.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LoggingVerbosityConfiguration.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.ToString*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.FromXml(System.Xml.Linq.XElement)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.FromXml(System.Xml.Linq.XElement)
+  id: FromXml(System.Xml.Linq.XElement)
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: FromXml(XElement)
+  nameWithType: LoggingVerbosityConfiguration.FromXml(XElement)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.FromXml(System.Xml.Linq.XElement)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Sets the verbosities in this instance according to data from an XML file.
+  example: []
+  syntax:
+    content: public void FromXml(XElement element)
+    parameters:
+    - id: element
+      type: System.Xml.Linq.XElement
+      description: A <code>&lt;verbosity&gt;</code> XML element, or <code>null</code>.
+    content.vb: Public Sub FromXml(element As XElement)
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.FromXml*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: Thrown when an element other than <code>verbosity</code> is given.
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsReadOnly
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsReadOnly
+  id: IsReadOnly
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: LoggingVerbosityConfiguration.IsReadOnly
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsReadOnly
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a value indicating whether the current instance is read-only. A <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> is frozen when it starts being used by a <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsReadOnly*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsEnabled
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsEnabled
+  id: IsEnabled
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: LoggingVerbosityConfiguration.IsEnabled
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> is enabled. This property has precedence
+
+    over, and does not affect, the minimum log levels set through the <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.SetLevel(PostSharp.Patterns.Diagnostics.LogLevel)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public bool IsEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEnabled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsEnabled*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Backend
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: LoggingVerbosityConfiguration.Backend
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the parent <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingBackend Backend { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+    content.vb: Public ReadOnly Property Backend As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Backend*
+- uid: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsDisposed
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsDisposed
+  id: IsDisposed
+  parent: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsDisposed
+  nameWithType: LoggingVerbosityConfiguration.IsDisposed
+  fullName: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsDisposed
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> has already been disposed.
+  example: []
+  syntax:
+    content: public bool IsDisposed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDisposed As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.IsDisposed*

@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ILocationInterceptionAspect
+  commentId: T:PostSharp.Aspects.ILocationInterceptionAspect
+  id: ILocationInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  - PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: ILocationInterceptionAspect
+  nameWithType: ILocationInterceptionAspect
+  fullName: PostSharp.Aspects.ILocationInterceptionAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Runtime semantics of an aspect that, when applied on a location (field or property), intercepts invocations of
+
+    the <code>Get</code> (<xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) and <code>Set</code> (<xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) semantics.
+  remarks: See <xref href="PostSharp.Aspects.LocationInterceptionAspect" data-throw-if-not-resolved="false"></xref> for details.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface ILocationInterceptionAspect : ILocationLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface ILocationInterceptionAspect Inherits ILocationLevelAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.LocationInterceptionAspect
+  inheritedMembers:
+  - PostSharp.Aspects.ILocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  commentId: M:PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  id: OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  parent: PostSharp.Aspects.ILocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnGetValue(LocationInterceptionArgs)
+  nameWithType: ILocationInterceptionAspect.OnGetValue(LocationInterceptionArgs)
+  fullName: PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Get</code> semantic of the field or property to which the current aspect is applied,
+
+    that is, when the value of this field or property is retrieved.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnGetValue(LocationInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.LocationInterceptionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnGetValue(args As LocationInterceptionArgs)
+  overload: PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue*
+  seealso:
+  - linkId: PostSharp.Aspects.LocationInterceptionArgs
+    commentId: T:PostSharp.Aspects.LocationInterceptionArgs
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  commentId: M:PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  id: OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  parent: PostSharp.Aspects.ILocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnSetValue(LocationInterceptionArgs)
+  nameWithType: ILocationInterceptionAspect.OnSetValue(LocationInterceptionArgs)
+  fullName: PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Set</code> semantic of the field or property to which the current aspect is applied,
+      that is, when the value of this field or property is changed.
+  remarks: >-
+    <p>
+        This method is invoked instead of the setter of the property to which the current aspect is applied. If it is applied to a field, that field
+        is transformed into a property. This method intercepts all writes to static properties, but it does not intercept inline initializers of instance
+        properties; use <xref href="PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref> for that.
+        </p>
+    <p>
+        If you apply this advice to a getter-only auto-implemented property, PostSharp will create a setter that will be called in these cases:
+        </p>
+    <ul><li>for static properties, instead of the property inline initialization or property assignment from the static constructor;</li><li>for instance properties, only instead of the property assignment from the constructor but not for the inline initialization.
+            To intercept the inline initialization of an instance property,
+        use the <xref href="PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref> advice.</li></ul>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnSetValue(LocationInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.LocationInterceptionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnSetValue(args As LocationInterceptionArgs)
+  overload: PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue*
+  seealso:
+  - linkId: PostSharp.Aspects.LocationInterceptionArgs
+    commentId: T:PostSharp.Aspects.LocationInterceptionArgs
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

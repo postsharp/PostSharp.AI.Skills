@@ -1,0 +1,187 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.RelationshipKind
+  commentId: T:PostSharp.Patterns.Model.RelationshipKind
+  id: RelationshipKind
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.RelationshipKind.Child
+  - PostSharp.Patterns.Model.RelationshipKind.ChildOrParentSurrogate
+  - PostSharp.Patterns.Model.RelationshipKind.Default
+  - PostSharp.Patterns.Model.RelationshipKind.None
+  - PostSharp.Patterns.Model.RelationshipKind.Parent
+  - PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate
+  - PostSharp.Patterns.Model.RelationshipKind.Reference
+  langs:
+  - csharp
+  - vb
+  name: RelationshipKind
+  nameWithType: RelationshipKind
+  fullName: PostSharp.Patterns.Model.RelationshipKind
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies the kinds of relationship between objects in an object graph.
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum RelationshipKind : short
+    content.vb: >-
+      <Flags>
+
+      Public Enum RelationshipKind As Short
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Model.RelationshipKind.None
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.None
+  id: None
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: RelationshipKind.None
+  fullName: PostSharp.Patterns.Model.RelationshipKind.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: No relationship.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+- uid: PostSharp.Patterns.Model.RelationshipKind.Default
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.Default
+  id: Default
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: RelationshipKind.Default
+  fullName: PostSharp.Patterns.Model.RelationshipKind.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Indicates that the relationship kind has not been specified. The typical behavior is a build-time error or warning.
+  example: []
+  syntax:
+    content: Default = 1
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+- uid: PostSharp.Patterns.Model.RelationshipKind.Child
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.Child
+  id: Child
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: Child
+  nameWithType: RelationshipKind.Child
+  fullName: PostSharp.Patterns.Model.RelationshipKind.Child
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Child (see <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: Child = 2
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+- uid: PostSharp.Patterns.Model.RelationshipKind.Reference
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.Reference
+  id: Reference
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: Reference
+  nameWithType: RelationshipKind.Reference
+  fullName: PostSharp.Patterns.Model.RelationshipKind.Reference
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Reference (see <xref href="PostSharp.Patterns.Model.ReferenceAttribute" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: Reference = 4
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+- uid: PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate
+  id: ParentSurrogate
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: ParentSurrogate
+  nameWithType: RelationshipKind.ParentSurrogate
+  fullName: PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Parent surrogate (see <xref href="PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: ParentSurrogate = 8
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+- uid: PostSharp.Patterns.Model.RelationshipKind.Parent
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.Parent
+  id: Parent
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: Parent
+  nameWithType: RelationshipKind.Parent
+  fullName: PostSharp.Patterns.Model.RelationshipKind.Parent
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Parent (see <xref href="PostSharp.Patterns.Model.ParentAttribute" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: Parent = 16
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+- uid: PostSharp.Patterns.Model.RelationshipKind.ChildOrParentSurrogate
+  commentId: F:PostSharp.Patterns.Model.RelationshipKind.ChildOrParentSurrogate
+  id: ChildOrParentSurrogate
+  parent: PostSharp.Patterns.Model.RelationshipKind
+  langs:
+  - csharp
+  - vb
+  name: ChildOrParentSurrogate
+  nameWithType: RelationshipKind.ChildOrParentSurrogate
+  fullName: PostSharp.Patterns.Model.RelationshipKind.ChildOrParentSurrogate
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Either <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>, depending on the type of the specific object assigned to the field or property.
+
+    This is the default relationship kind for <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref> when the <xref href="PostSharp.Patterns.Model.ChildAttribute.IsParentSurrogate" data-throw-if-not-resolved="false"></xref> property is not set.
+
+    It causes the field to be a <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref> if the object is an <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref> or an <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>,
+
+    otherwise a <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ChildOrParentSurrogate = Child | ParentSurrogate
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: ChildOrParentSurrogate = Child Or ParentSurrogate

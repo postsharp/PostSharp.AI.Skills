@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IServiceLocator
+  commentId: T:PostSharp.Extensibility.IServiceLocator
+  id: IServiceLocator
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IServiceLocator.GetService``1(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: IServiceLocator
+  nameWithType: IServiceLocator
+  fullName: PostSharp.Extensibility.IServiceLocator
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Exposes build-time services.
+  example: []
+  syntax:
+    content: 'public interface IServiceLocator : IService'
+    content.vb: Public Interface IServiceLocator Inherits IService
+- uid: PostSharp.Extensibility.IServiceLocator.GetService``1(System.Boolean)
+  commentId: M:PostSharp.Extensibility.IServiceLocator.GetService``1(System.Boolean)
+  id: GetService``1(System.Boolean)
+  parent: PostSharp.Extensibility.IServiceLocator
+  langs:
+  - csharp
+  - vb
+  name: GetService<T>(bool)
+  nameWithType: IServiceLocator.GetService<T>(bool)
+  fullName: PostSharp.Extensibility.IServiceLocator.GetService<T>(bool)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a build-time service exposed by PostSharp.
+  example: []
+  syntax:
+    content: 'T GetService<T>(bool throwing = true) where T : class, IService'
+    parameters:
+    - id: throwing
+      type: System.Boolean
+      description: >-
+        <code>true</code> if an exception should be thrown when the service cannot be acquired, otherwise <code>false</code>.
+            The default value is <code>true</code>.
+    typeParameters:
+    - id: T
+      description: An interface derived from <xref href="PostSharp.Extensibility.IService" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: '{T}'
+      description: >-
+        The service <code class="typeparamref">T</code>, or <code>null</code> if the service could not be acquired and <code class="paramref">throwing</code>
+                    was set to <code>false</code>.
+    content.vb: Function GetService(Of T As {Class, IService})(throwing As Boolean = True) As T
+  overload: PostSharp.Extensibility.IServiceLocator.GetService*
+  nameWithType.vb: IServiceLocator.GetService(Of T)(Boolean)
+  fullName.vb: PostSharp.Extensibility.IServiceLocator.GetService(Of T)(Boolean)
+  name.vb: GetService(Of T)(Boolean)

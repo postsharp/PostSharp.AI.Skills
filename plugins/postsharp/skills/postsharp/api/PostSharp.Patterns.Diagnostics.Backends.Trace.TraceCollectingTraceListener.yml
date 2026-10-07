@@ -1,0 +1,209 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  id: TraceCollectingTraceListener
+  parent: PostSharp.Patterns.Diagnostics.Backends.Trace
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.RedirectLoggingToPostSharp
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String,System.Object[])
+  langs:
+  - csharp
+  - vb
+  name: TraceCollectingTraceListener
+  nameWithType: TraceCollectingTraceListener
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Trace
+  summary: A trace listener that sends all events to PostSharp as the log source "TraceCollectingTraceListener".
+  remarks: >-
+    <p>Use <xref href="PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.RedirectLoggingToPostSharp" data-throw-if-not-resolved="false"></xref> to install this listener after you have added your output listeners to
+
+    <xref href="System.Diagnostics.Trace.Listeners" data-throw-if-not-resolved="false"></xref>. Pass the listeners that the method returns to the
+
+    <xref href="PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend.%23ctor(System.Collections.Generic.IEnumerable%7bSystem.Diagnostics.TraceListener%7d%2cSystem.String)" data-throw-if-not-resolved="false"></xref> constructor, so that manual and automatic log records
+
+    reach the same listeners through the same backend and share the same indentation.</p>
+  example: []
+  syntax:
+    content: 'public class TraceCollectingTraceListener : BaseCollectingTraceListener, IDisposable'
+    content.vb: Public Class TraceCollectingTraceListener Inherits BaseCollectingTraceListener Implements IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackend
+  - linkType: HRef
+    linkId: '@logging-trace'
+    altText: 'Conceptual: Logging with System.Diagnostics.Trace'
+  inheritance:
+  - System.Object
+  - System.MarshalByRefObject
+  - System.Diagnostics.TraceListener
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object[])
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.ConvertLevel(System.Diagnostics.TraceEventType)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceEvent(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.Fail(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.Write(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.WriteLine(System.String)
+  - System.Diagnostics.TraceListener.Dispose
+  - System.Diagnostics.TraceListener.Dispose(System.Boolean)
+  - System.Diagnostics.TraceListener.Flush
+  - System.Diagnostics.TraceListener.Close
+  - System.Diagnostics.TraceListener.GetSupportedAttributes
+  - System.Diagnostics.TraceListener.TraceTransfer(System.Diagnostics.TraceEventCache,System.String,System.Int32,System.String,System.Guid)
+  - System.Diagnostics.TraceListener.Fail(System.String)
+  - System.Diagnostics.TraceListener.Write(System.Object)
+  - System.Diagnostics.TraceListener.Write(System.String,System.String)
+  - System.Diagnostics.TraceListener.Write(System.Object,System.String)
+  - System.Diagnostics.TraceListener.WriteIndent
+  - System.Diagnostics.TraceListener.WriteLine(System.Object)
+  - System.Diagnostics.TraceListener.WriteLine(System.String,System.String)
+  - System.Diagnostics.TraceListener.WriteLine(System.Object,System.String)
+  - System.Diagnostics.TraceListener.Attributes
+  - System.Diagnostics.TraceListener.Name
+  - System.Diagnostics.TraceListener.IsThreadSafe
+  - System.Diagnostics.TraceListener.IndentLevel
+  - System.Diagnostics.TraceListener.IndentSize
+  - System.Diagnostics.TraceListener.Filter
+  - System.Diagnostics.TraceListener.NeedIndent
+  - System.Diagnostics.TraceListener.TraceOutputOptions
+  - System.MarshalByRefObject.GetLifetimeService
+  - System.MarshalByRefObject.InitializeLifetimeService
+  - System.MarshalByRefObject.MemberwiseClone(System.Boolean)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  langs:
+  - csharp
+  - vb
+  name: TraceCollectingTraceListener()
+  nameWithType: TraceCollectingTraceListener.TraceCollectingTraceListener()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCollectingTraceListener()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Trace
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public TraceCollectingTraceListener()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.#ctor*
+  nameWithType.vb: TraceCollectingTraceListener.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.RedirectLoggingToPostSharp
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.RedirectLoggingToPostSharp
+  id: RedirectLoggingToPostSharp
+  parent: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  langs:
+  - csharp
+  - vb
+  name: RedirectLoggingToPostSharp()
+  nameWithType: TraceCollectingTraceListener.RedirectLoggingToPostSharp()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.RedirectLoggingToPostSharp()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Trace
+  summary: >-
+    Redirects all <xref href="System.Diagnostics.Trace" data-throw-if-not-resolved="false"></xref> events to PostSharp and clears all other listeners from <xref href="System.Diagnostics.Trace.Listeners" data-throw-if-not-resolved="false"></xref>.
+
+    The method returns the listeners that it cleared.
+  example: []
+  syntax:
+    content: public static List<TraceListener> RedirectLoggingToPostSharp()
+    return:
+      type: System.Collections.Generic.List{System.Diagnostics.TraceListener}
+      description: The listeners that were previously in the <xref href="System.Diagnostics.Trace.Listeners" data-throw-if-not-resolved="false"></xref> collection, excluding the new <xref href="PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function RedirectLoggingToPostSharp() As List(Of TraceListener)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.RedirectLoggingToPostSharp*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String)
+  id: TraceCore(System.String,System.Diagnostics.TraceEventType,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  langs:
+  - csharp
+  - vb
+  name: TraceCore(string, TraceEventType, string)
+  nameWithType: TraceCollectingTraceListener.TraceCore(string, TraceEventType, string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(string, System.Diagnostics.TraceEventType, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Trace
+  summary: Sends an event to PostSharp. You provide the <code class="paramref">text</code> in its final formatted form.
+  example: []
+  syntax:
+    content: protected override void TraceCore(string eventSource, TraceEventType eventType, string text)
+    parameters:
+    - id: eventSource
+      type: System.String
+      description: The name of the trace source that attempts to create an event.
+    - id: eventType
+      type: System.Diagnostics.TraceEventType
+      description: The log level of the event.
+    - id: text
+      type: System.String
+      description: The formatted message to be printed.
+    content.vb: Protected Overrides Sub TraceCore(eventSource As String, eventType As TraceEventType, text As String)
+  overridden: PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore*
+  nameWithType.vb: TraceCollectingTraceListener.TraceCore(String, TraceEventType, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(String, System.Diagnostics.TraceEventType, String)
+  name.vb: TraceCore(String, TraceEventType, String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String,System.Object[])
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String,System.Object[])
+  id: TraceCore(System.String,System.Diagnostics.TraceEventType,System.String,System.Object[])
+  parent: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener
+  langs:
+  - csharp
+  - vb
+  name: TraceCore(string, TraceEventType, string, object[])
+  nameWithType: TraceCollectingTraceListener.TraceCore(string, TraceEventType, string, object[])
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(string, System.Diagnostics.TraceEventType, string, object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Trace
+  summary: Sends an event to PostSharp. The text is provided as a formatting string and an array of parameters.
+  example: []
+  syntax:
+    content: protected override void TraceCore(string eventSource, TraceEventType eventType, string format, object[] data)
+    parameters:
+    - id: eventSource
+      type: System.String
+      description: The name of the trace source that attempts to create an event.
+    - id: eventType
+      type: System.Diagnostics.TraceEventType
+      description: The log level of the event.
+    - id: format
+      type: System.String
+      description: The format of the message to be printed, with number- or text-based placeholders.
+    - id: data
+      type: System.Object[]
+      description: The arguments for the format. This parameter must not be <code>null</code>.
+    content.vb: Protected Overrides Sub TraceCore(eventSource As String, eventType As TraceEventType, format As String, data As Object())
+  overridden: PostSharp.Patterns.Diagnostics.Backends.Trace.BaseCollectingTraceListener.TraceCore(System.String,System.Diagnostics.TraceEventType,System.String,System.Object[])
+  overload: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore*
+  nameWithType.vb: TraceCollectingTraceListener.TraceCore(String, TraceEventType, String, Object())
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Trace.TraceCollectingTraceListener.TraceCore(String, System.Diagnostics.TraceEventType, String, Object())
+  name.vb: TraceCore(String, TraceEventType, String, Object())

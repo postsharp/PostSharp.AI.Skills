@@ -1,0 +1,154 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  commentId: T:PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  id: ConcurrentAccessAwaiter
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetAwaiter
+  - PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetResult
+  - PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.IsCompleted
+  - PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.OnCompleted(System.Action)
+  - PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.UnsafeOnCompleted(System.Action)
+  langs:
+  - csharp
+  - vb
+  name: ConcurrentAccessAwaiter
+  nameWithType: ConcurrentAccessAwaiter
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: An awaiter for the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)" data-throw-if-not-resolved="false"></xref> method. The struct implements both the Awaiter and Awaitable contracts.
+  example: []
+  syntax:
+    content: 'public readonly struct ConcurrentAccessAwaiter : ICriticalNotifyCompletion, INotifyCompletion'
+    content.vb: Public Structure ConcurrentAccessAwaiter Implements ICriticalNotifyCompletion, INotifyCompletion
+  implements:
+  - System.Runtime.CompilerServices.ICriticalNotifyCompletion
+  - System.Runtime.CompilerServices.INotifyCompletion
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetAwaiter
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetAwaiter
+  id: GetAwaiter
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  langs:
+  - csharp
+  - vb
+  name: GetAwaiter()
+  nameWithType: ConcurrentAccessAwaiter.GetAwaiter()
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetAwaiter()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the Awaiter from the Awaitable. This method is a part of the Awaitable contract.
+  example: []
+  syntax:
+    content: public ConcurrentAccessAwaiter GetAwaiter()
+    return:
+      type: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+      description: The current object.
+    content.vb: Public Function GetAwaiter() As ConcurrentAccessAwaiter
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetAwaiter*
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetResult
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetResult
+  id: GetResult
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  langs:
+  - csharp
+  - vb
+  name: GetResult()
+  nameWithType: ConcurrentAccessAwaiter.GetResult()
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetResult()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the result of the async method. This method is a part of the Awaiter contract.
+  example: []
+  syntax:
+    content: public ConcurrentAccessToken GetResult()
+    return:
+      type: PostSharp.Patterns.Threading.ConcurrentAccessToken
+      description: The result of the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccessAsync(PostSharp.Patterns.Model.ObjectAccessLevel)" data-throw-if-not-resolved="false"></xref> method.
+    content.vb: Public Function GetResult() As ConcurrentAccessToken
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.GetResult*
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.OnCompleted(System.Action)
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.OnCompleted(System.Action)
+  id: OnCompleted(System.Action)
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  langs:
+  - csharp
+  - vb
+  name: OnCompleted(Action)
+  nameWithType: ConcurrentAccessAwaiter.OnCompleted(Action)
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.OnCompleted(System.Action)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  example: []
+  syntax:
+    content: public void OnCompleted(Action continuation)
+    parameters:
+    - id: continuation
+      type: System.Action
+    content.vb: Public Sub OnCompleted(continuation As Action)
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.OnCompleted*
+  implements:
+  - System.Runtime.CompilerServices.INotifyCompletion.OnCompleted(System.Action)
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.UnsafeOnCompleted(System.Action)
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.UnsafeOnCompleted(System.Action)
+  id: UnsafeOnCompleted(System.Action)
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  langs:
+  - csharp
+  - vb
+  name: UnsafeOnCompleted(Action)
+  nameWithType: ConcurrentAccessAwaiter.UnsafeOnCompleted(Action)
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.UnsafeOnCompleted(System.Action)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  example: []
+  syntax:
+    content: public void UnsafeOnCompleted(Action continuation)
+    parameters:
+    - id: continuation
+      type: System.Action
+    content.vb: Public Sub UnsafeOnCompleted(continuation As Action)
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.UnsafeOnCompleted*
+  implements:
+  - System.Runtime.CompilerServices.ICriticalNotifyCompletion.UnsafeOnCompleted(System.Action)
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.IsCompleted
+  commentId: P:PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.IsCompleted
+  id: IsCompleted
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter
+  langs:
+  - csharp
+  - vb
+  name: IsCompleted
+  nameWithType: ConcurrentAccessAwaiter.IsCompleted
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.IsCompleted
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a value indicating whether the operation has already completed.
+  example: []
+  syntax:
+    content: public bool IsCompleted { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsCompleted As Boolean
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessAwaiter.IsCompleted*

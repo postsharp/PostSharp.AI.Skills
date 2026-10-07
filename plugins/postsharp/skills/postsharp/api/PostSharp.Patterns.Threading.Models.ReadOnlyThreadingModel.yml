@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel
+  commentId: T:PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel
+  id: ReadOnlyThreadingModel
+  parent: PostSharp.Patterns.Threading.Models
+  children:
+  - PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsBlocking
+  - PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsThreadSafe
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyThreadingModel
+  nameWithType: ReadOnlyThreadingModel
+  fullName: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: Base class for <xref href="PostSharp.Patterns.Threading.Models.FreezableThreadingModel" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Threading.Models.ImmutableThreadingModel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class ReadOnlyThreadingModel : ThreadingModel'
+    content.vb: Public MustInherit Class ReadOnlyThreadingModel Inherits ThreadingModel
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Threading.ThreadingModel
+  derivedClasses:
+  - PostSharp.Patterns.Threading.Models.FreezableThreadingModel
+  - PostSharp.Patterns.Threading.Models.ImmutableThreadingModel
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadingModel.ToString
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsThreadSafe
+  commentId: P:PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsThreadSafe
+  id: IsThreadSafe
+  parent: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsThreadSafe
+  nameWithType: ReadOnlyThreadingModel.IsThreadSafe
+  fullName: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsThreadSafe
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: Gets a value indicating whether the threading model is possibly thread safe.
+  example: []
+  syntax:
+    content: public override bool IsThreadSafe { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsThreadSafe As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsThreadSafe
+  overload: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsThreadSafe*
+- uid: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsBlocking
+  commentId: P:PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsBlocking
+  id: IsBlocking
+  parent: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel
+  langs:
+  - csharp
+  - vb
+  name: IsBlocking
+  nameWithType: ReadOnlyThreadingModel.IsBlocking
+  fullName: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsBlocking
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading.Models
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Threading.ThreadingModel" data-throw-if-not-resolved="false"></xref> has blocking semantics, that is, whether the threading model may cause the executing thread
+
+    to be blocked, for instance when waiting for a lock.
+  example: []
+  syntax:
+    content: public override bool IsBlocking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsBlocking As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadingModel.IsBlocking
+  overload: PostSharp.Patterns.Threading.Models.ReadOnlyThreadingModel.IsBlocking*

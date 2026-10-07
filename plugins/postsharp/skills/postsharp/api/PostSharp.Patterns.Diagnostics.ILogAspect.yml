@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ILogAspect
+  commentId: T:PostSharp.Patterns.Diagnostics.ILogAspect
+  id: ILogAspect
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.ILogAspect.ProfileName
+  langs:
+  - csharp
+  - vb
+  name: ILogAspect
+  nameWithType: ILogAspect
+  fullName: PostSharp.Patterns.Diagnostics.ILogAspect
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Interface that all method-level logging aspects implement.
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp("PostSharp.Patterns.Diagnostics.Weaver", "PostSharp.Patterns.Diagnostics")]
+
+      public interface ILogAspect : IAspect
+    content.vb: >-
+      <RequirePostSharp("PostSharp.Patterns.Diagnostics.Weaver", "PostSharp.Patterns.Diagnostics")>
+
+      Public Interface ILogAspect Inherits IAspect
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Audit.AuditAttribute
+  - PostSharp.Patterns.Diagnostics.LogAttribute
+  - PostSharp.Patterns.Diagnostics.LogAttributeBase
+  - PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: PostSharp.Patterns.Diagnostics.Weaver
+    - type: System.String
+      value: PostSharp.Patterns.Diagnostics
+- uid: PostSharp.Patterns.Diagnostics.ILogAspect.ProfileName
+  commentId: P:PostSharp.Patterns.Diagnostics.ILogAspect.ProfileName
+  id: ProfileName
+  parent: PostSharp.Patterns.Diagnostics.ILogAspect
+  langs:
+  - csharp
+  - vb
+  name: ProfileName
+  nameWithType: ILogAspect.ProfileName
+  fullName: PostSharp.Patterns.Diagnostics.ILogAspect.ProfileName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the name of the logging profile.
+  example: []
+  syntax:
+    content: string ProfileName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ProfileName As String
+  overload: PostSharp.Patterns.Diagnostics.ILogAspect.ProfileName*

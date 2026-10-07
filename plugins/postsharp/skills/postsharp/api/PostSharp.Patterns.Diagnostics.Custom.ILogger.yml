@@ -1,0 +1,1103 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ILogger
+  id: ILogger
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.ActivityOptions
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.RequiresSuspendResume
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Role
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.SetWaitDependency(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,System.Object)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Type
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Object[],System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``1(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``10(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``2(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``3(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``4(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``5(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``6(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``7(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``8(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``9(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  langs:
+  - csharp
+  - vb
+  name: ILogger
+  nameWithType: ILogger
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Defines an abstraction of the logging facility, through which other components emit their log records. This
+
+    interface abstracts other PostSharp components from the PostSharp.Patterns.Diagnostics component.
+  remarks: >-
+    <p>If you want to implement this interface, you should also implement the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref> interface
+        and register it with the <xref href="PostSharp.Patterns.Utilities.ServiceLocator" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public interface ILogger
+    content.vb: Public Interface ILogger
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  - PostSharp.Patterns.Diagnostics.LoggingAbstractSource
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled(LogLevel)
+  nameWithType: ILogger.IsEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Determines whether logging is enabled for a given <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: bool IsEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The record level, or severity.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if logging is enabled for <code class="paramref">level</code>, otherwise <code>false</code>.
+    content.vb: Function IsEnabled(level As LogLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.IsEnabled*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write(ILoggingContext, LogLevel, LogRecordKind, string, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write(ILoggingContext, LogLevel, LogRecordKind, string, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with a description without parameters.
+  example: []
+  syntax:
+    content: void Write(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, Exception exception, ref CallerInfo callerInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> of the record.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the record.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    content.vb: Sub Write(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, exception As Exception, callerInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(ILoggingContext, LogLevel, LogRecordKind, String, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(ILoggingContext, LogLevel, LogRecordKind, String, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Object[],System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Object[],System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Object[],System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write(ILoggingContext, LogLevel, LogRecordKind, string, object[], Exception, ref CallerInfo)
+  nameWithType: ILogger.Write(ILoggingContext, LogLevel, LogRecordKind, string, object[], Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, object[], System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with a description and an array of parameters.
+  example: []
+  syntax:
+    content: void Write(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, object[] args, Exception exception, ref CallerInfo callerInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> of the record.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the record.
+    - id: args
+      type: System.Object[]
+      description: An array of parameters.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    content.vb: Sub Write(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, args As Object(), exception As Exception, callerInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(ILoggingContext, LogLevel, LogRecordKind, String, Object(), Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, Object(), System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(ILoggingContext, LogLevel, LogRecordKind, String, Object(), Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: OpenActivity(LogActivityOptions, ref CallerInfo)
+  nameWithType: ILogger.OpenActivity(LogActivityOptions, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Opens an activity.
+  example: []
+  syntax:
+    content: ILoggingContext OpenActivity(LogActivityOptions options, ref CallerInfo callerInfo)
+    parameters:
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.LogActivityOptions
+      description: The options.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext" data-throw-if-not-resolved="false"></xref> representing the new activity.
+    content.vb: Function OpenActivity(options As LogActivityOptions, callerInfo As CallerInfo) As ILoggingContext
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity*
+  nameWithType.vb: ILogger.OpenActivity(LogActivityOptions, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: OpenActivity(LogActivityOptions, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: ResumeActivity(ILoggingContext, ref CallerInfo)
+  nameWithType: ILogger.ResumeActivity(ILoggingContext, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Resumes an asynchronous activity suspended by the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: void ResumeActivity(ILoggingContext context, ref CallerInfo callerInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: >-
+        A context representing an asynchronous custom activity, created by <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref>
+                    and suspended by <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref>.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    content.vb: Sub ResumeActivity(context As ILoggingContext, callerInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity*
+  nameWithType.vb: ILogger.ResumeActivity(ILoggingContext, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: ResumeActivity(ILoggingContext, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: SuspendActivity(ILoggingContext, ref CallerInfo)
+  nameWithType: ILogger.SuspendActivity(ILoggingContext, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Suspends an asynchronous activity, which can then be resumed by the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: void SuspendActivity(ILoggingContext context, ref CallerInfo callerInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: A context representing an asynchronous custom activity, created by <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref>.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    content.vb: Sub SuspendActivity(context As ILoggingContext, callerInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity*
+  nameWithType.vb: ILogger.SuspendActivity(ILoggingContext, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: SuspendActivity(ILoggingContext, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.SetWaitDependency(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.SetWaitDependency(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,System.Object)
+  id: SetWaitDependency(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: SetWaitDependency(ILoggingContext, object)
+  nameWithType: ILogger.SetWaitDependency(ILoggingContext, object)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.SetWaitDependency(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Sets the wait dependency of a given context, that is, the object that the context is waiting for.
+  example: []
+  syntax:
+    content: void SetWaitDependency(ILoggingContext context, object waited)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The waiting context.
+    - id: waited
+      type: System.Object
+      description: The object that the context is waiting for. Typically a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, a <code>TaskInfo</code>, or another context.
+    content.vb: Sub SetWaitDependency(context As ILoggingContext, waited As Object)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.SetWaitDependency*
+  nameWithType.vb: ILogger.SetWaitDependency(ILoggingContext, Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.SetWaitDependency(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, Object)
+  name.vb: SetWaitDependency(ILoggingContext, Object)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``1(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``1(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``1(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1>(ILoggingContext, LogLevel, LogRecordKind, string, T1, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1>(ILoggingContext, LogLevel, LogRecordKind, string, T1, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 1 parameter.
+  example: []
+  syntax:
+    content: void Write<T1>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    content.vb: Sub Write(Of T1)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1)(ILoggingContext, LogLevel, LogRecordKind, String, T1, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1)(ILoggingContext, LogLevel, LogRecordKind, String, T1, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``2(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``2(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``2(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 2 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    content.vb: Sub Write(Of T1, T2)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``3(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``3(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``3(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 3 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    content.vb: Sub Write(Of T1, T2, T3)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``4(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``4(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``4(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 4 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    content.vb: Sub Write(Of T1, T2, T3, T4)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``5(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``5(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``5(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4, T5>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4, T5>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4, T5>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, T5, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 5 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4, T5>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: arg5
+      type: '{T5}'
+      description: The value of parameter 5.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    - id: T5
+      description: The type of parameter 5.
+    content.vb: Sub Write(Of T1, T2, T3, T4, T5)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4, T5)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4, T5)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, T5, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4, T5)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``6(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``6(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``6(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4, T5, T6>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4, T5, T6>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4, T5, T6>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, T5, T6, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 6 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4, T5, T6>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: arg5
+      type: '{T5}'
+      description: The value of parameter 5.
+    - id: arg6
+      type: '{T6}'
+      description: The value of parameter 6.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    - id: T5
+      description: The type of parameter 5.
+    - id: T6
+      description: The type of parameter 6.
+    content.vb: Sub Write(Of T1, T2, T3, T4, T5, T6)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4, T5, T6)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4, T5, T6)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, T5, T6, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4, T5, T6)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``7(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``7(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``7(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4, T5, T6, T7>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4, T5, T6, T7>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4, T5, T6, T7>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 7 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4, T5, T6, T7>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: arg5
+      type: '{T5}'
+      description: The value of parameter 5.
+    - id: arg6
+      type: '{T6}'
+      description: The value of parameter 6.
+    - id: arg7
+      type: '{T7}'
+      description: The value of parameter 7.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    - id: T5
+      description: The type of parameter 5.
+    - id: T6
+      description: The type of parameter 6.
+    - id: T7
+      description: The type of parameter 7.
+    content.vb: Sub Write(Of T1, T2, T3, T4, T5, T6, T7)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4, T5, T6, T7)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``8(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``8(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``8(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4, T5, T6, T7, T8>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4, T5, T6, T7, T8>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4, T5, T6, T7, T8>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 8 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4, T5, T6, T7, T8>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: arg5
+      type: '{T5}'
+      description: The value of parameter 5.
+    - id: arg6
+      type: '{T6}'
+      description: The value of parameter 6.
+    - id: arg7
+      type: '{T7}'
+      description: The value of parameter 7.
+    - id: arg8
+      type: '{T8}'
+      description: The value of parameter 8.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    - id: T5
+      description: The type of parameter 5.
+    - id: T6
+      description: The type of parameter 6.
+    - id: T7
+      description: The type of parameter 7.
+    - id: T8
+      description: The type of parameter 8.
+    content.vb: Sub Write(Of T1, T2, T3, T4, T5, T6, T7, T8)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7, T8)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7, T8)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4, T5, T6, T7, T8)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``9(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``9(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``9(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4, T5, T6, T7, T8, T9>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, T9, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4, T5, T6, T7, T8, T9>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, T9, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4, T5, T6, T7, T8, T9>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, T9, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 9 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4, T5, T6, T7, T8, T9>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: arg5
+      type: '{T5}'
+      description: The value of parameter 5.
+    - id: arg6
+      type: '{T6}'
+      description: The value of parameter 6.
+    - id: arg7
+      type: '{T7}'
+      description: The value of parameter 7.
+    - id: arg8
+      type: '{T8}'
+      description: The value of parameter 8.
+    - id: arg9
+      type: '{T9}'
+      description: The value of parameter 9.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    - id: T5
+      description: The type of parameter 5.
+    - id: T6
+      description: The type of parameter 6.
+    - id: T7
+      description: The type of parameter 7.
+    - id: T8
+      description: The type of parameter 8.
+    - id: T9
+      description: The type of parameter 9.
+    content.vb: Sub Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, arg9 As T9, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, T9, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, T9, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, T9, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``10(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILogger.Write``10(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  id: Write``10(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.Exception,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Write<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Exception, ref CallerInfo)
+  nameWithType: ILogger.Write<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(ILoggingContext, LogLevel, LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Exception, ref CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, System.Exception, ref PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom log record with 10 parameters.
+  example: []
+  syntax:
+    content: void Write<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(ILoggingContext context, LogLevel level, LogRecordKind recordKind, string text, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10, Exception exception, ref CallerInfo recordInfo)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The context for which the message has to be written.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The severity of the record, for example <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Info" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The text of the log record, including parameters, for example <code>Opening {Path} file {ShareMode} sharing mode</code>.
+    - id: arg1
+      type: '{T1}'
+      description: The value of parameter 1.
+    - id: arg2
+      type: '{T2}'
+      description: The value of parameter 2.
+    - id: arg3
+      type: '{T3}'
+      description: The value of parameter 3.
+    - id: arg4
+      type: '{T4}'
+      description: The value of parameter 4.
+    - id: arg5
+      type: '{T5}'
+      description: The value of parameter 5.
+    - id: arg6
+      type: '{T6}'
+      description: The value of parameter 6.
+    - id: arg7
+      type: '{T7}'
+      description: The value of parameter 7.
+    - id: arg8
+      type: '{T8}'
+      description: The value of parameter 8.
+    - id: arg9
+      type: '{T9}'
+      description: The value of parameter 9.
+    - id: arg10
+      type: '{T10}'
+      description: The value of parameter 10.
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> associated with the record, or <code>null</code>.
+    - id: recordInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: Information about the caller source code.
+    typeParameters:
+    - id: T1
+      description: The type of parameter 1.
+    - id: T2
+      description: The type of parameter 2.
+    - id: T3
+      description: The type of parameter 3.
+    - id: T4
+      description: The type of parameter 4.
+    - id: T5
+      description: The type of parameter 5.
+    - id: T6
+      description: The type of parameter 6.
+    - id: T7
+      description: The type of parameter 7.
+    - id: T8
+      description: The type of parameter 8.
+    - id: T9
+      description: The type of parameter 9.
+    - id: T10
+      description: The type of parameter 10.
+    content.vb: Sub Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(context As ILoggingContext, level As LogLevel, recordKind As LogRecordKind, text As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, arg9 As T9, arg10 As T10, exception As Exception, recordInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write*
+  nameWithType.vb: ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Exception, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILogger.Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext, PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, System.Exception, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: Write(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(ILoggingContext, LogLevel, LogRecordKind, String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, Exception, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Type
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogger.Type
+  id: Type
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: ILogger.Type
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Type
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the source <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.Type" data-throw-if-not-resolved="false"></xref> for which this <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref> was created.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Don't use the Type property as some logger may have no type assigned depending on the initialization order.")]
+
+      Type Type { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: >-
+      <Obsolete("Don't use the Type property as some logger may have no type assigned depending on the initialization order.")>
+
+      ReadOnly Property Type As Type
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Type*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Don't use the Type property as some logger may have no type assigned depending on the initialization order.
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.Role
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogger.Role
+  id: Role
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: ILogger.Role
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.Role
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the role of records created by this <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref>. A list of standard roles is available in the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: string Role { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Role As String
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.Role*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.ActivityOptions
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogger.ActivityOptions
+  id: ActivityOptions
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: ActivityOptions
+  nameWithType: ILogger.ActivityOptions
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.ActivityOptions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the default verbosity when opening and closing activities.
+  example: []
+  syntax:
+    content: ILogActivityOptions ActivityOptions { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+    content.vb: ReadOnly Property ActivityOptions As ILogActivityOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.ActivityOptions*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogger.RequiresSuspendResume
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogger.RequiresSuspendResume
+  id: RequiresSuspendResume
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogger
+  langs:
+  - csharp
+  - vb
+  name: RequiresSuspendResume
+  nameWithType: ILogger.RequiresSuspendResume
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogger.RequiresSuspendResume
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets a value indicating whether calls of <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.SuspendActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger.ResumeActivity(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext%2cPostSharp.Patterns.Diagnostics.Contexts.CallerInfo%40)" data-throw-if-not-resolved="false"></xref>
+
+    are required for asynchronous custom activities in the current context.
+  example: []
+  syntax:
+    content: bool RequiresSuspendResume { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property RequiresSuspendResume As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogger.RequiresSuspendResume*

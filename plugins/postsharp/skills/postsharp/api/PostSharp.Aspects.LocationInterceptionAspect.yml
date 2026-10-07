@@ -1,0 +1,444 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.LocationInterceptionAspect
+  commentId: T:PostSharp.Aspects.LocationInterceptionAspect
+  id: LocationInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.LocationInterceptionAspect.#ctor
+  - PostSharp.Aspects.LocationInterceptionAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  - PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  - PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: LocationInterceptionAspect
+  nameWithType: LocationInterceptionAspect
+  fullName: PostSharp.Aspects.LocationInterceptionAspect
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Aspect that, when applied on a location (field or property), intercepts invocations of
+
+    the <code>Get</code> (<xref href="PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) and <code>Set</code> (<xref href="PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) semantics.
+  remarks: >-
+    <p>
+            This aspect can be applied to fields and properties, which are called <i>locations</i>
+            because both have the semantics of a slot where a value can be stored and retrieved.
+            </p>
+        <h5>Applying the Aspect on Properties</h5>
+        <p>Applying an aspect of type <xref href="PostSharp.Aspects.LocationInterceptionAspect" data-throw-if-not-resolved="false"></xref> to a property results in the accessors of this property being replaced by a call to the method <xref href="PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref> 
+            or <xref href="PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref> of the current class. The original body of the accessor is moved into a new method, 
+            which can be called by the aspect by invoking one of the methods 
+            <xref href="PostSharp.Aspects.LocationInterceptionArgs.ProceedGetValue" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.LocationInterceptionArgs.ProceedSetValue" data-throw-if-not-resolved="false"></xref>,
+            <xref href="PostSharp.Aspects.LocationInterceptionArgs.GetCurrentValue" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.LocationInterceptionArgs.SetNewValue(System.Object)" data-throw-if-not-resolved="false"></xref>,
+            or by using the <xref href="PostSharp.Aspects.LocationInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref> object.</p>
+        <h5>Applying the Aspect on Fields</h5>
+        <p>Applying this aspect on a field transforms the field into a property of the same name,
+            scope and visibility as the original field. The original field is removed. Aspect code can get or set the
+            value of the field by calling the methods <xref href="PostSharp.Aspects.LocationInterceptionArgs.ProceedGetValue" data-throw-if-not-resolved="false"></xref>, 
+            <xref href="PostSharp.Aspects.LocationInterceptionArgs.ProceedSetValue" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.LocationInterceptionArgs.GetCurrentValue" data-throw-if-not-resolved="false"></xref>
+            or <xref href="PostSharp.Aspects.LocationInterceptionArgs.SetNewValue(System.Object)" data-throw-if-not-resolved="false"></xref>, or by using the <xref href="PostSharp.Aspects.LocationInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref> object.</p>
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+            Remember to use
+            <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> instead of <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref> at runtime to reflect the original field.
+            For this reason, you cannot store a <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref> in the aspect. 
+            Store a <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>
+            instead. Even if a <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref> represents a field at build time, it represents
+            the corresponding <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> at runtime.</p></div>
+        </p>
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+            When you apply an aspect derived from <xref href="PostSharp.Aspects.LocationInterceptionAspect" data-throw-if-not-resolved="false"></xref> to a value-type field, 
+            you should not pass the value of this field by reference, that is, as an argument to <code>out</code> and <code>ref</code> parameters in C#.
+            This is because PostSharp is unable to detect read and write accesses through references.
+            </p></div>
+        </p>
+        <h5>Initialization of Instance Fields and Properties</h5>
+        <p>The inline initialization of instance fields and auto-implemented properties does not invoke <xref href="PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+            To react to the initial value of such a location, override <xref href="PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref>.</p>
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+        All classes implementing
+        <xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>
+        should typically be marked as serializable
+        using the 
+        <xref href="System.SerializableAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref> custom attribute. Fields that
+        are only used at runtime (and unknown at compile-time) should be carefully
+        marked with the <xref href="System.NonSerializedAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PNonSerializedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+        When another aspect serializer (such as <xref href="PostSharp.Aspects.Serialization.MsilAspectSerializer" data-throw-if-not-resolved="false"></xref>) is used,
+        it is not necessary to mark the aspect class as serializable.
+        For more information, see
+        <a href="@aspect-serialization">Aspect Serialization</a>.
+      </p></div>
+        </p>
+        <a href="@aspect-serialization">
+      Conceptual: Understanding Aspect Serialization
+    </a>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Field|MulticastTargets.Property, TargetMemberAttributes = MulticastAttributes.NonAbstract|MulticastAttributes.NonLiteral, AllowExternalAssemblies = false, AllowMultiple = true)]
+
+      [HasInheritedAttribute]
+
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Property|AttributeTargets.Field|AttributeTargets.Interface, AllowMultiple = true)]
+
+      [AspectConfigurationAttributeType(typeof(LocationInterceptionAspectConfigurationAttribute))]
+
+      [Serializer(null)]
+
+      public abstract class LocationInterceptionAspect : LocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILocationInterceptionAspect, IOnInstanceLocationInitializedAspect, ILocationLevelAspect, IAspect
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.FieldOrMulticastTargets.Property, TargetMemberAttributes:=MulticastAttributes.NonAbstractOrMulticastAttributes.NonLiteral, AllowExternalAssemblies:=False, AllowMultiple:=True)>
+
+      <HasInheritedAttribute>
+
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.PropertyOrAttributeTargets.FieldOrAttributeTargets.Interface, AllowMultiple:=True)>
+
+      <AspectConfigurationAttributeType(GetType(LocationInterceptionAspectConfigurationAttribute))>
+
+      <Serializer(Nothing)>
+
+      Public MustInherit Class LocationInterceptionAspect Inherits LocationLevelAspect Implements ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILocationInterceptionAspect, IOnInstanceLocationInitializedAspect, ILocationLevelAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.Configuration.LocationInterceptionAspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.LocationInterceptionAspectConfigurationAttribute
+  - linkId: PostSharp.Aspects.LocationInterceptionArgs
+    commentId: T:PostSharp.Aspects.LocationInterceptionArgs
+  - linkType: HRef
+    linkId: '@location-interception'
+    altText: 'Conceptual: Intercepting Properties and Fields'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.LocationLevelAspect
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ILocationInterceptionAspect
+  - PostSharp.Aspects.IOnInstanceLocationInitializedAspect
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.LocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 544
+    namedArguments:
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 66560
+    - name: AllowExternalAssemblies
+      type: System.Boolean
+      value: false
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1421
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Aspects.Configuration.AspectConfigurationAttributeTypeAttribute
+    ctor: PostSharp.Aspects.Configuration.AspectConfigurationAttributeTypeAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Aspects.Configuration.LocationInterceptionAspectConfigurationAttribute
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+- uid: PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  commentId: M:PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  id: OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  parent: PostSharp.Aspects.LocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnGetValue(LocationInterceptionArgs)
+  nameWithType: LocationInterceptionAspect.OnGetValue(LocationInterceptionArgs)
+  fullName: PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Get</code> semantic of the field or property to which the current aspect is applied,
+
+    that is, when the value of this field or property is retrieved.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnGetValue(LocationInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.LocationInterceptionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnGetValue(args As LocationInterceptionArgs)
+  overload: PostSharp.Aspects.LocationInterceptionAspect.OnGetValue*
+  seealso:
+  - linkId: PostSharp.Aspects.LocationInterceptionArgs
+    commentId: T:PostSharp.Aspects.LocationInterceptionArgs
+  implements:
+  - PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  commentId: M:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  id: OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  parent: PostSharp.Aspects.LocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnSetValue(LocationInterceptionArgs)
+  nameWithType: LocationInterceptionAspect.OnSetValue(LocationInterceptionArgs)
+  fullName: PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Set</code> semantic of the field or property to which the current aspect is applied,
+      that is, when the value of this field or property is changed.
+  remarks: >-
+    <p>
+        This method is invoked instead of the setter of the property to which the current aspect is applied. If it is applied to a field, that field
+        is transformed into a property. This method intercepts all writes to static properties, but it does not intercept inline initializers of instance
+        properties; use <xref href="PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref> for that.
+        </p>
+    <p>
+        If you apply this advice to a getter-only auto-implemented property, PostSharp will create a setter that will be called in these cases:
+        </p>
+    <ul><li>for static properties, instead of the property inline initialization or property assignment from the static constructor;</li><li>for instance properties, only instead of the property assignment from the constructor but not for the inline initialization.
+            To intercept the inline initialization of an instance property,
+        use the <xref href="PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)" data-throw-if-not-resolved="false"></xref> advice.</li></ul>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnSetValue(LocationInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.LocationInterceptionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnSetValue(args As LocationInterceptionArgs)
+  overload: PostSharp.Aspects.LocationInterceptionAspect.OnSetValue*
+  seealso:
+  - linkId: PostSharp.Aspects.LocationInterceptionArgs
+    commentId: T:PostSharp.Aspects.LocationInterceptionArgs
+  implements:
+  - PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  commentId: M:PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  id: OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  parent: PostSharp.Aspects.LocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInstanceLocationInitialized(LocationInitializationArgs)
+  nameWithType: LocationInterceptionAspect.OnInstanceLocationInitialized(LocationInitializationArgs)
+  fullName: PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked after an initial value is set for a field or property to which the current aspect is applied.
+
+    The method is invoked only for instance fields and instance auto-implemented properties, and it is invoked after their inline initialization.
+
+    For static fields and properties, and for accesses from the constructor, <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref> is invoked instead.
+  remarks: >-
+    <p>
+        This method is invoked at the beginning of an instance constructor.
+        If more than one field or property is affected by this advice, this method is called for them in the declaration
+        order of the properties. For example, if you declare "a" first and "b" second in your C# file, the method is called for "a" first.
+        If more than one advice group applies to a property, they are called in the order of aspect priority, as usual.
+        </p>
+    <p>
+        This method is invoked for all instance fields and auto-implemented properties, even if they do not have an initializer. If they do not,
+        the method is called with the default value in the <xref href="PostSharp.Aspects.Internals.LocationLevelAdviceArgs.Value" data-throw-if-not-resolved="false"></xref> property (<code>null</code>, zero, or <code>false</code>).
+        </p>
+    <p>
+        For structs, this method is invoked only if an actual non-default constructor of the struct is invoked.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnInstanceLocationInitialized(LocationInitializationArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.LocationInitializationArgs
+      description: Information about the location.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnInstanceLocationInitialized(args As LocationInitializationArgs)
+  overload: PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized*
+  implements:
+  - PostSharp.Aspects.IOnInstanceLocationInitializedAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.LocationInterceptionAspect.CreateAspectConfiguration
+  commentId: M:PostSharp.Aspects.LocationInterceptionAspect.CreateAspectConfiguration
+  id: CreateAspectConfiguration
+  parent: PostSharp.Aspects.LocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: CreateAspectConfiguration()
+  nameWithType: LocationInterceptionAspect.CreateAspectConfiguration()
+  fullName: PostSharp.Aspects.LocationInterceptionAspect.CreateAspectConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to create a concrete <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> instance specifically
+
+    for the current <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> type.
+  remarks: >-
+    This method should not set up the returned <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>. After the current method has
+
+    returned, the <xref href="PostSharp.Aspects.Aspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method will be invoked, and that method is responsible
+
+    for setting up the <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: protected override sealed AspectConfiguration CreateAspectConfiguration()
+    return:
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        A new and empty instance of <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>, whose concrete type corresponds to
+                      the concrete type of the <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected NotOverridable Overrides Function CreateAspectConfiguration() As AspectConfiguration
+  overridden: PostSharp.Aspects.Aspect.CreateAspectConfiguration
+  overload: PostSharp.Aspects.LocationInterceptionAspect.CreateAspectConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+- uid: PostSharp.Aspects.LocationInterceptionAspect.#ctor
+  commentId: M:PostSharp.Aspects.LocationInterceptionAspect.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.LocationInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: LocationInterceptionAspect()
+  nameWithType: LocationInterceptionAspect.LocationInterceptionAspect()
+  fullName: PostSharp.Aspects.LocationInterceptionAspect.LocationInterceptionAspect()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  syntax:
+    content: protected LocationInterceptionAspect()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Aspects.LocationInterceptionAspect.#ctor*
+  nameWithType.vb: LocationInterceptionAspect.New()
+  fullName.vb: PostSharp.Aspects.LocationInterceptionAspect.New()
+  name.vb: New()

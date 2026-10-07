@@ -1,0 +1,159 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ModuleInitializerAttribute
+  commentId: T:PostSharp.Aspects.ModuleInitializerAttribute
+  id: ModuleInitializerAttribute
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ModuleInitializerAttribute.#ctor(System.Int32)
+  - PostSharp.Aspects.ModuleInitializerAttribute.Order
+  langs:
+  - csharp
+  - vb
+  name: ModuleInitializerAttribute
+  nameWithType: ModuleInitializerAttribute
+  fullName: PostSharp.Aspects.ModuleInitializerAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Custom attribute that, when added to a static method, causes the method to be executed immediately
+
+    after the assembly is loaded by the CLR. The target method must be static, public or internal, parameterless, void, and non-generic.
+  remarks: >-
+    <p>PostSharp emits an error at build time when the target method does not meet the requirements above. A project can contain several module initializers; they are executed
+        in the order given by <xref href="PostSharp.Aspects.ModuleInitializerAttribute.Order" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Method)]
+
+      [RequirePostSharp(null, "ModuleInitializer")]
+
+      public sealed class ModuleInitializerAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Method)>
+
+      <RequirePostSharp(Nothing, "ModuleInitializer")>
+
+      Public NotInheritable Class ModuleInitializerAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@module-initializer'
+    altText: 'Conceptual: Executing Code Just After the Assembly is Loaded'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 64
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+    - type: System.String
+      value: ModuleInitializer
+- uid: PostSharp.Aspects.ModuleInitializerAttribute.#ctor(System.Int32)
+  commentId: M:PostSharp.Aspects.ModuleInitializerAttribute.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: PostSharp.Aspects.ModuleInitializerAttribute
+  langs:
+  - csharp
+  - vb
+  name: ModuleInitializerAttribute(int)
+  nameWithType: ModuleInitializerAttribute.ModuleInitializerAttribute(int)
+  fullName: PostSharp.Aspects.ModuleInitializerAttribute.ModuleInitializerAttribute(int)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.ModuleInitializerAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ModuleInitializerAttribute(int order)
+    parameters:
+    - id: order
+      type: System.Int32
+      description: >-
+        Order in which the <xref href="PostSharp.Aspects.ModuleInitializerAttribute" data-throw-if-not-resolved="false"></xref> will be executed if the
+                    current project contains several initializers. Initializers with smaller values of the <code class="paramref">order</code>
+                    parameter are invoked first.
+    content.vb: Public Sub New(order As Integer)
+  overload: PostSharp.Aspects.ModuleInitializerAttribute.#ctor*
+  nameWithType.vb: ModuleInitializerAttribute.New(Integer)
+  fullName.vb: PostSharp.Aspects.ModuleInitializerAttribute.New(Integer)
+  name.vb: New(Integer)
+- uid: PostSharp.Aspects.ModuleInitializerAttribute.Order
+  commentId: P:PostSharp.Aspects.ModuleInitializerAttribute.Order
+  id: Order
+  parent: PostSharp.Aspects.ModuleInitializerAttribute
+  langs:
+  - csharp
+  - vb
+  name: Order
+  nameWithType: ModuleInitializerAttribute.Order
+  fullName: PostSharp.Aspects.ModuleInitializerAttribute.Order
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Gets the order in which the <xref href="PostSharp.Aspects.ModuleInitializerAttribute" data-throw-if-not-resolved="false"></xref> will be executed if the
+
+    current project contains several initializers. Initializers with smaller values of the <xref href="PostSharp.Aspects.ModuleInitializerAttribute.Order" data-throw-if-not-resolved="false"></xref>
+
+    property are invoked first.
+  example: []
+  syntax:
+    content: public int Order { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Order As Integer
+  overload: PostSharp.Aspects.ModuleInitializerAttribute.Order*

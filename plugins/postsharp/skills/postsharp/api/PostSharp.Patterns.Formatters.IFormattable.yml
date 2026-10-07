@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.IFormattable
+  commentId: T:PostSharp.Patterns.Formatters.IFormattable
+  id: IFormattable
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  langs:
+  - csharp
+  - vb
+  name: IFormattable
+  nameWithType: IFormattable
+  fullName: PostSharp.Patterns.Formatters.IFormattable
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Exposes a <xref href="PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder%2cPostSharp.Patterns.Formatters.FormattingRole)" data-throw-if-not-resolved="false"></xref> method, which allows an object to format itself into an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+
+    Logging and caching components rely on the <xref href="PostSharp.Patterns.Formatters.IFormattable" data-throw-if-not-resolved="false"></xref> interface.
+  remarks: >-
+    <p>Implement this interface in a type whose source code you own, when its representation in logs or cache keys must differ from
+        the result of <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref>, or when formatting is performance-critical. A formatter for <xref href="PostSharp.Patterns.Formatters.IFormattable" data-throw-if-not-resolved="false"></xref> is registered
+        by default, so the implementation does not need to be registered. The <code>role</code> parameter of <xref href="PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder%2cPostSharp.Patterns.Formatters.FormattingRole)" data-throw-if-not-resolved="false"></xref> tells
+        whether the object is formatted for logging or for caching. For a type you do not own, derive a class from <xref href="PostSharp.Patterns.Formatters.Formatter%601" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: public interface IFormattable
+    content.vb: Public Interface IFormattable
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-formatter'
+    altText: 'Conceptual: Implementing a Custom Formatter'
+  - linkType: HRef
+    linkId: '@caching-keys'
+    altText: 'Conceptual: Customizing Cache Keys'
+  - linkType: HRef
+    linkId: '@logging-hiding-sensitive-data'
+    altText: 'Conceptual: Hiding sensitive data when logging'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestExpressionModel
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  - PostSharp.Patterns.Diagnostics.Formatters.RefStructSurrogate
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.CloseTransactionExpressionModel`1
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+- uid: PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  commentId: M:PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  id: Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Formatters.FormattingRole)
+  parent: PostSharp.Patterns.Formatters.IFormattable
+  langs:
+  - csharp
+  - vb
+  name: Format(UnsafeStringBuilder, FormattingRole)
+  nameWithType: IFormattable.Format(UnsafeStringBuilder, FormattingRole)
+  fullName: PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder, PostSharp.Patterns.Formatters.FormattingRole)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a description of the current object to a given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Format(UnsafeStringBuilder stringBuilder, FormattingRole role)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> to which the object description should be written.
+    - id: role
+      type: PostSharp.Patterns.Formatters.FormattingRole
+      description: An object that describes the context in which the object is being formatted, such as caching or logging.
+    content.vb: Sub Format(stringBuilder As UnsafeStringBuilder, role As FormattingRole)
+  overload: PostSharp.Patterns.Formatters.IFormattable.Format*

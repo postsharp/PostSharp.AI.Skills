@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.IAggregatableCollection
+  commentId: T:PostSharp.Patterns.Model.IAggregatableCollection
+  id: IAggregatableCollection
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.IAggregatableCollection.ItemsRelationship
+  langs:
+  - csharp
+  - vb
+  name: IAggregatableCollection
+  nameWithType: IAggregatableCollection
+  fullName: PostSharp.Patterns.Model.IAggregatableCollection
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Defines the non-generic semantics of an <code>AggregatableCollection</code>.
+  example: []
+  syntax:
+    content: 'public interface IAggregatableCollection : IAttachable, IAggregatable'
+    content.vb: Public Interface IAggregatableCollection Inherits IAttachable, IAggregatable
+  inheritedMembers:
+  - PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo,PostSharp.Patterns.Model.IAttacher,System.Object)
+  - PostSharp.Patterns.Model.IAttachable.DetachFromParent
+  - PostSharp.Patterns.Model.IAttachable.OnDeserialization(System.Object)
+  - PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  - PostSharp.Patterns.Model.IAggregatable.Parent
+  - PostSharp.Patterns.Model.IAggregatable.ParentRelationship
+  - PostSharp.Patterns.Model.IAggregatable.ParentChanged
+  - PostSharp.Patterns.Model.IAggregatable.AncestorChanged
+  extensionMethods:
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(System.Object)
+  - PostSharp.Patterns.Model.IAggregatable.PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+- uid: PostSharp.Patterns.Model.IAggregatableCollection.ItemsRelationship
+  commentId: P:PostSharp.Patterns.Model.IAggregatableCollection.ItemsRelationship
+  id: ItemsRelationship
+  parent: PostSharp.Patterns.Model.IAggregatableCollection
+  langs:
+  - csharp
+  - vb
+  name: ItemsRelationship
+  nameWithType: IAggregatableCollection.ItemsRelationship
+  fullName: PostSharp.Patterns.Model.IAggregatableCollection.ItemsRelationship
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the <xref href="PostSharp.Patterns.Model.RelationshipKind" data-throw-if-not-resolved="false"></xref> of collection items.
+  example: []
+  syntax:
+    content: RelationshipKind ItemsRelationship { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.RelationshipKind
+    content.vb: ReadOnly Property ItemsRelationship As RelationshipKind
+  overload: PostSharp.Patterns.Model.IAggregatableCollection.ItemsRelationship*

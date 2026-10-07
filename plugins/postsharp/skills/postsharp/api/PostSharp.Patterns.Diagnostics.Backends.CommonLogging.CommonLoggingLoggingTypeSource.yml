@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  id: CommonLoggingLoggingTypeSource
+  parent: PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.Logger
+  langs:
+  - csharp
+  - vb
+  name: CommonLoggingLoggingTypeSource
+  nameWithType: CommonLoggingLoggingTypeSource
+  fullName: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  namespace: PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  summary: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for <xref href="PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class CommonLoggingLoggingTypeSource : LoggingTypeSource, IContextLocalLogger, ILoggerExceptionHandler'
+    content.vb: Public Class CommonLoggingLoggingTypeSource Inherits LoggingTypeSource Implements IContextLocalLogger, ILoggerExceptionHandler
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.IContextLocalLogger
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerExceptionHandler
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.SetLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Parent
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Role
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Name
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.DisplayName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.FullName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.DisplayFullName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Level
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: CommonLoggingLoggingTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: CommonLoggingLoggingTypeSource.CommonLoggingLoggingTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.CommonLoggingLoggingTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  namespace: PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CommonLoggingLoggingTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    - id: type
+      type: System.Type
+      description: The source <xref href="System.Type" data-throw-if-not-resolved="false"></xref> from which log records will be emitted.
+    content.vb: Public Sub New(parent As LoggingNamespaceSource, type As Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.#ctor*
+  nameWithType.vb: CommonLoggingLoggingTypeSource.New(LoggingNamespaceSource, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.New(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  name.vb: New(LoggingNamespaceSource, Type)
+- uid: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: IsBackendEnabled(LogLevel)
+  nameWithType: CommonLoggingLoggingTypeSource.IsBackendEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  namespace: PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  summary: Checks whether logging is enabled in the backend for the given level.
+  remarks: <p>The result of this method is cached. To invalidate the cache, call the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: protected override bool IsBackendEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    return:
+      type: System.Boolean
+    content.vb: Protected Overrides Function IsBackendEnabled(level As LogLevel) As Boolean
+  overridden: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  overload: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.IsBackendEnabled*
+- uid: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.Logger
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.Logger
+  id: Logger
+  parent: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: Logger
+  nameWithType: CommonLoggingLoggingTypeSource.Logger
+  fullName: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.Logger
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  namespace: PostSharp.Patterns.Diagnostics.Backends.CommonLogging
+  summary: Gets the <code>ILog</code> to which messages will be written.
+  example: []
+  syntax:
+    content: public ILog Logger { get; }
+    parameters: []
+    return:
+      type: Common.Logging.ILog
+    content.vb: Public ReadOnly Property Logger As ILog
+  overload: PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource.Logger*

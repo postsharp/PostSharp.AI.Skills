@@ -1,0 +1,208 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.RequiredAttribute
+  commentId: T:PostSharp.Patterns.Contracts.RequiredAttribute
+  id: RequiredAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+  - PostSharp.Patterns.Contracts.RequiredAttribute.GetErrorMessage
+  - PostSharp.Patterns.Contracts.RequiredAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: RequiredAttribute
+  nameWithType: RequiredAttribute
+  fullName: PostSharp.Patterns.Contracts.RequiredAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Custom attribute that, when added to a field, property or parameter, throws:
+
+
+    <ul><li>
+            an <xref href="System.ArgumentNullException" data-throw-if-not-resolved="false"></xref> if the target is assigned a null value;
+        </li><li>
+            an <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> if the target is assigned an empty or white-space string.
+        </li></ul>
+  remarks: <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RequiredErrorMessage" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public sealed class RequiredAttribute : LocationContractAttribute, ILocationLevelAspect, IAspect'
+    content.vb: Public NotInheritable Class RequiredAttribute Inherits LocationContractAttribute Implements ILocationLevelAspect, IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@adding-contracts'
+    altText: 'Conceptual: Adding Contracts to Code'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Patterns.Contracts.LocationContractAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Contracts.RequiredAttribute
+  langs:
+  - csharp
+  - vb
+  name: RequiredAttribute()
+  nameWithType: RequiredAttribute.RequiredAttribute()
+  fullName: PostSharp.Patterns.Contracts.RequiredAttribute.RequiredAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.RequiredAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public RequiredAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor*
+  nameWithType.vb: RequiredAttribute.New()
+  fullName.vb: PostSharp.Patterns.Contracts.RequiredAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Contracts.RequiredAttribute.GetErrorMessage
+  commentId: M:PostSharp.Patterns.Contracts.RequiredAttribute.GetErrorMessage
+  id: GetErrorMessage
+  parent: PostSharp.Patterns.Contracts.RequiredAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: RequiredAttribute.GetErrorMessage()
+  fullName: PostSharp.Patterns.Contracts.RequiredAttribute.GetErrorMessage()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the unformatted error message as defined by the instance.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>The use of this method can be overridden by setting the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> property to a non-null value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      protected override string GetErrorMessage()
+    return:
+      type: System.String
+      description: The unformatted error message.
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessage() As String
+  overridden: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage
+  overload: PostSharp.Patterns.Contracts.RequiredAttribute.GetErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.
+- uid: PostSharp.Patterns.Contracts.RequiredAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  commentId: M:PostSharp.Patterns.Contracts.RequiredAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  id: ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  parent: PostSharp.Patterns.Contracts.RequiredAttribute
+  langs:
+  - csharp
+  - vb
+  name: ValidateValueDynamic(object, string, LocationKind, LocationValidationContext)
+  nameWithType: RequiredAttribute.ValidateValueDynamic(object, string, LocationKind, LocationValidationContext)
+  fullName: PostSharp.Patterns.Contracts.RequiredAttribute.ValidateValueDynamic(object, string, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Validates a weakly-typed (boxed) value, typically the value of a dependency property or an attached property.
+  example: []
+  syntax:
+    content: public override Exception ValidateValueDynamic(object value, string locationName, LocationKind locationKind, LocationValidationContext context)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be validated.
+    - id: locationName
+      type: System.String
+      description: The name of the property.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of location (typically a <xref href="PostSharp.Reflection.LocationKind.Property" data-throw-if-not-resolved="false"></xref>).
+    - id: context
+      type: PostSharp.Aspects.LocationValidationContext
+      description: Why or when the value is being validated.
+    return:
+      type: System.Exception
+      description: An <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> if the value is invalid, or <code>null</code> if the value is valid.
+    content.vb: Public Overrides Function ValidateValueDynamic(value As Object, locationName As String, locationKind As LocationKind, context As LocationValidationContext) As Exception
+  overridden: PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  overload: PostSharp.Patterns.Contracts.RequiredAttribute.ValidateValueDynamic*
+  nameWithType.vb: RequiredAttribute.ValidateValueDynamic(Object, String, LocationKind, LocationValidationContext)
+  fullName.vb: PostSharp.Patterns.Contracts.RequiredAttribute.ValidateValueDynamic(Object, String, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  name.vb: ValidateValueDynamic(Object, String, LocationKind, LocationValidationContext)

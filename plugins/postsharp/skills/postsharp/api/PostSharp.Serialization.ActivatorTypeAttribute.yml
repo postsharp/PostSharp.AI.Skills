@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ActivatorTypeAttribute
+  commentId: T:PostSharp.Serialization.ActivatorTypeAttribute
+  id: ActivatorTypeAttribute
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ActivatorTypeAttribute.#ctor(System.Type)
+  - PostSharp.Serialization.ActivatorTypeAttribute.ActivatorType
+  langs:
+  - csharp
+  - vb
+  name: ActivatorTypeAttribute
+  nameWithType: ActivatorTypeAttribute
+  fullName: PostSharp.Serialization.ActivatorTypeAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Custom attribute that, when applied to an assembly, points to a type in the assembly implementing <xref href="PostSharp.Serialization.IActivator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly)]
+
+      public sealed class ActivatorTypeAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Assembly)>
+
+      Public NotInheritable Class ActivatorTypeAttribute Inherits Attribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1
+- uid: PostSharp.Serialization.ActivatorTypeAttribute.#ctor(System.Type)
+  commentId: M:PostSharp.Serialization.ActivatorTypeAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Serialization.ActivatorTypeAttribute
+  langs:
+  - csharp
+  - vb
+  name: ActivatorTypeAttribute(Type)
+  nameWithType: ActivatorTypeAttribute.ActivatorTypeAttribute(Type)
+  fullName: PostSharp.Serialization.ActivatorTypeAttribute.ActivatorTypeAttribute(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Initializes a new instance of the <xref href="PostSharp.Serialization.ActivatorTypeAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ActivatorTypeAttribute(Type activatorType)
+    parameters:
+    - id: activatorType
+      type: System.Type
+      description: >-
+        A type derived from <xref href="PostSharp.Serialization.IActivator" data-throw-if-not-resolved="false"></xref> in the current assembly. This type must be public and have
+                    a default constructor.
+    content.vb: Public Sub New(activatorType As Type)
+  overload: PostSharp.Serialization.ActivatorTypeAttribute.#ctor*
+  nameWithType.vb: ActivatorTypeAttribute.New(Type)
+  fullName.vb: PostSharp.Serialization.ActivatorTypeAttribute.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Serialization.ActivatorTypeAttribute.ActivatorType
+  commentId: P:PostSharp.Serialization.ActivatorTypeAttribute.ActivatorType
+  id: ActivatorType
+  parent: PostSharp.Serialization.ActivatorTypeAttribute
+  langs:
+  - csharp
+  - vb
+  name: ActivatorType
+  nameWithType: ActivatorTypeAttribute.ActivatorType
+  fullName: PostSharp.Serialization.ActivatorTypeAttribute.ActivatorType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the activator type.
+  example: []
+  syntax:
+    content: public Type ActivatorType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property ActivatorType As Type
+  overload: PostSharp.Serialization.ActivatorTypeAttribute.ActivatorType*

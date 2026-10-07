@@ -1,0 +1,455 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.EventInterceptionAspect
+  commentId: T:PostSharp.Aspects.EventInterceptionAspect
+  id: EventInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.EventInterceptionAspect.#ctor
+  - PostSharp.Aspects.EventInterceptionAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  - PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: EventInterceptionAspect
+  nameWithType: EventInterceptionAspect
+  fullName: PostSharp.Aspects.EventInterceptionAspect
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Aspect that, when applied on an event, intercepts invocations of its semantics <code>Add</code> (<xref href="PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>), 
+
+    <code>Remove</code> (<xref href="PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>) and <code>Invoke</code> (<xref href="PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>).
+  remarks: >-
+    <p>
+            Applying an aspect of type <xref href="PostSharp.Aspects.EventInterceptionAspect" data-throw-if-not-resolved="false"></xref> to an event results in the <code>add</code> and <code>remove</code>
+            methods of the event to be replaced by a call to <xref href="PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>, respectively.
+            The original accessor body is moved into new methods, which the aspect code can call by invoking <xref href="PostSharp.Aspects.EventInterceptionArgs.ProceedAddHandler" data-throw-if-not-resolved="false"></xref>
+            or <xref href="PostSharp.Aspects.EventInterceptionArgs.ProceedRemoveHandler" data-throw-if-not-resolved="false"></xref>.
+            </p>
+        <p>
+            The method <xref href="PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>, if defined, is called instead when the event is raised, once for every handler that has been added
+            to the list. When you define the <xref href="PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method, PostSharp will use a broker object to control access to the event.
+            This broker object will be the unique subscriber of the event, and it maintains its own list of subscribers.
+            </p>
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+                    The aspect works only when the caller code accesses the event through its <code>add</code>/<code>remove</code> semantics. It does not work when the caller
+                    code bypasses the event semantics and directly accesses its implementation (typically the underlying field of the event). The C# compiler
+                    is known to bypass the semantics when the event is accessed directly from the class that declares it. In this case, it directly accesses the private field
+                    whenever it can. For the same reason, <xref href="PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref> is not invoked for the initializer of a field-like event;
+                    add the initial handler in the constructor instead.
+                </p></div>
+        </p>
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+        All classes implementing
+        <xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>
+        should typically be marked as serializable
+        using the 
+        <xref href="System.SerializableAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref> custom attribute. Fields that
+        are only used at runtime (and unknown at compile-time) should be carefully
+        marked with the <xref href="System.NonSerializedAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PNonSerializedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+        When another aspect serializer (such as <xref href="PostSharp.Aspects.Serialization.MsilAspectSerializer" data-throw-if-not-resolved="false"></xref>) is used,
+        it is not necessary to mark the aspect class as serializable.
+        For more information, see
+        <a href="@aspect-serialization">Aspect Serialization</a>.
+      </p></div>
+        </p>
+        <a href="@aspect-serialization">
+      Conceptual: Understanding Aspect Serialization
+    </a>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      [MulticastAttributeUsage(MulticastTargets.Event, AllowMultiple = true, PersistMetaData = false, TargetMemberAttributes = MulticastAttributes.NonAbstract)]
+
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Struct|AttributeTargets.Event|AttributeTargets.Interface, AllowMultiple = true)]
+
+      [AspectConfigurationAttributeType(typeof(EventInterceptionAspectConfigurationAttribute))]
+
+      [Serializer(null)]
+
+      public abstract class EventInterceptionAspect : EventLevelAspect, IEventLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IEventInterceptionAspect, IEventLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      <MulticastAttributeUsage(MulticastTargets.Event, AllowMultiple:=True, PersistMetaData:=False, TargetMemberAttributes:=MulticastAttributes.NonAbstract)>
+
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.EventOrAttributeTargets.Interface, AllowMultiple:=True)>
+
+      <AspectConfigurationAttributeType(GetType(EventInterceptionAspectConfigurationAttribute))>
+
+      <Serializer(Nothing)>
+
+      Public MustInherit Class EventInterceptionAspect Inherits EventLevelAspect Implements IEventLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IEventInterceptionAspect, IEventLevelAspect, IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@simple-aspects'
+    altText: 'Conceptual: Developing Simple Aspects'
+  - linkType: HRef
+    linkId: '@event-interception'
+    altText: 'Conceptual: Intercepting Events'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.EventLevelAspect
+  derivedClasses:
+  - PostSharp.Patterns.Model.WeakEventAttribute
+  implements:
+  - PostSharp.Aspects.IEventLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IEventInterceptionAspect
+  - PostSharp.Aspects.IEventLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.EventLevelAspect.RuntimeInitialize(System.Reflection.EventInfo)
+  - PostSharp.Aspects.EventLevelAspect.CompileTimeInitialize(System.Reflection.EventInfo,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.EventLevelAspect.CompileTimeValidate(System.Reflection.EventInfo)
+  - PostSharp.Aspects.EventLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.EventInfo)
+  - PostSharp.Aspects.EventLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.EventLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 1024
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: PersistMetaData
+      type: System.Boolean
+      value: false
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 1024
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1549
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Aspects.Configuration.AspectConfigurationAttributeTypeAttribute
+    ctor: PostSharp.Aspects.Configuration.AspectConfigurationAttributeTypeAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Aspects.Configuration.EventInterceptionAspectConfigurationAttribute
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+- uid: PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  commentId: M:PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  id: OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  parent: PostSharp.Aspects.EventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnAddHandler(EventInterceptionArgs)
+  nameWithType: EventInterceptionAspect.OnAddHandler(EventInterceptionArgs)
+  fullName: PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Add</code> semantic of the event to which the current aspect is applied,
+
+    i.e. when a new delegate is added to this event.
+  remarks: >-
+    <p>
+               This advice does not intercept the initializer of a field-like event. If you want to intercept the adding of all handlers,
+            do not use event initializers. Add the initial handler in the constructor instead.
+              </p>
+        <br />
+        <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnAddHandler(EventInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.EventInterceptionArgs
+      description: Handler arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnAddHandler(args As EventInterceptionArgs)
+  overload: PostSharp.Aspects.EventInterceptionAspect.OnAddHandler*
+  implements:
+  - PostSharp.Aspects.IEventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  commentId: M:PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  id: OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  parent: PostSharp.Aspects.EventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnRemoveHandler(EventInterceptionArgs)
+  nameWithType: EventInterceptionAspect.OnRemoveHandler(EventInterceptionArgs)
+  fullName: PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked instead of the <code>Remove</code> semantic of the event to which the current aspect is applied,
+
+    i.e. when a delegate is removed from this event.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnRemoveHandler(EventInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.EventInterceptionArgs
+      description: Handler arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnRemoveHandler(args As EventInterceptionArgs)
+  overload: PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler*
+  implements:
+  - PostSharp.Aspects.IEventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  commentId: M:PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  id: OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  parent: PostSharp.Aspects.EventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInvokeHandler(EventInterceptionArgs)
+  nameWithType: EventInterceptionAspect.OnInvokeHandler(EventInterceptionArgs)
+  fullName: PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked when the event to which the current aspect is applied is fired, for each delegate
+
+    of this event, and instead of invoking this delegate.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>
+      Because of the way the C# compiler implements
+      <b>field-like events</b>
+      (i.e. events where you
+      don't implement the
+      <code>Add</code>
+      and
+      <code>Remove</code>
+      semantics manually), the
+      <b>Invoke Event Handler</b>
+      semantic (
+      <xref href="PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)" data-throw-if-not-resolved="false"></xref>
+      or equivalent) shall not be invoked for delegates that have been added from inside the class that declares this event.
+    </p></div>
+        <br />
+        <div class="NOTE"><h5>note</h5><p>
+      The
+      <b>Invoke Event Handler</b>
+      semantic is different from normal event firing.
+      Indeed, when you fire an event, all handlers that were added to this event are fired. However, the current method
+      invokes only a single handler: the one passed to the
+      <code>handler</code>
+      parameter.
+    </p></div>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void OnInvokeHandler(EventInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.EventInterceptionArgs
+      description: Handler arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub OnInvokeHandler(args As EventInterceptionArgs)
+  overload: PostSharp.Aspects.EventInterceptionAspect.OnInvokeHandler*
+  implements:
+  - PostSharp.Aspects.IEventInterceptionAspect.OnInvokeHandler(PostSharp.Aspects.EventInterceptionArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.EventInterceptionAspect.CreateAspectConfiguration
+  commentId: M:PostSharp.Aspects.EventInterceptionAspect.CreateAspectConfiguration
+  id: CreateAspectConfiguration
+  parent: PostSharp.Aspects.EventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: CreateAspectConfiguration()
+  nameWithType: EventInterceptionAspect.CreateAspectConfiguration()
+  fullName: PostSharp.Aspects.EventInterceptionAspect.CreateAspectConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to create a concrete <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> instance specifically
+
+    for the current <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> type.
+  remarks: >-
+    This method should not set up the returned <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>. After the current method has
+
+    returned, the <xref href="PostSharp.Aspects.Aspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method will be invoked, and that method is responsible
+
+    for setting up the <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: protected override AspectConfiguration CreateAspectConfiguration()
+    return:
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        A new and empty instance of <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>, whose concrete type corresponds to
+                      the concrete type of the <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function CreateAspectConfiguration() As AspectConfiguration
+  overridden: PostSharp.Aspects.Aspect.CreateAspectConfiguration
+  overload: PostSharp.Aspects.EventInterceptionAspect.CreateAspectConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+- uid: PostSharp.Aspects.EventInterceptionAspect.#ctor
+  commentId: M:PostSharp.Aspects.EventInterceptionAspect.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.EventInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: EventInterceptionAspect()
+  nameWithType: EventInterceptionAspect.EventInterceptionAspect()
+  fullName: PostSharp.Aspects.EventInterceptionAspect.EventInterceptionAspect()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  syntax:
+    content: protected EventInterceptionAspect()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Aspects.EventInterceptionAspect.#ctor*
+  nameWithType.vb: EventInterceptionAspect.New()
+  fullName.vb: PostSharp.Aspects.EventInterceptionAspect.New()
+  name.vb: New()

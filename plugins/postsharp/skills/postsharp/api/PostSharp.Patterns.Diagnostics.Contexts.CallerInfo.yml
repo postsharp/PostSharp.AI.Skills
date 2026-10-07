@@ -1,0 +1,428 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  id: CallerInfo
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32)
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32)
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.Attributes
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic(System.Int32)
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsNull
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.MethodName
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceLineInfo
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceType
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceTypeToken
+  - PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.ToString
+  langs:
+  - csharp
+  - vb
+  name: CallerInfo
+  nameWithType: CallerInfo
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Represents information about the caller of the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public struct CallerInfo
+    content.vb: Public Structure CallerInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32)
+  id: '#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: CallerInfo(RuntimeTypeHandle, string, string, int, int)
+  nameWithType: CallerInfo.CallerInfo(RuntimeTypeHandle, string, string, int, int)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.CallerInfo(System.RuntimeTypeHandle, string, string, int, int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the constructor that accepts a CallerAttributes parameter.")]
+
+      public CallerInfo(RuntimeTypeHandle sourceTypeToken, string methodName, string file, int line, int column)
+    parameters:
+    - id: sourceTypeToken
+      type: System.RuntimeTypeHandle
+    - id: methodName
+      type: System.String
+    - id: file
+      type: System.String
+    - id: line
+      type: System.Int32
+    - id: column
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("Use the constructor that accepts a CallerAttributes parameter.")>
+
+      Public Sub New(sourceTypeToken As RuntimeTypeHandle, methodName As String, file As String, line As Integer, column As Integer)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the constructor that accepts a CallerAttributes parameter.
+  nameWithType.vb: CallerInfo.New(RuntimeTypeHandle, String, String, Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.New(System.RuntimeTypeHandle, String, String, Integer, Integer)
+  name.vb: New(RuntimeTypeHandle, String, String, Integer, Integer)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  id: '#ctor(System.RuntimeTypeHandle,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: CallerInfo(RuntimeTypeHandle, string, string, int, int, CallerAttributes)
+  nameWithType: CallerInfo.CallerInfo(RuntimeTypeHandle, string, string, int, int, CallerAttributes)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.CallerInfo(System.RuntimeTypeHandle, string, string, int, int, PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> struct, and uses a <xref href="System.RuntimeTypeHandle" data-throw-if-not-resolved="false"></xref> to specify the source type.
+  example: []
+  syntax:
+    content: public CallerInfo(RuntimeTypeHandle sourceTypeToken, string methodName, string file, int line, int column, CallerAttributes attributes)
+    parameters:
+    - id: sourceTypeToken
+      type: System.RuntimeTypeHandle
+      description: The <xref href="System.RuntimeTypeHandle" data-throw-if-not-resolved="false"></xref> of the calling type.
+    - id: methodName
+      type: System.String
+      description: The name of the calling method.
+    - id: file
+      type: System.String
+      description: The path of the source code of the calling code.
+    - id: line
+      type: System.Int32
+      description: The line in <code class="paramref">file</code> of the caller.
+    - id: column
+      type: System.Int32
+      description: The column in <code class="paramref">file</code> of the caller.
+    - id: attributes
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+      description: The caller attributes.
+    content.vb: Public Sub New(sourceTypeToken As RuntimeTypeHandle, methodName As String, file As String, line As Integer, column As Integer, attributes As CallerAttributes)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor*
+  nameWithType.vb: CallerInfo.New(RuntimeTypeHandle, String, String, Integer, Integer, CallerAttributes)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.New(System.RuntimeTypeHandle, String, String, Integer, Integer, PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  name.vb: New(RuntimeTypeHandle, String, String, Integer, Integer, CallerAttributes)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32)
+  id: '#ctor(System.Type,System.String,System.String,System.Int32,System.Int32)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: CallerInfo(Type, string, string, int, int)
+  nameWithType: CallerInfo.CallerInfo(Type, string, string, int, int)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.CallerInfo(System.Type, string, string, int, int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the constructor that accepts a CallerAttributes parameter.")]
+
+      public CallerInfo(Type sourceType, string methodName, string file, int line, int column)
+    parameters:
+    - id: sourceType
+      type: System.Type
+    - id: methodName
+      type: System.String
+    - id: file
+      type: System.String
+    - id: line
+      type: System.Int32
+    - id: column
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("Use the constructor that accepts a CallerAttributes parameter.")>
+
+      Public Sub New(sourceType As Type, methodName As String, file As String, line As Integer, column As Integer)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the constructor that accepts a CallerAttributes parameter.
+  nameWithType.vb: CallerInfo.New(Type, String, String, Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.New(System.Type, String, String, Integer, Integer)
+  name.vb: New(Type, String, String, Integer, Integer)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor(System.Type,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  id: '#ctor(System.Type,System.String,System.String,System.Int32,System.Int32,PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: CallerInfo(Type, string, string, int, int, CallerAttributes)
+  nameWithType: CallerInfo.CallerInfo(Type, string, string, int, int, CallerAttributes)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.CallerInfo(System.Type, string, string, int, int, PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> struct, and uses a <xref href="System.Type" data-throw-if-not-resolved="false"></xref> to specify the source type.
+  example: []
+  syntax:
+    content: public CallerInfo(Type sourceType, string methodName, string file, int line, int column, CallerAttributes attributes)
+    parameters:
+    - id: sourceType
+      type: System.Type
+      description: The <xref href="System.Type" data-throw-if-not-resolved="false"></xref> of the calling type.
+    - id: methodName
+      type: System.String
+      description: The name of the calling method.
+    - id: file
+      type: System.String
+      description: The path of the source code of the calling code.
+    - id: line
+      type: System.Int32
+      description: The line in <code class="paramref">file</code> of the caller.
+    - id: column
+      type: System.Int32
+      description: The column in <code class="paramref">file</code> of the caller.
+    - id: attributes
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+      description: The caller attributes.
+    content.vb: Public Sub New(sourceType As Type, methodName As String, file As String, line As Integer, column As Integer, attributes As CallerAttributes)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.#ctor*
+  nameWithType.vb: CallerInfo.New(Type, String, String, Integer, Integer, CallerAttributes)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.New(System.Type, String, String, Integer, Integer, PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes)
+  name.vb: New(Type, String, String, Integer, Integer, CallerAttributes)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: CallerInfo.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.ToString*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic(System.Int32)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic(System.Int32)
+  id: GetDynamic(System.Int32)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: GetDynamic(int)
+  nameWithType: CallerInfo.GetDynamic(int)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic(int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> of the caller by performing a stack walk with <xref href="System.Diagnostics.StackFrame" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static CallerInfo GetDynamic(int skipFrames)
+    parameters:
+    - id: skipFrames
+      type: System.Int32
+      description: The number of stack frames to skip.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> for the caller, after skipping the specified number of stack frames, or <code>default</code> if the platform does not support the <xref href="System.Diagnostics.StackFrame" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: Public Shared Function GetDynamic(skipFrames As Integer) As CallerInfo
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic*
+  nameWithType.vb: CallerInfo.GetDynamic(Integer)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic(Integer)
+  name.vb: GetDynamic(Integer)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.Attributes
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.Attributes
+  id: Attributes
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: CallerInfo.Attributes
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.Attributes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the caller attributes.
+  example: []
+  syntax:
+    content: public readonly CallerAttributes Attributes { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerAttributes
+    content.vb: Public ReadOnly Property Attributes As CallerAttributes
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.Attributes*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsAsync
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsAsync
+  id: IsAsync
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: IsAsync
+  nameWithType: CallerInfo.IsAsync
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsAsync
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a value indicating whether the caller is an <code>async</code> method.
+  example: []
+  syntax:
+    content: public bool IsAsync { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsAsync As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsAsync*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceType
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceType
+  id: SourceType
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: SourceType
+  nameWithType: CallerInfo.SourceType
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the source <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Type SourceType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property SourceType As Type
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceType*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceTypeToken
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceTypeToken
+  id: SourceTypeToken
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: SourceTypeToken
+  nameWithType: CallerInfo.SourceTypeToken
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceTypeToken
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the <xref href="System.RuntimeTypeHandle" data-throw-if-not-resolved="false"></xref> of the caller <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public readonly RuntimeTypeHandle SourceTypeToken { get; }
+    parameters: []
+    return:
+      type: System.RuntimeTypeHandle
+    content.vb: Public ReadOnly Property SourceTypeToken As RuntimeTypeHandle
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceTypeToken*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.MethodName
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.MethodName
+  id: MethodName
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: MethodName
+  nameWithType: CallerInfo.MethodName
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.MethodName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the name of the caller method.
+  example: []
+  syntax:
+    content: public readonly string MethodName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MethodName As String
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.MethodName*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceLineInfo
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceLineInfo
+  id: SourceLineInfo
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: SourceLineInfo
+  nameWithType: CallerInfo.SourceLineInfo
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceLineInfo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceLineInfo" data-throw-if-not-resolved="false"></xref> of the caller.
+  example: []
+  syntax:
+    content: public readonly SourceLineInfo SourceLineInfo { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.SourceLineInfo
+    content.vb: Public ReadOnly Property SourceLineInfo As SourceLineInfo
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.SourceLineInfo*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsNull
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsNull
+  id: IsNull
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+  langs:
+  - csharp
+  - vb
+  name: IsNull
+  nameWithType: CallerInfo.IsNull
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsNull
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> is null.
+  example: []
+  syntax:
+    content: public bool IsNull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsNull As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.IsNull*

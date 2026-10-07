@@ -1,0 +1,106 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions
+  id: NLogLoggingBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.NLog
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.GetLogger
+  langs:
+  - csharp
+  - vb
+  name: NLogLoggingBackendOptions
+  nameWithType: NLogLoggingBackendOptions
+  fullName: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.NLog
+  summary: Options for <xref href="PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class NLogLoggingBackendOptions : TextLoggingBackendOptions'
+    content.vb: Public Class NLogLoggingBackendOptions Inherits TextLoggingBackendOptions
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: NLogLoggingBackendOptions()
+  nameWithType: NLogLoggingBackendOptions.NLogLoggingBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.NLogLoggingBackendOptions()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.NLog
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public NLogLoggingBackendOptions()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.#ctor*
+  nameWithType.vb: NLogLoggingBackendOptions.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.GetLogger
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.GetLogger
+  id: GetLogger
+  parent: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: GetLogger
+  nameWithType: NLogLoggingBackendOptions.GetLogger
+  fullName: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.GetLogger
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.NLog
+  summary: >-
+    Gets or sets the function that maps an <xref href="PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingTypeSource" data-throw-if-not-resolved="false"></xref> to an NLog <code>Logger</code>.
+
+    The default behavior is to call <code>typeSource.Backend.LogFactory?.GetLogger( typeSource.DisplayFullName ) ?? LogManager.GetLogger( typeSource.DisplayFullName )</code>.
+  example: []
+  syntax:
+    content: public Func<NLogLoggingTypeSource, Logger> GetLogger { get; set; }
+    parameters: []
+    return:
+      type: System.Func{PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingTypeSource,NLog.Logger}
+    content.vb: Public Property GetLogger As Func(Of NLogLoggingTypeSource, Logger)
+  overload: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions.GetLogger*

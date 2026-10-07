@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  commentId: T:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  id: ThreadingUnhandledExceptionEventArgs
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Exception
+  - PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsHandled
+  - PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsTaskMethod
+  - PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Method
+  - PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.ReturnValue
+  - PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Source
+  langs:
+  - csharp
+  - vb
+  name: ThreadingUnhandledExceptionEventArgs
+  nameWithType: ThreadingUnhandledExceptionEventArgs
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Provides data for the <xref href="PostSharp.Patterns.Threading.ThreadingServices.UnhandledException" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: 'public class ThreadingUnhandledExceptionEventArgs : EventArgs'
+    content.vb: Public Class ThreadingUnhandledExceptionEventArgs Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Exception
+  commentId: P:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Exception
+  id: Exception
+  parent: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Exception
+  nameWithType: ThreadingUnhandledExceptionEventArgs.Exception
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Exception
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the exception.
+  example: []
+  syntax:
+    content: public Exception Exception { get; }
+    parameters: []
+    return:
+      type: System.Exception
+    content.vb: Public ReadOnly Property Exception As Exception
+  overload: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Exception*
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Source
+  commentId: P:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Source
+  id: Source
+  parent: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: ThreadingUnhandledExceptionEventArgs.Source
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Source
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the source component that caught the exception.
+  example: []
+  syntax:
+    content: public ThreadingUnhandledExceptionSource Source { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionSource
+    content.vb: Public ReadOnly Property Source As ThreadingUnhandledExceptionSource
+  overload: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Source*
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsHandled
+  commentId: P:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsHandled
+  id: IsHandled
+  parent: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: IsHandled
+  nameWithType: ThreadingUnhandledExceptionEventArgs.IsHandled
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsHandled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets or sets a value indicating whether the exception has been handled. Clients of the <xref href="PostSharp.Patterns.Threading.ThreadingServices.UnhandledException" data-throw-if-not-resolved="false"></xref> event
+
+    must set this property to <code>true</code> if they handle the exception. Otherwise, the exception will be rethrown.
+  example: []
+  syntax:
+    content: public bool IsHandled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsHandled As Boolean
+  overload: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsHandled*
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsTaskMethod
+  commentId: P:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsTaskMethod
+  id: IsTaskMethod
+  parent: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: IsTaskMethod
+  nameWithType: ThreadingUnhandledExceptionEventArgs.IsTaskMethod
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsTaskMethod
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a value indicating whether the exception occurred in a task-like method.
+  example: []
+  syntax:
+    content: public bool IsTaskMethod { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsTaskMethod As Boolean
+  overload: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsTaskMethod*
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Method
+  commentId: P:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Method
+  id: Method
+  parent: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Method
+  nameWithType: ThreadingUnhandledExceptionEventArgs.Method
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Method
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the method in which the exception occurred.
+  example: []
+  syntax:
+    content: public MethodInfo Method { get; }
+    parameters: []
+    return:
+      type: System.Reflection.MethodInfo
+    content.vb: Public ReadOnly Property Method As MethodInfo
+  overload: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.Method*
+- uid: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.ReturnValue
+  commentId: P:PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.ReturnValue
+  id: ReturnValue
+  parent: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ReturnValue
+  nameWithType: ThreadingUnhandledExceptionEventArgs.ReturnValue
+  fullName: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.ReturnValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets or sets the value to return from the method if the exception has been handled. Clients of the <xref href="PostSharp.Patterns.Threading.ThreadingServices.UnhandledException" data-throw-if-not-resolved="false"></xref> event
+
+    must set this property to the appropriate value if they set the <xref href="PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.IsHandled" data-throw-if-not-resolved="false"></xref> property to <code>true</code>.
+  example: []
+  syntax:
+    content: public object ReturnValue { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property ReturnValue As Object
+  overload: PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs.ReturnValue*

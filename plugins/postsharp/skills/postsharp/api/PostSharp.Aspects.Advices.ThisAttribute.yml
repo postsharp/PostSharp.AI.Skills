@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ThisAttribute
+  commentId: T:PostSharp.Aspects.Advices.ThisAttribute
+  id: ThisAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ThisAttribute.#ctor
+  - PostSharp.Aspects.Advices.ThisAttribute.IsRequired
+  langs:
+  - csharp
+  - vb
+  name: ThisAttribute
+  nameWithType: ThisAttribute
+  fullName: PostSharp.Aspects.Advices.ThisAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Binds a parameter of an advice method to the instance of the target, that is, the <code>this</code> object of the target method, field or property.
+  remarks: >-
+    <p>
+        When the instance is of a reference type, the parameter cannot be <code>ref</code>, <code>in</code> or <code>out</code>, and its type must be the type of the
+        instance, a base type of it, an interface it implements, or a type parameter of the advice method.
+        </p>
+    <p>
+        When the instance is a struct, the parameter can be:
+        </p>
+    <ul><li>of a reference type, such as <xref href="System.Object" data-throw-if-not-resolved="false"></xref> or an interface: it receives a boxed copy of the instance;</li><li>of the type of the struct or of a type parameter of the advice method: it receives a copy of the instance;</li><li>
+          <code>ref</code> or <code>in</code>, with the type of the struct: it receives the address of the instance, so the changes made
+        through a <code>ref</code> parameter are seen by the target. In an async method or an iterator, the instance is the copy held by the state machine.</li></ul>
+    <p>
+        When the target is static, the parameter receives <code>null</code>, or the default value of its type, unless <xref href="PostSharp.Aspects.Advices.ThisAttribute.IsRequired" data-throw-if-not-resolved="false"></xref> is <code>true</code>.
+        In <xref href="PostSharp.Aspects.Advices.OnInstanceConstructedAdvice" data-throw-if-not-resolved="false"></xref>, the parameter receives the instance that has just been constructed.
+        </p>
+  example: []
+  syntax:
+    content: 'public sealed class ThisAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class ThisAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.ThisAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.ThisAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.ThisAttribute
+  langs:
+  - csharp
+  - vb
+  name: ThisAttribute()
+  nameWithType: ThisAttribute.ThisAttribute()
+  fullName: PostSharp.Aspects.Advices.ThisAttribute.ThisAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public ThisAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.ThisAttribute.#ctor*
+  nameWithType.vb: ThisAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.ThisAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Advices.ThisAttribute.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.ThisAttribute.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.ThisAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: ThisAttribute.IsRequired
+  fullName: PostSharp.Aspects.Advices.ThisAttribute.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the target must have an instance. When this property is <code>true</code>, the compiler reports an
+
+    error when the advice is applied to a static target. When it is <code>false</code>, the parameter receives <code>null</code>, or the default value
+
+    of its type. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.ThisAttribute.IsRequired*

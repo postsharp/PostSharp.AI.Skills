@@ -1,0 +1,163 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyServices
+  commentId: T:PostSharp.Patterns.Xaml.DependencyPropertyServices
+  id: DependencyPropertyServices
+  parent: PostSharp.Patterns.Xaml
+  children:
+  - PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type,System.String)
+  - PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  - PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  langs:
+  - csharp
+  - vb
+  name: DependencyPropertyServices
+  nameWithType: DependencyPropertyServices
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Exposes helper methods that work with the <xref href="PostSharp.Patterns.Xaml.DependencyPropertyAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Xaml.AttachedPropertyAttribute" data-throw-if-not-resolved="false"></xref> aspects.
+  remarks: >-
+    <p>To access the <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> of a property declared with <xref href="PostSharp.Patterns.Xaml.DependencyPropertyAttribute" data-throw-if-not-resolved="false"></xref> without a string lookup,
+        declare a static property or field of type <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> named after the property with the <code>Property</code> suffix.
+        The aspect assigns it (see <xref href="PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.RegistrationProperty" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: public static class DependencyPropertyServices
+    content.vb: Public Module DependencyPropertyServices
+  seealso:
+  - linkType: HRef
+    linkId: '@dependency-property'
+    altText: 'Conceptual: Dependency Property'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type,System.String)
+  commentId: M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type,System.String)
+  id: GetDependencyProperty(System.Type,System.String)
+  parent: PostSharp.Patterns.Xaml.DependencyPropertyServices
+  langs:
+  - csharp
+  - vb
+  name: GetDependencyProperty(Type, string)
+  nameWithType: DependencyPropertyServices.GetDependencyProperty(Type, string)
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Gets the <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> object associated with a property of a given name for a given type.
+  example: []
+  syntax:
+    content: public static DependencyProperty GetDependencyProperty(Type type, string propertyName)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type for which the dependency property was registered.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: propertyName
+      type: System.String
+      description: The name of the property.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Windows.DependencyProperty
+      description: The <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> instance.
+    content.vb: Public Shared Function GetDependencyProperty(type As Type, propertyName As String) As DependencyProperty
+  overload: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty*
+  nameWithType.vb: DependencyPropertyServices.GetDependencyProperty(Type, String)
+  fullName.vb: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type, String)
+  name.vb: GetDependencyProperty(Type, String)
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  commentId: M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  id: GetDependencyProperty``1(System.Linq.Expressions.Expression{System.Func{``0}})
+  parent: PostSharp.Patterns.Xaml.DependencyPropertyServices
+  langs:
+  - csharp
+  - vb
+  name: GetDependencyProperty<T>(Expression<Func<T>>)
+  nameWithType: DependencyPropertyServices.GetDependencyProperty<T>(Expression<Func<T>>)
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty<T>(System.Linq.Expressions.Expression<System.Func<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Gets the <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> object associated with a property of a given name for a given type.
+
+    The property name and the property owner type are extracted from the <code class="paramref">expression</code> argument.
+  example: []
+  syntax:
+    content: public static DependencyProperty GetDependencyProperty<T>(Expression<Func<T>> expression)
+    parameters:
+    - id: expression
+      type: System.Linq.Expressions.Expression{System.Func{{T}}}
+      description: The lambda expression in the format <code>() =&gt; new ClassName().PropertyName</code>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    typeParameters:
+    - id: T
+    return:
+      type: System.Windows.DependencyProperty
+      description: The <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> instance.
+    content.vb: Public Shared Function GetDependencyProperty(Of T)(expression As Expression(Of Func(Of T))) As DependencyProperty
+  overload: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty*
+  nameWithType.vb: DependencyPropertyServices.GetDependencyProperty(Of T)(Expression(Of Func(Of T)))
+  fullName.vb: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(Of T)(System.Linq.Expressions.Expression(Of System.Func(Of T)))
+  name.vb: GetDependencyProperty(Of T)(Expression(Of Func(Of T)))
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  commentId: M:PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  id: GetDependencyProperty``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})
+  parent: PostSharp.Patterns.Xaml.DependencyPropertyServices
+  langs:
+  - csharp
+  - vb
+  name: GetDependencyProperty<TClass, TProperty>(Expression<Func<TClass, TProperty>>)
+  nameWithType: DependencyPropertyServices.GetDependencyProperty<TClass, TProperty>(Expression<Func<TClass, TProperty>>)
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty<TClass, TProperty>(System.Linq.Expressions.Expression<System.Func<TClass, TProperty>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Gets the <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> object associated with a property of a given name for a given type.
+
+    The property name and the property owner type are extracted from the <code class="paramref">expression</code> argument.
+  example: []
+  syntax:
+    content: public static DependencyProperty GetDependencyProperty<TClass, TProperty>(Expression<Func<TClass, TProperty>> expression)
+    parameters:
+    - id: expression
+      type: System.Linq.Expressions.Expression{System.Func{{TClass},{TProperty}}}
+      description: The lambda expression in the format <code>(ClassName x) =&gt; x.PropertyName</code>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    typeParameters:
+    - id: TClass
+    - id: TProperty
+    return:
+      type: System.Windows.DependencyProperty
+      description: The <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> instance.
+    content.vb: Public Shared Function GetDependencyProperty(Of TClass, TProperty)(expression As Expression(Of Func(Of TClass, TProperty))) As DependencyProperty
+  overload: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty*
+  nameWithType.vb: DependencyPropertyServices.GetDependencyProperty(Of TClass, TProperty)(Expression(Of Func(Of TClass, TProperty)))
+  fullName.vb: PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(Of TClass, TProperty)(System.Linq.Expressions.Expression(Of System.Func(Of TClass, TProperty)))
+  name.vb: GetDependencyProperty(Of TClass, TProperty)(Expression(Of Func(Of TClass, TProperty)))

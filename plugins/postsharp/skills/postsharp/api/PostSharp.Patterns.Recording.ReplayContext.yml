@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.ReplayContext
+  commentId: T:PostSharp.Patterns.Recording.ReplayContext
+  id: ReplayContext
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.ReplayContext.CustomContext
+  - PostSharp.Patterns.Recording.ReplayContext.Success
+  langs:
+  - csharp
+  - vb
+  name: ReplayContext
+  nameWithType: ReplayContext
+  fullName: PostSharp.Patterns.Recording.ReplayContext
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Represents the context of an undo or redo operation. The class gives access to system-defined and user-defined pieces of information.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class ReplayContext
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class ReplayContext
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.ReplayContext.Success
+  commentId: P:PostSharp.Patterns.Recording.ReplayContext.Success
+  id: Success
+  parent: PostSharp.Patterns.Recording.ReplayContext
+  langs:
+  - csharp
+  - vb
+  name: Success
+  nameWithType: ReplayContext.Success
+  fullName: PostSharp.Patterns.Recording.ReplayContext.Success
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a value indicating whether the operation was successful. This flag is set only in the <xref href="PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed(PostSharp.Patterns.Recording.ReplayKind%2cPostSharp.Patterns.Recording.ReplayContext)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public bool Success { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Success As Boolean
+  overload: PostSharp.Patterns.Recording.ReplayContext.Success*
+- uid: PostSharp.Patterns.Recording.ReplayContext.CustomContext
+  commentId: P:PostSharp.Patterns.Recording.ReplayContext.CustomContext
+  id: CustomContext
+  parent: PostSharp.Patterns.Recording.ReplayContext
+  langs:
+  - csharp
+  - vb
+  name: CustomContext
+  nameWithType: ReplayContext.CustomContext
+  fullName: PostSharp.Patterns.Recording.ReplayContext.CustomContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a dictionary that user code can use to store arbitrary pieces of information.
+  example: []
+  syntax:
+    content: public IDictionary<object, object> CustomContext { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IDictionary{System.Object,System.Object}
+    content.vb: Public ReadOnly Property CustomContext As IDictionary(Of Object, Object)
+  overload: PostSharp.Patterns.Recording.ReplayContext.CustomContext*

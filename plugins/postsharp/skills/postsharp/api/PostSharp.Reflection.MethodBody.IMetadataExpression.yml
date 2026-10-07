@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IMetadataExpression
+  commentId: T:PostSharp.Reflection.MethodBody.IMetadataExpression
+  id: IMetadataExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IMetadataExpression.Declaration
+  langs:
+  - csharp
+  - vb
+  name: IMetadataExpression
+  nameWithType: IMetadataExpression
+  fullName: PostSharp.Reflection.MethodBody.IMetadataExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: >-
+    Expression that depends on a metadata declaration. This expression
+
+    is used when compiling the <code>typeof</code>, <code>sizeof</code> or <code>default</code> keywords of C#, among others.
+  example: []
+  syntax:
+    content: 'public interface IMetadataExpression : IExpression, IMethodBodyElement'
+    content.vb: Public Interface IMetadataExpression Inherits IExpression, IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IMetadataExpression.Declaration
+  commentId: P:PostSharp.Reflection.MethodBody.IMetadataExpression.Declaration
+  id: Declaration
+  parent: PostSharp.Reflection.MethodBody.IMetadataExpression
+  langs:
+  - csharp
+  - vb
+  name: Declaration
+  nameWithType: IMetadataExpression.Declaration
+  fullName: PostSharp.Reflection.MethodBody.IMetadataExpression.Declaration
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the declaration, which can be a <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: MemberInfo Declaration { get; }
+    parameters: []
+    return:
+      type: System.Reflection.MemberInfo
+    content.vb: ReadOnly Property Declaration As MemberInfo
+  overload: PostSharp.Reflection.MethodBody.IMetadataExpression.Declaration*

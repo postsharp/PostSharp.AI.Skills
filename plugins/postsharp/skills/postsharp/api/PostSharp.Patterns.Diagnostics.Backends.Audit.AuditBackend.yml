@@ -1,0 +1,234 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  id: AuditBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.GetTextBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.Options
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.PublishRecord(PostSharp.Patterns.Diagnostics.Audit.AuditRecord)
+  langs:
+  - csharp
+  - vb
+  name: AuditBackend
+  nameWithType: AuditBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: A specialized backend that publishes audit records to the <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")]
+
+      public class AuditBackend : TextLoggingBackend, IDisposable
+    content.vb: >-
+      <Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")>
+
+      Public Class AuditBackend Inherits TextLoggingBackend Implements IDisposable
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This feature has been moved to the sample PostSharp.Samples.Logging.Audit.
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  langs:
+  - csharp
+  - vb
+  name: AuditBackend()
+  nameWithType: AuditBackend.AuditBackend()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.AuditBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AuditBackend()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.#ctor*
+  nameWithType.vb: AuditBackend.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.PublishRecord(PostSharp.Patterns.Diagnostics.Audit.AuditRecord)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.PublishRecord(PostSharp.Patterns.Diagnostics.Audit.AuditRecord)
+  id: PublishRecord(PostSharp.Patterns.Diagnostics.Audit.AuditRecord)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  langs:
+  - csharp
+  - vb
+  name: PublishRecord(AuditRecord)
+  nameWithType: AuditBackend.PublishRecord(AuditRecord)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.PublishRecord(PostSharp.Patterns.Diagnostics.Audit.AuditRecord)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: Publishes an <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditRecord" data-throw-if-not-resolved="false"></xref> to the <xref href="PostSharp.Patterns.Diagnostics.Audit.AuditServices.RecordPublished" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: public virtual void PublishRecord(AuditRecord record)
+    parameters:
+    - id: record
+      type: PostSharp.Patterns.Diagnostics.Audit.AuditRecord
+      description: The audit record to publish.
+    content.vb: Public Overridable Sub PublishRecord(record As AuditRecord)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.PublishRecord*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: AuditBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: AuditBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.GetTextBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.GetTextBackendOptions
+  id: GetTextBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  langs:
+  - csharp
+  - vb
+  name: GetTextBackendOptions()
+  nameWithType: AuditBackend.GetTextBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.GetTextBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: Gets the options.
+  example: []
+  syntax:
+    content: protected override TextLoggingBackendOptions GetTextBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+      description: The options.
+    content.vb: Protected Overrides Function GetTextBackendOptions() As TextLoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetTextBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.GetTextBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: AuditBackend.Options
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Audit
+  summary: Gets the backend options.
+  example: []
+  syntax:
+    content: public AuditBackendOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackendOptions
+    content.vb: Public ReadOnly Property Options As AuditBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackend.Options*

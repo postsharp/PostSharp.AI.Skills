@@ -1,0 +1,308 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  commentId: T:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  id: AzureServiceBusCacheInvalidator
+  parent: PostSharp.Patterns.Caching.Backends.Azure
+  children:
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeCore(System.Boolean)
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Finalize
+  - PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: AzureServiceBusCacheInvalidator
+  nameWithType: AzureServiceBusCacheInvalidator
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: >-
+    An implementation of <xref href="PostSharp.Patterns.Caching.Implementation.CacheInvalidator" data-throw-if-not-resolved="false"></xref> based on Microsoft Azure Service Bus, using the <code>Azure.Messaging.ServiceBus</code> API
+
+    meant for .NET Standard.
+  remarks: >-
+    <p>Use this component to synchronize the local in-memory caches of several instances of an application.
+
+    Create it with <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend%2cPostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend%2cPostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)" data-throw-if-not-resolved="false"></xref>, passing the local caching backend, and assign the result to
+
+    <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>. Invalidation is asynchronous, so different instances can return different data for a short time.</p>
+
+    <p>Each instance of the invalidator needs its own topic subscription. When <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName" data-throw-if-not-resolved="false"></xref>
+
+    is <code>null</code>, the invalidator creates a subscription with a random name, which Azure Service Bus deletes after
+
+    <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.AutoDeleteOnIdle" data-throw-if-not-resolved="false"></xref>. This requires the connection string to grant the <code>Manage</code> right.
+
+    Otherwise, create one subscription per application instance and set its name in <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class AzureServiceBusCacheInvalidator : CacheInvalidator, IDisposable'
+    content.vb: Public Class AzureServiceBusCacheInvalidator Inherits CacheInvalidator Implements IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+    commentId: T:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+  - linkType: HRef
+    linkId: '@caching-pubsub'
+    altText: 'Conceptual: Synchronizing Local In-Memory Caches for Multiple Servers'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.RemoveItemCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.InvalidateDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.OnMessageReceived(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CacheInvalidator.Options
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.OnBackendDependencyInvalidated(System.Object,PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.OnBackendItemRemoved(System.Object,PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.CreateFeatures
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsItemCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.GetItemCore(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ClearCore
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ContainsDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.GetItemAsyncCore(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.ClearAsyncCore(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.CompactAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.UnderlyingBackend
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItem(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemAsync(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItem(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Clear
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ToString
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnBackgroundTaskEnqueued
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnItemRemoved(PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnItemRemoved(System.String,PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnDependencyInvalidated(System.String,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnDependencyInvalidated(PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DisposeAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Compact
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUp(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Logger
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Id
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ValueAdapters
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SupportedFeatures
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Status
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ItemRemoved
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DependencyInvalidated
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  id: CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(CachingBackend, AzureServiceBusCacheInvalidatorOptions)
+  nameWithType: AzureServiceBusCacheInvalidator.CreateAsync(CachingBackend, AzureServiceBusCacheInvalidatorOptions)
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.CreateAsync(PostSharp.Patterns.Caching.Implementation.CachingBackend, PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Asynchronously creates a new <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<AzureServiceBusCacheInvalidator> CreateAsync(CachingBackend backend, AzureServiceBusCacheInvalidatorOptions options)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: The local cache, typically an in-memory cache, that the new <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref> invalidates.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+      description: The options of the invalidator.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: System.Threading.Tasks.Task{PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator}
+      description: A new <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function CreateAsync(backend As CachingBackend, options As AzureServiceBusCacheInvalidatorOptions) As Task(Of AzureServiceBusCacheInvalidator)
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.CreateAsync*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  id: Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: Create(CachingBackend, AzureServiceBusCacheInvalidatorOptions)
+  nameWithType: AzureServiceBusCacheInvalidator.Create(CachingBackend, AzureServiceBusCacheInvalidatorOptions)
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend, PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Creates a new <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref> and blocks until a subscription is established.
+  example: []
+  syntax:
+    content: public static AzureServiceBusCacheInvalidator Create(CachingBackend backend, AzureServiceBusCacheInvalidatorOptions options)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: The local cache, typically an in-memory cache, that the new <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref> invalidates.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: options
+      type: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions
+      description: The options of the invalidator.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+      description: A new <xref href="PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function Create(backend As CachingBackend, options As AzureServiceBusCacheInvalidatorOptions) As AzureServiceBusCacheInvalidator
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  id: SendMessageAsync(System.String,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: SendMessageAsync(string, CancellationToken)
+  nameWithType: AzureServiceBusCacheInvalidator.SendMessageAsync(string, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.SendMessageAsync(string, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Sends an invalidation message over the message bus of the implementation.
+  example: []
+  syntax:
+    content: protected override Task SendMessageAsync(string message, CancellationToken cancellationToken)
+    parameters:
+    - id: message
+      type: System.String
+      description: A serialized, opaque serialization message.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: Protected Overrides Function SendMessageAsync(message As String, cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CacheInvalidator.SendMessageAsync(System.String,System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.SendMessageAsync*
+  nameWithType.vb: AzureServiceBusCacheInvalidator.SendMessageAsync(String, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.SendMessageAsync(String, System.Threading.CancellationToken)
+  name.vb: SendMessageAsync(String, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeCore(System.Boolean)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeCore(System.Boolean)
+  id: DisposeCore(System.Boolean)
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: DisposeCore(bool)
+  nameWithType: AzureServiceBusCacheInvalidator.DisposeCore(bool)
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeCore(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Synchronously disposes the current <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override void DisposeCore(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overrides Sub DisposeCore(disposing As Boolean)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.DisposeCore(System.Boolean)
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeCore*
+  nameWithType.vb: AzureServiceBusCacheInvalidator.DisposeCore(Boolean)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeCore(Boolean)
+  name.vb: DisposeCore(Boolean)
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  id: DisposeAsyncCore(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsyncCore(CancellationToken)
+  nameWithType: AzureServiceBusCacheInvalidator.DisposeAsyncCore(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeAsyncCore(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Asynchronously disposes the current <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override Task DisposeAsyncCore(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function DisposeAsyncCore(cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.DisposeAsyncCore(System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.DisposeAsyncCore*
+- uid: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Finalize
+  commentId: M:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Finalize
+  id: Finalize
+  parent: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator
+  langs:
+  - csharp
+  - vb
+  name: ~AzureServiceBusCacheInvalidator()
+  nameWithType: AzureServiceBusCacheInvalidator.~AzureServiceBusCacheInvalidator()
+  fullName: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.~AzureServiceBusCacheInvalidator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Azure
+  namespace: PostSharp.Patterns.Caching.Backends.Azure
+  summary: Destructor.
+  example: []
+  syntax:
+    content: protected ~AzureServiceBusCacheInvalidator()
+    content.vb: 'Protected '
+  overload: PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''

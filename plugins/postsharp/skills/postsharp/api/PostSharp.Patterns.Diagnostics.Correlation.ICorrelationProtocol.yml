@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  commentId: T:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  id: ICorrelationProtocol
+  parent: PostSharp.Patterns.Diagnostics.Correlation
+  children:
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.GetIncomingRequestOptions(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@)
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessIncomingRequest(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessOutgoingRequest(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  langs:
+  - csharp
+  - vb
+  name: ICorrelationProtocol
+  nameWithType: ICorrelationProtocol
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: >-
+    Defines the semantics of the request correlation protocol in distributed logging. The protocol adds headers to outgoing requests and interprets headers
+
+    in incoming requests.
+  remarks: >-
+    <p>The only available implementation is <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol" data-throw-if-not-resolved="false"></xref>. You can also implement the interface, either from
+        scratch or by calling an existing implementation in a chain of responsibility.</p>
+    <p>Pass an implementation to the instrumentation of ASP.NET, ASP.NET Core or <code>HttpClient</code> to correlate the log records of the client
+        and of the server of a request. Use the same protocol on both sides.</p>
+    <p>The headers of an incoming request cannot be trusted before the request is authenticated. On a public service, filter the requests
+        whose headers are processed, for instance by wrapping an existing implementation with your own security checks.</p>
+  example: []
+  syntax:
+    content: public interface ICorrelationProtocol
+    content.vb: Public Interface ICorrelationProtocol
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+  - linkType: HRef
+    linkId: '@logging-instrumentation'
+    altText: 'Conceptual: Instrumentation of ASP.NET and HttpClient'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.GetIncomingRequestOptions(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.GetIncomingRequestOptions(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@)
+  id: GetIncomingRequestOptions(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  langs:
+  - csharp
+  - vb
+  name: GetIncomingRequestOptions(in CorrelationRequest)
+  nameWithType: ICorrelationProtocol.GetIncomingRequestOptions(in CorrelationRequest)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.GetIncomingRequestOptions(in PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions" data-throw-if-not-resolved="false"></xref> for an incoming request.
+  example: []
+  syntax:
+    content: IncomingRequestOptions GetIncomingRequestOptions(in CorrelationRequest request)
+    parameters:
+    - id: request
+      type: PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest
+      description: The incoming request.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Correlation.IncomingRequestOptions" data-throw-if-not-resolved="false"></xref> for the request.
+    content.vb: Function GetIncomingRequestOptions(request As CorrelationRequest) As IncomingRequestOptions
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.GetIncomingRequestOptions*
+  nameWithType.vb: ICorrelationProtocol.GetIncomingRequestOptions(CorrelationRequest)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.GetIncomingRequestOptions(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest)
+  name.vb: GetIncomingRequestOptions(CorrelationRequest)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessIncomingRequest(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessIncomingRequest(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: ProcessIncomingRequest(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  langs:
+  - csharp
+  - vb
+  name: ProcessIncomingRequest(in CorrelationRequest, ref OpenActivityOptions)
+  nameWithType: ICorrelationProtocol.ProcessIncomingRequest(in CorrelationRequest, ref OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessIncomingRequest(in PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest, ref PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: >-
+    Processes an incoming request. The implementation must read the request headers and alter the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> accordingly.
+
+    This method is invoked only if the incoming request will be logged.
+  example: []
+  syntax:
+    content: void ProcessIncomingRequest(in CorrelationRequest request, ref OpenActivityOptions openActivityOptions)
+    parameters:
+    - id: request
+      type: PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest
+      description: The incoming request.
+    - id: openActivityOptions
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> to alter.
+    content.vb: Sub ProcessIncomingRequest(request As CorrelationRequest, openActivityOptions As OpenActivityOptions)
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessIncomingRequest*
+  nameWithType.vb: ICorrelationProtocol.ProcessIncomingRequest(CorrelationRequest, OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessIncomingRequest(PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest, PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: ProcessIncomingRequest(CorrelationRequest, OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessOutgoingRequest(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessOutgoingRequest(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: ProcessOutgoingRequest(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext,PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest@,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+  langs:
+  - csharp
+  - vb
+  name: ProcessOutgoingRequest(LoggingContext, in CorrelationRequest, ref OpenActivityOptions)
+  nameWithType: ICorrelationProtocol.ProcessOutgoingRequest(LoggingContext, in CorrelationRequest, ref OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessOutgoingRequest(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext, in PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest, ref PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Processes an outgoing request. The implementation must add the correlation headers to the request and can alter the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> of the activity that represents the request.
+  example: []
+  syntax:
+    content: void ProcessOutgoingRequest(LoggingContext parentContext, in CorrelationRequest request, ref OpenActivityOptions openActivityOptions)
+    parameters:
+    - id: parentContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+      description: The parent logging context of the outgoing request.
+    - id: request
+      type: PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest
+      description: The outgoing request.
+    - id: openActivityOptions
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> to alter.
+    content.vb: Sub ProcessOutgoingRequest(parentContext As LoggingContext, request As CorrelationRequest, openActivityOptions As OpenActivityOptions)
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessOutgoingRequest*
+  nameWithType.vb: ICorrelationProtocol.ProcessOutgoingRequest(LoggingContext, CorrelationRequest, OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol.ProcessOutgoingRequest(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext, PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest, PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: ProcessOutgoingRequest(LoggingContext, CorrelationRequest, OpenActivityOptions)

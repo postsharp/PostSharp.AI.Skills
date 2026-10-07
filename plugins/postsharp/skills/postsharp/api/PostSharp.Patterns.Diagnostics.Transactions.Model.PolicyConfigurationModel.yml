@@ -1,0 +1,160 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  id: PolicyConfigurationModel
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.If
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Name
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Type
+  langs:
+  - csharp
+  - vb
+  name: PolicyConfigurationModel
+  nameWithType: PolicyConfigurationModel
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Type of the <code>source</code> XML element. The parent
+
+    of the <code>source</code> element is <code>verbosity</code> (see <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.VerbosityConfigurationModel" data-throw-if-not-resolved="false"></xref>).
+  remarks: This class should not be used in any code. It is only mentioned for the sake of documenting the XML file.
+  example: []
+  syntax:
+    content: public sealed class PolicyConfigurationModel
+    content.vb: Public NotInheritable Class PolicyConfigurationModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Name
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Name
+  id: Name
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: PolicyConfigurationModel.Name
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: The name of the policy. This attribute is optional. It is useful only for debugging.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Name*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Type
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Type
+  id: Type
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: PolicyConfigurationModel.Type
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Type
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Type of the transactions matched by this policy. The only supported
+
+    type is <code>AspNetCoreRequest</code>. For custom transactions, this property must match
+
+    the name of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> that describes the transaction.
+  example: []
+  syntax:
+    content: public string Type { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Type As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Type*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.If
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.If
+  id: If
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: If
+  nameWithType: PolicyConfigurationModel.If
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.If
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    A C# predicate mapping a parameter <code>t</code> to a <code>bool</code> that determines whether the current policy matches the
+
+    transaction <code>t</code>. The type of <code>t</code> is <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel%601" data-throw-if-not-resolved="false"></xref>,
+
+    which is a generic type. The generic type argument, and the type of the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel%601.Request" data-throw-if-not-resolved="false"></xref>
+
+    property, depend on the type of transaction, that is, on the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Type" data-throw-if-not-resolved="false"></xref> attribute. When
+
+    the transaction type is <code>AspNetCoreRequest</code>, the expression model type
+
+    is <code>AspNetCoreRequestExpressionModel</code>. For custom transactions, the type is the value
+
+    of the expression model specified in the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>. This expression
+
+    can call <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref> to evaluate a regular
+
+    expression.
+  example: []
+  syntax:
+    content: public string If { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property [If] As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.If*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample
+  id: Sample
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Sample
+  nameWithType: PolicyConfigurationModel.Sample
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    A C# predicate mapping a parameter <code>t</code> to a <code>bool</code> that determines whether the current transaction,
+
+    after it has been matched by the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.If" data-throw-if-not-resolved="false"></xref> predicate, must actually be logged. This attribute
+
+    typically contains a call to <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(System.Double)" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(System.Double%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string Sample { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Sample As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample*

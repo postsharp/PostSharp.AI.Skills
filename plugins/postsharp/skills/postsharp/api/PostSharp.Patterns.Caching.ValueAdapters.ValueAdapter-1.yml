@@ -1,0 +1,191 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  commentId: T:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  id: ValueAdapter`1
+  parent: PostSharp.Patterns.Caching.ValueAdapters
+  children:
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.#ctor
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetExposedValue(System.Object)
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValue(`0)
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValueAsync(`0,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.IsAsyncSupported
+  langs:
+  - csharp
+  - vb
+  name: ValueAdapter<T>
+  nameWithType: ValueAdapter<T>
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: An abstract implementation of <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class ValueAdapter<T> : IValueAdapter<T>, IValueAdapter'
+    typeParameters:
+    - id: T
+      description: The type of the exposed value, which is typically the return type of the cached method.
+    content.vb: Public MustInherit Class ValueAdapter(Of T) Implements IValueAdapter(Of T), IValueAdapter
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{{T}}
+  - PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: ValueAdapter(Of T)
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter(Of T)
+  name.vb: ValueAdapter(Of T)
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetExposedValue(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetExposedValue(System.Object)
+  id: GetExposedValue(System.Object)
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  langs:
+  - csharp
+  - vb
+  name: GetExposedValue(object)
+  nameWithType: ValueAdapter<T>.GetExposedValue(object)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter<T>.GetExposedValue(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Gets the value that should be exposed to the consuming application, which is typically the return value of the cached method.
+  example: []
+  syntax:
+    content: public abstract T GetExposedValue(object storedValue)
+    parameters:
+    - id: storedValue
+      type: System.Object
+      description: The value that was stored in the cache.
+    return:
+      type: '{T}'
+      description: The value that should be exposed to the consuming application, which is typically the return value of the cached method.
+    content.vb: Public MustOverride Function GetExposedValue(storedValue As Object) As T
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetExposedValue*
+  implements:
+  - PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{{T}}.GetExposedValue(System.Object)
+  nameWithType.vb: ValueAdapter(Of T).GetExposedValue(Object)
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter(Of T).GetExposedValue(Object)
+  name.vb: GetExposedValue(Object)
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValue(`0)
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValue(`0)
+  id: GetStoredValue(`0)
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  langs:
+  - csharp
+  - vb
+  name: GetStoredValue(T)
+  nameWithType: ValueAdapter<T>.GetStoredValue(T)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter<T>.GetStoredValue(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Gets the value that should be stored in the cache.
+  example: []
+  syntax:
+    content: public abstract object GetStoredValue(T value)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The apparent value (typically the return value of the cached method).
+    return:
+      type: System.Object
+      description: A cacheable object.
+    content.vb: Public MustOverride Function GetStoredValue(value As T) As Object
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValue*
+  implements:
+  - PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{{T}}.GetStoredValue({T})
+  nameWithType.vb: ValueAdapter(Of T).GetStoredValue(T)
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter(Of T).GetStoredValue(T)
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValueAsync(`0,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValueAsync(`0,System.Threading.CancellationToken)
+  id: GetStoredValueAsync(`0,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  langs:
+  - csharp
+  - vb
+  name: GetStoredValueAsync(T, CancellationToken)
+  nameWithType: ValueAdapter<T>.GetStoredValueAsync(T, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter<T>.GetStoredValueAsync(T, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Asynchronously gets the value that should be stored in the cache.
+  example: []
+  syntax:
+    content: public virtual Task<object> GetStoredValueAsync(T value, CancellationToken cancellationToken)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The apparent value (typically the return value of the cached method).
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Object}
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that returns a cacheable object.
+    content.vb: Public Overridable Function GetStoredValueAsync(value As T, cancellationToken As CancellationToken) As Task(Of Object)
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.GetStoredValueAsync*
+  implements:
+  - PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{{T}}.GetStoredValueAsync({T},System.Threading.CancellationToken)
+  nameWithType.vb: ValueAdapter(Of T).GetStoredValueAsync(T, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter(Of T).GetStoredValueAsync(T, System.Threading.CancellationToken)
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.#ctor
+  commentId: M:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  langs:
+  - csharp
+  - vb
+  name: ValueAdapter()
+  nameWithType: ValueAdapter<T>.ValueAdapter()
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter<T>.ValueAdapter()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  syntax:
+    content: protected ValueAdapter()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.#ctor*
+  nameWithType.vb: ValueAdapter(Of T).New()
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter(Of T).New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.IsAsyncSupported
+  commentId: P:PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.IsAsyncSupported
+  id: IsAsyncSupported
+  parent: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1
+  langs:
+  - csharp
+  - vb
+  name: IsAsyncSupported
+  nameWithType: ValueAdapter<T>.IsAsyncSupported
+  fullName: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter<T>.IsAsyncSupported
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.ValueAdapters
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter.GetStoredValueAsync(System.Object%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method is supported.
+  example: []
+  syntax:
+    content: public virtual bool IsAsyncSupported { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property IsAsyncSupported As Boolean
+  overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter`1.IsAsyncSupported*
+  implements:
+  - PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter.IsAsyncSupported
+  nameWithType.vb: ValueAdapter(Of T).IsAsyncSupported
+  fullName.vb: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapter(Of T).IsAsyncSupported

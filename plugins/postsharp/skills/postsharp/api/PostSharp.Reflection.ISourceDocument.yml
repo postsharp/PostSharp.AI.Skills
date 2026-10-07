@@ -1,0 +1,81 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.ISourceDocument
+  commentId: T:PostSharp.Reflection.ISourceDocument
+  id: ISourceDocument
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.ISourceDocument.FileName
+  - PostSharp.Reflection.ISourceDocument.Language
+  langs:
+  - csharp
+  - vb
+  name: ISourceDocument
+  nameWithType: ISourceDocument
+  fullName: PostSharp.Reflection.ISourceDocument
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Represents a file of source code.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface ISourceDocument
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface ISourceDocument
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Reflection.ISourceDocument.FileName
+  commentId: P:PostSharp.Reflection.ISourceDocument.FileName
+  id: FileName
+  parent: PostSharp.Reflection.ISourceDocument
+  langs:
+  - csharp
+  - vb
+  name: FileName
+  nameWithType: ISourceDocument.FileName
+  fullName: PostSharp.Reflection.ISourceDocument.FileName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the full path of the file.
+  example: []
+  syntax:
+    content: string FileName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property FileName As String
+  overload: PostSharp.Reflection.ISourceDocument.FileName*
+- uid: PostSharp.Reflection.ISourceDocument.Language
+  commentId: P:PostSharp.Reflection.ISourceDocument.Language
+  id: Language
+  parent: PostSharp.Reflection.ISourceDocument
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: ISourceDocument.Language
+  fullName: PostSharp.Reflection.ISourceDocument.Language
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the language of the file, as a <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> according to the Microsoft PDB specification.
+  remarks: <p>The language GUID varies according to the kind of PDB file (native or portable).</p>
+  example: []
+  syntax:
+    content: Guid Language { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: ReadOnly Property Language As Guid
+  overload: PostSharp.Reflection.ISourceDocument.Language*

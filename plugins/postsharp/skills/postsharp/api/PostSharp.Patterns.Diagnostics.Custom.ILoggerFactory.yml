@@ -1,0 +1,68 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory
+  id: ILoggerFactory
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory.GetLogger(System.String,System.Type)
+  langs:
+  - csharp
+  - vb
+  name: ILoggerFactory
+  nameWithType: ILoggerFactory
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Defines a factory that creates instances of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref> interface. An instance of this interface must be registered with the <xref href="PostSharp.Patterns.Utilities.ServiceLocator" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ILoggerFactoryProvider3")]
+
+      public interface ILoggerFactory
+    content.vb: >-
+      <Obsolete("Use ILoggerFactoryProvider3")>
+
+      Public Interface ILoggerFactory
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ILoggerFactoryProvider3
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory.GetLogger(System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory.GetLogger(System.String,System.Type)
+  id: GetLogger(System.String,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory
+  langs:
+  - csharp
+  - vb
+  name: GetLogger(string, Type)
+  nameWithType: ILoggerFactory.GetLogger(string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory.GetLogger(string, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets an instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref> interface for a given role and <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ILogger GetLogger(string role, Type type)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role for which the logger is requested.
+    - id: type
+      type: System.Type
+      description: The type of the source code that will emit the records.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.ILogger
+      description: An instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref> interface for <code class="paramref">role</code> and <code class="paramref">type</code>.
+    content.vb: Function GetLogger(role As String, type As Type) As ILogger
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory.GetLogger*
+  nameWithType.vb: ILoggerFactory.GetLogger(String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory.GetLogger(String, System.Type)
+  name.vb: GetLogger(String, Type)

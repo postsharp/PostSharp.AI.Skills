@@ -1,0 +1,211 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  commentId: T:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  id: ICorrelationRequestAdapter
+  parent: PostSharp.Patterns.Diagnostics.Correlation
+  children:
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.AddHeader(System.Object,System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.Direction
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemoteHost(System.Object)
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemotePort(System.Object)
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.RemoveHeader(System.Object,System.String)
+  - PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.TryGetHeader(System.Object,System.String,System.Collections.Generic.IEnumerable{System.String}@)
+  langs:
+  - csharp
+  - vb
+  name: ICorrelationRequestAdapter
+  nameWithType: ICorrelationRequestAdapter
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Abstraction of the <xref href="PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequest" data-throw-if-not-resolved="false"></xref> type.
+  example: []
+  syntax:
+    content: public interface ICorrelationRequestAdapter
+    content.vb: Public Interface ICorrelationRequestAdapter
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemoteHost(System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemoteHost(System.Object)
+  id: GetRemoteHost(System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetRemoteHost(object)
+  nameWithType: ICorrelationRequestAdapter.GetRemoteHost(object)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemoteHost(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Gets the DNS name or IP address of the remote host.
+  example: []
+  syntax:
+    content: string GetRemoteHost(object request)
+    parameters:
+    - id: request
+      type: System.Object
+      description: The original request object.
+    return:
+      type: System.String
+    content.vb: Function GetRemoteHost(request As Object) As String
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemoteHost*
+  nameWithType.vb: ICorrelationRequestAdapter.GetRemoteHost(Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemoteHost(Object)
+  name.vb: GetRemoteHost(Object)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemotePort(System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemotePort(System.Object)
+  id: GetRemotePort(System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  langs:
+  - csharp
+  - vb
+  name: GetRemotePort(object)
+  nameWithType: ICorrelationRequestAdapter.GetRemotePort(object)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemotePort(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Gets the remote port, or -1 if it is the default port.
+  example: []
+  syntax:
+    content: int GetRemotePort(object request)
+    parameters:
+    - id: request
+      type: System.Object
+      description: The original request object.
+    return:
+      type: System.Int32
+    content.vb: Function GetRemotePort(request As Object) As Integer
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemotePort*
+  nameWithType.vb: ICorrelationRequestAdapter.GetRemotePort(Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.GetRemotePort(Object)
+  name.vb: GetRemotePort(Object)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.AddHeader(System.Object,System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.AddHeader(System.Object,System.String,System.String)
+  id: AddHeader(System.Object,System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  langs:
+  - csharp
+  - vb
+  name: AddHeader(object, string, string)
+  nameWithType: ICorrelationRequestAdapter.AddHeader(object, string, string)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.AddHeader(object, string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Adds a request header.
+  example: []
+  syntax:
+    content: void AddHeader(object request, string name, string value)
+    parameters:
+    - id: request
+      type: System.Object
+      description: The original request object.
+    - id: name
+      type: System.String
+      description: The header name.
+    - id: value
+      type: System.String
+      description: The header value.
+    content.vb: Sub AddHeader(request As Object, name As String, value As String)
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.AddHeader*
+  nameWithType.vb: ICorrelationRequestAdapter.AddHeader(Object, String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.AddHeader(Object, String, String)
+  name.vb: AddHeader(Object, String, String)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.RemoveHeader(System.Object,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.RemoveHeader(System.Object,System.String)
+  id: RemoveHeader(System.Object,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  langs:
+  - csharp
+  - vb
+  name: RemoveHeader(object, string)
+  nameWithType: ICorrelationRequestAdapter.RemoveHeader(object, string)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.RemoveHeader(object, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Removes a request header and all its values.
+  example: []
+  syntax:
+    content: void RemoveHeader(object request, string name)
+    parameters:
+    - id: request
+      type: System.Object
+      description: The original request object.
+    - id: name
+      type: System.String
+      description: The header name.
+    content.vb: Sub RemoveHeader(request As Object, name As String)
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.RemoveHeader*
+  nameWithType.vb: ICorrelationRequestAdapter.RemoveHeader(Object, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.RemoveHeader(Object, String)
+  name.vb: RemoveHeader(Object, String)
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.TryGetHeader(System.Object,System.String,System.Collections.Generic.IEnumerable{System.String}@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.TryGetHeader(System.Object,System.String,System.Collections.Generic.IEnumerable{System.String}@)
+  id: TryGetHeader(System.Object,System.String,System.Collections.Generic.IEnumerable{System.String}@)
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  langs:
+  - csharp
+  - vb
+  name: TryGetHeader(object, string, out IEnumerable<string>)
+  nameWithType: ICorrelationRequestAdapter.TryGetHeader(object, string, out IEnumerable<string>)
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.TryGetHeader(object, string, out System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: Gets a request header.
+  example: []
+  syntax:
+    content: bool TryGetHeader(object request, string name, out IEnumerable<string> values)
+    parameters:
+    - id: request
+      type: System.Object
+      description: The original request object.
+    - id: name
+      type: System.String
+      description: The header name.
+    - id: values
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: When the method returns, the set of values for the header.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if there is at least one header of this name, otherwise <code>false</code>.
+    content.vb: Function TryGetHeader(request As Object, name As String, values As IEnumerable(Of String)) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.TryGetHeader*
+  nameWithType.vb: ICorrelationRequestAdapter.TryGetHeader(Object, String, IEnumerable(Of String))
+  fullName.vb: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.TryGetHeader(Object, String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: TryGetHeader(Object, String, IEnumerable(Of String))
+- uid: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.Direction
+  commentId: P:PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.Direction
+  id: Direction
+  parent: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter
+  langs:
+  - csharp
+  - vb
+  name: Direction
+  nameWithType: ICorrelationRequestAdapter.Direction
+  fullName: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.Direction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Correlation
+  summary: >-
+    Gets the request direction (<xref href="PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequestDirection.In" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequestDirection.Out" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: CorrelationRequestDirection Direction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Correlation.CorrelationRequestDirection
+    content.vb: ReadOnly Property Direction As CorrelationRequestDirection
+  overload: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationRequestAdapter.Direction*

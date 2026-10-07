@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IProject
+  commentId: T:PostSharp.Extensibility.IProject
+  id: IProject
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IProject.EvaluateExpression(System.String)
+  - PostSharp.Extensibility.IProject.GetExtensionElements(System.String,System.String)
+  - PostSharp.Extensibility.IProject.GetService``1(System.Boolean)
+  - PostSharp.Extensibility.IProject.StateStore
+  - PostSharp.Extensibility.IProject.TargetAssembly
+  langs:
+  - csharp
+  - vb
+  name: IProject
+  nameWithType: IProject
+  fullName: PostSharp.Extensibility.IProject
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Provides information about the currently executing project.
+  remarks: >-
+    <p>Get the current project from <xref href="PostSharp.Extensibility.PostSharpEnvironment.CurrentProject" data-throw-if-not-resolved="false"></xref>, which is <code>null</code> when PostSharp is not running.
+        Use <xref href="PostSharp.Extensibility.IProject.EvaluateExpression(System.String)" data-throw-if-not-resolved="false"></xref> to read configuration properties and <xref href="PostSharp.Extensibility.IProject.GetExtensionElements(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref> to read custom configuration sections.</p>
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IProject : IServiceLocator, IService
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IProject Inherits IServiceLocator, IService
+  seealso:
+  - linkId: PostSharp.Extensibility.PostSharpEnvironment
+    commentId: T:PostSharp.Extensibility.PostSharpEnvironment
+  - linkType: HRef
+    linkId: '@configuration-consuming'
+    altText: 'Conceptual: Accessing Configuration from Source Code'
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Extensibility.IProject.EvaluateExpression(System.String)
+  commentId: M:PostSharp.Extensibility.IProject.EvaluateExpression(System.String)
+  id: EvaluateExpression(System.String)
+  parent: PostSharp.Extensibility.IProject
+  langs:
+  - csharp
+  - vb
+  name: EvaluateExpression(string)
+  nameWithType: IProject.EvaluateExpression(string)
+  fullName: PostSharp.Extensibility.IProject.EvaluateExpression(string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Evaluates an expression, that is, replaces the parameters by their actual values.
+  example: []
+  syntax:
+    content: string EvaluateExpression(string expression)
+    parameters:
+    - id: expression
+      type: System.String
+      description: The expression to evaluate.
+    return:
+      type: System.String
+      description: >-
+        The evaluated expression, or <code>null</code> if one parameter could not be
+                      resolved.
+    content.vb: Function EvaluateExpression(expression As String) As String
+  overload: PostSharp.Extensibility.IProject.EvaluateExpression*
+  seealso:
+  - linkType: HRef
+    linkId: '@configuration-xpath'
+    altText: 'Conceptual: Using Expressions in Configuration Files'
+  nameWithType.vb: IProject.EvaluateExpression(String)
+  fullName.vb: PostSharp.Extensibility.IProject.EvaluateExpression(String)
+  name.vb: EvaluateExpression(String)
+- uid: PostSharp.Extensibility.IProject.GetService``1(System.Boolean)
+  commentId: M:PostSharp.Extensibility.IProject.GetService``1(System.Boolean)
+  id: GetService``1(System.Boolean)
+  parent: PostSharp.Extensibility.IProject
+  langs:
+  - csharp
+  - vb
+  name: GetService<T>(bool)
+  nameWithType: IProject.GetService<T>(bool)
+  fullName: PostSharp.Extensibility.IProject.GetService<T>(bool)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a build-time service exposed by PostSharp.
+  example: []
+  syntax:
+    content: 'T GetService<T>(bool throwing = true) where T : class, IService'
+    parameters:
+    - id: throwing
+      type: System.Boolean
+      description: >-
+        <code>true</code> if an exception should be thrown when the service cannot be acquired, otherwise <code>false</code>.
+            The default value is <code>true</code>.
+    typeParameters:
+    - id: T
+      description: An interface derived from <xref href="PostSharp.Extensibility.IService" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: '{T}'
+      description: >-
+        The service <code class="typeparamref">T</code>, or <code>null</code> if the service could not be acquired and <code class="paramref">throwing</code>
+                    was set to <code>false</code>.
+    content.vb: Function GetService(Of T As {Class, IService})(throwing As Boolean = True) As T
+  overload: PostSharp.Extensibility.IProject.GetService*
+  nameWithType.vb: IProject.GetService(Of T)(Boolean)
+  fullName.vb: PostSharp.Extensibility.IProject.GetService(Of T)(Boolean)
+  name.vb: GetService(Of T)(Boolean)
+- uid: PostSharp.Extensibility.IProject.GetExtensionElements(System.String,System.String)
+  commentId: M:PostSharp.Extensibility.IProject.GetExtensionElements(System.String,System.String)
+  id: GetExtensionElements(System.String,System.String)
+  parent: PostSharp.Extensibility.IProject
+  langs:
+  - csharp
+  - vb
+  name: GetExtensionElements(string, string)
+  nameWithType: IProject.GetExtensionElements(string, string)
+  fullName: PostSharp.Extensibility.IProject.GetExtensionElements(string, string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the set of project extension elements (<xref href="PostSharp.Extensibility.ProjectExtensionElement" data-throw-if-not-resolved="false"></xref>) given their name and XML namespace.
+  example: []
+  syntax:
+    content: IEnumerable<ProjectExtensionElement> GetExtensionElements(string name, string ns)
+    parameters:
+    - id: name
+      type: System.String
+      description: The local name of the project extension element.
+    - id: ns
+      type: System.String
+      description: The XML namespace of the project extension element.
+    return:
+      type: System.Collections.Generic.IEnumerable{PostSharp.Extensibility.ProjectExtensionElement}
+      description: The set of project elements named <code class="paramref">name</code> in all loaded projects.
+    content.vb: Function GetExtensionElements(name As String, ns As String) As IEnumerable(Of ProjectExtensionElement)
+  overload: PostSharp.Extensibility.IProject.GetExtensionElements*
+  nameWithType.vb: IProject.GetExtensionElements(String, String)
+  fullName.vb: PostSharp.Extensibility.IProject.GetExtensionElements(String, String)
+  name.vb: GetExtensionElements(String, String)
+- uid: PostSharp.Extensibility.IProject.StateStore
+  commentId: P:PostSharp.Extensibility.IProject.StateStore
+  id: StateStore
+  parent: PostSharp.Extensibility.IProject
+  langs:
+  - csharp
+  - vb
+  name: StateStore
+  nameWithType: IProject.StateStore
+  fullName: PostSharp.Extensibility.IProject.StateStore
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the context of the current project that serves as a project-scoped cache.
+  example: []
+  syntax:
+    content: IStateStore StateStore { get; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.IStateStore
+    content.vb: ReadOnly Property StateStore As IStateStore
+  overload: PostSharp.Extensibility.IProject.StateStore*
+- uid: PostSharp.Extensibility.IProject.TargetAssembly
+  commentId: P:PostSharp.Extensibility.IProject.TargetAssembly
+  id: TargetAssembly
+  parent: PostSharp.Extensibility.IProject
+  langs:
+  - csharp
+  - vb
+  name: TargetAssembly
+  nameWithType: IProject.TargetAssembly
+  fullName: PostSharp.Extensibility.IProject.TargetAssembly
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the assembly that is being transformed by PostSharp.
+  example: []
+  syntax:
+    content: Assembly TargetAssembly { get; }
+    parameters: []
+    return:
+      type: System.Reflection.Assembly
+      description: The assembly being processed.
+    content.vb: ReadOnly Property TargetAssembly As Assembly
+  overload: PostSharp.Extensibility.IProject.TargetAssembly*

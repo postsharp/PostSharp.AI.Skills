@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IFieldExpression
+  commentId: T:PostSharp.Reflection.MethodBody.IFieldExpression
+  id: IFieldExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IFieldExpression.Alignment
+  - PostSharp.Reflection.MethodBody.IFieldExpression.Field
+  - PostSharp.Reflection.MethodBody.IFieldExpression.Instance
+  - PostSharp.Reflection.MethodBody.IFieldExpression.IsVolatile
+  langs:
+  - csharp
+  - vb
+  name: IFieldExpression
+  nameWithType: IFieldExpression
+  fullName: PostSharp.Reflection.MethodBody.IFieldExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Expression that represents a field.
+  example: []
+  syntax:
+    content: 'public interface IFieldExpression : IExpression, IMethodBodyElement'
+    content.vb: Public Interface IFieldExpression Inherits IExpression, IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IFieldExpression.Instance
+  commentId: P:PostSharp.Reflection.MethodBody.IFieldExpression.Instance
+  id: Instance
+  parent: PostSharp.Reflection.MethodBody.IFieldExpression
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: IFieldExpression.Instance
+  fullName: PostSharp.Reflection.MethodBody.IFieldExpression.Instance
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the object containing the field, or <code>null</code> if the field is static.
+  example: []
+  syntax:
+    content: IExpression Instance { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property Instance As IExpression
+  overload: PostSharp.Reflection.MethodBody.IFieldExpression.Instance*
+- uid: PostSharp.Reflection.MethodBody.IFieldExpression.Field
+  commentId: P:PostSharp.Reflection.MethodBody.IFieldExpression.Field
+  id: Field
+  parent: PostSharp.Reflection.MethodBody.IFieldExpression
+  langs:
+  - csharp
+  - vb
+  name: Field
+  nameWithType: IFieldExpression.Field
+  fullName: PostSharp.Reflection.MethodBody.IFieldExpression.Field
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the field.
+  example: []
+  syntax:
+    content: FieldInfo Field { get; }
+    parameters: []
+    return:
+      type: System.Reflection.FieldInfo
+    content.vb: ReadOnly Property Field As FieldInfo
+  overload: PostSharp.Reflection.MethodBody.IFieldExpression.Field*
+- uid: PostSharp.Reflection.MethodBody.IFieldExpression.IsVolatile
+  commentId: P:PostSharp.Reflection.MethodBody.IFieldExpression.IsVolatile
+  id: IsVolatile
+  parent: PostSharp.Reflection.MethodBody.IFieldExpression
+  langs:
+  - csharp
+  - vb
+  name: IsVolatile
+  nameWithType: IFieldExpression.IsVolatile
+  fullName: PostSharp.Reflection.MethodBody.IFieldExpression.IsVolatile
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets a value indicating whether the field can be written by a different thread than the current one.
+  example: []
+  syntax:
+    content: bool IsVolatile { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsVolatile As Boolean
+  overload: PostSharp.Reflection.MethodBody.IFieldExpression.IsVolatile*
+- uid: PostSharp.Reflection.MethodBody.IFieldExpression.Alignment
+  commentId: P:PostSharp.Reflection.MethodBody.IFieldExpression.Alignment
+  id: Alignment
+  parent: PostSharp.Reflection.MethodBody.IFieldExpression
+  langs:
+  - csharp
+  - vb
+  name: Alignment
+  nameWithType: IFieldExpression.Alignment
+  fullName: PostSharp.Reflection.MethodBody.IFieldExpression.Alignment
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the field alignment.
+  example: []
+  syntax:
+    content: AddressAlignment Alignment { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.AddressAlignment
+    content.vb: ReadOnly Property Alignment As AddressAlignment
+  overload: PostSharp.Reflection.MethodBody.IFieldExpression.Alignment*

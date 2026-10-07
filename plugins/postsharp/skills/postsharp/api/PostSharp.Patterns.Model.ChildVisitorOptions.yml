@@ -1,0 +1,148 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.ChildVisitorOptions
+  commentId: T:PostSharp.Patterns.Model.ChildVisitorOptions
+  id: ChildVisitorOptions
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.ChildVisitorOptions.AcquireUpgradableReaderAccess
+  - PostSharp.Patterns.Model.ChildVisitorOptions.ExcludeIndirectChildren
+  - PostSharp.Patterns.Model.ChildVisitorOptions.IncludeParentSurrogates
+  - PostSharp.Patterns.Model.ChildVisitorOptions.None
+  - PostSharp.Patterns.Model.ChildVisitorOptions.Snapshot
+  langs:
+  - csharp
+  - vb
+  name: ChildVisitorOptions
+  nameWithType: ChildVisitorOptions
+  fullName: PostSharp.Patterns.Model.ChildVisitorOptions
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Options for the <xref href="PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable%2cPostSharp.Patterns.Model.DescendantVisitor%2cPostSharp.Patterns.Model.ChildVisitorOptions%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> methods.
+  remarks: >-
+    <p>By default (<xref href="PostSharp.Patterns.Model.ChildVisitorOptions.None" data-throw-if-not-resolved="false"></xref>), the visitor is not invoked on a parent surrogate, typically a child collection,
+        but on each item of the parent surrogate. <xref href="PostSharp.Patterns.Model.ChildVisitorOptions.IncludeParentSurrogates" data-throw-if-not-resolved="false"></xref> additionally invokes the visitor on the parent surrogate itself,
+        and <xref href="PostSharp.Patterns.Model.ChildVisitorOptions.ExcludeIndirectChildren" data-throw-if-not-resolved="false"></xref> skips the items of parent surrogates.</p>
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum ChildVisitorOptions
+    content.vb: >-
+      <Flags>
+
+      Public Enum ChildVisitorOptions
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Model.ChildVisitorOptions.None
+  commentId: F:PostSharp.Patterns.Model.ChildVisitorOptions.None
+  id: None
+  parent: PostSharp.Patterns.Model.ChildVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ChildVisitorOptions.None
+  fullName: PostSharp.Patterns.Model.ChildVisitorOptions.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Enumerates all children, but ignores parent surrogates.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+- uid: PostSharp.Patterns.Model.ChildVisitorOptions.IncludeParentSurrogates
+  commentId: F:PostSharp.Patterns.Model.ChildVisitorOptions.IncludeParentSurrogates
+  id: IncludeParentSurrogates
+  parent: PostSharp.Patterns.Model.ChildVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeParentSurrogates
+  nameWithType: ChildVisitorOptions.IncludeParentSurrogates
+  fullName: PostSharp.Patterns.Model.ChildVisitorOptions.IncludeParentSurrogates
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Includes parent surrogates.
+  example: []
+  syntax:
+    content: IncludeParentSurrogates = 1
+    return:
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+- uid: PostSharp.Patterns.Model.ChildVisitorOptions.ExcludeIndirectChildren
+  commentId: F:PostSharp.Patterns.Model.ChildVisitorOptions.ExcludeIndirectChildren
+  id: ExcludeIndirectChildren
+  parent: PostSharp.Patterns.Model.ChildVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: ExcludeIndirectChildren
+  nameWithType: ChildVisitorOptions.ExcludeIndirectChildren
+  fullName: PostSharp.Patterns.Model.ChildVisitorOptions.ExcludeIndirectChildren
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Excludes children of parent surrogates.
+  example: []
+  syntax:
+    content: ExcludeIndirectChildren = 2
+    return:
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+- uid: PostSharp.Patterns.Model.ChildVisitorOptions.AcquireUpgradableReaderAccess
+  commentId: F:PostSharp.Patterns.Model.ChildVisitorOptions.AcquireUpgradableReaderAccess
+  id: AcquireUpgradableReaderAccess
+  parent: PostSharp.Patterns.Model.ChildVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: AcquireUpgradableReaderAccess
+  nameWithType: ChildVisitorOptions.AcquireUpgradableReaderAccess
+  fullName: PostSharp.Patterns.Model.ChildVisitorOptions.AcquireUpgradableReaderAccess
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Acquires upgradable reader access instead of just reader access.
+  example: []
+  syntax:
+    content: AcquireUpgradableReaderAccess = 4
+    return:
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+- uid: PostSharp.Patterns.Model.ChildVisitorOptions.Snapshot
+  commentId: F:PostSharp.Patterns.Model.ChildVisitorOptions.Snapshot
+  id: Snapshot
+  parent: PostSharp.Patterns.Model.ChildVisitorOptions
+  langs:
+  - csharp
+  - vb
+  name: Snapshot
+  nameWithType: ChildVisitorOptions.Snapshot
+  fullName: PostSharp.Patterns.Model.ChildVisitorOptions.Snapshot
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Enumerates children into a snapshot list before invoking the visitor, so that the visitor
+
+    can safely modify the underlying collection without causing <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Snapshot = 8
+    return:
+      type: PostSharp.Patterns.Model.ChildVisitorOptions

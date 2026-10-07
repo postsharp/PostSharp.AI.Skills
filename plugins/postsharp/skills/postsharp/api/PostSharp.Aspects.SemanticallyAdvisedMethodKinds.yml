@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  commentId: T:PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  id: SemanticallyAdvisedMethodKinds
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.All
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Async
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.AsyncIterator
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Default
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Iterator
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.None
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsAwaitable
+  - PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsEnumerable
+  langs:
+  - csharp
+  - vb
+  name: SemanticallyAdvisedMethodKinds
+  nameWithType: SemanticallyAdvisedMethodKinds
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Enumerates possible target methods for semantic advising.
+  remarks: >-
+    <p>When semantic advising is enabled, the advices work at the abstraction level of the original programming language.
+        For example, advices are applied to the underlying async state machine instead of the public async method that starts the state machine.</p>
+    <p>Use this enumeration with the <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.SemanticallyAdvisedMethodKinds" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.OnExceptionAspect.SemanticallyAdvisedMethodKinds" data-throw-if-not-resolved="false"></xref>,
+        and <xref href="PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds" data-throw-if-not-resolved="false"></xref> properties. Combine values to select the kinds of methods that are advised semantically.</p>
+  example: []
+  syntax:
+    content: >-
+      [Flags]
+
+      public enum SemanticallyAdvisedMethodKinds
+    content.vb: >-
+      <Flags>
+
+      Public Enum SemanticallyAdvisedMethodKinds
+  seealso:
+  - linkType: HRef
+    linkId: '@semantic-advising'
+    altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'
+  attributes:
+  - type: System.FlagsAttribute
+    ctor: System.FlagsAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.None
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.None
+  id: None
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: SemanticallyAdvisedMethodKinds.None
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.None
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Do not use semantic advising.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Async
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Async
+  id: Async
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: Async
+  nameWithType: SemanticallyAdvisedMethodKinds.Async
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Async
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Apply semantic advising to async methods.
+  example: []
+  syntax:
+    content: Async = 1
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsAwaitable
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsAwaitable
+  id: ReturnsAwaitable
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: ReturnsAwaitable
+  nameWithType: SemanticallyAdvisedMethodKinds.ReturnsAwaitable
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsAwaitable
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Apply semantic advising to methods that return any awaitable type (e.g. <code>System.Threading.Tasks.Task</code>).
+  example: []
+  syntax:
+    content: ReturnsAwaitable = 2
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Iterator
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Iterator
+  id: Iterator
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: Iterator
+  nameWithType: SemanticallyAdvisedMethodKinds.Iterator
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Iterator
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Apply semantic advising to iterator methods (methods that use <code>yield</code> statements).
+  example: []
+  syntax:
+    content: Iterator = 4
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsEnumerable
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsEnumerable
+  id: ReturnsEnumerable
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: ReturnsEnumerable
+  nameWithType: SemanticallyAdvisedMethodKinds.ReturnsEnumerable
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsEnumerable
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Apply semantic advising to methods that return <xref href="System.Collections.IEnumerable" data-throw-if-not-resolved="false"></xref>, <xref href="System.Collections.IEnumerator" data-throw-if-not-resolved="false"></xref>, <xref href="System.Collections.Generic.IEnumerable%601" data-throw-if-not-resolved="false"></xref>, or
+
+    <xref href="System.Collections.Generic.IEnumerator%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ReturnsEnumerable = 8
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.AsyncIterator
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.AsyncIterator
+  id: AsyncIterator
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: AsyncIterator
+  nameWithType: SemanticallyAdvisedMethodKinds.AsyncIterator
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.AsyncIterator
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Apply semantic advising to async methods that return <code>IAsyncEnumerable</code>. Semantic advising for this C# 8.0 feature is not yet supported by PostSharp.
+  example: []
+  syntax:
+    content: AsyncIterator = 16
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Default
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Default
+  id: Default
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: SemanticallyAdvisedMethodKinds.Default
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: The default behavior includes <xref href="PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Async" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsAwaitable" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.SemanticallyAdvisedMethodKinds.Iterator" data-throw-if-not-resolved="false"></xref>, and <xref href="PostSharp.Aspects.SemanticallyAdvisedMethodKinds.AsyncIterator" data-throw-if-not-resolved="false"></xref>, but not <xref href="PostSharp.Aspects.SemanticallyAdvisedMethodKinds.ReturnsEnumerable" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = Async | ReturnsAwaitable | Iterator | AsyncIterator
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+    content.vb: Default = Async Or ReturnsAwaitable Or Iterator Or AsyncIterator
+- uid: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.All
+  commentId: F:PostSharp.Aspects.SemanticallyAdvisedMethodKinds.All
+  id: All
+  parent: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+  langs:
+  - csharp
+  - vb
+  name: All
+  nameWithType: SemanticallyAdvisedMethodKinds.All
+  fullName: PostSharp.Aspects.SemanticallyAdvisedMethodKinds.All
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Apply semantic advising to all possible target methods.
+  example: []
+  syntax:
+    content: All = ReturnsEnumerable | Default
+    return:
+      type: PostSharp.Aspects.SemanticallyAdvisedMethodKinds
+    content.vb: All = ReturnsEnumerable Or Default

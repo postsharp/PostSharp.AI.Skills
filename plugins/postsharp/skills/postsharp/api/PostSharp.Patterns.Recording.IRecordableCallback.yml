@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.IRecordableCallback
+  commentId: T:PostSharp.Patterns.Recording.IRecordableCallback
+  id: IRecordableCallback
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.IRecordableCallback.OnReplaying(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  langs:
+  - csharp
+  - vb
+  name: IRecordableCallback
+  nameWithType: IRecordableCallback
+  fullName: PostSharp.Patterns.Recording.IRecordableCallback
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Defines callback methods that are invoked when a recordable object is involved in an undo or redo operation.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> invokes these methods on each recordable object that an undo or redo operation affects. The order in which
+        objects are called is not specified and does not follow the parent-child structure.</p>
+    <p>Callback methods must not make changes that would be recorded, and must not call the <xref href="PostSharp.Patterns.Recording.Recorder.Undo" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Recording.Recorder.Redo" data-throw-if-not-resolved="false"></xref>
+        or <xref href="PostSharp.Patterns.Recording.Recorder.AddRestorePoint(System.String)" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface IRecordableCallback
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface IRecordableCallback
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-callbacks'
+    altText: 'Conceptual: Adding Callbacks on Undo and Redo'
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.IRecordableCallback.OnReplaying(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.IRecordableCallback.OnReplaying(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  id: OnReplaying(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.IRecordableCallback
+  langs:
+  - csharp
+  - vb
+  name: OnReplaying(ReplayKind, ReplayContext)
+  nameWithType: IRecordableCallback.OnReplaying(ReplayKind, ReplayContext)
+  fullName: PostSharp.Patterns.Recording.IRecordableCallback.OnReplaying(PostSharp.Patterns.Recording.ReplayKind, PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Method invoked before the undo or redo operation has started.
+  example: []
+  syntax:
+    content: void OnReplaying(ReplayKind kind, ReplayContext context)
+    parameters:
+    - id: kind
+      type: PostSharp.Patterns.Recording.ReplayKind
+      description: <xref href="PostSharp.Patterns.Recording.ReplayKind.Undo" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.ReplayKind.Redo" data-throw-if-not-resolved="false"></xref>.
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Sub OnReplaying(kind As ReplayKind, context As ReplayContext)
+  overload: PostSharp.Patterns.Recording.IRecordableCallback.OnReplaying*
+- uid: PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  id: OnReplayed(PostSharp.Patterns.Recording.ReplayKind,PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.IRecordableCallback
+  langs:
+  - csharp
+  - vb
+  name: OnReplayed(ReplayKind, ReplayContext)
+  nameWithType: IRecordableCallback.OnReplayed(ReplayKind, ReplayContext)
+  fullName: PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed(PostSharp.Patterns.Recording.ReplayKind, PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Method invoked after the undo or redo operation has completed.
+  example: []
+  syntax:
+    content: void OnReplayed(ReplayKind kind, ReplayContext context)
+    parameters:
+    - id: kind
+      type: PostSharp.Patterns.Recording.ReplayKind
+      description: <xref href="PostSharp.Patterns.Recording.ReplayKind.Undo" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.ReplayKind.Redo" data-throw-if-not-resolved="false"></xref>.
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Sub OnReplayed(kind As ReplayKind, context As ReplayContext)
+  overload: PostSharp.Patterns.Recording.IRecordableCallback.OnReplayed*

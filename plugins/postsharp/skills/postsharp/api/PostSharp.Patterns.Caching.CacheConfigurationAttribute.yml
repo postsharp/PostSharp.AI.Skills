@@ -1,0 +1,273 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  commentId: T:PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  id: CacheConfigurationAttribute
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.#ctor
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.AbsoluteExpiration
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.AutoReload
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.IgnoreThisParameter
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.Priority
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.SlidingExpiration
+  langs:
+  - csharp
+  - vb
+  name: CacheConfigurationAttribute
+  nameWithType: CacheConfigurationAttribute
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Custom attribute that, when applied to a type, configures the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> aspects applied to the methods of this type
+
+    or its derived types. When applied to an assembly, the <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> custom attribute configures all methods
+
+    of the current assembly.
+  remarks: >-
+    <p>Any <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> on the base class always has priority over a <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref>
+        on the assembly, even if the base class is in a different assembly.</p>
+    <p>Configuration is resolved at build time, property by property. For each property, the first value found in the following order wins:
+        the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> itself, the <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> on the declaring type, then on each base type
+        from the nearest to the farthest, then on the assembly that declares the cached method, and finally the <xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref> at run time.
+        Assembly-level <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> instances of other assemblies are ignored.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class)]
+
+      public sealed class CacheConfigurationAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.Class)>
+
+      Public NotInheritable Class CacheConfigurationAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-getting-started'
+    altText: 'Conceptual: Caching Method Return Values'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 5
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Caching.CacheConfigurationAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: CacheConfigurationAttribute()
+  nameWithType: CacheConfigurationAttribute.CacheConfigurationAttribute()
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.CacheConfigurationAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  syntax:
+    content: public CacheConfigurationAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.#ctor*
+  nameWithType.vb: CacheConfigurationAttribute.New()
+  fullName.vb: PostSharp.Patterns.Caching.CacheConfigurationAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
+  id: ProfileName
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: ProfileName
+  nameWithType: CacheConfigurationAttribute.ProfileName
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the name of the <xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref> that contains the configuration of the cached methods.
+  example: []
+  syntax:
+    content: public string ProfileName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProfileName As String
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName*
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.AutoReload
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.AutoReload
+  id: AutoReload
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: AutoReload
+  nameWithType: CacheConfigurationAttribute.AutoReload
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.AutoReload
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the method calls are automatically reloaded (by re-evaluating the target method with the same arguments)
+
+    when the cache item is removed from the cache.
+  example: []
+  syntax:
+    content: public bool AutoReload { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AutoReload As Boolean
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.AutoReload*
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.AbsoluteExpiration
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.AbsoluteExpiration
+  id: AbsoluteExpiration
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteExpiration
+  nameWithType: CacheConfigurationAttribute.AbsoluteExpiration
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.AbsoluteExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the total duration, in minutes, during which the result of the cached method is stored in the cache. The absolute
+
+    expiration time is counted from the moment the method is evaluated and cached.
+  example: []
+  syntax:
+    content: public double AbsoluteExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property AbsoluteExpiration As Double
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.AbsoluteExpiration*
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.SlidingExpiration
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.SlidingExpiration
+  id: SlidingExpiration
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: SlidingExpiration
+  nameWithType: CacheConfigurationAttribute.SlidingExpiration
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.SlidingExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the duration, in minutes, during which the result of the cached method is stored in the cache after it has been
+
+    added to or accessed from the cache. The expiration is extended every time the value is accessed from the cache.
+  example: []
+  syntax:
+    content: public double SlidingExpiration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property SlidingExpiration As Double
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.SlidingExpiration*
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.Priority
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.Priority
+  id: Priority
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: CacheConfigurationAttribute.Priority
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.Priority
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the priority of the cached method.
+  example: []
+  syntax:
+    content: public CacheItemPriority Priority { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemPriority
+    content.vb: Public Property Priority As CacheItemPriority
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.Priority*
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.IgnoreThisParameter
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.IgnoreThisParameter
+  id: IgnoreThisParameter
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: IgnoreThisParameter
+  nameWithType: CacheConfigurationAttribute.IgnoreThisParameter
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.IgnoreThisParameter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the <code>this</code> instance should be a part of the cache key. The default value of this property is <code>false</code>,
+
+    which means that by default the <code>this</code> instance is a part of the cache key.
+  example: []
+  syntax:
+    content: public bool IgnoreThisParameter { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IgnoreThisParameter As Boolean
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.IgnoreThisParameter*

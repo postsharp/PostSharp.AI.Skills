@@ -1,0 +1,132 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  commentId: T:PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  id: RecoveryAction
+  parent: PostSharp.Patterns.Caching.Resilience
+  children:
+  - PostSharp.Patterns.Caching.Resilience.RecoveryAction.Default
+  - PostSharp.Patterns.Caching.Resilience.RecoveryAction.InvalidateDependencyInBackground
+  - PostSharp.Patterns.Caching.Resilience.RecoveryAction.RemoveItemInBackground
+  - PostSharp.Patterns.Caching.Resilience.RecoveryAction.Rethrow
+  - PostSharp.Patterns.Caching.Resilience.RecoveryAction.Swallow
+  langs:
+  - csharp
+  - vb
+  name: RecoveryAction
+  nameWithType: RecoveryAction
+  fullName: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    Enumerates the remediation actions when an exception occurs in a <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>.
+
+    Returned by <xref href="PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum RecoveryAction
+    content.vb: Public Enum RecoveryAction
+  extensionMethods:
+  - PostSharp.Patterns.Caching.Resilience.RecoveryAction.PostSharp.Patterns.Caching.Resilience.RecoveryActionExtensions.ToDisplayString
+- uid: PostSharp.Patterns.Caching.Resilience.RecoveryAction.Default
+  commentId: F:PostSharp.Patterns.Caching.Resilience.RecoveryAction.Default
+  id: Default
+  parent: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: RecoveryAction.Default
+  fullName: PostSharp.Patterns.Caching.Resilience.RecoveryAction.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Swallows the exception.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+- uid: PostSharp.Patterns.Caching.Resilience.RecoveryAction.Swallow
+  commentId: F:PostSharp.Patterns.Caching.Resilience.RecoveryAction.Swallow
+  id: Swallow
+  parent: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  langs:
+  - csharp
+  - vb
+  name: Swallow
+  nameWithType: RecoveryAction.Swallow
+  fullName: PostSharp.Patterns.Caching.Resilience.RecoveryAction.Swallow
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Ignores the exception and continues.
+  example: []
+  syntax:
+    content: Swallow = 0
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+- uid: PostSharp.Patterns.Caching.Resilience.RecoveryAction.Rethrow
+  commentId: F:PostSharp.Patterns.Caching.Resilience.RecoveryAction.Rethrow
+  id: Rethrow
+  parent: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  langs:
+  - csharp
+  - vb
+  name: Rethrow
+  nameWithType: RecoveryAction.Rethrow
+  fullName: PostSharp.Patterns.Caching.Resilience.RecoveryAction.Rethrow
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Rethrows the exception.
+  example: []
+  syntax:
+    content: Rethrow = 1
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+- uid: PostSharp.Patterns.Caching.Resilience.RecoveryAction.RemoveItemInBackground
+  commentId: F:PostSharp.Patterns.Caching.Resilience.RecoveryAction.RemoveItemInBackground
+  id: RemoveItemInBackground
+  parent: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  langs:
+  - csharp
+  - vb
+  name: RemoveItemInBackground
+  nameWithType: RecoveryAction.RemoveItemInBackground
+  fullName: PostSharp.Patterns.Caching.Resilience.RecoveryAction.RemoveItemInBackground
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Enqueues a task to remove the item in the background, and continues.
+  example: []
+  syntax:
+    content: RemoveItemInBackground = 2
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+- uid: PostSharp.Patterns.Caching.Resilience.RecoveryAction.InvalidateDependencyInBackground
+  commentId: F:PostSharp.Patterns.Caching.Resilience.RecoveryAction.InvalidateDependencyInBackground
+  id: InvalidateDependencyInBackground
+  parent: PostSharp.Patterns.Caching.Resilience.RecoveryAction
+  langs:
+  - csharp
+  - vb
+  name: InvalidateDependencyInBackground
+  nameWithType: RecoveryAction.InvalidateDependencyInBackground
+  fullName: PostSharp.Patterns.Caching.Resilience.RecoveryAction.InvalidateDependencyInBackground
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Enqueues a task to invalidate the dependency in the background, and continues.
+  example: []
+  syntax:
+    content: InvalidateDependencyInBackground = 3
+    return:
+      type: PostSharp.Patterns.Caching.Resilience.RecoveryAction

@@ -1,0 +1,382 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  commentId: T:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  id: MemoryCachingBackend
+  parent: PostSharp.Patterns.Caching.Backends
+  children:
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor(System.Runtime.Caching.MemoryCache)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ClearCore
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsItemCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.GetItemCore(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.InvalidateDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.RemoveItemCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: MemoryCachingBackend
+  nameWithType: MemoryCachingBackend
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: >-
+    A <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref> based on <code>System.Runtime.Caching.MemoryCache</code> (<xref href="System.Runtime.Caching.MemoryCache" data-throw-if-not-resolved="false"></xref>). This cache is part of .NET Framework
+
+    and is available for .NET Standard in the NuGet package System.Runtime.Caching.
+  remarks: >-
+    <p>To use this backend, assign an instance to <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> before the first call to a cached method.
+        By default, it stores items in <xref href="System.Runtime.Caching.MemoryCache.Default" data-throw-if-not-resolved="false"></xref>; pass another <xref href="System.Runtime.Caching.MemoryCache" data-throw-if-not-resolved="false"></xref> to the constructor to isolate the cached items.
+        This backend supports cache dependencies.</p>
+    <p>Each process has its own in-memory cache. When several instances of an application run at the same time, wrap this backend
+        in a cache invalidator, such as <code>RedisCacheInvalidator</code> or <code>AzureServiceBusCacheInvalidator</code>, so that an invalidation
+        in one instance is propagated to the others.</p>
+  example: []
+  syntax:
+    content: 'public sealed class MemoryCachingBackend : CachingBackend, IDisposable'
+    content.vb: Public NotInheritable Class MemoryCachingBackend Inherits CachingBackend Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-memory'
+    altText: 'Conceptual: Using In-Memory Cache'
+  - linkType: HRef
+    linkId: '@caching-pubsub'
+    altText: 'Conceptual: Synchronizing Local In-Memory Caches for Multiple Servers'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItem(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemAsync(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItem(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Clear
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ToString
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DisposeAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CompactAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Compact
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUp(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Id
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ValueAdapters
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SupportedFeatures
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Status
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ItemRemoved
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DependencyInvalidated
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: MemoryCachingBackend()
+  nameWithType: MemoryCachingBackend.MemoryCachingBackend()
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.MemoryCachingBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" data-throw-if-not-resolved="false"></xref> class based on the <xref href="System.Runtime.Caching.MemoryCache.Default" data-throw-if-not-resolved="false"></xref> instance of the <xref href="System.Runtime.Caching.MemoryCache" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MemoryCachingBackend()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor*
+  nameWithType.vb: MemoryCachingBackend.New()
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor(System.Runtime.Caching.MemoryCache)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor(System.Runtime.Caching.MemoryCache)
+  id: '#ctor(System.Runtime.Caching.MemoryCache)'
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: MemoryCachingBackend(MemoryCache)
+  nameWithType: MemoryCachingBackend.MemoryCachingBackend(MemoryCache)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.MemoryCachingBackend(System.Runtime.Caching.MemoryCache)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" data-throw-if-not-resolved="false"></xref> class based on the given <xref href="System.Runtime.Caching.MemoryCache" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public MemoryCachingBackend(MemoryCache cache)
+    parameters:
+    - id: cache
+      type: System.Runtime.Caching.MemoryCache
+      description: A <xref href="System.Runtime.Caching.MemoryCache" data-throw-if-not-resolved="false"></xref>, or <code>null</code> to use the <xref href="System.Runtime.Caching.MemoryCache.Default" data-throw-if-not-resolved="false"></xref> instance of the <xref href="System.Runtime.Caching.MemoryCache" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: Public Sub New(cache As MemoryCache)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.#ctor*
+  nameWithType.vb: MemoryCachingBackend.New(MemoryCache)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.New(System.Runtime.Caching.MemoryCache)
+  name.vb: New(MemoryCache)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  id: SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: SetItemCore(string, CacheItem)
+  nameWithType: MemoryCachingBackend.SetItemCore(string, CacheItem)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.SetItemCore(string, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Sets a cache item. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override void SetItemCore(string key, CacheItem item)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    - id: item
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: The cache item.
+    content.vb: Protected Overrides Sub SetItemCore(key As String, item As CacheItem)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.SetItemCore*
+  nameWithType.vb: MemoryCachingBackend.SetItemCore(String, CacheItem)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.SetItemCore(String, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  name.vb: SetItemCore(String, CacheItem)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsItemCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsItemCore(System.String)
+  id: ContainsItemCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ContainsItemCore(string)
+  nameWithType: MemoryCachingBackend.ContainsItemCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsItemCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Determines whether the cache contains an item of a given key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override bool ContainsItemCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the cache contains an item whose key is <code class="paramref">key</code>, otherwise <code>false</code>.
+    content.vb: Protected Overrides Function ContainsItemCore(key As String) As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsItemCore*
+  nameWithType.vb: MemoryCachingBackend.ContainsItemCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsItemCore(String)
+  name.vb: ContainsItemCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.GetItemCore(System.String,System.Boolean)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.GetItemCore(System.String,System.Boolean)
+  id: GetItemCore(System.String,System.Boolean)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetItemCore(string, bool)
+  nameWithType: MemoryCachingBackend.GetItemCore(string, bool)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.GetItemCore(string, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Gets a cache item given its key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override CacheValue GetItemCore(string key, bool includeDependencies)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    - id: includeDependencies
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue.Dependencies" data-throw-if-not-resolved="false"></xref> properties of the
+            resulting <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref> should be populated, otherwise <code>false</code>.
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheValue
+      description: A <xref href="PostSharp.Patterns.Caching.Implementation.CacheValue" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if there is no item in the cache with the given <code class="paramref">key</code>.
+    content.vb: Protected Overrides Function GetItemCore(key As String, includeDependencies As Boolean) As CacheValue
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemCore(System.String,System.Boolean)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.GetItemCore*
+  nameWithType.vb: MemoryCachingBackend.GetItemCore(String, Boolean)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.GetItemCore(String, Boolean)
+  name.vb: GetItemCore(String, Boolean)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.InvalidateDependencyCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.InvalidateDependencyCore(System.String)
+  id: InvalidateDependencyCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: InvalidateDependencyCore(string)
+  nameWithType: MemoryCachingBackend.InvalidateDependencyCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.InvalidateDependencyCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Removes from the cache all items that have a specific dependency. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override void InvalidateDependencyCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The dependency key.
+    content.vb: Protected Overrides Sub InvalidateDependencyCore(key As String)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.InvalidateDependencyCore*
+  nameWithType.vb: MemoryCachingBackend.InvalidateDependencyCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.InvalidateDependencyCore(String)
+  name.vb: InvalidateDependencyCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsDependencyCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsDependencyCore(System.String)
+  id: ContainsDependencyCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ContainsDependencyCore(string)
+  nameWithType: MemoryCachingBackend.ContainsDependencyCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsDependencyCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Determines whether the cache contains a given dependency. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override bool ContainsDependencyCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The dependency key.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the cache contains the dependency <code class="paramref">key</code>, otherwise <code>false</code>.
+    content.vb: Protected Overrides Function ContainsDependencyCore(key As String) As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsDependencyCore*
+  nameWithType.vb: MemoryCachingBackend.ContainsDependencyCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ContainsDependencyCore(String)
+  name.vb: ContainsDependencyCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ClearCore
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ClearCore
+  id: ClearCore
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ClearCore()
+  nameWithType: MemoryCachingBackend.ClearCore()
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ClearCore()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Clears the cache. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override void ClearCore()
+    content.vb: Protected Overrides Sub ClearCore()
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearCore
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.ClearCore*
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  id: WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: WhenBackgroundTasksCompleted(CancellationToken)
+  nameWithType: MemoryCachingBackend.WhenBackgroundTasksCompleted(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: >-
+    Returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that is signaled to the complete state when all background tasks
+
+    have completed.
+  remarks: >-
+    <p>
+        Other background tasks may possibly be enqueued between the time
+        the returned <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> has been signaled and the time the signal is processed
+        by the caller.
+        </p>
+  example: []
+  syntax:
+    content: public override Task WhenBackgroundTasksCompleted(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: >-
+        A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that is signaled to the complete state when all background tasks
+                    have completed.
+    content.vb: Public Overrides Function WhenBackgroundTasksCompleted(cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.WhenBackgroundTasksCompleted*
+- uid: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.RemoveItemCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.RemoveItemCore(System.String)
+  id: RemoveItemCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: RemoveItemCore(string)
+  nameWithType: MemoryCachingBackend.RemoveItemCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.RemoveItemCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Backends
+  summary: Removes a cache item from the cache given its key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override void RemoveItemCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    content.vb: Protected Overrides Sub RemoveItemCore(key As String)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.RemoveItemCore*
+  nameWithType.vb: MemoryCachingBackend.RemoveItemCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.MemoryCachingBackend.RemoveItemCore(String)
+  name.vb: RemoveItemCore(String)

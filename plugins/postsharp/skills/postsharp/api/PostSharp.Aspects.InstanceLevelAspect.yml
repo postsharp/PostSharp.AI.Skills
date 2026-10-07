@@ -1,0 +1,409 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.InstanceLevelAspect
+  commentId: T:PostSharp.Aspects.InstanceLevelAspect
+  id: InstanceLevelAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.InstanceLevelAspect.#ctor
+  - PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  langs:
+  - csharp
+  - vb
+  name: InstanceLevelAspect
+  nameWithType: InstanceLevelAspect
+  fullName: PostSharp.Aspects.InstanceLevelAspect
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Base class for aspects applied on types, but having the same lifetime as
+
+    instances of the type to which they are applied.
+  remarks: >-
+    <p>This class is provided for convenience. You get the same functionality by deriving your
+            aspect class directly from <xref href="PostSharp.Aspects.TypeLevelAspect" data-throw-if-not-resolved="false"></xref> and implementing the interface
+            <xref href="PostSharp.Aspects.IInstanceScopedAspect" data-throw-if-not-resolved="false"></xref>.
+            </p>
+        <br />
+        <p>See <xref href="PostSharp.Aspects.IInstanceScopedAspect" data-throw-if-not-resolved="false"></xref> for a discussion of instance-scoped aspects.</p>
+        <p>This class does not provide any advice. It is typically the base class of composite aspects that introduce interfaces or members
+            into the target class, or that add advices to its members. Each instance of the target class gets its own copy of the aspect,
+            created by <xref href="PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> as a shallow copy (<xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>) of the aspect instance,
+            and <xref href="PostSharp.Aspects.InstanceLevelAspect.Instance" data-throw-if-not-resolved="false"></xref> gives the target object.</p>
+        <br />
+        <p>
+          <div class="NOTE"><h5>note</h5><p>
+        All classes implementing
+        <xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>
+        should typically be marked as serializable
+        using the 
+        <xref href="System.SerializableAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref> custom attribute. Fields that
+        are only used at runtime (and unknown at compile-time) should be carefully
+        marked with the <xref href="System.NonSerializedAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.PNonSerializedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+        When another aspect serializer (such as <xref href="PostSharp.Aspects.Serialization.MsilAspectSerializer" data-throw-if-not-resolved="false"></xref>) is used,
+        it is not necessary to mark the aspect class as serializable.
+        For more information, see
+        <a href="@aspect-serialization">Aspect Serialization</a>.
+      </p></div>
+        </p>
+        <a href="@aspect-serialization">
+      Conceptual: Understanding Aspect Serialization
+    </a>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      [MulticastAttributeUsage(MulticastTargets.Class, AllowExternalAssemblies = false, TargetTypeAttributes = MulticastAttributes.Instance)]
+
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Interface, AllowMultiple = true)]
+
+      [Serializer(null)]
+
+      public abstract class InstanceLevelAspect : TypeLevelAspect, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      <MulticastAttributeUsage(MulticastTargets.Class, AllowExternalAssemblies:=False, TargetTypeAttributes:=MulticastAttributes.Instance)>
+
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.Interface, AllowMultiple:=True)>
+
+      <Serializer(Nothing)>
+
+      Public MustInherit Class InstanceLevelAspect Inherits TypeLevelAspect Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.IInstanceScopedAspect
+    commentId: T:PostSharp.Aspects.IInstanceScopedAspect
+  - linkType: HRef
+    linkId: '@aspect-lifetime'
+    altText: 'Conceptual: Understanding Aspect Lifetime and Scope'
+  - linkType: HRef
+    linkId: '@complex-aspects'
+    altText: 'Conceptual: Developing Composite Aspects'
+  - linkType: HRef
+    linkId: '@code-injections'
+    altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  derivedClasses:
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Recording.EditableObjectAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 1
+    namedArguments:
+    - name: AllowExternalAssemblies
+      type: System.Boolean
+      value: false
+    - name: TargetTypeAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 256
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1029
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+- uid: PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  commentId: M:PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  id: CreateInstance(PostSharp.Aspects.AdviceArgs)
+  parent: PostSharp.Aspects.InstanceLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(AdviceArgs)
+  nameWithType: InstanceLevelAspect.CreateInstance(AdviceArgs)
+  fullName: PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Creates a new instance of the aspect based on the current instance, serving as a prototype.
+  remarks: This method is typically implemented by invoking <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual object CreateInstance(AdviceArgs adviceArgs)
+    parameters:
+    - id: adviceArgs
+      type: PostSharp.Aspects.AdviceArgs
+      description: Aspect arguments.
+    return:
+      type: System.Object
+      description: A new instance of the aspect, typically a clone of the current prototype instance.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Function CreateInstance(adviceArgs As AdviceArgs) As Object
+  overload: PostSharp.Aspects.InstanceLevelAspect.CreateInstance*
+  implements:
+  - PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  commentId: M:PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  id: RuntimeInitializeInstance
+  parent: PostSharp.Aspects.InstanceLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitializeInstance()
+  nameWithType: InstanceLevelAspect.RuntimeInitializeInstance()
+  fullName: PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Initializes the aspect instance. This method is invoked when all system elements of the aspect (such as member imports)
+
+    have completed.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public virtual void RuntimeInitializeInstance()
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Overridable Sub RuntimeInitializeInstance()
+  overload: PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance*
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.InitializeAspectInstanceAdvice
+    commentId: T:PostSharp.Aspects.Advices.InitializeAspectInstanceAdvice
+  implements:
+  - PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  commentId: M:PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  id: OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  parent: PostSharp.Aspects.InstanceLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: OnCloned(ICloneAwareAspect)
+  nameWithType: InstanceLevelAspect.OnCloned(ICloneAwareAspect)
+  fullName: PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method called after an object enhanced by the current aspect has been
+
+    cloned using <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>. The <code>this</code>
+
+    parameter refers to the new aspect instance in the cloned object.
+  remarks: >-
+    <p>Prior to calling the current method, the aspect framework
+        initializes the <code class="paramref">source</code> object using <xref href="PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> 
+        and <xref href="PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance" data-throw-if-not-resolved="false"></xref>. That is, the aspect instance
+        in the cloned object is not cloned from the source aspect instance, but from the prototype
+        aspect instance.
+        </p>
+  example: []
+  syntax:
+    content: public virtual void OnCloned(ICloneAwareAspect source)
+    parameters:
+    - id: source
+      type: PostSharp.Aspects.ICloneAwareAspect
+      description: >-
+        Aspect instance corresponding to the current
+                    aspect instance in the cloned target object.
+    content.vb: Public Overridable Sub OnCloned(source As ICloneAwareAspect)
+  overload: PostSharp.Aspects.InstanceLevelAspect.OnCloned*
+  implements:
+  - PostSharp.Aspects.ICloneAwareAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+- uid: PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration
+  commentId: M:PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration
+  id: CreateAspectConfiguration
+  parent: PostSharp.Aspects.InstanceLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: CreateAspectConfiguration()
+  nameWithType: InstanceLevelAspect.CreateAspectConfiguration()
+  fullName: PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to create a concrete <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> instance specifically
+
+    for the current <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> type.
+  remarks: >-
+    This method should not set up the returned <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>. After the current method has
+
+    returned, the <xref href="PostSharp.Aspects.Aspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method will be invoked, and that method is responsible
+
+    for setting up the <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: protected override AspectConfiguration CreateAspectConfiguration()
+    return:
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        A new and empty instance of <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>, whose concrete type corresponds to
+                      the concrete type of the <xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function CreateAspectConfiguration() As AspectConfiguration
+  overridden: PostSharp.Aspects.Aspect.CreateAspectConfiguration
+  overload: PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+- uid: PostSharp.Aspects.InstanceLevelAspect.#ctor
+  commentId: M:PostSharp.Aspects.InstanceLevelAspect.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.InstanceLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: InstanceLevelAspect()
+  nameWithType: InstanceLevelAspect.InstanceLevelAspect()
+  fullName: PostSharp.Aspects.InstanceLevelAspect.InstanceLevelAspect()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  syntax:
+    content: protected InstanceLevelAspect()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Aspects.InstanceLevelAspect.#ctor*
+  nameWithType.vb: InstanceLevelAspect.New()
+  fullName.vb: PostSharp.Aspects.InstanceLevelAspect.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.InstanceLevelAspect.Instance
+  commentId: P:PostSharp.Aspects.InstanceLevelAspect.Instance
+  id: Instance
+  parent: PostSharp.Aspects.InstanceLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: InstanceLevelAspect.Instance
+  fullName: PostSharp.Aspects.InstanceLevelAspect.Instance
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets the object to which the current aspect has been applied.
+  example: []
+  syntax:
+    content: public object Instance { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property Instance As Object
+  overload: PostSharp.Aspects.InstanceLevelAspect.Instance*

@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  id: PostSharpLoggingHttpModule
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata,System.Predicate{System.Uri},PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol)
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter
+  langs:
+  - csharp
+  - vb
+  name: PostSharpLoggingHttpModule
+  nameWithType: PostSharpLoggingHttpModule
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: >-
+    An <xref href="System.Web.IHttpModule" data-throw-if-not-resolved="false"></xref> that defines a PostSharp Logging activity (and possibly a transaction)
+
+    for incoming HTTP requests. This module can be added as such to <code>web.config</code>. It can also be derived
+
+    in a custom class, which allows you to override the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>. The default
+
+    implementation is <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestMetadata" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Register the module under <code>system.webServer/modules</code> in <code>web.config</code>. For distributed logging, set the
+        <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol" data-throw-if-not-resolved="false"></xref> property when the application starts, for example in <code>Global.asax</code>, and accept correlation
+        headers from trusted callers only. By default, <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter" data-throw-if-not-resolved="false"></xref> excludes static content paths such as <code>/css</code> and <code>/js</code>.</p>
+    <p>Each captured request can open a logging transaction. A transaction policy of type <code>AspNetFrameworkRequest</code> in the
+        logging configuration file can set the verbosity of selected requests, and its expressions see the request as an
+        <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class PostSharpLoggingHttpModule : IHttpModule'
+    content.vb: Public Class PostSharpLoggingHttpModule Implements IHttpModule
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+    commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestExpressionModel
+  - linkType: HRef
+    linkId: '@logging-instrumentation'
+    altText: 'Conceptual: Instrumentation of ASP.NET and HttpClient'
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  inheritance:
+  - System.Object
+  implements:
+  - System.Web.IHttpModule
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  langs:
+  - csharp
+  - vb
+  name: PostSharpLoggingHttpModule()
+  nameWithType: PostSharpLoggingHttpModule.PostSharpLoggingHttpModule()
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.PostSharpLoggingHttpModule()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule" data-throw-if-not-resolved="false"></xref> class with the default <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestMetadata" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public PostSharpLoggingHttpModule()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor*
+  nameWithType.vb: PostSharpLoggingHttpModule.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata,System.Predicate{System.Uri},PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata,System.Predicate{System.Uri},PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata,System.Predicate{System.Uri},PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol)'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  langs:
+  - csharp
+  - vb
+  name: PostSharpLoggingHttpModule(LogEventMetadata, Predicate<Uri>, ICorrelationProtocol)
+  nameWithType: PostSharpLoggingHttpModule.PostSharpLoggingHttpModule(LogEventMetadata, Predicate<Uri>, ICorrelationProtocol)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.PostSharpLoggingHttpModule(PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata, System.Predicate<System.Uri>, PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule" data-throw-if-not-resolved="false"></xref> class and specifies a custom <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected PostSharpLoggingHttpModule(LogEventMetadata metadata = null, Predicate<Uri> requestFilter = null, ICorrelationProtocol correlationProtocol = null)
+    parameters:
+    - id: metadata
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata
+      description: >-
+        An optional <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>, which maps an <xref href="System.Web.HttpContext" data-throw-if-not-resolved="false"></xref>
+                    to a set of properties and an expression model. The default implementation is <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestMetadata" data-throw-if-not-resolved="false"></xref>.
+                    You can derive this class if you want to add or remove properties. If you want to change the expression model,
+                    you have to derive the generic abstract <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestMetadata%601" data-throw-if-not-resolved="false"></xref>.
+    - id: requestFilter
+      type: System.Predicate{System.Uri}
+      description: >-
+        An optional predicate that determines whether a specific request should be logged. If this parameter is <code>null</code>,
+
+        the value of <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter" data-throw-if-not-resolved="false"></xref> will be used. This property will be evaluated for each request.
+    - id: correlationProtocol
+      type: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+      description: >-
+        An optional implementation of <xref href="PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol" data-throw-if-not-resolved="false"></xref> to support
+                    distributed logging and interpret incoming request headers. If this parameter is <code>null</code>, the value
+                    of the <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol" data-throw-if-not-resolved="false"></xref> static property will be used. This property will be evaluated for each request.
+    content.vb: Protected Sub New(metadata As LogEventMetadata = Nothing, requestFilter As Predicate(Of Uri) = Nothing, correlationProtocol As ICorrelationProtocol = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.#ctor*
+  nameWithType.vb: PostSharpLoggingHttpModule.New(LogEventMetadata, Predicate(Of Uri), ICorrelationProtocol)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.New(PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata, System.Predicate(Of System.Uri), PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol)
+  name.vb: New(LogEventMetadata, Predicate(Of Uri), ICorrelationProtocol)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter
+  id: RequestFilter
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  langs:
+  - csharp
+  - vb
+  name: RequestFilter
+  nameWithType: PostSharpLoggingHttpModule.RequestFilter
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: >-
+    Gets or sets a predicate that determines whether a specific request should be logged. The default
+
+    implementation filters out the following paths: <code>/js</code>, <code>/css</code>, <code>/lib</code>, <code>/scripts</code>,
+
+    <code>/content</code>, <code>/favicon</code>.
+  example: []
+  syntax:
+    content: public static Predicate<Uri> RequestFilter { get; set; }
+    parameters: []
+    return:
+      type: System.Predicate{System.Uri}
+    content.vb: Public Shared Property RequestFilter As Predicate(Of Uri)
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.RequestFilter*
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol
+  commentId: P:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol
+  id: CorrelationProtocol
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule
+  langs:
+  - csharp
+  - vb
+  name: CorrelationProtocol
+  nameWithType: PostSharpLoggingHttpModule.CorrelationProtocol
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework
+  summary: >-
+    Gets or sets the implementation of <xref href="PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol" data-throw-if-not-resolved="false"></xref> to support
+
+    distributed logging and interpret incoming request headers.
+  example: []
+  syntax:
+    content: public static ICorrelationProtocol CorrelationProtocol { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+    content.vb: Public Shared Property CorrelationProtocol As ICorrelationProtocol
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol*

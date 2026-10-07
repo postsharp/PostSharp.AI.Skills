@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IFormattingService
+  commentId: T:PostSharp.Extensibility.IFormattingService
+  id: IFormattingService
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IFormattingService.Format(System.IFormatProvider,System.String,System.Object[])
+  - PostSharp.Extensibility.IFormattingService.Format(System.String,System.Object[])
+  langs:
+  - csharp
+  - vb
+  name: IFormattingService
+  nameWithType: IFormattingService
+  fullName: PostSharp.Extensibility.IFormattingService
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Provides a service similar to <xref href="System.String.Format(System.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref>, but uses
+
+    the same formatter as the one that PostSharp uses for error messages. This formatter
+
+    formats objects like <xref href="System.Type" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> better.
+  example: []
+  syntax:
+    content: 'public interface IFormattingService : IService'
+    content.vb: Public Interface IFormattingService Inherits IService
+- uid: PostSharp.Extensibility.IFormattingService.Format(System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.IFormattingService.Format(System.String,System.Object[])
+  id: Format(System.String,System.Object[])
+  parent: PostSharp.Extensibility.IFormattingService
+  langs:
+  - csharp
+  - vb
+  name: Format(string, params object[])
+  nameWithType: IFormattingService.Format(string, params object[])
+  fullName: PostSharp.Extensibility.IFormattingService.Format(string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Formats a string with the default <xref href="System.IFormatProvider" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Pass the IFormatProvider. This helps the analyzers.")]
+
+      string Format(string format, params object[] arguments)
+    parameters:
+    - id: format
+      type: System.String
+      description: The formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments.
+    return:
+      type: System.String
+      description: The formatted string, in which the placeholders in <code class="paramref">format</code> are replaced by the formatted <code class="paramref">arguments</code>.
+    content.vb: >-
+      <Obsolete("Pass the IFormatProvider. This helps the analyzers.")>
+
+      Function Format(format As String, ParamArray arguments As Object()) As String
+  overload: PostSharp.Extensibility.IFormattingService.Format*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Pass the IFormatProvider. This helps the analyzers.
+  nameWithType.vb: IFormattingService.Format(String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.IFormattingService.Format(String, ParamArray Object())
+  name.vb: Format(String, ParamArray Object())
+- uid: PostSharp.Extensibility.IFormattingService.Format(System.IFormatProvider,System.String,System.Object[])
+  commentId: M:PostSharp.Extensibility.IFormattingService.Format(System.IFormatProvider,System.String,System.Object[])
+  id: Format(System.IFormatProvider,System.String,System.Object[])
+  parent: PostSharp.Extensibility.IFormattingService
+  langs:
+  - csharp
+  - vb
+  name: Format(IFormatProvider, string, params object[])
+  nameWithType: IFormattingService.Format(IFormatProvider, string, params object[])
+  fullName: PostSharp.Extensibility.IFormattingService.Format(System.IFormatProvider, string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Formats a string and specifies the <xref href="System.IFormatProvider" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: string Format(IFormatProvider provider, string format, params object[] arguments)
+    parameters:
+    - id: provider
+      type: System.IFormatProvider
+      description: An <xref href="System.IFormatProvider" data-throw-if-not-resolved="false"></xref>.
+    - id: format
+      type: System.String
+      description: The formatting string.
+    - id: arguments
+      type: System.Object[]
+      description: The arguments.
+    return:
+      type: System.String
+      description: The formatted string, in which the placeholders in <code class="paramref">format</code> are replaced by the formatted <code class="paramref">arguments</code>.
+    content.vb: Function Format(provider As IFormatProvider, format As String, ParamArray arguments As Object()) As String
+  overload: PostSharp.Extensibility.IFormattingService.Format*
+  nameWithType.vb: IFormattingService.Format(IFormatProvider, String, ParamArray Object())
+  fullName.vb: PostSharp.Extensibility.IFormattingService.Format(System.IFormatProvider, String, ParamArray Object())
+  name.vb: Format(IFormatProvider, String, ParamArray Object())

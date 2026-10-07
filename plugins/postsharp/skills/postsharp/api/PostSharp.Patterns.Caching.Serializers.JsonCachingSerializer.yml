@@ -1,0 +1,186 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  commentId: T:PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  id: JsonCachingSerializer
+  parent: PostSharp.Patterns.Caching.Serializers
+  children:
+  - PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.#ctor(System.Text.Json.JsonSerializerOptions)
+  - PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize(System.Byte[])
+  - PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.GetTypeName(System.Type)
+  - PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName(System.String)
+  - PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: JsonCachingSerializer
+  nameWithType: JsonCachingSerializer
+  fullName: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: An implementation of <xref href="PostSharp.Patterns.Caching.Serializers.ISerializer" data-throw-if-not-resolved="false"></xref> that uses the <xref href="System.Text.Json.JsonSerializer" data-throw-if-not-resolved="false"></xref> of <code>System.Text.Json</code>.
+  remarks: >-
+    <p>The serialized value starts with the name of its type, as returned by <xref href="PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.GetTypeName(System.Type)" data-throw-if-not-resolved="false"></xref> (by default, the assembly-qualified name),
+        followed by its JSON representation. Pass a <xref href="System.Text.Json.JsonSerializerOptions" data-throw-if-not-resolved="false"></xref> to the constructor to customize the JSON serialization.</p>
+  example: []
+  syntax:
+    content: 'public class JsonCachingSerializer : ISerializer'
+    content.vb: Public Class JsonCachingSerializer Implements ISerializer
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.#ctor(System.Text.Json.JsonSerializerOptions)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.#ctor(System.Text.Json.JsonSerializerOptions)
+  id: '#ctor(System.Text.Json.JsonSerializerOptions)'
+  parent: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  langs:
+  - csharp
+  - vb
+  name: JsonCachingSerializer(JsonSerializerOptions)
+  nameWithType: JsonCachingSerializer.JsonCachingSerializer(JsonSerializerOptions)
+  fullName: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.JsonCachingSerializer(System.Text.Json.JsonSerializerOptions)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public JsonCachingSerializer(JsonSerializerOptions options = null)
+    parameters:
+    - id: options
+      type: System.Text.Json.JsonSerializerOptions
+      description: The optional options for the <xref href="System.Text.Json.JsonSerializer" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(options As JsonSerializerOptions = Nothing)
+  overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.#ctor*
+  nameWithType.vb: JsonCachingSerializer.New(JsonSerializerOptions)
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.New(System.Text.Json.JsonSerializerOptions)
+  name.vb: New(JsonSerializerOptions)
+- uid: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize(System.Object)
+  id: Serialize(System.Object)
+  parent: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  langs:
+  - csharp
+  - vb
+  name: Serialize(object)
+  nameWithType: JsonCachingSerializer.Serialize(object)
+  fullName: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Serializes an object into a byte array.
+  example: []
+  syntax:
+    content: public byte[] Serialize(object value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The object to serialize.
+    return:
+      type: System.Byte[]
+      description: A byte array representing <code class="paramref">value</code>.
+    content.vb: Public Function Serialize(value As Object) As Byte()
+  overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize*
+  implements:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(System.Object)
+  nameWithType.vb: JsonCachingSerializer.Serialize(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize(Object)
+  name.vb: Serialize(Object)
+- uid: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.GetTypeName(System.Type)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.GetTypeName(System.Type)
+  id: GetTypeName(System.Type)
+  parent: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  langs:
+  - csharp
+  - vb
+  name: GetTypeName(Type)
+  nameWithType: JsonCachingSerializer.GetTypeName(Type)
+  fullName: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.GetTypeName(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Creates an assembly-qualified type name string from a <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual string GetTypeName(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+    return:
+      type: System.String
+    content.vb: Protected Overridable Function GetTypeName(type As Type) As String
+  overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.GetTypeName*
+- uid: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName(System.String)
+  id: ResolveTypeName(System.String)
+  parent: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  langs:
+  - csharp
+  - vb
+  name: ResolveTypeName(string)
+  nameWithType: JsonCachingSerializer.ResolveTypeName(string)
+  fullName: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Resolves an assembly-qualified type name to a <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual Type ResolveTypeName(string assemblyQualifiedTypeName)
+    parameters:
+    - id: assemblyQualifiedTypeName
+      type: System.String
+    return:
+      type: System.Type
+    content.vb: Protected Overridable Function ResolveTypeName(assemblyQualifiedTypeName As String) As Type
+  overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName*
+  nameWithType.vb: JsonCachingSerializer.ResolveTypeName(String)
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName(String)
+  name.vb: ResolveTypeName(String)
+- uid: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize(System.Byte[])
+  commentId: M:PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize(System.Byte[])
+  id: Deserialize(System.Byte[])
+  parent: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(byte[])
+  nameWithType: JsonCachingSerializer.Deserialize(byte[])
+  fullName: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize(byte[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Deserializes a byte array into an object.
+  example: []
+  syntax:
+    content: public object Deserialize(byte[] array)
+    parameters:
+    - id: array
+      type: System.Byte[]
+      description: A byte array.
+    return:
+      type: System.Object
+      description: The object represented by <code class="paramref">array</code>.
+    content.vb: Public Function Deserialize(array As Byte()) As Object
+  overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize*
+  implements:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(System.Byte[])
+  nameWithType.vb: JsonCachingSerializer.Deserialize(Byte())
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize(Byte())
+  name.vb: Deserialize(Byte())

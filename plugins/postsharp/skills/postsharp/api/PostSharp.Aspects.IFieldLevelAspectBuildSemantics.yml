@@ -1,0 +1,67 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IFieldLevelAspectBuildSemantics
+  commentId: T:PostSharp.Aspects.IFieldLevelAspectBuildSemantics
+  id: IFieldLevelAspectBuildSemantics
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IFieldLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.FieldInfo,PostSharp.Aspects.AspectInfo)
+  langs:
+  - csharp
+  - vb
+  name: IFieldLevelAspectBuildSemantics
+  nameWithType: IFieldLevelAspectBuildSemantics
+  fullName: PostSharp.Aspects.IFieldLevelAspectBuildSemantics
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Compile-time semantics of <xref href="PostSharp.Aspects.IFieldLevelAspect" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IFieldLevelAspectBuildSemantics : IAspectBuildSemantics, IValidableAnnotation'
+    content.vb: Public Interface IFieldLevelAspectBuildSemantics Inherits IAspectBuildSemantics, IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Aspects.IFieldLevelAspect
+    commentId: T:PostSharp.Aspects.IFieldLevelAspect
+  - linkId: PostSharp.Aspects.FieldLevelAspect
+    commentId: T:PostSharp.Aspects.FieldLevelAspect
+  derivedClasses:
+  - PostSharp.Aspects.FieldLevelAspect
+  inheritedMembers:
+  - PostSharp.Aspects.IAspectBuildSemantics.GetAspectConfiguration(System.Object)
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+- uid: PostSharp.Aspects.IFieldLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.FieldInfo,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Aspects.IFieldLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.FieldInfo,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Reflection.FieldInfo,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Aspects.IFieldLevelAspectBuildSemantics
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(FieldInfo, AspectInfo)
+  nameWithType: IFieldLevelAspectBuildSemantics.CompileTimeInitialize(FieldInfo, AspectInfo)
+  fullName: PostSharp.Aspects.IFieldLevelAspectBuildSemantics.CompileTimeInitialize(System.Reflection.FieldInfo, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: void CompileTimeInitialize(FieldInfo field, AspectInfo aspectInfo)
+    parameters:
+    - id: field
+      type: System.Reflection.FieldInfo
+      description: Field to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future use.
+    content.vb: Sub CompileTimeInitialize(field As FieldInfo, aspectInfo As AspectInfo)
+  overload: PostSharp.Aspects.IFieldLevelAspectBuildSemantics.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

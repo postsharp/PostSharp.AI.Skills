@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider
+  id: MicrosoftLoggingCollectingLoggerProvider
+  parent: PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.CreateLogger(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.Dispose
+  langs:
+  - csharp
+  - vb
+  name: MicrosoftLoggingCollectingLoggerProvider
+  nameWithType: MicrosoftLoggingCollectingLoggerProvider
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  summary: An <xref href="Microsoft.Extensions.Logging.ILoggerProvider" data-throw-if-not-resolved="false"></xref> that creates loggers that send logging to PostSharp backends as manual log events.
+  remarks: >-
+    <p>Register this provider with the <xref href="PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBuilderExtensions.AddPostSharp(Microsoft.Extensions.Logging.ILoggingBuilder)" data-throw-if-not-resolved="false"></xref> extension method, after you have
+
+    removed the output providers from the logging builder. Pass those output providers to a <xref href="PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackend" data-throw-if-not-resolved="false"></xref> through
+
+    a separate <xref href="Microsoft.Extensions.Logging.ILoggerFactory" data-throw-if-not-resolved="false"></xref>, and set that backend as <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>. Manual and automatic
+
+    log records then go through the same backend and share the same indentation.</p>
+  example: []
+  syntax:
+    content: 'public sealed class MicrosoftLoggingCollectingLoggerProvider : ILoggerProvider, IDisposable'
+    content.vb: Public NotInheritable Class MicrosoftLoggingCollectingLoggerProvider Implements ILoggerProvider, IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackend
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackend
+  - linkType: HRef
+    linkId: '@logging-aspnetcore'
+    altText: 'Conceptual: Logging with ASP.NET Core'
+  inheritance:
+  - System.Object
+  implements:
+  - Microsoft.Extensions.Logging.ILoggerProvider
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider
+  langs:
+  - csharp
+  - vb
+  name: MicrosoftLoggingCollectingLoggerProvider()
+  nameWithType: MicrosoftLoggingCollectingLoggerProvider.MicrosoftLoggingCollectingLoggerProvider()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.MicrosoftLoggingCollectingLoggerProvider()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MicrosoftLoggingCollectingLoggerProvider()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.#ctor*
+  nameWithType.vb: MicrosoftLoggingCollectingLoggerProvider.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: MicrosoftLoggingCollectingLoggerProvider.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  summary: Does nothing, because there is nothing to dispose.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.CreateLogger(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.CreateLogger(System.String)
+  id: CreateLogger(System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider
+  langs:
+  - csharp
+  - vb
+  name: CreateLogger(string)
+  nameWithType: MicrosoftLoggingCollectingLoggerProvider.CreateLogger(string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.CreateLogger(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Microsoft
+  summary: Creates a new logger that sends ASP.NET logging events into PostSharp as manual events, under the given log source name.
+  example: []
+  syntax:
+    content: public ILogger CreateLogger(string categoryName)
+    parameters:
+    - id: categoryName
+      type: System.String
+      description: This will be the log source name of the log source created in the PostSharp backend.
+    return:
+      type: Microsoft.Extensions.Logging.ILogger
+      description: An ASP.NET logger.
+    content.vb: Public Function CreateLogger(categoryName As String) As ILogger
+  overload: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.CreateLogger*
+  implements:
+  - Microsoft.Extensions.Logging.ILoggerProvider.CreateLogger(System.String)
+  nameWithType.vb: MicrosoftLoggingCollectingLoggerProvider.CreateLogger(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingCollectingLoggerProvider.CreateLogger(String)
+  name.vb: CreateLogger(String)

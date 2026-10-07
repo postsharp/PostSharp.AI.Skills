@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  commentId: T:PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  id: LogExceptionAttribute
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LogExceptionAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: LogExceptionAttribute
+  nameWithType: LogExceptionAttribute
+  fullName: PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Custom attribute that, when applied on a method, causes PostSharp to implement tracing when an exception occurs in this method.
+  remarks: >-
+    <p>Using this custom attribute is strictly equivalent to using <xref href="PostSharp.Patterns.Diagnostics.LogAttribute" data-throw-if-not-resolved="false"></xref> with the <code>Exceptions</code> profile
+        and no other property set.</p>
+    <p>The <code>Exceptions</code> profile logs only method exceptions, with the <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref> level. You can change its options
+            in <code>postsharp.config</code>. See <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class LogExceptionAttribute : LogAttributeBase, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect'
+    content.vb: Public Class LogExceptionAttribute Inherits LogAttributeBase Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.LogAttribute
+    commentId: T:PostSharp.Patterns.Diagnostics.LogAttribute
+  - linkType: HRef
+    linkId: '@logging-customizing'
+    altText: 'Conceptual: Formatting Log Records'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.MethodLevelAspect
+  - PostSharp.Patterns.Diagnostics.LogAttributeBase
+  implements:
+  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Patterns.Diagnostics.ILogAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LogAttributeBase.ProfileName
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.MethodLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Reflection.MethodBase)
+  - PostSharp.Aspects.MethodLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  - PostSharp.Aspects.Aspect.CreateAspectConfiguration
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.LogExceptionAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.LogExceptionAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.LogExceptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: LogExceptionAttribute()
+  nameWithType: LogExceptionAttribute.LogExceptionAttribute()
+  fullName: PostSharp.Patterns.Diagnostics.LogExceptionAttribute.LogExceptionAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LogExceptionAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public LogExceptionAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.LogExceptionAttribute.#ctor*
+  nameWithType.vb: LogExceptionAttribute.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogExceptionAttribute.New()
+  name.vb: New()

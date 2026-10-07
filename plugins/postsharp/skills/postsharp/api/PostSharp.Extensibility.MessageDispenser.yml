@@ -1,0 +1,200 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.MessageDispenser
+  commentId: T:PostSharp.Extensibility.MessageDispenser
+  id: MessageDispenser
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.MessageDispenser.#ctor(System.String)
+  - PostSharp.Extensibility.MessageDispenser.GetHelpUrl(System.Int32)
+  - PostSharp.Extensibility.MessageDispenser.GetMessage(System.Int32)
+  - PostSharp.Extensibility.MessageDispenser.GetMessage(System.String)
+  - PostSharp.Extensibility.MessageDispenser.Prefix
+  langs:
+  - csharp
+  - vb
+  name: MessageDispenser
+  nameWithType: MessageDispenser
+  fullName: PostSharp.Extensibility.MessageDispenser
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Provides a base implementation of <xref href="PostSharp.Extensibility.IMessageDispenser" data-throw-if-not-resolved="false"></xref>
+
+    in which the message key is expected to have the format <code>PRE0000</code>, where
+
+    <code>PRE</code> is a prefix and <code>0000</code> is an integer. Keys for help URLs
+
+    have the format <code>PRE0000?</code>.
+  remarks: >-
+    <p>Implement <xref href="PostSharp.Extensibility.MessageDispenser.GetMessage(System.Int32)" data-throw-if-not-resolved="false"></xref>, typically with a <code>switch</code> statement on the message number, and optionally
+        <xref href="PostSharp.Extensibility.MessageDispenser.GetHelpUrl(System.Int32)" data-throw-if-not-resolved="false"></xref>. <xref href="PostSharp.Extensibility.MessageDispenser.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref> returns <code>null</code> when the key does not start with <xref href="PostSharp.Extensibility.MessageDispenser.Prefix" data-throw-if-not-resolved="false"></xref>
+        or when the rest of the key is not an integer. For example, with the prefix <code>CUS</code>, the key <code>CUS001</code> resolves to the
+        message number 1.</p>
+    <p>Pass an instance to the <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref> constructor to emit the messages.</p>
+  example: []
+  syntax:
+    content: 'public abstract class MessageDispenser : IMessageDispenser'
+    content.vb: Public MustInherit Class MessageDispenser Implements IMessageDispenser
+  seealso:
+  - linkId: PostSharp.Extensibility.MessageSource
+    commentId: T:PostSharp.Extensibility.MessageSource
+  - linkType: HRef
+    linkId: '@emitting-errors'
+    altText: 'Conceptual: Emitting Errors, Warnings, and Messages'
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Extensibility.IMessageDispenser
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Extensibility.MessageDispenser.#ctor(System.String)
+  commentId: M:PostSharp.Extensibility.MessageDispenser.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Extensibility.MessageDispenser
+  langs:
+  - csharp
+  - vb
+  name: MessageDispenser(string)
+  nameWithType: MessageDispenser.MessageDispenser(string)
+  fullName: PostSharp.Extensibility.MessageDispenser.MessageDispenser(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.MessageDispenser" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected MessageDispenser(string prefix)
+    parameters:
+    - id: prefix
+      type: System.String
+      description: The prefix of all messages provided by the new dispenser.
+    content.vb: Protected Sub New(prefix As String)
+  overload: PostSharp.Extensibility.MessageDispenser.#ctor*
+  nameWithType.vb: MessageDispenser.New(String)
+  fullName.vb: PostSharp.Extensibility.MessageDispenser.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Extensibility.MessageDispenser.GetMessage(System.String)
+  commentId: M:PostSharp.Extensibility.MessageDispenser.GetMessage(System.String)
+  id: GetMessage(System.String)
+  parent: PostSharp.Extensibility.MessageDispenser
+  langs:
+  - csharp
+  - vb
+  name: GetMessage(string)
+  nameWithType: MessageDispenser.GetMessage(string)
+  fullName: PostSharp.Extensibility.MessageDispenser.GetMessage(string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Returns the message text for a message key.
+  example: []
+  syntax:
+    content: public string GetMessage(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The message key.
+    return:
+      type: System.String
+      description: The text corresponding to <code class="paramref">key</code>.
+    content.vb: Public Function GetMessage(key As String) As String
+  overload: PostSharp.Extensibility.MessageDispenser.GetMessage*
+  implements:
+  - PostSharp.Extensibility.IMessageDispenser.GetMessage(System.String)
+  nameWithType.vb: MessageDispenser.GetMessage(String)
+  fullName.vb: PostSharp.Extensibility.MessageDispenser.GetMessage(String)
+  name.vb: GetMessage(String)
+- uid: PostSharp.Extensibility.MessageDispenser.GetMessage(System.Int32)
+  commentId: M:PostSharp.Extensibility.MessageDispenser.GetMessage(System.Int32)
+  id: GetMessage(System.Int32)
+  parent: PostSharp.Extensibility.MessageDispenser
+  langs:
+  - csharp
+  - vb
+  name: GetMessage(int)
+  nameWithType: MessageDispenser.GetMessage(int)
+  fullName: PostSharp.Extensibility.MessageDispenser.GetMessage(int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Returns the message text of a given number.
+  example: []
+  syntax:
+    content: protected abstract string GetMessage(int number)
+    parameters:
+    - id: number
+      type: System.Int32
+      description: The message number.
+    return:
+      type: System.String
+      description: The message text corresponding to <code class="paramref">number</code>.
+    content.vb: Protected MustOverride Function GetMessage(number As Integer) As String
+  overload: PostSharp.Extensibility.MessageDispenser.GetMessage*
+  nameWithType.vb: MessageDispenser.GetMessage(Integer)
+  fullName.vb: PostSharp.Extensibility.MessageDispenser.GetMessage(Integer)
+  name.vb: GetMessage(Integer)
+- uid: PostSharp.Extensibility.MessageDispenser.GetHelpUrl(System.Int32)
+  commentId: M:PostSharp.Extensibility.MessageDispenser.GetHelpUrl(System.Int32)
+  id: GetHelpUrl(System.Int32)
+  parent: PostSharp.Extensibility.MessageDispenser
+  langs:
+  - csharp
+  - vb
+  name: GetHelpUrl(int)
+  nameWithType: MessageDispenser.GetHelpUrl(int)
+  fullName: PostSharp.Extensibility.MessageDispenser.GetHelpUrl(int)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Returns the help URL of a given message number.
+  example: []
+  syntax:
+    content: protected virtual string GetHelpUrl(int number)
+    parameters:
+    - id: number
+      type: System.Int32
+      description: The message number.
+    return:
+      type: System.String
+      description: The message help URL corresponding to <code class="paramref">number</code>.
+    content.vb: Protected Overridable Function GetHelpUrl(number As Integer) As String
+  overload: PostSharp.Extensibility.MessageDispenser.GetHelpUrl*
+  nameWithType.vb: MessageDispenser.GetHelpUrl(Integer)
+  fullName.vb: PostSharp.Extensibility.MessageDispenser.GetHelpUrl(Integer)
+  name.vb: GetHelpUrl(Integer)
+- uid: PostSharp.Extensibility.MessageDispenser.Prefix
+  commentId: P:PostSharp.Extensibility.MessageDispenser.Prefix
+  id: Prefix
+  parent: PostSharp.Extensibility.MessageDispenser
+  langs:
+  - csharp
+  - vb
+  name: Prefix
+  nameWithType: MessageDispenser.Prefix
+  fullName: PostSharp.Extensibility.MessageDispenser.Prefix
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the message prefix.
+  example: []
+  syntax:
+    content: public string Prefix { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Prefix As String
+  overload: PostSharp.Extensibility.MessageDispenser.Prefix*

@@ -1,0 +1,364 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.DottedString
+  commentId: T:PostSharp.Serialization.DottedString
+  id: DottedString
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.DottedString.#ctor(System.String)
+  - PostSharp.Serialization.DottedString.Equals(PostSharp.Serialization.DottedString)
+  - PostSharp.Serialization.DottedString.Equals(System.Object)
+  - PostSharp.Serialization.DottedString.GetHashCode
+  - PostSharp.Serialization.DottedString.IsNull
+  - PostSharp.Serialization.DottedString.Null
+  - PostSharp.Serialization.DottedString.ToString
+  - PostSharp.Serialization.DottedString.Value
+  - PostSharp.Serialization.DottedString.op_Equality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  - PostSharp.Serialization.DottedString.op_Implicit(PostSharp.Serialization.DottedString)~System.String
+  - PostSharp.Serialization.DottedString.op_Implicit(System.String)~PostSharp.Serialization.DottedString
+  - PostSharp.Serialization.DottedString.op_Inequality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  langs:
+  - csharp
+  - vb
+  name: DottedString
+  nameWithType: DottedString
+  fullName: PostSharp.Serialization.DottedString
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Encapsulates dotted strings such as namespaces and type names, so their
+
+    serialization by <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> can be optimized.
+  example: []
+  syntax:
+    content: 'public struct DottedString : IEquatable<DottedString>'
+    content.vb: Public Structure DottedString Implements IEquatable(Of DottedString)
+  implements:
+  - System.IEquatable{PostSharp.Serialization.DottedString}
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Serialization.DottedString.Null
+  commentId: F:PostSharp.Serialization.DottedString.Null
+  id: "Null"
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: "Null"
+  nameWithType: DottedString.Null
+  fullName: PostSharp.Serialization.DottedString.Null
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets an instance of <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> representing a <code>null</code> string.
+  example: []
+  syntax:
+    content: public static readonly DottedString Null
+    return:
+      type: PostSharp.Serialization.DottedString
+    content.vb: Public Shared ReadOnly Null As DottedString
+- uid: PostSharp.Serialization.DottedString.#ctor(System.String)
+  commentId: M:PostSharp.Serialization.DottedString.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: DottedString(string)
+  nameWithType: DottedString.DottedString(string)
+  fullName: PostSharp.Serialization.DottedString.DottedString(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Initializes a new instance of the <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public DottedString(string value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value.
+    content.vb: Public Sub New(value As String)
+  overload: PostSharp.Serialization.DottedString.#ctor*
+  nameWithType.vb: DottedString.New(String)
+  fullName.vb: PostSharp.Serialization.DottedString.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Serialization.DottedString.op_Implicit(PostSharp.Serialization.DottedString)~System.String
+  commentId: M:PostSharp.Serialization.DottedString.op_Implicit(PostSharp.Serialization.DottedString)~System.String
+  id: op_Implicit(PostSharp.Serialization.DottedString)~System.String
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: implicit operator string(DottedString)
+  nameWithType: DottedString.implicit operator string(DottedString)
+  fullName: PostSharp.Serialization.DottedString.implicit operator string(PostSharp.Serialization.DottedString)
+  type: Operator
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Converts a <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> into a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static implicit operator string(DottedString dottedString)
+    parameters:
+    - id: dottedString
+      type: PostSharp.Serialization.DottedString
+      description: A <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.String
+      description: The <xref href="System.String" data-throw-if-not-resolved="false"></xref> encapsulated by <code class="paramref">dottedString</code>.
+    content.vb: Public Shared Widening Operator CType(dottedString As DottedString) As String
+  overload: PostSharp.Serialization.DottedString.op_Implicit*
+  nameWithType.vb: DottedString.CType(DottedString)
+  fullName.vb: PostSharp.Serialization.DottedString.CType(PostSharp.Serialization.DottedString)
+  name.vb: CType(DottedString)
+- uid: PostSharp.Serialization.DottedString.op_Implicit(System.String)~PostSharp.Serialization.DottedString
+  commentId: M:PostSharp.Serialization.DottedString.op_Implicit(System.String)~PostSharp.Serialization.DottedString
+  id: op_Implicit(System.String)~PostSharp.Serialization.DottedString
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: implicit operator DottedString(string)
+  nameWithType: DottedString.implicit operator DottedString(string)
+  fullName: PostSharp.Serialization.DottedString.implicit operator PostSharp.Serialization.DottedString(string)
+  type: Operator
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Converts a <xref href="System.String" data-throw-if-not-resolved="false"></xref> into a <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static implicit operator DottedString(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: A <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Serialization.DottedString
+      description: A <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> encapsulating <code class="paramref">str</code>.
+    content.vb: Public Shared Widening Operator CType(str As String) As DottedString
+  overload: PostSharp.Serialization.DottedString.op_Implicit*
+  nameWithType.vb: DottedString.CType(String)
+  fullName.vb: PostSharp.Serialization.DottedString.CType(String)
+  name.vb: CType(String)
+- uid: PostSharp.Serialization.DottedString.Equals(PostSharp.Serialization.DottedString)
+  commentId: M:PostSharp.Serialization.DottedString.Equals(PostSharp.Serialization.DottedString)
+  id: Equals(PostSharp.Serialization.DottedString)
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: Equals(DottedString)
+  nameWithType: DottedString.Equals(DottedString)
+  fullName: PostSharp.Serialization.DottedString.Equals(PostSharp.Serialization.DottedString)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Determines whether the current <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> is equal to another one.
+  example: []
+  syntax:
+    content: public bool Equals(DottedString other)
+    parameters:
+    - id: other
+      type: PostSharp.Serialization.DottedString
+      description: Another <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> equals <code class="paramref">other</code>, otherwise <code>false</code>.
+    content.vb: Public Function Equals(other As DottedString) As Boolean
+  overload: PostSharp.Serialization.DottedString.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Serialization.DottedString}.Equals(PostSharp.Serialization.DottedString)
+- uid: PostSharp.Serialization.DottedString.GetHashCode
+  commentId: M:PostSharp.Serialization.DottedString.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DottedString.GetHashCode()
+  fullName: PostSharp.Serialization.DottedString.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: PostSharp.Serialization.DottedString.GetHashCode*
+- uid: PostSharp.Serialization.DottedString.Equals(System.Object)
+  commentId: M:PostSharp.Serialization.DottedString.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: DottedString.Equals(object)
+  fullName: PostSharp.Serialization.DottedString.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: PostSharp.Serialization.DottedString.Equals*
+  nameWithType.vb: DottedString.Equals(Object)
+  fullName.vb: PostSharp.Serialization.DottedString.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Serialization.DottedString.ToString
+  commentId: M:PostSharp.Serialization.DottedString.ToString
+  id: ToString
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: DottedString.ToString()
+  fullName: PostSharp.Serialization.DottedString.ToString()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PostSharp.Serialization.DottedString.ToString*
+- uid: PostSharp.Serialization.DottedString.op_Equality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  commentId: M:PostSharp.Serialization.DottedString.op_Equality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  id: op_Equality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: operator ==(DottedString, DottedString)
+  nameWithType: DottedString.operator ==(DottedString, DottedString)
+  fullName: PostSharp.Serialization.DottedString.operator ==(PostSharp.Serialization.DottedString, PostSharp.Serialization.DottedString)
+  type: Operator
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Operator.
+  example: []
+  syntax:
+    content: public static bool operator ==(DottedString left, DottedString right)
+    parameters:
+    - id: left
+      type: PostSharp.Serialization.DottedString
+      description: ''
+    - id: right
+      type: PostSharp.Serialization.DottedString
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator =(left As DottedString, right As DottedString) As Boolean
+  overload: PostSharp.Serialization.DottedString.op_Equality*
+  nameWithType.vb: DottedString.=(DottedString, DottedString)
+  fullName.vb: PostSharp.Serialization.DottedString.=(PostSharp.Serialization.DottedString, PostSharp.Serialization.DottedString)
+  name.vb: =(DottedString, DottedString)
+- uid: PostSharp.Serialization.DottedString.op_Inequality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  commentId: M:PostSharp.Serialization.DottedString.op_Inequality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  id: op_Inequality(PostSharp.Serialization.DottedString,PostSharp.Serialization.DottedString)
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: operator !=(DottedString, DottedString)
+  nameWithType: DottedString.operator !=(DottedString, DottedString)
+  fullName: PostSharp.Serialization.DottedString.operator !=(PostSharp.Serialization.DottedString, PostSharp.Serialization.DottedString)
+  type: Operator
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Operator.
+  example: []
+  syntax:
+    content: public static bool operator !=(DottedString left, DottedString right)
+    parameters:
+    - id: left
+      type: PostSharp.Serialization.DottedString
+      description: ''
+    - id: right
+      type: PostSharp.Serialization.DottedString
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Operator <>(left As DottedString, right As DottedString) As Boolean
+  overload: PostSharp.Serialization.DottedString.op_Inequality*
+  nameWithType.vb: DottedString.<>(DottedString, DottedString)
+  fullName.vb: PostSharp.Serialization.DottedString.<>(PostSharp.Serialization.DottedString, PostSharp.Serialization.DottedString)
+  name.vb: <>(DottedString, DottedString)
+- uid: PostSharp.Serialization.DottedString.IsNull
+  commentId: P:PostSharp.Serialization.DottedString.IsNull
+  id: IsNull
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: IsNull
+  nameWithType: DottedString.IsNull
+  fullName: PostSharp.Serialization.DottedString.IsNull
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref> represents a <code>null</code> string.
+  example: []
+  syntax:
+    content: public bool IsNull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsNull As Boolean
+  overload: PostSharp.Serialization.DottedString.IsNull*
+- uid: PostSharp.Serialization.DottedString.Value
+  commentId: P:PostSharp.Serialization.DottedString.Value
+  id: Value
+  parent: PostSharp.Serialization.DottedString
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: DottedString.Value
+  fullName: PostSharp.Serialization.DottedString.Value
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the string encapsulated by the current <xref href="PostSharp.Serialization.DottedString" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string Value { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Value As String
+  overload: PostSharp.Serialization.DottedString.Value*

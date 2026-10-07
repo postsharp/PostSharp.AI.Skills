@@ -1,0 +1,491 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.Depends
+  commentId: T:PostSharp.Patterns.Model.Depends
+  id: Depends
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.Depends.Guard
+  - PostSharp.Patterns.Model.Depends.On(System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  - PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: Depends
+  nameWithType: Depends
+  fullName: PostSharp.Patterns.Model.Depends
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Provides a way to specify dependencies of a method on properties or chains of properties. This class
+
+    should be used from getters of properties marked with the <xref href="PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+  remarks: >-
+    <p>Members of this class are considered metadata-only. They are used only at build time, when
+        their arguments are decompiled. They have no run-time effect. For performance reasons, it is preferable to
+        skip their execution at run time. You can do this by using the <xref href="PostSharp.Patterns.Model.Depends.Guard" data-throw-if-not-resolved="false"></xref> field in the following construct:
+        </p>
+    <pre><code class="lang-csharp">if ( Depends.Guard )
+
+    {
+      Depends.On(this.foo.Bar);
+    }</code></pre>
+
+    <p>Use this class for dependencies that the analysis cannot discover, such as dependencies hidden behind a virtual method or a delegate call.
+        Pass each dependency as an expression such as <code>this.field.Property</code>.</p>
+  example: []
+  syntax:
+    content: public static class Depends
+    content.vb: Public Module Depends
+  seealso:
+  - linkId: PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute
+    commentId: T:PostSharp.Patterns.Model.SafeForDependencyAnalysisAttribute
+  - linkType: HRef
+    linkId: '@inotifypropertychanged-customization'
+    altText: 'Conceptual: Handling Corner Cases of the NotifyPropertyChanged Aspect'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.Depends.Guard
+  commentId: F:PostSharp.Patterns.Model.Depends.Guard
+  id: Guard
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: Guard
+  nameWithType: Depends.Guard
+  fullName: PostSharp.Patterns.Model.Depends.Guard
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: A <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> value that is always <code>false</code>.
+  example: []
+  syntax:
+    content: public static readonly bool Guard
+    return:
+      type: System.Boolean
+    content.vb: Public Shared ReadOnly Guard As Boolean
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object)
+  id: On(System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object)
+  nameWithType: Depends.On(object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the argument passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object)
+  name.vb: On(Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object)
+  id: On(System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object)
+  nameWithType: Depends.On(object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object)
+  name.vb: On(Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object)
+  nameWithType: Depends.On(object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object)
+  name.vb: On(Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4, object dependency5)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    - id: dependency5
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object, dependency5 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4, object dependency5, object dependency6)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    - id: dependency5
+      type: System.Object
+      description: ''
+    - id: dependency6
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object, dependency5 As Object, dependency6 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4, object dependency5, object dependency6, object dependency7)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    - id: dependency5
+      type: System.Object
+      description: ''
+    - id: dependency6
+      type: System.Object
+      description: ''
+    - id: dependency7
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object, dependency5 As Object, dependency6 As Object, dependency7 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object, Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object, object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object, object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object, object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4, object dependency5, object dependency6, object dependency7, object dependency8)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    - id: dependency5
+      type: System.Object
+      description: ''
+    - id: dependency6
+      type: System.Object
+      description: ''
+    - id: dependency7
+      type: System.Object
+      description: ''
+    - id: dependency8
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object, dependency5 As Object, dependency6 As Object, dependency7 As Object, dependency8 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object, Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object, Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object, Object, Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object, object, object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object, object, object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object, object, object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4, object dependency5, object dependency6, object dependency7, object dependency8, object dependency9)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    - id: dependency5
+      type: System.Object
+      description: ''
+    - id: dependency6
+      type: System.Object
+      description: ''
+    - id: dependency7
+      type: System.Object
+      description: ''
+    - id: dependency8
+      type: System.Object
+      description: ''
+    - id: dependency9
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object, dependency5 As Object, dependency6 As Object, dependency7 As Object, dependency8 As Object, dependency9 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object, Object, Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object, Object, Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object, Object, Object, Object, Object, Object)
+- uid: PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  commentId: M:PostSharp.Patterns.Model.Depends.On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  id: On(System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)
+  parent: PostSharp.Patterns.Model.Depends
+  langs:
+  - csharp
+  - vb
+  name: On(object, object, object, object, object, object, object, object, object, object)
+  nameWithType: Depends.On(object, object, object, object, object, object, object, object, object, object)
+  fullName: PostSharp.Patterns.Model.Depends.On(object, object, object, object, object, object, object, object, object, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies an explicit dependency between the calling method and the arguments passed to this method.
+  example: []
+  syntax:
+    content: public static void On(object dependency1, object dependency2, object dependency3, object dependency4, object dependency5, object dependency6, object dependency7, object dependency8, object dependency9, object dependency10)
+    parameters:
+    - id: dependency1
+      type: System.Object
+      description: ''
+    - id: dependency2
+      type: System.Object
+      description: ''
+    - id: dependency3
+      type: System.Object
+      description: ''
+    - id: dependency4
+      type: System.Object
+      description: ''
+    - id: dependency5
+      type: System.Object
+      description: ''
+    - id: dependency6
+      type: System.Object
+      description: ''
+    - id: dependency7
+      type: System.Object
+      description: ''
+    - id: dependency8
+      type: System.Object
+      description: ''
+    - id: dependency9
+      type: System.Object
+      description: ''
+    - id: dependency10
+      type: System.Object
+      description: ''
+    content.vb: Public Shared Sub [On](dependency1 As Object, dependency2 As Object, dependency3 As Object, dependency4 As Object, dependency5 As Object, dependency6 As Object, dependency7 As Object, dependency8 As Object, dependency9 As Object, dependency10 As Object)
+  overload: PostSharp.Patterns.Model.Depends.On*
+  nameWithType.vb: Depends.On(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object)
+  fullName.vb: PostSharp.Patterns.Model.Depends.On(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object)
+  name.vb: On(Object, Object, Object, Object, Object, Object, Object, Object, Object, Object)

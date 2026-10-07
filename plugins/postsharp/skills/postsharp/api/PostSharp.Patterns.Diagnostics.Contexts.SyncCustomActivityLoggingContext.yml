@@ -1,0 +1,436 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  id: SyncCustomActivityLoggingContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.#ctor(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.CustomActivityKind
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.DefinedTransaction
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.IsHidden
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Open(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.ReturnToPool
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SetWaitDependency(System.Object)
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.StartTimestamp
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticParentId
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticRootId
+  langs:
+  - csharp
+  - vb
+  name: SyncCustomActivityLoggingContext
+  nameWithType: SyncCustomActivityLoggingContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    A <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> that represents a synchronous custom activity, opened by the <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref>
+
+    method.
+  remarks: >-
+    <p>A custom backend that needs to store more data in this context can derive a class from it and override
+        <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)" data-throw-if-not-resolved="false"></xref> to return an instance of the derived class.
+        Instances are pooled per thread and reused for later activities.</p>
+  example: []
+  syntax:
+    content: 'public class SyncCustomActivityLoggingContext : SyncLoggingContext, ICustomActivityLoggingContext, ILoggingContext, IDisposable'
+    content.vb: Public Class SyncCustomActivityLoggingContext Inherits SyncLoggingContext Implements ICustomActivityLoggingContext, ILoggingContext, IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-logging-backend'
+    altText: 'Conceptual: Building Your Own Logging Backend (Adapter)'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSyncCustomActivityContext
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ThreadContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.VisitProperties``1(PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TState}},{TState}@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.VisitProperties(System.Action{System.String,System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{{T}},{T}@,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Dispose
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetRecordBuilder(PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo@,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetCustomRecordBuilder(PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.MakeSharable
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ToString
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ToString(System.Text.StringBuilder)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CreateCorrelationCookie
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SetCorrelation(PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.EventData
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsSharable
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CurrentTransaction
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ParentContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ActivationContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IndentLevel
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsDisposed
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Source
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.MemberName
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Backend
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Description
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Kind
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Properties
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.HierarchicalContextIdInfo
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.#ctor(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.#ctor(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: SyncCustomActivityLoggingContext(ThreadLoggingContext)
+  nameWithType: SyncCustomActivityLoggingContext.SyncCustomActivityLoggingContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyncCustomActivityLoggingContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public SyncCustomActivityLoggingContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the activity is executed.
+    content.vb: Public Sub New(threadContext As ThreadLoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.#ctor*
+  nameWithType.vb: SyncCustomActivityLoggingContext.New(ThreadLoggingContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.New(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  name.vb: New(ThreadLoggingContext)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.ReturnToPool
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.ReturnToPool
+  id: ReturnToPool
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: ReturnToPool()
+  nameWithType: SyncCustomActivityLoggingContext.ReturnToPool()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.ReturnToPool()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Returns the current instance to the pool to which it belongs. This method is invoked by the <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(System.Boolean)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: protected override void ReturnToPool()
+    content.vb: Protected Overrides Sub ReturnToPool()
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ReturnToPool
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.ReturnToPool*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Open(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Open(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  id: Open(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.OpenActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: Open(LoggingTypeSource, in OpenActivityOptions)
+  nameWithType: SyncCustomActivityLoggingContext.Open(LoggingTypeSource, in OpenActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Open(PostSharp.Patterns.Diagnostics.LoggingTypeSource, in PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Opens the current context.
+  example: []
+  syntax:
+    content: public virtual void Open(LoggingTypeSource typeSource, in OpenActivityOptions options)
+    parameters:
+    - id: typeSource
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the declaring type of the context.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+      description: The options of the opened custom context.
+    content.vb: Public Overridable Sub Open(typeSource As LoggingTypeSource, options As OpenActivityOptions)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Open*
+  nameWithType.vb: SyncCustomActivityLoggingContext.Open(LoggingTypeSource, OpenActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Open(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.OpenActivityOptions)
+  name.vb: Open(LoggingTypeSource, OpenActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SetWaitDependency(System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SetWaitDependency(System.Object)
+  id: SetWaitDependency(System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: SetWaitDependency(object)
+  nameWithType: SyncCustomActivityLoggingContext.SetWaitDependency(object)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SetWaitDependency(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Sets the wait dependency for the current context, that is, sets a representation of what the current context
+
+    is waiting for. This operation is available only in custom contexts.
+  example: []
+  syntax:
+    content: public override void SetWaitDependency(object waited)
+    parameters:
+    - id: waited
+      type: System.Object
+      description: The "thing" being waited for (for example, a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> or a <xref href="PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.TaskInfo" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Public Overrides Sub SetWaitDependency(waited As Object)
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SetWaitDependency(System.Object)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SetWaitDependency*
+  nameWithType.vb: SyncCustomActivityLoggingContext.SetWaitDependency(Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SetWaitDependency(Object)
+  name.vb: SetWaitDependency(Object)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  id: GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: GetExecutionContextData(LoggingExecutionContextData, bool)
+  nameWithType: SyncCustomActivityLoggingContext.GetExecutionContextData(LoggingExecutionContextData, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Returns a new layer for the async stack that has this <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> as the associated activity and <code class="paramref">current</code> as the
+
+    <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData.Parent" data-throw-if-not-resolved="false"></xref>, if a new layer is required.
+  remarks: >-
+    The flow is:
+
+
+    <ul><li>LoggingContext.UpdateExecutionContextData calls LoggingContext.GetExecutionContextData, which is virtual.</li><li>GetExecutionContextData returns null if no new layer needs to be created, or returns the new layer, fully edited, otherwise.</li><li>The implementation in the LoggingContext class creates a copy using "LoggingExecutionContextData.Clone" which may create a subclass.</li><li>Implementors must call the base class so that the synthetic ID, the logging properties, and other such data are filled in.</li></ul>
+  example: []
+  syntax:
+    content: protected override LoggingExecutionContextData GetExecutionContextData(LoggingExecutionContextData current, bool requireNew)
+    parameters:
+    - id: current
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+      description: The layer in the async stack that is currently on top. It will become the parent of the new layer.
+    - id: requireNew
+      type: System.Boolean
+      description: >-
+        If <code>true</code>, this method must return a new instance. This is a parameter passed by the overriding method to the base call
+                    if the overriding method wants the layer to be created even if there are no properties or synthetic ID.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData" data-throw-if-not-resolved="false"></xref> to be put on top of the async stack, or <code>null</code> if no new layer is needed.
+    content.vb: Protected Overrides Function GetExecutionContextData(current As LoggingExecutionContextData, requireNew As Boolean) As LoggingExecutionContextData
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.GetExecutionContextData*
+  nameWithType.vb: SyncCustomActivityLoggingContext.GetExecutionContextData(LoggingExecutionContextData, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData, Boolean)
+  name.vb: GetExecutionContextData(LoggingExecutionContextData, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: SyncCustomActivityLoggingContext.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected override void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Dispose" data-throw-if-not-resolved="false"></xref> method is called explicitly, <code>false</code> if the object is being finalized.
+    content.vb: Protected Overrides Sub Dispose(disposing As Boolean)
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(System.Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Dispose*
+  nameWithType.vb: SyncCustomActivityLoggingContext.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.DefinedTransaction
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.DefinedTransaction
+  id: DefinedTransaction
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: DefinedTransaction
+  nameWithType: SyncCustomActivityLoggingContext.DefinedTransaction
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.DefinedTransaction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref> defined by the current context.
+  example: []
+  syntax:
+    content: public override LoggingTransaction DefinedTransaction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+    content.vb: Public Overrides ReadOnly Property DefinedTransaction As LoggingTransaction
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.DefinedTransaction
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.DefinedTransaction*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.StartTimestamp
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.StartTimestamp
+  id: StartTimestamp
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: StartTimestamp
+  nameWithType: SyncCustomActivityLoggingContext.StartTimestamp
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.StartTimestamp
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the timestamp (given by <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp" data-throw-if-not-resolved="false"></xref>) of the moment when the activity started.
+  example: []
+  syntax:
+    content: public double StartTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property StartTimestamp As Double
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.StartTimestamp*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.StartTimestamp
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.CustomActivityKind
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.CustomActivityKind
+  id: CustomActivityKind
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: CustomActivityKind
+  nameWithType: SyncCustomActivityLoggingContext.CustomActivityKind
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.CustomActivityKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the kind of <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref> represented by the current context.
+  example: []
+  syntax:
+    content: public LogActivityKind CustomActivityKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+    content.vb: Public ReadOnly Property CustomActivityKind As LogActivityKind
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.CustomActivityKind*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.CustomActivityKind
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticRootId
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticRootId
+  id: SyntheticRootId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: SyntheticRootId
+  nameWithType: SyncCustomActivityLoggingContext.SyntheticRootId
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticRootId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    When this property returns a non-null value, the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property shall return the
+
+    same value as the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticRootId" data-throw-if-not-resolved="false"></xref> property, instead of starting with the id of the parent context. You can set this property when you open a custom
+
+    activity by configuring the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public override string SyntheticRootId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides ReadOnly Property SyntheticRootId As String
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticRootId
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticRootId*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticParentId
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticParentId
+  id: SyntheticParentId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: SyntheticParentId
+  nameWithType: SyncCustomActivityLoggingContext.SyntheticParentId
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticParentId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    When this property returns a non-null value, the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property shall use the
+
+    value of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticParentId" data-throw-if-not-resolved="false"></xref> property as the parent identifier, instead of recursively building
+
+    the synthetic identifier based on <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ParentContext" data-throw-if-not-resolved="false"></xref>. You can set this property when you open a custom
+
+    activity by configuring the <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public override string SyntheticParentId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Overrides ReadOnly Property SyntheticParentId As String
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticParentId
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.SyntheticParentId*
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.IsHidden
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.IsHidden
+  id: IsHidden
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: IsHidden
+  nameWithType: SyncCustomActivityLoggingContext.IsHidden
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.IsHidden
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> is hidden. Hidden contexts may define properties but should not be rendered.
+  example: []
+  syntax:
+    content: public override bool IsHidden { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsHidden As Boolean
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsHidden
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext.IsHidden*

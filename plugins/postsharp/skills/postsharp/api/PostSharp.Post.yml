@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Post
+  commentId: T:PostSharp.Post
+  id: Post
+  parent: PostSharp
+  children:
+  - PostSharp.Post.Cast``2(``0)
+  - PostSharp.Post.GetMutableRef``1(``0@)
+  - PostSharp.Post.GetValue``1(``0)
+  - PostSharp.Post.IsTransformed
+  langs:
+  - csharp
+  - vb
+  name: Post
+  nameWithType: Post
+  fullName: PostSharp.Post
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp
+  summary: Provides some methods that are transformed during post-compilation.
+  example: []
+  syntax:
+    content: public static class Post
+    content.vb: Public Module Post
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Post.Cast``2(``0)
+  commentId: M:PostSharp.Post.Cast``2(``0)
+  id: Cast``2(``0)
+  parent: PostSharp.Post
+  langs:
+  - csharp
+  - vb
+  name: Cast<TSource, TTarget>(TSource)
+  nameWithType: Post.Cast<TSource, TTarget>(TSource)
+  fullName: PostSharp.Post.Cast<TSource, TTarget>(TSource)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp
+  summary: >-
+    At post-compile time, casts an instance of a type to another type.
+
+    A post-compile time error is reported if the source type cannot be
+
+    assigned to the target type.
+  remarks: >-
+    The purpose of this method is to make source code compilable even when
+
+    an interface is implemented at post-compile time.
+
+    PostSharp ensures that <code class="typeparamref">TTarget</code> is assignable from
+
+    <code class="typeparamref">TSource</code>. If it is, the call to this method is
+
+    suppressed. If the types are not assignable, a build error is issued.
+
+    Use it, for example, to access an interface introduced by an aspect from the source code of the target class.
+  example: []
+  syntax:
+    content: 'public static TTarget Cast<TSource, TTarget>(TSource o) where TSource : class where TTarget : class'
+    parameters:
+    - id: o
+      type: '{TSource}'
+      description: The instance to cast.
+    typeParameters:
+    - id: TSource
+      description: The source type.
+    - id: TTarget
+      description: The target type.
+    return:
+      type: '{TTarget}'
+      description: The object <code class="paramref">o</code> cast as <code class="typeparamref">TTarget</code>.
+    content.vb: Public Shared Function Cast(Of TSource As Class, TTarget As Class)(o As TSource) As TTarget
+  overload: PostSharp.Post.Cast*
+  seealso:
+  - linkType: HRef
+    linkId: '@code-injections'
+    altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'
+  nameWithType.vb: Post.Cast(Of TSource, TTarget)(TSource)
+  fullName.vb: PostSharp.Post.Cast(Of TSource, TTarget)(TSource)
+  name.vb: Cast(Of TSource, TTarget)(TSource)
+- uid: PostSharp.Post.GetMutableRef``1(``0@)
+  commentId: M:PostSharp.Post.GetMutableRef``1(``0@)
+  id: GetMutableRef``1(``0@)
+  parent: PostSharp.Post
+  langs:
+  - csharp
+  - vb
+  name: GetMutableRef<T>(in T)
+  nameWithType: Post.GetMutableRef<T>(in T)
+  fullName: PostSharp.Post.GetMutableRef<T>(in T)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp
+  summary: >-
+    Gets a mutable reference from a read-only <code>in</code> reference. Calls to this method are replaced
+
+    at build time.
+  example: []
+  syntax:
+    content: public static ref T GetMutableRef<T>(in T reference)
+    parameters:
+    - id: reference
+      type: '{T}'
+      description: A read-only reference.
+    typeParameters:
+    - id: T
+      description: The type of the reference.
+    return:
+      type: '{T}'
+      description: The same reference as <code class="paramref">reference</code>, but mutable.
+    content.vb: Public Shared ByRef Function GetMutableRef(Of T)(reference As T) As T
+  overload: PostSharp.Post.GetMutableRef*
+  nameWithType.vb: Post.GetMutableRef(Of T)(T)
+  fullName.vb: PostSharp.Post.GetMutableRef(Of T)(T)
+  name.vb: GetMutableRef(Of T)(T)
+- uid: PostSharp.Post.GetValue``1(``0)
+  commentId: M:PostSharp.Post.GetValue``1(``0)
+  id: GetValue``1(``0)
+  parent: PostSharp.Post
+  langs:
+  - csharp
+  - vb
+  name: GetValue<T>(T)
+  nameWithType: Post.GetValue<T>(T)
+  fullName: PostSharp.Post.GetValue<T>(T)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp
+  summary: >-
+    When used to retrieve the value of a field, forces the compiler to retrieve a copy
+
+    of the field value instead of an address of this field. This allows calling
+
+    instance methods of value-type fields without loading the field address.
+  example: []
+  syntax:
+    content: 'public static T GetValue<T>(T value) where T : struct'
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The value.
+    typeParameters:
+    - id: T
+      description: The type of the value to retrieve. This type parameter can generally be omitted.
+    return:
+      type: '{T}'
+      description: <code class="paramref">value</code>, unchanged.
+    content.vb: Public Shared Function GetValue(Of T As Structure)(value As T) As T
+  overload: PostSharp.Post.GetValue*
+  nameWithType.vb: Post.GetValue(Of T)(T)
+  fullName.vb: PostSharp.Post.GetValue(Of T)(T)
+  name.vb: GetValue(Of T)(T)
+- uid: PostSharp.Post.IsTransformed
+  commentId: P:PostSharp.Post.IsTransformed
+  id: IsTransformed
+  parent: PostSharp.Post
+  langs:
+  - csharp
+  - vb
+  name: IsTransformed
+  nameWithType: Post.IsTransformed
+  fullName: PostSharp.Post.IsTransformed
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp
+  summary: "  Gets a value indicating whether the calling program has been transformed by PostSharp. Calls to this property are replaced\r\nat build time."
+  example: []
+  syntax:
+    content: public static bool IsTransformed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the calling program has been transformed by PostSharp, otherwise
+              <code>false</code>.
+    content.vb: Public Shared ReadOnly Property IsTransformed As Boolean
+  overload: PostSharp.Post.IsTransformed*

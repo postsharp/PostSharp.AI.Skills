@@ -1,0 +1,199 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  commentId: T:PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  id: AddCollectionRangeOperation`1
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewIndex
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewItems
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.OperationKind
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  langs:
+  - csharp
+  - vb
+  name: AddCollectionRangeOperation<T>
+  nameWithType: AddCollectionRangeOperation<T>
+  fullName: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Represents a <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601.AddRange(System.Collections.Generic.IEnumerable%7b%600%7d)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601.InsertRange(System.Int32%2cSystem.Collections.Generic.IEnumerable%7b%600%7d)" data-throw-if-not-resolved="false"></xref> operation.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class AddCollectionRangeOperation<T> : CollectionOperation<T>, ICollectionOperation, IOperationDescriptor
+    typeParameters:
+    - id: T
+      description: The type of collection items.
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class AddCollectionRangeOperation(Of T) Inherits CollectionOperation(Of T) Implements ICollectionOperation, IOperationDescriptor
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}
+  implements:
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.VisitAffectedObjects(System.Action{System.Object})
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.Collection
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.OldIndex
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.NewItem
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.OldItem
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: AddCollectionRangeOperation(Of T)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation(Of T)
+  name.vb: AddCollectionRangeOperation(Of T)
+- uid: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: AddCollectionRangeOperation<T>.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation<T>.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Undo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Undo*
+  nameWithType.vb: AddCollectionRangeOperation(Of T).Undo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation(Of T).Undo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: AddCollectionRangeOperation<T>.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation<T>.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Redo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.Redo*
+  nameWithType.vb: AddCollectionRangeOperation(Of T).Redo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation(Of T).Redo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewIndex
+  commentId: P:PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewIndex
+  id: NewIndex
+  parent: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: NewIndex
+  nameWithType: AddCollectionRangeOperation<T>.NewIndex
+  fullName: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation<T>.NewIndex
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the index after the operation.
+  example: []
+  syntax:
+    content: public override int NewIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property NewIndex As Integer
+  overridden: PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.NewIndex
+  overload: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewIndex*
+  nameWithType.vb: AddCollectionRangeOperation(Of T).NewIndex
+  fullName.vb: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation(Of T).NewIndex
+- uid: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewItems
+  commentId: P:PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewItems
+  id: NewItems
+  parent: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: NewItems
+  nameWithType: AddCollectionRangeOperation<T>.NewItems
+  fullName: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation<T>.NewItems
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the items that were added to the collection after the operation.
+  example: []
+  syntax:
+    content: public ReadOnlyArray<T> NewItems { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Collections.ReadOnlyArray{{T}}
+    content.vb: Public ReadOnly Property NewItems As ReadOnlyArray(Of T)
+  overload: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.NewItems*
+  nameWithType.vb: AddCollectionRangeOperation(Of T).NewItems
+  fullName.vb: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation(Of T).NewItems
+- uid: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: AddCollectionRangeOperation<T>.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation<T>.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public override OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public Overrides ReadOnly Property OperationKind As OperationKind
+  overridden: PostSharp.Patterns.Recording.Operation.OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1.OperationKind*
+  nameWithType.vb: AddCollectionRangeOperation(Of T).OperationKind
+  fullName.vb: PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation(Of T).OperationKind

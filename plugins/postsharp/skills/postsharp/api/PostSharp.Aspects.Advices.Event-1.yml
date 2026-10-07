@@ -1,0 +1,105 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.Event`1
+  commentId: T:PostSharp.Aspects.Advices.Event`1
+  id: Event`1
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.Event`1.Add
+  - PostSharp.Aspects.Advices.Event`1.Remove
+  langs:
+  - csharp
+  - vb
+  name: Event<TDelegate>
+  nameWithType: Event<TDelegate>
+  fullName: PostSharp.Aspects.Advices.Event<TDelegate>
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Exposes the semantics of an event for use with the <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref> aspect extension.
+  remarks: >-
+    <p>To import an event of the target class, declare a public instance field of type <xref href="PostSharp.Aspects.Advices.Event%601" data-throw-if-not-resolved="false"></xref> in the aspect class,
+        where <code class="typeparamref">TDelegate</code> is the delegate type of the event, and annotate it with <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>.
+        At run time, the aspect can then add or remove handlers through the <xref href="PostSharp.Aspects.Advices.Event%601.Add" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.Event%601.Remove" data-throw-if-not-resolved="false"></xref> delegates.</p>
+  example: []
+  syntax:
+    content: public sealed class Event<TDelegate>
+    typeParameters:
+    - id: TDelegate
+      description: The handler type, derived from <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public NotInheritable Class [Event](Of TDelegate)
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  - linkType: HRef
+    linkId: '@members'
+    altText: 'Conceptual: Accessing Members of the Target Class'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: Event(Of TDelegate)
+  fullName.vb: PostSharp.Aspects.Advices.Event(Of TDelegate)
+  name.vb: Event(Of TDelegate)
+- uid: PostSharp.Aspects.Advices.Event`1.Add
+  commentId: P:PostSharp.Aspects.Advices.Event`1.Add
+  id: Add
+  parent: PostSharp.Aspects.Advices.Event`1
+  langs:
+  - csharp
+  - vb
+  name: Add
+  nameWithType: Event<TDelegate>.Add
+  fullName: PostSharp.Aspects.Advices.Event<TDelegate>.Add
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets a delegate that can invoke the <code>add</code> accessor
+
+    of the imported event.
+  example: []
+  syntax:
+    content: public EventAccessor<TDelegate> Add { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.EventAccessor{{TDelegate}}
+    content.vb: Public ReadOnly Property Add As EventAccessor(Of TDelegate)
+  overload: PostSharp.Aspects.Advices.Event`1.Add*
+  nameWithType.vb: Event(Of TDelegate).Add
+  fullName.vb: PostSharp.Aspects.Advices.Event(Of TDelegate).Add
+- uid: PostSharp.Aspects.Advices.Event`1.Remove
+  commentId: P:PostSharp.Aspects.Advices.Event`1.Remove
+  id: Remove
+  parent: PostSharp.Aspects.Advices.Event`1
+  langs:
+  - csharp
+  - vb
+  name: Remove
+  nameWithType: Event<TDelegate>.Remove
+  fullName: PostSharp.Aspects.Advices.Event<TDelegate>.Remove
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets a delegate that can invoke the <code>remove</code> accessor
+
+    of the imported event.
+  example: []
+  syntax:
+    content: public EventAccessor<TDelegate> Remove { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.EventAccessor{{TDelegate}}
+    content.vb: Public ReadOnly Property Remove As EventAccessor(Of TDelegate)
+  overload: PostSharp.Aspects.Advices.Event`1.Remove*
+  nameWithType.vb: Event(Of TDelegate).Remove
+  fullName.vb: PostSharp.Aspects.Advices.Event(Of TDelegate).Remove

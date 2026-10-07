@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  id: LoggingPropertyOptionsAttribute
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.#ctor
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsBaggage
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsIgnored
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsInherited
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsRendered
+  - PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.ToOptions
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyOptionsAttribute
+  nameWithType: LoggingPropertyOptionsAttribute
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Specifies the options (<xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>) of a logging property that is
+
+    expressed as a public property of a CLR type.
+  remarks: >-
+    <p>Add this attribute to the properties of a type whose instances you pass as the logging properties of a message or an activity, for instance
+        to make a property inherited by the child activities and messages, which you cannot do with an anonymous type. Properties without the attribute
+        are not rendered, not inherited, and not carried across processes. The attribute is honored by the default <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>;
+        a custom <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> determines the options of its properties itself.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Property)]
+
+      public sealed class LoggingPropertyOptionsAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Property)>
+
+      Public NotInheritable Class LoggingPropertyOptionsAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@log-properties'
+    altText: 'Conceptual: Adding Properties to Messages and Activities'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 128
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.ToOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.ToOptions
+  id: ToOptions
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  langs:
+  - csharp
+  - vb
+  name: ToOptions()
+  nameWithType: LoggingPropertyOptionsAttribute.ToOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.ToOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Converts the current attribute into a <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingPropertyOptions ToOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptions" data-throw-if-not-resolved="false"></xref> that corresponds to the current attribute.
+    content.vb: Public Function ToOptions() As LoggingPropertyOptions
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.ToOptions*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyOptionsAttribute()
+  nameWithType: LoggingPropertyOptionsAttribute.LoggingPropertyOptionsAttribute()
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.LoggingPropertyOptionsAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  syntax:
+    content: public LoggingPropertyOptionsAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.#ctor*
+  nameWithType.vb: LoggingPropertyOptionsAttribute.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsIgnored
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsIgnored
+  id: IsIgnored
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsIgnored
+  nameWithType: LoggingPropertyOptionsAttribute.IsIgnored
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsIgnored
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets or sets a value indicating whether this property is ignored, that is, it should not be mapped to a logging property.
+  example: []
+  syntax:
+    content: public bool IsIgnored { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsIgnored As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsIgnored*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsRendered
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsRendered
+  id: IsRendered
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsRendered
+  nameWithType: LoggingPropertyOptionsAttribute.IsRendered
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsRendered
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets or sets a value indicating whether this property must be included in the message.
+  example: []
+  syntax:
+    content: public bool IsRendered { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRendered As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsRendered*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsInherited
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsInherited
+  id: IsInherited
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsInherited
+  nameWithType: LoggingPropertyOptionsAttribute.IsInherited
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsInherited
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets or sets a value indicating whether this property is inherited by child contexts.
+  example: []
+  syntax:
+    content: public bool IsInherited { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInherited As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsInherited*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsBaggage
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsBaggage
+  id: IsBaggage
+  parent: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsBaggage
+  nameWithType: LoggingPropertyOptionsAttribute.IsBaggage
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsBaggage
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets or sets a value indicating whether this property must be carried in cross-process requests.
+  example: []
+  syntax:
+    content: public bool IsBaggage { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsBaggage As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute.IsBaggage*

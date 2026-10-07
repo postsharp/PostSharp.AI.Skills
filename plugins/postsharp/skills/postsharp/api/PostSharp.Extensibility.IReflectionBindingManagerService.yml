@@ -1,0 +1,57 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IReflectionBindingManagerService
+  commentId: T:PostSharp.Extensibility.IReflectionBindingManagerService
+  id: IReflectionBindingManagerService
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IReflectionBindingManagerService.ResolveAssembly(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: IReflectionBindingManagerService
+  nameWithType: IReflectionBindingManagerService
+  fullName: PostSharp.Extensibility.IReflectionBindingManagerService
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Exposes the <xref href="PostSharp.Extensibility.IReflectionBindingManagerService.ResolveAssembly(System.Type)" data-throw-if-not-resolved="false"></xref> method, which gets the reference identity of
+
+    the assembly declaring a given type.
+  example: []
+  syntax:
+    content: 'public interface IReflectionBindingManagerService : IService'
+    content.vb: Public Interface IReflectionBindingManagerService Inherits IService
+- uid: PostSharp.Extensibility.IReflectionBindingManagerService.ResolveAssembly(System.Type)
+  commentId: M:PostSharp.Extensibility.IReflectionBindingManagerService.ResolveAssembly(System.Type)
+  id: ResolveAssembly(System.Type)
+  parent: PostSharp.Extensibility.IReflectionBindingManagerService
+  langs:
+  - csharp
+  - vb
+  name: ResolveAssembly(Type)
+  nameWithType: IReflectionBindingManagerService.ResolveAssembly(Type)
+  fullName: PostSharp.Extensibility.IReflectionBindingManagerService.ResolveAssembly(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Returns the reference identity of the assembly declaring a type.
+  example: []
+  syntax:
+    content: string ResolveAssembly(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.String
+      description: >-
+        The identity of the reference assembly defining <code class="paramref">type</code>. This assembly may be
+                    different from the runtime assembly, which is available from the <xref href="System.Type.Assembly" data-throw-if-not-resolved="false"></xref> property
+                    of the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> class. This method may return <code>null</code> if <code class="paramref">type</code> is
+                    an internal type of a system assembly.
+    content.vb: Function ResolveAssembly(type As Type) As String
+  overload: PostSharp.Extensibility.IReflectionBindingManagerService.ResolveAssembly*

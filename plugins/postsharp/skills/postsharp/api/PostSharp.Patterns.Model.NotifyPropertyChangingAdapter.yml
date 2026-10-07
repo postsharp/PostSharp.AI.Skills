@@ -1,0 +1,188 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  commentId: T:PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  id: NotifyPropertyChangingAdapter
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.#ctor(PostSharp.Patterns.Model.NotifyPropertyChangingAdapter)
+  - PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.AddHandler(System.Object,System.Action{System.String})
+  - PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.IsSupported(System.Object)
+  - PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.Next
+  - PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.RemoveHandler(System.Object,System.Delegate)
+  langs:
+  - csharp
+  - vb
+  name: NotifyPropertyChangingAdapter
+  nameWithType: NotifyPropertyChangingAdapter
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Provides a unified adapter for the different variants of the <code>INotifyPropertyChanging</code> interface.
+  remarks: <p>To register your <xref href="PostSharp.Patterns.Model.NotifyPropertyChangingAdapter" data-throw-if-not-resolved="false"></xref>, set the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter" data-throw-if-not-resolved="false"></xref> property.</p>
+  example: []
+  syntax:
+    content: public abstract class NotifyPropertyChangingAdapter
+    content.vb: Public MustInherit Class NotifyPropertyChangingAdapter
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.#ctor(PostSharp.Patterns.Model.NotifyPropertyChangingAdapter)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.#ctor(PostSharp.Patterns.Model.NotifyPropertyChangingAdapter)
+  id: '#ctor(PostSharp.Patterns.Model.NotifyPropertyChangingAdapter)'
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  langs:
+  - csharp
+  - vb
+  name: NotifyPropertyChangingAdapter(NotifyPropertyChangingAdapter)
+  nameWithType: NotifyPropertyChangingAdapter.NotifyPropertyChangingAdapter(NotifyPropertyChangingAdapter)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.NotifyPropertyChangingAdapter(PostSharp.Patterns.Model.NotifyPropertyChangingAdapter)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangingAdapter" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected NotifyPropertyChangingAdapter(NotifyPropertyChangingAdapter next)
+    parameters:
+    - id: next
+      type: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+      description: Next item in the chain of responsibility. Pass the current value of the <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedServices.PropertyChangingAdapter" data-throw-if-not-resolved="false"></xref> property to this parameter.
+    content.vb: Protected Sub New([next] As NotifyPropertyChangingAdapter)
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.#ctor*
+  nameWithType.vb: NotifyPropertyChangingAdapter.New(NotifyPropertyChangingAdapter)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.New(PostSharp.Patterns.Model.NotifyPropertyChangingAdapter)
+  name.vb: New(NotifyPropertyChangingAdapter)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.AddHandler(System.Object,System.Action{System.String})
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.AddHandler(System.Object,System.Action{System.String})
+  id: AddHandler(System.Object,System.Action{System.String})
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  langs:
+  - csharp
+  - vb
+  name: AddHandler(object, Action<string>)
+  nameWithType: NotifyPropertyChangingAdapter.AddHandler(object, Action<string>)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.AddHandler(object, System.Action<string>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Adds a handler to the <code>PropertyChanging</code> event.
+  remarks: <p>An implementation should never return <code>null</code>. Instead, it should return the result of <code>this.Next.AddHandler</code>.</p>
+  example: []
+  syntax:
+    content: public abstract Delegate AddHandler(object instance, Action<string> handler)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: The instance.
+    - id: handler
+      type: System.Action{System.String}
+      description: The handler delegate that receives the property name as an argument.
+    return:
+      type: System.Delegate
+      description: The <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref> that was registered to the event, or <code>null</code> if <code class="paramref">instance</code> does not implement the represented interface.
+    content.vb: Public MustOverride Function [AddHandler](instance As Object, handler As Action(Of String)) As [Delegate]
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.AddHandler*
+  nameWithType.vb: NotifyPropertyChangingAdapter.AddHandler(Object, Action(Of String))
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.AddHandler(Object, System.Action(Of String))
+  name.vb: AddHandler(Object, Action(Of String))
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.RemoveHandler(System.Object,System.Delegate)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.RemoveHandler(System.Object,System.Delegate)
+  id: RemoveHandler(System.Object,System.Delegate)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  langs:
+  - csharp
+  - vb
+  name: RemoveHandler(object, Delegate)
+  nameWithType: NotifyPropertyChangingAdapter.RemoveHandler(object, Delegate)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.RemoveHandler(object, System.Delegate)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Removes a handler from the <code>PropertyChanging</code> event.
+  remarks: <p>An implementation should never return <code>false</code>. Instead, it should return the result of <code>this.Next.RemoveHandler</code>.</p>
+  example: []
+  syntax:
+    content: public abstract bool RemoveHandler(object instance, Delegate handler)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: The instance.
+    - id: handler
+      type: System.Delegate
+      description: The delegate that was registered to the event.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">instance</code> implements the represented interface, <code>false</code> otherwise.
+    content.vb: Public MustOverride Function [RemoveHandler](instance As Object, handler As [Delegate]) As Boolean
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.RemoveHandler*
+  nameWithType.vb: NotifyPropertyChangingAdapter.RemoveHandler(Object, Delegate)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.RemoveHandler(Object, System.Delegate)
+  name.vb: RemoveHandler(Object, Delegate)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.IsSupported(System.Object)
+  commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.IsSupported(System.Object)
+  id: IsSupported(System.Object)
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  langs:
+  - csharp
+  - vb
+  name: IsSupported(object)
+  nameWithType: NotifyPropertyChangingAdapter.IsSupported(object)
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.IsSupported(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether the <code>NotifyPropertyChanging</code> behavior is supported for a given object.
+  remarks: <p>An implementation should never return <code>false</code>. Instead, it should return the result of <code>base.IsSupported</code>.</p>
+  example: []
+  syntax:
+    content: public abstract bool IsSupported(object instance)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: The instance.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">instance</code> is supported, otherwise <code>false</code>.
+    content.vb: Public MustOverride Function IsSupported(instance As Object) As Boolean
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.IsSupported*
+  nameWithType.vb: NotifyPropertyChangingAdapter.IsSupported(Object)
+  fullName.vb: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.IsSupported(Object)
+  name.vb: IsSupported(Object)
+- uid: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.Next
+  commentId: P:PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.Next
+  id: Next
+  parent: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+  langs:
+  - csharp
+  - vb
+  name: Next
+  nameWithType: NotifyPropertyChangingAdapter.Next
+  fullName: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.Next
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the next <xref href="PostSharp.Patterns.Model.NotifyPropertyChangingAdapter" data-throw-if-not-resolved="false"></xref> in the chain.
+  remarks: <p>This property is never <code>null</code>.</p>
+  example: []
+  syntax:
+    content: protected NotifyPropertyChangingAdapter Next { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter
+    content.vb: Protected ReadOnly Property [Next] As NotifyPropertyChangingAdapter
+  overload: PostSharp.Patterns.Model.NotifyPropertyChangingAdapter.Next*

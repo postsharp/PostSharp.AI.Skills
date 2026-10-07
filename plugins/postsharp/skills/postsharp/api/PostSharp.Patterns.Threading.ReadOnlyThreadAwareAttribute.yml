@@ -1,0 +1,240 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  commentId: T:PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  id: ReadOnlyThreadAwareAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise(System.Object)
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyThreadAwareAttribute
+  nameWithType: ReadOnlyThreadAwareAttribute
+  fullName: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Base class for aspects <xref href="PostSharp.Patterns.Threading.FreezableAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Threading.ImmutableAttribute" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Serializer(typeof(ReadOnlyThreadAwareAttribute.Serializer))]
+
+      public abstract class ReadOnlyThreadAwareAttribute : ThreadAwareAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface, IConcurrencyController
+    content.vb: >-
+      <Serializer(GetType(ReadOnlyThreadAwareAttribute.Serializer))>
+
+      Public MustInherit Class ReadOnlyThreadAwareAttribute Inherits ThreadAwareAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface, IConcurrencyController
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  derivedClasses:
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.Threading.IThreadAware
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - PostSharp.Patterns.Threading.IConcurrencyController
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed(System.Object)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance
+  commentId: M:PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance
+  id: RuntimeInitializeInstance
+  parent: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitializeInstance()
+  nameWithType: ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance()
+  fullName: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  example: []
+  syntax:
+    content: public override void RuntimeInitializeInstance()
+    content.vb: Public Overrides Sub RuntimeInitializeInstance()
+  overridden: PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeInitializeInstance
+  overload: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance*
+- uid: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise(System.Object)
+  id: Advise(System.Object)
+  parent: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: Advise(object)
+  nameWithType: ReadOnlyThreadAwareAttribute.Advise(object)
+  fullName: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Injects the advice into the child object.
+  example: []
+  syntax:
+    content: protected override bool Advise(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to advise.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the children of <code class="paramref">obj</code> have to be advised as well, <code>false</code> otherwise.
+    content.vb: Protected Overrides Function Advise(obj As Object) As Boolean
+  overridden: PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise(System.Object)
+  overload: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise*
+  nameWithType.vb: ReadOnlyThreadAwareAttribute.Advise(Object)
+  fullName.vb: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise(Object)
+  name.vb: Advise(Object)
+- uid: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyThreadAwareAttribute()
+  nameWithType: ReadOnlyThreadAwareAttribute.ReadOnlyThreadAwareAttribute()
+  fullName: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.ReadOnlyThreadAwareAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected ReadOnlyThreadAwareAttribute()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor*
+  nameWithType.vb: ReadOnlyThreadAwareAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyThreadAwareAttribute(PortableFormatterConstructorContext)
+  nameWithType: ReadOnlyThreadAwareAttribute.ReadOnlyThreadAwareAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.ReadOnlyThreadAwareAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected ReadOnlyThreadAwareAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.#ctor*
+  nameWithType.vb: ReadOnlyThreadAwareAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

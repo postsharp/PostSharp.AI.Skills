@@ -1,0 +1,141 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.OperationFormatter
+  commentId: T:PostSharp.Patterns.Recording.OperationFormatter
+  id: OperationFormatter
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.OperationFormatter.#ctor(PostSharp.Patterns.Recording.OperationFormatter)
+  - PostSharp.Patterns.Recording.OperationFormatter.FormatOperation(PostSharp.Patterns.Recording.Operation)
+  - PostSharp.Patterns.Recording.OperationFormatter.FormatOperationDescriptor(PostSharp.Patterns.Recording.Operations.IOperationDescriptor)
+  langs:
+  - csharp
+  - vb
+  name: OperationFormatter
+  nameWithType: OperationFormatter
+  fullName: PostSharp.Patterns.Recording.OperationFormatter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Base class for all operation formatters, which provide a human-readable description of operations (<xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>).
+  remarks: >-
+    <p>Instances of the <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref> class form a chain of responsibility. If one instance does not know how
+        to format an <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>, it calls the next instance in the chain.</p>
+    <p>To use a custom formatter, assign it to the <xref href="PostSharp.Patterns.Recording.RecordingServices.OperationFormatter" data-throw-if-not-resolved="false"></xref> property and pass the previous value
+        of this property to its constructor.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public abstract class OperationFormatter
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public MustInherit Class OperationFormatter
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-operation-name'
+    altText: 'Conceptual: Customizing Undo/Redo Operation Names'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.OperationFormatter.#ctor(PostSharp.Patterns.Recording.OperationFormatter)
+  commentId: M:PostSharp.Patterns.Recording.OperationFormatter.#ctor(PostSharp.Patterns.Recording.OperationFormatter)
+  id: '#ctor(PostSharp.Patterns.Recording.OperationFormatter)'
+  parent: PostSharp.Patterns.Recording.OperationFormatter
+  langs:
+  - csharp
+  - vb
+  name: OperationFormatter(OperationFormatter)
+  nameWithType: OperationFormatter.OperationFormatter(OperationFormatter)
+  fullName: PostSharp.Patterns.Recording.OperationFormatter.OperationFormatter(PostSharp.Patterns.Recording.OperationFormatter)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected OperationFormatter(OperationFormatter next)
+    parameters:
+    - id: next
+      type: PostSharp.Patterns.Recording.OperationFormatter
+      description: The next instance in the chain of responsibility.
+    content.vb: Protected Sub New([next] As OperationFormatter)
+  overload: PostSharp.Patterns.Recording.OperationFormatter.#ctor*
+  nameWithType.vb: OperationFormatter.New(OperationFormatter)
+  fullName.vb: PostSharp.Patterns.Recording.OperationFormatter.New(PostSharp.Patterns.Recording.OperationFormatter)
+  name.vb: New(OperationFormatter)
+- uid: PostSharp.Patterns.Recording.OperationFormatter.FormatOperation(PostSharp.Patterns.Recording.Operation)
+  commentId: M:PostSharp.Patterns.Recording.OperationFormatter.FormatOperation(PostSharp.Patterns.Recording.Operation)
+  id: FormatOperation(PostSharp.Patterns.Recording.Operation)
+  parent: PostSharp.Patterns.Recording.OperationFormatter
+  langs:
+  - csharp
+  - vb
+  name: FormatOperation(Operation)
+  nameWithType: OperationFormatter.FormatOperation(Operation)
+  fullName: PostSharp.Patterns.Recording.OperationFormatter.FormatOperation(PostSharp.Patterns.Recording.Operation)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a human-readable description of an <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string FormatOperation(Operation operation)
+    parameters:
+    - id: operation
+      type: PostSharp.Patterns.Recording.Operation
+      description: The <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.String
+      description: A human-readable description of the <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function FormatOperation(operation As Operation) As String
+  overload: PostSharp.Patterns.Recording.OperationFormatter.FormatOperation*
+- uid: PostSharp.Patterns.Recording.OperationFormatter.FormatOperationDescriptor(PostSharp.Patterns.Recording.Operations.IOperationDescriptor)
+  commentId: M:PostSharp.Patterns.Recording.OperationFormatter.FormatOperationDescriptor(PostSharp.Patterns.Recording.Operations.IOperationDescriptor)
+  id: FormatOperationDescriptor(PostSharp.Patterns.Recording.Operations.IOperationDescriptor)
+  parent: PostSharp.Patterns.Recording.OperationFormatter
+  langs:
+  - csharp
+  - vb
+  name: FormatOperationDescriptor(IOperationDescriptor)
+  nameWithType: OperationFormatter.FormatOperationDescriptor(IOperationDescriptor)
+  fullName: PostSharp.Patterns.Recording.OperationFormatter.FormatOperationDescriptor(PostSharp.Patterns.Recording.Operations.IOperationDescriptor)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets a human-readable description of an <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref> given its <xref href="PostSharp.Patterns.Recording.Operations.IOperationDescriptor" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected abstract string FormatOperationDescriptor(IOperationDescriptor operation)
+    parameters:
+    - id: operation
+      type: PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+      description: The operation descriptor.
+    return:
+      type: System.String
+      description: >-
+        A human-readable description for <code class="paramref">operation</code>, or <code>null</code> if the current <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref> does not know
+                    how to format <code class="paramref">operation</code>, in which case the next <xref href="PostSharp.Patterns.Recording.OperationFormatter" data-throw-if-not-resolved="false"></xref> in the chain of responsibility will be invoked.
+    content.vb: Protected MustOverride Function FormatOperationDescriptor(operation As IOperationDescriptor) As String
+  overload: PostSharp.Patterns.Recording.OperationFormatter.FormatOperationDescriptor*

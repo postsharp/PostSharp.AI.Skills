@@ -1,0 +1,220 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  id: CachingBackendEnhancerFeatures
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.#ctor(PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Blocking
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Clear
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.ContainsDependency
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Dependencies
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Events
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.UnderlyingBackendFeatures
+  langs:
+  - csharp
+  - vb
+  name: CachingBackendEnhancerFeatures
+  nameWithType: CachingBackendEnhancerFeatures
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    An abstract implementation of <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures" data-throw-if-not-resolved="false"></xref> for use in implementations of <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer" data-throw-if-not-resolved="false"></xref>,
+
+    where the default behavior is to return the features of the underlying <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class CachingBackendEnhancerFeatures : CachingBackendFeatures'
+    content.vb: Public MustInherit Class CachingBackendEnhancerFeatures Inherits CachingBackendFeatures
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.#ctor(PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.#ctor(PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures)
+  id: '#ctor(PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures)'
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: CachingBackendEnhancerFeatures(CachingBackendFeatures)
+  nameWithType: CachingBackendEnhancerFeatures.CachingBackendEnhancerFeatures(CachingBackendFeatures)
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.CachingBackendEnhancerFeatures(PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected CachingBackendEnhancerFeatures(CachingBackendFeatures underlyingBackendFeatures)
+    parameters:
+    - id: underlyingBackendFeatures
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures
+      description: The feature of the underlying <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Protected Sub New(underlyingBackendFeatures As CachingBackendFeatures)
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.#ctor*
+  nameWithType.vb: CachingBackendEnhancerFeatures.New(CachingBackendFeatures)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.New(PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures)
+  name.vb: New(CachingBackendFeatures)
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.UnderlyingBackendFeatures
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.UnderlyingBackendFeatures
+  id: UnderlyingBackendFeatures
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: UnderlyingBackendFeatures
+  nameWithType: CachingBackendEnhancerFeatures.UnderlyingBackendFeatures
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.UnderlyingBackendFeatures
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the feature of the underlying <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected CachingBackendFeatures UnderlyingBackendFeatures { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures
+    content.vb: Protected ReadOnly Property UnderlyingBackendFeatures As CachingBackendFeatures
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.UnderlyingBackendFeatures*
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Clear
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Clear
+  id: Clear
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: Clear
+  nameWithType: CachingBackendEnhancerFeatures.Clear
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Clear
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.Clear" data-throw-if-not-resolved="false"></xref> method is supported.
+  example: []
+  syntax:
+    content: public override bool Clear { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property Clear As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures.Clear
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Clear*
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Events
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Events
+  id: Events
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: Events
+  nameWithType: CachingBackendEnhancerFeatures.Events
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Events
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ItemRemoved" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.DependencyInvalidated" data-throw-if-not-resolved="false"></xref> events are raised.
+  example: []
+  syntax:
+    content: public override bool Events { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property Events As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures.Events
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Events*
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Blocking
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Blocking
+  id: Blocking
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: Blocking
+  nameWithType: CachingBackendEnhancerFeatures.Blocking
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Blocking
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a value indicating whether methods that modify the cache content run to completion before control returns to the calling method.
+
+    If <code>false</code>, methods may run in the background, and the calling thread may not have a consistent view of the cache.
+  example: []
+  syntax:
+    content: public override bool Blocking { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property Blocking As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures.Blocking
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Blocking*
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Dependencies
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Dependencies
+  id: Dependencies
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: Dependencies
+  nameWithType: CachingBackendEnhancerFeatures.Dependencies
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Dependencies
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets a value indicating whether dependencies are supported.
+  example: []
+  syntax:
+    content: public override bool Dependencies { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property Dependencies As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures.Dependencies
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.Dependencies*
+- uid: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.ContainsDependency
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.ContainsDependency
+  id: ContainsDependency
+  parent: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures
+  langs:
+  - csharp
+  - vb
+  name: ContainsDependency
+  nameWithType: CachingBackendEnhancerFeatures.ContainsDependency
+  fullName: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.ContainsDependency
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependency(System.String)" data-throw-if-not-resolved="false"></xref> method is supported.
+  example: []
+  syntax:
+    content: public override bool ContainsDependency { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property ContainsDependency As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures.ContainsDependency
+  overload: PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures.ContainsDependency*

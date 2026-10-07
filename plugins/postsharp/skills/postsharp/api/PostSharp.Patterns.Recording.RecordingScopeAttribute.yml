@@ -1,0 +1,248 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.RecordingScopeAttribute
+  commentId: T:PostSharp.Patterns.Recording.RecordingScopeAttribute
+  id: RecordingScopeAttribute
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(PostSharp.Patterns.Recording.RecordingScopeOption)
+  - PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  - PostSharp.Patterns.Recording.RecordingScopeAttribute.Name
+  - PostSharp.Patterns.Recording.RecordingScopeAttribute.Option
+  langs:
+  - csharp
+  - vb
+  name: RecordingScopeAttribute
+  nameWithType: RecordingScopeAttribute
+  fullName: PostSharp.Patterns.Recording.RecordingScopeAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Custom attribute that, when applied to a method, defines the characteristics of the <xref href="PostSharp.Patterns.Recording.RecordingScope" data-throw-if-not-resolved="false"></xref> that corresponds
+
+    to the target method.
+  remarks: >-
+    <p>Use the <xref href="PostSharp.Patterns.Recording.RecordingScopeAttribute.Name" data-throw-if-not-resolved="false"></xref> property to give the logical operation a user-friendly name. Use <xref href="PostSharp.Patterns.Recording.RecordingScopeOption.Skip" data-throw-if-not-resolved="false"></xref> to prevent
+        the method from opening a scope, for instance when the method opens a scope itself with
+        <xref href="PostSharp.Patterns.Recording.Recorder.OpenScope(System.String%2cPostSharp.Patterns.Recording.RecordingScopeOption)" data-throw-if-not-resolved="false"></xref>. Use <xref href="PostSharp.Patterns.Recording.RecordingScopeOption.Atomic" data-throw-if-not-resolved="false"></xref> to roll back the changes made by the method
+        when it throws an exception.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Method|AttributeTargets.Property, AllowMultiple = false)]
+
+      [MulticastAttributeUsage(MulticastTargets.Method, Inheritance = MulticastInheritance.Strict, PersistMetaData = true)]
+
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class RecordingScopeAttribute : MulticastAttribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.MethodOrAttributeTargets.Property, AllowMultiple:=False)>
+
+      <MulticastAttributeUsage(MulticastTargets.Method, Inheritance:=MulticastInheritance.Strict, PersistMetaData:=True)>
+
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class RecordingScopeAttribute Inherits MulticastAttribute
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-operation-name'
+    altText: 'Conceptual: Customizing Undo/Redo Operation Names'
+  - linkType: HRef
+    linkId: '@undoredo-conceptual'
+    altText: 'Conceptual: Understanding the Recordable Aspect'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 192
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 64
+    namedArguments:
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  commentId: M:PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)
+  id: '#ctor(System.String,PostSharp.Patterns.Recording.RecordingScopeOption)'
+  parent: PostSharp.Patterns.Recording.RecordingScopeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RecordingScopeAttribute(string, RecordingScopeOption)
+  nameWithType: RecordingScopeAttribute.RecordingScopeAttribute(string, RecordingScopeOption)
+  fullName: PostSharp.Patterns.Recording.RecordingScopeAttribute.RecordingScopeAttribute(string, PostSharp.Patterns.Recording.RecordingScopeOption)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.RecordingScopeAttribute" data-throw-if-not-resolved="false"></xref> class and specifies the scope name.
+  example: []
+  syntax:
+    content: public RecordingScopeAttribute(string name, RecordingScopeOption option = RecordingScopeOption.Default)
+    parameters:
+    - id: name
+      type: System.String
+      description: The scope name, or <code>null</code>.
+    - id: option
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+      description: Scope options.
+    content.vb: Public Sub New(name As String, [option] As RecordingScopeOption = RecordingScopeOption.Default)
+  overload: PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor*
+  nameWithType.vb: RecordingScopeAttribute.New(String, RecordingScopeOption)
+  fullName.vb: PostSharp.Patterns.Recording.RecordingScopeAttribute.New(String, PostSharp.Patterns.Recording.RecordingScopeOption)
+  name.vb: New(String, RecordingScopeOption)
+- uid: PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(PostSharp.Patterns.Recording.RecordingScopeOption)
+  commentId: M:PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor(PostSharp.Patterns.Recording.RecordingScopeOption)
+  id: '#ctor(PostSharp.Patterns.Recording.RecordingScopeOption)'
+  parent: PostSharp.Patterns.Recording.RecordingScopeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RecordingScopeAttribute(RecordingScopeOption)
+  nameWithType: RecordingScopeAttribute.RecordingScopeAttribute(RecordingScopeOption)
+  fullName: PostSharp.Patterns.Recording.RecordingScopeAttribute.RecordingScopeAttribute(PostSharp.Patterns.Recording.RecordingScopeOption)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.RecordingScopeAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public RecordingScopeAttribute(RecordingScopeOption option)
+    parameters:
+    - id: option
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+      description: Scope options. Typically <xref href="PostSharp.Patterns.Recording.RecordingScopeOption.Atomic" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.RecordingScopeOption.Skip" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New([option] As RecordingScopeOption)
+  overload: PostSharp.Patterns.Recording.RecordingScopeAttribute.#ctor*
+  nameWithType.vb: RecordingScopeAttribute.New(RecordingScopeOption)
+  fullName.vb: PostSharp.Patterns.Recording.RecordingScopeAttribute.New(PostSharp.Patterns.Recording.RecordingScopeOption)
+  name.vb: New(RecordingScopeOption)
+- uid: PostSharp.Patterns.Recording.RecordingScopeAttribute.Name
+  commentId: P:PostSharp.Patterns.Recording.RecordingScopeAttribute.Name
+  id: Name
+  parent: PostSharp.Patterns.Recording.RecordingScopeAttribute
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: RecordingScopeAttribute.Name
+  fullName: PostSharp.Patterns.Recording.RecordingScopeAttribute.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the scope name.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Recording.RecordingScopeAttribute.Name*
+- uid: PostSharp.Patterns.Recording.RecordingScopeAttribute.Option
+  commentId: P:PostSharp.Patterns.Recording.RecordingScopeAttribute.Option
+  id: Option
+  parent: PostSharp.Patterns.Recording.RecordingScopeAttribute
+  langs:
+  - csharp
+  - vb
+  name: Option
+  nameWithType: RecordingScopeAttribute.Option
+  fullName: PostSharp.Patterns.Recording.RecordingScopeAttribute.Option
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the scope option.
+  example: []
+  syntax:
+    content: public RecordingScopeOption Option { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.RecordingScopeOption
+    content.vb: Public ReadOnly Property [Option] As RecordingScopeOption
+  overload: PostSharp.Patterns.Recording.RecordingScopeAttribute.Option*

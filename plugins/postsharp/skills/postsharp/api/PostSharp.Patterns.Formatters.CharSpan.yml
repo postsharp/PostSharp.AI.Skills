@@ -1,0 +1,369 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.CharSpan
+  commentId: T:PostSharp.Patterns.Formatters.CharSpan
+  id: CharSpan
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.CharSpan.#ctor(System.Char[],System.Int32,System.Int32)
+  - PostSharp.Patterns.Formatters.CharSpan.#ctor(System.String)
+  - PostSharp.Patterns.Formatters.CharSpan.#ctor(System.String,System.Int32,System.Int32)
+  - PostSharp.Patterns.Formatters.CharSpan.FromArraySegment(System.ArraySegment{System.Char})
+  - PostSharp.Patterns.Formatters.CharSpan.FromString(System.String)
+  - PostSharp.Patterns.Formatters.CharSpan.IsBackedByCharArray
+  - PostSharp.Patterns.Formatters.CharSpan.IsNull
+  - PostSharp.Patterns.Formatters.CharSpan.Length
+  - PostSharp.Patterns.Formatters.CharSpan.ToCharArraySegment
+  - PostSharp.Patterns.Formatters.CharSpan.ToString
+  - PostSharp.Patterns.Formatters.CharSpan.op_Implicit(System.ArraySegment{System.Char})~PostSharp.Patterns.Formatters.CharSpan
+  - PostSharp.Patterns.Formatters.CharSpan.op_Implicit(System.String)~PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: CharSpan
+  nameWithType: CharSpan
+  fullName: PostSharp.Patterns.Formatters.CharSpan
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Represents a span of <xref href="System.Char" data-throw-if-not-resolved="false"></xref> by encapsulating a substring or a range of a <xref href="System.Char" data-throw-if-not-resolved="false"></xref> array.
+  example: []
+  syntax:
+    content: public readonly struct CharSpan
+    content.vb: Public Structure CharSpan
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Formatters.CharSpan.#ctor(System.Char[],System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.#ctor(System.Char[],System.Int32,System.Int32)
+  id: '#ctor(System.Char[],System.Int32,System.Int32)'
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: CharSpan(char[], int, int)
+  nameWithType: CharSpan.CharSpan(char[], int, int)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.CharSpan(char[], int, int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref> struct from an array of <xref href="System.Char" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CharSpan(char[] array, int start, int length)
+    parameters:
+    - id: array
+      type: System.Char[]
+      description: An array of <xref href="System.Char" data-throw-if-not-resolved="false"></xref>.
+    - id: start
+      type: System.Int32
+      description: The start index of the span in the <code class="paramref">array</code>.
+    - id: length
+      type: System.Int32
+      description: The number of characters in the span.
+    content.vb: Public Sub New(array As Char(), start As Integer, length As Integer)
+  overload: PostSharp.Patterns.Formatters.CharSpan.#ctor*
+  nameWithType.vb: CharSpan.New(Char(), Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.New(Char(), Integer, Integer)
+  name.vb: New(Char(), Integer, Integer)
+- uid: PostSharp.Patterns.Formatters.CharSpan.#ctor(System.String,System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.#ctor(System.String,System.Int32,System.Int32)
+  id: '#ctor(System.String,System.Int32,System.Int32)'
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: CharSpan(string, int, int)
+  nameWithType: CharSpan.CharSpan(string, int, int)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.CharSpan(string, int, int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref> struct from a <xref href="System.String" data-throw-if-not-resolved="false"></xref> and specifies the start and length of the substring.
+  example: []
+  syntax:
+    content: public CharSpan(string str, int start, int length)
+    parameters:
+    - id: str
+      type: System.String
+      description: A string.
+    - id: start
+      type: System.Int32
+      description: The index of the first character of the span in <code class="paramref">str</code>.
+    - id: length
+      type: System.Int32
+      description: The number of characters in the span.
+    content.vb: Public Sub New(str As String, start As Integer, length As Integer)
+  overload: PostSharp.Patterns.Formatters.CharSpan.#ctor*
+  nameWithType.vb: CharSpan.New(String, Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.New(String, Integer, Integer)
+  name.vb: New(String, Integer, Integer)
+- uid: PostSharp.Patterns.Formatters.CharSpan.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: CharSpan(string)
+  nameWithType: CharSpan.CharSpan(string)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.CharSpan(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref> struct from a <xref href="System.String" data-throw-if-not-resolved="false"></xref> and takes the whole string.
+  example: []
+  syntax:
+    content: public CharSpan(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: A string.
+    content.vb: Public Sub New(str As String)
+  overload: PostSharp.Patterns.Formatters.CharSpan.#ctor*
+  nameWithType.vb: CharSpan.New(String)
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Formatters.CharSpan.op_Implicit(System.String)~PostSharp.Patterns.Formatters.CharSpan
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.op_Implicit(System.String)~PostSharp.Patterns.Formatters.CharSpan
+  id: op_Implicit(System.String)~PostSharp.Patterns.Formatters.CharSpan
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: implicit operator CharSpan(string)
+  nameWithType: CharSpan.implicit operator CharSpan(string)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.implicit operator PostSharp.Patterns.Formatters.CharSpan(string)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Converts a <xref href="System.String" data-throw-if-not-resolved="false"></xref> into a <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static implicit operator CharSpan(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: The string to convert.
+    return:
+      type: PostSharp.Patterns.Formatters.CharSpan
+    content.vb: Public Shared Widening Operator CType(str As String) As CharSpan
+  overload: PostSharp.Patterns.Formatters.CharSpan.op_Implicit*
+  nameWithType.vb: CharSpan.CType(String)
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.CType(String)
+  name.vb: CType(String)
+- uid: PostSharp.Patterns.Formatters.CharSpan.FromString(System.String)
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.FromString(System.String)
+  id: FromString(System.String)
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: FromString(string)
+  nameWithType: CharSpan.FromString(string)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.FromString(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Converts a <xref href="System.String" data-throw-if-not-resolved="false"></xref> into a <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static CharSpan FromString(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: The string to convert.
+    return:
+      type: PostSharp.Patterns.Formatters.CharSpan
+    content.vb: Public Shared Function FromString(str As String) As CharSpan
+  overload: PostSharp.Patterns.Formatters.CharSpan.FromString*
+  nameWithType.vb: CharSpan.FromString(String)
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.FromString(String)
+  name.vb: FromString(String)
+- uid: PostSharp.Patterns.Formatters.CharSpan.op_Implicit(System.ArraySegment{System.Char})~PostSharp.Patterns.Formatters.CharSpan
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.op_Implicit(System.ArraySegment{System.Char})~PostSharp.Patterns.Formatters.CharSpan
+  id: op_Implicit(System.ArraySegment{System.Char})~PostSharp.Patterns.Formatters.CharSpan
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: implicit operator CharSpan(ArraySegment<char>)
+  nameWithType: CharSpan.implicit operator CharSpan(ArraySegment<char>)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.implicit operator PostSharp.Patterns.Formatters.CharSpan(System.ArraySegment<char>)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Converts an <xref href="System.ArraySegment%601" data-throw-if-not-resolved="false"></xref> into a <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static implicit operator CharSpan(ArraySegment<char> str)
+    parameters:
+    - id: str
+      type: System.ArraySegment{System.Char}
+      description: The array segment to convert.
+    return:
+      type: PostSharp.Patterns.Formatters.CharSpan
+    content.vb: Public Shared Widening Operator CType(str As ArraySegment(Of Char)) As CharSpan
+  overload: PostSharp.Patterns.Formatters.CharSpan.op_Implicit*
+  nameWithType.vb: CharSpan.CType(ArraySegment(Of Char))
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.CType(System.ArraySegment(Of Char))
+  name.vb: CType(ArraySegment(Of Char))
+- uid: PostSharp.Patterns.Formatters.CharSpan.FromArraySegment(System.ArraySegment{System.Char})
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.FromArraySegment(System.ArraySegment{System.Char})
+  id: FromArraySegment(System.ArraySegment{System.Char})
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: FromArraySegment(ArraySegment<char>)
+  nameWithType: CharSpan.FromArraySegment(ArraySegment<char>)
+  fullName: PostSharp.Patterns.Formatters.CharSpan.FromArraySegment(System.ArraySegment<char>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Converts an <xref href="System.ArraySegment%601" data-throw-if-not-resolved="false"></xref> into a <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static CharSpan FromArraySegment(ArraySegment<char> str)
+    parameters:
+    - id: str
+      type: System.ArraySegment{System.Char}
+      description: The array segment to convert.
+    return:
+      type: PostSharp.Patterns.Formatters.CharSpan
+    content.vb: Public Shared Function FromArraySegment(str As ArraySegment(Of Char)) As CharSpan
+  overload: PostSharp.Patterns.Formatters.CharSpan.FromArraySegment*
+  nameWithType.vb: CharSpan.FromArraySegment(ArraySegment(Of Char))
+  fullName.vb: PostSharp.Patterns.Formatters.CharSpan.FromArraySegment(System.ArraySegment(Of Char))
+  name.vb: FromArraySegment(ArraySegment(Of Char))
+- uid: PostSharp.Patterns.Formatters.CharSpan.ToString
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: CharSpan.ToString()
+  fullName: PostSharp.Patterns.Formatters.CharSpan.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PostSharp.Patterns.Formatters.CharSpan.ToString*
+- uid: PostSharp.Patterns.Formatters.CharSpan.ToCharArraySegment
+  commentId: M:PostSharp.Patterns.Formatters.CharSpan.ToCharArraySegment
+  id: ToCharArraySegment
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: ToCharArraySegment()
+  nameWithType: CharSpan.ToCharArraySegment()
+  fullName: PostSharp.Patterns.Formatters.CharSpan.ToCharArraySegment()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Converts the current <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref> into an <xref href="System.ArraySegment%601" data-throw-if-not-resolved="false"></xref> of <xref href="System.Char" data-throw-if-not-resolved="false"></xref>.
+
+    When the <xref href="PostSharp.Patterns.Formatters.CharSpan.IsBackedByCharArray" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Formatters.CharSpan.IsNull" data-throw-if-not-resolved="false"></xref> property is <code>true</code>, this method does not allocate memory.
+  example: []
+  syntax:
+    content: public ArraySegment<char> ToCharArraySegment()
+    return:
+      type: System.ArraySegment{System.Char}
+      description: An <xref href="System.ArraySegment%601" data-throw-if-not-resolved="false"></xref> of <xref href="System.Char" data-throw-if-not-resolved="false"></xref> that represents the current <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function ToCharArraySegment() As ArraySegment(Of Char)
+  overload: PostSharp.Patterns.Formatters.CharSpan.ToCharArraySegment*
+- uid: PostSharp.Patterns.Formatters.CharSpan.Length
+  commentId: P:PostSharp.Patterns.Formatters.CharSpan.Length
+  id: Length
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: CharSpan.Length
+  fullName: PostSharp.Patterns.Formatters.CharSpan.Length
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets the number of <xref href="System.Char" data-throw-if-not-resolved="false"></xref> in the span.
+  example: []
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: PostSharp.Patterns.Formatters.CharSpan.Length*
+- uid: PostSharp.Patterns.Formatters.CharSpan.IsNull
+  commentId: P:PostSharp.Patterns.Formatters.CharSpan.IsNull
+  id: IsNull
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: IsNull
+  nameWithType: CharSpan.IsNull
+  fullName: PostSharp.Patterns.Formatters.CharSpan.IsNull
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets a value indicating whether the current instance represents a null string.
+  example: []
+  syntax:
+    content: public bool IsNull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsNull As Boolean
+  overload: PostSharp.Patterns.Formatters.CharSpan.IsNull*
+- uid: PostSharp.Patterns.Formatters.CharSpan.IsBackedByCharArray
+  commentId: P:PostSharp.Patterns.Formatters.CharSpan.IsBackedByCharArray
+  id: IsBackedByCharArray
+  parent: PostSharp.Patterns.Formatters.CharSpan
+  langs:
+  - csharp
+  - vb
+  name: IsBackedByCharArray
+  nameWithType: CharSpan.IsBackedByCharArray
+  fullName: PostSharp.Patterns.Formatters.CharSpan.IsBackedByCharArray
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref> is backed by a <code>char[]</code>. In this case,
+
+    the <xref href="PostSharp.Patterns.Formatters.CharSpan.ToCharArraySegment" data-throw-if-not-resolved="false"></xref> method does not allocate memory.
+  example: []
+  syntax:
+    content: public bool IsBackedByCharArray { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsBackedByCharArray As Boolean
+  overload: PostSharp.Patterns.Formatters.CharSpan.IsBackedByCharArray*

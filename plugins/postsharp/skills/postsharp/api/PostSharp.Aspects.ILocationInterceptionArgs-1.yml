@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ILocationInterceptionArgs`1
+  commentId: T:PostSharp.Aspects.ILocationInterceptionArgs`1
+  id: ILocationInterceptionArgs`1
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ILocationInterceptionArgs`1.Binding
+  - PostSharp.Aspects.ILocationInterceptionArgs`1.GetCurrentValue
+  - PostSharp.Aspects.ILocationInterceptionArgs`1.SetNewValue(`0)
+  - PostSharp.Aspects.ILocationInterceptionArgs`1.Value
+  langs:
+  - csharp
+  - vb
+  name: ILocationInterceptionArgs<T>
+  nameWithType: ILocationInterceptionArgs<T>
+  fullName: PostSharp.Aspects.ILocationInterceptionArgs<T>
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: A strongly-typed specialization of the <xref href="PostSharp.Aspects.ILocationInterceptionArgs" data-throw-if-not-resolved="false"></xref> interface.
+  remarks: Use the <xref href="PostSharp.Aspects.ILocationInterceptionArgs.Execute%60%601(PostSharp.Aspects.ILocationInterceptionArgsAction%7b%60%600%7d%2c%60%600%40)" data-throw-if-not-resolved="false"></xref> method to consume this interface.
+  example: []
+  syntax:
+    content: 'public interface ILocationInterceptionArgs<T> : ILocationInterceptionArgs'
+    typeParameters:
+    - id: T
+      description: Type of the location value.
+    content.vb: Public Interface ILocationInterceptionArgs(Of T) Inherits ILocationInterceptionArgs
+  inheritedMembers:
+  - PostSharp.Aspects.ILocationInterceptionArgs.ProceedGetValue
+  - PostSharp.Aspects.ILocationInterceptionArgs.ProceedSetValue
+  - PostSharp.Aspects.ILocationInterceptionArgs.SetNewValue(System.Object)
+  - PostSharp.Aspects.ILocationInterceptionArgs.Execute``1(PostSharp.Aspects.ILocationInterceptionArgsAction{{TPayload}},{TPayload}@)
+  - PostSharp.Aspects.ILocationInterceptionArgs.Index
+  - PostSharp.Aspects.ILocationInterceptionArgs.Location
+  - PostSharp.Aspects.ILocationInterceptionArgs.LocationName
+  - PostSharp.Aspects.ILocationInterceptionArgs.LocationFullName
+  - PostSharp.Aspects.ILocationInterceptionArgs.Instance
+  nameWithType.vb: ILocationInterceptionArgs(Of T)
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgs(Of T)
+  name.vb: ILocationInterceptionArgs(Of T)
+- uid: PostSharp.Aspects.ILocationInterceptionArgs`1.GetCurrentValue
+  commentId: M:PostSharp.Aspects.ILocationInterceptionArgs`1.GetCurrentValue
+  id: GetCurrentValue
+  parent: PostSharp.Aspects.ILocationInterceptionArgs`1
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentValue()
+  nameWithType: ILocationInterceptionArgs<T>.GetCurrentValue()
+  fullName: PostSharp.Aspects.ILocationInterceptionArgs<T>.GetCurrentValue()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Retrieves the current value of the location without overwriting the <xref href="PostSharp.Aspects.Internals.LocationLevelAdviceArgs.Value" data-throw-if-not-resolved="false"></xref> property.
+  remarks: >-
+    <div class="NOTE"><h5>note</h5><p>
+      This method is designed to be invoked during the execution of the advice. If you need to retrieve or store the value of the location at a different time, it is
+      recommended to use the
+      <xref href="PostSharp.Aspects.ILocationInterceptionArgs%601.Binding" data-throw-if-not-resolved="false"></xref>. Indeed, a binding is stateless, while
+      <xref href="PostSharp.Aspects.LocationInterceptionArgs" data-throw-if-not-resolved="false"></xref>
+      instances may be shared
+      among different aspects.
+    </p></div>
+  example: []
+  syntax:
+    content: T GetCurrentValue()
+    return:
+      type: '{T}'
+      description: The current value of the location, as returned by the next node in the chain of invocation (see <xref href="PostSharp.Aspects.LocationInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Function GetCurrentValue() As T
+  overload: PostSharp.Aspects.ILocationInterceptionArgs`1.GetCurrentValue*
+  nameWithType.vb: ILocationInterceptionArgs(Of T).GetCurrentValue()
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgs(Of T).GetCurrentValue()
+- uid: PostSharp.Aspects.ILocationInterceptionArgs`1.SetNewValue(`0)
+  commentId: M:PostSharp.Aspects.ILocationInterceptionArgs`1.SetNewValue(`0)
+  id: SetNewValue(`0)
+  parent: PostSharp.Aspects.ILocationInterceptionArgs`1
+  langs:
+  - csharp
+  - vb
+  name: SetNewValue(T)
+  nameWithType: ILocationInterceptionArgs<T>.SetNewValue(T)
+  fullName: PostSharp.Aspects.ILocationInterceptionArgs<T>.SetNewValue(T)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Sets the value of the location without overwriting the <xref href="PostSharp.Aspects.Internals.LocationLevelAdviceArgs.Value" data-throw-if-not-resolved="false"></xref> property.
+  remarks: >-
+    <br />
+        <div class="NOTE"><h5>note</h5><p>
+      This method is designed to be invoked during the execution of the advice. If you need to retrieve or store the value of the location at a different time, it is
+      recommended to use the
+      <xref href="PostSharp.Aspects.ILocationInterceptionArgs%601.Binding" data-throw-if-not-resolved="false"></xref>. Indeed, a binding is stateless, while
+      <xref href="PostSharp.Aspects.LocationInterceptionArgs" data-throw-if-not-resolved="false"></xref>
+      instances may be shared
+      among different aspects.
+    </p></div>
+  example: []
+  syntax:
+    content: void SetNewValue(T value)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The value to be passed to the next node in the chain of invocation (see <xref href="PostSharp.Aspects.LocationInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Sub SetNewValue(value As T)
+  overload: PostSharp.Aspects.ILocationInterceptionArgs`1.SetNewValue*
+  nameWithType.vb: ILocationInterceptionArgs(Of T).SetNewValue(T)
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgs(Of T).SetNewValue(T)
+- uid: PostSharp.Aspects.ILocationInterceptionArgs`1.Binding
+  commentId: P:PostSharp.Aspects.ILocationInterceptionArgs`1.Binding
+  id: Binding
+  parent: PostSharp.Aspects.ILocationInterceptionArgs`1
+  langs:
+  - csharp
+  - vb
+  name: Binding
+  nameWithType: ILocationInterceptionArgs<T>.Binding
+  fullName: PostSharp.Aspects.ILocationInterceptionArgs<T>.Binding
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets an interface that allows invoking the next node in the chain of invocation of the intercepted method.
+  remarks: >-
+    <p>
+      Bindings are thread-safe and context-free singleton instances exposing the next node in the chain of invocation.
+    </p>
+        <a href="@simple-aspects" target="_self">
+      Conceptual: Developing Simple Aspects
+    </a>
+  example: []
+  syntax:
+    content: ILocationBinding<T> Binding { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.ILocationBinding{{T}}
+    content.vb: ReadOnly Property Binding As ILocationBinding(Of T)
+  overload: PostSharp.Aspects.ILocationInterceptionArgs`1.Binding*
+  nameWithType.vb: ILocationInterceptionArgs(Of T).Binding
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgs(Of T).Binding
+- uid: PostSharp.Aspects.ILocationInterceptionArgs`1.Value
+  commentId: P:PostSharp.Aspects.ILocationInterceptionArgs`1.Value
+  id: Value
+  parent: PostSharp.Aspects.ILocationInterceptionArgs`1
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: ILocationInterceptionArgs<T>.Value
+  fullName: PostSharp.Aspects.ILocationInterceptionArgs<T>.Value
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets or sets the location value.
+  remarks: >-
+    <p>
+            Inside an <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref> advice, this property is available after
+            the next advice in the chain has been invoked using <xref href="PostSharp.Aspects.ILocationInterceptionArgs.ProceedGetValue" data-throw-if-not-resolved="false"></xref>. However, 
+            inside an <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref> advice, the value is available immediately,
+            and is used as input by <xref href="PostSharp.Aspects.ILocationInterceptionArgs.ProceedSetValue" data-throw-if-not-resolved="false"></xref>. 
+          </p>
+    <p>
+            See <xref href="PostSharp.Aspects.ILocationInterceptionArgs%601.GetCurrentValue" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.ILocationInterceptionArgs%601.SetNewValue(%600)" data-throw-if-not-resolved="false"></xref>
+            to get or set the value of the location without affecting the value of this property.
+          </p>
+  example: []
+  syntax:
+    content: T Value { get; set; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Property Value As T
+  overload: PostSharp.Aspects.ILocationInterceptionArgs`1.Value*
+  nameWithType.vb: ILocationInterceptionArgs(Of T).Value
+  fullName.vb: PostSharp.Aspects.ILocationInterceptionArgs(Of T).Value

@@ -1,0 +1,283 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  id: AsyncMethodLoggingContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AsyncCallId
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedMethod
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedTask
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Open(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.SetAwaitedTask(System.Threading.Tasks.Task,System.Reflection.MethodBase)
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Task
+  langs:
+  - csharp
+  - vb
+  name: AsyncMethodLoggingContext
+  nameWithType: AsyncMethodLoggingContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: A <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> that represents an asynchronous method.
+  remarks: >-
+    <p>A custom backend that needs to store more data in this context can derive a class from it and override
+        <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext" data-throw-if-not-resolved="false"></xref> to return an instance of the derived class.</p>
+  example: []
+  syntax:
+    content: 'public class AsyncMethodLoggingContext : AsyncLoggingContext, ILoggingContext, IDisposable'
+    content.vb: Public Class AsyncMethodLoggingContext Inherits AsyncLoggingContext Implements ILoggingContext, IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-logging-backend'
+    altText: 'Conceptual: Building Your Own Logging Backend (Adapter)'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncLoggingContext
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogAsyncMethodLoggingContext
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncLoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncLoggingContext.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.ResumeConditional
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.Resume
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.Suspend
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.ToString(System.Text.StringBuilder)
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.ThreadContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SuspendableLoggingContext.IsSuspended
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.VisitProperties``1(PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TState}},{TState}@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.VisitProperties(System.Action{System.String,System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{{T}},{T}@,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Dispose
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetRecordBuilder(PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo@,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetCustomRecordBuilder(PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.MakeSharable
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ToString
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SetWaitDependency(System.Object)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CreateCorrelationCookie
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SetCorrelation(PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.EventData
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsSharable
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.DefinedTransaction
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CurrentTransaction
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ParentContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ActivationContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IndentLevel
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsDisposed
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticRootId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticParentId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Source
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.MemberName
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Backend
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Description
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Kind
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsHidden
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Properties
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.HierarchicalContextIdInfo
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: AsyncMethodLoggingContext(LoggingBackend)
+  nameWithType: AsyncMethodLoggingContext.AsyncMethodLoggingContext(LoggingBackend)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AsyncMethodLoggingContext(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AsyncMethodLoggingContext(LoggingBackend backend)
+    parameters:
+    - id: backend
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: The parent <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(backend As LoggingBackend)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.#ctor*
+  nameWithType.vb: AsyncMethodLoggingContext.New(LoggingBackend)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.New(PostSharp.Patterns.Diagnostics.LoggingBackend)
+  name.vb: New(LoggingBackend)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Open(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Open(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  id: Open(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: Open(AsyncCallId, ref LogMemberInfo)
+  nameWithType: AsyncMethodLoggingContext.Open(AsyncCallId, ref LogMemberInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Open(PostSharp.Aspects.AsyncCallId, ref PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Opens the context.
+  example: []
+  syntax:
+    content: public virtual void Open(AsyncCallId asyncCallId, ref LogMemberInfo memberInfo)
+    parameters:
+    - id: asyncCallId
+      type: PostSharp.Aspects.AsyncCallId
+      description: The <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> associated with the async method.
+    - id: memberInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo
+      description: Information about the async method.
+    content.vb: Public Overridable Sub Open(asyncCallId As AsyncCallId, memberInfo As LogMemberInfo)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Open*
+  nameWithType.vb: AsyncMethodLoggingContext.Open(AsyncCallId, LogMemberInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Open(PostSharp.Aspects.AsyncCallId, PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo)
+  name.vb: Open(AsyncCallId, LogMemberInfo)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.SetAwaitedTask(System.Threading.Tasks.Task,System.Reflection.MethodBase)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.SetAwaitedTask(System.Threading.Tasks.Task,System.Reflection.MethodBase)
+  id: SetAwaitedTask(System.Threading.Tasks.Task,System.Reflection.MethodBase)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: SetAwaitedTask(Task, MethodBase)
+  nameWithType: AsyncMethodLoggingContext.SetAwaitedTask(Task, MethodBase)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.SetAwaitedTask(System.Threading.Tasks.Task, System.Reflection.MethodBase)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Sets the awaited <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> and/or <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>
+
+    (that is, the operand of the <code>await</code> operator).
+  example: []
+  syntax:
+    content: public void SetAwaitedTask(Task awaitedTask, MethodBase awaitedMethod)
+    parameters:
+    - id: awaitedTask
+      type: System.Threading.Tasks.Task
+      description: The awaited <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if the <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> cannot be determined.
+    - id: awaitedMethod
+      type: System.Reflection.MethodBase
+      description: The awaited <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub SetAwaitedTask(awaitedTask As Task, awaitedMethod As MethodBase)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.SetAwaitedTask*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Task
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Task
+  id: Task
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: Task
+  nameWithType: AsyncMethodLoggingContext.Task
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Task
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Gets the <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that is currently associated with the current async method invocation.
+
+    An async method invocation may be associated with several different tasks during its lifetime.
+  example: []
+  syntax:
+    content: public Task Task { get; set; }
+    parameters: []
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Property Task As Task
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.Task*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AsyncCallId
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AsyncCallId
+  id: AsyncCallId
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: AsyncCallId
+  nameWithType: AsyncMethodLoggingContext.AsyncCallId
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AsyncCallId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the unique identifier of the asynchronous call represented by the current <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AsyncCallId AsyncCallId { get; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.AsyncCallId
+    content.vb: Public ReadOnly Property AsyncCallId As AsyncCallId
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AsyncCallId*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedTask
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedTask
+  id: AwaitedTask
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: AwaitedTask
+  nameWithType: AsyncMethodLoggingContext.AwaitedTask
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedTask
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Gets the awaited <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> (that is, the operand of the <code>await</code> operator),
+
+    or <code>null</code> if it could not be determined or if the <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask" data-throw-if-not-resolved="false"></xref> profile property is set to <code>false</code>.
+  example: []
+  syntax:
+    content: public Task AwaitedTask { get; }
+    parameters: []
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public ReadOnly Property AwaitedTask As Task
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedTask*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedMethod
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedMethod
+  id: AwaitedMethod
+  parent: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: AwaitedMethod
+  nameWithType: AsyncMethodLoggingContext.AwaitedMethod
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedMethod
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Gets the awaited method (that is, the operand of the <code>await</code> operator),
+
+    or <code>null</code> if it could not be determined or if the <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeAwaitedTask" data-throw-if-not-resolved="false"></xref> profile property is set to <code>false</code>.
+  example: []
+  syntax:
+    content: public MethodBase AwaitedMethod { get; }
+    parameters: []
+    return:
+      type: System.Reflection.MethodBase
+    content.vb: Public ReadOnly Property AwaitedMethod As MethodBase
+  overload: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext.AwaitedMethod*

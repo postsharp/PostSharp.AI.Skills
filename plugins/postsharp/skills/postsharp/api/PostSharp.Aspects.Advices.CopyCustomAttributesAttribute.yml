@@ -1,0 +1,222 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  commentId: T:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  id: CopyCustomAttributesAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type)
+  - PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type[])
+  - PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.OverrideAction
+  - PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.Types
+  langs:
+  - csharp
+  - vb
+  name: CopyCustomAttributesAttribute
+  nameWithType: CopyCustomAttributesAttribute
+  fullName: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied on an aspect class, requires custom
+
+    attributes present on the aspect class to be copied to the target of this class.
+
+    When applied on an introduced member (see <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute" data-throw-if-not-resolved="false"></xref>),
+
+    this custom attribute requires custom attributes present on the aspect member
+
+    to be copied to the introduced member.
+  remarks: >-
+    <p>A typical use is to keep, on a property introduced by an aspect, a custom attribute that another framework
+            requires, such as a dependency injection attribute.</p>
+    <p>A custom attribute whose type is internal cannot be copied to a declaration of another assembly:
+            PostSharp emits a build error. Make the attribute type public, or exclude it from <xref href="PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.Types" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class|AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Event)]
+
+      public sealed class CopyCustomAttributesAttribute : Advice
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.ClassOrAttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.Event)>
+
+      Public NotInheritable Class CopyCustomAttributesAttribute Inherits Advice
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  - linkType: HRef
+    linkId: '@members'
+    altText: 'Conceptual: Accessing Members of the Target Class'
+  - linkType: HRef
+    linkId: '@importing-dependencies'
+    altText: 'Conceptual: Importing Dependencies from the Target Object'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 708
+- uid: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type)
+  commentId: M:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  langs:
+  - csharp
+  - vb
+  name: CopyCustomAttributesAttribute(Type)
+  nameWithType: CopyCustomAttributesAttribute.CopyCustomAttributesAttribute(Type)
+  fullName: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.CopyCustomAttributesAttribute(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.CopyCustomAttributesAttribute" data-throw-if-not-resolved="false"></xref> class
+
+    that requires custom attributes present on the aspect class or aspect class member
+
+    to be copied to the aspect target or to the introduced member, respectively.
+  example: []
+  syntax:
+    content: public CopyCustomAttributesAttribute(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The base type of the custom attributes to copy.
+    content.vb: Public Sub New(type As Type)
+  overload: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor*
+  nameWithType.vb: CopyCustomAttributesAttribute.New(Type)
+  fullName.vb: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type[])
+  commentId: M:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type[])
+  id: '#ctor(System.Type[])'
+  parent: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  langs:
+  - csharp
+  - vb
+  name: CopyCustomAttributesAttribute(params Type[])
+  nameWithType: CopyCustomAttributesAttribute.CopyCustomAttributesAttribute(params Type[])
+  fullName: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.CopyCustomAttributesAttribute(params System.Type[])
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.CopyCustomAttributesAttribute" data-throw-if-not-resolved="false"></xref> class
+
+    that requires custom attributes present on the aspect class or aspect class member
+
+    to be copied to the aspect target or to the introduced member, respectively.
+  example: []
+  syntax:
+    content: public CopyCustomAttributesAttribute(params Type[] types)
+    parameters:
+    - id: types
+      type: System.Type[]
+      description: The base types of the custom attributes to copy.
+    content.vb: Public Sub New(ParamArray types As Type())
+  overload: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor*
+  nameWithType.vb: CopyCustomAttributesAttribute.New(ParamArray Type())
+  fullName.vb: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.New(ParamArray System.Type())
+  name.vb: New(ParamArray Type())
+- uid: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.OverrideAction
+  commentId: P:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.OverrideAction
+  id: OverrideAction
+  parent: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  langs:
+  - csharp
+  - vb
+  name: OverrideAction
+  nameWithType: CopyCustomAttributesAttribute.OverrideAction
+  fullName: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.OverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the action to take when a custom attribute of the same
+
+    type is already present on the target declaration.
+  example: []
+  syntax:
+    content: public CustomAttributeOverrideAction OverrideAction { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+    content.vb: Public Property OverrideAction As CustomAttributeOverrideAction
+  overload: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.OverrideAction*
+- uid: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.Types
+  commentId: P:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.Types
+  id: Types
+  parent: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  langs:
+  - csharp
+  - vb
+  name: Types
+  nameWithType: CopyCustomAttributesAttribute.Types
+  fullName: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.Types
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the list of custom attribute types to be copied.
+  example: []
+  syntax:
+    content: public Type[] Types { get; }
+    parameters: []
+    return:
+      type: System.Type[]
+    content.vb: Public ReadOnly Property Types As Type()
+  overload: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.Types*

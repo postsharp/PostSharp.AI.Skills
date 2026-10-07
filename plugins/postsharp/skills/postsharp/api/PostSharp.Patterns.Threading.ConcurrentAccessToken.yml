@@ -1,0 +1,161 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  commentId: T:PostSharp.Patterns.Threading.ConcurrentAccessToken
+  id: ConcurrentAccessToken
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ConcurrentAccessToken.Cancel
+  - PostSharp.Patterns.Threading.ConcurrentAccessToken.CheckContext(System.Boolean)
+  - PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete
+  - PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose
+  - PostSharp.Patterns.Threading.ConcurrentAccessToken.Null
+  langs:
+  - csharp
+  - vb
+  name: ConcurrentAccessToken
+  nameWithType: ConcurrentAccessToken
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    A token returned by the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.AcquireAccess(PostSharp.Patterns.Model.ObjectAccessLevel%2cPostSharp.Patterns.Threading.ConcurrentAccessToken%40)" data-throw-if-not-resolved="false"></xref> method. This token is intended to be used in a <code>using</code> block.
+
+    Consumers of this method must call <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete" data-throw-if-not-resolved="false"></xref> on success, and <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose" data-throw-if-not-resolved="false"></xref> on exception.
+  example: []
+  syntax:
+    content: 'public struct ConcurrentAccessToken : IDisposable'
+    content.vb: Public Structure ConcurrentAccessToken Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessToken.CheckContext(System.Boolean)
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessToken.CheckContext(System.Boolean)
+  id: CheckContext(System.Boolean)
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  langs:
+  - csharp
+  - vb
+  name: CheckContext(bool)
+  nameWithType: ConcurrentAccessToken.CheckContext(bool)
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessToken.CheckContext(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether the current <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> is valid in the current context.
+  example: []
+  syntax:
+    content: public bool CheckContext(bool canBeParentContext = false)
+    parameters:
+    - id: canBeParentContext
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> can be the token of a parent token,
+            <code>false</code> if it must be the token of the current context.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the current <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> is valid for the current context, otherwise <code>false</code>.
+    content.vb: Public Function CheckContext(canBeParentContext As Boolean = False) As Boolean
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessToken.CheckContext*
+  nameWithType.vb: ConcurrentAccessToken.CheckContext(Boolean)
+  fullName.vb: PostSharp.Patterns.Threading.ConcurrentAccessToken.CheckContext(Boolean)
+  name.vb: CheckContext(Boolean)
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete
+  id: Complete
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  langs:
+  - csharp
+  - vb
+  name: Complete()
+  nameWithType: ConcurrentAccessToken.Complete()
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Indicates that the operation requiring access on an object has successfully completed.
+  example: []
+  syntax:
+    content: public void Complete()
+    content.vb: Public Sub Complete()
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete*
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessToken.Cancel
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessToken.Cancel
+  id: Cancel
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  langs:
+  - csharp
+  - vb
+  name: Cancel()
+  nameWithType: ConcurrentAccessToken.Cancel()
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessToken.Cancel()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Indicates that the operation requiring access on an object failed.
+  example: []
+  syntax:
+    content: public void Cancel()
+    content.vb: Public Sub Cancel()
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessToken.Cancel*
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: ConcurrentAccessToken.Dispose()
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Indicates that the operation requiring access on an object has completed. If the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken.Complete" data-throw-if-not-resolved="false"></xref> method is
+
+    not invoked before the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose" data-throw-if-not-resolved="false"></xref> method, the transaction is considered to have failed. Current threading
+
+    models do not support transactions. Therefore, this semantic is currently unused, but it may be used in the future.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessToken.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessToken.Null
+  commentId: P:PostSharp.Patterns.Threading.ConcurrentAccessToken.Null
+  id: "Null"
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessToken
+  langs:
+  - csharp
+  - vb
+  name: "Null"
+  nameWithType: ConcurrentAccessToken.Null
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessToken.Null
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a null instance of the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessToken" data-throw-if-not-resolved="false"></xref> type.
+  example: []
+  syntax:
+    content: public static ConcurrentAccessToken Null { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.ConcurrentAccessToken
+    content.vb: Public Shared ReadOnly Property Null As ConcurrentAccessToken
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessToken.Null*

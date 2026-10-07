@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy
+  commentId: T:PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy
+  id: IExceptionHandlingPolicy
+  parent: PostSharp.Patterns.Caching.Resilience
+  children:
+  - PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IExceptionHandlingPolicy
+  nameWithType: IExceptionHandlingPolicy
+  fullName: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: Determines how exceptions should be handled in <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The Redis backend takes this policy from the <code>ExceptionHandlingPolicy</code> property of its configuration. The default policy,
+        <xref href="PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy" data-throw-if-not-resolved="false"></xref>, logs and swallows the exceptions of read operations, and handles
+        a failed write by removing the item or invalidating the dependency in the background, so that the cache does not remain inconsistent.
+        It rethrows the exceptions of cleanup operations.</p>
+  example: []
+  syntax:
+    content: public interface IExceptionHandlingPolicy
+    content.vb: Public Interface IExceptionHandlingPolicy
+  seealso:
+  - linkId: PostSharp.Patterns.Caching.Resilience.IRetryPolicy
+    commentId: T:PostSharp.Patterns.Caching.Resilience.IRetryPolicy
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+  derivedClasses:
+  - PostSharp.Patterns.Caching.Resilience.DefaultExceptionHandlingPolicy
+- uid: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  id: OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy
+  langs:
+  - csharp
+  - vb
+  name: OnExceptionAsync(ExceptionInfo, CancellationToken)
+  nameWithType: IExceptionHandlingPolicy.OnExceptionAsync(ExceptionInfo, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy.OnExceptionAsync(PostSharp.Patterns.Caching.Resilience.ExceptionInfo, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Resilience
+  summary: >-
+    Method invoked when an exception is thrown by the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref> implementation.
+
+    It should return a <xref href="PostSharp.Patterns.Caching.Resilience.RecoveryAction" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ValueTask<RecoveryAction> OnExceptionAsync(ExceptionInfo exceptionInfo, CancellationToken cancellationToken)
+    parameters:
+    - id: exceptionInfo
+      type: PostSharp.Patterns.Caching.Resilience.ExceptionInfo
+      description: Information about the exception.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref> for the current operation.
+    return:
+      type: System.Threading.Tasks.ValueTask{PostSharp.Patterns.Caching.Resilience.RecoveryAction}
+      description: A <xref href="PostSharp.Patterns.Caching.Resilience.RecoveryAction" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function OnExceptionAsync(exceptionInfo As ExceptionInfo, cancellationToken As CancellationToken) As ValueTask(Of RecoveryAction)
+  overload: PostSharp.Patterns.Caching.Resilience.IExceptionHandlingPolicy.OnExceptionAsync*

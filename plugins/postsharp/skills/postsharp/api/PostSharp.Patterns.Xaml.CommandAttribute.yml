@@ -1,0 +1,393 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Xaml.CommandAttribute
+  commentId: T:PostSharp.Patterns.Xaml.CommandAttribute
+  id: CommandAttribute
+  parent: PostSharp.Patterns.Xaml
+  children:
+  - PostSharp.Patterns.Xaml.CommandAttribute.#ctor
+  - PostSharp.Patterns.Xaml.CommandAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod
+  - PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty
+  - PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod
+  langs:
+  - csharp
+  - vb
+  name: CommandAttribute
+  nameWithType: CommandAttribute
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Custom attribute that, when applied to a property of type <xref href="System.Windows.Input.ICommand" data-throw-if-not-resolved="false"></xref> named, for example, <code>Foo</code>, automatically creates a
+
+    new command class based on a method named <code>Foo</code> or <code>ExecuteFoo</code> and an optional property or method named
+
+    <code>CanFoo</code> or <code>CanExecuteFoo</code>.
+  remarks: >-
+    <p>
+        Default naming conventions can be overridden by setting the <xref href="PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod" data-throw-if-not-resolved="false"></xref>
+        or <xref href="PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty" data-throw-if-not-resolved="false"></xref> aspect properties.
+        </p>
+    <p>
+        A <code>CanExecute</code> property cannot depend on the command parameter. When the availability of the command depends on the parameter,
+        implement a <code>CanExecute</code> method with one parameter instead.
+        </p>
+    <p>
+        When used in a class that has <xref href="PostSharp.Patterns.Model.NotifyPropertyChangedAttribute" data-throw-if-not-resolved="false"></xref> applied, the <xref href="System.Windows.Input.ICommand.CanExecuteChanged" data-throw-if-not-resolved="false"></xref> event is fired whenever a change of the property
+        specified by <xref href="PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty" data-throw-if-not-resolved="false"></xref> is detected. The <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref> of the thread on which the instance of the target class
+        was created is used to fire the event. For example, if the instance is created on a thread where <xref href="System.Windows.Threading.Dispatcher" data-throw-if-not-resolved="false"></xref> is running, the event will
+        be fired from this thread. If <xref href="System.Threading.SynchronizationContext.Current" data-throw-if-not-resolved="false"></xref> was <code>null</code>, the event is fired on the thread on which the notification of property change was received.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Property)]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Threading")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Validation")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "DataBinding")]
+
+      [ComVisible(false)]
+
+      [LinesOfCodeAvoided(5)]
+
+      [Serializer(typeof(CommandAttribute.Serializer))]
+
+      public class CommandAttribute : LocationLevelAspect, ILocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAspectProvider, IAspect, IService
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.Property)>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Threading")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Validation")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "DataBinding")>
+
+      <ComVisible(False)>
+
+      <LinesOfCodeAvoided(5)>
+
+      <Serializer(GetType(CommandAttribute.Serializer))>
+
+      Public Class CommandAttribute Inherits LocationLevelAspect Implements ILocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAspectProvider, IAspect, IService
+  seealso:
+  - linkType: HRef
+    linkId: '@command'
+    altText: 'Conceptual: Command'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.LocationLevelAspect
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Extensibility.IService
+  inheritedMembers:
+  - PostSharp.Aspects.LocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.Aspect.CreateAspectConfiguration
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 512
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Threading
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: Validation
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: DataBinding
+  - type: System.Runtime.InteropServices.ComVisibleAttribute
+    ctor: System.Runtime.InteropServices.ComVisibleAttribute.#ctor(System.Boolean)
+    arguments:
+    - type: System.Boolean
+      value: false
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 5
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Xaml.CommandAttribute.Serializer
+- uid: PostSharp.Patterns.Xaml.CommandAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Xaml.CommandAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Xaml.CommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: CommandAttribute()
+  nameWithType: CommandAttribute.CommandAttribute()
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute.CommandAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Xaml.CommandAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CommandAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Xaml.CommandAttribute.#ctor*
+  nameWithType.vb: CommandAttribute.New()
+  fullName.vb: PostSharp.Patterns.Xaml.CommandAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Patterns.Xaml.CommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(LocationInfo, AspectInfo)
+  nameWithType: CommandAttribute.CompileTimeInitialize(LocationInfo, AspectInfo)
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize(PostSharp.Reflection.LocationInfo, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: public override void CompileTimeInitialize(LocationInfo targetLocation, AspectInfo aspectInfo)
+    parameters:
+    - id: targetLocation
+      type: PostSharp.Reflection.LocationInfo
+      description: Location to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future usage.
+    content.vb: Public Overrides Sub CompileTimeInitialize(targetLocation As LocationInfo, aspectInfo As AspectInfo)
+  overridden: PostSharp.Aspects.LocationLevelAspect.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  overload: PostSharp.Patterns.Xaml.CommandAttribute.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'
+- uid: PostSharp.Patterns.Xaml.CommandAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Xaml.CommandAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Xaml.CommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: CommandAttribute(PortableFormatterConstructorContext)
+  nameWithType: CommandAttribute.CommandAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute.CommandAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  syntax:
+    content: protected CommandAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Xaml.CommandAttribute.#ctor*
+  nameWithType.vb: CommandAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Xaml.CommandAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod
+  commentId: P:PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod
+  id: ExecuteMethod
+  parent: PostSharp.Patterns.Xaml.CommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExecuteMethod
+  nameWithType: CommandAttribute.ExecuteMethod
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Gets or sets the name of the method that implements the command logic. This method corresponds to the
+
+    <xref href="System.Windows.Input.ICommand.Execute(System.Object)" data-throw-if-not-resolved="false"></xref> method. It is called every time the command is invoked.
+  remarks: >-
+    <p>
+        The <code>Execute</code> method must be declared in the same class as the command property and can have zero parameters or one parameter of any type, which becomes the command parameter.
+        </p>
+    <p>
+        If this property is not set, then the aspect will look for a method named <code>Foo</code> or <code>ExecuteFoo</code>, where <code>Foo</code> is the name of the command without the <code>Command</code> suffix.
+        </p>
+  example: []
+  syntax:
+    content: public string ExecuteMethod { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExecuteMethod As String
+  overload: PostSharp.Patterns.Xaml.CommandAttribute.ExecuteMethod*
+- uid: PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod
+  commentId: P:PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod
+  id: CanExecuteMethod
+  parent: PostSharp.Patterns.Xaml.CommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: CanExecuteMethod
+  nameWithType: CommandAttribute.CanExecuteMethod
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Gets or sets the name of the method that is called to determine whether the command can be executed.
+
+    This method corresponds to the <xref href="System.Windows.Input.ICommand.CanExecute(System.Object)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>
+        The <code>CanExecute</code> method must be declared in the same class as the command property, return a <code>bool</code> value and can have zero or one parameter.
+        </p>
+    <p>
+        If this property is not set, then the aspect will look for a method named <code>CanFoo</code> or <code>CanExecuteFoo</code>, where <code>Foo</code> is the name of the command without the <code>Command</code> suffix.
+        </p>
+  example: []
+  syntax:
+    content: public string CanExecuteMethod { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CanExecuteMethod As String
+  overload: PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteMethod*
+- uid: PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty
+  commentId: P:PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty
+  id: CanExecuteProperty
+  parent: PostSharp.Patterns.Xaml.CommandAttribute
+  langs:
+  - csharp
+  - vb
+  name: CanExecuteProperty
+  nameWithType: CommandAttribute.CanExecuteProperty
+  fullName: PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Gets or sets the name of the property that is evaluated to determine whether the command can be executed.
+
+    This property corresponds to the <xref href="System.Windows.Input.ICommand.CanExecute(System.Object)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>
+        The <code>CanExecute</code> property must be declared in the same class as the command property and return a <code>bool</code> value.
+        </p>
+    <p>
+        If this property is not set, then the aspect will look for a property named <code>CanFoo</code> or <code>CanExecuteFoo</code>, where <code>Foo</code> is the name of the command without the <code>Command</code> suffix.
+        </p>
+  example: []
+  syntax:
+    content: public string CanExecuteProperty { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CanExecuteProperty As String
+  overload: PostSharp.Patterns.Xaml.CommandAttribute.CanExecuteProperty*

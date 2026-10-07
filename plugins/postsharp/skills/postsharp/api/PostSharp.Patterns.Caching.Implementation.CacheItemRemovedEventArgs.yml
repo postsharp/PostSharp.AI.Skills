@@ -1,0 +1,130 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  id: CacheItemRemovedEventArgs
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.Key
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.RemovedReason
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.SourceId
+  - PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.ToString
+  langs:
+  - csharp
+  - vb
+  name: CacheItemRemovedEventArgs
+  nameWithType: CacheItemRemovedEventArgs
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Provides data for the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ItemRemoved" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: 'public sealed class CacheItemRemovedEventArgs : EventArgs'
+    content.vb: Public NotInheritable Class CacheItemRemovedEventArgs Inherits EventArgs
+  inheritance:
+  - System.Object
+  - System.EventArgs
+  inheritedMembers:
+  - System.EventArgs.Empty
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.ToString
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: CacheItemRemovedEventArgs.ToString()
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.ToString*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.Key
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.Key
+  id: Key
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: Key
+  nameWithType: CacheItemRemovedEventArgs.Key
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.Key
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the key of the removed cached item.
+  example: []
+  syntax:
+    content: public string Key { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Key As String
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.Key*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.RemovedReason
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.RemovedReason
+  id: RemovedReason
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: RemovedReason
+  nameWithType: CacheItemRemovedEventArgs.RemovedReason
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.RemovedReason
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the reason for the removal.
+  example: []
+  syntax:
+    content: public CacheItemRemovedReason RemovedReason { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason
+    content.vb: Public ReadOnly Property RemovedReason As CacheItemRemovedReason
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.RemovedReason*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.SourceId
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.SourceId
+  id: SourceId
+  parent: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs
+  langs:
+  - csharp
+  - vb
+  name: SourceId
+  nameWithType: CacheItemRemovedEventArgs.SourceId
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.SourceId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref> that caused the removal,
+
+    or <xref href="System.Guid.Empty" data-throw-if-not-resolved="false"></xref> if it cannot be determined or does not apply.
+  example: []
+  syntax:
+    content: public Guid SourceId { get; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public ReadOnly Property SourceId As Guid
+  overload: PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs.SourceId*

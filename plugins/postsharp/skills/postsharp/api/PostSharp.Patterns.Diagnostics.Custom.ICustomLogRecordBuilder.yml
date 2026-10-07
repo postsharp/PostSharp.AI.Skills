@@ -1,0 +1,249 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  id: ICustomLogRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.Complete
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.EndWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetException(System.Exception)
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetExecutionTime(System.Double,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter``1(System.Int32,PostSharp.Patterns.Formatters.CharSpan@,``0,PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomString(PostSharp.Patterns.Formatters.CharSpan@)
+  langs:
+  - csharp
+  - vb
+  name: ICustomLogRecordBuilder
+  nameWithType: ICustomLogRecordBuilder
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Defines a builder of custom log records. A log record is typically, but not necessarily, a string.
+
+    A log record can be composed of one or several items.
+  remarks: >-
+    <p>To implement your own type of message, implement <xref href="PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage" data-throw-if-not-resolved="false"></xref> and render the message into the
+        <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref> passed to the <xref href="PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage.Write(PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder%2cPostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: 'public interface ICustomLogRecordBuilder : IDisposable'
+    content.vb: Public Interface ICustomLogRecordBuilder Inherits IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@log-custom-messages'
+    altText: 'Conceptual: Writing Custom Messages'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+  - PostSharp.Patterns.Diagnostics.RecordBuilders.TextLogRecordBuilder
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions@)
+  id: BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: BeginWriteItem(CustomLogRecordItem, in CustomLogRecordTextOptions)
+  nameWithType: ICustomLogRecordBuilder.BeginWriteItem(CustomLogRecordItem, in CustomLogRecordTextOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem, in PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Begins building the specified item.
+  example: []
+  syntax:
+    content: void BeginWriteItem(CustomLogRecordItem item, in CustomLogRecordTextOptions options)
+    parameters:
+    - id: item
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem
+      description: The item being built.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions
+      description: The options.
+    content.vb: Sub BeginWriteItem(item As CustomLogRecordItem, options As CustomLogRecordTextOptions)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem*
+  nameWithType.vb: ICustomLogRecordBuilder.BeginWriteItem(CustomLogRecordItem, CustomLogRecordTextOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem, PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions)
+  name.vb: BeginWriteItem(CustomLogRecordItem, CustomLogRecordTextOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.EndWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.EndWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  id: EndWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: EndWriteItem(CustomLogRecordItem)
+  nameWithType: ICustomLogRecordBuilder.EndWriteItem(CustomLogRecordItem)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.EndWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Ends building the specified item.
+  example: []
+  syntax:
+    content: void EndWriteItem(CustomLogRecordItem item)
+    parameters:
+    - id: item
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem
+      description: The item being built.
+    content.vb: Sub EndWriteItem(item As CustomLogRecordItem)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.EndWriteItem*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter``1(System.Int32,PostSharp.Patterns.Formatters.CharSpan@,``0,PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter``1(System.Int32,PostSharp.Patterns.Formatters.CharSpan@,``0,PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions@)
+  id: WriteCustomParameter``1(System.Int32,PostSharp.Patterns.Formatters.CharSpan@,``0,PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: WriteCustomParameter<T>(int, in CharSpan, T, in CustomLogParameterOptions)
+  nameWithType: ICustomLogRecordBuilder.WriteCustomParameter<T>(int, in CharSpan, T, in CustomLogParameterOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter<T>(int, in PostSharp.Patterns.Formatters.CharSpan, T, in PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a custom parameter.
+  example: []
+  syntax:
+    content: void WriteCustomParameter<T>(int index, in CharSpan parameterName, T value, in CustomLogParameterOptions options)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The zero-based index of the parameter.
+    - id: parameterName
+      type: PostSharp.Patterns.Formatters.CharSpan
+      description: The name of the parameter.
+    - id: value
+      type: '{T}'
+      description: The value of the parameter.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions
+      description: The options.
+    typeParameters:
+    - id: T
+      description: The type of the parameter value.
+    content.vb: Sub WriteCustomParameter(Of T)(index As Integer, parameterName As CharSpan, value As T, options As CustomLogParameterOptions)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter*
+  nameWithType.vb: ICustomLogRecordBuilder.WriteCustomParameter(Of T)(Integer, CharSpan, T, CustomLogParameterOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter(Of T)(Integer, PostSharp.Patterns.Formatters.CharSpan, T, PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions)
+  name.vb: WriteCustomParameter(Of T)(Integer, CharSpan, T, CustomLogParameterOptions)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomString(PostSharp.Patterns.Formatters.CharSpan@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomString(PostSharp.Patterns.Formatters.CharSpan@)
+  id: WriteCustomString(PostSharp.Patterns.Formatters.CharSpan@)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: WriteCustomString(in CharSpan)
+  nameWithType: ICustomLogRecordBuilder.WriteCustomString(in CharSpan)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomString(in PostSharp.Patterns.Formatters.CharSpan)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a string.
+  example: []
+  syntax:
+    content: void WriteCustomString(in CharSpan str)
+    parameters:
+    - id: str
+      type: PostSharp.Patterns.Formatters.CharSpan
+      description: A string.
+    content.vb: Sub WriteCustomString(str As CharSpan)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomString*
+  nameWithType.vb: ICustomLogRecordBuilder.WriteCustomString(CharSpan)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomString(PostSharp.Patterns.Formatters.CharSpan)
+  name.vb: WriteCustomString(CharSpan)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetException(System.Exception)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetException(System.Exception)
+  id: SetException(System.Exception)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: SetException(Exception)
+  nameWithType: ICustomLogRecordBuilder.SetException(Exception)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetException(System.Exception)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Assigns an <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> to the record.
+  example: []
+  syntax:
+    content: void SetException(Exception exception)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Sub SetException(exception As Exception)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetException*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetExecutionTime(System.Double,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetExecutionTime(System.Double,System.Boolean)
+  id: SetExecutionTime(System.Double,System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: SetExecutionTime(double, bool)
+  nameWithType: ICustomLogRecordBuilder.SetExecutionTime(double, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetExecutionTime(double, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Sets the execution time of the record.
+  example: []
+  syntax:
+    content: void SetExecutionTime(double executionTime, bool isOvertime)
+    parameters:
+    - id: executionTime
+      type: System.Double
+      description: The execution time.
+    - id: isOvertime
+      type: System.Boolean
+      description: <code>true</code> if the activity is overtime, otherwise <code>false</code>.
+    content.vb: Sub SetExecutionTime(executionTime As Double, isOvertime As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetExecutionTime*
+  nameWithType.vb: ICustomLogRecordBuilder.SetExecutionTime(Double, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.SetExecutionTime(Double, Boolean)
+  name.vb: SetExecutionTime(Double, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.Complete
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.Complete
+  id: Complete
+  parent: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+  langs:
+  - csharp
+  - vb
+  name: Complete()
+  nameWithType: ICustomLogRecordBuilder.Complete()
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.Complete()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Completes the creation of the record. It must be invoked before <xref href="System.IDisposable.Dispose" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void Complete()
+    content.vb: Sub Complete()
+  overload: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.Complete*

@@ -1,0 +1,245 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  commentId: T:PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  id: IntroduceMemberAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceMemberAttribute.#ctor
+  - PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsIsVirtualSpecified
+  - PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual
+  - PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction
+  - PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility
+  langs:
+  - csharp
+  - vb
+  name: IntroduceMemberAttribute
+  nameWithType: IntroduceMemberAttribute
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied on a method, event or property of an aspect class, specifies
+
+    that this method, event or property should be introduced into the types to which the aspect is applied.
+  remarks: >-
+    <p>
+          Methods, properties and events annotated with <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute" data-throw-if-not-resolved="false"></xref> must be public.
+        </p>
+    <p>
+         If the method, event or property is in a C# 8.0 nullable annotations context, its nullability information will
+        be copied into the types as well.
+        </p>
+    <p>
+          Members are introduced by delegation: the introduced member calls the member of the aspect, where the implementation stays.
+          For this reason, fields cannot be introduced; introduce a property instead. Use <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual" data-throw-if-not-resolved="false"></xref>
+          to control the introduced member, and <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction" data-throw-if-not-resolved="false"></xref> to choose what happens when the target type or a base type
+          already defines the member.
+        </p>
+    <p>
+          Introduced members are not visible to the C# compiler in the project being built, so code of that project cannot call them directly.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Event, AllowMultiple = false)]
+
+      public sealed class IntroduceMemberAttribute : Advice
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.Event, AllowMultiple:=False)>
+
+      Public NotInheritable Class IntroduceMemberAttribute Inherits Advice
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+    commentId: T:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  - linkType: HRef
+    linkId: '@members'
+    altText: 'Conceptual: Accessing Members of the Target Class'
+  - linkType: HRef
+    linkId: '@code-injections'
+    altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 704
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.IntroduceMemberAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  langs:
+  - csharp
+  - vb
+  name: IntroduceMemberAttribute()
+  nameWithType: IntroduceMemberAttribute.IntroduceMemberAttribute()
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IntroduceMemberAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public IntroduceMemberAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAttribute.#ctor*
+  nameWithType.vb: IntroduceMemberAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.IntroduceMemberAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility
+  id: Visibility
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  langs:
+  - csharp
+  - vb
+  name: Visibility
+  nameWithType: IntroduceMemberAttribute.Visibility
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the visibility (<xref href="PostSharp.Reflection.Visibility.Public" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Reflection.Visibility.Family" data-throw-if-not-resolved="false"></xref>, ...)
+
+    of the introduced member.
+  example: []
+  syntax:
+    content: public Visibility Visibility { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.Visibility
+    content.vb: Public Property Visibility As Visibility
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility*
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual
+  id: IsVirtual
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsVirtual
+  nameWithType: IntroduceMemberAttribute.IsVirtual
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets a value indicating whether the introduced member should be virtual.
+  remarks: >-
+    <p>
+            The value of this property is ignored when the member to be introduced already exists in the aspect target type or its base type.
+          </p>
+  example: []
+  syntax:
+    content: public bool IsVirtual { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsVirtual As Boolean
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual*
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsIsVirtualSpecified
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsIsVirtualSpecified
+  id: IsIsVirtualSpecified
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsIsVirtualSpecified
+  nameWithType: IntroduceMemberAttribute.IsIsVirtualSpecified
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsIsVirtualSpecified
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets a value indicating whether the <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual" data-throw-if-not-resolved="false"></xref> property has been specified.
+  example: []
+  syntax:
+    content: public bool IsIsVirtualSpecified { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsIsVirtualSpecified As Boolean
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsIsVirtualSpecified*
+- uid: PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction
+  commentId: P:PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction
+  id: OverrideAction
+  parent: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  langs:
+  - csharp
+  - vb
+  name: OverrideAction
+  nameWithType: IntroduceMemberAttribute.OverrideAction
+  fullName: PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the action to take when the member to be introduced already exists
+
+    in the type to which the aspect is applied or in a base type.
+  example: []
+  syntax:
+    content: public MemberOverrideAction OverrideAction { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.MemberOverrideAction
+    content.vb: Public Property OverrideAction As MemberOverrideAction
+  overload: PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction*

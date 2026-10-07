@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.SuppressWarningAttribute
+  commentId: T:PostSharp.Extensibility.SuppressWarningAttribute
+  id: SuppressWarningAttribute
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.SuppressWarningAttribute.#ctor(System.String)
+  - PostSharp.Extensibility.SuppressWarningAttribute.MessageId
+  - PostSharp.Extensibility.SuppressWarningAttribute.Reason
+  langs:
+  - csharp
+  - vb
+  name: SuppressWarningAttribute
+  nameWithType: SuppressWarningAttribute
+  fullName: PostSharp.Extensibility.SuppressWarningAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Instructs PostSharp to ignore warnings and information messages. Errors cannot be ignored.
+  remarks: >-
+    <p>Apply this attribute to the element of code that causes the warning, or to any enclosing declaration, such as the declaring type
+        or the assembly, to suppress the warning for all the elements it contains. It works with any PostSharp warning, including warnings emitted
+        by aspects and constraints with <xref href="PostSharp.Extensibility.Message" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref>. PostSharp looks for the attribute starting from the
+        <xref href="PostSharp.Extensibility.MessageLocation" data-throw-if-not-resolved="false"></xref> of the message, so it cannot suppress a message emitted without a location.
+        The message identifier is compared without regard to case.</p>
+    <p>To ignore a warning in the whole project, or to escalate warnings into errors, use the project settings instead.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
+
+      public class SuppressWarningAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.All, AllowMultiple:=True, Inherited:=False)>
+
+      Public Class SuppressWarningAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@ignoring-warnings'
+    altText: 'Conceptual: Ignoring and Escalating Warnings'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 32767
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: Inherited
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Extensibility.SuppressWarningAttribute.#ctor(System.String)
+  commentId: M:PostSharp.Extensibility.SuppressWarningAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Extensibility.SuppressWarningAttribute
+  langs:
+  - csharp
+  - vb
+  name: SuppressWarningAttribute(string)
+  nameWithType: SuppressWarningAttribute.SuppressWarningAttribute(string)
+  fullName: PostSharp.Extensibility.SuppressWarningAttribute.SuppressWarningAttribute(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.SuppressWarningAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public SuppressWarningAttribute(string messageId)
+    parameters:
+    - id: messageId
+      type: System.String
+      description: The identifier of the ignored warning.
+    content.vb: Public Sub New(messageId As String)
+  overload: PostSharp.Extensibility.SuppressWarningAttribute.#ctor*
+  nameWithType.vb: SuppressWarningAttribute.New(String)
+  fullName.vb: PostSharp.Extensibility.SuppressWarningAttribute.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Extensibility.SuppressWarningAttribute.MessageId
+  commentId: P:PostSharp.Extensibility.SuppressWarningAttribute.MessageId
+  id: MessageId
+  parent: PostSharp.Extensibility.SuppressWarningAttribute
+  langs:
+  - csharp
+  - vb
+  name: MessageId
+  nameWithType: SuppressWarningAttribute.MessageId
+  fullName: PostSharp.Extensibility.SuppressWarningAttribute.MessageId
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the identifier of the ignored warning.
+  example: []
+  syntax:
+    content: public string MessageId { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MessageId As String
+  overload: PostSharp.Extensibility.SuppressWarningAttribute.MessageId*
+- uid: PostSharp.Extensibility.SuppressWarningAttribute.Reason
+  commentId: P:PostSharp.Extensibility.SuppressWarningAttribute.Reason
+  id: Reason
+  parent: PostSharp.Extensibility.SuppressWarningAttribute
+  langs:
+  - csharp
+  - vb
+  name: Reason
+  nameWithType: SuppressWarningAttribute.Reason
+  fullName: PostSharp.Extensibility.SuppressWarningAttribute.Reason
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets or sets the reason (a human-readable text) why the warning must be ignored.
+  example: []
+  syntax:
+    content: public string Reason { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Reason As String
+  overload: PostSharp.Extensibility.SuppressWarningAttribute.Reason*

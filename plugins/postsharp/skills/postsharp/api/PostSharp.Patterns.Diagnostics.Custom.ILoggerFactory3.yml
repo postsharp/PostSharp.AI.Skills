@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+  id: ILoggerFactory3
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.String)
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: ILoggerFactory3
+  nameWithType: ILoggerFactory3
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Defines a factory that creates instances of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger2" data-throw-if-not-resolved="false"></xref> interface based on names, in addition to types.
+  example: []
+  syntax:
+    content: 'public interface ILoggerFactory3 : ILoggerFactory2'
+    content.vb: Public Interface ILoggerFactory3 Inherits ILoggerFactory2
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  extensionMethods:
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(System.Type)
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(System.String)
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(System.Type)
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.Type)
+  id: GetLogger(System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+  langs:
+  - csharp
+  - vb
+  name: GetLogger(Type)
+  nameWithType: ILoggerFactory3.GetLogger(Type)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets an instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger3" data-throw-if-not-resolved="false"></xref> for a specific <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ILogger3 GetLogger(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type of the source code that will emit the records.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.ILogger3
+      description: An instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger2" data-throw-if-not-resolved="false"></xref> interface for <code class="paramref">type</code>.
+    content.vb: Function GetLogger(type As Type) As ILogger3
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(System.String)
+  id: GetLogger(System.String)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3
+  langs:
+  - csharp
+  - vb
+  name: GetLogger(string)
+  nameWithType: ILoggerFactory3.GetLogger(string)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Gets an instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger2" data-throw-if-not-resolved="false"></xref> interface for a specific <code class="paramref">sourceName</code>. The name will
+
+    usually, but not always, be a type name.
+  example: []
+  syntax:
+    content: ILogger3 GetLogger(string sourceName)
+    parameters:
+    - id: sourceName
+      type: System.String
+      description: The name that identifies the returned logger. The backend creates a logger based on this name.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.ILogger3
+    content.vb: Function GetLogger(sourceName As String) As ILogger3
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger*
+  nameWithType.vb: ILoggerFactory3.GetLogger(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory3.GetLogger(String)
+  name.vb: GetLogger(String)

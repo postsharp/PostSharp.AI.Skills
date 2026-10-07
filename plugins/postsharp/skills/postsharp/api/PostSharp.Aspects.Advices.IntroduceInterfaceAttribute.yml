@@ -1,0 +1,203 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+  commentId: T:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+  id: IntroduceInterfaceAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+  - PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction
+  - PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction
+  langs:
+  - csharp
+  - vb
+  name: IntroduceInterfaceAttribute
+  nameWithType: IntroduceInterfaceAttribute
+  fullName: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied to an aspect class, specifies that the aspect should
+
+    introduce a given interface into the type to which the aspect is applied.
+  remarks: >-
+    <p>The introduced interface will be implemented explicitly by the type to which the aspect is applied.</p>
+
+    <p>The aspect class must itself implement the interface: the target type delegates the implementation to the aspect instance,
+        so the aspect is typically derived from <xref href="PostSharp.Aspects.InstanceLevelAspect" data-throw-if-not-resolved="false"></xref>. Because the interface is added after compilation,
+        the C# compiler does not know that the target type implements it; in the same project, use <xref href="PostSharp.Post.Cast%60%602(%60%600)" data-throw-if-not-resolved="false"></xref>
+        to convert an instance of the target type to the interface with a build-time check.</p>
+    <p>To introduce individual methods, properties or events instead of a whole interface, use <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
+
+      public sealed class IntroduceInterfaceAttribute : Advice
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Class, AllowMultiple:=True, Inherited:=True)>
+
+      Public NotInheritable Class IntroduceInterfaceAttribute Inherits Advice
+  seealso:
+  - linkType: HRef
+    linkId: '@code-injections'
+    altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'
+  - linkId: PostSharp.Aspects.Advices.IntroduceMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.IntroduceMemberAttribute
+  - linkType: HRef
+    linkId: '@code-injections'
+    altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 4
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: Inherited
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+  commentId: M:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+  langs:
+  - csharp
+  - vb
+  name: IntroduceInterfaceAttribute(Type)
+  nameWithType: IntroduceInterfaceAttribute.IntroduceInterfaceAttribute(Type)
+  fullName: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.IntroduceInterfaceAttribute(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.IntroduceInterfaceAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public IntroduceInterfaceAttribute(Type interfaceType)
+    parameters:
+    - id: interfaceType
+      type: System.Type
+      description: >-
+        The interface that should be introduced into the types
+                      to which the aspect is applied.
+    content.vb: Public Sub New(interfaceType As Type)
+  overload: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor*
+  nameWithType.vb: IntroduceInterfaceAttribute.New(Type)
+  fullName.vb: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction
+  commentId: P:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction
+  id: OverrideAction
+  parent: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+  langs:
+  - csharp
+  - vb
+  name: OverrideAction
+  nameWithType: IntroduceInterfaceAttribute.OverrideAction
+  fullName: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the action (<xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Fail" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Ignore" data-throw-if-not-resolved="false"></xref>)
+
+    to take when the interface specified in the constructor of this custom attribute
+
+    is already implemented by the type to which the current aspect is applied.
+  example: []
+  syntax:
+    content: public InterfaceOverrideAction OverrideAction { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+    content.vb: Public Property OverrideAction As InterfaceOverrideAction
+  overload: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction*
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction
+    commentId: P:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction
+- uid: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction
+  commentId: P:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction
+  id: AncestorOverrideAction
+  parent: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+  langs:
+  - csharp
+  - vb
+  name: AncestorOverrideAction
+  nameWithType: IntroduceInterfaceAttribute.AncestorOverrideAction
+  fullName: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the action (<xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Fail" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Ignore" data-throw-if-not-resolved="false"></xref>)
+
+    to take when an ancestor of the interface specified in the constructor of this custom attribute
+
+    is already implemented by the type to which the current aspect is applied.
+  example: []
+  syntax:
+    content: public InterfaceOverrideAction AncestorOverrideAction { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+    content.vb: Public Property AncestorOverrideAction As InterfaceOverrideAction
+  overload: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.AncestorOverrideAction*
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction
+    commentId: P:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction

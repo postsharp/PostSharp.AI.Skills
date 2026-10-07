@@ -1,0 +1,306 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  id: ApplicationInsightsLoggingBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Finalize
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Flush
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Options
+  langs:
+  - csharp
+  - vb
+  name: ApplicationInsightsLoggingBackend
+  nameWithType: ApplicationInsightsLoggingBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Logging backend for Microsoft Application Insights.
+  remarks: >-
+    <p>To use this backend, assign a new instance to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> when the application starts.
+
+    Pass the instrumentation key to the constructor, or use the parameterless constructor to rely on the default Application Insights
+
+    configuration, for example the <code>APPINSIGHTS_INSTRUMENTATIONKEY</code> environment variable or, on .NET Framework, an <code>ApplicationInsights.config</code> file.</p>
+  example: []
+  syntax:
+    content: 'public class ApplicationInsightsLoggingBackend : TextLoggingBackend, IDisposable'
+    content.vb: Public Class ApplicationInsightsLoggingBackend Inherits TextLoggingBackend Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@application-insights'
+    altText: 'Conceptual: Logging with Application Insights'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: ApplicationInsightsLoggingBackend()
+  nameWithType: ApplicationInsightsLoggingBackend.ApplicationInsightsLoggingBackend()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.ApplicationInsightsLoggingBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ApplicationInsightsLoggingBackend()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor*
+  nameWithType.vb: ApplicationInsightsLoggingBackend.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: ApplicationInsightsLoggingBackend(string)
+  nameWithType: ApplicationInsightsLoggingBackend.ApplicationInsightsLoggingBackend(string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.ApplicationInsightsLoggingBackend(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend" data-throw-if-not-resolved="false"></xref> class that uses the given instrumentation key.
+  example: []
+  syntax:
+    content: public ApplicationInsightsLoggingBackend(string instrumentationKey)
+    parameters:
+    - id: instrumentationKey
+      type: System.String
+    content.vb: Public Sub New(instrumentationKey As String)
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.#ctor*
+  nameWithType.vb: ApplicationInsightsLoggingBackend.New(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: ApplicationInsightsLoggingBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: ApplicationInsightsLoggingBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Flush
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Flush
+  id: Flush
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Flush()
+  nameWithType: ApplicationInsightsLoggingBackend.Flush()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Flush()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Flushes the in-memory buffer, so that buffered data reaches the server immediately.
+  example: []
+  syntax:
+    content: public void Flush()
+    content.vb: Public Sub Flush()
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Flush*
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions
+  id: GetTextBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetTextBackendOptions()
+  nameWithType: ApplicationInsightsLoggingBackend.GetTextBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Gets the backend options.
+  example: []
+  syntax:
+    content: protected override TextLoggingBackendOptions GetTextBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+      description: ''
+    content.vb: Protected Overrides Function GetTextBackendOptions() As TextLoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetTextBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.GetTextBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: ApplicationInsightsLoggingBackend.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected override void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose" data-throw-if-not-resolved="false"></xref> method has been called, <code>false</code> if the object is being finalized by the garbage collector.
+    content.vb: Protected Overrides Sub Dispose(disposing As Boolean)
+  overridden: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Dispose(System.Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Dispose*
+  nameWithType.vb: ApplicationInsightsLoggingBackend.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Finalize
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Finalize
+  id: Finalize
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: ~ApplicationInsightsLoggingBackend()
+  nameWithType: ApplicationInsightsLoggingBackend.~ApplicationInsightsLoggingBackend()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.~ApplicationInsightsLoggingBackend()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  example: []
+  syntax:
+    content: protected ~ApplicationInsightsLoggingBackend()
+    content.vb: 'Protected '
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: ApplicationInsightsLoggingBackend.Options
+  fullName: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  namespace: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights
+  summary: Gets the backend options.
+  example: []
+  syntax:
+    content: public ApplicationInsightsLoggingBackendOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackendOptions
+    content.vb: Public ReadOnly Property Options As ApplicationInsightsLoggingBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend.Options*

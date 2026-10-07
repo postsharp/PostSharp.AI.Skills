@@ -1,0 +1,297 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  id: CustomLogRecordInfo
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.LogLevel,System.Int32,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Attributes
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.CallerInfo
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Data
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Level
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.ParameterCount
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Properties
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.RecordKind
+  - PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Source
+  langs:
+  - csharp
+  - vb
+  name: CustomLogRecordInfo
+  nameWithType: CustomLogRecordInfo
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Stores information about a custom record, that is, a record emitted by the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public readonly struct CustomLogRecordInfo
+    content.vb: Public Structure CustomLogRecordInfo
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.LogLevel,System.Int32,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.LogLevel,System.Int32,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.LogLevel,System.Int32,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: CustomLogRecordInfo(LoggingTypeSource, LogLevel, int, LogRecordKind, CallerInfo)
+  nameWithType: CustomLogRecordInfo.CustomLogRecordInfo(LoggingTypeSource, LogLevel, int, LogRecordKind, CallerInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.CustomLogRecordInfo(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.LogLevel, int, PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("There should be no need to create a CustomLogRecordInfo in user code.")]
+
+      public CustomLogRecordInfo(LoggingTypeSource source, LogLevel level, int parameterCount, LogRecordKind recordKind, CallerInfo callerInfo)
+    parameters:
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The source type.
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The log level.
+    - id: parameterCount
+      type: System.Int32
+      description: The number of parameters in the record text.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of record.
+    - id: callerInfo
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+      description: The information about the code that invokes the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: >-
+      <Obsolete("There should be no need to create a CustomLogRecordInfo in user code.")>
+
+      Public Sub New(source As LoggingTypeSource, level As LogLevel, parameterCount As Integer, recordKind As LogRecordKind, callerInfo As CallerInfo)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: There should be no need to create a CustomLogRecordInfo in user code.
+  nameWithType.vb: CustomLogRecordInfo.New(LoggingTypeSource, LogLevel, Integer, LogRecordKind, CallerInfo)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.New(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.LogLevel, Integer, PostSharp.Patterns.Diagnostics.LogRecordKind, PostSharp.Patterns.Diagnostics.Contexts.CallerInfo)
+  name.vb: New(LoggingTypeSource, LogLevel, Integer, LogRecordKind, CallerInfo)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.RecordKind
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.RecordKind
+  id: RecordKind
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: RecordKind
+  nameWithType: CustomLogRecordInfo.RecordKind
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.RecordKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the record kind.
+  example: []
+  syntax:
+    content: public LogRecordKind RecordKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+    content.vb: Public ReadOnly Property RecordKind As LogRecordKind
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.RecordKind*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Attributes
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Attributes
+  id: Attributes
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: CustomLogRecordInfo.Attributes
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Attributes
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CustomLogRecordAttributes Attributes { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordAttributes
+    content.vb: Public ReadOnly Property Attributes As CustomLogRecordAttributes
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Attributes*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Level
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Level
+  id: Level
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: CustomLogRecordInfo.Level
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Level
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the record level.
+  example: []
+  syntax:
+    content: public LogLevel Level { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public ReadOnly Property Level As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Level*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Source
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Source
+  id: Source
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: CustomLogRecordInfo.Source
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Source
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the source type.
+  example: []
+  syntax:
+    content: public LoggingTypeSource Source { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Public ReadOnly Property Source As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Source*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.ParameterCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.ParameterCount
+  id: ParameterCount
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: ParameterCount
+  nameWithType: CustomLogRecordInfo.ParameterCount
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.ParameterCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the number of parameters in the record text.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property will be removed in a next release.")]
+
+      public int ParameterCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("This property will be removed in a next release.")>
+
+      Public ReadOnly Property ParameterCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.ParameterCount*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This property will be removed in a next release.
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Data
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Data
+  id: Data
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: CustomLogRecordInfo.Data
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Data
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the properties of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo" data-throw-if-not-resolved="false"></xref>, typically specified as an instance of a well-known or anonymous CLR type.
+  example: []
+  syntax:
+    content: public LogEventData Data { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventData
+    content.vb: Public ReadOnly Property Data As LogEventData
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Data*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Properties
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Properties
+  id: Properties
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: CustomLogRecordInfo.Properties
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Properties
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the properties of the log records.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the Data property.")]
+
+      public LoggingProperty[] Properties { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty[]
+    content.vb: >-
+      <Obsolete("Use the Data property.")>
+
+      Public ReadOnly Property Properties As LoggingProperty()
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.Properties*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Data property.
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.CallerInfo
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.CallerInfo
+  id: CallerInfo
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo
+  langs:
+  - csharp
+  - vb
+  name: CallerInfo
+  nameWithType: CustomLogRecordInfo.CallerInfo
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.CallerInfo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets information about the code that invokes the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public CallerInfo CallerInfo { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
+    content.vb: Public ReadOnly Property CallerInfo As CallerInfo
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo.CallerInfo*

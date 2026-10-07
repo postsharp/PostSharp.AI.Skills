@@ -1,0 +1,1114 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  commentId: T:PostSharp.Patterns.Collections.AdvisableHashSet`1
+  id: AdvisableHashSet`1
+  parent: PostSharp.Patterns.Collections
+  children:
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Add(`0)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.AddItem(`0)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.ChangeManyItems(System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Clear
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.ClearItems
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Comparer
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Contains(`0)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[])
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[],System.Int32)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[],System.Int32,System.Int32)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Count
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.CreateSetComparer
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.GetAdviceEnumerator
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.GetEnumerator
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.IntersectWith(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.OnDeserialization(System.Object)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.Remove(`0)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveItem(`0)
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveWhere(System.Predicate{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.TrimExcess
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
+  langs:
+  - csharp
+  - vb
+  name: AdvisableHashSet<T>
+  nameWithType: AdvisableHashSet<T>
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: A collection type similar to <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> into which advices can be injected dynamically.
+  remarks: >-
+    <p>The API of this class is compatible with the <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> class. It provides some additions, but preserves the same design and naming conventions.</p>
+
+    <p>Classes that derive from <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> can add functionalities by overriding protected methods or by defining new public methods.
+        New public methods wrap their logic in a call of the <xref href="PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices%60%602(PostSharp.Patterns.Model.ObjectAccessLevel%2c%60%601%40)" data-throw-if-not-resolved="false"></xref> method,
+        which applies boundary aspects. Public methods can access the data structure through protected methods, which have a name ending in <code>Item</code>, for example <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601.AddItem(%600)" data-throw-if-not-resolved="false"></xref>.
+        Public methods should not use other public methods of the class, because this may cause inconsistent invocation of advices and performance issues.</p>
+    <p>Use this class instead of <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> in the child properties of classes that use patterns such as Aggregatable, Recordable
+        or threading models, which inject their behavior into advisable collections at run time.</p>
+  example: []
+  syntax:
+    content: 'public class AdvisableHashSet<T> : DynamicallyAdvisableObject, ISerializable, IDeserializationCallback, ISet<T>, ICollection<T>, IEnumerable<T>, IDynamicallyAdvisableHashSet, IDynamicallyAdvisable, IQueryInterface, ICollection, IEnumerable'
+    typeParameters:
+    - id: T
+      description: The type of elements in the collection.
+    content.vb: Public Class AdvisableHashSet(Of T) Inherits DynamicallyAdvisableObject Implements ISerializable, IDeserializationCallback, ISet(Of T), ICollection(Of T), IEnumerable(Of T), IDynamicallyAdvisableHashSet, IDynamicallyAdvisable, IQueryInterface, ICollection, IEnumerable
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  - System.Runtime.Serialization.IDeserializationCallback
+  - System.Collections.Generic.ISet{{T}}
+  - System.Collections.Generic.ICollection{{T}}
+  - System.Collections.Generic.IEnumerable{{T}}
+  - PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - System.Collections.ICollection
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator``1
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices``2(PostSharp.Patterns.Model.ObjectAccessLevel,{TAction}@)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - System.Collections.Generic.IEnumerable{`0}.PostSharp.Patterns.Collections.Extensions.ToAdvisableCollection``1
+  - System.Collections.Generic.IEnumerable{`0}.PostSharp.Patterns.Collections.Extensions.ToAdvisableDictionary``3(System.Func{{T},{TKey}},System.Func{{T},{TValue}})
+  - System.Collections.Generic.IEnumerable{`0}.PostSharp.Patterns.Collections.Extensions.ToAdvisableHashSet``1
+  nameWithType.vb: AdvisableHashSet(Of T)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T)
+  name.vb: AdvisableHashSet(Of T)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: AdvisableHashSet()
+  nameWithType: AdvisableHashSet<T>.AdvisableHashSet()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.AdvisableHashSet()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> class that is empty and uses the default equality comparer for the set type.
+  example: []
+  syntax:
+    content: public AdvisableHashSet()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor*
+  nameWithType.vb: AdvisableHashSet(Of T).New()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0})
+  id: '#ctor(System.Collections.Generic.IEnumerable{`0})'
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: AdvisableHashSet(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.AdvisableHashSet(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.AdvisableHashSet(System.Collections.Generic.IEnumerable<T>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> class that uses the default equality comparer for the set type,
+
+    contains elements copied from the specified collection, and has sufficient capacity to accommodate the number of elements copied.
+  example: []
+  syntax:
+    content: public AdvisableHashSet(IEnumerable<T> collection)
+    parameters:
+    - id: collection
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The collection whose elements are copied to the new set.
+    content.vb: Public Sub New(collection As IEnumerable(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor*
+  nameWithType.vb: AdvisableHashSet(Of T).New(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).New(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: New(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  id: '#ctor(System.Collections.Generic.IEqualityComparer{`0})'
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: AdvisableHashSet(IEqualityComparer<T>)
+  nameWithType: AdvisableHashSet<T>.AdvisableHashSet(IEqualityComparer<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.AdvisableHashSet(System.Collections.Generic.IEqualityComparer<T>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> class that is empty and uses the specified equality comparer for the set type.
+  example: []
+  syntax:
+    content: public AdvisableHashSet(IEqualityComparer<T> comparer)
+    parameters:
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{T}}
+      description: >-
+        The <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation to use when comparing values in the set,
+
+        or <code>null</code> to use the default <xref href="System.Collections.Generic.EqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation for the set type.
+    content.vb: Public Sub New(comparer As IEqualityComparer(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor*
+  nameWithType.vb: AdvisableHashSet(Of T).New(IEqualityComparer(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).New(System.Collections.Generic.IEqualityComparer(Of T))
+  name.vb: New(IEqualityComparer(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})
+  id: '#ctor(System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEqualityComparer{`0})'
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: AdvisableHashSet(IEnumerable<T>, IEqualityComparer<T>)
+  nameWithType: AdvisableHashSet<T>.AdvisableHashSet(IEnumerable<T>, IEqualityComparer<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.AdvisableHashSet(System.Collections.Generic.IEnumerable<T>, System.Collections.Generic.IEqualityComparer<T>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> class that uses the specified equality comparer for the set type,
+
+    contains elements copied from the specified collection, and has sufficient capacity to accommodate the number of elements copied.
+  example: []
+  syntax:
+    content: public AdvisableHashSet(IEnumerable<T> collection, IEqualityComparer<T> comparer)
+    parameters:
+    - id: collection
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: The collection whose elements are copied to the new set.
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{T}}
+      description: >-
+        The <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation to use when comparing values in the set,
+
+        or <code>null</code> to use the default <xref href="System.Collections.Generic.EqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation for the set type.
+    content.vb: Public Sub New(collection As IEnumerable(Of T), comparer As IEqualityComparer(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.#ctor*
+  nameWithType.vb: AdvisableHashSet(Of T).New(IEnumerable(Of T), IEqualityComparer(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).New(System.Collections.Generic.IEnumerable(Of T), System.Collections.Generic.IEqualityComparer(Of T))
+  name.vb: New(IEnumerable(Of T), IEqualityComparer(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.GetAdviceEnumerator
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.GetAdviceEnumerator
+  id: GetAdviceEnumerator
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: GetAdviceEnumerator()
+  nameWithType: AdvisableHashSet<T>.GetAdviceEnumerator()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.GetAdviceEnumerator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets an <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdvice%601" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: protected AdviceEnumerator<IHashSetDynamicAdvice<T>> GetAdviceEnumerator()
+    return:
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IHashSetDynamicAdvice{{T}}}
+      description: ''
+    content.vb: Protected Function GetAdviceEnumerator() As AdviceEnumerator(Of IHashSetDynamicAdvice(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.GetAdviceEnumerator*
+  nameWithType.vb: AdvisableHashSet(Of T).GetAdviceEnumerator()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).GetAdviceEnumerator()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.AddItem(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.AddItem(`0)
+  id: AddItem(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: AddItem(T)
+  nameWithType: AdvisableHashSet<T>.AddItem(T)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.AddItem(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Inserts an element into the underlying set.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void AddItem(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: The object to insert. The value can be <code>null</code> for reference types.
+    content.vb: Protected Overridable Sub AddItem(item As T)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.AddItem*
+  nameWithType.vb: AdvisableHashSet(Of T).AddItem(T)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).AddItem(T)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveItem(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveItem(`0)
+  id: RemoveItem(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveItem(T)
+  nameWithType: AdvisableHashSet<T>.RemoveItem(T)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.RemoveItem(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Removes an element from the underlying collection.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void RemoveItem(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+      description: The object to remove. The value can be <code>null</code> for reference types.
+    content.vb: Protected Overridable Sub RemoveItem(item As T)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveItem*
+  nameWithType.vb: AdvisableHashSet(Of T).RemoveItem(T)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).RemoveItem(T)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.ClearItems
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.ClearItems
+  id: ClearItems
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: ClearItems()
+  nameWithType: AdvisableHashSet<T>.ClearItems()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.ClearItems()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Removes all elements from the underlying set.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void ClearItems()
+    content.vb: Protected Overridable Sub ClearItems()
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.ClearItems*
+  nameWithType.vb: AdvisableHashSet(Of T).ClearItems()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).ClearItems()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.ChangeManyItems(System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.ChangeManyItems(System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  id: ChangeManyItems(System.Collections.Generic.IList{`0},System.Collections.Generic.IList{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: ChangeManyItems(IList<T>, IList<T>)
+  nameWithType: AdvisableHashSet<T>.ChangeManyItems(IList<T>, IList<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.ChangeManyItems(System.Collections.Generic.IList<T>, System.Collections.Generic.IList<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Modifies the underlying set by adding and removing the specified items.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void ChangeManyItems(IList<T> itemsToAdd, IList<T> itemsToRemove)
+    parameters:
+    - id: itemsToAdd
+      type: System.Collections.Generic.IList{{T}}
+      description: The objects to insert. The value can be <code>null</code> for reference types.
+    - id: itemsToRemove
+      type: System.Collections.Generic.IList{{T}}
+      description: The objects to remove. The value can be <code>null</code> for reference types.
+    content.vb: Protected Overridable Sub ChangeManyItems(itemsToAdd As IList(Of T), itemsToRemove As IList(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.ChangeManyItems*
+  nameWithType.vb: AdvisableHashSet(Of T).ChangeManyItems(IList(Of T), IList(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).ChangeManyItems(System.Collections.Generic.IList(Of T), System.Collections.Generic.IList(Of T))
+  name.vb: ChangeManyItems(IList(Of T), IList(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Clear
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.Clear
+  id: Clear
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: AdvisableHashSet<T>.Clear()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Clear()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Clear*
+  implements:
+  - System.Collections.Generic.ICollection{{T}}.Clear
+  nameWithType.vb: AdvisableHashSet(Of T).Clear()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Clear()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Contains(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.Contains(`0)
+  id: Contains(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Contains(T)
+  nameWithType: AdvisableHashSet<T>.Contains(T)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Contains(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool Contains(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function Contains(item As T) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Contains*
+  implements:
+  - System.Collections.Generic.ICollection{{T}}.Contains({T})
+  nameWithType.vb: AdvisableHashSet(Of T).Contains(T)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Contains(T)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[],System.Int32)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[],System.Int32)
+  id: CopyTo(`0[],System.Int32)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(T[], int)
+  nameWithType: AdvisableHashSet<T>.CopyTo(T[], int)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.CopyTo(T[], int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void CopyTo(T[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: '{T}[]'
+    - id: arrayIndex
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As T(), arrayIndex As Integer)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo*
+  implements:
+  - System.Collections.Generic.ICollection{{T}}.CopyTo({T}[],System.Int32)
+  nameWithType.vb: AdvisableHashSet(Of T).CopyTo(T(), Integer)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).CopyTo(T(), Integer)
+  name.vb: CopyTo(T(), Integer)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Remove(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.Remove(`0)
+  id: Remove(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(T)
+  nameWithType: AdvisableHashSet<T>.Remove(T)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Remove(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool Remove(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(item As T) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Remove*
+  implements:
+  - System.Collections.Generic.ICollection{{T}}.Remove({T})
+  nameWithType.vb: AdvisableHashSet(Of T).Remove(T)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Remove(T)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Add(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.Add(`0)
+  id: Add(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Add(T)
+  nameWithType: AdvisableHashSet<T>.Add(T)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Add(T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool Add(T item)
+    parameters:
+    - id: item
+      type: '{T}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function Add(item As T) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Add*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.Add({T})
+  nameWithType.vb: AdvisableHashSet(Of T).Add(T)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Add(T)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.UnionWith(System.Collections.Generic.IEnumerable{`0})
+  id: UnionWith(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: UnionWith(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.UnionWith(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.UnionWith(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void UnionWith(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    content.vb: Public Sub UnionWith(other As IEnumerable(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.UnionWith*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.UnionWith(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).UnionWith(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).UnionWith(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: UnionWith(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.IntersectWith(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.IntersectWith(System.Collections.Generic.IEnumerable{`0})
+  id: IntersectWith(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: IntersectWith(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.IntersectWith(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.IntersectWith(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void IntersectWith(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    content.vb: Public Sub IntersectWith(other As IEnumerable(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.IntersectWith*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.IntersectWith(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).IntersectWith(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).IntersectWith(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IntersectWith(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.ExceptWith(System.Collections.Generic.IEnumerable{`0})
+  id: ExceptWith(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: ExceptWith(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.ExceptWith(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.ExceptWith(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void ExceptWith(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    content.vb: Public Sub ExceptWith(other As IEnumerable(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.ExceptWith*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.ExceptWith(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).ExceptWith(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).ExceptWith(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: ExceptWith(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})
+  id: SymmetricExceptWith(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: SymmetricExceptWith(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.SymmetricExceptWith(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.SymmetricExceptWith(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void SymmetricExceptWith(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    content.vb: Public Sub SymmetricExceptWith(other As IEnumerable(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.SymmetricExceptWith*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.SymmetricExceptWith(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).SymmetricExceptWith(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).SymmetricExceptWith(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: SymmetricExceptWith(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  id: IsSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: IsSubsetOf(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.IsSubsetOf(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.IsSubsetOf(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool IsSubsetOf(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsSubsetOf(other As IEnumerable(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSubsetOf*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.IsSubsetOf(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).IsSubsetOf(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).IsSubsetOf(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IsSubsetOf(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  id: IsSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: IsSupersetOf(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.IsSupersetOf(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.IsSupersetOf(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool IsSupersetOf(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsSupersetOf(other As IEnumerable(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsSupersetOf*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.IsSupersetOf(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).IsSupersetOf(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).IsSupersetOf(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IsSupersetOf(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  id: IsProperSupersetOf(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: IsProperSupersetOf(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.IsProperSupersetOf(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.IsProperSupersetOf(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool IsProperSupersetOf(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsProperSupersetOf(other As IEnumerable(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSupersetOf*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.IsProperSupersetOf(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).IsProperSupersetOf(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).IsProperSupersetOf(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IsProperSupersetOf(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  id: IsProperSubsetOf(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: IsProperSubsetOf(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.IsProperSubsetOf(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.IsProperSubsetOf(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool IsProperSubsetOf(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsProperSubsetOf(other As IEnumerable(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.IsProperSubsetOf*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.IsProperSubsetOf(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).IsProperSubsetOf(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).IsProperSubsetOf(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: IsProperSubsetOf(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.Overlaps(System.Collections.Generic.IEnumerable{`0})
+  id: Overlaps(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Overlaps(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.Overlaps(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Overlaps(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool Overlaps(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function Overlaps(other As IEnumerable(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Overlaps*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.Overlaps(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).Overlaps(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Overlaps(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: Overlaps(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.SetEquals(System.Collections.Generic.IEnumerable{`0})
+  id: SetEquals(System.Collections.Generic.IEnumerable{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: SetEquals(IEnumerable<T>)
+  nameWithType: AdvisableHashSet<T>.SetEquals(IEnumerable<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.SetEquals(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool SetEquals(IEnumerable<T> other)
+    parameters:
+    - id: other
+      type: System.Collections.Generic.IEnumerable{{T}}
+    return:
+      type: System.Boolean
+    content.vb: Public Function SetEquals(other As IEnumerable(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.SetEquals*
+  implements:
+  - System.Collections.Generic.ISet{{T}}.SetEquals(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: AdvisableHashSet(Of T).SetEquals(IEnumerable(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).SetEquals(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: SetEquals(IEnumerable(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[])
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[])
+  id: CopyTo(`0[])
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(T[])
+  nameWithType: AdvisableHashSet<T>.CopyTo(T[])
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.CopyTo(T[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Copies the elements of an <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> object to an array.
+  example: []
+  syntax:
+    content: public void CopyTo(T[] array)
+    parameters:
+    - id: array
+      type: '{T}[]'
+      description: The one-dimensional array that is the destination of the elements copied from the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> object. The array must have zero-based indexing.
+    content.vb: Public Sub CopyTo(array As T())
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">array</code> is <code>null</code>.
+  nameWithType.vb: AdvisableHashSet(Of T).CopyTo(T())
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).CopyTo(T())
+  name.vb: CopyTo(T())
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[],System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo(`0[],System.Int32,System.Int32)
+  id: CopyTo(`0[],System.Int32,System.Int32)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(T[], int, int)
+  nameWithType: AdvisableHashSet<T>.CopyTo(T[], int, int)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.CopyTo(T[], int, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Copies the specified number of elements of an <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> object to an array, starting at the specified array index.
+  example: []
+  syntax:
+    content: public void CopyTo(T[] array, int arrayIndex, int count)
+    parameters:
+    - id: array
+      type: '{T}[]'
+      description: The one-dimensional array that is the destination of the elements copied from the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> object. The array must have zero-based indexing.
+    - id: arrayIndex
+      type: System.Int32
+      description: The zero-based index in <code class="paramref">array</code> at which copying begins.
+    - id: count
+      type: System.Int32
+      description: The number of elements to copy to <code class="paramref">array</code>.
+    content.vb: Public Sub CopyTo(array As T(), arrayIndex As Integer, count As Integer)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.CopyTo*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">array</code> is <code>null</code>.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: >-
+      <p>
+        <code class="paramref">arrayIndex</code> is less than 0.</p>
+      <p>-or-</p>
+
+      <p>
+        <code class="paramref">count</code> is less than 0.</p>
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: >-
+      <p>
+        <code class="paramref">arrayIndex</code> is greater than the length of the destination <code class="paramref">array</code>.</p>
+      <p>-or-</p>
+
+      <p>
+        <code class="paramref">count</code> is greater than the available space from the <code class="paramref">arrayIndex</code> to the end of the destination <code class="paramref">array</code>.</p>
+  nameWithType.vb: AdvisableHashSet(Of T).CopyTo(T(), Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).CopyTo(T(), Integer, Integer)
+  name.vb: CopyTo(T(), Integer, Integer)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveWhere(System.Predicate{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveWhere(System.Predicate{`0})
+  id: RemoveWhere(System.Predicate{`0})
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveWhere(Predicate<T>)
+  nameWithType: AdvisableHashSet<T>.RemoveWhere(Predicate<T>)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.RemoveWhere(System.Predicate<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Removes all elements that match the conditions defined by the specified predicate from a <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> collection.
+  example: []
+  syntax:
+    content: public int RemoveWhere(Predicate<T> match)
+    parameters:
+    - id: match
+      type: System.Predicate{{T}}
+      description: The <xref href="System.Predicate%601" data-throw-if-not-resolved="false"></xref> delegate that defines the conditions of the elements to remove.
+    return:
+      type: System.Int32
+      description: The number of elements that were removed from the <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> collection.
+    content.vb: Public Function RemoveWhere(match As Predicate(Of T)) As Integer
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.RemoveWhere*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">match</code> is <code>null</code>.
+  nameWithType.vb: AdvisableHashSet(Of T).RemoveWhere(Predicate(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).RemoveWhere(System.Predicate(Of T))
+  name.vb: RemoveWhere(Predicate(Of T))
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.TrimExcess
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.TrimExcess
+  id: TrimExcess
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: TrimExcess()
+  nameWithType: AdvisableHashSet<T>.TrimExcess()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.TrimExcess()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: >-
+    Sets the capacity of an <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> object to the actual number of elements it contains,
+
+    rounded up to a nearby, implementation-specific value.
+  example: []
+  syntax:
+    content: public void TrimExcess()
+    content.vb: Public Sub TrimExcess()
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.TrimExcess*
+  nameWithType.vb: AdvisableHashSet(Of T).TrimExcess()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).TrimExcess()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.CreateSetComparer
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.CreateSetComparer
+  id: CreateSetComparer
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: CreateSetComparer()
+  nameWithType: AdvisableHashSet<T>.CreateSetComparer()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.CreateSetComparer()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Returns an <xref href="System.Collections.IEqualityComparer" data-throw-if-not-resolved="false"></xref> object that can be used for equality testing of a <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref> object.
+  remarks: >-
+    <p>
+        The <xref href="System.Collections.IEqualityComparer" data-throw-if-not-resolved="false"></xref> object checks for equality at only one level;
+        however, you can chain together comparers at additional levels to perform deeper equality testing.
+        </p>
+  example: []
+  syntax:
+    content: public static IEqualityComparer<AdvisableHashSet<T>> CreateSetComparer()
+    return:
+      type: System.Collections.Generic.IEqualityComparer{PostSharp.Patterns.Collections.AdvisableHashSet`1}
+      description: An <xref href="System.Collections.IEqualityComparer" data-throw-if-not-resolved="false"></xref> object that can be used for deep equality testing of the <xref href="System.Collections.Generic.HashSet%601" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Public Shared Function CreateSetComparer() As IEqualityComparer(Of AdvisableHashSet(Of T))
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.CreateSetComparer*
+  nameWithType.vb: AdvisableHashSet(Of T).CreateSetComparer()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).CreateSetComparer()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.GetEnumerator
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.GetEnumerator
+  id: GetEnumerator
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: AdvisableHashSet<T>.GetEnumerator()
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.GetEnumerator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Returns an enumerator that iterates through the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AdvisableHashSet<T>.Enumerator GetEnumerator()
+    return:
+      type: PostSharp.Patterns.Collections.AdvisableHashSet`1.Enumerator
+      description: An <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601.Enumerator" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Collections.AdvisableHashSet%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetEnumerator() As AdvisableHashSet(Of T).Enumerator
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.GetEnumerator*
+  nameWithType.vb: AdvisableHashSet(Of T).GetEnumerator()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).GetEnumerator()
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: AdvisableHashSet<T>.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: >-
+      [SecurityCritical]
+
+      public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+    content.vb: >-
+      <SecurityCritical>
+
+      Public Overrides Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overridden: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.GetObjectData*
+  attributes:
+  - type: System.Security.SecurityCriticalAttribute
+    ctor: System.Security.SecurityCriticalAttribute.#ctor
+    arguments: []
+  nameWithType.vb: AdvisableHashSet(Of T).GetObjectData(SerializationInfo, StreamingContext)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.OnDeserialization(System.Object)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableHashSet`1.OnDeserialization(System.Object)
+  id: OnDeserialization(System.Object)
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: OnDeserialization(object)
+  nameWithType: AdvisableHashSet<T>.OnDeserialization(object)
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.OnDeserialization(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public override void OnDeserialization(object sender)
+    parameters:
+    - id: sender
+      type: System.Object
+    content.vb: Public Overrides Sub OnDeserialization(sender As Object)
+  overridden: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(System.Object)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.OnDeserialization*
+  nameWithType.vb: AdvisableHashSet(Of T).OnDeserialization(Object)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).OnDeserialization(Object)
+  name.vb: OnDeserialization(Object)
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Count
+  commentId: P:PostSharp.Patterns.Collections.AdvisableHashSet`1.Count
+  id: Count
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: AdvisableHashSet<T>.Count
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Count
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Count*
+  implements:
+  - System.Collections.Generic.ICollection{{T}}.Count
+  - System.Collections.ICollection.Count
+  nameWithType.vb: AdvisableHashSet(Of T).Count
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Count
+- uid: PostSharp.Patterns.Collections.AdvisableHashSet`1.Comparer
+  commentId: P:PostSharp.Patterns.Collections.AdvisableHashSet`1.Comparer
+  id: Comparer
+  parent: PostSharp.Patterns.Collections.AdvisableHashSet`1
+  langs:
+  - csharp
+  - vb
+  name: Comparer
+  nameWithType: AdvisableHashSet<T>.Comparer
+  fullName: PostSharp.Patterns.Collections.AdvisableHashSet<T>.Comparer
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets the <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> object that is used to determine equality for the values in the set.
+  example: []
+  syntax:
+    content: public IEqualityComparer<T> Comparer { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEqualityComparer{{T}}
+      description: The <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> object that is used to determine equality for the values in the set.
+    content.vb: Public ReadOnly Property Comparer As IEqualityComparer(Of T)
+  overload: PostSharp.Patterns.Collections.AdvisableHashSet`1.Comparer*
+  nameWithType.vb: AdvisableHashSet(Of T).Comparer
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableHashSet(Of T).Comparer

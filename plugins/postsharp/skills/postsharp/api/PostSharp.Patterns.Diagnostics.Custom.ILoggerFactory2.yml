@@ -1,0 +1,79 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+  id: ILoggerFactory2
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.GetLogger(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: ILoggerFactory2
+  nameWithType: ILoggerFactory2
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Defines a factory that creates instances of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger2" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ILoggerFactory3")]
+
+      public interface ILoggerFactory2
+    content.vb: >-
+      <Obsolete("Use ILoggerFactory3")>
+
+      Public Interface ILoggerFactory2
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+  extensionMethods:
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.PostSharp.Patterns.Diagnostics.LoggerFactoryExtensions.GetLogSource(System.Type)
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ILoggerFactory3
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.GetLogger(System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.GetLogger(System.Type)
+  id: GetLogger(System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+  langs:
+  - csharp
+  - vb
+  name: GetLogger(Type)
+  nameWithType: ILoggerFactory2.GetLogger(Type)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.GetLogger(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets an instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger2" data-throw-if-not-resolved="false"></xref> for a specific <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ILoggerFactory3.GetLogger")]
+
+      ILogger2 GetLogger(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type of the source code that will emit the records.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.ILogger2
+      description: An instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger2" data-throw-if-not-resolved="false"></xref> interface for <code class="paramref">type</code>.
+    content.vb: >-
+      <Obsolete("Use ILoggerFactory3.GetLogger")>
+
+      Function GetLogger(type As Type) As ILogger2
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2.GetLogger*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ILoggerFactory3.GetLogger

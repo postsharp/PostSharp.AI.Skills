@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IMethodInterceptionAspect
+  commentId: T:PostSharp.Aspects.IMethodInterceptionAspect
+  id: IMethodInterceptionAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: IMethodInterceptionAspect
+  nameWithType: IMethodInterceptionAspect
+  fullName: PostSharp.Aspects.IMethodInterceptionAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Runtime semantics of an aspect that, when applied on a method, intercepts invocations of this method.
+  remarks: See <xref href="PostSharp.Aspects.MethodInterceptionAspect" data-throw-if-not-resolved="false"></xref> for details.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IMethodInterceptionAspect : IMethodLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IMethodInterceptionAspect Inherits IMethodLevelAspect, IAspect
+  derivedClasses:
+  - PostSharp.Aspects.MethodImplementationAspect
+  - PostSharp.Aspects.MethodInterceptionAspect
+  - PostSharp.Patterns.Caching.CacheAttribute
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  - PostSharp.Patterns.Threading.BackgroundAttribute
+  inheritedMembers:
+  - PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  commentId: M:PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  id: OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  parent: PostSharp.Aspects.IMethodInterceptionAspect
+  langs:
+  - csharp
+  - vb
+  name: OnInvoke(MethodInterceptionArgs)
+  nameWithType: IMethodInterceptionAspect.OnInvoke(MethodInterceptionArgs)
+  fullName: PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method invoked instead of the method to which the aspect has been applied.
+  remarks: >-
+    <p>The implementation of <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> may invoke <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref>, may schedule it for invocation from another thread, or
+            may completely skip its invocation. Alternatively, it may use <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>. Before returning to the caller, the <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method must set the return value (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>)
+            and all output arguments (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.Arguments" data-throw-if-not-resolved="false"></xref>). Otherwise, the target method may fail with a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. These
+            are normally set by calling <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnInvoke(MethodInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodInterceptionArgs
+      description: Advice arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnInvoke(args As MethodInterceptionArgs)
+  overload: PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke*
+  seealso:
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

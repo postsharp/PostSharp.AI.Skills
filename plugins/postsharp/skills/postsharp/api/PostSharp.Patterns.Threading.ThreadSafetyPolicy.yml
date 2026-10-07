@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  commentId: T:PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  id: ThreadSafetyPolicy
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadSafetyPolicy.#ctor
+  - PostSharp.Patterns.Threading.ThreadSafetyPolicy.ValidateCode(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ThreadSafetyPolicy
+  nameWithType: ThreadSafetyPolicy
+  fullName: PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: When applied to an assembly, this policy will check for possible concurrency issues.
+  remarks: >-
+    <p>
+            This policy recognizes the following concurrency issues:
+          </p>
+    <ul><li>Type is not thread-safe.</li><li>Static field is not read-only.</li><li>Type of static field is not thread-safe.</li></ul>
+
+    <p>
+            A type is considered thread-safe if it has no instance fields, if it has a threading model (an aspect derived from <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute" data-throw-if-not-resolved="false"></xref>),
+            if it is annotated with <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref>, or if the type analyzer of the threading library recognizes it as thread-safe.
+            Value types, custom attribute classes and compiler-generated types are not checked. Static fields annotated with
+            <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="System.ThreadStaticAttribute" data-throw-if-not-resolved="false"></xref> are not checked.
+          </p>
+    <p>
+            The policy only emits warnings: it reminds you to assign a threading model to each class, but does not make the code thread-safe by itself.
+            To apply the policy to all projects of a solution, add it as a multicast attribute to the <code>pssln</code> file.
+          </p>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Assembly)]
+
+      [AttributeUsage(AttributeTargets.Assembly)]
+
+      public sealed class ThreadSafetyPolicy : ScalarConstraint, IScalarConstraint, IConstraint
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.Assembly)>
+
+      <AttributeUsage(AttributeTargets.Assembly)>
+
+      Public NotInheritable Class ThreadSafetyPolicy Inherits ScalarConstraint Implements IScalarConstraint, IConstraint
+  seealso:
+  - linkType: HRef
+    linkId: '@thread-safety-policy'
+    altText: 'Conceptual: Making a Whole Project or Solution Thread Safe'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Constraints.Constraint
+  - PostSharp.Constraints.ScalarConstraint
+  implements:
+  - PostSharp.Constraints.IScalarConstraint
+  - PostSharp.Constraints.IConstraint
+  inheritedMembers:
+  - PostSharp.Constraints.Constraint.ValidateConstraint(System.Object)
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 2048
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1
+- uid: PostSharp.Patterns.Threading.ThreadSafetyPolicy.ValidateCode(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ThreadSafetyPolicy.ValidateCode(System.Object)
+  id: ValidateCode(System.Object)
+  parent: PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  langs:
+  - csharp
+  - vb
+  name: ValidateCode(object)
+  nameWithType: ThreadSafetyPolicy.ValidateCode(object)
+  fullName: PostSharp.Patterns.Threading.ThreadSafetyPolicy.ValidateCode(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Validates the element of code to which the constraint is applied.
+  example: []
+  syntax:
+    content: public override void ValidateCode(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: >-
+        Element of code to which the constraint is applied (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>,
+                    <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>).
+    content.vb: Public Overrides Sub ValidateCode(target As Object)
+  overridden: PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)
+  overload: PostSharp.Patterns.Threading.ThreadSafetyPolicy.ValidateCode*
+  nameWithType.vb: ThreadSafetyPolicy.ValidateCode(Object)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadSafetyPolicy.ValidateCode(Object)
+  name.vb: ValidateCode(Object)
+- uid: PostSharp.Patterns.Threading.ThreadSafetyPolicy.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ThreadSafetyPolicy.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ThreadSafetyPolicy
+  langs:
+  - csharp
+  - vb
+  name: ThreadSafetyPolicy()
+  nameWithType: ThreadSafetyPolicy.ThreadSafetyPolicy()
+  fullName: PostSharp.Patterns.Threading.ThreadSafetyPolicy.ThreadSafetyPolicy()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: public ThreadSafetyPolicy()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ThreadSafetyPolicy.#ctor*
+  nameWithType.vb: ThreadSafetyPolicy.New()
+  fullName.vb: PostSharp.Patterns.Threading.ThreadSafetyPolicy.New()
+  name.vb: New()

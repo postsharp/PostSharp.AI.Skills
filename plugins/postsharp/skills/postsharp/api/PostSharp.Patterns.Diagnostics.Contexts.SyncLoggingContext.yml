@@ -1,0 +1,179 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  id: SyncLoggingContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ReturnToPool
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ThreadContext
+  langs:
+  - csharp
+  - vb
+  name: SyncLoggingContext
+  nameWithType: SyncLoggingContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    A <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> that represents a synchronous context (that is, a context that executes as a single block, without being
+
+    suspended).
+  example: []
+  syntax:
+    content: 'public abstract class SyncLoggingContext : LoggingContext, ILoggingContext, IDisposable'
+    content.vb: Public MustInherit Class SyncLoggingContext Inherits LoggingContext Implements ILoggingContext, IDisposable
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext
+  implements:
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.VisitProperties``1(PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TState}},{TState}@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.VisitProperties(System.Action{System.String,System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{{T}},{T}@,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Dispose
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetRecordBuilder(PostSharp.Patterns.Diagnostics.Contexts.LogRecordInfo@,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetCustomRecordBuilder(PostSharp.Patterns.Diagnostics.Contexts.CustomLogRecordInfo@)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.MakeSharable
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ToString
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ToString(System.Text.StringBuilder)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SetWaitDependency(System.Object)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CreateCorrelationCookie
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SetCorrelation(PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.GetExecutionContextData(PostSharp.Patterns.Diagnostics.Contexts.LoggingExecutionContextData,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.EventData
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsSharable
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.DefinedTransaction
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CurrentTransaction
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ParentContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ActivationContext
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IndentLevel
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsDisposed
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticRootId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticParentId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Source
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.MemberName
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Backend
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Description
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Kind
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsHidden
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Properties
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.HierarchicalContextIdInfo
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ReturnToPool
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ReturnToPool
+  id: ReturnToPool
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: ReturnToPool()
+  nameWithType: SyncLoggingContext.ReturnToPool()
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ReturnToPool()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Returns the current instance to the pool to which it belongs. This method is invoked by the <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(System.Boolean)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: protected abstract void ReturnToPool()
+    content.vb: Protected MustOverride Sub ReturnToPool()
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ReturnToPool*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: SyncLoggingContext.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected override void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Dispose" data-throw-if-not-resolved="false"></xref> method is called explicitly, <code>false</code> if the object is being finalized.
+    content.vb: Protected Overrides Sub Dispose(disposing As Boolean)
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Dispose(System.Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose*
+  nameWithType.vb: SyncLoggingContext.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ThreadContext
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ThreadContext
+  id: ThreadContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: ThreadContext
+  nameWithType: SyncLoggingContext.ThreadContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ThreadContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Gets the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> for the thread in which the current <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref>
+
+    is currently executed.
+  example: []
+  syntax:
+    content: public override sealed ThreadLoggingContext ThreadContext { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+    content.vb: Public NotOverridable Overrides ReadOnly Property ThreadContext As ThreadLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ThreadContext
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.ThreadContext*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.IsAsync
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.IsAsync
+  id: IsAsync
+  parent: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: IsAsync
+  nameWithType: SyncLoggingContext.IsAsync
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.IsAsync
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> represents an async method or an asynchronous custom activity.
+  example: []
+  syntax:
+    content: public override sealed bool IsAsync { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public NotOverridable Overrides ReadOnly Property IsAsync As Boolean
+  overridden: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.IsAsync
+  overload: PostSharp.Patterns.Diagnostics.Contexts.SyncLoggingContext.IsAsync*

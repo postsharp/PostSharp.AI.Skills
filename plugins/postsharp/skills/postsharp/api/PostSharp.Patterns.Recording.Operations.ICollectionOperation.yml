@@ -1,0 +1,167 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  commentId: T:PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  id: ICollectionOperation
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation.Collection
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewIndex
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewItem
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldIndex
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldItem
+  langs:
+  - csharp
+  - vb
+  name: ICollectionOperation
+  nameWithType: ICollectionOperation
+  fullName: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Weakly typed interface for the <xref href="PostSharp.Patterns.Recording.Operations.CollectionOperation%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface ICollectionOperation : IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface ICollectionOperation Inherits IOperationDescriptor
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operations.AddCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.AddCollectionRangeOperation`1
+  - PostSharp.Patterns.Recording.Operations.ClearCollectionOperation`1
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation`1
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.RemoveCollectionRangeOperation`1
+  - PostSharp.Patterns.Recording.Operations.SetCollectionItemOperation`1
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.ICollectionOperation.Collection
+  commentId: P:PostSharp.Patterns.Recording.Operations.ICollectionOperation.Collection
+  id: Collection
+  parent: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  langs:
+  - csharp
+  - vb
+  name: Collection
+  nameWithType: ICollectionOperation.Collection
+  fullName: PostSharp.Patterns.Recording.Operations.ICollectionOperation.Collection
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the collection on which the operation was performed.
+  example: []
+  syntax:
+    content: ICollection Collection { get; }
+    parameters: []
+    return:
+      type: System.Collections.ICollection
+    content.vb: ReadOnly Property Collection As ICollection
+  overload: PostSharp.Patterns.Recording.Operations.ICollectionOperation.Collection*
+- uid: PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewIndex
+  commentId: P:PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewIndex
+  id: NewIndex
+  parent: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  langs:
+  - csharp
+  - vb
+  name: NewIndex
+  nameWithType: ICollectionOperation.NewIndex
+  fullName: PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewIndex
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the index after the operation.
+  example: []
+  syntax:
+    content: int NewIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NewIndex As Integer
+  overload: PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewIndex*
+- uid: PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldIndex
+  commentId: P:PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldIndex
+  id: OldIndex
+  parent: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  langs:
+  - csharp
+  - vb
+  name: OldIndex
+  nameWithType: ICollectionOperation.OldIndex
+  fullName: PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldIndex
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the index before the operation.
+  example: []
+  syntax:
+    content: int OldIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property OldIndex As Integer
+  overload: PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldIndex*
+- uid: PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewItem
+  commentId: P:PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewItem
+  id: NewItem
+  parent: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  langs:
+  - csharp
+  - vb
+  name: NewItem
+  nameWithType: ICollectionOperation.NewItem
+  fullName: PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewItem
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the item after the operation.
+  example: []
+  syntax:
+    content: object NewItem { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property NewItem As Object
+  overload: PostSharp.Patterns.Recording.Operations.ICollectionOperation.NewItem*
+- uid: PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldItem
+  commentId: P:PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldItem
+  id: OldItem
+  parent: PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  langs:
+  - csharp
+  - vb
+  name: OldItem
+  nameWithType: ICollectionOperation.OldItem
+  fullName: PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldItem
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the item before the operation.
+  example: []
+  syntax:
+    content: object OldItem { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property OldItem As Object
+  overload: PostSharp.Patterns.Recording.Operations.ICollectionOperation.OldItem*

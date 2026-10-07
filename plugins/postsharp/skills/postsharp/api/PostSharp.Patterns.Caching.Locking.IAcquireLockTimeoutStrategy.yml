@@ -1,0 +1,60 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy
+  commentId: T:PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy
+  id: IAcquireLockTimeoutStrategy
+  parent: PostSharp.Patterns.Caching.Locking
+  children:
+  - PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IAcquireLockTimeoutStrategy
+  nameWithType: IAcquireLockTimeoutStrategy
+  fullName: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: Represents the behavior when the caching aspect cannot acquire a lock because of a timeout.
+  remarks: >-
+    <p>Assign an implementation to the <xref href="PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeoutStrategy" data-throw-if-not-resolved="false"></xref> property. The timeout is set by
+        <xref href="PostSharp.Patterns.Caching.CachingProfile.AcquireLockTimeout" data-throw-if-not-resolved="false"></xref>, which is infinite by default. The default strategy throws a <xref href="System.TimeoutException" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public interface IAcquireLockTimeoutStrategy
+    content.vb: Public Interface IAcquireLockTimeoutStrategy
+  seealso:
+  - linkType: HRef
+    linkId: '@cache-locking'
+    altText: 'Conceptual: Preventing Concurrent Execution of Cached Methods'
+- uid: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout(System.String)
+  id: OnTimeout(System.String)
+  parent: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy
+  langs:
+  - csharp
+  - vb
+  name: OnTimeout(string)
+  nameWithType: IAcquireLockTimeoutStrategy.OnTimeout(string)
+  fullName: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Locking
+  summary: >-
+    Method invoked when the caching aspect cannot acquire a lock because of a timeout. If this method returns without an exception,
+
+    the caching aspect will invoke the cached method without acquiring the lock.
+  example: []
+  syntax:
+    content: void OnTimeout(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The cache key, which is the name of the lock.
+    content.vb: Sub OnTimeout(key As String)
+  overload: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout*
+  nameWithType.vb: IAcquireLockTimeoutStrategy.OnTimeout(String)
+  fullName.vb: PostSharp.Patterns.Caching.Locking.IAcquireLockTimeoutStrategy.OnTimeout(String)
+  name.vb: OnTimeout(String)

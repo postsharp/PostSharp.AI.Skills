@@ -1,0 +1,62 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IFreezable
+  commentId: T:PostSharp.Patterns.Threading.IFreezable
+  id: IFreezable
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IFreezable.Freeze
+  langs:
+  - csharp
+  - vb
+  name: IFreezable
+  nameWithType: IFreezable
+  fullName: PostSharp.Patterns.Threading.IFreezable
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Interface implemented by the <xref href="PostSharp.Patterns.Threading.FreezableAttribute" data-throw-if-not-resolved="false"></xref> aspect. Defines a <xref href="PostSharp.Patterns.Threading.IFreezable.Freeze" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>To determine whether the object has been frozen, use the <xref href="PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly" data-throw-if-not-resolved="false"></xref> property of the <xref href="PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController" data-throw-if-not-resolved="false"></xref>
+        of this object.</p>
+    <p>The interface is introduced into the target class after compilation. Cast the object to <xref href="PostSharp.Patterns.Threading.IFreezable" data-throw-if-not-resolved="false"></xref>, or use the
+        <xref href="PostSharp.Post.Cast%60%602(%60%600)" data-throw-if-not-resolved="false"></xref> method, to access it.</p>
+  example: []
+  syntax:
+    content: 'public interface IFreezable : IThreadAware'
+    content.vb: Public Interface IFreezable Inherits IThreadAware
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.FreezableAttribute
+    commentId: T:PostSharp.Patterns.Threading.FreezableAttribute
+  - linkType: HRef
+    linkId: '@freezable'
+    altText: 'Conceptual: Freezable Threading Model'
+  derivedClasses:
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  - PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController
+- uid: PostSharp.Patterns.Threading.IFreezable.Freeze
+  commentId: M:PostSharp.Patterns.Threading.IFreezable.Freeze
+  id: Freeze
+  parent: PostSharp.Patterns.Threading.IFreezable
+  langs:
+  - csharp
+  - vb
+  name: Freeze()
+  nameWithType: IFreezable.Freeze()
+  fullName: PostSharp.Patterns.Threading.IFreezable.Freeze()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Prevents the current object from being modified.
+  remarks: >-
+    <p>This method also freezes the children of the object. Before the object is frozen, it can be accessed only from the thread that created it,
+        so call this method from that thread. Calling the method on an object that is already frozen has no effect.</p>
+  example: []
+  syntax:
+    content: void Freeze()
+    content.vb: Sub Freeze()
+  overload: PostSharp.Patterns.Threading.IFreezable.Freeze*

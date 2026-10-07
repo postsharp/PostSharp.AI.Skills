@@ -1,0 +1,912 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  commentId: T:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  id: RedisCachingBackend
+  parent: PostSharp.Patterns.Caching.Backends.Redis
+  children:
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearAsyncCore(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearCore
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Configuration
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Connection
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateFeatures
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Database
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeAsyncCore(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(System.Boolean)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync``1(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}})
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Finalize
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(System.String,System.String,System.Guid)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore(System.String)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SchemaVersion
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: RedisCachingBackend
+  nameWithType: RedisCachingBackend
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: A <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref> for Redis, based on the <code>StackExchange.Redis</code> client.
+  remarks: >-
+    <p>Create instances with the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer%2cPostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method, which take a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration" data-throw-if-not-resolved="false"></xref>.
+        Depending on the configuration, these methods return a backend that supports dependencies
+        (see <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.SupportsDependencies" data-throw-if-not-resolved="false"></xref>), or an enhancer that adds a local in-memory cache in front of Redis
+        (see <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.IsLocallyCached" data-throw-if-not-resolved="false"></xref>).</p>
+    <p>Dependencies are disabled by default because they store dependency graphs in Redis and require a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCacheDependencyGarbageCollector" data-throw-if-not-resolved="false"></xref>
+        to run continuously.</p>
+    <p>Redis keys start with <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyPrefix" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SchemaVersion" data-throw-if-not-resolved="false"></xref>, so applications
+        with different prefixes, or different versions of this component, can share a Redis database without conflicts.
+        <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> removes only the keys of the current prefix and schema version.</p>
+    <p>This component writes warnings and errors through PostSharp Logging. Configure a logging backend to monitor them.</p>
+  example: []
+  syntax:
+    content: 'public class RedisCachingBackend : CachingBackend, IDisposable'
+    content.vb: Public Class RedisCachingBackend Inherits CachingBackend Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItem(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemAsync(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemCore(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemAsyncCore(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItem(System.String,System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.GetItemAsync(System.String,System.Boolean,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItem(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependency(System.String)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyAsync(System.String,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Clear
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ToString
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnBackgroundTaskEnqueued
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnItemRemoved(PostSharp.Patterns.Caching.Implementation.CacheItemRemovedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnItemRemoved(System.String,PostSharp.Patterns.Caching.Implementation.CacheItemRemovedReason,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnDependencyInvalidated(System.String,System.Guid)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.OnDependencyInvalidated(PostSharp.Patterns.Caching.Implementation.CacheDependencyInvalidatedEventArgs)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DisposeAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CompactAsync(System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Compact
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUp(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions)
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Logger
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Id
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ValueAdapters
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.SupportedFeatures
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.Status
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.ItemRemoved
+  - PostSharp.Patterns.Caching.Implementation.CachingBackend.DependencyInvalidated
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SchemaVersion
+  commentId: F:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SchemaVersion
+  id: SchemaVersion
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: SchemaVersion
+  nameWithType: RedisCachingBackend.SchemaVersion
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SchemaVersion
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the version of the data schema used by <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public const string SchemaVersion = "v4"
+    return:
+      type: System.String
+    content.vb: Public Const SchemaVersion As String = "v4"
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)
+  id: Create(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: Create(IConnectionMultiplexer, RedisCachingBackendConfiguration)
+  nameWithType: RedisCachingBackend.Create(IConnectionMultiplexer, RedisCachingBackendConfiguration)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create(StackExchange.Redis.IConnectionMultiplexer, PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static CachingBackend Create(IConnectionMultiplexer connection, RedisCachingBackendConfiguration configuration)
+    parameters:
+    - id: connection
+      type: StackExchange.Redis.IConnectionMultiplexer
+      description: A Redis connection.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+      description: The configuration of the new backend.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+      description: >-
+        A <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>, a <xref href="PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" data-throw-if-not-resolved="false"></xref>, or a <xref href="PostSharp.Patterns.Caching.Backends.TwoLayerCachingBackendEnhancer" data-throw-if-not-resolved="false"></xref>,
+                    according to the properties of the <code class="paramref">configuration</code>.
+    content.vb: Public Shared Function Create(connection As IConnectionMultiplexer, configuration As RedisCachingBackendConfiguration) As CachingBackend
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,System.Threading.CancellationToken)
+  id: CreateAsync(StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateAsync(IConnectionMultiplexer, RedisCachingBackendConfiguration, CancellationToken)
+  nameWithType: RedisCachingBackend.CreateAsync(IConnectionMultiplexer, RedisCachingBackendConfiguration, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync(StackExchange.Redis.IConnectionMultiplexer, PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously creates a new <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<CachingBackend> CreateAsync(IConnectionMultiplexer connection, RedisCachingBackendConfiguration configuration, CancellationToken cancellationToken = default)
+    parameters:
+    - id: connection
+      type: StackExchange.Redis.IConnectionMultiplexer
+      description: A Redis connection.
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+      description: The configuration of the new backend.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{PostSharp.Patterns.Caching.Implementation.CachingBackend}
+      description: >-
+        A task returning a <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>, a <xref href="PostSharp.Patterns.Caching.Backends.Redis.DependenciesRedisCachingBackend" data-throw-if-not-resolved="false"></xref>, or a <xref href="PostSharp.Patterns.Caching.Backends.TwoLayerCachingBackendEnhancer" data-throw-if-not-resolved="false"></xref>,
+                    according to the properties of the <code class="paramref">configuration</code>.
+    content.vb: Public Shared Function CreateAsync(connection As IConnectionMultiplexer, configuration As RedisCachingBackendConfiguration, cancellationToken As CancellationToken = Nothing) As Task(Of CachingBackend)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateAsync*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateFeatures
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateFeatures
+  id: CreateFeatures
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateFeatures()
+  nameWithType: RedisCachingBackend.CreateFeatures()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateFeatures()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Creates a <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures" data-throw-if-not-resolved="false"></xref> object, which describes the set of features implemented by the backend.
+
+    This method is invoked the first time the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.SupportedFeatures" data-throw-if-not-resolved="false"></xref> property is evaluated. The result is then cached.
+  example: []
+  syntax:
+    content: protected override CachingBackendFeatures CreateFeatures()
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackendFeatures
+      description: A new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancerFeatures" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: Protected Overrides Function CreateFeatures() As CachingBackendFeatures
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.CreateFeatures
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.CreateFeatures*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(System.String,System.String,System.Guid)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(System.String,System.String,System.Guid)
+  id: ProcessEvent(System.String,System.String,System.Guid)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ProcessEvent(string, string, Guid)
+  nameWithType: RedisCachingBackend.ProcessEvent(string, string, Guid)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(string, string, System.Guid)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Processes an event that was received on the events channel.
+  example: []
+  syntax:
+    content: protected virtual bool ProcessEvent(string kind, string key, Guid sourceId)
+    parameters:
+    - id: kind
+      type: System.String
+      description: The kind of event.
+    - id: key
+      type: System.String
+      description: The key of the item, typically a value key or a dependency key.
+    - id: sourceId
+      type: System.Guid
+      description: The <xref href="System.Guid" data-throw-if-not-resolved="false"></xref> of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref> that sent the event.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Protected Overridable Function ProcessEvent(kind As String, key As String, sourceId As Guid) As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent*
+  nameWithType.vb: RedisCachingBackend.ProcessEvent(String, String, Guid)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ProcessEvent(String, String, System.Guid)
+  name.vb: ProcessEvent(String, String, Guid)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  id: SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: SetItemCore(string, CacheItem)
+  nameWithType: RedisCachingBackend.SetItemCore(string, CacheItem)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore(string, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Sets a cache item. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override sealed void SetItemCore(string key, CacheItem item)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    - id: item
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: The cache item.
+    content.vb: Protected NotOverridable Overrides Sub SetItemCore(key As String, item As CacheItem)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore*
+  nameWithType.vb: RedisCachingBackend.SetItemCore(String, CacheItem)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemCore(String, PostSharp.Patterns.Caching.Implementation.CacheItem)
+  name.vb: SetItemCore(String, CacheItem)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  id: SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: SetItemAsyncCore(string, CacheItem, CancellationToken)
+  nameWithType: RedisCachingBackend.SetItemAsyncCore(string, CacheItem, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore(string, PostSharp.Patterns.Caching.Implementation.CacheItem, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Asynchronously sets a cache item. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+
+    The default implementation is to call the synchronous <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemCore(System.String%2cPostSharp.Patterns.Caching.Implementation.CacheItem)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: protected override sealed Task SetItemAsyncCore(string key, CacheItem item, CancellationToken cancellationToken)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    - id: item
+      type: PostSharp.Patterns.Caching.Implementation.CacheItem
+      description: The cache item.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected NotOverridable Overrides Function SetItemAsyncCore(key As String, item As CacheItem, cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.SetItemAsyncCore(System.String,PostSharp.Patterns.Caching.Implementation.CacheItem,System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore*
+  nameWithType.vb: RedisCachingBackend.SetItemAsyncCore(String, CacheItem, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.SetItemAsyncCore(String, PostSharp.Patterns.Caching.Implementation.CacheItem, System.Threading.CancellationToken)
+  name.vb: SetItemAsyncCore(String, CacheItem, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore(System.String)
+  id: ContainsItemCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ContainsItemCore(string)
+  nameWithType: RedisCachingBackend.ContainsItemCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Determines whether the cache contains an item of a given key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override sealed bool ContainsItemCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the cache contains an item whose key is <code class="paramref">key</code>, otherwise <code>false</code>.
+    content.vb: Protected NotOverridable Overrides Function ContainsItemCore(key As String) As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore*
+  nameWithType.vb: RedisCachingBackend.ContainsItemCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemCore(String)
+  name.vb: ContainsItemCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  id: ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ContainsItemAsyncCore(string, CancellationToken)
+  nameWithType: RedisCachingBackend.ContainsItemAsyncCore(string, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore(string, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously determines whether the cache contains an item of a given key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override sealed Task<bool> ContainsItemAsyncCore(string key, CancellationToken cancellationToken)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that evaluates to <code>true</code> if the cache contains an item whose key is <code class="paramref">key</code>, otherwise <code>false</code>.
+    content.vb: Protected NotOverridable Overrides Function ContainsItemAsyncCore(key As String, cancellationToken As CancellationToken) As Task(Of Boolean)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsItemAsyncCore(System.String,System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore*
+  nameWithType.vb: RedisCachingBackend.ContainsItemAsyncCore(String, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsItemAsyncCore(String, System.Threading.CancellationToken)
+  name.vb: ContainsItemAsyncCore(String, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore(System.String)
+  id: ContainsDependencyCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ContainsDependencyCore(string)
+  nameWithType: RedisCachingBackend.ContainsDependencyCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Determines whether the cache contains a given dependency. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override bool ContainsDependencyCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The dependency key.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the cache contains the dependency <code class="paramref">key</code>, otherwise <code>false</code>.
+    content.vb: Protected Overrides Function ContainsDependencyCore(key As String) As Boolean
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ContainsDependencyCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore*
+  nameWithType.vb: RedisCachingBackend.ContainsDependencyCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ContainsDependencyCore(String)
+  name.vb: ContainsDependencyCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore(System.String)
+  id: InvalidateDependencyCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: InvalidateDependencyCore(string)
+  nameWithType: RedisCachingBackend.InvalidateDependencyCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Removes from the cache all items that have a specific dependency. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override void InvalidateDependencyCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The dependency key.
+    content.vb: Protected Overrides Sub InvalidateDependencyCore(key As String)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore*
+  nameWithType.vb: RedisCachingBackend.InvalidateDependencyCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyCore(String)
+  name.vb: InvalidateDependencyCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  id: RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: RemoveItemAsyncCore(string, CancellationToken)
+  nameWithType: RedisCachingBackend.RemoveItemAsyncCore(string, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore(string, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously removes a cache item from the cache given its key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override sealed Task RemoveItemAsyncCore(string key, CancellationToken cancellationToken)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected NotOverridable Overrides Function RemoveItemAsyncCore(key As String, cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemAsyncCore(System.String,System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore*
+  nameWithType.vb: RedisCachingBackend.RemoveItemAsyncCore(String, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemAsyncCore(String, System.Threading.CancellationToken)
+  name.vb: RemoveItemAsyncCore(String, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore(System.String)
+  id: RemoveItemCore(System.String)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: RemoveItemCore(string)
+  nameWithType: RedisCachingBackend.RemoveItemCore(string)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Removes a cache item from the cache given its key. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override sealed void RemoveItemCore(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The key of the cache item.
+    content.vb: Protected NotOverridable Overrides Sub RemoveItemCore(key As String)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.RemoveItemCore(System.String)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore*
+  nameWithType.vb: RedisCachingBackend.RemoveItemCore(String)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.RemoveItemCore(String)
+  name.vb: RemoveItemCore(String)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  id: InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: InvalidateDependencyAsyncCore(string, CancellationToken)
+  nameWithType: RedisCachingBackend.InvalidateDependencyAsyncCore(string, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyAsyncCore(string, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously removes from the cache all items that have a specific dependency. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked. Arguments are already validated by the consumer API.
+  example: []
+  syntax:
+    content: protected override sealed Task InvalidateDependencyAsyncCore(string key, CancellationToken cancellationToken)
+    parameters:
+    - id: key
+      type: System.String
+      description: The dependency key.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected NotOverridable Overrides Function InvalidateDependencyAsyncCore(key As String, cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.InvalidateDependencyAsyncCore(System.String,System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyAsyncCore*
+  nameWithType.vb: RedisCachingBackend.InvalidateDependencyAsyncCore(String, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.InvalidateDependencyAsyncCore(String, System.Threading.CancellationToken)
+  name.vb: InvalidateDependencyAsyncCore(String, CancellationToken)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(System.Boolean)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(System.Boolean)
+  id: DisposeCore(System.Boolean)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: DisposeCore(bool)
+  nameWithType: RedisCachingBackend.DisposeCore(bool)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Synchronously disposes the current <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override void DisposeCore(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+    content.vb: Protected Overrides Sub DisposeCore(disposing As Boolean)
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.DisposeCore(System.Boolean)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore*
+  nameWithType.vb: RedisCachingBackend.DisposeCore(Boolean)
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeCore(Boolean)
+  name.vb: DisposeCore(Boolean)
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeAsyncCore(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeAsyncCore(System.Threading.CancellationToken)
+  id: DisposeAsyncCore(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsyncCore(CancellationToken)
+  nameWithType: RedisCachingBackend.DisposeAsyncCore(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeAsyncCore(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously disposes the current <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override Task DisposeAsyncCore(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function DisposeAsyncCore(cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.DisposeAsyncCore(System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.DisposeAsyncCore*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Finalize
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Finalize
+  id: Finalize
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ~RedisCachingBackend()
+  nameWithType: RedisCachingBackend.~RedisCachingBackend()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.~RedisCachingBackend()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Destructor.
+  example: []
+  syntax:
+    content: protected ~RedisCachingBackend()
+    content.vb: 'Protected '
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearCore
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearCore
+  id: ClearCore
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ClearCore()
+  nameWithType: RedisCachingBackend.ClearCore()
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearCore()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Clears the cache. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override void ClearCore()
+    content.vb: Protected Overrides Sub ClearCore()
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearCore
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearCore*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearAsyncCore(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearAsyncCore(System.Threading.CancellationToken)
+  id: ClearAsyncCore(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ClearAsyncCore(CancellationToken)
+  nameWithType: RedisCachingBackend.ClearAsyncCore(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearAsyncCore(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Asynchronously clears the cache. This protected method is part of the implementation API and is meant to be overridden in user code, not invoked.
+  example: []
+  syntax:
+    content: protected override Task ClearAsyncCore(CancellationToken cancellationToken)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function ClearAsyncCore(cancellationToken As CancellationToken) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.ClearAsyncCore(System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ClearAsyncCore*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  id: WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: WhenBackgroundTasksCompleted(CancellationToken)
+  nameWithType: RedisCachingBackend.WhenBackgroundTasksCompleted(CancellationToken)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that is signaled to the complete state when all background tasks
+
+    have completed.
+  remarks: >-
+    <p>
+        Other background tasks may possibly be enqueued between the time
+        the returned <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> has been signaled and the time the signal is processed
+        by the caller.
+        </p>
+  example: []
+  syntax:
+    content: public override Task WhenBackgroundTasksCompleted(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task
+      description: >-
+        A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that is signaled to the complete state when all background tasks
+                    have completed.
+    content.vb: Public Overrides Function WhenBackgroundTasksCompleted(cancellationToken As CancellationToken = Nothing) As Task
+  overridden: PostSharp.Patterns.Caching.Implementation.CachingBackend.WhenBackgroundTasksCompleted(System.Threading.CancellationToken)
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.WhenBackgroundTasksCompleted*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  id: ExecuteSync(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task})
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ExecuteSync(Func<CancellationToken, Task>)
+  nameWithType: RedisCachingBackend.ExecuteSync(Func<CancellationToken, Task>)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Executes an asynchronous method synchronously (no return value).
+  example: []
+  syntax:
+    content: protected void ExecuteSync(Func<CancellationToken, Task> task)
+    parameters:
+    - id: task
+      type: System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task}
+      description: An asynchronous method.
+    content.vb: Protected Sub ExecuteSync(task As Func(Of CancellationToken, Task))
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync*
+  nameWithType.vb: RedisCachingBackend.ExecuteSync(Func(Of CancellationToken, Task))
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync(System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task))
+  name.vb: ExecuteSync(Func(Of CancellationToken, Task))
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync``1(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}})
+  commentId: M:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync``1(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}})
+  id: ExecuteSync``1(System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}})
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: ExecuteSync<T>(Func<CancellationToken, Task<T>>)
+  nameWithType: RedisCachingBackend.ExecuteSync<T>(Func<CancellationToken, Task<T>>)
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync<T>(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.Task<T>>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Executes an asynchronous method synchronously (with return value).
+  example: []
+  syntax:
+    content: protected T ExecuteSync<T>(Func<CancellationToken, Task<T>> task)
+    parameters:
+    - id: task
+      type: System.Func{System.Threading.CancellationToken,System.Threading.Tasks.Task{{T}}}
+      description: An asynchronous method.
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Protected Function ExecuteSync(Of T)(task As Func(Of CancellationToken, Task(Of T))) As T
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync*
+  nameWithType.vb: RedisCachingBackend.ExecuteSync(Of T)(Func(Of CancellationToken, Task(Of T)))
+  fullName.vb: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.ExecuteSync(Of T)(System.Func(Of System.Threading.CancellationToken, System.Threading.Tasks.Task(Of T)))
+  name.vb: ExecuteSync(Of T)(Func(Of CancellationToken, Task(Of T)))
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Database
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Database
+  id: Database
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: Database
+  nameWithType: RedisCachingBackend.Database
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Database
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the Redis database used by the current <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IDatabase Database { get; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.IDatabase
+    content.vb: Public ReadOnly Property Database As IDatabase
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Database*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Connection
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Connection
+  id: Connection
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: Connection
+  nameWithType: RedisCachingBackend.Connection
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Connection
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the Redis connection used by the current <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IConnectionMultiplexer Connection { get; }
+    parameters: []
+    return:
+      type: StackExchange.Redis.IConnectionMultiplexer
+    content.vb: Public ReadOnly Property Connection As IConnectionMultiplexer
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Connection*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Configuration
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Configuration
+  id: Configuration
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: Configuration
+  nameWithType: RedisCachingBackend.Configuration
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Configuration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Gets the configuration of the current <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public RedisCachingBackendConfiguration Configuration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration
+    content.vb: Public ReadOnly Property Configuration As RedisCachingBackendConfiguration
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Configuration*
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded
+  commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded
+  id: IsBackgroundTaskQueueOverloaded
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: IsBackgroundTaskQueueOverloaded
+  nameWithType: RedisCachingBackend.IsBackgroundTaskQueueOverloaded
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: >-
+    Gets a value indicating whether the queue of background tasks is overloaded, that is, it contains
+
+    more tasks than the value of the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.BackgroundTasksOverloadedThreshold" data-throw-if-not-resolved="false"></xref>
+
+    property. Clients can observe this property and react by reducing load or signaling a monitoring alert.
+  example: []
+  syntax:
+    content: public bool IsBackgroundTaskQueueOverloaded { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsBackgroundTaskQueueOverloaded As Boolean
+  overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded*
+  seealso:
+  - linkId: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+    commentId: E:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+- uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+  commentId: E:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+  id: IsBackgroundTaskQueueOverloadedChanged
+  parent: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend
+  langs:
+  - csharp
+  - vb
+  name: IsBackgroundTaskQueueOverloadedChanged
+  nameWithType: RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+  fullName: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloadedChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Caching.Backends.Redis
+  namespace: PostSharp.Patterns.Caching.Backends.Redis
+  summary: Occurs when the <xref href="PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.IsBackgroundTaskQueueOverloaded" data-throw-if-not-resolved="false"></xref> property has changed.
+  example: []
+  syntax:
+    content: public event EventHandler IsBackgroundTaskQueueOverloadedChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event IsBackgroundTaskQueueOverloadedChanged As EventHandler

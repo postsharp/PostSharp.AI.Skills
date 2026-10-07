@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ReentrantAttribute
+  commentId: T:PostSharp.Patterns.Threading.ReentrantAttribute
+  id: ReentrantAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ReentrantAttribute.#ctor
+  - PostSharp.Patterns.Threading.ReentrantAttribute.CompileTimeValidate(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ReentrantAttribute
+  nameWithType: ReentrantAttribute
+  fullName: PostSharp.Patterns.Threading.ReentrantAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that means that the <code>async</code> method to which it is applied can be safely
+
+    re-entered on each <code>await</code> statement. For lock-based models, it means that the lock
+
+    is released while awaiting. For the actor model, it means that other methods can be invoked
+
+    during awaiting.
+  remarks: >-
+    <p>This attribute is required on <code>async</code> methods of classes annotated with <xref href="PostSharp.Patterns.Threading.ActorAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.SynchronizedAttribute" data-throw-if-not-resolved="false"></xref>
+        or <xref href="PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute" data-throw-if-not-resolved="false"></xref>; a build-time error is emitted otherwise. Applying it to a method that is not <code>async</code>
+        also results in a build-time error.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class|AttributeTargets.Method)]
+
+      [MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple = false)]
+
+      public sealed class ReentrantAttribute : MulticastAttribute, IValidableAnnotation
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.ClassOrAttributeTargets.Method)>
+
+      <MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple:=False)>
+
+      Public NotInheritable Class ReentrantAttribute Inherits MulticastAttribute Implements IValidableAnnotation
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.ActorAttribute
+    commentId: T:PostSharp.Patterns.Threading.ActorAttribute
+  - linkType: HRef
+    linkId: '@actor'
+    altText: 'Conceptual: Actor Threading Model'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 68
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 64
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Threading.ReentrantAttribute.CompileTimeValidate(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ReentrantAttribute.CompileTimeValidate(System.Object)
+  id: CompileTimeValidate(System.Object)
+  parent: PostSharp.Patterns.Threading.ReentrantAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(object)
+  nameWithType: ReentrantAttribute.CompileTimeValidate(object)
+  fullName: PostSharp.Patterns.Threading.ReentrantAttribute.CompileTimeValidate(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Method invoked at build time to ensure that the aspect has been applied to
+
+    the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message
+
+    or an exception of type <xref href="PostSharp.Extensibility.InvalidAnnotationException" data-throw-if-not-resolved="false"></xref> in case of error. Only returning <code>false</code> causes the aspect
+
+    to be silently ignored.
+  example: []
+  syntax:
+    content: public bool CompileTimeValidate(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: The target element.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable target, otherwise
+              <code>false</code>.
+    content.vb: Public Function CompileTimeValidate(target As Object) As Boolean
+  overload: PostSharp.Patterns.Threading.ReentrantAttribute.CompileTimeValidate*
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+  nameWithType.vb: ReentrantAttribute.CompileTimeValidate(Object)
+  fullName.vb: PostSharp.Patterns.Threading.ReentrantAttribute.CompileTimeValidate(Object)
+  name.vb: CompileTimeValidate(Object)
+- uid: PostSharp.Patterns.Threading.ReentrantAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ReentrantAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ReentrantAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReentrantAttribute()
+  nameWithType: ReentrantAttribute.ReentrantAttribute()
+  fullName: PostSharp.Patterns.Threading.ReentrantAttribute.ReentrantAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: public ReentrantAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ReentrantAttribute.#ctor*
+  nameWithType.vb: ReentrantAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.ReentrantAttribute.New()
+  name.vb: New()

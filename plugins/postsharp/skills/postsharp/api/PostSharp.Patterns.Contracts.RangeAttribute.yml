@@ -1,0 +1,460 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.RangeAttribute
+  commentId: T:PostSharp.Patterns.Contracts.RangeAttribute
+  id: RangeAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.Double,System.Double)
+  - PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.Int64,System.Int64)
+  - PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.UInt64,System.UInt64)
+  - PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(System.Object)
+  - PostSharp.Patterns.Contracts.RangeAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue
+  - PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue
+  - PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessage
+  - PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments
+  - PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: RangeAttribute
+  nameWithType: RangeAttribute
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Custom attribute that, when added to a field, property or parameter, throws
+
+    an <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> if the target is assigned a value that
+
+    is outside a given range.
+  remarks: >-
+    <p>Null values are accepted and do not throw an exception.
+        </p>
+    <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RangeErrorMessage" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>The error message can use the additional argument <code>{4}</code> to refer to the minimum value used and <code>{5}</code> to refer to the maximum value used.</p>
+  example: []
+  syntax:
+    content: 'public class RangeAttribute : LocationContractAttribute, ILocationLevelAspect, IValidableAnnotation, IAspect'
+    content.vb: Public Class RangeAttribute Inherits LocationContractAttribute Implements ILocationLevelAspect, IValidableAnnotation, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Patterns.Contracts.LocationContractAttribute
+  derivedClasses:
+  - PostSharp.Patterns.Contracts.GreaterThanAttribute
+  - PostSharp.Patterns.Contracts.LessThanAttribute
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  - PostSharp.Patterns.Contracts.StrictlyLessThanAttribute
+  - PostSharp.Patterns.Contracts.StrictRangeAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.Int64,System.Int64)
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.Int64,System.Int64)
+  id: '#ctor(System.Int64,System.Int64)'
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RangeAttribute(long, long)
+  nameWithType: RangeAttribute.RangeAttribute(long, long)
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.RangeAttribute(long, long)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.RangeAttribute" data-throw-if-not-resolved="false"></xref> class and specifies integer bounds.
+  example: []
+  syntax:
+    content: public RangeAttribute(long min, long max)
+    parameters:
+    - id: min
+      type: System.Int64
+      description: The lower bound.
+    - id: max
+      type: System.Int64
+      description: The upper bound.
+    content.vb: Public Sub New(min As Long, max As Long)
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.#ctor*
+  nameWithType.vb: RangeAttribute.New(Long, Long)
+  fullName.vb: PostSharp.Patterns.Contracts.RangeAttribute.New(Long, Long)
+  name.vb: New(Long, Long)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.UInt64,System.UInt64)
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.UInt64,System.UInt64)
+  id: '#ctor(System.UInt64,System.UInt64)'
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RangeAttribute(ulong, ulong)
+  nameWithType: RangeAttribute.RangeAttribute(ulong, ulong)
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.RangeAttribute(ulong, ulong)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.RangeAttribute" data-throw-if-not-resolved="false"></xref> class and specifies <xref href="System.UInt64" data-throw-if-not-resolved="false"></xref> bounds.
+  example: []
+  syntax:
+    content: public RangeAttribute(ulong min, ulong max)
+    parameters:
+    - id: min
+      type: System.UInt64
+      description: The lower bound.
+    - id: max
+      type: System.UInt64
+      description: The upper bound.
+    content.vb: Public Sub New(min As ULong, max As ULong)
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.#ctor*
+  nameWithType.vb: RangeAttribute.New(ULong, ULong)
+  fullName.vb: PostSharp.Patterns.Contracts.RangeAttribute.New(ULong, ULong)
+  name.vb: New(ULong, ULong)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.Double,System.Double)
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.#ctor(System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double)'
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: RangeAttribute(double, double)
+  nameWithType: RangeAttribute.RangeAttribute(double, double)
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.RangeAttribute(double, double)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.RangeAttribute" data-throw-if-not-resolved="false"></xref> class and specifies floating-point bounds.
+  example: []
+  syntax:
+    content: public RangeAttribute(double min, double max)
+    parameters:
+    - id: min
+      type: System.Double
+      description: The lower bound.
+    - id: max
+      type: System.Double
+      description: The upper bound.
+    content.vb: Public Sub New(min As Double, max As Double)
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.#ctor*
+  nameWithType.vb: RangeAttribute.New(Double, Double)
+  fullName.vb: PostSharp.Patterns.Contracts.RangeAttribute.New(Double, Double)
+  name.vb: New(Double, Double)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessage
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessage
+  id: GetErrorMessage
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: RangeAttribute.GetErrorMessage()
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessage()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the unformatted error message as defined by the instance.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>The use of this method can be overridden by setting the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> property to a non-null value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      protected override string GetErrorMessage()
+    return:
+      type: System.String
+      description: The unformatted error message.
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessage() As String
+  overridden: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessage
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments
+  id: GetErrorMessageArguments
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessageArguments()
+  nameWithType: RangeAttribute.GetErrorMessageArguments()
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Gets the values of the additional arguments for the error message associated with a particular instance of <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref>.
+
+    These arguments can be referenced from the error message string by <code>{4}</code>, <code>{5}</code>, and so on.
+  remarks: >-
+    This method is expected to be pure, that is, its result can be cached. The implementer should not return information that may change
+
+    after the constructor of the class has finished.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")]
+
+      protected override object[] GetErrorMessageArguments()
+    return:
+      type: System.Object[]
+      description: An array of additional argument values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessageArguments() As Object()
+  overridden: PostSharp.Patterns.Contracts.LocationContractAttribute.GetErrorMessageArguments
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException to generate error messages.
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  id: ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: ValidateValueDynamic(object, string, LocationKind, LocationValidationContext)
+  nameWithType: RangeAttribute.ValidateValueDynamic(object, string, LocationKind, LocationValidationContext)
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(object, string, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Validates a weakly-typed (boxed) value, typically the value of a dependency property or an attached property.
+  example: []
+  syntax:
+    content: public override Exception ValidateValueDynamic(object value, string locationName, LocationKind locationKind, LocationValidationContext context)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be validated.
+    - id: locationName
+      type: System.String
+      description: The name of the property.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of location (typically a <xref href="PostSharp.Reflection.LocationKind.Property" data-throw-if-not-resolved="false"></xref>).
+    - id: context
+      type: PostSharp.Aspects.LocationValidationContext
+      description: Why or when the value is being validated.
+    return:
+      type: System.Exception
+      description: An <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> if the value is invalid, or <code>null</code> if the value is valid.
+    content.vb: Public Overrides Function ValidateValueDynamic(value As Object, locationName As String, locationKind As LocationKind, context As LocationValidationContext) As Exception
+  overridden: PostSharp.Patterns.Contracts.LocationContractAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic*
+  nameWithType.vb: RangeAttribute.ValidateValueDynamic(Object, String, LocationKind, LocationValidationContext)
+  fullName.vb: PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(Object, String, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  name.vb: ValidateValueDynamic(Object, String, LocationKind, LocationValidationContext)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  id: CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreateException(object, string, LocationKind, LocationValidationContext)
+  nameWithType: RangeAttribute.CreateException(object, string, LocationKind, LocationValidationContext)
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.CreateException(object, string, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  example: []
+  syntax:
+    content: protected virtual Exception CreateException(object value, string locationName, LocationKind locationKind, LocationValidationContext context)
+    parameters:
+    - id: value
+      type: System.Object
+    - id: locationName
+      type: System.String
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+    - id: context
+      type: PostSharp.Aspects.LocationValidationContext
+    return:
+      type: System.Exception
+    content.vb: Protected Overridable Function CreateException(value As Object, locationName As String, locationKind As LocationKind, context As LocationValidationContext) As Exception
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.CreateException*
+  nameWithType.vb: RangeAttribute.CreateException(Object, String, LocationKind, LocationValidationContext)
+  fullName.vb: PostSharp.Patterns.Contracts.RangeAttribute.CreateException(Object, String, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  name.vb: CreateException(Object, String, LocationKind, LocationValidationContext)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(System.Object)
+  commentId: M:PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(System.Object)
+  id: CompileTimeValidate(System.Object)
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(object)
+  nameWithType: RangeAttribute.CompileTimeValidate(object)
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Method invoked at build time to ensure that the aspect has been applied to
+
+    the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message
+
+    or an exception of type <xref href="PostSharp.Extensibility.InvalidAnnotationException" data-throw-if-not-resolved="false"></xref> in case of error. Only returning <code>false</code> causes the aspect
+
+    to be silently ignored.
+  example: []
+  syntax:
+    content: public bool CompileTimeValidate(object target)
+    parameters:
+    - id: target
+      type: System.Object
+      description: The target element.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable target, otherwise
+              <code>false</code>.
+    content.vb: Public Function CompileTimeValidate(target As Object) As Boolean
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate*
+  implements:
+  - PostSharp.Extensibility.IValidableAnnotation.CompileTimeValidate(System.Object)
+  nameWithType.vb: RangeAttribute.CompileTimeValidate(Object)
+  fullName.vb: PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(Object)
+  name.vb: CompileTimeValidate(Object)
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue
+  commentId: P:PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue
+  id: DisplayMinValue
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: DisplayMinValue
+  nameWithType: RangeAttribute.DisplayMinValue
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the minimum value to be used when generating the error message, typically in the implementation of <xref href="PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected object DisplayMinValue { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Protected ReadOnly Property DisplayMinValue As Object
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue*
+- uid: PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue
+  commentId: P:PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue
+  id: DisplayMaxValue
+  parent: PostSharp.Patterns.Contracts.RangeAttribute
+  langs:
+  - csharp
+  - vb
+  name: DisplayMaxValue
+  nameWithType: RangeAttribute.DisplayMaxValue
+  fullName: PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the maximum value to be used when generating the error message, typically in the implementation of <xref href="PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected object DisplayMaxValue { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Protected ReadOnly Property DisplayMaxValue As Object
+  overload: PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue*

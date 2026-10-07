@@ -1,0 +1,263 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.OperationCollection
+  commentId: T:PostSharp.Patterns.Recording.OperationCollection
+  id: OperationCollection
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.OperationCollection.CollectionChanged
+  - PostSharp.Patterns.Recording.OperationCollection.CopyTo(PostSharp.Patterns.Recording.Operation[],System.Int32)
+  - PostSharp.Patterns.Recording.OperationCollection.Count
+  - PostSharp.Patterns.Recording.OperationCollection.GetEnumerator
+  - PostSharp.Patterns.Recording.OperationCollection.IsReadOnly
+  - PostSharp.Patterns.Recording.OperationCollection.PropertyChanged
+  - PostSharp.Patterns.Recording.OperationCollection.Trim(PostSharp.Patterns.Recording.RestorePoint)
+  - PostSharp.Patterns.Recording.OperationCollection.Trim(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: OperationCollection
+  nameWithType: OperationCollection
+  fullName: PostSharp.Patterns.Recording.OperationCollection
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Read-only collection of operations (<xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>). The class is exposed on the <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref>
+
+    and <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref> properties.
+  remarks: >-
+    <p>In addition to the traditional collection members, this class exposes the <xref href="PostSharp.Patterns.Recording.OperationCollection.Trim(System.Int32)" data-throw-if-not-resolved="false"></xref> method,
+        which allows you to trim the collection of <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref>
+        or <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class OperationCollection : ICollection<Operation>, IEnumerable<Operation>, IEnumerable, INotifyPropertyChanged, INotifyCollectionChanged
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class OperationCollection Implements ICollection(Of Operation), IEnumerable(Of Operation), IEnumerable, INotifyPropertyChanged, INotifyCollectionChanged
+  inheritance:
+  - System.Object
+  implements:
+  - System.Collections.Generic.ICollection{PostSharp.Patterns.Recording.Operation}
+  - System.Collections.Generic.IEnumerable{PostSharp.Patterns.Recording.Operation}
+  - System.Collections.IEnumerable
+  - System.ComponentModel.INotifyPropertyChanged
+  - System.Collections.Specialized.INotifyCollectionChanged
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.OperationCollection.GetEnumerator
+  commentId: M:PostSharp.Patterns.Recording.OperationCollection.GetEnumerator
+  id: GetEnumerator
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: OperationCollection.GetEnumerator()
+  fullName: PostSharp.Patterns.Recording.OperationCollection.GetEnumerator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  example: []
+  syntax:
+    content: public IEnumerator<Operation> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{PostSharp.Patterns.Recording.Operation}
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of Operation)
+  overload: PostSharp.Patterns.Recording.OperationCollection.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{PostSharp.Patterns.Recording.Operation}.GetEnumerator
+- uid: PostSharp.Patterns.Recording.OperationCollection.CopyTo(PostSharp.Patterns.Recording.Operation[],System.Int32)
+  commentId: M:PostSharp.Patterns.Recording.OperationCollection.CopyTo(PostSharp.Patterns.Recording.Operation[],System.Int32)
+  id: CopyTo(PostSharp.Patterns.Recording.Operation[],System.Int32)
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(Operation[], int)
+  nameWithType: OperationCollection.CopyTo(Operation[], int)
+  fullName: PostSharp.Patterns.Recording.OperationCollection.CopyTo(PostSharp.Patterns.Recording.Operation[], int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  example: []
+  syntax:
+    content: public void CopyTo(Operation[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: PostSharp.Patterns.Recording.Operation[]
+    - id: arrayIndex
+      type: System.Int32
+    content.vb: Public Sub CopyTo(array As Operation(), arrayIndex As Integer)
+  overload: PostSharp.Patterns.Recording.OperationCollection.CopyTo*
+  implements:
+  - System.Collections.Generic.ICollection{PostSharp.Patterns.Recording.Operation}.CopyTo(PostSharp.Patterns.Recording.Operation[],System.Int32)
+  nameWithType.vb: OperationCollection.CopyTo(Operation(), Integer)
+  fullName.vb: PostSharp.Patterns.Recording.OperationCollection.CopyTo(PostSharp.Patterns.Recording.Operation(), Integer)
+  name.vb: CopyTo(Operation(), Integer)
+- uid: PostSharp.Patterns.Recording.OperationCollection.Trim(System.Int32)
+  commentId: M:PostSharp.Patterns.Recording.OperationCollection.Trim(System.Int32)
+  id: Trim(System.Int32)
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: Trim(int)
+  nameWithType: OperationCollection.Trim(int)
+  fullName: PostSharp.Patterns.Recording.OperationCollection.Trim(int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Trims the current collection to a given maximum number of operations.
+  remarks: <div class="NOTE"><h5>note</h5><p>The <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> collection is automatically trimmed to the value of the <xref href="PostSharp.Patterns.Recording.Recorder.MaximumOperationsCount" data-throw-if-not-resolved="false"></xref> property.</p></div>
+  example: []
+  syntax:
+    content: public void Trim(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: The maximum number of operations to keep in the collection.
+    content.vb: Public Sub Trim(count As Integer)
+  overload: PostSharp.Patterns.Recording.OperationCollection.Trim*
+  nameWithType.vb: OperationCollection.Trim(Integer)
+  fullName.vb: PostSharp.Patterns.Recording.OperationCollection.Trim(Integer)
+  name.vb: Trim(Integer)
+- uid: PostSharp.Patterns.Recording.OperationCollection.Trim(PostSharp.Patterns.Recording.RestorePoint)
+  commentId: M:PostSharp.Patterns.Recording.OperationCollection.Trim(PostSharp.Patterns.Recording.RestorePoint)
+  id: Trim(PostSharp.Patterns.Recording.RestorePoint)
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: Trim(RestorePoint)
+  nameWithType: OperationCollection.Trim(RestorePoint)
+  fullName: PostSharp.Patterns.Recording.OperationCollection.Trim(PostSharp.Patterns.Recording.RestorePoint)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Trims the current collection to a specified <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public void Trim(RestorePoint restorePoint)
+    parameters:
+    - id: restorePoint
+      type: PostSharp.Patterns.Recording.RestorePoint
+      description: A token to the <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref> to which the current collection should be trimmed.
+    content.vb: Public Sub Trim(restorePoint As RestorePoint)
+  overload: PostSharp.Patterns.Recording.OperationCollection.Trim*
+- uid: PostSharp.Patterns.Recording.OperationCollection.Count
+  commentId: P:PostSharp.Patterns.Recording.OperationCollection.Count
+  id: Count
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: OperationCollection.Count
+  fullName: PostSharp.Patterns.Recording.OperationCollection.Count
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PostSharp.Patterns.Recording.OperationCollection.Count*
+  implements:
+  - System.Collections.Generic.ICollection{PostSharp.Patterns.Recording.Operation}.Count
+- uid: PostSharp.Patterns.Recording.OperationCollection.IsReadOnly
+  commentId: P:PostSharp.Patterns.Recording.OperationCollection.IsReadOnly
+  id: IsReadOnly
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: OperationCollection.IsReadOnly
+  fullName: PostSharp.Patterns.Recording.OperationCollection.IsReadOnly
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: PostSharp.Patterns.Recording.OperationCollection.IsReadOnly*
+  implements:
+  - System.Collections.Generic.ICollection{PostSharp.Patterns.Recording.Operation}.IsReadOnly
+- uid: PostSharp.Patterns.Recording.OperationCollection.CollectionChanged
+  commentId: E:PostSharp.Patterns.Recording.OperationCollection.CollectionChanged
+  id: CollectionChanged
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: CollectionChanged
+  nameWithType: OperationCollection.CollectionChanged
+  fullName: PostSharp.Patterns.Recording.OperationCollection.CollectionChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  example: []
+  syntax:
+    content: public event NotifyCollectionChangedEventHandler CollectionChanged
+    return:
+      type: System.Collections.Specialized.NotifyCollectionChangedEventHandler
+    content.vb: Public Event CollectionChanged As NotifyCollectionChangedEventHandler
+  implements:
+  - System.Collections.Specialized.INotifyCollectionChanged.CollectionChanged
+- uid: PostSharp.Patterns.Recording.OperationCollection.PropertyChanged
+  commentId: E:PostSharp.Patterns.Recording.OperationCollection.PropertyChanged
+  id: PropertyChanged
+  parent: PostSharp.Patterns.Recording.OperationCollection
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: OperationCollection.PropertyChanged
+  fullName: PostSharp.Patterns.Recording.OperationCollection.PropertyChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Occurs when the value of a property of the current object changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged

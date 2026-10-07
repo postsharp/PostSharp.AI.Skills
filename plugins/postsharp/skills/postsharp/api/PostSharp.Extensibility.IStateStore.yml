@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IStateStore
+  commentId: T:PostSharp.Extensibility.IStateStore
+  id: IStateStore
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IStateStore.GetOrAdd``1(System.Func{``0})
+  - PostSharp.Extensibility.IStateStore.GetOrNew``1
+  - PostSharp.Extensibility.IStateStore.Get``1
+  - PostSharp.Extensibility.IStateStore.Set``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: IStateStore
+  nameWithType: IStateStore
+  fullName: PostSharp.Extensibility.IStateStore
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: A context that provides storage for arbitrary items.
+  example: []
+  syntax:
+    content: public interface IStateStore
+    content.vb: Public Interface IStateStore
+- uid: PostSharp.Extensibility.IStateStore.Get``1
+  commentId: M:PostSharp.Extensibility.IStateStore.Get``1
+  id: Get``1
+  parent: PostSharp.Extensibility.IStateStore
+  langs:
+  - csharp
+  - vb
+  name: Get<T>()
+  nameWithType: IStateStore.Get<T>()
+  fullName: PostSharp.Extensibility.IStateStore.Get<T>()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a value of a given type from the store.
+  example: []
+  syntax:
+    content: 'T Get<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The type of the value.
+    return:
+      type: '{T}'
+      description: >-
+        The value whose type is <code class="typeparamref">T</code>, or <code>null</code> if the store
+                    does not contain such a value.
+    content.vb: Function [Get](Of T As Class)() As T
+  overload: PostSharp.Extensibility.IStateStore.Get*
+  nameWithType.vb: IStateStore.Get(Of T)()
+  fullName.vb: PostSharp.Extensibility.IStateStore.Get(Of T)()
+  name.vb: Get(Of T)()
+- uid: PostSharp.Extensibility.IStateStore.Set``1(``0)
+  commentId: M:PostSharp.Extensibility.IStateStore.Set``1(``0)
+  id: Set``1(``0)
+  parent: PostSharp.Extensibility.IStateStore
+  langs:
+  - csharp
+  - vb
+  name: Set<T>(T)
+  nameWithType: IStateStore.Set<T>(T)
+  fullName: PostSharp.Extensibility.IStateStore.Set<T>(T)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Adds a value to the store or replaces it if a value of the same type already exists.
+  example: []
+  syntax:
+    content: 'void Set<T>(T value) where T : class'
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The new value.
+    typeParameters:
+    - id: T
+      description: The type of the new value.
+    content.vb: Sub [Set](Of T As Class)(value As T)
+  overload: PostSharp.Extensibility.IStateStore.Set*
+  nameWithType.vb: IStateStore.Set(Of T)(T)
+  fullName.vb: PostSharp.Extensibility.IStateStore.Set(Of T)(T)
+  name.vb: Set(Of T)(T)
+- uid: PostSharp.Extensibility.IStateStore.GetOrAdd``1(System.Func{``0})
+  commentId: M:PostSharp.Extensibility.IStateStore.GetOrAdd``1(System.Func{``0})
+  id: GetOrAdd``1(System.Func{``0})
+  parent: PostSharp.Extensibility.IStateStore
+  langs:
+  - csharp
+  - vb
+  name: GetOrAdd<T>(Func<T>)
+  nameWithType: IStateStore.GetOrAdd<T>(Func<T>)
+  fullName: PostSharp.Extensibility.IStateStore.GetOrAdd<T>(System.Func<T>)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a value from the cache or adds it if it does not exist yet.
+  example: []
+  syntax:
+    content: T GetOrAdd<T>(Func<T> getter)
+    parameters:
+    - id: getter
+      type: System.Func{{T}}
+      description: >-
+        The delegate invoked if no value of type <code class="typeparamref">T</code> is
+                    present in the cache.
+    typeParameters:
+    - id: T
+      description: The type of the value.
+    return:
+      type: '{T}'
+      description: >-
+        Either the value of type <code class="typeparamref">T</code> present in the cache,
+                    or the result of the <code class="paramref">getter</code> delegate.
+    content.vb: Function GetOrAdd(Of T)(getter As Func(Of T)) As T
+  overload: PostSharp.Extensibility.IStateStore.GetOrAdd*
+  nameWithType.vb: IStateStore.GetOrAdd(Of T)(Func(Of T))
+  fullName.vb: PostSharp.Extensibility.IStateStore.GetOrAdd(Of T)(System.Func(Of T))
+  name.vb: GetOrAdd(Of T)(Func(Of T))
+- uid: PostSharp.Extensibility.IStateStore.GetOrNew``1
+  commentId: M:PostSharp.Extensibility.IStateStore.GetOrNew``1
+  id: GetOrNew``1
+  parent: PostSharp.Extensibility.IStateStore
+  langs:
+  - csharp
+  - vb
+  name: GetOrNew<T>()
+  nameWithType: IStateStore.GetOrNew<T>()
+  fullName: PostSharp.Extensibility.IStateStore.GetOrNew<T>()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a value from the cache or adds a default value if it does not exist yet.
+  example: []
+  syntax:
+    content: 'T GetOrNew<T>() where T : new()'
+    typeParameters:
+    - id: T
+      description: The type of the value.
+    return:
+      type: '{T}'
+      description: >-
+        Either the value of type <code class="typeparamref">T</code> present in the cache,
+                    or a new object of type <code class="typeparamref">T</code>.
+    content.vb: Function GetOrNew(Of T As New)() As T
+  overload: PostSharp.Extensibility.IStateStore.GetOrNew*
+  nameWithType.vb: IStateStore.GetOrNew(Of T)()
+  fullName.vb: PostSharp.Extensibility.IStateStore.GetOrNew(Of T)()
+  name.vb: GetOrNew(Of T)()

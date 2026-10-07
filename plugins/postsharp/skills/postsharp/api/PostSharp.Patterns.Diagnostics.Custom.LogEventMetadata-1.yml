@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1
+  id: LogEventMetadata`1
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.#ctor(System.String)
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.GetExpressionModel(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: LogEventMetadata<TExpressionModel>
+  nameWithType: LogEventMetadata<TExpressionModel>
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata<TExpressionModel>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    A specialization of <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref> that specifies the
+
+    expression model type, that is, the type exposed to transaction policy expressions.
+  example: []
+  syntax:
+    content: 'public abstract class LogEventMetadata<TExpressionModel> : LogEventMetadata'
+    typeParameters:
+    - id: TExpressionModel
+      description: >-
+        The
+                    expression model type, that is, the type exposed to transaction policy expressions.
+    content.vb: Public MustInherit Class LogEventMetadata(Of TExpressionModel) Inherits LogEventMetadata
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata`1
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.AspNetFrameworkRequestMetadata`1
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.HasInheritedProperty(System.Object)
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.GetPropertyOptions(System.String)
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.VisitProperties``1(System.Object,PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor{{TVisitorState}},{TVisitorState}@,PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions@)
+  - PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.Name
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: LogEventMetadata(Of TExpressionModel)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata(Of TExpressionModel)
+  name.vb: LogEventMetadata(Of TExpressionModel)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: LogEventMetadata(string)
+  nameWithType: LogEventMetadata<TExpressionModel>.LogEventMetadata(string)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata<TExpressionModel>.LogEventMetadata(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LogEventMetadata(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: >-
+        The name of the current <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>. This property may be undefined. It must be defined 
+                    when the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref> must be available for evaluation from transaction policy expressions. In this case,
+                    the type of expression model (that is, the generic parameter of <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata%601" data-throw-if-not-resolved="false"></xref>) must be identical for identical
+                    values of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.Name" data-throw-if-not-resolved="false"></xref> property.
+    content.vb: Protected Sub New(name As String)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.#ctor*
+  nameWithType.vb: LogEventMetadata(Of TExpressionModel).New(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata(Of TExpressionModel).New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.GetExpressionModel(System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.GetExpressionModel(System.Object)
+  id: GetExpressionModel(System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1
+  langs:
+  - csharp
+  - vb
+  name: GetExpressionModel(object)
+  nameWithType: LogEventMetadata<TExpressionModel>.GetExpressionModel(object)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata<TExpressionModel>.GetExpressionModel(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the object that must be exposed to the expressions in transaction policies.
+  example: []
+  syntax:
+    content: public virtual TExpressionModel GetExpressionModel(object data)
+    parameters:
+    - id: data
+      type: System.Object
+      description: The raw CLR object, typically <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData.Data" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: '{TExpressionModel}'
+      description: The object that is exposed to the expressions in transaction policies.
+    content.vb: Public Overridable Function GetExpressionModel(data As Object) As TExpressionModel
+  overload: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata`1.GetExpressionModel*
+  nameWithType.vb: LogEventMetadata(Of TExpressionModel).GetExpressionModel(Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata(Of TExpressionModel).GetExpressionModel(Object)
+  name.vb: GetExpressionModel(Object)

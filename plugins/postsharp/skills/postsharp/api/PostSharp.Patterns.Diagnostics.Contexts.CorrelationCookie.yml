@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+  id: CorrelationCookie
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.#ctor(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  - PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.Null
+  - PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.ParentContext
+  langs:
+  - csharp
+  - vb
+  name: CorrelationCookie
+  nameWithType: CorrelationCookie
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: >-
+    Represents a correlation between two <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> instances. This type is created by the
+
+    <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CreateCorrelationCookie" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public struct CorrelationCookie
+    content.vb: Public Structure CorrelationCookie
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.#ctor(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.#ctor(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+  langs:
+  - csharp
+  - vb
+  name: CorrelationCookie(ILoggingContext)
+  nameWithType: CorrelationCookie.CorrelationCookie(ILoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.CorrelationCookie(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public CorrelationCookie(ILoggingContext parentContext)
+    parameters:
+    - id: parentContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The parent context (the context of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CreateCorrelationCookie" data-throw-if-not-resolved="false"></xref> method).
+    content.vb: Public Sub New(parentContext As ILoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.#ctor*
+  nameWithType.vb: CorrelationCookie.New(ILoggingContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.New(PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  name.vb: New(ILoggingContext)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.ParentContext
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.ParentContext
+  id: ParentContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+  langs:
+  - csharp
+  - vb
+  name: ParentContext
+  nameWithType: CorrelationCookie.ParentContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.ParentContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the parent context (the context of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.CreateCorrelationCookie" data-throw-if-not-resolved="false"></xref> method).
+  example: []
+  syntax:
+    content: public readonly ILoggingContext ParentContext { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+    content.vb: Public ReadOnly Property ParentContext As ILoggingContext
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.ParentContext*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.Null
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.Null
+  id: "Null"
+  parent: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+  langs:
+  - csharp
+  - vb
+  name: "Null"
+  nameWithType: CorrelationCookie.Null
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.Null
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets a default instance of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie" data-throw-if-not-resolved="false"></xref> type.
+  example: []
+  syntax:
+    content: public static CorrelationCookie Null { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie
+    content.vb: Public Shared ReadOnly Property Null As CorrelationCookie
+  overload: PostSharp.Patterns.Diagnostics.Contexts.CorrelationCookie.Null*

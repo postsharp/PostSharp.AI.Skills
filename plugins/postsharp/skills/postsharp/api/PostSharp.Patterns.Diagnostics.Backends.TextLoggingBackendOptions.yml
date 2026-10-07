@@ -1,0 +1,388 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  id: TextLoggingBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  langs:
+  - csharp
+  - vb
+  name: TextLoggingBackendOptions
+  nameWithType: TextLoggingBackendOptions
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Options for the <xref href="PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>These run-time options control the formatting of text records, for example their maximum length, the delimiter, the indentation,
+        and the inclusion of type names and exception details. Set them through the <xref href="PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Options" data-throw-if-not-resolved="false"></xref> property of the backend when the application starts.
+        Unlike the build-time options of <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile" data-throw-if-not-resolved="false"></xref>, they apply to all logging profiles that use the backend.</p>
+  example: []
+  syntax:
+    content: 'public class TextLoggingBackendOptions : LoggingBackendOptions'
+    content.vb: Public Class TextLoggingBackendOptions Inherits LoggingBackendOptions
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-customizing'
+    altText: 'Conceptual: Formatting Log Records'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: TextLoggingBackendOptions()
+  nameWithType: TextLoggingBackendOptions.TextLoggingBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.TextLoggingBackendOptions()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  syntax:
+    content: public TextLoggingBackendOptions()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.#ctor*
+  nameWithType.vb: TextLoggingBackendOptions.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength
+  id: ActionMaxLength
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ActionMaxLength
+  nameWithType: TextLoggingBackendOptions.ActionMaxLength
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets the maximum length of a log record. The default value is 2048.
+  remarks: >-
+    <p>This property determines the size of the buffer allocated to build the record.
+        If the real length exceeds the value of <xref href="PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength" data-throw-if-not-resolved="false"></xref>, no exception is thrown, and the excess content is ignored.</p>
+  example: []
+  syntax:
+    content: public int ActionMaxLength { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ActionMaxLength As Integer
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ActionMaxLength*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces
+  id: IndentSpaces
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IndentSpaces
+  nameWithType: TextLoggingBackendOptions.IndentSpaces
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets the number of spaces for each indentation level. The default value is 2.
+  example: []
+  syntax:
+    content: public int IndentSpaces { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property IndentSpaces As Integer
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IndentSpaces*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter
+  id: Delimiter
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: Delimiter
+  nameWithType: TextLoggingBackendOptions.Delimiter
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets the string used to separate different parts of the logging record. The default value is a pipe surrounded by spaces (<code> | </code>).
+  example: []
+  syntax:
+    content: public string Delimiter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Delimiter As String
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.Delimiter*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails
+  id: IncludeExceptionDetails
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeExceptionDetails
+  nameWithType: TextLoggingBackendOptions.IncludeExceptionDetails
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Gets or sets a value indicating whether exception details (basically <code>Exception.ToString</code>) should be appended to the log.
+
+    The default value is <code>false</code>.
+  remarks: Some backends may ignore this setting and always include exception details.
+  example: []
+  syntax:
+    content: public bool IncludeExceptionDetails { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeExceptionDetails As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeExceptionDetails*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType
+  id: IncludeType
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeType
+  nameWithType: TextLoggingBackendOptions.IncludeType
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets a value indicating whether the name of the type of the logged method should be included in the log. The default value is <code>true</code>.
+  example: []
+  syntax:
+    content: public bool IncludeType { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeType As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeType*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace
+  id: IncludeNamespace
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeNamespace
+  nameWithType: TextLoggingBackendOptions.IncludeNamespace
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets a value indicating whether the full namespace of types should be included in the log. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IncludeNamespace { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeNamespace As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.IncludeNamespace*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  id: ShouldLogExceptionPredicate
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ShouldLogExceptionPredicate
+  nameWithType: TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Gets or sets a predicate that determines whether an exception should be logged. This predicate is evaluated only
+
+    when the method entry is not logged. When the method entry is logged, exceptions are always logged.
+  example: []
+  syntax:
+    content: public Func<Exception, bool> ShouldLogExceptionPredicate { get; set; }
+    parameters: []
+    return:
+      type: System.Func{System.Exception,System.Boolean}
+    content.vb: Public Property ShouldLogExceptionPredicate As Func(Of Exception, Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ShouldLogExceptionPredicate*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod
+  id: AppendTrailingPeriod
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: AppendTrailingPeriod
+  nameWithType: TextLoggingBackendOptions.AppendTrailingPeriod
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Gets or sets a value indicating whether log messages should end with a trailing period. The default value is <code>true</code>
+
+    because PostSharp prefers trailing periods, but other conventions are valid.
+  example: []
+  syntax:
+    content: public bool AppendTrailingPeriod { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AppendTrailingPeriod As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.AppendTrailingPeriod*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter
+  id: ExceptionFormatter
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ExceptionFormatter
+  nameWithType: TextLoggingBackendOptions.ExceptionFormatter
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Gets or sets the <xref href="PostSharp.Patterns.Formatters.Formatter%601" data-throw-if-not-resolved="false"></xref> used to format the <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> in which a method or custom activity results. This is different
+
+    from the formatter used to format parameter or property values of <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> type. The default implementation prints the full type name of the <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Formatter<Exception> ExceptionFormatter { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Formatters.Formatter{System.Exception}
+    content.vb: Public Property ExceptionFormatter As Formatter(Of Exception)
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ExceptionFormatter*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix
+  id: ParameterPrefix
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ParameterPrefix
+  nameWithType: TextLoggingBackendOptions.ParameterPrefix
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets the prefix used for parameter names. The default value is <code>@</code>.
+  example: []
+  syntax:
+    content: public string ParameterPrefix { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ParameterPrefix As String
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ParameterPrefix*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix
+  id: ReturnItemPrefix
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ReturnItemPrefix
+  nameWithType: TextLoggingBackendOptions.ReturnItemPrefix
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets the prefix used for return values. The default value is <code>$</code>.
+  example: []
+  syntax:
+    content: public string ReturnItemPrefix { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ReturnItemPrefix As String
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.ReturnItemPrefix*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix
+  id: PropertyPrefix
+  parent: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: PropertyPrefix
+  nameWithType: TextLoggingBackendOptions.PropertyPrefix
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets or sets the prefix used for custom property names. The default value is <code>#</code>.
+  example: []
+  syntax:
+    content: public string PropertyPrefix { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PropertyPrefix As String
+  overload: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions.PropertyPrefix*

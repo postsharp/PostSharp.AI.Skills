@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ActivatorProvider
+  commentId: T:PostSharp.Serialization.ActivatorProvider
+  id: ActivatorProvider
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ActivatorProvider.GetActivator(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: ActivatorProvider
+  nameWithType: ActivatorProvider
+  fullName: PostSharp.Serialization.ActivatorProvider
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Provides instances of classes implementing the <xref href="PostSharp.Serialization.IActivator" data-throw-if-not-resolved="false"></xref> interface. You should not use this class in user code.
+  example: []
+  syntax:
+    content: >-
+      [Internal]
+
+      public sealed class ActivatorProvider
+    content.vb: >-
+      <Internal>
+
+      Public NotInheritable Class ActivatorProvider
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Constraints.InternalAttribute
+    ctor: PostSharp.Constraints.InternalAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Serialization.ActivatorProvider.GetActivator(System.Type)
+  commentId: M:PostSharp.Serialization.ActivatorProvider.GetActivator(System.Type)
+  id: GetActivator(System.Type)
+  parent: PostSharp.Serialization.ActivatorProvider
+  langs:
+  - csharp
+  - vb
+  name: GetActivator(Type)
+  nameWithType: ActivatorProvider.GetActivator(Type)
+  fullName: PostSharp.Serialization.ActivatorProvider.GetActivator(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets an instance of a given class implementing the <xref href="PostSharp.Serialization.IActivator" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public IActivator GetActivator(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: A type implementing the <xref href="PostSharp.Serialization.IActivator" data-throw-if-not-resolved="false"></xref> interface.
+    return:
+      type: PostSharp.Serialization.IActivator
+      description: An instance of type <code class="paramref">type</code>.
+    content.vb: Public Function GetActivator(type As Type) As IActivator
+  overload: PostSharp.Serialization.ActivatorProvider.GetActivator*

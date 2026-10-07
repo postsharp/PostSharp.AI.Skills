@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadingServices
+  commentId: T:PostSharp.Patterns.Threading.ThreadingServices
+  id: ThreadingServices
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadingServices.SynchronizationContextComparer
+  - PostSharp.Patterns.Threading.ThreadingServices.UnhandledException
+  - PostSharp.Patterns.Threading.ThreadingServices.WaitForInitialization(PostSharp.Patterns.Threading.IThreadAware,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  - PostSharp.Patterns.Threading.ThreadingServices.WithConcurrencyController(PostSharp.Patterns.Threading.IConcurrencyController)
+  langs:
+  - csharp
+  - vb
+  name: ThreadingServices
+  nameWithType: ThreadingServices
+  fullName: PostSharp.Patterns.Threading.ThreadingServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Exposes methods to work with the <code>PostSharp.Patterns.Threading</code> namespace.
+  example: []
+  syntax:
+    content: public static class ThreadingServices
+    content.vb: Public Module ThreadingServices
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ThreadingServices.WithConcurrencyController(PostSharp.Patterns.Threading.IConcurrencyController)
+  commentId: M:PostSharp.Patterns.Threading.ThreadingServices.WithConcurrencyController(PostSharp.Patterns.Threading.IConcurrencyController)
+  id: WithConcurrencyController(PostSharp.Patterns.Threading.IConcurrencyController)
+  parent: PostSharp.Patterns.Threading.ThreadingServices
+  langs:
+  - csharp
+  - vb
+  name: WithConcurrencyController(IConcurrencyController)
+  nameWithType: ThreadingServices.WithConcurrencyController(IConcurrencyController)
+  fullName: PostSharp.Patterns.Threading.ThreadingServices.WithConcurrencyController(PostSharp.Patterns.Threading.IConcurrencyController)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Sets the ambient concurrency controller for the current thread. Until the returned <xref href="PostSharp.Patterns.Threading.AmbientConcurrencyControllerContext" data-throw-if-not-resolved="false"></xref> value is disposed,
+
+    thread-aware objects created in the current thread will be assigned to the given concurrency controller.
+  remarks: >-
+    This method can be used to optimize performance when creating a large tree of thread-aware objects that need to share the same concurrency controller.
+
+    When a tree is built from the leaves to the root without this method, a concurrency controller is created for each sub-tree root, and the controllers
+
+    of a whole sub-tree are replaced each time the sub-tree is assigned to a parent, which can make the instantiation cost quadratic.
+  example: []
+  syntax:
+    content: public static AmbientConcurrencyControllerContext WithConcurrencyController(IConcurrencyController concurrencyController)
+    parameters:
+    - id: concurrencyController
+      type: PostSharp.Patterns.Threading.IConcurrencyController
+      description: The ambient concurrency controller. Use the <xref href="PostSharp.Patterns.Threading.ConcurrencyControllerFactory" data-throw-if-not-resolved="false"></xref> class to create new concurrency controllers.
+    return:
+      type: PostSharp.Patterns.Threading.AmbientConcurrencyControllerContext
+      description: An <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> value representing the ambient concurrency controller context.
+    content.vb: Public Shared Function WithConcurrencyController(concurrencyController As IConcurrencyController) As AmbientConcurrencyControllerContext
+  overload: PostSharp.Patterns.Threading.ThreadingServices.WithConcurrencyController*
+  seealso:
+  - linkType: HRef
+    linkId: '@threading-performance'
+    altText: 'Conceptual: Run-Time Performance of Threading Model'
+- uid: PostSharp.Patterns.Threading.ThreadingServices.WaitForInitialization(PostSharp.Patterns.Threading.IThreadAware,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Threading.ThreadingServices.WaitForInitialization(PostSharp.Patterns.Threading.IThreadAware,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  id: WaitForInitialization(PostSharp.Patterns.Threading.IThreadAware,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Threading.ThreadingServices
+  langs:
+  - csharp
+  - vb
+  name: WaitForInitialization(IThreadAware, TimeSpan?, CancellationToken)
+  nameWithType: ThreadingServices.WaitForInitialization(IThreadAware, TimeSpan?, CancellationToken)
+  fullName: PostSharp.Patterns.Threading.ThreadingServices.WaitForInitialization(PostSharp.Patterns.Threading.IThreadAware, System.TimeSpan?, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Actively waits for initialization of a thread-aware object, that is, for the constructor to complete.
+  remarks: This method may introduce deadlocks if it is used improperly.
+  example: []
+  syntax:
+    content: public static bool WaitForInitialization(IThreadAware threadAware, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+    parameters:
+    - id: threadAware
+      type: PostSharp.Patterns.Threading.IThreadAware
+      description: The object to wait for.
+    - id: timeout
+      type: System.Nullable{System.TimeSpan}
+      description: The timeout.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the waiting succeeded.
+    content.vb: Public Shared Function WaitForInitialization(threadAware As IThreadAware, timeout As TimeSpan? = Nothing, cancellationToken As CancellationToken = Nothing) As Boolean
+  overload: PostSharp.Patterns.Threading.ThreadingServices.WaitForInitialization*
+- uid: PostSharp.Patterns.Threading.ThreadingServices.SynchronizationContextComparer
+  commentId: P:PostSharp.Patterns.Threading.ThreadingServices.SynchronizationContextComparer
+  id: SynchronizationContextComparer
+  parent: PostSharp.Patterns.Threading.ThreadingServices
+  langs:
+  - csharp
+  - vb
+  name: SynchronizationContextComparer
+  nameWithType: ThreadingServices.SynchronizationContextComparer
+  fullName: PostSharp.Patterns.Threading.ThreadingServices.SynchronizationContextComparer
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets or sets the comparer used to determine whether two <xref href="System.Threading.SynchronizationContext" data-throw-if-not-resolved="false"></xref> objects are equivalent.
+  example: []
+  syntax:
+    content: public static IEqualityComparer<SynchronizationContext> SynchronizationContextComparer { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEqualityComparer{System.Threading.SynchronizationContext}
+    content.vb: Public Shared Property SynchronizationContextComparer As IEqualityComparer(Of SynchronizationContext)
+  overload: PostSharp.Patterns.Threading.ThreadingServices.SynchronizationContextComparer*
+- uid: PostSharp.Patterns.Threading.ThreadingServices.UnhandledException
+  commentId: E:PostSharp.Patterns.Threading.ThreadingServices.UnhandledException
+  id: UnhandledException
+  parent: PostSharp.Patterns.Threading.ThreadingServices
+  langs:
+  - csharp
+  - vb
+  name: UnhandledException
+  nameWithType: ThreadingServices.UnhandledException
+  fullName: PostSharp.Patterns.Threading.ThreadingServices.UnhandledException
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Occurs when the implementation of the <xref href="PostSharp.Patterns.Threading.ActorAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.DispatchedAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Threading.BackgroundAttribute" data-throw-if-not-resolved="false"></xref>
+
+    aspects encounters an unhandled exception.
+  example: []
+  syntax:
+    content: public static event EventHandler<ThreadingUnhandledExceptionEventArgs> UnhandledException
+    return:
+      type: System.EventHandler{PostSharp.Patterns.Threading.ThreadingUnhandledExceptionEventArgs}
+    content.vb: Public Shared Event UnhandledException As EventHandler(Of ThreadingUnhandledExceptionEventArgs)

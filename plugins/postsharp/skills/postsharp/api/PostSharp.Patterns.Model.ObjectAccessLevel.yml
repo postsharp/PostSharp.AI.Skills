@@ -1,0 +1,190 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel
+  commentId: T:PostSharp.Patterns.Model.ObjectAccessLevel
+  id: ObjectAccessLevel
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.ObjectAccessLevel.Inherit
+  - PostSharp.Patterns.Model.ObjectAccessLevel.None
+  - PostSharp.Patterns.Model.ObjectAccessLevel.Read
+  - PostSharp.Patterns.Model.ObjectAccessLevel.Unchecked
+  - PostSharp.Patterns.Model.ObjectAccessLevel.Unknown
+  - PostSharp.Patterns.Model.ObjectAccessLevel.UpgradeableRead
+  - PostSharp.Patterns.Model.ObjectAccessLevel.Write
+  - PostSharp.Patterns.Model.ObjectAccessLevel.Yield
+  langs:
+  - csharp
+  - vb
+  name: ObjectAccessLevel
+  nameWithType: ObjectAccessLevel
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Specifies the access levels that methods of execution scopes can require on an object.
+  example: []
+  syntax:
+    content: public enum ObjectAccessLevel
+    content.vb: Public Enum ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.None
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.None
+  id: None
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: ObjectAccessLevel.None
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.None
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: None.
+  example: []
+  syntax:
+    content: None = 0
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.Unknown
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.Unknown
+  id: Unknown
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: Unknown
+  nameWithType: ObjectAccessLevel.Unknown
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.Unknown
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: The required access level is unknown; maximum access is required.
+  example: []
+  syntax:
+    content: Unknown = 1
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.Read
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.Read
+  id: Read
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: Read
+  nameWithType: ObjectAccessLevel.Read
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.Read
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Read-only.
+  example: []
+  syntax:
+    content: Read = 2
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.Write
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.Write
+  id: Write
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: Write
+  nameWithType: ObjectAccessLevel.Write
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.Write
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Read-write.
+  example: []
+  syntax:
+    content: Write = 3
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.UpgradeableRead
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.UpgradeableRead
+  id: UpgradeableRead
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: UpgradeableRead
+  nameWithType: ObjectAccessLevel.UpgradeableRead
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.UpgradeableRead
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Read-only access that prevents other threads from acquiring <xref href="PostSharp.Patterns.Model.ObjectAccessLevel.Write" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.ObjectAccessLevel.UpgradeableRead" data-throw-if-not-resolved="false"></xref> access.
+  example: []
+  syntax:
+    content: UpgradeableRead = 4
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.Unchecked
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.Unchecked
+  id: Unchecked
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: Unchecked
+  nameWithType: ObjectAccessLevel.Unchecked
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.Unchecked
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Disables all run-time verification of access permissions.
+  example: []
+  syntax:
+    content: Unchecked = 5
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.Yield
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.Yield
+  id: Yield
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: Yield
+  nameWithType: ObjectAccessLevel.Yield
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.Yield
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Indicates that the control flow is passed to another object.
+  example: []
+  syntax:
+    content: Yield = 6
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel
+- uid: PostSharp.Patterns.Model.ObjectAccessLevel.Inherit
+  commentId: F:PostSharp.Patterns.Model.ObjectAccessLevel.Inherit
+  id: Inherit
+  parent: PostSharp.Patterns.Model.ObjectAccessLevel
+  langs:
+  - csharp
+  - vb
+  name: Inherit
+  nameWithType: ObjectAccessLevel.Inherit
+  fullName: PostSharp.Patterns.Model.ObjectAccessLevel.Inherit
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Model
+  summary: Indicates that the access level is inherited from the outer scope.
+  example: []
+  syntax:
+    content: Inherit = 7
+    return:
+      type: PostSharp.Patterns.Model.ObjectAccessLevel

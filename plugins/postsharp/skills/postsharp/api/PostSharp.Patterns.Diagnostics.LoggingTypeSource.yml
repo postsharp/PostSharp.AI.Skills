@@ -1,0 +1,364 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  id: LoggingTypeSource
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh
+  - PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType
+  langs:
+  - csharp
+  - vb
+  name: LoggingTypeSource
+  nameWithType: LoggingTypeSource
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Allows enabling or disabling logging for a specific type, and exposes some information about the verbosity for this type. Note that a type here does
+
+    not need to map to a .NET type. It can be an arbitrary dot-separated string.
+  remarks: >-
+    <p>A <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> is identified by a role (see <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles" data-throw-if-not-resolved="false"></xref>) and a type name. It corresponds to the logger,
+        category or source concept of the target logging framework. A log record is emitted only when logging is enabled both in PostSharp, through the
+        <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>, and in the target logging framework, as reported by <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>A custom backend derives a class from <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>, typically with a field that holds the logger of the target
+        framework, and returns it from <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource%2cSystem.Type)" data-throw-if-not-resolved="false"></xref>. Because instances are shared by all threads, the derived class
+        must be immutable or thread-safe.</p>
+  example: []
+  syntax:
+    content: 'public abstract class LoggingTypeSource : LoggingNamespaceSource, IContextLocalLogger, ILoggerExceptionHandler'
+    content.vb: Public MustInherit Class LoggingTypeSource Inherits LoggingNamespaceSource Implements IContextLocalLogger, ILoggerExceptionHandler
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-logging-backend'
+    altText: 'Conceptual: Building Your Own Logging Backend (Adapter)'
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.Audit.AuditTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.CommonLogging.CommonLoggingLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.Log4Net.Log4NetLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.Trace.TraceLoggingTypeSource
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingTypeSource
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.IContextLocalLogger
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerExceptionHandler
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.SetLevel(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Backend
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Parent
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Role
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Name
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.DisplayName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.FullName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.DisplayFullName
+  - PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Level
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)'
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: LoggingTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: LoggingTypeSource.LoggingTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.LoggingTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the constructor that uses a full source name instead.")]
+
+      protected LoggingTypeSource(LoggingNamespaceSource parent, Type sourceType)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    - id: sourceType
+      type: System.Type
+      description: The type represented by the new <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <Obsolete("Use the constructor that uses a full source name instead.")>
+
+      Protected Sub New(parent As LoggingNamespaceSource, sourceType As Type)
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the constructor that uses a full source name instead.
+  nameWithType.vb: LoggingTypeSource.New(LoggingNamespaceSource, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingTypeSource.New(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  name.vb: New(LoggingNamespaceSource, Type)
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String,System.Type)'
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: LoggingTypeSource(LoggingNamespaceSource, string, Type)
+  nameWithType: LoggingTypeSource.LoggingTypeSource(LoggingNamespaceSource, string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.LoggingTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, string, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LoggingTypeSource(LoggingNamespaceSource parent, string shortName, Type sourceType = null)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent <xref href="PostSharp.Patterns.Diagnostics.LoggingNamespaceSource" data-throw-if-not-resolved="false"></xref>.
+    - id: shortName
+      type: System.String
+      description: The name of the log source represented by the new <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>. This is usually the <xref href="System.Type.FullName" data-throw-if-not-resolved="false"></xref> of <code class="paramref">sourceType</code>.
+    - id: sourceType
+      type: System.Type
+      description: Optional. The type that this type source is associated with. This is usually the type that the source is logging.
+    content.vb: Protected Sub New(parent As LoggingNamespaceSource, shortName As String, sourceType As Type = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.#ctor*
+  nameWithType.vb: LoggingTypeSource.New(LoggingNamespaceSource, String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingTypeSource.New(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, String, System.Type)
+  name.vb: New(LoggingNamespaceSource, String, Type)
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: IsBackendEnabled(LogLevel)
+  nameWithType: LoggingTypeSource.IsBackendEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Checks whether logging is enabled in the backend for the given level.
+  remarks: <p>The result of this method is cached. To invalidate the cache, call the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: protected abstract bool IsBackendEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    return:
+      type: System.Boolean
+    content.vb: Protected MustOverride Function IsBackendEnabled(level As LogLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsBackendEnabled*
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh
+  id: Refresh
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: Refresh()
+  nameWithType: LoggingTypeSource.Refresh()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Refreshes the logging level from the backend for the current node and all child nodes.
+
+    The backend-defined logging level is cached for performance reasons.
+  example: []
+  syntax:
+    content: public override void Refresh()
+    content.vb: Public Overrides Sub Refresh()
+  overridden: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Refresh
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Refresh*
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled(LogLevel)
+  nameWithType: LoggingTypeSource.IsEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Determines whether logging is enabled for the given <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool IsEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> to test.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if logging is enabled for <code class="paramref">level</code>, otherwise <code>false</code>.
+    content.vb: Public Function IsEnabled(level As LogLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.IsEnabled*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.IContextLocalLogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(System.String)
+  id: Clone(System.String)
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: Clone(string)
+  nameWithType: LoggingTypeSource.Clone(string)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a deep clone of the current object.
+  example: []
+  syntax:
+    content: protected override LoggingNamespaceSource Clone(string role)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role of the new instance, or <code>null</code> to keep the same role as in the source instance. The default value is <code>null</code>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: A deep clone of the current instance.
+    content.vb: Protected Overrides Function Clone(role As String) As LoggingNamespaceSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource.Clone(System.String)
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone*
+  nameWithType.vb: LoggingTypeSource.Clone(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Clone(String)
+  name.vb: Clone(String)
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: LoggingTypeSource.Options
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration" data-throw-if-not-resolved="false"></xref> for the current role. This property is a shortcut to <code>LoggingServices.Roles[this.Role]</code>.
+  example: []
+  syntax:
+    content: public LoggingRoleConfiguration Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingRoleConfiguration
+    content.vb: Public ReadOnly Property Options As LoggingRoleConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.Options*
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType
+  id: SourceType
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: SourceType
+  nameWithType: LoggingTypeSource.SourceType
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets the type represented by the current <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref>. This property may be <code>null</code>, for example when the log source is based on
+
+    a name rather than on a type.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use the FullName property.")]
+
+      public Type SourceType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: >-
+      <Obsolete("Use the FullName property.")>
+
+      Public ReadOnly Property SourceType As Type
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.SourceType*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the FullName property.
+- uid: PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount
+  id: GenericParameterCount
+  parent: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+  langs:
+  - csharp
+  - vb
+  name: GenericParameterCount
+  nameWithType: LoggingTypeSource.GenericParameterCount
+  fullName: PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the number of generic parameters in the type.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Do not rely on this parameter as it may be incorrect when SourceType is not set.")]
+
+      public int GenericParameterCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Obsolete("Do not rely on this parameter as it may be incorrect when SourceType is not set.")>
+
+      Public ReadOnly Property GenericParameterCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.LoggingTypeSource.GenericParameterCount*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Do not rely on this parameter as it may be incorrect when SourceType is not set.

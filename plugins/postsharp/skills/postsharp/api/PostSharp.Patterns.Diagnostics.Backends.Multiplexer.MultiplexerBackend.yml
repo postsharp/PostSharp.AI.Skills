@@ -1,0 +1,526 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  id: MultiplexerBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend[])
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Backends
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.GetBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: MultiplexerBackend
+  nameWithType: MultiplexerBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: A multiplexer is a logging backend that sends logging events to other logging backends.
+  remarks: >-
+    <p>You want to use a multiplexer if you want all of your logging to go to two or more different backends.</p>
+
+    <p>
+        Each backend, including the multiplexer itself, maintains its own stack of logging contexts.
+        </p>
+    <p>Configure verbosity and options on the child backends, not on the multiplexer. Setting the minimal level of a namespace or type
+        on the verbosity of the multiplexer throws a <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>With the default exception handler, <xref href="PostSharp.Patterns.Diagnostics.DefaultLoggingExceptionHandler" data-throw-if-not-resolved="false"></xref>, an exception thrown by a child backend
+        disables only that backend; the other children continue to receive events.</p>
+  example: []
+  syntax:
+    content: 'public sealed class MultiplexerBackend : LoggingBackend, IDisposable'
+    content.vb: Public NotInheritable Class MultiplexerBackend Inherits LoggingBackend Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@log-multiplexer'
+    altText: 'Conceptual: Multiplexing Log Output to Several Frameworks'
+  - linkType: HRef
+    linkId: '@logging-exception-handling'
+    altText: 'Conceptual: Handling Logging Exceptions'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Options
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend[])
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend[])
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingBackend[])'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: MultiplexerBackend(params LoggingBackend[])
+  nameWithType: MultiplexerBackend.MultiplexerBackend(params LoggingBackend[])
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.MultiplexerBackend(params PostSharp.Patterns.Diagnostics.LoggingBackend[])
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MultiplexerBackend(params LoggingBackend[] backends)
+    parameters:
+    - id: backends
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend[]
+      description: These backends receive logging events. They receive the events in order. They are disposed when the <xref href="PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend" data-throw-if-not-resolved="false"></xref> is disposed.
+    content.vb: Public Sub New(ParamArray backends As LoggingBackend())
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.#ctor*
+  nameWithType.vb: MultiplexerBackend.New(ParamArray LoggingBackend())
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.New(ParamArray PostSharp.Patterns.Diagnostics.LoggingBackend())
+  name.vb: New(ParamArray LoggingBackend())
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: MultiplexerBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  id: CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  nameWithType: MultiplexerBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and logger name.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSourceBySourceName(LoggingNamespaceSource parent, string sourceName)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent namespace source.
+    - id: sourceName
+      type: System.String
+      description: The name of the log source.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The new log source.
+    content.vb: Protected Overrides Function CreateTypeSourceBySourceName(parent As LoggingNamespaceSource, sourceName As String) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSourceBySourceName*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: Thrown when the backend cannot create log sources based on names.
+  nameWithType.vb: MultiplexerBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, String)
+  name.vb: CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: MultiplexerBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.GetBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.GetBackendOptions
+  id: GetBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: GetBackendOptions()
+  nameWithType: MultiplexerBackend.GetBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.GetBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Gets the formatting and rendering options for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override LoggingBackendOptions GetBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions" data-throw-if-not-resolved="false"></xref> for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function GetBackendOptions() As LoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.GetBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: MultiplexerBackend.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected override void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose" data-throw-if-not-resolved="false"></xref> method has been called, <code>false</code> if the object is being finalized by the garbage collector.
+    content.vb: Protected Overrides Sub Dispose(disposing As Boolean)
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose(System.Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Dispose*
+  nameWithType.vb: MultiplexerBackend.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateThreadContext
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateThreadContext
+  id: CreateThreadContext
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateThreadContext()
+  nameWithType: MultiplexerBackend.CreateThreadContext()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateThreadContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override ThreadLoggingContext CreateThreadContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function CreateThreadContext() As ThreadLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateThreadContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateEphemeralContext(ThreadLoggingContext)
+  nameWithType: MultiplexerBackend.CreateEphemeralContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override EphemeralLoggingContext CreateEphemeralContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the new <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> will be used.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.EphemeralLoggingContext" data-throw-if-not-resolved="false"></xref> to be used only in the thread of <code class="paramref">threadContext</code>.
+    content.vb: Protected Overrides Function CreateEphemeralContext(threadContext As ThreadLoggingContext) As EphemeralLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateEphemeralContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncMethodContext
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncMethodContext
+  id: CreateAsyncMethodContext
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateAsyncMethodContext()
+  nameWithType: MultiplexerBackend.CreateAsyncMethodContext()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncMethodContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for a given async method.
+  example: []
+  syntax:
+    content: protected override AsyncMethodLoggingContext CreateAsyncMethodContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function CreateAsyncMethodContext() As AsyncMethodLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncMethodContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateIteratorContext
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateIteratorContext
+  id: CreateIteratorContext
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateIteratorContext()
+  nameWithType: MultiplexerBackend.CreateIteratorContext()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateIteratorContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext" data-throw-if-not-resolved="false"></xref> for a given iterator method.
+  example: []
+  syntax:
+    content: protected override IteratorLoggingContext CreateIteratorContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.IteratorLoggingContext
+    content.vb: Protected Overrides Function CreateIteratorContext() As IteratorLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateIteratorContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateSyncMethodContext(ThreadLoggingContext)
+  nameWithType: MultiplexerBackend.CreateSyncMethodContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> for a given normal (non-async, non-iterator) method.
+  example: []
+  syntax:
+    content: protected override SyncMethodLoggingContext CreateSyncMethodContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the method is executed.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncMethodLoggingContext" data-throw-if-not-resolved="false"></xref> to be used only in the thread of <code class="paramref">threadContext</code>.
+    content.vb: Protected Overrides Function CreateSyncMethodContext(threadContext As ThreadLoggingContext) As SyncMethodLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncMethodContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  id: CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateSyncCustomActivityContext(ThreadLoggingContext)
+  nameWithType: MultiplexerBackend.CreateSyncCustomActivityContext(ThreadLoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override SyncCustomActivityLoggingContext CreateSyncCustomActivityContext(ThreadLoggingContext threadContext)
+    parameters:
+    - id: threadContext
+      type: PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext" data-throw-if-not-resolved="false"></xref> in which the <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref> will be used.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref> to be used only in the thread of <code class="paramref">threadContext</code>.
+    content.vb: Protected Overrides Function CreateSyncCustomActivityContext(threadContext As ThreadLoggingContext) As SyncCustomActivityLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateSyncCustomActivityContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncCustomActivityContext
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncCustomActivityContext
+  id: CreateAsyncCustomActivityContext
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateAsyncCustomActivityContext()
+  nameWithType: MultiplexerBackend.CreateAsyncCustomActivityContext()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncCustomActivityContext()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override AsyncCustomActivityLoggingContext CreateAsyncCustomActivityContext()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function CreateAsyncCustomActivityContext() As AsyncCustomActivityLoggingContext
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateAsyncCustomActivityContext*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  id: CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTransaction(LoggingTypeSource, in TransactionProperties, ITransactionPolicy)
+  nameWithType: MultiplexerBackend.CreateTransaction(LoggingTypeSource, in TransactionProperties, ITransactionPolicy)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource, in PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public override LoggingTransaction CreateTransaction(LoggingTypeSource source, in TransactionProperties properties, ITransactionPolicy policy)
+    parameters:
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> that was used to open the transaction.
+    - id: properties
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+      description: The transaction properties.
+    - id: policy
+      type: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+      description: The policy assigned to the transaction.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+      description: A <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref>, or <code>null</code> if the transaction could not be created.
+    content.vb: Public Overrides Function CreateTransaction(source As LoggingTypeSource, properties As TransactionProperties, policy As ITransactionPolicy) As LoggingTransaction
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTransaction*
+  nameWithType.vb: MultiplexerBackend.CreateTransaction(LoggingTypeSource, TransactionProperties, ITransactionPolicy)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  name.vb: CreateTransaction(LoggingTypeSource, TransactionProperties, ITransactionPolicy)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateVerbosityConfiguration
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateVerbosityConfiguration
+  id: CreateVerbosityConfiguration
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateVerbosityConfiguration()
+  nameWithType: MultiplexerBackend.CreateVerbosityConfiguration()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateVerbosityConfiguration()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>Call <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use" data-throw-if-not-resolved="false"></xref> on the new object to apply it to the current execution context only.
+        A <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> is a heavyweight object: create one instance and reuse it, instead of creating one for each request.</p>
+  example: []
+  syntax:
+    content: public override LoggingVerbosityConfiguration CreateVerbosityConfiguration()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateVerbosityConfiguration() As LoggingVerbosityConfiguration
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.CreateVerbosityConfiguration*
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-verbosity-api'
+    altText: 'Conceptual: Adjusting Logging Verbosity Programmatically'
+- uid: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Backends
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Backends
+  id: Backends
+  parent: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
+  langs:
+  - csharp
+  - vb
+  name: Backends
+  nameWithType: MultiplexerBackend.Backends
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Backends
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Multiplexer
+  summary: Gets the child backends.
+  example: []
+  syntax:
+    content: public IReadOnlyList<LoggingBackend> Backends { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{PostSharp.Patterns.Diagnostics.LoggingBackend}
+    content.vb: Public ReadOnly Property Backends As IReadOnlyList(Of LoggingBackend)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend.Backends*

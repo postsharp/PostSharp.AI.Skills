@@ -1,0 +1,258 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute
+  commentId: T:PostSharp.Aspects.Advices.ArgumentAttribute
+  id: ArgumentAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ArgumentAttribute.#ctor
+  - PostSharp.Aspects.Advices.ArgumentAttribute.#ctor(System.Int32)
+  - PostSharp.Aspects.Advices.ArgumentAttribute.#ctor(System.String)
+  - PostSharp.Aspects.Advices.ArgumentAttribute.AmbiguityResolution
+  - PostSharp.Aspects.Advices.ArgumentAttribute.Index
+  - PostSharp.Aspects.Advices.ArgumentAttribute.Name
+  langs:
+  - csharp
+  - vb
+  name: ArgumentAttribute
+  nameWithType: ArgumentAttribute
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Binds a parameter of an advice method to an argument of the target method, selected by its index, by its name, or by its type.
+  remarks: >-
+    <p>
+        The constructor selects the argument:
+        </p>
+    <ul><li>
+          <xref href="PostSharp.Aspects.Advices.ArgumentAttribute.%23ctor(System.Int32)" data-throw-if-not-resolved="false"></xref> selects the argument at a given index.</li><li>
+          <xref href="PostSharp.Aspects.Advices.ArgumentAttribute.%23ctor(System.String)" data-throw-if-not-resolved="false"></xref> selects the argument of a given name.</li><li>
+          <xref href="PostSharp.Aspects.Advices.ArgumentAttribute.%23ctor" data-throw-if-not-resolved="false"></xref> selects the argument whose type can be assigned to the type of the advice parameter
+        without conversion, except boxing. When several arguments match, <xref href="PostSharp.Aspects.Advices.ArgumentAttribute.AmbiguityResolution" data-throw-if-not-resolved="false"></xref> selects one of them or reports an error.</li></ul>
+    <p>
+        A parameter without modifier receives the value of the argument. Its type must be the type of the argument, a type to which the
+        argument can be assigned without conversion, except boxing (for instance <xref href="System.Object" data-throw-if-not-resolved="false"></xref>), or a type parameter of the advice method.
+        An argument of a value type is boxed when the parameter is of a reference type.
+        </p>
+    <p>
+        A <code>ref</code>, <code>out</code> or <code>in</code> parameter receives the address of the argument, and its type must be the type of the argument.
+        Boxing is not supported for such a parameter: when the argument is of a value type and the parameter of a reference type, the compiler
+        reports an error. The changes made through a <code>ref</code> or <code>out</code> parameter are seen by the target method and by the next advices.
+        A <code>ref</code> or <code>out</code> parameter cannot be bound to an <code>in</code> argument; use an <code>in</code> parameter.
+        </p>
+    <p>
+        This attribute can be used in the method boundary advices and in <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>. It cannot be used in the location
+        interception advices, nor in <xref href="PostSharp.Aspects.Advices.OnInstanceConstructedAdvice" data-throw-if-not-resolved="false"></xref>, which runs once the object is constructed, whichever constructor ran.
+        When no argument matches, the compiler reports an error, unless the pointcut skips the targets whose
+        signature does not match, as <xref href="PostSharp.Aspects.Advices.MatchPointcut" data-throw-if-not-resolved="false"></xref> does.
+        </p>
+  example: []
+  syntax:
+    content: 'public sealed class ArgumentAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class ArgumentAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.ArgumentAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.ArgumentAttribute
+  langs:
+  - csharp
+  - vb
+  name: ArgumentAttribute()
+  nameWithType: ArgumentAttribute.ArgumentAttribute()
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute.ArgumentAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref> class that selects the argument whose type can be assigned to the
+
+    type of the advice parameter.
+  example: []
+  syntax:
+    content: public ArgumentAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.ArgumentAttribute.#ctor*
+  nameWithType.vb: ArgumentAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.ArgumentAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute.#ctor(System.Int32)
+  commentId: M:PostSharp.Aspects.Advices.ArgumentAttribute.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: PostSharp.Aspects.Advices.ArgumentAttribute
+  langs:
+  - csharp
+  - vb
+  name: ArgumentAttribute(int)
+  nameWithType: ArgumentAttribute.ArgumentAttribute(int)
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute.ArgumentAttribute(int)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref> class that selects the argument at a given index.
+  example: []
+  syntax:
+    content: public ArgumentAttribute(int index)
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The zero-based index of the argument in the parameter list of the target method.
+    content.vb: Public Sub New(index As Integer)
+  overload: PostSharp.Aspects.Advices.ArgumentAttribute.#ctor*
+  nameWithType.vb: ArgumentAttribute.New(Integer)
+  fullName.vb: PostSharp.Aspects.Advices.ArgumentAttribute.New(Integer)
+  name.vb: New(Integer)
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute.#ctor(System.String)
+  commentId: M:PostSharp.Aspects.Advices.ArgumentAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Aspects.Advices.ArgumentAttribute
+  langs:
+  - csharp
+  - vb
+  name: ArgumentAttribute(string)
+  nameWithType: ArgumentAttribute.ArgumentAttribute(string)
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute.ArgumentAttribute(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref> class that selects the argument of a given name.
+  example: []
+  syntax:
+    content: public ArgumentAttribute(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the parameter of the target method.
+    content.vb: Public Sub New(name As String)
+  overload: PostSharp.Aspects.Advices.ArgumentAttribute.#ctor*
+  nameWithType.vb: ArgumentAttribute.New(String)
+  fullName.vb: PostSharp.Aspects.Advices.ArgumentAttribute.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute.Index
+  commentId: P:PostSharp.Aspects.Advices.ArgumentAttribute.Index
+  id: Index
+  parent: PostSharp.Aspects.Advices.ArgumentAttribute
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: ArgumentAttribute.Index
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute.Index
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets the zero-based index of the argument in the parameter list of the target method, or -1 when the argument is selected by its
+
+    name or by its type.
+  example: []
+  syntax:
+    content: public int Index { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Index As Integer
+  overload: PostSharp.Aspects.Advices.ArgumentAttribute.Index*
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute.Name
+  commentId: P:PostSharp.Aspects.Advices.ArgumentAttribute.Name
+  id: Name
+  parent: PostSharp.Aspects.Advices.ArgumentAttribute
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ArgumentAttribute.Name
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute.Name
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the name of the parameter of the target method, or <code>null</code> when the argument is selected by its index or by its type.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Aspects.Advices.ArgumentAttribute.Name*
+- uid: PostSharp.Aspects.Advices.ArgumentAttribute.AmbiguityResolution
+  commentId: P:PostSharp.Aspects.Advices.ArgumentAttribute.AmbiguityResolution
+  id: AmbiguityResolution
+  parent: PostSharp.Aspects.Advices.ArgumentAttribute
+  langs:
+  - csharp
+  - vb
+  name: AmbiguityResolution
+  nameWithType: ArgumentAttribute.AmbiguityResolution
+  fullName: PostSharp.Aspects.Advices.ArgumentAttribute.AmbiguityResolution
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the behavior when several arguments match the type of the advice parameter. This property is used only when the argument
+
+    is selected by its type. The default value is <xref href="PostSharp.Aspects.Advices.ArgumentAmbiguityResolution.Default" data-throw-if-not-resolved="false"></xref>, which reports an error.
+  example: []
+  syntax:
+    content: public ArgumentAmbiguityResolution AmbiguityResolution { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.ArgumentAmbiguityResolution
+    content.vb: Public Property AmbiguityResolution As ArgumentAmbiguityResolution
+  overload: PostSharp.Aspects.Advices.ArgumentAttribute.AmbiguityResolution*

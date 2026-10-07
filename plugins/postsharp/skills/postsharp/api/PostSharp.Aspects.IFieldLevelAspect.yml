@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IFieldLevelAspect
+  commentId: T:PostSharp.Aspects.IFieldLevelAspect
+  id: IFieldLevelAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IFieldLevelAspect.RuntimeInitialize(System.Reflection.FieldInfo)
+  langs:
+  - csharp
+  - vb
+  name: IFieldLevelAspect
+  nameWithType: IFieldLevelAspect
+  fullName: PostSharp.Aspects.IFieldLevelAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Run-time semantics of aspects applied to fields.
+  example: []
+  syntax:
+    content: 'public interface IFieldLevelAspect : IAspect'
+    content.vb: Public Interface IFieldLevelAspect Inherits IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.IFieldLevelAspectBuildSemantics
+    commentId: T:PostSharp.Aspects.IFieldLevelAspectBuildSemantics
+  - linkId: PostSharp.Aspects.FieldLevelAspect
+    commentId: T:PostSharp.Aspects.FieldLevelAspect
+  derivedClasses:
+  - PostSharp.Aspects.FieldLevelAspect
+- uid: PostSharp.Aspects.IFieldLevelAspect.RuntimeInitialize(System.Reflection.FieldInfo)
+  commentId: M:PostSharp.Aspects.IFieldLevelAspect.RuntimeInitialize(System.Reflection.FieldInfo)
+  id: RuntimeInitialize(System.Reflection.FieldInfo)
+  parent: PostSharp.Aspects.IFieldLevelAspect
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitialize(FieldInfo)
+  nameWithType: IFieldLevelAspect.RuntimeInitialize(FieldInfo)
+  fullName: PostSharp.Aspects.IFieldLevelAspect.RuntimeInitialize(System.Reflection.FieldInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method invoked at runtime before any other method of the aspect is invoked.
+  example: []
+  syntax:
+    content: void RuntimeInitialize(FieldInfo field)
+    parameters:
+    - id: field
+      type: System.Reflection.FieldInfo
+      description: Field on which this instance is applied.
+    content.vb: Sub RuntimeInitialize(field As FieldInfo)
+  overload: PostSharp.Aspects.IFieldLevelAspect.RuntimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'

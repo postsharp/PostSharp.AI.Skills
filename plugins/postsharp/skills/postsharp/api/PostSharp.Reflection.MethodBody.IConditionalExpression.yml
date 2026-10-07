@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IConditionalExpression
+  commentId: T:PostSharp.Reflection.MethodBody.IConditionalExpression
+  id: IConditionalExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IConditionalExpression.Condition
+  - PostSharp.Reflection.MethodBody.IConditionalExpression.IfFalse
+  - PostSharp.Reflection.MethodBody.IConditionalExpression.IfTrue
+  langs:
+  - csharp
+  - vb
+  name: IConditionalExpression
+  nameWithType: IConditionalExpression
+  fullName: PostSharp.Reflection.MethodBody.IConditionalExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Conditional expression, corresponding to the <code>if</code> keyword in C#.
+  example: []
+  syntax:
+    content: 'public interface IConditionalExpression : IExpression, IMethodBodyElement'
+    content.vb: Public Interface IConditionalExpression Inherits IExpression, IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IConditionalExpression.Condition
+  commentId: P:PostSharp.Reflection.MethodBody.IConditionalExpression.Condition
+  id: Condition
+  parent: PostSharp.Reflection.MethodBody.IConditionalExpression
+  langs:
+  - csharp
+  - vb
+  name: Condition
+  nameWithType: IConditionalExpression.Condition
+  fullName: PostSharp.Reflection.MethodBody.IConditionalExpression.Condition
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the condition expression. The return type does not need to be <code>bool</code>. Zero and <code>null</code> values are considered <code>false</code>.
+  example: []
+  syntax:
+    content: IExpression Condition { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property Condition As IExpression
+  overload: PostSharp.Reflection.MethodBody.IConditionalExpression.Condition*
+- uid: PostSharp.Reflection.MethodBody.IConditionalExpression.IfTrue
+  commentId: P:PostSharp.Reflection.MethodBody.IConditionalExpression.IfTrue
+  id: IfTrue
+  parent: PostSharp.Reflection.MethodBody.IConditionalExpression
+  langs:
+  - csharp
+  - vb
+  name: IfTrue
+  nameWithType: IConditionalExpression.IfTrue
+  fullName: PostSharp.Reflection.MethodBody.IConditionalExpression.IfTrue
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the expression executed when <xref href="PostSharp.Reflection.MethodBody.IConditionalExpression.Condition" data-throw-if-not-resolved="false"></xref> evaluates to <code>true</code> or to a non-null and non-zero value.
+  example: []
+  syntax:
+    content: IExpression IfTrue { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property IfTrue As IExpression
+  overload: PostSharp.Reflection.MethodBody.IConditionalExpression.IfTrue*
+- uid: PostSharp.Reflection.MethodBody.IConditionalExpression.IfFalse
+  commentId: P:PostSharp.Reflection.MethodBody.IConditionalExpression.IfFalse
+  id: IfFalse
+  parent: PostSharp.Reflection.MethodBody.IConditionalExpression
+  langs:
+  - csharp
+  - vb
+  name: IfFalse
+  nameWithType: IConditionalExpression.IfFalse
+  fullName: PostSharp.Reflection.MethodBody.IConditionalExpression.IfFalse
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the expression executed when <xref href="PostSharp.Reflection.MethodBody.IConditionalExpression.Condition" data-throw-if-not-resolved="false"></xref> evaluates to <code>false</code>, zero, or <code>null</code>.
+  example: []
+  syntax:
+    content: IExpression IfFalse { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property IfFalse As IExpression
+  overload: PostSharp.Reflection.MethodBody.IConditionalExpression.IfFalse*

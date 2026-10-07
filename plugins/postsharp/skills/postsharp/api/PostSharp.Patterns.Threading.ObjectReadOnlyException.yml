@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ObjectReadOnlyException
+  commentId: T:PostSharp.Patterns.Threading.ObjectReadOnlyException
+  id: ObjectReadOnlyException
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor
+  - PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor(System.String)
+  - PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor(System.String,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: ObjectReadOnlyException
+  nameWithType: ObjectReadOnlyException
+  fullName: PostSharp.Patterns.Threading.ObjectReadOnlyException
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Exception thrown by objects that have the <xref href="PostSharp.Patterns.Threading.Models.FreezableThreadingModel" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Threading.Models.ImmutableThreadingModel" data-throw-if-not-resolved="false"></xref>
+
+    when an attempt is made to modify the object after it has been made read-only.
+  example: []
+  syntax:
+    content: 'public sealed class ObjectReadOnlyException : Exception, ISerializable'
+    content.vb: Public NotInheritable Class ObjectReadOnlyException Inherits Exception Implements ISerializable
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.ImmutableAttribute
+    commentId: T:PostSharp.Patterns.Threading.ImmutableAttribute
+  - linkId: PostSharp.Patterns.Threading.FreezableAttribute
+    commentId: T:PostSharp.Patterns.Threading.FreezableAttribute
+  - linkType: HRef
+    linkId: '@immutable'
+    altText: 'Conceptual: Immutable Threading Model'
+  - linkType: HRef
+    linkId: '@freezable'
+    altText: 'Conceptual: Freezable Threading Model'
+  inheritance:
+  - System.Object
+  - System.Exception
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.ToString
+  - System.Exception.GetType
+  - System.Exception.TargetSite
+  - System.Exception.Message
+  - System.Exception.Data
+  - System.Exception.InnerException
+  - System.Exception.HelpLink
+  - System.Exception.Source
+  - System.Exception.HResult
+  - System.Exception.StackTrace
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ObjectReadOnlyException
+  langs:
+  - csharp
+  - vb
+  name: ObjectReadOnlyException()
+  nameWithType: ObjectReadOnlyException.ObjectReadOnlyException()
+  fullName: PostSharp.Patterns.Threading.ObjectReadOnlyException.ObjectReadOnlyException()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ObjectReadOnlyException" data-throw-if-not-resolved="false"></xref> class with the default error message.
+  example: []
+  syntax:
+    content: public ObjectReadOnlyException()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor*
+  nameWithType.vb: ObjectReadOnlyException.New()
+  fullName.vb: PostSharp.Patterns.Threading.ObjectReadOnlyException.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Threading.ObjectReadOnlyException
+  langs:
+  - csharp
+  - vb
+  name: ObjectReadOnlyException(string)
+  nameWithType: ObjectReadOnlyException.ObjectReadOnlyException(string)
+  fullName: PostSharp.Patterns.Threading.ObjectReadOnlyException.ObjectReadOnlyException(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ObjectReadOnlyException" data-throw-if-not-resolved="false"></xref> class with a given error message.
+  example: []
+  syntax:
+    content: public ObjectReadOnlyException(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    content.vb: Public Sub New(message As String)
+  overload: PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor*
+  nameWithType.vb: ObjectReadOnlyException.New(String)
+  fullName.vb: PostSharp.Patterns.Threading.ObjectReadOnlyException.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor(System.String,System.Exception)
+  commentId: M:PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor(System.String,System.Exception)
+  id: '#ctor(System.String,System.Exception)'
+  parent: PostSharp.Patterns.Threading.ObjectReadOnlyException
+  langs:
+  - csharp
+  - vb
+  name: ObjectReadOnlyException(string, Exception)
+  nameWithType: ObjectReadOnlyException.ObjectReadOnlyException(string, Exception)
+  fullName: PostSharp.Patterns.Threading.ObjectReadOnlyException.ObjectReadOnlyException(string, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ObjectReadOnlyException" data-throw-if-not-resolved="false"></xref> class with a given error message and inner exception.
+  example: []
+  syntax:
+    content: public ObjectReadOnlyException(string message, Exception inner)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    - id: inner
+      type: System.Exception
+      description: The exception wrapped by the new <xref href="PostSharp.Patterns.Threading.ObjectReadOnlyException" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(message As String, inner As Exception)
+  overload: PostSharp.Patterns.Threading.ObjectReadOnlyException.#ctor*
+  nameWithType.vb: ObjectReadOnlyException.New(String, Exception)
+  fullName.vb: PostSharp.Patterns.Threading.ObjectReadOnlyException.New(String, System.Exception)
+  name.vb: New(String, Exception)

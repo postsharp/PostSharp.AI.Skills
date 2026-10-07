@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging
+  id: HttpClientLogging
+  parent: PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.#ctor
+  - PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{System.Uri})
+  langs:
+  - csharp
+  - vb
+  name: HttpClientLogging
+  nameWithType: HttpClientLogging
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  summary: Instruments the <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>Call <xref href="PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol%2cSystem.Predicate%7bSystem.Uri%7d)" data-throw-if-not-resolved="false"></xref> once when the application starts. The instrumentation then opens a logging activity for each
+
+    outgoing HTTP request. For distributed logging, pass an <xref href="PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol" data-throw-if-not-resolved="false"></xref> such as <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol" data-throw-if-not-resolved="false"></xref>:
+
+    it adds correlation headers to outgoing requests. Use the same protocol in the instrumentation of the server.</p>
+  example: []
+  syntax:
+    content: public abstract class HttpClientLogging
+    content.vb: Public MustInherit Class HttpClientLogging
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-instrumentation'
+    altText: 'Conceptual: Instrumentation of ASP.NET and HttpClient'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{System.Uri})
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{System.Uri})
+  id: Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{System.Uri})
+  parent: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging
+  langs:
+  - csharp
+  - vb
+  name: Initialize(ICorrelationProtocol, Predicate<Uri>)
+  nameWithType: HttpClientLogging.Initialize(ICorrelationProtocol, Predicate<Uri>)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol, System.Predicate<System.Uri>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  summary: Instruments the <xref href="System.Net.Http.HttpClient" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>
+
+    It is the responsibility of the user to call this method only once.
+
+    </p>
+  example: []
+  syntax:
+    content: public static IDisposable Initialize(ICorrelationProtocol correlationProtocol = null, Predicate<Uri> requestUriPredicate = null)
+    parameters:
+    - id: correlationProtocol
+      type: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+      description: >-
+        An optional implementation of <xref href="PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol" data-throw-if-not-resolved="false"></xref> to support
+                    distributed logging and add relevant headers to outgoing requests.
+    - id: requestUriPredicate
+      type: System.Predicate{System.Uri}
+      description: >-
+        A predicate that determines whether a given outgoing request should be captured. If <code>null</code>, all requests
+                    are captured.
+    return:
+      type: System.IDisposable
+      description: An opaque token to dispose when instrumentation is no longer needed.
+    content.vb: Public Shared Function Initialize(correlationProtocol As ICorrelationProtocol = Nothing, requestUriPredicate As Predicate(Of Uri) = Nothing) As IDisposable
+  overload: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize*
+  nameWithType.vb: HttpClientLogging.Initialize(ICorrelationProtocol, Predicate(Of Uri))
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol, System.Predicate(Of System.Uri))
+  name.vb: Initialize(ICorrelationProtocol, Predicate(Of Uri))
+- uid: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging
+  langs:
+  - csharp
+  - vb
+  name: HttpClientLogging()
+  nameWithType: HttpClientLogging.HttpClientLogging()
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.HttpClientLogging()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.HttpClient
+  syntax:
+    content: protected HttpClientLogging()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.#ctor*
+  nameWithType.vb: HttpClientLogging.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.New()
+  name.vb: New()

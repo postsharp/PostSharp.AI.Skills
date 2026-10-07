@@ -1,0 +1,74 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyTarget
+  commentId: T:PostSharp.Aspects.Dependencies.AspectDependencyTarget
+  id: AspectDependencyTarget
+  parent: PostSharp.Aspects.Dependencies
+  children:
+  - PostSharp.Aspects.Dependencies.AspectDependencyTarget.Default
+  - PostSharp.Aspects.Dependencies.AspectDependencyTarget.Type
+  langs:
+  - csharp
+  - vb
+  name: AspectDependencyTarget
+  nameWithType: AspectDependencyTarget
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyTarget
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    Specifies the targets (<xref href="PostSharp.Aspects.Dependencies.AspectDependencyTarget.Default" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Dependencies.AspectDependencyTarget.Type" data-throw-if-not-resolved="false"></xref>)
+
+    to which an aspect dependency applies.
+  remarks: >-
+    <p>This property is meaningful only for aspects that apply to type members. For aspects that
+            apply to types, type-level and default-level dependencies are the same.</p>
+    <p>Member-level aspects may have semantics that apply at type level (for example,
+            member introductions and imports). By setting the dependency target to
+            <xref href="PostSharp.Aspects.Dependencies.AspectDependencyTarget.Type" data-throw-if-not-resolved="false"></xref>, you can specify that the aspect dependency applies
+            to type-level semantics. Otherwise, it applies to member-level semantics.</p>
+  example: []
+  syntax:
+    content: public enum AspectDependencyTarget
+    content.vb: Public Enum AspectDependencyTarget
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyTarget.Default
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyTarget.Default
+  id: Default
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyTarget
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: AspectDependencyTarget.Default
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyTarget.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: The natural target of the aspect.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyTarget
+- uid: PostSharp.Aspects.Dependencies.AspectDependencyTarget.Type
+  commentId: F:PostSharp.Aspects.Dependencies.AspectDependencyTarget.Type
+  id: Type
+  parent: PostSharp.Aspects.Dependencies.AspectDependencyTarget
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: AspectDependencyTarget.Type
+  fullName: PostSharp.Aspects.Dependencies.AspectDependencyTarget.Type
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: The declaring type of the natural target of the aspect.
+  example: []
+  syntax:
+    content: Type = 1
+    return:
+      type: PostSharp.Aspects.Dependencies.AspectDependencyTarget

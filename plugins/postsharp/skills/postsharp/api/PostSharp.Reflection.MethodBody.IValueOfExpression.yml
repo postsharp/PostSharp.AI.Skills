@@ -1,0 +1,79 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IValueOfExpression
+  commentId: T:PostSharp.Reflection.MethodBody.IValueOfExpression
+  id: IValueOfExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IValueOfExpression.Alignment
+  - PostSharp.Reflection.MethodBody.IValueOfExpression.IsVolatile
+  langs:
+  - csharp
+  - vb
+  name: IValueOfExpression
+  nameWithType: IValueOfExpression
+  fullName: PostSharp.Reflection.MethodBody.IValueOfExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Expression that returns the value stored at an address. Equivalent to the C# keyword <code>*</code>.
+  example: []
+  syntax:
+    content: 'public interface IValueOfExpression : IUnaryExpression, IExpression, IMethodBodyElement'
+    content.vb: Public Interface IValueOfExpression Inherits IUnaryExpression, IExpression, IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IUnaryExpression.Value
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IValueOfExpression.IsVolatile
+  commentId: P:PostSharp.Reflection.MethodBody.IValueOfExpression.IsVolatile
+  id: IsVolatile
+  parent: PostSharp.Reflection.MethodBody.IValueOfExpression
+  langs:
+  - csharp
+  - vb
+  name: IsVolatile
+  nameWithType: IValueOfExpression.IsVolatile
+  fullName: PostSharp.Reflection.MethodBody.IValueOfExpression.IsVolatile
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: >-
+    Gets a value indicating whether the location at the address is volatile.
+
+    A volatile location can be changed by a different thread than the current one.
+  example: []
+  syntax:
+    content: bool IsVolatile { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsVolatile As Boolean
+  overload: PostSharp.Reflection.MethodBody.IValueOfExpression.IsVolatile*
+- uid: PostSharp.Reflection.MethodBody.IValueOfExpression.Alignment
+  commentId: P:PostSharp.Reflection.MethodBody.IValueOfExpression.Alignment
+  id: Alignment
+  parent: PostSharp.Reflection.MethodBody.IValueOfExpression
+  langs:
+  - csharp
+  - vb
+  name: Alignment
+  nameWithType: IValueOfExpression.Alignment
+  fullName: PostSharp.Reflection.MethodBody.IValueOfExpression.Alignment
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the alignment of the value at the address.
+  example: []
+  syntax:
+    content: AddressAlignment Alignment { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.AddressAlignment
+    content.vb: ReadOnly Property Alignment As AddressAlignment
+  overload: PostSharp.Reflection.MethodBody.IValueOfExpression.Alignment*

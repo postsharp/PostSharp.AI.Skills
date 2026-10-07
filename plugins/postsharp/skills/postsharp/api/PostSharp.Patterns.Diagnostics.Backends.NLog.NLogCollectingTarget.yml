@@ -1,0 +1,128 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget
+  id: NLogCollectingTarget
+  parent: PostSharp.Patterns.Diagnostics.Backends.NLog
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.#ctor(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.Write(NLog.LogEventInfo)
+  langs:
+  - csharp
+  - vb
+  name: NLogCollectingTarget
+  nameWithType: NLogCollectingTarget
+  fullName: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.NLog
+  summary: Writes log messages to PostSharp Logging.
+  remarks: >-
+    <p>Add this target to the NLog configuration that your code uses for manual logging, so that NLog events go through the same
+
+    PostSharp backend as automatic logging and share its indentation. The log source of each event is named after the NLog logger.
+
+    Create the <xref href="PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackend" data-throw-if-not-resolved="false"></xref> with a separate <xref href="NLog.LogFactory" data-throw-if-not-resolved="false"></xref> whose configuration contains the output targets.</p>
+  example: []
+  syntax:
+    content: 'public class NLogCollectingTarget : Target, IDisposable'
+    content.vb: Public Class NLogCollectingTarget Inherits Target Implements IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackend
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogLoggingBackend
+  - linkType: HRef
+    linkId: '@nlog'
+    altText: 'Conceptual: Logging with NLog'
+  inheritance:
+  - System.Object
+  - NLog.Targets.Target
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - NLog.Targets.Target.Dispose
+  - NLog.Targets.Target.Flush(NLog.Common.AsyncContinuation)
+  - NLog.Targets.Target.PrecalculateVolatileLayouts(NLog.LogEventInfo)
+  - NLog.Targets.Target.ToString
+  - NLog.Targets.Target.WriteAsyncLogEvent(NLog.Common.AsyncLogEventInfo)
+  - NLog.Targets.Target.WriteAsyncLogEvents(NLog.Common.AsyncLogEventInfo[])
+  - NLog.Targets.Target.Dispose(System.Boolean)
+  - NLog.Targets.Target.InitializeTarget
+  - NLog.Targets.Target.CloseTarget
+  - NLog.Targets.Target.FlushAsync(NLog.Common.AsyncContinuation)
+  - NLog.Targets.Target.Write(NLog.Common.AsyncLogEventInfo)
+  - NLog.Targets.Target.WriteAsyncThreadSafe(NLog.Common.AsyncLogEventInfo)
+  - NLog.Targets.Target.Write(NLog.Common.AsyncLogEventInfo[])
+  - NLog.Targets.Target.Write(System.Collections.Generic.IList{NLog.Common.AsyncLogEventInfo})
+  - NLog.Targets.Target.WriteAsyncThreadSafe(NLog.Common.AsyncLogEventInfo[])
+  - NLog.Targets.Target.WriteAsyncThreadSafe(System.Collections.Generic.IList{NLog.Common.AsyncLogEventInfo})
+  - NLog.Targets.Target.MergeEventProperties(NLog.LogEventInfo)
+  - NLog.Targets.Target.RenderLogEvent(NLog.Layouts.Layout,NLog.LogEventInfo)
+  - NLog.Targets.Target.Register``1(System.String)
+  - NLog.Targets.Target.Register(System.String,System.Type)
+  - NLog.Targets.Target.Name
+  - NLog.Targets.Target.OptimizeBufferReuse
+  - NLog.Targets.Target.SyncRoot
+  - NLog.Targets.Target.LoggingConfiguration
+  - NLog.Targets.Target.IsInitialized
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget
+  langs:
+  - csharp
+  - vb
+  name: NLogCollectingTarget(string)
+  nameWithType: NLogCollectingTarget.NLogCollectingTarget(string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.NLogCollectingTarget(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.NLog
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public NLogCollectingTarget(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of this target. All targets must have a name.
+    content.vb: Public Sub New(name As String)
+  overload: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.#ctor*
+  nameWithType.vb: NLogCollectingTarget.New(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.Write(NLog.LogEventInfo)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.Write(NLog.LogEventInfo)
+  id: Write(NLog.LogEventInfo)
+  parent: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget
+  langs:
+  - csharp
+  - vb
+  name: Write(LogEventInfo)
+  nameWithType: NLogCollectingTarget.Write(LogEventInfo)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.Write(NLog.LogEventInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.NLog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.NLog
+  summary: >-
+    Writes logging event to the log target. Must be overridden in inheriting
+
+    classes.
+  example: []
+  syntax:
+    content: protected override void Write(LogEventInfo logEvent)
+    parameters:
+    - id: logEvent
+      type: NLog.LogEventInfo
+      description: Logging event to be written out.
+    content.vb: Protected Overrides Sub Write(logEvent As LogEventInfo)
+  overridden: NLog.Targets.Target.Write(NLog.LogEventInfo)
+  overload: PostSharp.Patterns.Diagnostics.Backends.NLog.NLogCollectingTarget.Write*

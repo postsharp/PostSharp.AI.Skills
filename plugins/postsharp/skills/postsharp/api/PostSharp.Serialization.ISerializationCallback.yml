@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ISerializationCallback
+  commentId: T:PostSharp.Serialization.ISerializationCallback
+  id: ISerializationCallback
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ISerializationCallback.OnDeserialized
+  - PostSharp.Serialization.ISerializationCallback.OnSerializing
+  langs:
+  - csharp
+  - vb
+  name: ISerializationCallback
+  nameWithType: ISerializationCallback
+  fullName: PostSharp.Serialization.ISerializationCallback
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Interface that can be implemented by serializable classes.
+
+    It defines methods <xref href="PostSharp.Serialization.ISerializationCallback.OnDeserialized" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Serialization.ISerializationCallback.OnSerializing" data-throw-if-not-resolved="false"></xref> that are called during serialization.
+  example: []
+  syntax:
+    content: public interface ISerializationCallback
+    content.vb: Public Interface ISerializationCallback
+  derivedClasses:
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Model.PropertyPath
+- uid: PostSharp.Serialization.ISerializationCallback.OnDeserialized
+  commentId: M:PostSharp.Serialization.ISerializationCallback.OnDeserialized
+  id: OnDeserialized
+  parent: PostSharp.Serialization.ISerializationCallback
+  langs:
+  - csharp
+  - vb
+  name: OnDeserialized()
+  nameWithType: ISerializationCallback.OnDeserialized()
+  fullName: PostSharp.Serialization.ISerializationCallback.OnDeserialized()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Called after the object has been deserialized.
+  example: []
+  syntax:
+    content: void OnDeserialized()
+    content.vb: Sub OnDeserialized()
+  overload: PostSharp.Serialization.ISerializationCallback.OnDeserialized*
+- uid: PostSharp.Serialization.ISerializationCallback.OnSerializing
+  commentId: M:PostSharp.Serialization.ISerializationCallback.OnSerializing
+  id: OnSerializing
+  parent: PostSharp.Serialization.ISerializationCallback
+  langs:
+  - csharp
+  - vb
+  name: OnSerializing()
+  nameWithType: ISerializationCallback.OnSerializing()
+  fullName: PostSharp.Serialization.ISerializationCallback.OnSerializing()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Called before the object is serialized.
+  example: []
+  syntax:
+    content: void OnSerializing()
+    content.vb: Sub OnSerializing()
+  overload: PostSharp.Serialization.ISerializationCallback.OnSerializing*

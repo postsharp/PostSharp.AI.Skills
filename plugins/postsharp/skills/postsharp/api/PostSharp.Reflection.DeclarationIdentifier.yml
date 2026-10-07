@@ -1,0 +1,423 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.DeclarationIdentifier
+  commentId: T:PostSharp.Reflection.DeclarationIdentifier
+  id: DeclarationIdentifier
+  parent: PostSharp.Reflection
+  children:
+  - PostSharp.Reflection.DeclarationIdentifier.AssemblyId
+  - PostSharp.Reflection.DeclarationIdentifier.Equals(PostSharp.Reflection.DeclarationIdentifier)
+  - PostSharp.Reflection.DeclarationIdentifier.Equals(System.Object)
+  - PostSharp.Reflection.DeclarationIdentifier.GetDeclarationIdentifier(System.Reflection.MemberInfo)
+  - PostSharp.Reflection.DeclarationIdentifier.GetDeclaringTypeIdentifier
+  - PostSharp.Reflection.DeclarationIdentifier.GetHashCode
+  - PostSharp.Reflection.DeclarationIdentifier.IsNull
+  - PostSharp.Reflection.DeclarationIdentifier.MaxMemberIndex
+  - PostSharp.Reflection.DeclarationIdentifier.MaxTypeIndex
+  - PostSharp.Reflection.DeclarationIdentifier.MemberIndex
+  - PostSharp.Reflection.DeclarationIdentifier.Null
+  - PostSharp.Reflection.DeclarationIdentifier.TypeIndex
+  - PostSharp.Reflection.DeclarationIdentifier.op_Equality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  - PostSharp.Reflection.DeclarationIdentifier.op_Inequality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  langs:
+  - csharp
+  - vb
+  name: DeclarationIdentifier
+  nameWithType: DeclarationIdentifier
+  fullName: PostSharp.Reflection.DeclarationIdentifier
+  type: Struct
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Encapsulates a unique identifier of a declaration. The identifier does not contain the kind of declaration. Different declarations of different kinds can have the same identifier.
+  remarks: >-
+    <p>
+        The <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> concept provides an efficient mechanism to correlate
+        data that depend on the target declaration of the advice. Typically, such data can be computed at build time
+        and serialized into the aspect, then consumed at run time. Without the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> concept,
+        the data would be stored in a dictionary, for instance <code>Dictionary&lt;MethodInfo,MethodData&gt;</code> where <code>MethodData</code>
+        is a custom class. However, relying on a dictionary has some performance costs. Thanks to the
+        <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> concept, data can be stored in an array, because the <xref href="PostSharp.Reflection.DeclarationIdentifier.MemberIndex" data-throw-if-not-resolved="false"></xref> 
+        is guaranteed to be unique in a given type for a given kind of member (for instance, <xref href="PostSharp.Reflection.DeclarationIdentifier.MemberIndex" data-throw-if-not-resolved="false"></xref> is unique for all methods in the same type).
+        Array lookups are much faster than dictionary lookups and do not rely on reflection, which gives a significant performance benefit.
+        </p>
+    <div class="NOTE"><h5>note</h5><p>
+      <p>
+        Although the CIL specification allows for up to 2^24 types in the same assembly and 2^24 methods (or other members) in the same type, the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>
+        implementation assumes that there will be no more than 2^16 types in the same assembly and 2^16 members of the same kind in the same type. 
+        The <xref href="PostSharp.Reflection.DeclarationIdentifier.AssemblyId" data-throw-if-not-resolved="false"></xref> property is coded on 32 bits. The <xref href="PostSharp.Reflection.DeclarationIdentifier.AssemblyId" data-throw-if-not-resolved="false"></xref> is computed
+        by running the MD5 algorithm on the full assembly name. The probability of hash collision is approximately 10^-6 for an application of 100 assemblies and 10^-5
+        for an application of 1,000 assemblies. Collisions can be avoided by adding the <xref href="PostSharp.Extensibility.AssemblyIdAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to one of the assemblies causing
+        a hash collision. Note that hash collisions are not automatically detected by PostSharp. However, you can build a hash collision detection program by looking at
+        the <xref href="PostSharp.Extensibility.AssemblyIdAttribute" data-throw-if-not-resolved="false"></xref> custom attribute on all assemblies of your application after PostSharp has been executed.
+        </p>
+    </p></div>
+  example: []
+  syntax:
+    content: 'public struct DeclarationIdentifier : IEquatable<DeclarationIdentifier>'
+    content.vb: Public Structure DeclarationIdentifier Implements IEquatable(Of DeclarationIdentifier)
+  implements:
+  - System.IEquatable{PostSharp.Reflection.DeclarationIdentifier}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Reflection.DeclarationIdentifier.MaxTypeIndex
+  commentId: F:PostSharp.Reflection.DeclarationIdentifier.MaxTypeIndex
+  id: MaxTypeIndex
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: MaxTypeIndex
+  nameWithType: DeclarationIdentifier.MaxTypeIndex
+  fullName: PostSharp.Reflection.DeclarationIdentifier.MaxTypeIndex
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Maximum number of types per assembly supported by the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public const int MaxTypeIndex = 65535
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxTypeIndex As Integer = 65535
+- uid: PostSharp.Reflection.DeclarationIdentifier.MaxMemberIndex
+  commentId: F:PostSharp.Reflection.DeclarationIdentifier.MaxMemberIndex
+  id: MaxMemberIndex
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: MaxMemberIndex
+  nameWithType: DeclarationIdentifier.MaxMemberIndex
+  fullName: PostSharp.Reflection.DeclarationIdentifier.MaxMemberIndex
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Maximum number of members of the same kind in the same type supported by the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public const int MaxMemberIndex = 65535
+    return:
+      type: System.Int32
+    content.vb: Public Const MaxMemberIndex As Integer = 65535
+- uid: PostSharp.Reflection.DeclarationIdentifier.GetDeclaringTypeIdentifier
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.GetDeclaringTypeIdentifier
+  id: GetDeclaringTypeIdentifier
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: GetDeclaringTypeIdentifier()
+  nameWithType: DeclarationIdentifier.GetDeclaringTypeIdentifier()
+  fullName: PostSharp.Reflection.DeclarationIdentifier.GetDeclaringTypeIdentifier()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> that represents the declaring type of the declaration represented by the current <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public DeclarationIdentifier GetDeclaringTypeIdentifier()
+    return:
+      type: PostSharp.Reflection.DeclarationIdentifier
+      description: >-
+        The <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> that represents the declaring type of the declaration represented by the current <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+                    If the current <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> already represents a type, this method returns the current <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetDeclaringTypeIdentifier() As DeclarationIdentifier
+  overload: PostSharp.Reflection.DeclarationIdentifier.GetDeclaringTypeIdentifier*
+- uid: PostSharp.Reflection.DeclarationIdentifier.GetDeclarationIdentifier(System.Reflection.MemberInfo)
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.GetDeclarationIdentifier(System.Reflection.MemberInfo)
+  id: GetDeclarationIdentifier(System.Reflection.MemberInfo)
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: GetDeclarationIdentifier(MemberInfo)
+  nameWithType: DeclarationIdentifier.GetDeclarationIdentifier(MemberInfo)
+  fullName: PostSharp.Reflection.DeclarationIdentifier.GetDeclarationIdentifier(System.Reflection.MemberInfo)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> for a given declaration.
+  example: []
+  syntax:
+    content: public static DeclarationIdentifier GetDeclarationIdentifier(MemberInfo declaration)
+    parameters:
+    - id: declaration
+      type: System.Reflection.MemberInfo
+      description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref> or <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Reflection.DeclarationIdentifier
+      description: A <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> that identifies <code class="paramref">declaration</code>.
+    content.vb: Public Shared Function GetDeclarationIdentifier(declaration As MemberInfo) As DeclarationIdentifier
+  overload: PostSharp.Reflection.DeclarationIdentifier.GetDeclarationIdentifier*
+- uid: PostSharp.Reflection.DeclarationIdentifier.Equals(PostSharp.Reflection.DeclarationIdentifier)
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.Equals(PostSharp.Reflection.DeclarationIdentifier)
+  id: Equals(PostSharp.Reflection.DeclarationIdentifier)
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: Equals(DeclarationIdentifier)
+  nameWithType: DeclarationIdentifier.Equals(DeclarationIdentifier)
+  fullName: PostSharp.Reflection.DeclarationIdentifier.Equals(PostSharp.Reflection.DeclarationIdentifier)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  example: []
+  syntax:
+    content: public bool Equals(DeclarationIdentifier other)
+    parameters:
+    - id: other
+      type: PostSharp.Reflection.DeclarationIdentifier
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As DeclarationIdentifier) As Boolean
+  overload: PostSharp.Reflection.DeclarationIdentifier.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Reflection.DeclarationIdentifier}.Equals(PostSharp.Reflection.DeclarationIdentifier)
+- uid: PostSharp.Reflection.DeclarationIdentifier.Equals(System.Object)
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: DeclarationIdentifier.Equals(object)
+  fullName: PostSharp.Reflection.DeclarationIdentifier.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: PostSharp.Reflection.DeclarationIdentifier.Equals*
+  nameWithType.vb: DeclarationIdentifier.Equals(Object)
+  fullName.vb: PostSharp.Reflection.DeclarationIdentifier.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Reflection.DeclarationIdentifier.GetHashCode
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: DeclarationIdentifier.GetHashCode()
+  fullName: PostSharp.Reflection.DeclarationIdentifier.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: PostSharp.Reflection.DeclarationIdentifier.GetHashCode*
+- uid: PostSharp.Reflection.DeclarationIdentifier.op_Equality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.op_Equality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  id: op_Equality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: operator ==(DeclarationIdentifier, DeclarationIdentifier)
+  nameWithType: DeclarationIdentifier.operator ==(DeclarationIdentifier, DeclarationIdentifier)
+  fullName: PostSharp.Reflection.DeclarationIdentifier.operator ==(PostSharp.Reflection.DeclarationIdentifier, PostSharp.Reflection.DeclarationIdentifier)
+  type: Operator
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Determines whether two instances of the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> type are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(DeclarationIdentifier left, DeclarationIdentifier right)
+    parameters:
+    - id: left
+      type: PostSharp.Reflection.DeclarationIdentifier
+      description: The first <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+    - id: right
+      type: PostSharp.Reflection.DeclarationIdentifier
+      description: The second <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are equal, otherwise <code>false</code>.
+    content.vb: Public Shared Operator =(left As DeclarationIdentifier, right As DeclarationIdentifier) As Boolean
+  overload: PostSharp.Reflection.DeclarationIdentifier.op_Equality*
+  nameWithType.vb: DeclarationIdentifier.=(DeclarationIdentifier, DeclarationIdentifier)
+  fullName.vb: PostSharp.Reflection.DeclarationIdentifier.=(PostSharp.Reflection.DeclarationIdentifier, PostSharp.Reflection.DeclarationIdentifier)
+  name.vb: =(DeclarationIdentifier, DeclarationIdentifier)
+- uid: PostSharp.Reflection.DeclarationIdentifier.op_Inequality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  commentId: M:PostSharp.Reflection.DeclarationIdentifier.op_Inequality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  id: op_Inequality(PostSharp.Reflection.DeclarationIdentifier,PostSharp.Reflection.DeclarationIdentifier)
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: operator !=(DeclarationIdentifier, DeclarationIdentifier)
+  nameWithType: DeclarationIdentifier.operator !=(DeclarationIdentifier, DeclarationIdentifier)
+  fullName: PostSharp.Reflection.DeclarationIdentifier.operator !=(PostSharp.Reflection.DeclarationIdentifier, PostSharp.Reflection.DeclarationIdentifier)
+  type: Operator
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Determines whether two instances of the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> type are different.
+  example: []
+  syntax:
+    content: public static bool operator !=(DeclarationIdentifier left, DeclarationIdentifier right)
+    parameters:
+    - id: left
+      type: PostSharp.Reflection.DeclarationIdentifier
+      description: The first <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+    - id: right
+      type: PostSharp.Reflection.DeclarationIdentifier
+      description: The second <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are different, otherwise <code>false</code>.
+    content.vb: Public Shared Operator <>(left As DeclarationIdentifier, right As DeclarationIdentifier) As Boolean
+  overload: PostSharp.Reflection.DeclarationIdentifier.op_Inequality*
+  nameWithType.vb: DeclarationIdentifier.<>(DeclarationIdentifier, DeclarationIdentifier)
+  fullName.vb: PostSharp.Reflection.DeclarationIdentifier.<>(PostSharp.Reflection.DeclarationIdentifier, PostSharp.Reflection.DeclarationIdentifier)
+  name.vb: <>(DeclarationIdentifier, DeclarationIdentifier)
+- uid: PostSharp.Reflection.DeclarationIdentifier.Null
+  commentId: P:PostSharp.Reflection.DeclarationIdentifier.Null
+  id: "Null"
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: "Null"
+  nameWithType: DeclarationIdentifier.Null
+  fullName: PostSharp.Reflection.DeclarationIdentifier.Null
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a null instance of the <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> type.
+  example: []
+  syntax:
+    content: public static DeclarationIdentifier Null { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.DeclarationIdentifier
+    content.vb: Public Shared ReadOnly Property Null As DeclarationIdentifier
+  overload: PostSharp.Reflection.DeclarationIdentifier.Null*
+  seealso:
+  - linkId: PostSharp.Reflection.DeclarationIdentifier.IsNull
+    commentId: P:PostSharp.Reflection.DeclarationIdentifier.IsNull
+- uid: PostSharp.Reflection.DeclarationIdentifier.IsNull
+  commentId: P:PostSharp.Reflection.DeclarationIdentifier.IsNull
+  id: IsNull
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: IsNull
+  nameWithType: DeclarationIdentifier.IsNull
+  fullName: PostSharp.Reflection.DeclarationIdentifier.IsNull
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> is null.
+  example: []
+  syntax:
+    content: public bool IsNull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsNull As Boolean
+  overload: PostSharp.Reflection.DeclarationIdentifier.IsNull*
+- uid: PostSharp.Reflection.DeclarationIdentifier.MemberIndex
+  commentId: P:PostSharp.Reflection.DeclarationIdentifier.MemberIndex
+  id: MemberIndex
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: MemberIndex
+  nameWithType: DeclarationIdentifier.MemberIndex
+  fullName: PostSharp.Reflection.DeclarationIdentifier.MemberIndex
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a number that uniquely identifies the member inside its declaring type, for the given member kind.
+  remarks: >-
+    <p>The value of this property is guaranteed to be smaller than the total number of methods in the declaring type.</p>
+
+    <p>The value is guaranteed to be unique only in the declaring type, not in the set of base types. Numbering of members restarts at 0 for every derived type.</p>
+  example: []
+  syntax:
+    content: public int MemberIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MemberIndex As Integer
+  overload: PostSharp.Reflection.DeclarationIdentifier.MemberIndex*
+- uid: PostSharp.Reflection.DeclarationIdentifier.TypeIndex
+  commentId: P:PostSharp.Reflection.DeclarationIdentifier.TypeIndex
+  id: TypeIndex
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: TypeIndex
+  nameWithType: DeclarationIdentifier.TypeIndex
+  fullName: PostSharp.Reflection.DeclarationIdentifier.TypeIndex
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a number that uniquely identifies the type inside its declaring assembly.
+  example: []
+  syntax:
+    content: public int TypeIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property TypeIndex As Integer
+  overload: PostSharp.Reflection.DeclarationIdentifier.TypeIndex*
+- uid: PostSharp.Reflection.DeclarationIdentifier.AssemblyId
+  commentId: P:PostSharp.Reflection.DeclarationIdentifier.AssemblyId
+  id: AssemblyId
+  parent: PostSharp.Reflection.DeclarationIdentifier
+  langs:
+  - csharp
+  - vb
+  name: AssemblyId
+  nameWithType: DeclarationIdentifier.AssemblyId
+  fullName: PostSharp.Reflection.DeclarationIdentifier.AssemblyId
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection
+  summary: Gets a 29-bit hash of the name of the assembly containing the declaration represented by the current <xref href="PostSharp.Reflection.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int AssemblyId { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property AssemblyId As Integer
+  overload: PostSharp.Reflection.DeclarationIdentifier.AssemblyId*

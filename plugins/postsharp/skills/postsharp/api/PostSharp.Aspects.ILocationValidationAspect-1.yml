@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.ILocationValidationAspect`1
+  commentId: T:PostSharp.Aspects.ILocationValidationAspect`1
+  id: ILocationValidationAspect`1
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.ILocationValidationAspect`1.ValidateValue(`0,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  langs:
+  - csharp
+  - vb
+  name: ILocationValidationAspect<T>
+  nameWithType: ILocationValidationAspect<T>
+  fullName: PostSharp.Aspects.ILocationValidationAspect<T>
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Runtime semantics of an aspect that, when applied on a location (field, property, or parameter), 
+
+    validates the value assigned to this location using the <xref href="PostSharp.Aspects.ILocationValidationAspect%601.ValidateValue(%600%2cSystem.String%2cPostSharp.Reflection.LocationKind%2cPostSharp.Aspects.LocationValidationContext)" data-throw-if-not-resolved="false"></xref> method, and throws
+
+    the exception returned by this method, if any.
+  remarks: >-
+    <p>An aspect will typically implement several generic instances of the current interface,
+           with different values of <code class="typeparamref">T</code>. The aspect can be applied only to locations
+           for which there is an exact type match. PostSharp does not implement any type conversion, even
+           when this conversion is implicitly supported by the compiler, for instance <code>int</code> to <code>long</code>.
+           Therefore, if your aspect must be able to validate all integers, you may need to implement
+           the interface instances for <code class="typeparamref">T</code> ranging over <code>long</code>, <code>int</code>, <code>short</code>,
+            <code>sbyte</code> and possibly their unsigned variants. However, values of a derived type can be
+            validated if <code class="typeparamref">T</code> is the base type.
+        </p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface ILocationValidationAspect<T> : ILocationValidationAspect, IAspect
+    typeParameters:
+    - id: T
+      description: Type of values validated by the current aspect.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface ILocationValidationAspect(Of T) Inherits ILocationValidationAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.LocationValidationAdvice
+    commentId: T:PostSharp.Aspects.Advices.LocationValidationAdvice
+  - linkType: HRef
+    linkId: '@custom-contracts'
+    altText: 'Conceptual: Creating Custom Contracts'
+  derivedClasses:
+  - PostSharp.Patterns.Threading.RequiresThreadSafeAttribute
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ILocationValidationAspect(Of T)
+  fullName.vb: PostSharp.Aspects.ILocationValidationAspect(Of T)
+  name.vb: ILocationValidationAspect(Of T)
+- uid: PostSharp.Aspects.ILocationValidationAspect`1.ValidateValue(`0,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  commentId: M:PostSharp.Aspects.ILocationValidationAspect`1.ValidateValue(`0,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  id: ValidateValue(`0,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  parent: PostSharp.Aspects.ILocationValidationAspect`1
+  langs:
+  - csharp
+  - vb
+  name: ValidateValue(T, string, LocationKind, LocationValidationContext)
+  nameWithType: ILocationValidationAspect<T>.ValidateValue(T, string, LocationKind, LocationValidationContext)
+  fullName: PostSharp.Aspects.ILocationValidationAspect<T>.ValidateValue(T, string, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Validates the value being assigned to the location to which the current aspect has been applied.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      Exception ValidateValue(T value, string locationName, LocationKind locationKind, LocationValidationContext context)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: Value being applied to the location.
+    - id: locationName
+      type: System.String
+      description: Name of the location.
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: >-
+        Location kind (<xref href="PostSharp.Reflection.LocationKind.Field" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Reflection.LocationKind.Property" data-throw-if-not-resolved="false"></xref>, or
+                    <xref href="PostSharp.Reflection.LocationKind.Parameter" data-throw-if-not-resolved="false"></xref>).
+    - id: context
+      type: PostSharp.Aspects.LocationValidationContext
+      description: Indicates the context in which the value is being validated, such as a precondition or a postcondition for <code>ref</code> method parameters.
+    return:
+      type: System.Exception
+      description: The <xref href="System.Exception" data-throw-if-not-resolved="false"></xref> to be thrown, or <code>null</code> if no exception needs to be thrown.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Function ValidateValue(value As T, locationName As String, locationKind As LocationKind, context As LocationValidationContext) As Exception
+  overload: PostSharp.Aspects.ILocationValidationAspect`1.ValidateValue*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+  nameWithType.vb: ILocationValidationAspect(Of T).ValidateValue(T, String, LocationKind, LocationValidationContext)
+  fullName.vb: PostSharp.Aspects.ILocationValidationAspect(Of T).ValidateValue(T, String, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  name.vb: ValidateValue(T, String, LocationKind, LocationValidationContext)

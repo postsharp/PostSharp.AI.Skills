@@ -1,0 +1,97 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext
+  id: ICustomActivityLoggingContext
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.CustomActivityKind
+  - PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.StartTimestamp
+  langs:
+  - csharp
+  - vb
+  name: ICustomActivityLoggingContext
+  nameWithType: ICustomActivityLoggingContext
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: An <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext" data-throw-if-not-resolved="false"></xref> that represents a custom activity (<xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement(AttributeId = 4802544203169038370)]
+
+      public interface ICustomActivityLoggingContext : ILoggingContext, IDisposable
+    content.vb: >-
+      <InternalImplement(AttributeId:=4802544203169038370)>
+
+      Public Interface ICustomActivityLoggingContext Inherits ILoggingContext, IDisposable
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.Contexts.AsyncCustomActivityLoggingContext
+  - PostSharp.Patterns.Diagnostics.Contexts.SyncCustomActivityLoggingContext
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{System.Object},System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty``1(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor{{T}},{T}@,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsDisposed
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.RecycleId
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.IsAsync
+  - PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.SyntheticId
+  - System.IDisposable.Dispose
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: AttributeId
+      type: System.Int64
+      value: "4802544203169038370"
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.CustomActivityKind
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.CustomActivityKind
+  id: CustomActivityKind
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: CustomActivityKind
+  nameWithType: ICustomActivityLoggingContext.CustomActivityKind
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.CustomActivityKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the kind of <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref> represented by the current context.
+  example: []
+  syntax:
+    content: LogActivityKind CustomActivityKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+    content.vb: ReadOnly Property CustomActivityKind As LogActivityKind
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.CustomActivityKind*
+- uid: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.StartTimestamp
+  commentId: P:PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.StartTimestamp
+  id: StartTimestamp
+  parent: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext
+  langs:
+  - csharp
+  - vb
+  name: StartTimestamp
+  nameWithType: ICustomActivityLoggingContext.StartTimestamp
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.StartTimestamp
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Gets the timestamp (given by <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.CurrentTimestamp" data-throw-if-not-resolved="false"></xref>) of the moment when the activity started.
+  example: []
+  syntax:
+    content: double StartTimestamp { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: ReadOnly Property StartTimestamp As Double
+  overload: PostSharp.Patterns.Diagnostics.Contexts.ICustomActivityLoggingContext.StartTimestamp*

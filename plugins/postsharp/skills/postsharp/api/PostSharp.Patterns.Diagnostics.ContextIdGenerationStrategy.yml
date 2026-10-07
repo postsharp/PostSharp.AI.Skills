@@ -1,0 +1,116 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  commentId: T:PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  id: ContextIdGenerationStrategy
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Default
+  - PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global
+  - PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Hierarchical
+  - PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal
+  langs:
+  - csharp
+  - vb
+  name: ContextIdGenerationStrategy
+  nameWithType: ContextIdGenerationStrategy
+  fullName: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Specifies the strategies used to generate the value of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public enum ContextIdGenerationStrategy
+    content.vb: Public Enum ContextIdGenerationStrategy
+- uid: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Default
+  commentId: F:PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Default
+  id: Default
+  parent: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ContextIdGenerationStrategy.Default
+  fullName: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: The default strategy, which is <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+- uid: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal
+  commentId: F:PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal
+  id: LazyGlobal
+  parent: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  langs:
+  - csharp
+  - vb
+  name: LazyGlobal
+  nameWithType: ContextIdGenerationStrategy.LazyGlobal
+  fullName: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    The same as <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global" data-throw-if-not-resolved="false"></xref>, but the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id" data-throw-if-not-resolved="false"></xref> property is generated
+
+    lazily, the first time it is evaluated. This strategy is slightly slower than <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global" data-throw-if-not-resolved="false"></xref>
+
+    when the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id" data-throw-if-not-resolved="false"></xref> property is always evaluated.
+  example: []
+  syntax:
+    content: LazyGlobal = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+- uid: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global
+  commentId: F:PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global
+  id: Global
+  parent: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  langs:
+  - csharp
+  - vb
+  name: Global
+  nameWithType: ContextIdGenerationStrategy.Global
+  fullName: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Uses a global static incremental counter shared by all <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> instances in the current AppDomain.
+
+    In heavily multi-threaded applications, this strategy can cause thread contention because the
+
+    access to the global counter must be serialized.
+  example: []
+  syntax:
+    content: Global = 1
+    return:
+      type: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+- uid: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Hierarchical
+  commentId: F:PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Hierarchical
+  id: Hierarchical
+  parent: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+  langs:
+  - csharp
+  - vb
+  name: Hierarchical
+  nameWithType: ContextIdGenerationStrategy.Hierarchical
+  fullName: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Hierarchical
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Uses a counter in the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.ParentContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Hierarchical = 2
+    return:
+      type: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy

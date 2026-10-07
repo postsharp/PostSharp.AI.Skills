@@ -1,0 +1,288 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  id: MetaLoggingBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor(System.Boolean,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend(System.Boolean,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.GetTextBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Formatters.UnsafeString,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: MetaLoggingBackend
+  nameWithType: MetaLoggingBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    The <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> used by default to write error messages of the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles.Meta" data-throw-if-not-resolved="false"></xref> role.
+
+    The default way to create a <xref href="PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend" data-throw-if-not-resolved="false"></xref> is with the <xref href="PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend(System.Boolean%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref>
+
+    method.
+  example: []
+  syntax:
+    content: 'public class MetaLoggingBackend : TextLoggingBackend, IDisposable'
+    content.vb: Public Class MetaLoggingBackend Inherits TextLoggingBackend Implements IDisposable
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Options
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: MetaLoggingBackend()
+  nameWithType: MetaLoggingBackend.MetaLoggingBackend()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.MetaLoggingBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend" data-throw-if-not-resolved="false"></xref> class that will try to write both to the console
+
+    and to the debugger.
+  example: []
+  syntax:
+    content: public MetaLoggingBackend()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor*
+  nameWithType.vb: MetaLoggingBackend.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor(System.Boolean,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor(System.Boolean,System.Boolean)
+  id: '#ctor(System.Boolean,System.Boolean)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: MetaLoggingBackend(bool, bool)
+  nameWithType: MetaLoggingBackend.MetaLoggingBackend(bool, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.MetaLoggingBackend(bool, bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend" data-throw-if-not-resolved="false"></xref> class and specifies whether it must write to the console
+
+    and to the debugger.
+  example: []
+  syntax:
+    content: public MetaLoggingBackend(bool toConsole, bool toDebugger)
+    parameters:
+    - id: toConsole
+      type: System.Boolean
+      description: <code>true</code> if the backend must write to the console, otherwise <code>false</code>.
+    - id: toDebugger
+      type: System.Boolean
+      description: <code>true</code> if the backend must write to the debugger, otherwise <code>false</code>.
+    content.vb: Public Sub New(toConsole As Boolean, toDebugger As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.#ctor*
+  nameWithType.vb: MetaLoggingBackend.New(Boolean, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.New(Boolean, Boolean)
+  name.vb: New(Boolean, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend(System.Boolean,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend(System.Boolean,System.Boolean)
+  id: CreateFromDefaultBackend(System.Boolean,System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateFromDefaultBackend(bool, bool)
+  nameWithType: MetaLoggingBackend.CreateFromDefaultBackend(bool, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend(bool, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: >-
+    Returns a <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>, for use with the <xref href="PostSharp.Patterns.Diagnostics.LoggingRoles.Meta" data-throw-if-not-resolved="false"></xref> role,
+
+    that will try to write to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> if it is enabled, and will
+
+    optionally write warnings and errors to the console and the debugger.
+  example: []
+  syntax:
+    content: public static LoggingBackend CreateFromDefaultBackend(bool toConsole = true, bool toDebugger = true)
+    parameters:
+    - id: toConsole
+      type: System.Boolean
+      description: <code>true</code> to write warnings and errors to the console, otherwise <code>false</code>.
+    - id: toDebugger
+      type: System.Boolean
+      description: <code>true</code> to write warnings and errors to the debugger, otherwise <code>false</code>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackend
+      description: >-
+        A <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>: either a <xref href="PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend" data-throw-if-not-resolved="false"></xref> or
+                    the <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> itself.
+    content.vb: Public Shared Function CreateFromDefaultBackend(toConsole As Boolean = True, toDebugger As Boolean = True) As LoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend*
+  nameWithType.vb: MetaLoggingBackend.CreateFromDefaultBackend(Boolean, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateFromDefaultBackend(Boolean, Boolean)
+  name.vb: CreateFromDefaultBackend(Boolean, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: MetaLoggingBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override sealed LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public NotOverridable Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: MetaLoggingBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override sealed LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected NotOverridable Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.GetTextBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.GetTextBackendOptions
+  id: GetTextBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetTextBackendOptions()
+  nameWithType: MetaLoggingBackend.GetTextBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.GetTextBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Gets the options.
+  example: []
+  syntax:
+    content: protected override TextLoggingBackendOptions GetTextBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+      description: The options.
+    content.vb: Protected Overrides Function GetTextBackendOptions() As TextLoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetTextBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.GetTextBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Formatters.UnsafeString,System.Exception)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Formatters.UnsafeString,System.Exception)
+  id: Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Formatters.UnsafeString,System.Exception)
+  parent: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Write(LogLevel, UnsafeString, Exception)
+  nameWithType: MetaLoggingBackend.Write(LogLevel, UnsafeString, Exception)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.Write(PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Formatters.UnsafeString, System.Exception)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends
+  summary: Writes a message.
+  example: []
+  syntax:
+    content: protected virtual void Write(LogLevel level, UnsafeString message, Exception exception)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The log level of the message.
+    - id: message
+      type: PostSharp.Patterns.Formatters.UnsafeString
+      description: The message to write.
+    - id: exception
+      type: System.Exception
+      description: The exception associated with the message.
+    content.vb: Protected Overridable Sub Write(level As LogLevel, message As UnsafeString, exception As Exception)
+  overload: PostSharp.Patterns.Diagnostics.Backends.MetaLoggingBackend.Write*

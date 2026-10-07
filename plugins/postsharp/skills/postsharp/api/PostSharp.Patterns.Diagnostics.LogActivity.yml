@@ -1,0 +1,1690 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LogActivity
+  commentId: T:PostSharp.Patterns.Diagnostics.LogActivity
+  id: LogActivity
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LogActivity.#ctor(PostSharp.Patterns.Diagnostics.Custom.ILogger,PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  - PostSharp.Patterns.Diagnostics.LogActivity.Context
+  - PostSharp.Patterns.Diagnostics.LogActivity.Dispose
+  - PostSharp.Patterns.Diagnostics.LogActivity.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LogActivity.IsValid
+  - PostSharp.Patterns.Diagnostics.LogActivity.Resume
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``1(System.String,``0)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``2(System.String,``0,``1)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``3(System.String,``0,``1,``2)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``4(System.String,``0,``1,``2,``3)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``5(System.String,``0,``1,``2,``3,``4)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``6(System.String,``0,``1,``2,``3,``4,``5)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``1(System.String,``0)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``2(System.String,``0,``1)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``3(System.String,``0,``1,``2)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``4(System.String,``0,``1,``2,``3)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``5(System.String,``0,``1,``2,``3,``4)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``6(System.String,``0,``1,``2,``3,``4,``5)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  - PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  - PostSharp.Patterns.Diagnostics.LogActivity.Suspend
+  langs:
+  - csharp
+  - vb
+  name: LogActivity
+  nameWithType: LogActivity
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Represents a logged custom activity, that is, something that has a beginning and an end with a specific outcome.
+
+    This class is instantiated by the legacy API of the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class. For the modern API, see <xref href="PostSharp.Patterns.Diagnostics.LogActivity%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp("PostSharp.Patterns.Common.Weaver", "AddCallerInfoTask", AnyTypeReference = true)]
+
+      public class LogActivity : Logger, IDisposable
+    content.vb: >-
+      <RequirePostSharp("PostSharp.Patterns.Common.Weaver", "AddCallerInfoTask", AnyTypeReference:=True)>
+
+      Public Class LogActivity Inherits Logger Implements IDisposable
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.Logger
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Logger.GetLogger(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.Logger.GetLogger(System.String)
+  - PostSharp.Patterns.Diagnostics.Logger.Write(PostSharp.Patterns.Diagnostics.LogLevel,System.String)
+  - PostSharp.Patterns.Diagnostics.Logger.Write(PostSharp.Patterns.Diagnostics.LogLevel,System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String)
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String)
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String,System.Object[])
+  - PostSharp.Patterns.Diagnostics.Logger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Logger.WriteExecutionPoint
+  - PostSharp.Patterns.Diagnostics.Logger.ToLogSource
+  - PostSharp.Patterns.Diagnostics.Logger.Write``1(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``1(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``1(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``1(System.String,{T1})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``2(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``2(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``2(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``2(System.String,{T1},{T2})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``3(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``3(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``3(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``3(System.String,{T1},{T2},{T3})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``4(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``4(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``4(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``4(System.String,{T1},{T2},{T3},{T4})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``5(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4},{T5})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``5(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4},{T5})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``5(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4},{T5})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``5(System.String,{T1},{T2},{T3},{T4},{T5})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``6(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4},{T5},{T6})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``6(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4},{T5},{T6})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``6(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4},{T5},{T6})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``6(System.String,{T1},{T2},{T3},{T4},{T5},{T6})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``7(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``7(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``7(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``7(System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``8(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``8(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``8(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``8(System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``9(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``9(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``9(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``9(System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9})
+  - PostSharp.Patterns.Diagnostics.Logger.Write``10(PostSharp.Patterns.Diagnostics.LogLevel,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9},{T10})
+  - PostSharp.Patterns.Diagnostics.Logger.WriteException``10(PostSharp.Patterns.Diagnostics.LogLevel,System.Exception,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9},{T10})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``10(PostSharp.Patterns.Diagnostics.LogActivityOptions,System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9},{T10})
+  - PostSharp.Patterns.Diagnostics.Logger.OpenActivity``10(System.String,{T1},{T2},{T3},{T4},{T5},{T6},{T7},{T8},{T9},{T10})
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: PostSharp.Patterns.Common.Weaver
+    - type: System.String
+      value: AddCallerInfoTask
+    namedArguments:
+    - name: AnyTypeReference
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.#ctor(PostSharp.Patterns.Diagnostics.Custom.ILogger,PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.#ctor(PostSharp.Patterns.Diagnostics.Custom.ILogger,PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Custom.ILogger,PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)'
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: LogActivity(ILogger, ILoggingContext)
+  nameWithType: LogActivity.LogActivity(ILogger, ILoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.LogActivity(PostSharp.Patterns.Diagnostics.Custom.ILogger, PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public LogActivity(ILogger logger, ILoggingContext context)
+    parameters:
+    - id: logger
+      type: PostSharp.Patterns.Diagnostics.Custom.ILogger
+      description: The underlying <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref>.
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext" data-throw-if-not-resolved="false"></xref> that implements the new <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(logger As ILogger, context As ILoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.#ctor*
+  nameWithType.vb: LogActivity.New(ILogger, ILoggingContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.New(PostSharp.Patterns.Diagnostics.Custom.ILogger, PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext)
+  name.vb: New(ILogger, ILoggingContext)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess
+  id: SetSuccess
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess()
+  nameWithType: LogActivity.SetSuccess()
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and the default success message.
+  example: []
+  syntax:
+    content: public void SetSuccess()
+    content.vb: Public Sub SetSuccess()
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String)
+  id: SetSuccess(System.String)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess(string)
+  nameWithType: LogActivity.SetSuccess(string)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a parameterless success message.
+  example: []
+  syntax:
+    content: public void SetSuccess(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The success message.
+    content.vb: Public Sub SetSuccess(text As String)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(String)
+  name.vb: SetSuccess(String)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String,System.Object[])
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(System.String,System.Object[])
+  id: SetSuccess(System.String,System.Object[])
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess(string, params object[])
+  nameWithType: LogActivity.SetSuccess(string, params object[])
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with an array of parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess(string text, params object[] args)
+    parameters:
+    - id: text
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: args
+      type: System.Object[]
+      description: An array of parameters.
+    content.vb: Public Sub SetSuccess(text As String, ParamArray args As Object())
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(String, ParamArray Object())
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(String, ParamArray Object())
+  name.vb: SetSuccess(String, ParamArray Object())
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure
+  id: SetFailure
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure()
+  nameWithType: LogActivity.SetFailure()
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and the default failure message.
+  example: []
+  syntax:
+    content: public void SetFailure()
+    content.vb: Public Sub SetFailure()
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)
+  id: SetFailure(System.String)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure(string)
+  nameWithType: LogActivity.SetFailure(string)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a parameterless failure message.
+  example: []
+  syntax:
+    content: public void SetFailure(string text)
+    parameters:
+    - id: text
+      type: System.String
+      description: The failure message.
+    content.vb: Public Sub SetFailure(text As String)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(String)
+  name.vb: SetFailure(String)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String,System.Object[])
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String,System.Object[])
+  id: SetFailure(System.String,System.Object[])
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure(string, params object[])
+  nameWithType: LogActivity.SetFailure(string, params object[])
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(string, params object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with an array of parameters.
+  example: []
+  syntax:
+    content: public void SetFailure(string text, params object[] args)
+    parameters:
+    - id: text
+      type: System.String
+      description: The failure message with parameters, for instance <code>Invalid file at line {Line}</code>.
+    - id: args
+      type: System.Object[]
+      description: An array of parameters.
+    content.vb: Public Sub SetFailure(text As String, ParamArray args As Object())
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(String, ParamArray Object())
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(String, ParamArray Object())
+  name.vb: SetFailure(String, ParamArray Object())
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)
+  id: SetException(System.Exception)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetException(Exception)
+  nameWithType: LogActivity.SetException(Exception)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with a given <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool SetException(Exception exception)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: The exception.
+    return:
+      type: System.Boolean
+      description: Always <code>false</code>.
+    content.vb: Public Function SetException(exception As Exception) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetException*
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: LogActivity.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Disposes the current <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the method is called because of a call to the <xref href="PostSharp.Patterns.Diagnostics.LogActivity.Dispose" data-throw-if-not-resolved="false"></xref> public method, <code>false</code> if it is called by the object finalizer.
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.Dispose*
+  nameWithType.vb: LogActivity.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: LogActivity.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.Resume
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.Resume
+  id: Resume
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: Resume()
+  nameWithType: LogActivity.Resume()
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.Resume()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Resumes the current async activity after it has been suspended by a call to <xref href="PostSharp.Patterns.Diagnostics.LogActivity.Suspend" data-throw-if-not-resolved="false"></xref>. There is typically no need
+
+    to invoke this method in user code because all async methods that use the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class are automatically instrumented.
+  example: []
+  syntax:
+    content: public void Resume()
+    content.vb: Public Sub [Resume]()
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.Resume*
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.Suspend
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.Suspend
+  id: Suspend
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: Suspend()
+  nameWithType: LogActivity.Suspend()
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.Suspend()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Suspends the current async activity.
+
+    The activity must then be resumed by a call to the <xref href="PostSharp.Patterns.Diagnostics.LogActivity.Resume" data-throw-if-not-resolved="false"></xref> method.
+
+    There is typically no need to invoke this method in user code because all async methods that use the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class are automatically instrumented.
+  example: []
+  syntax:
+    content: public void Suspend()
+    content.vb: Public Sub Suspend()
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.Suspend*
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``1(System.String,``0)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``1(System.String,``0)
+  id: SetSuccess``1(System.String,``0)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1>(string, T1)
+  nameWithType: LogActivity.SetSuccess<T1>(string, T1)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1>(string, T1)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 1 parameter.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1>(string formattingString, T1 arg1)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    content.vb: Public Sub SetSuccess(Of T1)(formattingString As String, arg1 As T1)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1)(String, T1)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1)(String, T1)
+  name.vb: SetSuccess(Of T1)(String, T1)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``1(System.String,``0)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``1(System.String,``0)
+  id: SetFailure``1(System.String,``0)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1>(string, T1)
+  nameWithType: LogActivity.SetFailure<T1>(string, T1)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1>(string, T1)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 1 parameter.
+  example: []
+  syntax:
+    content: public void SetFailure<T1>(string formattingString, T1 arg1)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    content.vb: Public Sub SetFailure(Of T1)(formattingString As String, arg1 As T1)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1)(String, T1)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1)(String, T1)
+  name.vb: SetFailure(Of T1)(String, T1)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``2(System.String,``0,``1)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``2(System.String,``0,``1)
+  id: SetSuccess``2(System.String,``0,``1)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2>(string, T1, T2)
+  nameWithType: LogActivity.SetSuccess<T1, T2>(string, T1, T2)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2>(string, T1, T2)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 2 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2>(string formattingString, T1 arg1, T2 arg2)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2)(formattingString As String, arg1 As T1, arg2 As T2)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2)(String, T1, T2)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2)(String, T1, T2)
+  name.vb: SetSuccess(Of T1, T2)(String, T1, T2)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``2(System.String,``0,``1)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``2(System.String,``0,``1)
+  id: SetFailure``2(System.String,``0,``1)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2>(string, T1, T2)
+  nameWithType: LogActivity.SetFailure<T1, T2>(string, T1, T2)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2>(string, T1, T2)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 2 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2>(string formattingString, T1 arg1, T2 arg2)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2)(formattingString As String, arg1 As T1, arg2 As T2)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2)(String, T1, T2)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2)(String, T1, T2)
+  name.vb: SetFailure(Of T1, T2)(String, T1, T2)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``3(System.String,``0,``1,``2)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``3(System.String,``0,``1,``2)
+  id: SetSuccess``3(System.String,``0,``1,``2)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3>(string, T1, T2, T3)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3>(string, T1, T2, T3)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3>(string, T1, T2, T3)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 3 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3>(string formattingString, T1 arg1, T2 arg2, T3 arg3)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3)(String, T1, T2, T3)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3)(String, T1, T2, T3)
+  name.vb: SetSuccess(Of T1, T2, T3)(String, T1, T2, T3)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``3(System.String,``0,``1,``2)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``3(System.String,``0,``1,``2)
+  id: SetFailure``3(System.String,``0,``1,``2)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3>(string, T1, T2, T3)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3>(string, T1, T2, T3)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3>(string, T1, T2, T3)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 3 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3>(string formattingString, T1 arg1, T2 arg2, T3 arg3)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3)(String, T1, T2, T3)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3)(String, T1, T2, T3)
+  name.vb: SetFailure(Of T1, T2, T3)(String, T1, T2, T3)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``4(System.String,``0,``1,``2,``3)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``4(System.String,``0,``1,``2,``3)
+  id: SetSuccess``4(System.String,``0,``1,``2,``3)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4>(string, T1, T2, T3, T4)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4>(string, T1, T2, T3, T4)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4>(string, T1, T2, T3, T4)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 4 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4)(String, T1, T2, T3, T4)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4)(String, T1, T2, T3, T4)
+  name.vb: SetSuccess(Of T1, T2, T3, T4)(String, T1, T2, T3, T4)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``4(System.String,``0,``1,``2,``3)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``4(System.String,``0,``1,``2,``3)
+  id: SetFailure``4(System.String,``0,``1,``2,``3)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4>(string, T1, T2, T3, T4)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4>(string, T1, T2, T3, T4)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4>(string, T1, T2, T3, T4)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 4 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4)(String, T1, T2, T3, T4)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4)(String, T1, T2, T3, T4)
+  name.vb: SetFailure(Of T1, T2, T3, T4)(String, T1, T2, T3, T4)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``5(System.String,``0,``1,``2,``3,``4)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``5(System.String,``0,``1,``2,``3,``4)
+  id: SetSuccess``5(System.String,``0,``1,``2,``3,``4)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4, T5>(string, T1, T2, T3, T4, T5)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4, T5>(string, T1, T2, T3, T4, T5)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4, T5>(string, T1, T2, T3, T4, T5)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 5 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4, T5>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4, T5)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4, T5)(String, T1, T2, T3, T4, T5)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4, T5)(String, T1, T2, T3, T4, T5)
+  name.vb: SetSuccess(Of T1, T2, T3, T4, T5)(String, T1, T2, T3, T4, T5)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``5(System.String,``0,``1,``2,``3,``4)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``5(System.String,``0,``1,``2,``3,``4)
+  id: SetFailure``5(System.String,``0,``1,``2,``3,``4)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4, T5>(string, T1, T2, T3, T4, T5)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4, T5>(string, T1, T2, T3, T4, T5)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4, T5>(string, T1, T2, T3, T4, T5)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 5 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4, T5>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4, T5)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4, T5)(String, T1, T2, T3, T4, T5)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4, T5)(String, T1, T2, T3, T4, T5)
+  name.vb: SetFailure(Of T1, T2, T3, T4, T5)(String, T1, T2, T3, T4, T5)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``6(System.String,``0,``1,``2,``3,``4,``5)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``6(System.String,``0,``1,``2,``3,``4,``5)
+  id: SetSuccess``6(System.String,``0,``1,``2,``3,``4,``5)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4, T5, T6>(string, T1, T2, T3, T4, T5, T6)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6>(string, T1, T2, T3, T4, T5, T6)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6>(string, T1, T2, T3, T4, T5, T6)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 6 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4, T5, T6>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4, T5, T6)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6)(String, T1, T2, T3, T4, T5, T6)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6)(String, T1, T2, T3, T4, T5, T6)
+  name.vb: SetSuccess(Of T1, T2, T3, T4, T5, T6)(String, T1, T2, T3, T4, T5, T6)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``6(System.String,``0,``1,``2,``3,``4,``5)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``6(System.String,``0,``1,``2,``3,``4,``5)
+  id: SetFailure``6(System.String,``0,``1,``2,``3,``4,``5)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4, T5, T6>(string, T1, T2, T3, T4, T5, T6)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4, T5, T6>(string, T1, T2, T3, T4, T5, T6)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4, T5, T6>(string, T1, T2, T3, T4, T5, T6)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 6 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4, T5, T6>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4, T5, T6)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6)(String, T1, T2, T3, T4, T5, T6)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6)(String, T1, T2, T3, T4, T5, T6)
+  name.vb: SetFailure(Of T1, T2, T3, T4, T5, T6)(String, T1, T2, T3, T4, T5, T6)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  id: SetSuccess``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4, T5, T6, T7>(string, T1, T2, T3, T4, T5, T6, T7)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7>(string, T1, T2, T3, T4, T5, T6, T7)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7>(string, T1, T2, T3, T4, T5, T6, T7)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 7 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4, T5, T6, T7>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4, T5, T6, T7)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7)(String, T1, T2, T3, T4, T5, T6, T7)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7)(String, T1, T2, T3, T4, T5, T6, T7)
+  name.vb: SetSuccess(Of T1, T2, T3, T4, T5, T6, T7)(String, T1, T2, T3, T4, T5, T6, T7)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  id: SetFailure``7(System.String,``0,``1,``2,``3,``4,``5,``6)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4, T5, T6, T7>(string, T1, T2, T3, T4, T5, T6, T7)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7>(string, T1, T2, T3, T4, T5, T6, T7)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7>(string, T1, T2, T3, T4, T5, T6, T7)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 7 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4, T5, T6, T7>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4, T5, T6, T7)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7)(String, T1, T2, T3, T4, T5, T6, T7)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7)(String, T1, T2, T3, T4, T5, T6, T7)
+  name.vb: SetFailure(Of T1, T2, T3, T4, T5, T6, T7)(String, T1, T2, T3, T4, T5, T6, T7)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  id: SetSuccess``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8>(string, T1, T2, T3, T4, T5, T6, T7, T8)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8>(string, T1, T2, T3, T4, T5, T6, T7, T8)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8>(string, T1, T2, T3, T4, T5, T6, T7, T8)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 8 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    - id: arg8
+      type: '{T8}'
+      description: Value of the 8th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    - id: T8
+      description: Type of the 8th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8)(String, T1, T2, T3, T4, T5, T6, T7, T8)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8)(String, T1, T2, T3, T4, T5, T6, T7, T8)
+  name.vb: SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8)(String, T1, T2, T3, T4, T5, T6, T7, T8)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  id: SetFailure``8(System.String,``0,``1,``2,``3,``4,``5,``6,``7)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4, T5, T6, T7, T8>(string, T1, T2, T3, T4, T5, T6, T7, T8)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7, T8>(string, T1, T2, T3, T4, T5, T6, T7, T8)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7, T8>(string, T1, T2, T3, T4, T5, T6, T7, T8)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 8 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4, T5, T6, T7, T8>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    - id: arg8
+      type: '{T8}'
+      description: Value of the 8th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    - id: T8
+      description: Type of the 8th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8)(String, T1, T2, T3, T4, T5, T6, T7, T8)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8)(String, T1, T2, T3, T4, T5, T6, T7, T8)
+  name.vb: SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8)(String, T1, T2, T3, T4, T5, T6, T7, T8)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  id: SetSuccess``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 9 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    - id: arg8
+      type: '{T8}'
+      description: Value of the 8th parameter.
+    - id: arg9
+      type: '{T9}'
+      description: Value of the 9th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    - id: T8
+      description: Type of the 8th parameter.
+    - id: T9
+      description: Type of the 9th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, arg9 As T9)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  name.vb: SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  id: SetFailure``9(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 9 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    - id: arg8
+      type: '{T8}'
+      description: Value of the 8th parameter.
+    - id: arg9
+      type: '{T9}'
+      description: Value of the 9th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    - id: T8
+      description: Type of the 8th parameter.
+    - id: T9
+      description: Type of the 9th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, arg9 As T9)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+  name.vb: SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  id: SetSuccess``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  nameWithType: LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with success and specifies a success message with 10 parameters.
+  example: []
+  syntax:
+    content: public void SetSuccess<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The success message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    - id: arg8
+      type: '{T8}'
+      description: Value of the 8th parameter.
+    - id: arg9
+      type: '{T9}'
+      description: Value of the 9th parameter.
+    - id: arg10
+      type: '{T10}'
+      description: Value of the 10th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    - id: T8
+      description: Type of the 8th parameter.
+    - id: T9
+      description: Type of the 9th parameter.
+    - id: T10
+      description: Type of the 10th parameter.
+    content.vb: Public Sub SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, arg9 As T9, arg10 As T10)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess*
+  nameWithType.vb: LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  name.vb: SetSuccess(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  commentId: M:PostSharp.Patterns.Diagnostics.LogActivity.SetFailure``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  id: SetFailure``10(System.String,``0,``1,``2,``3,``4,``5,``6,``7,``8,``9)
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  nameWithType: LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Ends an activity (opened with <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(System.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(System.String)" data-throw-if-not-resolved="false"></xref>)
+
+    with failure and specifies a failure message with 10 parameters.
+  example: []
+  syntax:
+    content: public void SetFailure<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(string formattingString, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9, T10 arg10)
+    parameters:
+    - id: formattingString
+      type: System.String
+      description: The failure message with parameters, for instance <code>Written {Count} lines</code>.
+    - id: arg1
+      type: '{T1}'
+      description: Value of the first parameter.
+    - id: arg2
+      type: '{T2}'
+      description: Value of the second parameter.
+    - id: arg3
+      type: '{T3}'
+      description: Value of the third parameter.
+    - id: arg4
+      type: '{T4}'
+      description: Value of the 4th parameter.
+    - id: arg5
+      type: '{T5}'
+      description: Value of the 5th parameter.
+    - id: arg6
+      type: '{T6}'
+      description: Value of the 6th parameter.
+    - id: arg7
+      type: '{T7}'
+      description: Value of the 7th parameter.
+    - id: arg8
+      type: '{T8}'
+      description: Value of the 8th parameter.
+    - id: arg9
+      type: '{T9}'
+      description: Value of the 9th parameter.
+    - id: arg10
+      type: '{T10}'
+      description: Value of the 10th parameter.
+    typeParameters:
+    - id: T1
+      description: Type of the first parameter.
+    - id: T2
+      description: Type of the second parameter.
+    - id: T3
+      description: Type of the third parameter.
+    - id: T4
+      description: Type of the 4th parameter.
+    - id: T5
+      description: Type of the 5th parameter.
+    - id: T6
+      description: Type of the 6th parameter.
+    - id: T7
+      description: Type of the 7th parameter.
+    - id: T8
+      description: Type of the 8th parameter.
+    - id: T9
+      description: Type of the 9th parameter.
+    - id: T10
+      description: Type of the 10th parameter.
+    content.vb: Public Sub SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(formattingString As String, arg1 As T1, arg2 As T2, arg3 As T3, arg4 As T4, arg5 As T5, arg6 As T6, arg7 As T7, arg8 As T8, arg9 As T9, arg10 As T10)
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure*
+  nameWithType.vb: LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+  name.vb: SetFailure(Of T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)(String, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.IsValid
+  commentId: P:PostSharp.Patterns.Diagnostics.LogActivity.IsValid
+  id: IsValid
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: LogActivity.IsValid
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.IsValid
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref> is valid. If it is valid, calls to the methods
+
+    <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetFailure" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetException(System.Exception)" data-throw-if-not-resolved="false"></xref> have an effect. Otherwise, they are ignored.
+  example: []
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.IsValid*
+- uid: PostSharp.Patterns.Diagnostics.LogActivity.Context
+  commentId: P:PostSharp.Patterns.Diagnostics.LogActivity.Context
+  id: Context
+  parent: PostSharp.Patterns.Diagnostics.LogActivity
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: LogActivity.Context
+  fullName: PostSharp.Patterns.Diagnostics.LogActivity.Context
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext" data-throw-if-not-resolved="false"></xref> created from the current <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ILoggingContext Context { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+    content.vb: Public ReadOnly Property Context As ILoggingContext
+  overload: PostSharp.Patterns.Diagnostics.LogActivity.Context*

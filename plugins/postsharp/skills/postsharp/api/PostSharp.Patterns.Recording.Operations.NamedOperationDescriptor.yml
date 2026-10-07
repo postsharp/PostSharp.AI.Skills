@@ -1,0 +1,129 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  commentId: T:PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  id: NamedOperationDescriptor
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.#ctor(System.String)
+  - PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.Name
+  - PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.OperationKind
+  langs:
+  - csharp
+  - vb
+  name: NamedOperationDescriptor
+  nameWithType: NamedOperationDescriptor
+  fullName: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Represents an operation whose name has been set declaratively or imperatively.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class NamedOperationDescriptor : IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class NamedOperationDescriptor Implements IOperationDescriptor
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: NamedOperationDescriptor(string)
+  nameWithType: NamedOperationDescriptor.NamedOperationDescriptor(string)
+  fullName: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.NamedOperationDescriptor(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public NamedOperationDescriptor(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The operation name.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub New(name As String)
+  overload: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.#ctor*
+  nameWithType.vb: NamedOperationDescriptor.New(String)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.Name
+  commentId: P:PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.Name
+  id: Name
+  parent: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: NamedOperationDescriptor.Name
+  fullName: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the operation name.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.Name*
+- uid: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: NamedOperationDescriptor.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public ReadOnly Property OperationKind As OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.NamedOperationDescriptor.OperationKind*
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind

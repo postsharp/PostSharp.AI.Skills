@@ -1,0 +1,113 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.ILocalVariableExpression
+  commentId: T:PostSharp.Reflection.MethodBody.ILocalVariableExpression
+  id: ILocalVariableExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.ILocalVariableExpression.GetPossibleAssignments
+  - PostSharp.Reflection.MethodBody.ILocalVariableExpression.LocalVariable
+  - PostSharp.Reflection.MethodBody.ILocalVariableExpression.TrivialValue
+  langs:
+  - csharp
+  - vb
+  name: ILocalVariableExpression
+  nameWithType: ILocalVariableExpression
+  fullName: PostSharp.Reflection.MethodBody.ILocalVariableExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Expression that represents a local variable.
+  example: []
+  syntax:
+    content: 'public interface ILocalVariableExpression : IExpression, IMethodBodyElement'
+    content.vb: Public Interface ILocalVariableExpression Inherits IExpression, IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.ILocalVariableExpression.GetPossibleAssignments
+  commentId: M:PostSharp.Reflection.MethodBody.ILocalVariableExpression.GetPossibleAssignments
+  id: GetPossibleAssignments
+  parent: PostSharp.Reflection.MethodBody.ILocalVariableExpression
+  langs:
+  - csharp
+  - vb
+  name: GetPossibleAssignments()
+  nameWithType: ILocalVariableExpression.GetPossibleAssignments()
+  fullName: PostSharp.Reflection.MethodBody.ILocalVariableExpression.GetPossibleAssignments()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Returns an array of all possible assignments of the <xref href="PostSharp.Reflection.MethodBody.ILocalVariable" data-throw-if-not-resolved="false"></xref> at this specific point of the program execution.
+  remarks: >-
+    <p>
+                The result list contains either assignment expressions (<xref href="PostSharp.Reflection.MethodBody.IBinaryExpression" data-throw-if-not-resolved="false"></xref>) or 
+                <xref href="PostSharp.Reflection.MethodBody.IAddressOfExpression" data-throw-if-not-resolved="false"></xref> when the address of the variable is passed to a method through a reference argument.
+            </p>
+    <p>The result of this method is cached.</p>
+  example: []
+  syntax:
+    content: IList<IExpression> GetPossibleAssignments()
+    return:
+      type: System.Collections.Generic.IList{PostSharp.Reflection.MethodBody.IExpression}
+      description: The list of possible assignments.
+    content.vb: Function GetPossibleAssignments() As IList(Of IExpression)
+  overload: PostSharp.Reflection.MethodBody.ILocalVariableExpression.GetPossibleAssignments*
+- uid: PostSharp.Reflection.MethodBody.ILocalVariableExpression.LocalVariable
+  commentId: P:PostSharp.Reflection.MethodBody.ILocalVariableExpression.LocalVariable
+  id: LocalVariable
+  parent: PostSharp.Reflection.MethodBody.ILocalVariableExpression
+  langs:
+  - csharp
+  - vb
+  name: LocalVariable
+  nameWithType: ILocalVariableExpression.LocalVariable
+  fullName: PostSharp.Reflection.MethodBody.ILocalVariableExpression.LocalVariable
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the local variable.
+  example: []
+  syntax:
+    content: ILocalVariable LocalVariable { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.ILocalVariable
+    content.vb: ReadOnly Property LocalVariable As ILocalVariable
+  overload: PostSharp.Reflection.MethodBody.ILocalVariableExpression.LocalVariable*
+- uid: PostSharp.Reflection.MethodBody.ILocalVariableExpression.TrivialValue
+  commentId: P:PostSharp.Reflection.MethodBody.ILocalVariableExpression.TrivialValue
+  id: TrivialValue
+  parent: PostSharp.Reflection.MethodBody.ILocalVariableExpression
+  langs:
+  - csharp
+  - vb
+  name: TrivialValue
+  nameWithType: ILocalVariableExpression.TrivialValue
+  fullName: PostSharp.Reflection.MethodBody.ILocalVariableExpression.TrivialValue
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: >-
+    Gets the value of the <xref href="PostSharp.Reflection.MethodBody.ILocalVariable" data-throw-if-not-resolved="false"></xref> at this specific point of the program execution, if this value
+
+    can be determined trivially.
+  remarks: >-
+    <p>
+        If the value cannot be determined trivially, use the <xref href="PostSharp.Reflection.MethodBody.ILocalVariableExpression.GetPossibleAssignments" data-throw-if-not-resolved="false"></xref> method
+        to perform a non-trivial data flow analysis.
+        </p>
+  example: []
+  syntax:
+    content: IExpression TrivialValue { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property TrivialValue As IExpression
+  overload: PostSharp.Reflection.MethodBody.ILocalVariableExpression.TrivialValue*

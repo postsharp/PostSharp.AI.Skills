@@ -1,0 +1,175 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.AggregatableExtensions
+  commentId: T:PostSharp.Patterns.Model.AggregatableExtensions
+  id: AggregatableExtensions
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  - PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(PostSharp.Patterns.Model.IAggregatable,System.Object)
+  - PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  langs:
+  - csharp
+  - vb
+  name: AggregatableExtensions
+  nameWithType: AggregatableExtensions
+  fullName: PostSharp.Patterns.Model.AggregatableExtensions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Provides extension methods for the <xref href="PostSharp.Patterns.Model.IAggregatable" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: public static class AggregatableExtensions
+    content.vb: Public Module AggregatableExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(PostSharp.Patterns.Model.IAggregatable,System.Object)
+  commentId: M:PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(PostSharp.Patterns.Model.IAggregatable,System.Object)
+  id: IsDescendantOf(PostSharp.Patterns.Model.IAggregatable,System.Object)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Model.AggregatableExtensions
+  langs:
+  - csharp
+  - vb
+  name: IsDescendantOf(IAggregatable, object)
+  nameWithType: AggregatableExtensions.IsDescendantOf(IAggregatable, object)
+  fullName: PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(PostSharp.Patterns.Model.IAggregatable, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether a specified object is a descendant of a specified ancestor.
+  example: []
+  syntax:
+    content: public static bool IsDescendantOf(this IAggregatable child, object ancestor)
+    parameters:
+    - id: child
+      type: PostSharp.Patterns.Model.IAggregatable
+      description: The child object.
+    - id: ancestor
+      type: System.Object
+      description: The ancestor object.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">child</code> is a descendant of <code class="paramref">ancestor</code>, otherwise <code>false</code>.
+    content.vb: Public Shared Function IsDescendantOf(child As IAggregatable, ancestor As Object) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf*
+  nameWithType.vb: AggregatableExtensions.IsDescendantOf(IAggregatable, Object)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableExtensions.IsDescendantOf(PostSharp.Patterns.Model.IAggregatable, Object)
+  name.vb: IsDescendantOf(IAggregatable, Object)
+- uid: PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  commentId: M:PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  id: GetChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Model.AggregatableExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetChildren(IAggregatable, ChildVisitorOptions)
+  nameWithType: AggregatableExtensions.GetChildren(IAggregatable, ChildVisitorOptions)
+  fullName: PostSharp.Patterns.Model.AggregatableExtensions.GetChildren(PostSharp.Patterns.Model.IAggregatable, PostSharp.Patterns.Model.ChildVisitorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the list of children of a specified parent object.
+  remarks: >-
+    <p>This list may contain duplicates if an object has several parent-child relationships to the same parent. Use <xref href="PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.IAggregatable%2cPostSharp.Patterns.Model.ChildVisitorOptions)" data-throw-if-not-resolved="false"></xref>
+                to get a list of distinct children.</p>
+  example: []
+  syntax:
+    content: public static IList<object> GetChildren(this IAggregatable parent, ChildVisitorOptions options = ChildVisitorOptions.None)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Model.IAggregatable
+      description: The parent object.
+    - id: options
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+      description: The options.
+    return:
+      type: System.Collections.Generic.IList{System.Object}
+      description: A list of children.
+    content.vb: Public Shared Function GetChildren(parent As IAggregatable, options As ChildVisitorOptions = ChildVisitorOptions.None) As IList(Of Object)
+  overload: PostSharp.Patterns.Model.AggregatableExtensions.GetChildren*
+- uid: PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  commentId: M:PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  id: GetDistinctChildren(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.ChildVisitorOptions)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Model.AggregatableExtensions
+  langs:
+  - csharp
+  - vb
+  name: GetDistinctChildren(IAggregatable, ChildVisitorOptions)
+  nameWithType: AggregatableExtensions.GetDistinctChildren(IAggregatable, ChildVisitorOptions)
+  fullName: PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren(PostSharp.Patterns.Model.IAggregatable, PostSharp.Patterns.Model.ChildVisitorOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets a list of distinct children of a specified parent object.
+  example: []
+  syntax:
+    content: public static HashSet<object> GetDistinctChildren(this IAggregatable parent, ChildVisitorOptions options = ChildVisitorOptions.None)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Model.IAggregatable
+      description: The parent object.
+    - id: options
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+      description: The options.
+    return:
+      type: System.Collections.Generic.HashSet{System.Object}
+      description: A set of distinct children.
+    content.vb: Public Shared Function GetDistinctChildren(parent As IAggregatable, options As ChildVisitorOptions = ChildVisitorOptions.None) As HashSet(Of Object)
+  overload: PostSharp.Patterns.Model.AggregatableExtensions.GetDistinctChildren*
+- uid: PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  commentId: M:PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  id: VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable,PostSharp.Patterns.Model.DescendantVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Model.AggregatableExtensions
+  langs:
+  - csharp
+  - vb
+  name: VisitSelfAndDescendants(IAggregatable, DescendantVisitor, ChildVisitorOptions, object)
+  nameWithType: AggregatableExtensions.VisitSelfAndDescendants(IAggregatable, DescendantVisitor, ChildVisitorOptions, object)
+  fullName: PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable, PostSharp.Patterns.Model.DescendantVisitor, PostSharp.Patterns.Model.ChildVisitorOptions, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Executes a <xref href="PostSharp.Patterns.Model.ChildVisitor" data-throw-if-not-resolved="false"></xref> for a specified parent object and all its descendants.
+  example: []
+  syntax:
+    content: public static bool VisitSelfAndDescendants(this IAggregatable parent, DescendantVisitor visitor, ChildVisitorOptions options = ChildVisitorOptions.None, object state = null)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Model.IAggregatable
+      description: The parent object.
+    - id: visitor
+      type: PostSharp.Patterns.Model.DescendantVisitor
+      description: The action to execute.
+    - id: options
+      type: PostSharp.Patterns.Model.ChildVisitorOptions
+      description: The options.
+    - id: state
+      type: System.Object
+      description: An opaque state object that is passed to <code class="paramref">visitor</code>.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function VisitSelfAndDescendants(parent As IAggregatable, visitor As DescendantVisitor, options As ChildVisitorOptions = ChildVisitorOptions.None, state As Object = Nothing) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants*
+  nameWithType.vb: AggregatableExtensions.VisitSelfAndDescendants(IAggregatable, DescendantVisitor, ChildVisitorOptions, Object)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableExtensions.VisitSelfAndDescendants(PostSharp.Patterns.Model.IAggregatable, PostSharp.Patterns.Model.DescendantVisitor, PostSharp.Patterns.Model.ChildVisitorOptions, Object)
+  name.vb: VisitSelfAndDescendants(IAggregatable, DescendantVisitor, ChildVisitorOptions, Object)

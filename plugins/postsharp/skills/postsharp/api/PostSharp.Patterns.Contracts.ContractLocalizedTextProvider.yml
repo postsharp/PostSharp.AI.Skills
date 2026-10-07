@@ -1,0 +1,647 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  commentId: T:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  id: ContractLocalizedTextProvider
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.#ctor(PostSharp.Patterns.Contracts.ContractLocalizedTextProvider)
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.CreditCardErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.Current
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EmailAddressErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EnumDataTypeErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattedMessage(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattingStringArguments(System.Object,System.String,PostSharp.Reflection.LocationKind,System.Object[])
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GreaterThanErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LessThanErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LocationContractErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotEmptyErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotNullErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.PhoneErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RangeErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RegularExpressionErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RequiredErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictRangeErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyGreaterThanErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyLessThanErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMaxErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMinErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthRangeErrorMessage
+  - PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.UrlErrorMessage
+  langs:
+  - csharp
+  - vb
+  name: ContractLocalizedTextProvider
+  nameWithType: ContractLocalizedTextProvider
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Base class for providers of contract error messages.
+  remarks: >-
+    <p>
+           An implementation typically overrides the <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref> method. This method returns a formatting
+        string where the first four parameters have a well-known meaning:
+          </p>
+    <table><thead><tr><th class="term">Parameter</th><th class="description">Description</th></tr></thead><tbody><tr><td class="term">{0}</td><td class="description">The name of the declaration being validated. It is empty for a return value.</td></tr><tr><td class="term">{1}</td><td class="description">The kind of the declaration being validated.</td></tr><tr><td class="term">{2}</td><td class="description">The name and kind of the declaration being validated.</td></tr><tr><td class="term">{3}</td><td class="description">The invalid value.</td></tr></tbody></table>
+
+    <p>To change or translate error messages, derive a class from <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider" data-throw-if-not-resolved="false"></xref>, override <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref> to return
+        your own text for the message identifiers that you handle, and call the base implementation for the others. At application startup, assign an instance of your
+        provider to <xref href="PostSharp.Patterns.Contracts.ContractServices.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref>, and pass the previous value of this property to the constructor. The identifiers of the messages of
+        built-in contracts are the constants of this class. A custom contract can use its own identifier if a provider of the chain defines it; when no provider
+        defines an identifier, <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref> throws an <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: 'public class ContractLocalizedTextProvider : LocalizedTextProvider'
+    content.vb: Public Class ContractLocalizedTextProvider Inherits LocalizedTextProvider
+  seealso:
+  - linkId: PostSharp.Patterns.Contracts.ContractServices
+    commentId: T:PostSharp.Patterns.Contracts.ContractServices
+  - linkType: HRef
+    linkId: '@contract-localization'
+    altText: 'Conceptual: Localizing Contract Error Messages'
+  - linkType: HRef
+    linkId: '@contract-custom-exceptions'
+    altText: 'Conceptual: Customizing Contract Exceptions'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Utilities.LocalizedTextProvider
+  inheritedMembers:
+  - PostSharp.Patterns.Utilities.LocalizedTextProvider.FormatString(System.String,System.Object[])
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.CreditCardErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.CreditCardErrorMessage
+  id: CreditCardErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: CreditCardErrorMessage
+  nameWithType: ContractLocalizedTextProvider.CreditCardErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.CreditCardErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.CreditCardAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string CreditCardErrorMessage = "CreditCardErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const CreditCardErrorMessage As String = "CreditCardErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EmailAddressErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EmailAddressErrorMessage
+  id: EmailAddressErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: EmailAddressErrorMessage
+  nameWithType: ContractLocalizedTextProvider.EmailAddressErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EmailAddressErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.EmailAddressAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string EmailAddressErrorMessage = "EmailAddressErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const EmailAddressErrorMessage As String = "EmailAddressErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EnumDataTypeErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EnumDataTypeErrorMessage
+  id: EnumDataTypeErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: EnumDataTypeErrorMessage
+  nameWithType: ContractLocalizedTextProvider.EnumDataTypeErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EnumDataTypeErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.EnumDataTypeAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string EnumDataTypeErrorMessage = "EnumDataTypeErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const EnumDataTypeErrorMessage As String = "EnumDataTypeErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GreaterThanErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GreaterThanErrorMessage
+  id: GreaterThanErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: GreaterThanErrorMessage
+  nameWithType: ContractLocalizedTextProvider.GreaterThanErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GreaterThanErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.GreaterThanAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string GreaterThanErrorMessage = "GreaterThanErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const GreaterThanErrorMessage As String = "GreaterThanErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LessThanErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LessThanErrorMessage
+  id: LessThanErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: LessThanErrorMessage
+  nameWithType: ContractLocalizedTextProvider.LessThanErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LessThanErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.LessThanAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string LessThanErrorMessage = "LessThanErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const LessThanErrorMessage As String = "LessThanErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LocationContractErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LocationContractErrorMessage
+  id: LocationContractErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: LocationContractErrorMessage
+  nameWithType: ContractLocalizedTextProvider.LocationContractErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.LocationContractErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string LocationContractErrorMessage = "LocationContractErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const LocationContractErrorMessage As String = "LocationContractErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotEmptyErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotEmptyErrorMessage
+  id: NotEmptyErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: NotEmptyErrorMessage
+  nameWithType: ContractLocalizedTextProvider.NotEmptyErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotEmptyErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.NotEmptyAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string NotEmptyErrorMessage = "NotEmptyErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const NotEmptyErrorMessage As String = "NotEmptyErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotNullErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotNullErrorMessage
+  id: NotNullErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: NotNullErrorMessage
+  nameWithType: ContractLocalizedTextProvider.NotNullErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.NotNullErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.NotNullAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string NotNullErrorMessage = "NotNullErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const NotNullErrorMessage As String = "NotNullErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.PhoneErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.PhoneErrorMessage
+  id: PhoneErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: PhoneErrorMessage
+  nameWithType: ContractLocalizedTextProvider.PhoneErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.PhoneErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.PhoneAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string PhoneErrorMessage = "PhoneErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const PhoneErrorMessage As String = "PhoneErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RangeErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RangeErrorMessage
+  id: RangeErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: RangeErrorMessage
+  nameWithType: ContractLocalizedTextProvider.RangeErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RangeErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.RangeAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string RangeErrorMessage = "RangeErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const RangeErrorMessage As String = "RangeErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictRangeErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictRangeErrorMessage
+  id: StrictRangeErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: StrictRangeErrorMessage
+  nameWithType: ContractLocalizedTextProvider.StrictRangeErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictRangeErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.StrictRangeAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string StrictRangeErrorMessage = "StrictRangeErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const StrictRangeErrorMessage As String = "StrictRangeErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RegularExpressionErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RegularExpressionErrorMessage
+  id: RegularExpressionErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: RegularExpressionErrorMessage
+  nameWithType: ContractLocalizedTextProvider.RegularExpressionErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RegularExpressionErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.RegularExpressionAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string RegularExpressionErrorMessage = "RegularExpressionErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const RegularExpressionErrorMessage As String = "RegularExpressionErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RequiredErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RequiredErrorMessage
+  id: RequiredErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: RequiredErrorMessage
+  nameWithType: ContractLocalizedTextProvider.RequiredErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.RequiredErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.RequiredAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string RequiredErrorMessage = "RequiredErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const RequiredErrorMessage As String = "RequiredErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyGreaterThanErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyGreaterThanErrorMessage
+  id: StrictlyGreaterThanErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: StrictlyGreaterThanErrorMessage
+  nameWithType: ContractLocalizedTextProvider.StrictlyGreaterThanErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyGreaterThanErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string StrictlyGreaterThanErrorMessage = "StrictlyGreaterThanErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const StrictlyGreaterThanErrorMessage As String = "StrictlyGreaterThanErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyLessThanErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyLessThanErrorMessage
+  id: StrictlyLessThanErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: StrictlyLessThanErrorMessage
+  nameWithType: ContractLocalizedTextProvider.StrictlyLessThanErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyLessThanErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.StrictlyLessThanAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string StrictlyLessThanErrorMessage = "StrictlyLessThanErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const StrictlyLessThanErrorMessage As String = "StrictlyLessThanErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMinErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMinErrorMessage
+  id: StringLengthMinErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: StringLengthMinErrorMessage
+  nameWithType: ContractLocalizedTextProvider.StringLengthMinErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMinErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.StringLengthAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated (only the minimum length was specified).
+  example: []
+  syntax:
+    content: public const string StringLengthMinErrorMessage = "StringLengthMinErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const StringLengthMinErrorMessage As String = "StringLengthMinErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMaxErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMaxErrorMessage
+  id: StringLengthMaxErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: StringLengthMaxErrorMessage
+  nameWithType: ContractLocalizedTextProvider.StringLengthMaxErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthMaxErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.StringLengthAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated (only the maximum length was specified).
+  example: []
+  syntax:
+    content: public const string StringLengthMaxErrorMessage = "StringLengthMaxErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const StringLengthMaxErrorMessage As String = "StringLengthMaxErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthRangeErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthRangeErrorMessage
+  id: StringLengthRangeErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: StringLengthRangeErrorMessage
+  nameWithType: ContractLocalizedTextProvider.StringLengthRangeErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StringLengthRangeErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.StringLengthAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated (both the minimum and the maximum length were specified).
+  example: []
+  syntax:
+    content: public const string StringLengthRangeErrorMessage = "StringLengthRangeErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const StringLengthRangeErrorMessage As String = "StringLengthRangeErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.UrlErrorMessage
+  commentId: F:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.UrlErrorMessage
+  id: UrlErrorMessage
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: UrlErrorMessage
+  nameWithType: ContractLocalizedTextProvider.UrlErrorMessage
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.UrlErrorMessage
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: The identifier of the error message shown when the <xref href="PostSharp.Patterns.Contracts.UrlAttribute" data-throw-if-not-resolved="false"></xref> constraint is violated.
+  example: []
+  syntax:
+    content: public const string UrlErrorMessage = "UrlErrorMessage"
+    return:
+      type: System.String
+    content.vb: Public Const UrlErrorMessage As String = "UrlErrorMessage"
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.#ctor(PostSharp.Patterns.Contracts.ContractLocalizedTextProvider)
+  commentId: M:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.#ctor(PostSharp.Patterns.Contracts.ContractLocalizedTextProvider)
+  id: '#ctor(PostSharp.Patterns.Contracts.ContractLocalizedTextProvider)'
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: ContractLocalizedTextProvider(ContractLocalizedTextProvider)
+  nameWithType: ContractLocalizedTextProvider.ContractLocalizedTextProvider(ContractLocalizedTextProvider)
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.ContractLocalizedTextProvider(PostSharp.Patterns.Contracts.ContractLocalizedTextProvider)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ContractLocalizedTextProvider(ContractLocalizedTextProvider next)
+    parameters:
+    - id: next
+      type: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+      description: The next node in the chain of responsibility.
+    content.vb: Public Sub New([next] As ContractLocalizedTextProvider)
+  overload: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.#ctor*
+  nameWithType.vb: ContractLocalizedTextProvider.New(ContractLocalizedTextProvider)
+  fullName.vb: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.New(PostSharp.Patterns.Contracts.ContractLocalizedTextProvider)
+  name.vb: New(ContractLocalizedTextProvider)
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattingStringArguments(System.Object,System.String,PostSharp.Reflection.LocationKind,System.Object[])
+  commentId: M:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattingStringArguments(System.Object,System.String,PostSharp.Reflection.LocationKind,System.Object[])
+  id: GetFormattingStringArguments(System.Object,System.String,PostSharp.Reflection.LocationKind,System.Object[])
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: GetFormattingStringArguments(object, string, LocationKind, object[])
+  nameWithType: ContractLocalizedTextProvider.GetFormattingStringArguments(object, string, LocationKind, object[])
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattingStringArguments(object, string, PostSharp.Reflection.LocationKind, object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Returns an array of arguments that can be passed to the <xref href="System.String.Format(System.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: <p></p>
+  example: []
+  syntax:
+    content: public static object[] GetFormattingStringArguments(object value, string locationName, LocationKind locationKind, object[] additionalArguments)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The incorrect value (passed, assigned or returned).
+    - id: locationName
+      type: System.String
+      description: The name of the declaration being validated (or <code>null</code> if a return value is being validated).
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+      description: The kind of declaration being validated.
+    - id: additionalArguments
+      type: System.Object[]
+      description: Additional arguments appended to the array of arguments.
+    return:
+      type: System.Object[]
+      description: >-
+        An array of arguments that can be passed to the <xref href="System.String.Format(System.String%2cSystem.Object%5b%5d)" data-throw-if-not-resolved="false"></xref> method,
+                    where the formatting strings can have parameters as described in the remarks of
+                    the documentation of the <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: Public Shared Function GetFormattingStringArguments(value As Object, locationName As String, locationKind As LocationKind, additionalArguments As Object()) As Object()
+  overload: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattingStringArguments*
+  nameWithType.vb: ContractLocalizedTextProvider.GetFormattingStringArguments(Object, String, LocationKind, Object())
+  fullName.vb: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattingStringArguments(Object, String, PostSharp.Reflection.LocationKind, Object())
+  name.vb: GetFormattingStringArguments(Object, String, LocationKind, Object())
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattedMessage(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  commentId: M:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattedMessage(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  id: GetFormattedMessage(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: GetFormattedMessage(ContractExceptionInfo)
+  nameWithType: ContractLocalizedTextProvider.GetFormattedMessage(ContractExceptionInfo)
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattedMessage(PostSharp.Patterns.Contracts.ContractExceptionInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets a message template using <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref> and formats it using the values in <code class="paramref">exceptionInfo</code>.
+  example: []
+  syntax:
+    content: public string GetFormattedMessage(ContractExceptionInfo exceptionInfo)
+    parameters:
+    - id: exceptionInfo
+      type: PostSharp.Patterns.Contracts.ContractExceptionInfo
+      description: The information about the exception to be created.
+    return:
+      type: System.String
+      description: >-
+        A formatted message that uses the formatting parameters described in the remarks of
+                    the documentation of the <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider" data-throw-if-not-resolved="false"></xref> class.
+    content.vb: Public Function GetFormattedMessage(exceptionInfo As ContractExceptionInfo) As String
+  overload: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetFormattedMessage*
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)
+  commentId: M:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(System.String)
+  id: GetMessage(System.String)
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: GetMessage(string)
+  nameWithType: ContractLocalizedTextProvider.GetMessage(string)
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets a message declared by the <xref href="PostSharp.Patterns.Utilities.LocalizedTextProvider" data-throw-if-not-resolved="false"></xref> or by the rest of the responsibility chain, if applicable.
+  remarks: >-
+    <p>An implementation must call the base implementation if it does not provide the requested message.
+        The base implementation is responsible for invoking the next provider in the chain of responsibility.
+        </p>
+  example: []
+  syntax:
+    content: public override string GetMessage(string messageId)
+    parameters:
+    - id: messageId
+      type: System.String
+      description: The identifier of the message.
+    return:
+      type: System.String
+      description: The message represented by <code class="paramref">messageId</code>. Returning <code>null</code> is not allowed.
+    content.vb: Public Overrides Function GetMessage(messageId As String) As String
+  overridden: PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)
+  overload: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage*
+  nameWithType.vb: ContractLocalizedTextProvider.GetMessage(String)
+  fullName.vb: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.GetMessage(String)
+  name.vb: GetMessage(String)
+- uid: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.Current
+  commentId: P:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.Current
+  id: Current
+  parent: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: ContractLocalizedTextProvider.Current
+  fullName: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.Current
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets or sets the current instance of <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.LocalizedTextProvider")]
+
+      public static ContractLocalizedTextProvider Current { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider
+    content.vb: >-
+      <Obsolete("Use ContractServices.LocalizedTextProvider")>
+
+      Public Shared Property Current As ContractLocalizedTextProvider
+  overload: PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.Current*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.LocalizedTextProvider

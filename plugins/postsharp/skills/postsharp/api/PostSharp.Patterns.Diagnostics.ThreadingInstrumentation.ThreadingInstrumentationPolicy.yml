@@ -1,0 +1,189 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+  commentId: T:PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+  id: ThreadingInstrumentationPolicy
+  parent: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  children:
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  langs:
+  - csharp
+  - vb
+  name: ThreadingInstrumentationPolicy
+  nameWithType: ThreadingInstrumentationPolicy
+  fullName: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  summary: >-
+    Policy (assembly-level aspect) that instruments the <code>System.Threading</code> and <code>System.Threading.Tasks</code> APIs
+
+    to enable semantic logging of multi-threaded or multi-tasked programs.
+  example: []
+  syntax:
+    content: >-
+      [RequirePostSharp("PostSharp.Patterns.Diagnostics.Weaver", null)]
+
+      [AttributeUsage(AttributeTargets.Assembly)]
+
+      [LinesOfCodeAvoided(0)]
+
+      [Serializer(typeof(ThreadingInstrumentationPolicy.Serializer))]
+
+      public sealed class ThreadingInstrumentationPolicy : AssemblyLevelAspect, IAspectBuildSemantics, IValidableAnnotation, IAssemblyLevelAspect, IAssemblyLevelAspectBuildSemantics, IAspectProvider, IAspect, IService
+    content.vb: >-
+      <RequirePostSharp("PostSharp.Patterns.Diagnostics.Weaver", Nothing)>
+
+      <AttributeUsage(AttributeTargets.Assembly)>
+
+      <LinesOfCodeAvoided(0)>
+
+      <Serializer(GetType(ThreadingInstrumentationPolicy.Serializer))>
+
+      Public NotInheritable Class ThreadingInstrumentationPolicy Inherits AssemblyLevelAspect Implements IAspectBuildSemantics, IValidableAnnotation, IAssemblyLevelAspect, IAssemblyLevelAspectBuildSemantics, IAspectProvider, IAspect, IService
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.AssemblyLevelAspect
+  implements:
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAssemblyLevelAspect
+  - PostSharp.Aspects.IAssemblyLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Extensibility.IService
+  inheritedMembers:
+  - PostSharp.Aspects.AssemblyLevelAspect.CompileTimeValidate(System.Reflection.Assembly)
+  - PostSharp.Aspects.AssemblyLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.AssemblyLevelAspect.CompileTimeInitialize(System.Reflection.Assembly,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.RequirePostSharpAttribute
+    ctor: PostSharp.Extensibility.RequirePostSharpAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: PostSharp.Patterns.Diagnostics.Weaver
+    - type: System.String
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 0
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.Serializer
+- uid: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+  langs:
+  - csharp
+  - vb
+  name: ThreadingInstrumentationPolicy()
+  nameWithType: ThreadingInstrumentationPolicy.ThreadingInstrumentationPolicy()
+  fullName: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.ThreadingInstrumentationPolicy()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  syntax:
+    content: public ThreadingInstrumentationPolicy()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor*
+  nameWithType.vb: ThreadingInstrumentationPolicy.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+  langs:
+  - csharp
+  - vb
+  name: ThreadingInstrumentationPolicy(PortableFormatterConstructorContext)
+  nameWithType: ThreadingInstrumentationPolicy.ThreadingInstrumentationPolicy(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.ThreadingInstrumentationPolicy(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation
+  syntax:
+    content: protected ThreadingInstrumentationPolicy(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.#ctor*
+  nameWithType.vb: ThreadingInstrumentationPolicy.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

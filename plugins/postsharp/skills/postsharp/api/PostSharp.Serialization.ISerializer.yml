@@ -1,0 +1,232 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ISerializer
+  commentId: T:PostSharp.Serialization.ISerializer
+  id: ISerializer
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ISerializer.Convert(System.Object,System.Type)
+  - PostSharp.Serialization.ISerializer.CreateInstance(System.Type,PostSharp.Serialization.IArgumentsReader)
+  - PostSharp.Serialization.ISerializer.DeserializeFields(System.Object@,PostSharp.Serialization.IArgumentsReader)
+  - PostSharp.Serialization.ISerializer.IsTwoPhase
+  - PostSharp.Serialization.ISerializer.SerializeObject(System.Object,PostSharp.Serialization.IArgumentsWriter,PostSharp.Serialization.IArgumentsWriter)
+  langs:
+  - csharp
+  - vb
+  name: ISerializer
+  nameWithType: ISerializer
+  fullName: PostSharp.Serialization.ISerializer
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Defines the semantics of an object serializer.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface ISerializer
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface ISerializer
+  derivedClasses:
+  - PostSharp.Patterns.Caching.CacheAttribute.Serializer
+  - PostSharp.Patterns.Caching.Implementation.CacheItem.Serializer
+  - PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration.Serializer
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute.Serializer
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.Serializer
+  - PostSharp.Patterns.Diagnostics.LoggingProfile.Serializer
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy.Serializer
+  - PostSharp.Patterns.Model.AggregatableAttribute.Serializer
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.Serializer
+  - PostSharp.Patterns.Model.ChildInfo.Serializer
+  - PostSharp.Patterns.Model.DisposableAttribute.Serializer
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute.Serializer
+  - PostSharp.Patterns.Model.PropertyPath.Serializer
+  - PostSharp.Patterns.Model.RelationshipInfo.Serializer
+  - PostSharp.Patterns.Model.WeakEventAttribute.Serializer
+  - PostSharp.Patterns.Recording.EditableObjectAttribute.Serializer
+  - PostSharp.Patterns.Recording.RecordableAttribute.Serializer
+  - PostSharp.Patterns.Threading.ActorAttribute.Serializer
+  - PostSharp.Patterns.Threading.DispatchedAttribute.Serializer
+  - PostSharp.Patterns.Threading.FreezableAttribute.Serializer
+  - PostSharp.Patterns.Threading.ImmutableAttribute.Serializer
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute.Serializer
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.Serializer
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Serializer
+  - PostSharp.Patterns.Threading.RequiresThreadSafeAttribute.Serializer
+  - PostSharp.Patterns.Threading.SynchronizedAttribute.Serializer
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute.Serializer
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Serializer
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute.Serializer
+  - PostSharp.Patterns.Xaml.AttachedPropertyAttribute.Serializer
+  - PostSharp.Patterns.Xaml.CommandAttribute.Serializer
+  - PostSharp.Patterns.Xaml.DependencyPropertyAttribute.Serializer
+  - PostSharp.Serialization.ReferenceTypeSerializer
+  - PostSharp.Serialization.ValueTypeSerializer`1
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Serialization.ISerializer.Convert(System.Object,System.Type)
+  commentId: M:PostSharp.Serialization.ISerializer.Convert(System.Object,System.Type)
+  id: Convert(System.Object,System.Type)
+  parent: PostSharp.Serialization.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: Convert(object, Type)
+  nameWithType: ISerializer.Convert(object, Type)
+  fullName: PostSharp.Serialization.ISerializer.Convert(object, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Converts a value into a given target type.
+  remarks: >-
+    <p>This method allows for additional flexibility if the serialization-time type is
+                    not equal to the deserialization-time type. The current method is invoked
+        at deserialization time to perform the conversion.</p>
+  example: []
+  syntax:
+    content: object Convert(object value, Type targetType)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The value to be converted.
+    - id: targetType
+      type: System.Type
+      description: The target type.
+    return:
+      type: System.Object
+      description: The <code class="paramref">value</code> converted to <code class="paramref">targetType</code>.
+    content.vb: Function Convert(value As Object, targetType As Type) As Object
+  overload: PostSharp.Serialization.ISerializer.Convert*
+  nameWithType.vb: ISerializer.Convert(Object, Type)
+  fullName.vb: PostSharp.Serialization.ISerializer.Convert(Object, System.Type)
+  name.vb: Convert(Object, Type)
+- uid: PostSharp.Serialization.ISerializer.CreateInstance(System.Type,PostSharp.Serialization.IArgumentsReader)
+  commentId: M:PostSharp.Serialization.ISerializer.CreateInstance(System.Type,PostSharp.Serialization.IArgumentsReader)
+  id: CreateInstance(System.Type,PostSharp.Serialization.IArgumentsReader)
+  parent: PostSharp.Serialization.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(Type, IArgumentsReader)
+  nameWithType: ISerializer.CreateInstance(Type, IArgumentsReader)
+  fullName: PostSharp.Serialization.ISerializer.CreateInstance(System.Type, PostSharp.Serialization.IArgumentsReader)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Creates an instance of the given type.
+  remarks: >-
+    <p>This method is invoked during deserialization. If <xref href="PostSharp.Serialization.ISerializer.IsTwoPhase" data-throw-if-not-resolved="false"></xref> is <code>true</code>, the <xref href="PostSharp.Serialization.ISerializer.DeserializeFields(System.Object%40%2cPostSharp.Serialization.IArgumentsReader)" data-throw-if-not-resolved="false"></xref>
+            method is called later to complete deserialization.</p>
+  example: []
+  syntax:
+    content: object CreateInstance(Type type, IArgumentsReader constructorArguments)
+    parameters:
+    - id: type
+      type: System.Type
+      description: The type of the instance to be created.
+    - id: constructorArguments
+      type: PostSharp.Serialization.IArgumentsReader
+      description: Gives access to arguments required to create the instance.
+    return:
+      type: System.Object
+      description: An instance of type <code class="paramref">type</code> initialized using <code class="paramref">constructorArguments</code>.
+    content.vb: Function CreateInstance(type As Type, constructorArguments As IArgumentsReader) As Object
+  overload: PostSharp.Serialization.ISerializer.CreateInstance*
+- uid: PostSharp.Serialization.ISerializer.DeserializeFields(System.Object@,PostSharp.Serialization.IArgumentsReader)
+  commentId: M:PostSharp.Serialization.ISerializer.DeserializeFields(System.Object@,PostSharp.Serialization.IArgumentsReader)
+  id: DeserializeFields(System.Object@,PostSharp.Serialization.IArgumentsReader)
+  parent: PostSharp.Serialization.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: DeserializeFields(ref object, IArgumentsReader)
+  nameWithType: ISerializer.DeserializeFields(ref object, IArgumentsReader)
+  fullName: PostSharp.Serialization.ISerializer.DeserializeFields(ref object, PostSharp.Serialization.IArgumentsReader)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Completes the second phase of deserialization by setting fields and other properties.
+  remarks: <p>This method is only invoked if <xref href="PostSharp.Serialization.ISerializer.IsTwoPhase" data-throw-if-not-resolved="false"></xref> is <code>true</code>.</p>
+  example: []
+  syntax:
+    content: void DeserializeFields(ref object obj, IArgumentsReader initializationArguments)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object being deserialized.
+    - id: initializationArguments
+      type: PostSharp.Serialization.IArgumentsReader
+      description: Gives access to field values.
+    content.vb: Sub DeserializeFields(obj As Object, initializationArguments As IArgumentsReader)
+  overload: PostSharp.Serialization.ISerializer.DeserializeFields*
+  nameWithType.vb: ISerializer.DeserializeFields(Object, IArgumentsReader)
+  fullName.vb: PostSharp.Serialization.ISerializer.DeserializeFields(Object, PostSharp.Serialization.IArgumentsReader)
+  name.vb: DeserializeFields(Object, IArgumentsReader)
+- uid: PostSharp.Serialization.ISerializer.SerializeObject(System.Object,PostSharp.Serialization.IArgumentsWriter,PostSharp.Serialization.IArgumentsWriter)
+  commentId: M:PostSharp.Serialization.ISerializer.SerializeObject(System.Object,PostSharp.Serialization.IArgumentsWriter,PostSharp.Serialization.IArgumentsWriter)
+  id: SerializeObject(System.Object,PostSharp.Serialization.IArgumentsWriter,PostSharp.Serialization.IArgumentsWriter)
+  parent: PostSharp.Serialization.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: SerializeObject(object, IArgumentsWriter, IArgumentsWriter)
+  nameWithType: ISerializer.SerializeObject(object, IArgumentsWriter, IArgumentsWriter)
+  fullName: PostSharp.Serialization.ISerializer.SerializeObject(object, PostSharp.Serialization.IArgumentsWriter, PostSharp.Serialization.IArgumentsWriter)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Serializes an object.
+  example: []
+  syntax:
+    content: void SerializeObject(object obj, IArgumentsWriter constructorArguments, IArgumentsWriter initializationArguments)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to serialize.
+    - id: constructorArguments
+      type: PostSharp.Serialization.IArgumentsWriter
+      description: Gives access to arguments that will be passed to the <xref href="PostSharp.Serialization.ISerializer.CreateInstance(System.Type%2cPostSharp.Serialization.IArgumentsReader)" data-throw-if-not-resolved="false"></xref> method during deserialization.
+    - id: initializationArguments
+      type: PostSharp.Serialization.IArgumentsWriter
+      description: Gives access to arguments that will be passed to the <xref href="PostSharp.Serialization.ISerializer.DeserializeFields(System.Object%40%2cPostSharp.Serialization.IArgumentsReader)" data-throw-if-not-resolved="false"></xref> method during deserialization.
+    content.vb: Sub SerializeObject(obj As Object, constructorArguments As IArgumentsWriter, initializationArguments As IArgumentsWriter)
+  overload: PostSharp.Serialization.ISerializer.SerializeObject*
+  nameWithType.vb: ISerializer.SerializeObject(Object, IArgumentsWriter, IArgumentsWriter)
+  fullName.vb: PostSharp.Serialization.ISerializer.SerializeObject(Object, PostSharp.Serialization.IArgumentsWriter, PostSharp.Serialization.IArgumentsWriter)
+  name.vb: SerializeObject(Object, IArgumentsWriter, IArgumentsWriter)
+- uid: PostSharp.Serialization.ISerializer.IsTwoPhase
+  commentId: P:PostSharp.Serialization.ISerializer.IsTwoPhase
+  id: IsTwoPhase
+  parent: PostSharp.Serialization.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: IsTwoPhase
+  nameWithType: ISerializer.IsTwoPhase
+  fullName: PostSharp.Serialization.ISerializer.IsTwoPhase
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Gets a value indicating whether <xref href="PostSharp.Serialization.ISerializer.DeserializeFields(System.Object%40%2cPostSharp.Serialization.IArgumentsReader)" data-throw-if-not-resolved="false"></xref> should be invoked during deserialization.
+
+    The value is <code>false</code> if <xref href="PostSharp.Serialization.ISerializer.CreateInstance(System.Type%2cPostSharp.Serialization.IArgumentsReader)" data-throw-if-not-resolved="false"></xref> returns a fully created object, and <code>true</code> otherwise.
+  example: []
+  syntax:
+    content: bool IsTwoPhase { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsTwoPhase As Boolean
+  overload: PostSharp.Serialization.ISerializer.IsTwoPhase*

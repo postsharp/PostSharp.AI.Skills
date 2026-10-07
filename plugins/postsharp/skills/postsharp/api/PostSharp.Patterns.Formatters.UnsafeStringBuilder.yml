@@ -1,0 +1,1282 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  commentId: T:PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  id: UnsafeStringBuilder
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor(System.Char*,System.Int32,System.Boolean)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor(System.Int32,System.Boolean)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.CharSpan@)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeString)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeStringBuilder)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Boolean)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Byte)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char*,System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char,System.Char)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char,System.Char,System.Char)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char[])
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char[],System.Int32,System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int16)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int64)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.SByte)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.String)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.String,System.Int32,System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt16)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt64)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Buffer
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Capacity
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Clear
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Dispose
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Finalize
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.IsDisposed
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Item(System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Length
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.SetNullTermination
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(System.Int32,System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToString
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToUnsafeString
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Truncate(System.Int32)
+  - PostSharp.Patterns.Formatters.UnsafeStringBuilder.Version
+  langs:
+  - csharp
+  - vb
+  name: UnsafeStringBuilder
+  nameWithType: UnsafeStringBuilder
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: A class similar to <xref href="System.Text.StringBuilder" data-throw-if-not-resolved="false"></xref>, but implemented using unsafe C#.
+  remarks: >-
+    <p>Custom formatters, <xref href="PostSharp.Patterns.Formatters.IFormattable.Format(PostSharp.Patterns.Formatters.UnsafeStringBuilder%2cPostSharp.Patterns.Formatters.FormattingRole)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Formatters.Formatter%601.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder%2c%600)" data-throw-if-not-resolved="false"></xref>, write into this class.
+        Unlike <xref href="System.Text.StringBuilder" data-throw-if-not-resolved="false"></xref>, it has a fixed capacity: when the buffer is full, the <code>Append</code> methods throw an
+        <xref href="System.OverflowException" data-throw-if-not-resolved="false"></xref> or return <code>false</code>, depending on the <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow" data-throw-if-not-resolved="false"></xref> property.</p>
+  example: []
+  syntax:
+    content: 'public sealed class UnsafeStringBuilder : IDisposable'
+    content.vb: Public NotInheritable Class UnsafeStringBuilder Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@custom-formatter'
+    altText: 'Conceptual: Implementing a Custom Formatter'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor(System.Int32,System.Boolean)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor(System.Int32,System.Boolean)
+  id: '#ctor(System.Int32,System.Boolean)'
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: UnsafeStringBuilder(int, bool)
+  nameWithType: UnsafeStringBuilder.UnsafeStringBuilder(int, bool)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.UnsafeStringBuilder(int, bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> class and allocates a new buffer.
+  example: []
+  syntax:
+    content: public UnsafeStringBuilder(int capacity = 2048, bool throwOnOverflow = true)
+    parameters:
+    - id: capacity
+      type: System.Int32
+      description: The capacity of the new <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: throwOnOverflow
+      type: System.Boolean
+      description: >-
+        <code>true</code> if an <xref href="System.OverflowException" data-throw-if-not-resolved="false"></xref> should be thrown when
+            the buffer capacity is insufficient, <code>false</code> if the <code>Append</code> method should return <code>false</code> without throwing an exception.
+    content.vb: Public Sub New(capacity As Integer = 2048, throwOnOverflow As Boolean = True)
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor*
+  nameWithType.vb: UnsafeStringBuilder.New(Integer, Boolean)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.New(Integer, Boolean)
+  name.vb: New(Integer, Boolean)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor(System.Char*,System.Int32,System.Boolean)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor(System.Char*,System.Int32,System.Boolean)
+  id: '#ctor(System.Char*,System.Int32,System.Boolean)'
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: UnsafeStringBuilder(char*, int, bool)
+  nameWithType: UnsafeStringBuilder.UnsafeStringBuilder(char*, int, bool)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.UnsafeStringBuilder(char*, int, bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> class with a pre-allocated buffer.
+  example: []
+  syntax:
+    content: public UnsafeStringBuilder(char* buffer, int size, bool throwOnOverflow = true)
+    parameters:
+    - id: buffer
+      type: System.Char*
+      description: A pointer to the buffer.
+    - id: size
+      type: System.Int32
+      description: The number of <code>char</code> in the buffer.
+    - id: throwOnOverflow
+      type: System.Boolean
+      description: >-
+        <code>true</code> if an <xref href="System.OverflowException" data-throw-if-not-resolved="false"></xref> should be thrown when
+            the buffer capacity is insufficient, <code>false</code> if the <code>Append</code> method should return <code>false</code> without throwing an exception.
+    content.vb: Public Sub New(buffer As Char*, size As Integer, throwOnOverflow As Boolean = True)
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.#ctor*
+  nameWithType.vb: UnsafeStringBuilder.New(Char*, Integer, Boolean)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.New(Char*, Integer, Boolean)
+  name.vb: New(Char*, Integer, Boolean)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char)
+  id: Append(System.Char)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char)
+  nameWithType: UnsafeStringBuilder.Append(char)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends one <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char c)
+    parameters:
+    - id: c
+      type: System.Char
+      description: A <code>char</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c As Char) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char)
+  name.vb: Append(Char)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char)
+  id: Append(System.Char,System.Char)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char, char)
+  nameWithType: UnsafeStringBuilder.Append(char, char)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char, char)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends two <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char c1, char c2)
+    parameters:
+    - id: c1
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c2
+      type: System.Char
+      description: A <code>char</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c1 As Char, c2 As Char) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char, Char)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char, Char)
+  name.vb: Append(Char, Char)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char)
+  id: Append(System.Char,System.Char,System.Char)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char, char, char)
+  nameWithType: UnsafeStringBuilder.Append(char, char, char)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char, char, char)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends three <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char c1, char c2, char c3)
+    parameters:
+    - id: c1
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c2
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c3
+      type: System.Char
+      description: A <code>char</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c1 As Char, c2 As Char, c3 As Char) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char, Char, Char)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char, Char, Char)
+  name.vb: Append(Char, Char, Char)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char,System.Char)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char,System.Char)
+  id: Append(System.Char,System.Char,System.Char,System.Char)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char, char, char, char)
+  nameWithType: UnsafeStringBuilder.Append(char, char, char, char)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char, char, char, char)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends four <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char c1, char c2, char c3, char c4)
+    parameters:
+    - id: c1
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c2
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c3
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c4
+      type: System.Char
+      description: A <code>char</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c1 As Char, c2 As Char, c3 As Char, c4 As Char) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char, Char, Char, Char)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char, Char, Char, Char)
+  name.vb: Append(Char, Char, Char, Char)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char,System.Char,System.Char)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Char,System.Char,System.Char,System.Char)
+  id: Append(System.Char,System.Char,System.Char,System.Char,System.Char)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char, char, char, char, char)
+  nameWithType: UnsafeStringBuilder.Append(char, char, char, char, char)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char, char, char, char, char)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends five <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char c1, char c2, char c3, char c4, char c5)
+    parameters:
+    - id: c1
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c2
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c3
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c4
+      type: System.Char
+      description: A <code>char</code>.
+    - id: c5
+      type: System.Char
+      description: A <code>char</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c1 As Char, c2 As Char, c3 As Char, c4 As Char, c5 As Char) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char, Char, Char, Char, Char)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char, Char, Char, Char, Char)
+  name.vb: Append(Char, Char, Char, Char, Char)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char[],System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char[],System.Int32,System.Int32)
+  id: Append(System.Char[],System.Int32,System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char[], int, int)
+  nameWithType: UnsafeStringBuilder.Append(char[], int, int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char[], int, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends an array segment of <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char[] c, int offset, int count)
+    parameters:
+    - id: c
+      type: System.Char[]
+      description: A non-null array of <code>char</code>.
+    - id: offset
+      type: System.Int32
+      description: The index of the first <code>char</code> to be appended.
+    - id: count
+      type: System.Int32
+      description: The number of <code>char</code> to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c As Char(), offset As Integer, count As Integer) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char(), Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char(), Integer, Integer)
+  name.vb: Append(Char(), Integer, Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char*,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char*,System.Int32)
+  id: Append(System.Char*,System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char*, int)
+  nameWithType: UnsafeStringBuilder.Append(char*, int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char*, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends an unmanaged array of <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char* c, int count)
+    parameters:
+    - id: c
+      type: System.Char*
+      description: A non-null pointer to an unmanaged array of <code>char</code>.
+    - id: count
+      type: System.Int32
+      description: The number of <code>char</code> to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c As Char*, count As Integer) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char*, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char*, Integer)
+  name.vb: Append(Char*, Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char,System.Int32)
+  id: Append(System.Char,System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char, int)
+  nameWithType: UnsafeStringBuilder.Append(char, int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the same <code>char</code> several times to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char c, int count)
+    parameters:
+    - id: c
+      type: System.Char
+      description: A <code>char</code>.
+    - id: count
+      type: System.Int32
+      description: The number of times <code class="paramref">c</code> has to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c As Char, count As Integer) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char, Integer)
+  name.vb: Append(Char, Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char[])
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Char[])
+  id: Append(System.Char[])
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(char[])
+  nameWithType: UnsafeStringBuilder.Append(char[])
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(char[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends an array of <code>char</code> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(char[] c)
+    parameters:
+    - id: c
+      type: System.Char[]
+      description: A non-null array of <code>char</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(c As Char()) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Char())
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Char())
+  name.vb: Append(Char())
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.String)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.String)
+  id: Append(System.String)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(string)
+  nameWithType: UnsafeStringBuilder.Append(string)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.String" data-throw-if-not-resolved="false"></xref> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: A non-null <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(str As String) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(String)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(String)
+  name.vb: Append(String)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.String,System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.String,System.Int32,System.Int32)
+  id: Append(System.String,System.Int32,System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(string, int, int)
+  nameWithType: UnsafeStringBuilder.Append(string, int, int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(string, int, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a part of a <xref href="System.String" data-throw-if-not-resolved="false"></xref> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(string str, int startIndex, int length)
+    parameters:
+    - id: str
+      type: System.String
+      description: A non-null <xref href="System.String" data-throw-if-not-resolved="false"></xref>
+    - id: startIndex
+      type: System.Int32
+      description: The index of the first character of the string to append.
+    - id: length
+      type: System.Int32
+      description: The number of characters to append.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(str As String, startIndex As Integer, length As Integer) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(String, Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(String, Integer, Integer)
+  name.vb: Append(String, Integer, Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.CharSpan@)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.CharSpan@)
+  id: Append(PostSharp.Patterns.Formatters.CharSpan@)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(in CharSpan)
+  nameWithType: UnsafeStringBuilder.Append(in CharSpan)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(in PostSharp.Patterns.Formatters.CharSpan)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(in CharSpan span)
+    parameters:
+    - id: span
+      type: PostSharp.Patterns.Formatters.CharSpan
+      description: A <xref href="PostSharp.Patterns.Formatters.CharSpan" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(span As CharSpan) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(CharSpan)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.CharSpan)
+  name.vb: Append(CharSpan)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeString)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeString)
+  id: Append(PostSharp.Patterns.Formatters.UnsafeString)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(UnsafeString)
+  nameWithType: UnsafeStringBuilder.Append(UnsafeString)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeString)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends an <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(UnsafeString s)
+    parameters:
+    - id: s
+      type: PostSharp.Patterns.Formatters.UnsafeString
+      description: A non-null <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(s As UnsafeString) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeStringBuilder)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeStringBuilder)
+  id: Append(PostSharp.Patterns.Formatters.UnsafeStringBuilder)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(UnsafeStringBuilder)
+  nameWithType: UnsafeStringBuilder.Append(UnsafeStringBuilder)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(PostSharp.Patterns.Formatters.UnsafeStringBuilder)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the current value of an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(UnsafeStringBuilder stringBuilder)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: An <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(stringBuilder As UnsafeStringBuilder) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Byte)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Byte)
+  id: Append(System.Byte)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(byte)
+  nameWithType: UnsafeStringBuilder.Append(byte)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(byte)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.Byte" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(byte value)
+    parameters:
+    - id: value
+      type: System.Byte
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As Byte) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Byte)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Byte)
+  name.vb: Append(Byte)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.SByte)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.SByte)
+  id: Append(System.SByte)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(sbyte)
+  nameWithType: UnsafeStringBuilder.Append(sbyte)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(sbyte)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends an <xref href="System.SByte" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(sbyte value)
+    parameters:
+    - id: value
+      type: System.SByte
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As SByte) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(SByte)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(SByte)
+  name.vb: Append(SByte)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt16)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt16)
+  id: Append(System.UInt16)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(ushort)
+  nameWithType: UnsafeStringBuilder.Append(ushort)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(ushort)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.UInt16" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(ushort value)
+    parameters:
+    - id: value
+      type: System.UInt16
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As UShort) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(UShort)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(UShort)
+  name.vb: Append(UShort)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int16)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int16)
+  id: Append(System.Int16)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(short)
+  nameWithType: UnsafeStringBuilder.Append(short)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(short)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.Int16" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(short value)
+    parameters:
+    - id: value
+      type: System.Int16
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As Short) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Short)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Short)
+  name.vb: Append(Short)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt32)
+  id: Append(System.UInt32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(uint)
+  nameWithType: UnsafeStringBuilder.Append(uint)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(uint)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.UInt32" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(uint value)
+    parameters:
+    - id: value
+      type: System.UInt32
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As UInteger) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(UInteger)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(UInteger)
+  name.vb: Append(UInteger)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int32)
+  id: Append(System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(int)
+  nameWithType: UnsafeStringBuilder.Append(int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(int value)
+    parameters:
+    - id: value
+      type: System.Int32
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As Integer) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Integer)
+  name.vb: Append(Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt64)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.UInt64)
+  id: Append(System.UInt64)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(ulong)
+  nameWithType: UnsafeStringBuilder.Append(ulong)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(ulong)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.UInt64" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(ulong value)
+    parameters:
+    - id: value
+      type: System.UInt64
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As ULong) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(ULong)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(ULong)
+  name.vb: Append(ULong)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int64)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Int64)
+  id: Append(System.Int64)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(long)
+  nameWithType: UnsafeStringBuilder.Append(long)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(long)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.Int64" data-throw-if-not-resolved="false"></xref> (with decimal formatting) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(long value)
+    parameters:
+    - id: value
+      type: System.Int64
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As Long) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Long)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Long)
+  name.vb: Append(Long)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Boolean)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(System.Boolean)
+  id: Append(System.Boolean)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Append(bool)
+  nameWithType: UnsafeStringBuilder.Append(bool)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> (<code>true</code> or <code>false</code>, literally) to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Append(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The value to be appended.
+    return:
+      type: System.Boolean
+      description: <code>true</code> in case of success, <code>false</code> in case of buffer overflow.
+    content.vb: Public Function Append(value As Boolean) As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append*
+  nameWithType.vb: UnsafeStringBuilder.Append(Boolean)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Append(Boolean)
+  name.vb: Append(Boolean)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Clear
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Clear
+  id: Clear
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: UnsafeStringBuilder.Clear()
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Clear()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Clears the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> so it can be reused to build a new string.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Clear*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToString
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: UnsafeStringBuilder.ToString()
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToString*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(System.Int32)
+  id: Substring(System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Substring(int)
+  nameWithType: UnsafeStringBuilder.Substring(int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Returns the substring starting at a given index and ending at the end of the current string.
+  example: []
+  syntax:
+    content: public string Substring(int startIndex)
+    parameters:
+    - id: startIndex
+      type: System.Int32
+      description: The index of the first character of the substring.
+    return:
+      type: System.String
+      description: The substring that starts at <code class="paramref">startIndex</code>.
+    content.vb: Public Function Substring(startIndex As Integer) As String
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring*
+  nameWithType.vb: UnsafeStringBuilder.Substring(Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(Integer)
+  name.vb: Substring(Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(System.Int32,System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(System.Int32,System.Int32)
+  id: Substring(System.Int32,System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Substring(int, int)
+  nameWithType: UnsafeStringBuilder.Substring(int, int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(int, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Returns the substring starting at a given index and having a specified length.
+  example: []
+  syntax:
+    content: public string Substring(int startIndex, int length)
+    parameters:
+    - id: startIndex
+      type: System.Int32
+      description: The index of the first character of the substring.
+    - id: length
+      type: System.Int32
+      description: The number of characters to return.
+    return:
+      type: System.String
+      description: The substring that starts at <code class="paramref">startIndex</code> and has <code class="paramref">length</code> characters.
+    content.vb: Public Function Substring(startIndex As Integer, length As Integer) As String
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring*
+  nameWithType.vb: UnsafeStringBuilder.Substring(Integer, Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Substring(Integer, Integer)
+  name.vb: Substring(Integer, Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Truncate(System.Int32)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Truncate(System.Int32)
+  id: Truncate(System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Truncate(int)
+  nameWithType: UnsafeStringBuilder.Truncate(int)
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Truncate(int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Truncates the string to a maximum length.
+  example: []
+  syntax:
+    content: public void Truncate(int length)
+    parameters:
+    - id: length
+      type: System.Int32
+      description: The desired length of the string after truncation.
+    content.vb: Public Sub Truncate(length As Integer)
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Truncate*
+  nameWithType.vb: UnsafeStringBuilder.Truncate(Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Truncate(Integer)
+  name.vb: Truncate(Integer)
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToUnsafeString
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToUnsafeString
+  id: ToUnsafeString
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: ToUnsafeString()
+  nameWithType: UnsafeStringBuilder.ToUnsafeString()
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToUnsafeString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets an <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> that provides read-only access to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UnsafeString ToUnsafeString()
+    return:
+      type: PostSharp.Patterns.Formatters.UnsafeString
+      description: An <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> that provides read-only access to the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function ToUnsafeString() As UnsafeString
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ToUnsafeString*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.SetNullTermination
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.SetNullTermination
+  id: SetNullTermination
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: SetNullTermination()
+  nameWithType: UnsafeStringBuilder.SetNullTermination()
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.SetNullTermination()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Appends a null character at the end of the current string, without affecting the string length.
+
+    In case of overflow, if <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow" data-throw-if-not-resolved="false"></xref> is <code>false</code>, the last character of the string is removed
+
+    and the string length is decreased by 1.
+  example: []
+  syntax:
+    content: public bool SetNullTermination()
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the string was null-terminated without affecting its length, or <code>false</code> if the last character of the string was replaced by the null character
+            and the string length was decreased by 1.
+    content.vb: Public Function SetNullTermination() As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.SetNullTermination*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Dispose
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: UnsafeStringBuilder.Dispose()
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Finalize
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Finalize
+  id: Finalize
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: ~UnsafeStringBuilder()
+  nameWithType: UnsafeStringBuilder.~UnsafeStringBuilder()
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.~UnsafeStringBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  example: []
+  syntax:
+    content: protected ~UnsafeStringBuilder()
+    content.vb: 'Protected '
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Finalize*
+  nameWithType.vb: ''
+  fullName.vb: ''
+  name.vb: ''
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow
+  id: ThrowOnOverflow
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: ThrowOnOverflow
+  nameWithType: UnsafeStringBuilder.ThrowOnOverflow
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Gets a value indicating whether an <xref href="System.OverflowException" data-throw-if-not-resolved="false"></xref> should be thrown when
+
+    the buffer capacity is insufficient. If the value is <code>false</code>, the <code>Append</code> method should return <code>false</code> without throwing an exception.
+  example: []
+  syntax:
+    content: public bool ThrowOnOverflow { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ThrowOnOverflow As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.ThrowOnOverflow*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Capacity
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Capacity
+  id: Capacity
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Capacity
+  nameWithType: UnsafeStringBuilder.Capacity
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Capacity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets the capacity (number of <code>char</code>) of the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int Capacity { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Capacity As Integer
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Capacity*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Version
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Version
+  id: Version
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: UnsafeStringBuilder.Version
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Version
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Gets the version of the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>. The value of this property is incremented every time
+
+    the current object is reused, that is, when the <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder.Clear" data-throw-if-not-resolved="false"></xref> method is called.
+  example: []
+  syntax:
+    content: public int Version { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Version As Integer
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Version*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.IsDisposed
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.IsDisposed
+  id: IsDisposed
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: IsDisposed
+  nameWithType: UnsafeStringBuilder.IsDisposed
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.IsDisposed
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> has been disposed.
+  example: []
+  syntax:
+    content: public bool IsDisposed { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsDisposed As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.IsDisposed*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Length
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Length
+  id: Length
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: UnsafeStringBuilder.Length
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Length
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets the current number of characters in the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Length*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Buffer
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Buffer
+  id: Buffer
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Buffer
+  nameWithType: UnsafeStringBuilder.Buffer
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Buffer
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets a pointer to the unmanaged buffer of the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public nint Buffer { get; }
+    parameters: []
+    return:
+      type: System.IntPtr
+    content.vb: Public ReadOnly Property Buffer As IntPtr
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Buffer*
+- uid: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Item(System.Int32)
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeStringBuilder.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: UnsafeStringBuilder.this[int]
+  fullName: PostSharp.Patterns.Formatters.UnsafeStringBuilder.this[int]
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets the <code>char</code> at a given position in the current <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public char this[int index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The index of the <code>char</code> in the buffer.
+    return:
+      type: System.Char
+      description: The <code>char</code> at position <code class="paramref">index</code>.
+    content.vb: Public Default Property this[](index As Integer) As Char
+  overload: PostSharp.Patterns.Formatters.UnsafeStringBuilder.Item*
+  nameWithType.vb: UnsafeStringBuilder.this[](Integer)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeStringBuilder.this[](Integer)
+  name.vb: this[](Integer)

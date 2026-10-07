@@ -1,0 +1,232 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity
+  commentId: T:PostSharp.Patterns.Diagnostics.ILogActivity
+  id: ILogActivity
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.ILogActivity.Context
+  - PostSharp.Patterns.Diagnostics.ILogActivity.Resume
+  - PostSharp.Patterns.Diagnostics.ILogActivity.SetException(System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.ILogActivity.SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.ILogActivity.SetResult``1(``0,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.ILogActivity.SetSuccess(PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  - PostSharp.Patterns.Diagnostics.ILogActivity.Suspend
+  langs:
+  - csharp
+  - vb
+  name: ILogActivity
+  nameWithType: ILogActivity
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Exposes the public API of the generic value type <xref href="PostSharp.Patterns.Diagnostics.LogActivity%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface ILogActivity : IDisposable'
+    content.vb: Public Interface ILogActivity Inherits IDisposable
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.LogActivity`1
+  inheritedMembers:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.SetSuccess(PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.ILogActivity.SetSuccess(PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  id: SetSuccess(PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetSuccess(in CloseActivityOptions)
+  nameWithType: ILogActivity.SetSuccess(in CloseActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.SetSuccess(in PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Closes the activity with success. The only outcome message is <code>Succeeded</code>.
+  example: []
+  syntax:
+    content: void SetSuccess(in CloseActivityOptions options = default)
+    parameters:
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.CloseActivityOptions
+      description: The options of the closing.
+    content.vb: Sub SetSuccess(options As CloseActivityOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.SetSuccess*
+  nameWithType.vb: ILogActivity.SetSuccess(CloseActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.ILogActivity.SetSuccess(PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  name.vb: SetSuccess(CloseActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.SetResult``1(``0,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.ILogActivity.SetResult``1(``0,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  id: SetResult``1(``0,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetResult<TResult>(TResult, in CloseActivityOptions)
+  nameWithType: ILogActivity.SetResult<TResult>(TResult, in CloseActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.SetResult<TResult>(TResult, in PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Closes the activity with success and includes a result in the outcome message.
+  example: []
+  syntax:
+    content: void SetResult<TResult>(TResult result, in CloseActivityOptions options = default)
+    parameters:
+    - id: result
+      type: '{TResult}'
+      description: The result of the activity.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.CloseActivityOptions
+      description: The options of the closing.
+    typeParameters:
+    - id: TResult
+    content.vb: Sub SetResult(Of TResult)(result As TResult, options As CloseActivityOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.SetResult*
+  nameWithType.vb: ILogActivity.SetResult(Of TResult)(TResult, CloseActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.ILogActivity.SetResult(Of TResult)(TResult, PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  name.vb: SetResult(Of TResult)(TResult, CloseActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.ILogActivity.SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  id: SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetOutcome<TMessage>(LogLevel, in TMessage, Exception, in CloseActivityOptions)
+  nameWithType: ILogActivity.SetOutcome<TMessage>(LogLevel, in TMessage, Exception, in CloseActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.SetOutcome<TMessage>(PostSharp.Patterns.Diagnostics.LogLevel, in TMessage, System.Exception, in PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Closes the activity and sets its outcome.
+  example: []
+  syntax:
+    content: 'void SetOutcome<TMessage>(LogLevel level, in TMessage message, Exception exception = null, in CloseActivityOptions options = default) where TMessage : IMessage'
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: Level of the outcome message.
+    - id: message
+      type: '{TMessage}'
+      description: The description of the activity outcome, typically created using the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+    - id: exception
+      type: System.Exception
+      description: An optional <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.CloseActivityOptions
+      description: The options of the closing.
+    typeParameters:
+    - id: TMessage
+      description: Type of the <code class="paramref">message</code> parameter.
+    content.vb: Sub SetOutcome(Of TMessage As IMessage)(level As LogLevel, message As TMessage, exception As Exception = Nothing, options As CloseActivityOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.SetOutcome*
+  nameWithType.vb: ILogActivity.SetOutcome(Of TMessage)(LogLevel, TMessage, Exception, CloseActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.ILogActivity.SetOutcome(Of TMessage)(PostSharp.Patterns.Diagnostics.LogLevel, TMessage, System.Exception, PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  name.vb: SetOutcome(Of TMessage)(LogLevel, TMessage, Exception, CloseActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.SetException(System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  commentId: M:PostSharp.Patterns.Diagnostics.ILogActivity.SetException(System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  id: SetException(System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: SetException(Exception, in CloseActivityOptions)
+  nameWithType: ILogActivity.SetException(Exception, in CloseActivityOptions)
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.SetException(System.Exception, in PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Closes the activity with an <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: void SetException(Exception exception, in CloseActivityOptions options = default)
+    parameters:
+    - id: exception
+      type: System.Exception
+      description: An <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.CloseActivityOptions
+      description: The options of the closing.
+    content.vb: Sub SetException(exception As Exception, options As CloseActivityOptions = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.SetException*
+  nameWithType.vb: ILogActivity.SetException(Exception, CloseActivityOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.ILogActivity.SetException(System.Exception, PostSharp.Patterns.Diagnostics.CloseActivityOptions)
+  name.vb: SetException(Exception, CloseActivityOptions)
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.Resume
+  commentId: M:PostSharp.Patterns.Diagnostics.ILogActivity.Resume
+  id: Resume
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: Resume()
+  nameWithType: ILogActivity.Resume()
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.Resume()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Resumes the current async activity after it has been suspended by a call to <xref href="PostSharp.Patterns.Diagnostics.LogActivity%601.Suspend" data-throw-if-not-resolved="false"></xref>. There is typically no need
+
+    to invoke this method in user code because all async methods that use the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class are automatically instrumented.
+  example: []
+  syntax:
+    content: void Resume()
+    content.vb: Sub [Resume]()
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.Resume*
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.Suspend
+  commentId: M:PostSharp.Patterns.Diagnostics.ILogActivity.Suspend
+  id: Suspend
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: Suspend()
+  nameWithType: ILogActivity.Suspend()
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.Suspend()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Suspends the current async activity.
+
+    The activity must then be resumed by a call to the <xref href="PostSharp.Patterns.Diagnostics.LogActivity%601.Resume" data-throw-if-not-resolved="false"></xref> method.
+
+    There is typically no need to invoke this method in user code because all async methods that use the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> class are automatically instrumented.
+  example: []
+  syntax:
+    content: void Suspend()
+    content.vb: Sub Suspend()
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.Suspend*
+- uid: PostSharp.Patterns.Diagnostics.ILogActivity.Context
+  commentId: P:PostSharp.Patterns.Diagnostics.ILogActivity.Context
+  id: Context
+  parent: PostSharp.Patterns.Diagnostics.ILogActivity
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: ILogActivity.Context
+  fullName: PostSharp.Patterns.Diagnostics.ILogActivity.Context
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext" data-throw-if-not-resolved="false"></xref> corresponding to the current activity.
+  example: []
+  syntax:
+    content: ILoggingContext Context { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext
+    content.vb: ReadOnly Property Context As ILoggingContext
+  overload: PostSharp.Patterns.Diagnostics.ILogActivity.Context*

@@ -1,0 +1,1072 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  commentId: T:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  id: UndoRedoButtonBase
+  parent: PostSharp.Patterns.Model.Controls
+  children:
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsEnabledCore
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabledProperty
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListExpanded
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCountProperty
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnApplyTemplate
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnClick
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged(System.String)
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Operations
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.RecorderProperty
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand
+  - PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommandProperty
+  langs:
+  - csharp
+  - vb
+  name: UndoRedoButtonBase
+  nameWithType: UndoRedoButtonBase
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Base class for <xref href="PostSharp.Patterns.Model.Controls.UndoButton" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Model.Controls.RedoButton" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [TemplatePart(Name = "PART_SplitElement", Type = typeof(UIElement))]
+
+      [ComVisible(false)]
+
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public abstract class UndoRedoButtonBase : Button, IAnimatable, IFrameworkInputElement, IInputElement, ISupportInitialize, IQueryAmbient, IAddChild, ICommandSource, INotifyPropertyChanged
+    content.vb: >-
+      <TemplatePart(Name:="PART_SplitElement", Type:=GetType(UIElement))>
+
+      <ComVisible(False)>
+
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public MustInherit Class UndoRedoButtonBase Inherits Button Implements IAnimatable, IFrameworkInputElement, IInputElement, ISupportInitialize, IQueryAmbient, IAddChild, ICommandSource, INotifyPropertyChanged
+  inheritance:
+  - System.Object
+  - System.Windows.Media.Visual
+  - System.Windows.UIElement
+  - System.Windows.FrameworkElement
+  - System.Windows.Controls.Control
+  - System.Windows.Controls.ContentControl
+  - System.Windows.Controls.Primitives.ButtonBase
+  - System.Windows.Controls.Button
+  derivedClasses:
+  - PostSharp.Patterns.Model.Controls.RedoButton
+  - PostSharp.Patterns.Model.Controls.UndoButton
+  implements:
+  - System.Windows.Media.Animation.IAnimatable
+  - System.Windows.IFrameworkInputElement
+  - System.Windows.IInputElement
+  - System.ComponentModel.ISupportInitialize
+  - System.Windows.Markup.IQueryAmbient
+  - System.Windows.Markup.IAddChild
+  - System.Windows.Input.ICommandSource
+  - System.ComponentModel.INotifyPropertyChanged
+  inheritedMembers:
+  - System.Windows.Controls.Button.IsDefaultProperty
+  - System.Windows.Controls.Button.IsCancelProperty
+  - System.Windows.Controls.Button.IsDefaultedProperty
+  - System.Windows.Controls.Button.OnCreateAutomationPeer
+  - System.Windows.Controls.Button.IsDefault
+  - System.Windows.Controls.Button.IsCancel
+  - System.Windows.Controls.Button.IsDefaulted
+  - System.Windows.Controls.Primitives.ButtonBase.ClickEvent
+  - System.Windows.Controls.Primitives.ButtonBase.CommandProperty
+  - System.Windows.Controls.Primitives.ButtonBase.CommandParameterProperty
+  - System.Windows.Controls.Primitives.ButtonBase.CommandTargetProperty
+  - System.Windows.Controls.Primitives.ButtonBase.IsPressedProperty
+  - System.Windows.Controls.Primitives.ButtonBase.ClickModeProperty
+  - System.Windows.Controls.Primitives.ButtonBase.OnIsPressedChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnRenderSizeChanged(System.Windows.SizeChangedInfo)
+  - System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnMouseMove(System.Windows.Input.MouseEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnLostMouseCapture(System.Windows.Input.MouseEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnMouseEnter(System.Windows.Input.MouseEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnMouseLeave(System.Windows.Input.MouseEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnKeyUp(System.Windows.Input.KeyEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnLostKeyboardFocus(System.Windows.Input.KeyboardFocusChangedEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.OnAccessKey(System.Windows.Input.AccessKeyEventArgs)
+  - System.Windows.Controls.Primitives.ButtonBase.IsPressed
+  - System.Windows.Controls.Primitives.ButtonBase.Command
+  - System.Windows.Controls.Primitives.ButtonBase.CommandParameter
+  - System.Windows.Controls.Primitives.ButtonBase.CommandTarget
+  - System.Windows.Controls.Primitives.ButtonBase.ClickMode
+  - System.Windows.Controls.Primitives.ButtonBase.Click
+  - System.Windows.Controls.ContentControl.ContentProperty
+  - System.Windows.Controls.ContentControl.HasContentProperty
+  - System.Windows.Controls.ContentControl.ContentTemplateProperty
+  - System.Windows.Controls.ContentControl.ContentTemplateSelectorProperty
+  - System.Windows.Controls.ContentControl.ContentStringFormatProperty
+  - System.Windows.Controls.ContentControl.AddChild(System.Object)
+  - System.Windows.Controls.ContentControl.AddText(System.String)
+  - System.Windows.Controls.ContentControl.OnContentChanged(System.Object,System.Object)
+  - System.Windows.Controls.ContentControl.OnContentTemplateChanged(System.Windows.DataTemplate,System.Windows.DataTemplate)
+  - System.Windows.Controls.ContentControl.OnContentTemplateSelectorChanged(System.Windows.Controls.DataTemplateSelector,System.Windows.Controls.DataTemplateSelector)
+  - System.Windows.Controls.ContentControl.OnContentStringFormatChanged(System.String,System.String)
+  - System.Windows.Controls.ContentControl.LogicalChildren
+  - System.Windows.Controls.ContentControl.Content
+  - System.Windows.Controls.ContentControl.HasContent
+  - System.Windows.Controls.ContentControl.ContentTemplate
+  - System.Windows.Controls.ContentControl.ContentTemplateSelector
+  - System.Windows.Controls.ContentControl.ContentStringFormat
+  - System.Windows.Controls.Control.BorderBrushProperty
+  - System.Windows.Controls.Control.BorderThicknessProperty
+  - System.Windows.Controls.Control.BackgroundProperty
+  - System.Windows.Controls.Control.ForegroundProperty
+  - System.Windows.Controls.Control.FontFamilyProperty
+  - System.Windows.Controls.Control.FontSizeProperty
+  - System.Windows.Controls.Control.FontStretchProperty
+  - System.Windows.Controls.Control.FontStyleProperty
+  - System.Windows.Controls.Control.FontWeightProperty
+  - System.Windows.Controls.Control.HorizontalContentAlignmentProperty
+  - System.Windows.Controls.Control.VerticalContentAlignmentProperty
+  - System.Windows.Controls.Control.TabIndexProperty
+  - System.Windows.Controls.Control.IsTabStopProperty
+  - System.Windows.Controls.Control.PaddingProperty
+  - System.Windows.Controls.Control.TemplateProperty
+  - System.Windows.Controls.Control.PreviewMouseDoubleClickEvent
+  - System.Windows.Controls.Control.MouseDoubleClickEvent
+  - System.Windows.Controls.Control.OnTemplateChanged(System.Windows.Controls.ControlTemplate,System.Windows.Controls.ControlTemplate)
+  - System.Windows.Controls.Control.ToString
+  - System.Windows.Controls.Control.OnPreviewMouseDoubleClick(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.Controls.Control.OnMouseDoubleClick(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.Controls.Control.MeasureOverride(System.Windows.Size)
+  - System.Windows.Controls.Control.ArrangeOverride(System.Windows.Size)
+  - System.Windows.Controls.Control.BorderBrush
+  - System.Windows.Controls.Control.BorderThickness
+  - System.Windows.Controls.Control.Background
+  - System.Windows.Controls.Control.Foreground
+  - System.Windows.Controls.Control.FontFamily
+  - System.Windows.Controls.Control.FontSize
+  - System.Windows.Controls.Control.FontStretch
+  - System.Windows.Controls.Control.FontStyle
+  - System.Windows.Controls.Control.FontWeight
+  - System.Windows.Controls.Control.HorizontalContentAlignment
+  - System.Windows.Controls.Control.VerticalContentAlignment
+  - System.Windows.Controls.Control.TabIndex
+  - System.Windows.Controls.Control.IsTabStop
+  - System.Windows.Controls.Control.Padding
+  - System.Windows.Controls.Control.Template
+  - System.Windows.Controls.Control.HandlesScrolling
+  - System.Windows.Controls.Control.PreviewMouseDoubleClick
+  - System.Windows.Controls.Control.MouseDoubleClick
+  - System.Windows.FrameworkElement.StyleProperty
+  - System.Windows.FrameworkElement.OverridesDefaultStyleProperty
+  - System.Windows.FrameworkElement.UseLayoutRoundingProperty
+  - System.Windows.FrameworkElement.DefaultStyleKeyProperty
+  - System.Windows.FrameworkElement.DataContextProperty
+  - System.Windows.FrameworkElement.BindingGroupProperty
+  - System.Windows.FrameworkElement.LanguageProperty
+  - System.Windows.FrameworkElement.NameProperty
+  - System.Windows.FrameworkElement.TagProperty
+  - System.Windows.FrameworkElement.InputScopeProperty
+  - System.Windows.FrameworkElement.RequestBringIntoViewEvent
+  - System.Windows.FrameworkElement.SizeChangedEvent
+  - System.Windows.FrameworkElement.ActualWidthProperty
+  - System.Windows.FrameworkElement.ActualHeightProperty
+  - System.Windows.FrameworkElement.LayoutTransformProperty
+  - System.Windows.FrameworkElement.WidthProperty
+  - System.Windows.FrameworkElement.MinWidthProperty
+  - System.Windows.FrameworkElement.MaxWidthProperty
+  - System.Windows.FrameworkElement.HeightProperty
+  - System.Windows.FrameworkElement.MinHeightProperty
+  - System.Windows.FrameworkElement.MaxHeightProperty
+  - System.Windows.FrameworkElement.FlowDirectionProperty
+  - System.Windows.FrameworkElement.MarginProperty
+  - System.Windows.FrameworkElement.HorizontalAlignmentProperty
+  - System.Windows.FrameworkElement.VerticalAlignmentProperty
+  - System.Windows.FrameworkElement.FocusVisualStyleProperty
+  - System.Windows.FrameworkElement.CursorProperty
+  - System.Windows.FrameworkElement.ForceCursorProperty
+  - System.Windows.FrameworkElement.LoadedEvent
+  - System.Windows.FrameworkElement.UnloadedEvent
+  - System.Windows.FrameworkElement.ToolTipProperty
+  - System.Windows.FrameworkElement.ContextMenuProperty
+  - System.Windows.FrameworkElement.ToolTipOpeningEvent
+  - System.Windows.FrameworkElement.ToolTipClosingEvent
+  - System.Windows.FrameworkElement.ContextMenuOpeningEvent
+  - System.Windows.FrameworkElement.ContextMenuClosingEvent
+  - System.Windows.FrameworkElement.OnStyleChanged(System.Windows.Style,System.Windows.Style)
+  - System.Windows.FrameworkElement.ParentLayoutInvalidated(System.Windows.UIElement)
+  - System.Windows.FrameworkElement.ApplyTemplate
+  - System.Windows.FrameworkElement.BeginStoryboard(System.Windows.Media.Animation.Storyboard)
+  - System.Windows.FrameworkElement.BeginStoryboard(System.Windows.Media.Animation.Storyboard,System.Windows.Media.Animation.HandoffBehavior)
+  - System.Windows.FrameworkElement.BeginStoryboard(System.Windows.Media.Animation.Storyboard,System.Windows.Media.Animation.HandoffBehavior,System.Boolean)
+  - System.Windows.FrameworkElement.GetVisualChild(System.Int32)
+  - System.Windows.FrameworkElement.GetTemplateChild(System.String)
+  - System.Windows.FrameworkElement.FindResource(System.Object)
+  - System.Windows.FrameworkElement.TryFindResource(System.Object)
+  - System.Windows.FrameworkElement.SetResourceReference(System.Windows.DependencyProperty,System.Object)
+  - System.Windows.FrameworkElement.OnPropertyChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.FrameworkElement.OnVisualParentChanged(System.Windows.DependencyObject)
+  - System.Windows.FrameworkElement.GetBindingExpression(System.Windows.DependencyProperty)
+  - System.Windows.FrameworkElement.SetBinding(System.Windows.DependencyProperty,System.Windows.Data.BindingBase)
+  - System.Windows.FrameworkElement.SetBinding(System.Windows.DependencyProperty,System.String)
+  - System.Windows.FrameworkElement.GetUIParentCore
+  - System.Windows.FrameworkElement.BringIntoView
+  - System.Windows.FrameworkElement.BringIntoView(System.Windows.Rect)
+  - System.Windows.FrameworkElement.GetFlowDirection(System.Windows.DependencyObject)
+  - System.Windows.FrameworkElement.SetFlowDirection(System.Windows.DependencyObject,System.Windows.FlowDirection)
+  - System.Windows.FrameworkElement.MeasureCore(System.Windows.Size)
+  - System.Windows.FrameworkElement.ArrangeCore(System.Windows.Rect)
+  - System.Windows.FrameworkElement.GetLayoutClip(System.Windows.Size)
+  - System.Windows.FrameworkElement.MoveFocus(System.Windows.Input.TraversalRequest)
+  - System.Windows.FrameworkElement.PredictFocus(System.Windows.Input.FocusNavigationDirection)
+  - System.Windows.FrameworkElement.OnGotFocus(System.Windows.RoutedEventArgs)
+  - System.Windows.FrameworkElement.BeginInit
+  - System.Windows.FrameworkElement.EndInit
+  - System.Windows.FrameworkElement.OnInitialized(System.EventArgs)
+  - System.Windows.FrameworkElement.OnToolTipOpening(System.Windows.Controls.ToolTipEventArgs)
+  - System.Windows.FrameworkElement.OnToolTipClosing(System.Windows.Controls.ToolTipEventArgs)
+  - System.Windows.FrameworkElement.OnContextMenuOpening(System.Windows.Controls.ContextMenuEventArgs)
+  - System.Windows.FrameworkElement.OnContextMenuClosing(System.Windows.Controls.ContextMenuEventArgs)
+  - System.Windows.FrameworkElement.RegisterName(System.String,System.Object)
+  - System.Windows.FrameworkElement.UnregisterName(System.String)
+  - System.Windows.FrameworkElement.FindName(System.String)
+  - System.Windows.FrameworkElement.UpdateDefaultStyle
+  - System.Windows.FrameworkElement.AddLogicalChild(System.Object)
+  - System.Windows.FrameworkElement.RemoveLogicalChild(System.Object)
+  - System.Windows.FrameworkElement.Style
+  - System.Windows.FrameworkElement.OverridesDefaultStyle
+  - System.Windows.FrameworkElement.UseLayoutRounding
+  - System.Windows.FrameworkElement.DefaultStyleKey
+  - System.Windows.FrameworkElement.Triggers
+  - System.Windows.FrameworkElement.TemplatedParent
+  - System.Windows.FrameworkElement.VisualChildrenCount
+  - System.Windows.FrameworkElement.Resources
+  - System.Windows.FrameworkElement.InheritanceBehavior
+  - System.Windows.FrameworkElement.DataContext
+  - System.Windows.FrameworkElement.BindingGroup
+  - System.Windows.FrameworkElement.Language
+  - System.Windows.FrameworkElement.Name
+  - System.Windows.FrameworkElement.Tag
+  - System.Windows.FrameworkElement.InputScope
+  - System.Windows.FrameworkElement.ActualWidth
+  - System.Windows.FrameworkElement.ActualHeight
+  - System.Windows.FrameworkElement.LayoutTransform
+  - System.Windows.FrameworkElement.Width
+  - System.Windows.FrameworkElement.MinWidth
+  - System.Windows.FrameworkElement.MaxWidth
+  - System.Windows.FrameworkElement.Height
+  - System.Windows.FrameworkElement.MinHeight
+  - System.Windows.FrameworkElement.MaxHeight
+  - System.Windows.FrameworkElement.FlowDirection
+  - System.Windows.FrameworkElement.Margin
+  - System.Windows.FrameworkElement.HorizontalAlignment
+  - System.Windows.FrameworkElement.VerticalAlignment
+  - System.Windows.FrameworkElement.FocusVisualStyle
+  - System.Windows.FrameworkElement.Cursor
+  - System.Windows.FrameworkElement.ForceCursor
+  - System.Windows.FrameworkElement.IsInitialized
+  - System.Windows.FrameworkElement.IsLoaded
+  - System.Windows.FrameworkElement.ToolTip
+  - System.Windows.FrameworkElement.ContextMenu
+  - System.Windows.FrameworkElement.Parent
+  - System.Windows.FrameworkElement.TargetUpdated
+  - System.Windows.FrameworkElement.SourceUpdated
+  - System.Windows.FrameworkElement.DataContextChanged
+  - System.Windows.FrameworkElement.RequestBringIntoView
+  - System.Windows.FrameworkElement.SizeChanged
+  - System.Windows.FrameworkElement.Initialized
+  - System.Windows.FrameworkElement.Loaded
+  - System.Windows.FrameworkElement.Unloaded
+  - System.Windows.FrameworkElement.ToolTipOpening
+  - System.Windows.FrameworkElement.ToolTipClosing
+  - System.Windows.FrameworkElement.ContextMenuOpening
+  - System.Windows.FrameworkElement.ContextMenuClosing
+  - System.Windows.UIElement.PreviewMouseDownEvent
+  - System.Windows.UIElement.MouseDownEvent
+  - System.Windows.UIElement.PreviewMouseUpEvent
+  - System.Windows.UIElement.MouseUpEvent
+  - System.Windows.UIElement.PreviewMouseLeftButtonDownEvent
+  - System.Windows.UIElement.MouseLeftButtonDownEvent
+  - System.Windows.UIElement.PreviewMouseLeftButtonUpEvent
+  - System.Windows.UIElement.MouseLeftButtonUpEvent
+  - System.Windows.UIElement.PreviewMouseRightButtonDownEvent
+  - System.Windows.UIElement.MouseRightButtonDownEvent
+  - System.Windows.UIElement.PreviewMouseRightButtonUpEvent
+  - System.Windows.UIElement.MouseRightButtonUpEvent
+  - System.Windows.UIElement.PreviewMouseMoveEvent
+  - System.Windows.UIElement.MouseMoveEvent
+  - System.Windows.UIElement.PreviewMouseWheelEvent
+  - System.Windows.UIElement.MouseWheelEvent
+  - System.Windows.UIElement.MouseEnterEvent
+  - System.Windows.UIElement.MouseLeaveEvent
+  - System.Windows.UIElement.GotMouseCaptureEvent
+  - System.Windows.UIElement.LostMouseCaptureEvent
+  - System.Windows.UIElement.QueryCursorEvent
+  - System.Windows.UIElement.PreviewStylusDownEvent
+  - System.Windows.UIElement.StylusDownEvent
+  - System.Windows.UIElement.PreviewStylusUpEvent
+  - System.Windows.UIElement.StylusUpEvent
+  - System.Windows.UIElement.PreviewStylusMoveEvent
+  - System.Windows.UIElement.StylusMoveEvent
+  - System.Windows.UIElement.PreviewStylusInAirMoveEvent
+  - System.Windows.UIElement.StylusInAirMoveEvent
+  - System.Windows.UIElement.StylusEnterEvent
+  - System.Windows.UIElement.StylusLeaveEvent
+  - System.Windows.UIElement.PreviewStylusInRangeEvent
+  - System.Windows.UIElement.StylusInRangeEvent
+  - System.Windows.UIElement.PreviewStylusOutOfRangeEvent
+  - System.Windows.UIElement.StylusOutOfRangeEvent
+  - System.Windows.UIElement.PreviewStylusSystemGestureEvent
+  - System.Windows.UIElement.StylusSystemGestureEvent
+  - System.Windows.UIElement.GotStylusCaptureEvent
+  - System.Windows.UIElement.LostStylusCaptureEvent
+  - System.Windows.UIElement.StylusButtonDownEvent
+  - System.Windows.UIElement.StylusButtonUpEvent
+  - System.Windows.UIElement.PreviewStylusButtonDownEvent
+  - System.Windows.UIElement.PreviewStylusButtonUpEvent
+  - System.Windows.UIElement.PreviewKeyDownEvent
+  - System.Windows.UIElement.KeyDownEvent
+  - System.Windows.UIElement.PreviewKeyUpEvent
+  - System.Windows.UIElement.KeyUpEvent
+  - System.Windows.UIElement.PreviewGotKeyboardFocusEvent
+  - System.Windows.UIElement.GotKeyboardFocusEvent
+  - System.Windows.UIElement.PreviewLostKeyboardFocusEvent
+  - System.Windows.UIElement.LostKeyboardFocusEvent
+  - System.Windows.UIElement.PreviewTextInputEvent
+  - System.Windows.UIElement.TextInputEvent
+  - System.Windows.UIElement.PreviewQueryContinueDragEvent
+  - System.Windows.UIElement.QueryContinueDragEvent
+  - System.Windows.UIElement.PreviewGiveFeedbackEvent
+  - System.Windows.UIElement.GiveFeedbackEvent
+  - System.Windows.UIElement.PreviewDragEnterEvent
+  - System.Windows.UIElement.DragEnterEvent
+  - System.Windows.UIElement.PreviewDragOverEvent
+  - System.Windows.UIElement.DragOverEvent
+  - System.Windows.UIElement.PreviewDragLeaveEvent
+  - System.Windows.UIElement.DragLeaveEvent
+  - System.Windows.UIElement.PreviewDropEvent
+  - System.Windows.UIElement.DropEvent
+  - System.Windows.UIElement.PreviewTouchDownEvent
+  - System.Windows.UIElement.TouchDownEvent
+  - System.Windows.UIElement.PreviewTouchMoveEvent
+  - System.Windows.UIElement.TouchMoveEvent
+  - System.Windows.UIElement.PreviewTouchUpEvent
+  - System.Windows.UIElement.TouchUpEvent
+  - System.Windows.UIElement.GotTouchCaptureEvent
+  - System.Windows.UIElement.LostTouchCaptureEvent
+  - System.Windows.UIElement.TouchEnterEvent
+  - System.Windows.UIElement.TouchLeaveEvent
+  - System.Windows.UIElement.IsMouseDirectlyOverProperty
+  - System.Windows.UIElement.IsMouseOverProperty
+  - System.Windows.UIElement.IsStylusOverProperty
+  - System.Windows.UIElement.IsKeyboardFocusWithinProperty
+  - System.Windows.UIElement.IsMouseCapturedProperty
+  - System.Windows.UIElement.IsMouseCaptureWithinProperty
+  - System.Windows.UIElement.IsStylusDirectlyOverProperty
+  - System.Windows.UIElement.IsStylusCapturedProperty
+  - System.Windows.UIElement.IsStylusCaptureWithinProperty
+  - System.Windows.UIElement.IsKeyboardFocusedProperty
+  - System.Windows.UIElement.AreAnyTouchesDirectlyOverProperty
+  - System.Windows.UIElement.AreAnyTouchesOverProperty
+  - System.Windows.UIElement.AreAnyTouchesCapturedProperty
+  - System.Windows.UIElement.AreAnyTouchesCapturedWithinProperty
+  - System.Windows.UIElement.AllowDropProperty
+  - System.Windows.UIElement.RenderTransformProperty
+  - System.Windows.UIElement.RenderTransformOriginProperty
+  - System.Windows.UIElement.OpacityProperty
+  - System.Windows.UIElement.OpacityMaskProperty
+  - System.Windows.UIElement.BitmapEffectProperty
+  - System.Windows.UIElement.EffectProperty
+  - System.Windows.UIElement.BitmapEffectInputProperty
+  - System.Windows.UIElement.CacheModeProperty
+  - System.Windows.UIElement.UidProperty
+  - System.Windows.UIElement.VisibilityProperty
+  - System.Windows.UIElement.ClipToBoundsProperty
+  - System.Windows.UIElement.ClipProperty
+  - System.Windows.UIElement.SnapsToDevicePixelsProperty
+  - System.Windows.UIElement.GotFocusEvent
+  - System.Windows.UIElement.LostFocusEvent
+  - System.Windows.UIElement.IsFocusedProperty
+  - System.Windows.UIElement.IsEnabledProperty
+  - System.Windows.UIElement.IsHitTestVisibleProperty
+  - System.Windows.UIElement.IsVisibleProperty
+  - System.Windows.UIElement.FocusableProperty
+  - System.Windows.UIElement.IsManipulationEnabledProperty
+  - System.Windows.UIElement.ManipulationStartingEvent
+  - System.Windows.UIElement.ManipulationStartedEvent
+  - System.Windows.UIElement.ManipulationDeltaEvent
+  - System.Windows.UIElement.ManipulationInertiaStartingEvent
+  - System.Windows.UIElement.ManipulationBoundaryFeedbackEvent
+  - System.Windows.UIElement.ManipulationCompletedEvent
+  - System.Windows.UIElement.ApplyAnimationClock(System.Windows.DependencyProperty,System.Windows.Media.Animation.AnimationClock)
+  - System.Windows.UIElement.ApplyAnimationClock(System.Windows.DependencyProperty,System.Windows.Media.Animation.AnimationClock,System.Windows.Media.Animation.HandoffBehavior)
+  - System.Windows.UIElement.BeginAnimation(System.Windows.DependencyProperty,System.Windows.Media.Animation.AnimationTimeline)
+  - System.Windows.UIElement.BeginAnimation(System.Windows.DependencyProperty,System.Windows.Media.Animation.AnimationTimeline,System.Windows.Media.Animation.HandoffBehavior)
+  - System.Windows.UIElement.GetAnimationBaseValue(System.Windows.DependencyProperty)
+  - System.Windows.UIElement.RaiseEvent(System.Windows.RoutedEventArgs)
+  - System.Windows.UIElement.AddHandler(System.Windows.RoutedEvent,System.Delegate)
+  - System.Windows.UIElement.AddHandler(System.Windows.RoutedEvent,System.Delegate,System.Boolean)
+  - System.Windows.UIElement.RemoveHandler(System.Windows.RoutedEvent,System.Delegate)
+  - System.Windows.UIElement.AddToEventRoute(System.Windows.EventRoute,System.Windows.RoutedEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseDown(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnMouseDown(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseUp(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnMouseUp(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseLeftButtonUp(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseRightButtonDown(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnMouseRightButtonDown(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseRightButtonUp(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnMouseRightButtonUp(System.Windows.Input.MouseButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseMove(System.Windows.Input.MouseEventArgs)
+  - System.Windows.UIElement.OnPreviewMouseWheel(System.Windows.Input.MouseWheelEventArgs)
+  - System.Windows.UIElement.OnMouseWheel(System.Windows.Input.MouseWheelEventArgs)
+  - System.Windows.UIElement.OnGotMouseCapture(System.Windows.Input.MouseEventArgs)
+  - System.Windows.UIElement.OnQueryCursor(System.Windows.Input.QueryCursorEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusDown(System.Windows.Input.StylusDownEventArgs)
+  - System.Windows.UIElement.OnStylusDown(System.Windows.Input.StylusDownEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusUp(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusUp(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusMove(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusMove(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusInAirMove(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusInAirMove(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusEnter(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusLeave(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusInRange(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusInRange(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusOutOfRange(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusOutOfRange(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusSystemGesture(System.Windows.Input.StylusSystemGestureEventArgs)
+  - System.Windows.UIElement.OnStylusSystemGesture(System.Windows.Input.StylusSystemGestureEventArgs)
+  - System.Windows.UIElement.OnGotStylusCapture(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnLostStylusCapture(System.Windows.Input.StylusEventArgs)
+  - System.Windows.UIElement.OnStylusButtonDown(System.Windows.Input.StylusButtonEventArgs)
+  - System.Windows.UIElement.OnStylusButtonUp(System.Windows.Input.StylusButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusButtonDown(System.Windows.Input.StylusButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewStylusButtonUp(System.Windows.Input.StylusButtonEventArgs)
+  - System.Windows.UIElement.OnPreviewKeyDown(System.Windows.Input.KeyEventArgs)
+  - System.Windows.UIElement.OnPreviewKeyUp(System.Windows.Input.KeyEventArgs)
+  - System.Windows.UIElement.OnPreviewGotKeyboardFocus(System.Windows.Input.KeyboardFocusChangedEventArgs)
+  - System.Windows.UIElement.OnGotKeyboardFocus(System.Windows.Input.KeyboardFocusChangedEventArgs)
+  - System.Windows.UIElement.OnPreviewLostKeyboardFocus(System.Windows.Input.KeyboardFocusChangedEventArgs)
+  - System.Windows.UIElement.OnPreviewTextInput(System.Windows.Input.TextCompositionEventArgs)
+  - System.Windows.UIElement.OnTextInput(System.Windows.Input.TextCompositionEventArgs)
+  - System.Windows.UIElement.OnPreviewQueryContinueDrag(System.Windows.QueryContinueDragEventArgs)
+  - System.Windows.UIElement.OnQueryContinueDrag(System.Windows.QueryContinueDragEventArgs)
+  - System.Windows.UIElement.OnPreviewGiveFeedback(System.Windows.GiveFeedbackEventArgs)
+  - System.Windows.UIElement.OnGiveFeedback(System.Windows.GiveFeedbackEventArgs)
+  - System.Windows.UIElement.OnPreviewDragEnter(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnDragEnter(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnPreviewDragOver(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnDragOver(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnPreviewDragLeave(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnDragLeave(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnPreviewDrop(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnDrop(System.Windows.DragEventArgs)
+  - System.Windows.UIElement.OnPreviewTouchDown(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnTouchDown(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnPreviewTouchMove(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnTouchMove(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnPreviewTouchUp(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnTouchUp(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnGotTouchCapture(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnLostTouchCapture(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnTouchEnter(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnTouchLeave(System.Windows.Input.TouchEventArgs)
+  - System.Windows.UIElement.OnIsMouseDirectlyOverChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsKeyboardFocusWithinChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsMouseCapturedChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsMouseCaptureWithinChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsStylusDirectlyOverChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsStylusCapturedChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsStylusCaptureWithinChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.OnIsKeyboardFocusedChanged(System.Windows.DependencyPropertyChangedEventArgs)
+  - System.Windows.UIElement.InvalidateMeasure
+  - System.Windows.UIElement.InvalidateArrange
+  - System.Windows.UIElement.InvalidateVisual
+  - System.Windows.UIElement.OnChildDesiredSizeChanged(System.Windows.UIElement)
+  - System.Windows.UIElement.Measure(System.Windows.Size)
+  - System.Windows.UIElement.Arrange(System.Windows.Rect)
+  - System.Windows.UIElement.OnRender(System.Windows.Media.DrawingContext)
+  - System.Windows.UIElement.UpdateLayout
+  - System.Windows.UIElement.TranslatePoint(System.Windows.Point,System.Windows.UIElement)
+  - System.Windows.UIElement.InputHitTest(System.Windows.Point)
+  - System.Windows.UIElement.CaptureMouse
+  - System.Windows.UIElement.ReleaseMouseCapture
+  - System.Windows.UIElement.CaptureStylus
+  - System.Windows.UIElement.ReleaseStylusCapture
+  - System.Windows.UIElement.Focus
+  - System.Windows.UIElement.HitTestCore(System.Windows.Media.PointHitTestParameters)
+  - System.Windows.UIElement.HitTestCore(System.Windows.Media.GeometryHitTestParameters)
+  - System.Windows.UIElement.OnLostFocus(System.Windows.RoutedEventArgs)
+  - System.Windows.UIElement.OnManipulationStarting(System.Windows.Input.ManipulationStartingEventArgs)
+  - System.Windows.UIElement.OnManipulationStarted(System.Windows.Input.ManipulationStartedEventArgs)
+  - System.Windows.UIElement.OnManipulationDelta(System.Windows.Input.ManipulationDeltaEventArgs)
+  - System.Windows.UIElement.OnManipulationInertiaStarting(System.Windows.Input.ManipulationInertiaStartingEventArgs)
+  - System.Windows.UIElement.OnManipulationBoundaryFeedback(System.Windows.Input.ManipulationBoundaryFeedbackEventArgs)
+  - System.Windows.UIElement.OnManipulationCompleted(System.Windows.Input.ManipulationCompletedEventArgs)
+  - System.Windows.UIElement.CaptureTouch(System.Windows.Input.TouchDevice)
+  - System.Windows.UIElement.ReleaseTouchCapture(System.Windows.Input.TouchDevice)
+  - System.Windows.UIElement.ReleaseAllTouchCaptures
+  - System.Windows.UIElement.HasAnimatedProperties
+  - System.Windows.UIElement.InputBindings
+  - System.Windows.UIElement.CommandBindings
+  - System.Windows.UIElement.AllowDrop
+  - System.Windows.UIElement.StylusPlugIns
+  - System.Windows.UIElement.DesiredSize
+  - System.Windows.UIElement.IsMeasureValid
+  - System.Windows.UIElement.IsArrangeValid
+  - System.Windows.UIElement.RenderSize
+  - System.Windows.UIElement.RenderTransform
+  - System.Windows.UIElement.RenderTransformOrigin
+  - System.Windows.UIElement.IsMouseDirectlyOver
+  - System.Windows.UIElement.IsMouseOver
+  - System.Windows.UIElement.IsStylusOver
+  - System.Windows.UIElement.IsKeyboardFocusWithin
+  - System.Windows.UIElement.IsMouseCaptured
+  - System.Windows.UIElement.IsMouseCaptureWithin
+  - System.Windows.UIElement.IsStylusDirectlyOver
+  - System.Windows.UIElement.IsStylusCaptured
+  - System.Windows.UIElement.IsStylusCaptureWithin
+  - System.Windows.UIElement.IsKeyboardFocused
+  - System.Windows.UIElement.IsInputMethodEnabled
+  - System.Windows.UIElement.Opacity
+  - System.Windows.UIElement.OpacityMask
+  - System.Windows.UIElement.BitmapEffect
+  - System.Windows.UIElement.Effect
+  - System.Windows.UIElement.BitmapEffectInput
+  - System.Windows.UIElement.CacheMode
+  - System.Windows.UIElement.Uid
+  - System.Windows.UIElement.Visibility
+  - System.Windows.UIElement.ClipToBounds
+  - System.Windows.UIElement.Clip
+  - System.Windows.UIElement.SnapsToDevicePixels
+  - System.Windows.UIElement.HasEffectiveKeyboardFocus
+  - System.Windows.UIElement.IsFocused
+  - System.Windows.UIElement.IsEnabled
+  - System.Windows.UIElement.IsHitTestVisible
+  - System.Windows.UIElement.IsVisible
+  - System.Windows.UIElement.Focusable
+  - System.Windows.UIElement.PersistId
+  - System.Windows.UIElement.IsManipulationEnabled
+  - System.Windows.UIElement.AreAnyTouchesOver
+  - System.Windows.UIElement.AreAnyTouchesDirectlyOver
+  - System.Windows.UIElement.AreAnyTouchesCapturedWithin
+  - System.Windows.UIElement.AreAnyTouchesCaptured
+  - System.Windows.UIElement.TouchesCaptured
+  - System.Windows.UIElement.TouchesCapturedWithin
+  - System.Windows.UIElement.TouchesOver
+  - System.Windows.UIElement.TouchesDirectlyOver
+  - System.Windows.UIElement.PreviewMouseDown
+  - System.Windows.UIElement.MouseDown
+  - System.Windows.UIElement.PreviewMouseUp
+  - System.Windows.UIElement.MouseUp
+  - System.Windows.UIElement.PreviewMouseLeftButtonDown
+  - System.Windows.UIElement.MouseLeftButtonDown
+  - System.Windows.UIElement.PreviewMouseLeftButtonUp
+  - System.Windows.UIElement.MouseLeftButtonUp
+  - System.Windows.UIElement.PreviewMouseRightButtonDown
+  - System.Windows.UIElement.MouseRightButtonDown
+  - System.Windows.UIElement.PreviewMouseRightButtonUp
+  - System.Windows.UIElement.MouseRightButtonUp
+  - System.Windows.UIElement.PreviewMouseMove
+  - System.Windows.UIElement.MouseMove
+  - System.Windows.UIElement.PreviewMouseWheel
+  - System.Windows.UIElement.MouseWheel
+  - System.Windows.UIElement.MouseEnter
+  - System.Windows.UIElement.MouseLeave
+  - System.Windows.UIElement.GotMouseCapture
+  - System.Windows.UIElement.LostMouseCapture
+  - System.Windows.UIElement.QueryCursor
+  - System.Windows.UIElement.PreviewStylusDown
+  - System.Windows.UIElement.StylusDown
+  - System.Windows.UIElement.PreviewStylusUp
+  - System.Windows.UIElement.StylusUp
+  - System.Windows.UIElement.PreviewStylusMove
+  - System.Windows.UIElement.StylusMove
+  - System.Windows.UIElement.PreviewStylusInAirMove
+  - System.Windows.UIElement.StylusInAirMove
+  - System.Windows.UIElement.StylusEnter
+  - System.Windows.UIElement.StylusLeave
+  - System.Windows.UIElement.PreviewStylusInRange
+  - System.Windows.UIElement.StylusInRange
+  - System.Windows.UIElement.PreviewStylusOutOfRange
+  - System.Windows.UIElement.StylusOutOfRange
+  - System.Windows.UIElement.PreviewStylusSystemGesture
+  - System.Windows.UIElement.StylusSystemGesture
+  - System.Windows.UIElement.GotStylusCapture
+  - System.Windows.UIElement.LostStylusCapture
+  - System.Windows.UIElement.StylusButtonDown
+  - System.Windows.UIElement.StylusButtonUp
+  - System.Windows.UIElement.PreviewStylusButtonDown
+  - System.Windows.UIElement.PreviewStylusButtonUp
+  - System.Windows.UIElement.PreviewKeyDown
+  - System.Windows.UIElement.KeyDown
+  - System.Windows.UIElement.PreviewKeyUp
+  - System.Windows.UIElement.KeyUp
+  - System.Windows.UIElement.PreviewGotKeyboardFocus
+  - System.Windows.UIElement.GotKeyboardFocus
+  - System.Windows.UIElement.PreviewLostKeyboardFocus
+  - System.Windows.UIElement.LostKeyboardFocus
+  - System.Windows.UIElement.PreviewTextInput
+  - System.Windows.UIElement.TextInput
+  - System.Windows.UIElement.PreviewQueryContinueDrag
+  - System.Windows.UIElement.QueryContinueDrag
+  - System.Windows.UIElement.PreviewGiveFeedback
+  - System.Windows.UIElement.GiveFeedback
+  - System.Windows.UIElement.PreviewDragEnter
+  - System.Windows.UIElement.DragEnter
+  - System.Windows.UIElement.PreviewDragOver
+  - System.Windows.UIElement.DragOver
+  - System.Windows.UIElement.PreviewDragLeave
+  - System.Windows.UIElement.DragLeave
+  - System.Windows.UIElement.PreviewDrop
+  - System.Windows.UIElement.Drop
+  - System.Windows.UIElement.PreviewTouchDown
+  - System.Windows.UIElement.TouchDown
+  - System.Windows.UIElement.PreviewTouchMove
+  - System.Windows.UIElement.TouchMove
+  - System.Windows.UIElement.PreviewTouchUp
+  - System.Windows.UIElement.TouchUp
+  - System.Windows.UIElement.GotTouchCapture
+  - System.Windows.UIElement.LostTouchCapture
+  - System.Windows.UIElement.TouchEnter
+  - System.Windows.UIElement.TouchLeave
+  - System.Windows.UIElement.IsMouseDirectlyOverChanged
+  - System.Windows.UIElement.IsKeyboardFocusWithinChanged
+  - System.Windows.UIElement.IsMouseCapturedChanged
+  - System.Windows.UIElement.IsMouseCaptureWithinChanged
+  - System.Windows.UIElement.IsStylusDirectlyOverChanged
+  - System.Windows.UIElement.IsStylusCapturedChanged
+  - System.Windows.UIElement.IsStylusCaptureWithinChanged
+  - System.Windows.UIElement.IsKeyboardFocusedChanged
+  - System.Windows.UIElement.LayoutUpdated
+  - System.Windows.UIElement.GotFocus
+  - System.Windows.UIElement.LostFocus
+  - System.Windows.UIElement.IsEnabledChanged
+  - System.Windows.UIElement.IsHitTestVisibleChanged
+  - System.Windows.UIElement.IsVisibleChanged
+  - System.Windows.UIElement.FocusableChanged
+  - System.Windows.UIElement.ManipulationStarting
+  - System.Windows.UIElement.ManipulationStarted
+  - System.Windows.UIElement.ManipulationDelta
+  - System.Windows.UIElement.ManipulationInertiaStarting
+  - System.Windows.UIElement.ManipulationBoundaryFeedback
+  - System.Windows.UIElement.ManipulationCompleted
+  - System.Windows.Media.Visual.AddVisualChild(System.Windows.Media.Visual)
+  - System.Windows.Media.Visual.RemoveVisualChild(System.Windows.Media.Visual)
+  - System.Windows.Media.Visual.OnVisualChildrenChanged(System.Windows.DependencyObject,System.Windows.DependencyObject)
+  - System.Windows.Media.Visual.OnDpiChanged(System.Windows.DpiScale,System.Windows.DpiScale)
+  - System.Windows.Media.Visual.IsAncestorOf(System.Windows.DependencyObject)
+  - System.Windows.Media.Visual.IsDescendantOf(System.Windows.DependencyObject)
+  - System.Windows.Media.Visual.FindCommonVisualAncestor(System.Windows.DependencyObject)
+  - System.Windows.Media.Visual.TransformToAncestor(System.Windows.Media.Visual)
+  - System.Windows.Media.Visual.TransformToAncestor(System.Windows.Media.Media3D.Visual3D)
+  - System.Windows.Media.Visual.TransformToDescendant(System.Windows.Media.Visual)
+  - System.Windows.Media.Visual.TransformToVisual(System.Windows.Media.Visual)
+  - System.Windows.Media.Visual.PointToScreen(System.Windows.Point)
+  - System.Windows.Media.Visual.PointFromScreen(System.Windows.Point)
+  - System.Windows.Media.Visual.VisualParent
+  - System.Windows.Media.Visual.VisualTransform
+  - System.Windows.Media.Visual.VisualEffect
+  - System.Windows.Media.Visual.VisualBitmapEffect
+  - System.Windows.Media.Visual.VisualBitmapEffectInput
+  - System.Windows.Media.Visual.VisualCacheMode
+  - System.Windows.Media.Visual.VisualScrollableAreaClip
+  - System.Windows.Media.Visual.VisualClip
+  - System.Windows.Media.Visual.VisualOffset
+  - System.Windows.Media.Visual.VisualOpacity
+  - System.Windows.Media.Visual.VisualEdgeMode
+  - System.Windows.Media.Visual.VisualBitmapScalingMode
+  - System.Windows.Media.Visual.VisualClearTypeHint
+  - System.Windows.Media.Visual.VisualTextRenderingMode
+  - System.Windows.Media.Visual.VisualTextHintingMode
+  - System.Windows.Media.Visual.VisualOpacityMask
+  - System.Windows.Media.Visual.VisualXSnappingGuidelines
+  - System.Windows.Media.Visual.VisualYSnappingGuidelines
+  attributes:
+  - type: System.Windows.TemplatePartAttribute
+    ctor: System.Windows.TemplatePartAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: PART_SplitElement
+    - name: Type
+      type: System.Type
+      value: System.Windows.UIElement
+  - type: System.Runtime.InteropServices.ComVisibleAttribute
+    ctor: System.Runtime.InteropServices.ComVisibleAttribute.#ctor(System.Boolean)
+    arguments:
+    - type: System.Boolean
+      value: false
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabledProperty
+  commentId: F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabledProperty
+  id: IsListEnabledProperty
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: IsListEnabledProperty
+  nameWithType: UndoRedoButtonBase.IsListEnabledProperty
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabledProperty
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Identifies the <xref href="PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled" data-throw-if-not-resolved="false"></xref> dependency property.
+  example: []
+  syntax:
+    content: public static readonly DependencyProperty IsListEnabledProperty
+    return:
+      type: System.Windows.DependencyProperty
+    content.vb: Public Shared ReadOnly IsListEnabledProperty As DependencyProperty
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCountProperty
+  commentId: F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCountProperty
+  id: MaxOperationsCountProperty
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: MaxOperationsCountProperty
+  nameWithType: UndoRedoButtonBase.MaxOperationsCountProperty
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCountProperty
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Identifies the <xref href="PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount" data-throw-if-not-resolved="false"></xref> dependency property.
+  example: []
+  syntax:
+    content: public static readonly DependencyProperty MaxOperationsCountProperty
+    return:
+      type: System.Windows.DependencyProperty
+    content.vb: Public Shared ReadOnly MaxOperationsCountProperty As DependencyProperty
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.RecorderProperty
+  commentId: F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.RecorderProperty
+  id: RecorderProperty
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: RecorderProperty
+  nameWithType: UndoRedoButtonBase.RecorderProperty
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.RecorderProperty
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Identifies the <xref href="PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder" data-throw-if-not-resolved="false"></xref> dependency property.
+  example: []
+  syntax:
+    content: public static readonly DependencyProperty RecorderProperty
+    return:
+      type: System.Windows.DependencyProperty
+    content.vb: Public Shared ReadOnly RecorderProperty As DependencyProperty
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommandProperty
+  commentId: F:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommandProperty
+  id: UndoCommandProperty
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: UndoCommandProperty
+  nameWithType: UndoRedoButtonBase.UndoCommandProperty
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommandProperty
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Identifies the <xref href="PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand" data-throw-if-not-resolved="false"></xref> dependency property.
+  example: []
+  syntax:
+    content: public static readonly DependencyProperty UndoCommandProperty
+    return:
+      type: System.Windows.DependencyProperty
+    content.vb: Public Shared ReadOnly UndoCommandProperty As DependencyProperty
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnApplyTemplate
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnApplyTemplate
+  id: OnApplyTemplate
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: OnApplyTemplate()
+  nameWithType: UndoRedoButtonBase.OnApplyTemplate()
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnApplyTemplate()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: public override void OnApplyTemplate()
+    content.vb: Public Overrides Sub OnApplyTemplate()
+  overridden: System.Windows.FrameworkElement.OnApplyTemplate
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnApplyTemplate*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnClick
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnClick
+  id: OnClick
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: OnClick()
+  nameWithType: UndoRedoButtonBase.OnClick()
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnClick()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: protected override void OnClick()
+    content.vb: Protected Overrides Sub OnClick()
+  overridden: System.Windows.Controls.Button.OnClick
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnClick*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)
+  id: OnKeyDown(System.Windows.Input.KeyEventArgs)
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: OnKeyDown(KeyEventArgs)
+  nameWithType: UndoRedoButtonBase.OnKeyDown(KeyEventArgs)
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: protected override void OnKeyDown(KeyEventArgs e)
+    parameters:
+    - id: e
+      type: System.Windows.Input.KeyEventArgs
+    content.vb: Protected Overrides Sub OnKeyDown(e As KeyEventArgs)
+  overridden: System.Windows.Controls.Primitives.ButtonBase.OnKeyDown(System.Windows.Input.KeyEventArgs)
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnKeyDown*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged(System.String)
+  commentId: M:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged(System.String)
+  id: OnPropertyChanged(System.String)
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: OnPropertyChanged(string)
+  nameWithType: UndoRedoButtonBase.OnPropertyChanged(string)
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Raises the <xref href="PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged" data-throw-if-not-resolved="false"></xref> event.
+  example: []
+  syntax:
+    content: protected virtual void OnPropertyChanged(string propertyName)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: The name of the changed property.
+    content.vb: Protected Overridable Sub OnPropertyChanged(propertyName As String)
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged*
+  nameWithType.vb: UndoRedoButtonBase.OnPropertyChanged(String)
+  fullName.vb: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.OnPropertyChanged(String)
+  name.vb: OnPropertyChanged(String)
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Operations
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Operations
+  id: Operations
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: Operations
+  nameWithType: UndoRedoButtonBase.Operations
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Operations
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets the list of operations displayed by the current button when in expanded state.
+  example: []
+  syntax:
+    content: public IEnumerable<Operation> Operations { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{PostSharp.Patterns.Recording.Operation}
+    content.vb: Public ReadOnly Property Operations As IEnumerable(Of Operation)
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Operations*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled
+  id: IsListEnabled
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: IsListEnabled
+  nameWithType: UndoRedoButtonBase.IsListEnabled
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets or sets a value indicating whether the button can be expanded and display the list of operations that can be undone or redone.
+  example: []
+  syntax:
+    content: public bool IsListEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsListEnabled As Boolean
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListEnabled*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount
+  id: MaxOperationsCount
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: MaxOperationsCount
+  nameWithType: UndoRedoButtonBase.MaxOperationsCount
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets or sets the maximum number of operations displayed by the current button.
+  example: []
+  syntax:
+    content: public int MaxOperationsCount { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxOperationsCount As Integer
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.MaxOperationsCount*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder
+  id: Recorder
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: Recorder
+  nameWithType: UndoRedoButtonBase.Recorder
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets or sets the <xref href="PostSharp.Patterns.Recording.Recorder" data-throw-if-not-resolved="false"></xref> bound to the current control.
+  remarks: When this property is not set, the ambient recorder is used.
+  example: []
+  syntax:
+    content: public Recorder Recorder { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.Recorder
+    content.vb: Public Property Recorder As Recorder
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.Recorder*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand
+  id: UndoCommand
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: UndoCommand
+  nameWithType: UndoRedoButtonBase.UndoCommand
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets or sets the command used to execute the Undo action.
+  example: []
+  syntax:
+    content: public UndoRedoCommandBase UndoCommand { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.Controls.UndoRedoCommandBase
+    content.vb: Public ReadOnly Property UndoCommand As UndoRedoCommandBase
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.UndoCommand*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsEnabledCore
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsEnabledCore
+  id: IsEnabledCore
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: IsEnabledCore
+  nameWithType: UndoRedoButtonBase.IsEnabledCore
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsEnabledCore
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  example: []
+  syntax:
+    content: protected override bool IsEnabledCore { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected Overrides ReadOnly Property IsEnabledCore As Boolean
+  overridden: System.Windows.Controls.Primitives.ButtonBase.IsEnabledCore
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsEnabledCore*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListExpanded
+  commentId: P:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListExpanded
+  id: IsListExpanded
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: IsListExpanded
+  nameWithType: UndoRedoButtonBase.IsListExpanded
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListExpanded
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Gets or sets a value indicating whether the detailed list of operations is currently expanded.
+  example: []
+  syntax:
+    content: public bool IsListExpanded { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsListExpanded As Boolean
+  overload: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.IsListExpanded*
+- uid: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged
+  commentId: E:PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged
+  id: PropertyChanged
+  parent: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase
+  langs:
+  - csharp
+  - vb
+  name: PropertyChanged
+  nameWithType: UndoRedoButtonBase.PropertyChanged
+  fullName: PostSharp.Patterns.Model.Controls.UndoRedoButtonBase.PropertyChanged
+  type: Event
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Model.Controls
+  summary: Occurs when the value of a property of the current object changes.
+  example: []
+  syntax:
+    content: public event PropertyChangedEventHandler PropertyChanged
+    return:
+      type: System.ComponentModel.PropertyChangedEventHandler
+    content.vb: Public Event PropertyChanged As PropertyChangedEventHandler
+  implements:
+  - System.ComponentModel.INotifyPropertyChanged.PropertyChanged

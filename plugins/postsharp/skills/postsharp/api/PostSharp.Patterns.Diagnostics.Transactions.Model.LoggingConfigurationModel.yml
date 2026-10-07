@@ -1,0 +1,101 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+  id: LoggingConfigurationModel
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Transactions
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Verbosity
+  langs:
+  - csharp
+  - vb
+  name: LoggingConfigurationModel
+  nameWithType: LoggingConfigurationModel
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    Type of the <code>logging</code> element, the root element of the XML configuration file accepted by 
+
+    the <xref href="PostSharp.Patterns.Diagnostics.LoggingConfigurationManager" data-throw-if-not-resolved="false"></xref>
+
+    class.
+  remarks: >-
+    <p>This class should not be used in any code. It is only mentioned for the sake of documenting the XML file.</p>
+
+    <p>In the <code>verbosity</code> element, the order of the <code>source</code> elements matters: an element overrides the previous ones for the
+        namespaces and types under its name.</p>
+  example: []
+  syntax:
+    content: public sealed class LoggingConfigurationModel
+    content.vb: Public NotInheritable Class LoggingConfigurationModel
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+    commentId: T:PostSharp.Patterns.Diagnostics.LoggingConfigurationManager
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Verbosity
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Verbosity
+  id: Verbosity
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Verbosity
+  nameWithType: LoggingConfigurationModel.Verbosity
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Verbosity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    The <code>verbosity</code> XML element. Specifies the verbosity when none of the
+
+    transactions defined in <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Transactions" data-throw-if-not-resolved="false"></xref> matches.
+  example: []
+  syntax:
+    content: public VerbosityConfigurationModel Verbosity { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.Model.VerbosityConfigurationModel
+    content.vb: Public ReadOnly Property Verbosity As VerbosityConfigurationModel
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Verbosity*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Transactions
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Transactions
+  id: Transactions
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel
+  langs:
+  - csharp
+  - vb
+  name: Transactions
+  nameWithType: LoggingConfigurationModel.Transactions
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Transactions
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: >-
+    The <code>transactions</code> element, which has children named <code>policy</code>. 
+
+    Defines a list of policies that determine how transactions should be logged.
+  example: []
+  syntax:
+    content: public IReadOnlyList<PolicyConfigurationModel> Transactions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyList{PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel}
+    content.vb: Public ReadOnly Property Transactions As IReadOnlyList(Of PolicyConfigurationModel)
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.LoggingConfigurationModel.Transactions*

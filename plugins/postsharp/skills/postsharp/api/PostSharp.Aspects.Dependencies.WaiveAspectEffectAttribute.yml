@@ -1,0 +1,188 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute
+  commentId: T:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute
+  id: WaiveAspectEffectAttribute
+  parent: PostSharp.Aspects.Dependencies
+  children:
+  - PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor
+  - PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor(System.String[])
+  - PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.Effects
+  langs:
+  - csharp
+  - vb
+  name: WaiveAspectEffectAttribute
+  nameWithType: WaiveAspectEffectAttribute
+  fullName: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    Declares that the aspect class or advice to which this custom attribute is applied
+
+    is exempt from a given effect.
+  remarks: >-
+    <p>See <xref href="PostSharp.Aspects.Dependencies.AspectEffectDependencyAttribute" data-throw-if-not-resolved="false"></xref> for details about effects.</p>
+
+    <p>The weaver attributes effects to an aspect from the kind of the aspect, not from what its code actually does. Waive an effect
+            that the aspect does not have, for example <xref href="PostSharp.Aspects.Dependencies.StandardEffects.ChangeControlFlow" data-throw-if-not-resolved="false"></xref> on an aspect that defers the
+            execution of a method without skipping it, so that dependencies on this effect no longer match the aspect. When you use the
+            parameterless constructor on an aspect class, the aspect has no effect at all, and the weaver considers it commutative with any
+            other aspect.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class|AttributeTargets.Method)]
+
+      public sealed class WaiveAspectEffectAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.ClassOrAttributeTargets.Method)>
+
+      Public NotInheritable Class WaiveAspectEffectAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+  - linkType: HRef
+    linkId: '@aspect-dependencies'
+    altText: 'Conceptual: Coping with Several Aspects on the Same Target'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 68
+- uid: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute
+  langs:
+  - csharp
+  - vb
+  name: WaiveAspectEffectAttribute()
+  nameWithType: WaiveAspectEffectAttribute.WaiveAspectEffectAttribute()
+  fullName: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.WaiveAspectEffectAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute" data-throw-if-not-resolved="false"></xref> class and declares that
+
+    the aspect class or advice to which this custom attribute is applied has
+
+    no effect at all.
+  example: []
+  syntax:
+    content: public WaiveAspectEffectAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor*
+  nameWithType.vb: WaiveAspectEffectAttribute.New()
+  fullName.vb: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor(System.String[])
+  commentId: M:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor(System.String[])
+  id: '#ctor(System.String[])'
+  parent: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute
+  langs:
+  - csharp
+  - vb
+  name: WaiveAspectEffectAttribute(params string[])
+  nameWithType: WaiveAspectEffectAttribute.WaiveAspectEffectAttribute(params string[])
+  fullName: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.WaiveAspectEffectAttribute(params string[])
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute" data-throw-if-not-resolved="false"></xref> class and declares that
+
+    the aspect class or advice to which this custom attribute is applied is
+
+    exempt from the specified effects.
+  example: []
+  syntax:
+    content: public WaiveAspectEffectAttribute(params string[] effects)
+    parameters:
+    - id: effects
+      type: System.String[]
+      description: >-
+        The list of effects from which the aspect class or advice
+                      to which this custom attribute is applied is guaranteed to be exempt.
+    content.vb: Public Sub New(ParamArray effects As String())
+  overload: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.#ctor*
+  nameWithType.vb: WaiveAspectEffectAttribute.New(ParamArray String())
+  fullName.vb: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.New(ParamArray String())
+  name.vb: New(ParamArray String())
+- uid: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.Effects
+  commentId: P:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.Effects
+  id: Effects
+  parent: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute
+  langs:
+  - csharp
+  - vb
+  name: Effects
+  nameWithType: WaiveAspectEffectAttribute.Effects
+  fullName: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.Effects
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Dependencies
+  summary: >-
+    Gets the list of effects from which the aspect class or advice
+
+    to which this custom attribute is applied is guaranteed to be exempt.
+  example: []
+  syntax:
+    content: public string[] Effects { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public ReadOnly Property Effects As String()
+  overload: PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute.Effects*

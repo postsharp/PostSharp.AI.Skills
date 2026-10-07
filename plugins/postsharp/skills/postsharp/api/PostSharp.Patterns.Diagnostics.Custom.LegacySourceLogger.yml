@@ -1,0 +1,232 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  id: LegacySourceLogger
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.#ctor(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Factory
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.RequiresSuspendResume
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Role
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Type
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: LegacySourceLogger
+  nameWithType: LegacySourceLogger
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: A base class for implementations of <xref href="PostSharp.Patterns.Diagnostics.Custom.ILogger" data-throw-if-not-resolved="false"></xref> that cannot depend on the <code>PostSharp.Patterns.Diagnostics</code> package.
+  example: []
+  syntax:
+    content: 'public abstract class LegacySourceLogger : ILogger3, ILogger2, ILogger, IContextLocalLogger, ILoggerExceptionHandler, ILogActivityOptions'
+    content.vb: Public MustInherit Class LegacySourceLogger Implements ILogger3, ILogger2, ILogger, IContextLocalLogger, ILoggerExceptionHandler, ILogActivityOptions
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger3
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger2
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger
+  - PostSharp.Patterns.Diagnostics.Custom.IContextLocalLogger
+  - PostSharp.Patterns.Diagnostics.Custom.ILoggerExceptionHandler
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.#ctor(System.String,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.#ctor(System.String,System.Type)
+  id: '#ctor(System.String,System.Type)'
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: LegacySourceLogger(string, Type)
+  nameWithType: LegacySourceLogger.LegacySourceLogger(string, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.LegacySourceLogger(string, System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LegacySourceLogger(string role, Type type)
+    parameters:
+    - id: role
+      type: System.String
+      description: The role.
+    - id: type
+      type: System.Type
+      description: The source <xref href="PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Type" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Sub New(role As String, type As Type)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.#ctor*
+  nameWithType.vb: LegacySourceLogger.New(String, Type)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.New(String, System.Type)
+  name.vb: New(String, Type)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  id: IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled(LogLevel)
+  nameWithType: LegacySourceLogger.IsEnabled(LogLevel)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Determines whether logging is enabled for a given <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract bool IsEnabled(LogLevel level)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The record level, or severity.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if logging is enabled for <code class="paramref">level</code>, otherwise <code>false</code>.
+    content.vb: Public MustOverride Function IsEnabled(level As LogLevel) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.IsEnabled*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.IContextLocalLogger.IsEnabled(PostSharp.Patterns.Diagnostics.LogLevel)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception)
+  id: Write(PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,System.String,System.Exception)
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: Write(LogLevel, LogRecordKind, string, Exception)
+  nameWithType: LegacySourceLogger.Write(LogLevel, LogRecordKind, string, Exception)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Write(PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, string, System.Exception)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Writes a text message.
+  example: []
+  syntax:
+    content: protected abstract void Write(LogLevel level, LogRecordKind recordKind, string text, Exception exception)
+    parameters:
+    - id: level
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> of the record.
+    - id: recordKind
+      type: PostSharp.Patterns.Diagnostics.LogRecordKind
+      description: The kind of the record.
+    - id: text
+      type: System.String
+      description: The fully rendered message.
+    - id: exception
+      type: System.Exception
+      description: An optional <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected MustOverride Sub Write(level As LogLevel, recordKind As LogRecordKind, text As String, exception As Exception)
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Write*
+  nameWithType.vb: LegacySourceLogger.Write(LogLevel, LogRecordKind, String, Exception)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Write(PostSharp.Patterns.Diagnostics.LogLevel, PostSharp.Patterns.Diagnostics.LogRecordKind, String, System.Exception)
+  name.vb: Write(LogLevel, LogRecordKind, String, Exception)
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Factory
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Factory
+  id: Factory
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: Factory
+  nameWithType: LegacySourceLogger.Factory
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Factory
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory" data-throw-if-not-resolved="false"></xref>, which creates new instances of the logger. This is used, for example, by <xref href="PostSharp.Patterns.Diagnostics.LogSource.ForType(System.Type)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract ILoggerFactory2 Factory { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.ILoggerFactory2
+    content.vb: Public MustOverride ReadOnly Property Factory As ILoggerFactory2
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Factory*
+  implements:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogger2.Factory
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Type
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Type
+  id: Type
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: LegacySourceLogger.Type
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Type
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  example: []
+  syntax:
+    content: public Type Type { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property Type As Type
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Type*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Role
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Role
+  id: Role
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: Role
+  nameWithType: LegacySourceLogger.Role
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Role
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  example: []
+  syntax:
+    content: public string Role { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Role As String
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.Role*
+- uid: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.RequiresSuspendResume
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.RequiresSuspendResume
+  id: RequiresSuspendResume
+  parent: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  langs:
+  - csharp
+  - vb
+  name: RequiresSuspendResume
+  nameWithType: LegacySourceLogger.RequiresSuspendResume
+  fullName: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.RequiresSuspendResume
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  example: []
+  syntax:
+    content: public bool RequiresSuspendResume { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property RequiresSuspendResume As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger.RequiresSuspendResume*

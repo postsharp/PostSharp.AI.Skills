@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions
+  id: SerilogSinkConfigurationExtensions
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions.PostSharp(Serilog.Configuration.LoggerSinkConfiguration,System.String,PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling)
+  langs:
+  - csharp
+  - vb
+  name: SerilogSinkConfigurationExtensions
+  nameWithType: SerilogSinkConfigurationExtensions
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Contains the extension method for attaching the Serilog-to-PostSharp sink to Serilog.
+  example: []
+  syntax:
+    content: public static class SerilogSinkConfigurationExtensions
+    content.vb: Public Module SerilogSinkConfigurationExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions.PostSharp(Serilog.Configuration.LoggerSinkConfiguration,System.String,PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions.PostSharp(Serilog.Configuration.LoggerSinkConfiguration,System.String,PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling)
+  id: PostSharp(Serilog.Configuration.LoggerSinkConfiguration,System.String,PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions
+  langs:
+  - csharp
+  - vb
+  name: PostSharp(LoggerSinkConfiguration, string, SerilogParameterHandling)
+  nameWithType: SerilogSinkConfigurationExtensions.PostSharp(LoggerSinkConfiguration, string, SerilogParameterHandling)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions.PostSharp(Serilog.Configuration.LoggerSinkConfiguration, string, PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Serilog
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
+  summary: Returns the same configuration, except with the Serilog-to-PostSharp sink as an additional sink.
+  example: []
+  syntax:
+    content: public static LoggerConfiguration PostSharp(this LoggerSinkConfiguration sinkConfiguration, string defaultLogSourceName = null, SerilogParameterHandling parameterHandling = SerilogParameterHandling.Default)
+    parameters:
+    - id: sinkConfiguration
+      type: Serilog.Configuration.LoggerSinkConfiguration
+      description: The configuration the sink should be added to.
+    - id: defaultLogSourceName
+      type: System.String
+      description: The log source name that is passed to the PostSharp backend for loggers where <xref href="Serilog.ILogger.ForContext(System.Type)" data-throw-if-not-resolved="false"></xref> is not used. This parameter is optional.
+    - id: parameterHandling
+      type: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling
+      description: Specifies how Serilog parameters in Serilog messages are passed to PostSharp logging.
+    return:
+      type: Serilog.LoggerConfiguration
+      description: ''
+    content.vb: Public Shared Function PostSharp(sinkConfiguration As LoggerSinkConfiguration, defaultLogSourceName As String = Nothing, parameterHandling As SerilogParameterHandling = SerilogParameterHandling.Default) As LoggerConfiguration
+  overload: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions.PostSharp*
+  nameWithType.vb: SerilogSinkConfigurationExtensions.PostSharp(LoggerSinkConfiguration, String, SerilogParameterHandling)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSinkConfigurationExtensions.PostSharp(Serilog.Configuration.LoggerSinkConfiguration, String, PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogParameterHandling)
+  name.vb: PostSharp(LoggerSinkConfiguration, String, SerilogParameterHandling)

@@ -1,0 +1,391 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.BackgroundAttribute
+  commentId: T:PostSharp.Patterns.Threading.BackgroundAttribute
+  id: BackgroundAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.BackgroundAttribute.#ctor
+  - PostSharp.Patterns.Threading.BackgroundAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  - PostSharp.Patterns.Threading.BackgroundAttribute.IsLongRunning
+  - PostSharp.Patterns.Threading.BackgroundAttribute.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Patterns.Threading.BackgroundAttribute.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  langs:
+  - csharp
+  - vb
+  name: BackgroundAttribute
+  nameWithType: BackgroundAttribute
+  fullName: PostSharp.Patterns.Threading.BackgroundAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a method, causes the method to execute in the background. This aspect can be applied to a method with
+
+    <code>void</code> or <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> return type.
+  remarks: >-
+    <p>When this aspect is applied to a method returning a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, the aspect wraps the method call in a call to <code>Task.Factory.StartNew</code>,
+        therefore executing the whole method in a background thread. Without this aspect, the target method would execute asynchronously, but in the current context,
+        instead of in the background context.
+        </p>
+    <p>If the <xref href="PostSharp.Patterns.Threading.BackgroundAttribute.IsLongRunning" data-throw-if-not-resolved="false"></xref> property is set to <code>true</code>, the method will be executed in a new thread. Otherwise, it will be queued
+        into the <xref href="System.Threading.ThreadPool" data-throw-if-not-resolved="false"></xref>.
+        </p>
+    <p>If the target method results in an exception, the exception can be handled by subscribing to the <xref href="PostSharp.Patterns.Threading.ThreadingServices.UnhandledException" data-throw-if-not-resolved="false"></xref> event.
+        Unhandled exceptions are rethrown, typically causing the application to crash.</p>
+    <p>A build-time error is emitted if the target method has <code>ref</code> or <code>out</code> parameters, or if it is an instance method
+        of a class annotated with <xref href="PostSharp.Patterns.Threading.ThreadAffineAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Threading.ActorAttribute" data-throw-if-not-resolved="false"></xref>. To execute a method in the UI thread instead,
+        use the <xref href="PostSharp.Patterns.Threading.DispatchedAttribute" data-throw-if-not-resolved="false"></xref> aspect.</p>
+  example: []
+  syntax:
+    content: >-
+      [MethodInterceptionAspectConfiguration(SerializerType = typeof(MsilAspectSerializer))]
+
+      [ProvideAspectRole("Threading")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Tracing")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Caching")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")]
+
+      [AspectTypeDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, typeof(ThreadAwareAttribute))]
+
+      [Metric("UsedFeatures", "PostSharp.Patterns.Threading.BackgroundMethod")]
+
+      [LinesOfCodeAvoided(1)]
+
+      [AspectDescription("Executes the method asynchronously in the thread pool")]
+
+      public sealed class BackgroundAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+    content.vb: >-
+      <MethodInterceptionAspectConfiguration(SerializerType:=GetType(MsilAspectSerializer))>
+
+      <ProvideAspectRole("Threading")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Tracing")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Caching")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")>
+
+      <AspectTypeDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, GetType(ThreadAwareAttribute))>
+
+      <Metric("UsedFeatures", "PostSharp.Patterns.Threading.BackgroundMethod")>
+
+      <LinesOfCodeAvoided(1)>
+
+      <AspectDescription("Executes the method asynchronously in the thread pool")>
+
+      Public NotInheritable Class BackgroundAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.DispatchedAttribute
+    commentId: T:PostSharp.Patterns.Threading.DispatchedAttribute
+  - linkType: HRef
+    linkId: '@background-dispatching'
+    altText: 'Conceptual: Dispatching a Method to Background'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.MethodLevelAspect
+  - PostSharp.Aspects.MethodInterceptionAspect
+  implements:
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Configuration.MethodInterceptionAspectConfigurationAttribute
+    ctor: PostSharp.Aspects.Configuration.MethodInterceptionAspectConfigurationAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: SerializerType
+      type: System.Type
+      value: PostSharp.Aspects.Serialization.MsilAspectSerializer
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Threading
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: Tracing
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: Caching
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: CacheInvalidation
+  - type: PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.Type)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Threading.BackgroundMethod
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+  - type: PostSharp.Aspects.AspectDescriptionAttribute
+    ctor: PostSharp.Aspects.AspectDescriptionAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Executes the method asynchronously in the thread pool
+- uid: PostSharp.Patterns.Threading.BackgroundAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.BackgroundAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.BackgroundAttribute
+  langs:
+  - csharp
+  - vb
+  name: BackgroundAttribute()
+  nameWithType: BackgroundAttribute.BackgroundAttribute()
+  fullName: PostSharp.Patterns.Threading.BackgroundAttribute.BackgroundAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.BackgroundAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public BackgroundAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.BackgroundAttribute.#ctor*
+  nameWithType.vb: BackgroundAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.BackgroundAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.BackgroundAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  commentId: M:PostSharp.Patterns.Threading.BackgroundAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  id: CompileTimeValidate(System.Reflection.MethodBase)
+  parent: PostSharp.Patterns.Threading.BackgroundAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(MethodBase)
+  nameWithType: BackgroundAttribute.CompileTimeValidate(MethodBase)
+  fullName: PostSharp.Patterns.Threading.BackgroundAttribute.CompileTimeValidate(System.Reflection.MethodBase)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Method invoked at build time to ensure that the aspect has been applied to the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message (see 
+
+    <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref>) or an exception in case of error. Returning <code>false</code> without emitting an
+
+    error message or exception causes the aspect to be silently ignored.
+  example: []
+  syntax:
+    content: public override bool CompileTimeValidate(MethodBase method)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodBase
+      description: Method to which the aspect has been applied.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable field, otherwise
+              <code>false</code>.
+    content.vb: Public Overrides Function CompileTimeValidate(method As MethodBase) As Boolean
+  overridden: PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
+  overload: PostSharp.Patterns.Threading.BackgroundAttribute.CompileTimeValidate*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+- uid: PostSharp.Patterns.Threading.BackgroundAttribute.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  commentId: M:PostSharp.Patterns.Threading.BackgroundAttribute.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  id: OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  parent: PostSharp.Patterns.Threading.BackgroundAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnInvoke(MethodInterceptionArgs)
+  nameWithType: BackgroundAttribute.OnInvoke(MethodInterceptionArgs)
+  fullName: PostSharp.Patterns.Threading.BackgroundAttribute.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Method invoked instead of the method to which the aspect has been applied.
+  remarks: >-
+    <p>The implementation of <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> may invoke <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref>, may schedule it for invocation from another thread, or
+            may completely skip its invocation. Alternatively, it may use <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>. Before returning to the caller, the <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method must set the return value (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>)
+            and all output arguments (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.Arguments" data-throw-if-not-resolved="false"></xref>). Otherwise, the target method may fail with a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. These
+            are normally set by calling <xref href="PostSharp.Aspects.MethodInterceptionArgs.Proceed" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public override void OnInvoke(MethodInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodInterceptionArgs
+      description: Advice arguments.
+    content.vb: Public Overrides Sub OnInvoke(args As MethodInterceptionArgs)
+  overridden: PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  overload: PostSharp.Patterns.Threading.BackgroundAttribute.OnInvoke*
+  seealso:
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+- uid: PostSharp.Patterns.Threading.BackgroundAttribute.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  commentId: M:PostSharp.Patterns.Threading.BackgroundAttribute.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  id: OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  parent: PostSharp.Patterns.Threading.BackgroundAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnInvokeAsync(MethodInterceptionArgs)
+  nameWithType: BackgroundAttribute.OnInvokeAsync(MethodInterceptionArgs)
+  fullName: PostSharp.Patterns.Threading.BackgroundAttribute.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Method invoked instead of the method to which the aspect has been applied.
+  remarks: >-
+    <p>The implementation of <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> may invoke <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>, may schedule it for invocation from another thread, or
+            may completely skip its invocation. Alternatively, it may use <xref href="PostSharp.Aspects.MethodInterceptionArgs.Binding" data-throw-if-not-resolved="false"></xref>. Before returning to the caller,
+            the <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> method must set the return value (property <xref href="PostSharp.Aspects.MethodInterceptionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>),
+            otherwise the target method may fail with a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. It is normally set by calling <xref href="PostSharp.Aspects.MethodInterceptionArgs.ProceedAsync" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>
+            If semantic advising applies to a method and the method is an async method or returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, then <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref> is called for that method instead of <xref href="PostSharp.Aspects.IMethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+          </p>
+  example: []
+  syntax:
+    content: public override Task OnInvokeAsync(MethodInterceptionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodInterceptionArgs
+      description: Advice arguments.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overrides Function OnInvokeAsync(args As MethodInterceptionArgs) As Task
+  overridden: PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  overload: PostSharp.Patterns.Threading.BackgroundAttribute.OnInvokeAsync*
+  seealso:
+  - linkId: PostSharp.Aspects.MethodInterceptionArgs
+    commentId: T:PostSharp.Aspects.MethodInterceptionArgs
+- uid: PostSharp.Patterns.Threading.BackgroundAttribute.IsLongRunning
+  commentId: P:PostSharp.Patterns.Threading.BackgroundAttribute.IsLongRunning
+  id: IsLongRunning
+  parent: PostSharp.Patterns.Threading.BackgroundAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsLongRunning
+  nameWithType: BackgroundAttribute.IsLongRunning
+  fullName: PostSharp.Patterns.Threading.BackgroundAttribute.IsLongRunning
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets or sets a value indicating whether the method is long-running and should be executed on its own thread, if that is supported on the target platform.
+
+    If <code>false</code>, the method will be executed in the thread pool.
+  example: []
+  syntax:
+    content: public bool IsLongRunning { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLongRunning As Boolean
+  overload: PostSharp.Patterns.Threading.BackgroundAttribute.IsLongRunning*

@@ -1,0 +1,143 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadMismatchException
+  commentId: T:PostSharp.Patterns.Threading.ThreadMismatchException
+  id: ThreadMismatchException
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadMismatchException.#ctor
+  - PostSharp.Patterns.Threading.ThreadMismatchException.#ctor(System.String)
+  - PostSharp.Patterns.Threading.ThreadMismatchException.#ctor(System.String,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: ThreadMismatchException
+  nameWithType: ThreadMismatchException
+  fullName: PostSharp.Patterns.Threading.ThreadMismatchException
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Exception thrown when a thread attempts to access an object that has affinity to another thread.
+  remarks: >-
+    <p>The following threading models throw this exception: <xref href="PostSharp.Patterns.Threading.ThreadAffineAttribute" data-throw-if-not-resolved="false"></xref> when the object is accessed from a different thread
+        than the one that created it, and <xref href="PostSharp.Patterns.Threading.ActorAttribute" data-throw-if-not-resolved="false"></xref> when a field is accessed from a context that does not have access to the actor,
+        both only when run-time verification is enabled (see <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled" data-throw-if-not-resolved="false"></xref>);
+        and <xref href="PostSharp.Patterns.Threading.ImmutableAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Threading.FreezableAttribute" data-throw-if-not-resolved="false"></xref> when the object is accessed from a different thread than the one that
+        created it before it has been made read-only.</p>
+  example: []
+  syntax:
+    content: 'public sealed class ThreadMismatchException : ThreadingException, ISerializable'
+    content.vb: Public NotInheritable Class ThreadMismatchException Inherits ThreadingException Implements ISerializable
+  seealso:
+  - linkType: HRef
+    linkId: '@thread-affine'
+    altText: 'Conceptual: Thread Affine Threading Model'
+  - linkType: HRef
+    linkId: '@actor'
+    altText: 'Conceptual: Actor Threading Model'
+  - linkType: HRef
+    linkId: '@freezable'
+    altText: 'Conceptual: Freezable Threading Model'
+  inheritance:
+  - System.Object
+  - System.Exception
+  - PostSharp.Patterns.Threading.ThreadingException
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.ToString
+  - System.Exception.GetType
+  - System.Exception.TargetSite
+  - System.Exception.Message
+  - System.Exception.Data
+  - System.Exception.InnerException
+  - System.Exception.HelpLink
+  - System.Exception.Source
+  - System.Exception.HResult
+  - System.Exception.StackTrace
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ThreadMismatchException.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ThreadMismatchException.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ThreadMismatchException
+  langs:
+  - csharp
+  - vb
+  name: ThreadMismatchException()
+  nameWithType: ThreadMismatchException.ThreadMismatchException()
+  fullName: PostSharp.Patterns.Threading.ThreadMismatchException.ThreadMismatchException()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadMismatchException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ThreadMismatchException()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ThreadMismatchException.#ctor*
+  nameWithType.vb: ThreadMismatchException.New()
+  fullName.vb: PostSharp.Patterns.Threading.ThreadMismatchException.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ThreadMismatchException.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Threading.ThreadMismatchException.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Threading.ThreadMismatchException
+  langs:
+  - csharp
+  - vb
+  name: ThreadMismatchException(string)
+  nameWithType: ThreadMismatchException.ThreadMismatchException(string)
+  fullName: PostSharp.Patterns.Threading.ThreadMismatchException.ThreadMismatchException(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadMismatchException" data-throw-if-not-resolved="false"></xref> class and sets the error message.
+  example: []
+  syntax:
+    content: public ThreadMismatchException(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    content.vb: Public Sub New(message As String)
+  overload: PostSharp.Patterns.Threading.ThreadMismatchException.#ctor*
+  nameWithType.vb: ThreadMismatchException.New(String)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadMismatchException.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Threading.ThreadMismatchException.#ctor(System.String,System.Exception)
+  commentId: M:PostSharp.Patterns.Threading.ThreadMismatchException.#ctor(System.String,System.Exception)
+  id: '#ctor(System.String,System.Exception)'
+  parent: PostSharp.Patterns.Threading.ThreadMismatchException
+  langs:
+  - csharp
+  - vb
+  name: ThreadMismatchException(string, Exception)
+  nameWithType: ThreadMismatchException.ThreadMismatchException(string, Exception)
+  fullName: PostSharp.Patterns.Threading.ThreadMismatchException.ThreadMismatchException(string, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ThreadMismatchException" data-throw-if-not-resolved="false"></xref> class and sets the error message and the inner exception.
+  example: []
+  syntax:
+    content: public ThreadMismatchException(string message, Exception inner)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    - id: inner
+      type: System.Exception
+      description: The inner exception.
+    content.vb: Public Sub New(message As String, inner As Exception)
+  overload: PostSharp.Patterns.Threading.ThreadMismatchException.#ctor*
+  nameWithType.vb: ThreadMismatchException.New(String, Exception)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadMismatchException.New(String, System.Exception)
+  name.vb: New(String, Exception)

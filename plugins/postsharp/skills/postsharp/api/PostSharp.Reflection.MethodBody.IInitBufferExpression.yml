@@ -1,0 +1,124 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Reflection.MethodBody.IInitBufferExpression
+  commentId: T:PostSharp.Reflection.MethodBody.IInitBufferExpression
+  id: IInitBufferExpression
+  parent: PostSharp.Reflection.MethodBody
+  children:
+  - PostSharp.Reflection.MethodBody.IInitBufferExpression.Alignment
+  - PostSharp.Reflection.MethodBody.IInitBufferExpression.Buffer
+  - PostSharp.Reflection.MethodBody.IInitBufferExpression.IsVolatile
+  - PostSharp.Reflection.MethodBody.IInitBufferExpression.Length
+  langs:
+  - csharp
+  - vb
+  name: IInitBufferExpression
+  nameWithType: IInitBufferExpression
+  fullName: PostSharp.Reflection.MethodBody.IInitBufferExpression
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Expression equivalent to the <code>initblk</code> instruction.
+  remarks: <p>This expression type has no equivalent in C#.</p>
+  example: []
+  syntax:
+    content: 'public interface IInitBufferExpression : IExpression, IMethodBodyElement'
+    content.vb: Public Interface IInitBufferExpression Inherits IExpression, IMethodBodyElement
+  inheritedMembers:
+  - PostSharp.Reflection.MethodBody.IExpression.ReturnType
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentMethodBody
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.ParentElement
+  - PostSharp.Reflection.MethodBody.IMethodBodyElement.MethodBodyElementKind
+- uid: PostSharp.Reflection.MethodBody.IInitBufferExpression.Buffer
+  commentId: P:PostSharp.Reflection.MethodBody.IInitBufferExpression.Buffer
+  id: Buffer
+  parent: PostSharp.Reflection.MethodBody.IInitBufferExpression
+  langs:
+  - csharp
+  - vb
+  name: Buffer
+  nameWithType: IInitBufferExpression.Buffer
+  fullName: PostSharp.Reflection.MethodBody.IInitBufferExpression.Buffer
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the address of the buffer to be initialized.
+  example: []
+  syntax:
+    content: IExpression Buffer { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property Buffer As IExpression
+  overload: PostSharp.Reflection.MethodBody.IInitBufferExpression.Buffer*
+- uid: PostSharp.Reflection.MethodBody.IInitBufferExpression.Length
+  commentId: P:PostSharp.Reflection.MethodBody.IInitBufferExpression.Length
+  id: Length
+  parent: PostSharp.Reflection.MethodBody.IInitBufferExpression
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: IInitBufferExpression.Length
+  fullName: PostSharp.Reflection.MethodBody.IInitBufferExpression.Length
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the number of bytes to be initialized.
+  example: []
+  syntax:
+    content: IExpression Length { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.IExpression
+    content.vb: ReadOnly Property Length As IExpression
+  overload: PostSharp.Reflection.MethodBody.IInitBufferExpression.Length*
+- uid: PostSharp.Reflection.MethodBody.IInitBufferExpression.IsVolatile
+  commentId: P:PostSharp.Reflection.MethodBody.IInitBufferExpression.IsVolatile
+  id: IsVolatile
+  parent: PostSharp.Reflection.MethodBody.IInitBufferExpression
+  langs:
+  - csharp
+  - vb
+  name: IsVolatile
+  nameWithType: IInitBufferExpression.IsVolatile
+  fullName: PostSharp.Reflection.MethodBody.IInitBufferExpression.IsVolatile
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets a value indicating whether the buffers can be modified from a different thread.
+  example: []
+  syntax:
+    content: bool IsVolatile { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsVolatile As Boolean
+  overload: PostSharp.Reflection.MethodBody.IInitBufferExpression.IsVolatile*
+- uid: PostSharp.Reflection.MethodBody.IInitBufferExpression.Alignment
+  commentId: P:PostSharp.Reflection.MethodBody.IInitBufferExpression.Alignment
+  id: Alignment
+  parent: PostSharp.Reflection.MethodBody.IInitBufferExpression
+  langs:
+  - csharp
+  - vb
+  name: Alignment
+  nameWithType: IInitBufferExpression.Alignment
+  fullName: PostSharp.Reflection.MethodBody.IInitBufferExpression.Alignment
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Reflection.MethodBody
+  summary: Gets the alignment of the buffers.
+  example: []
+  syntax:
+    content: AddressAlignment Alignment { get; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.MethodBody.AddressAlignment
+    content.vb: ReadOnly Property Alignment As AddressAlignment
+  overload: PostSharp.Reflection.MethodBody.IInitBufferExpression.Alignment*

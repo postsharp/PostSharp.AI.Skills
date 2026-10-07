@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  id: ConsoleThemeStyle
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.#ctor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.AnsiCode
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.BackgroundColor
+  - PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.ForegroundColor
+  langs:
+  - csharp
+  - vb
+  name: ConsoleThemeStyle
+  nameWithType: ConsoleThemeStyle
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Represents a style in a console theme.
+  example: []
+  syntax:
+    content: public sealed class ConsoleThemeStyle
+    content.vb: Public NotInheritable Class ConsoleThemeStyle
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.#ctor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.#ctor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})
+  id: '#ctor(System.String,System.Nullable{System.ConsoleColor},System.Nullable{System.ConsoleColor})'
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  langs:
+  - csharp
+  - vb
+  name: ConsoleThemeStyle(string, ConsoleColor?, ConsoleColor?)
+  nameWithType: ConsoleThemeStyle.ConsoleThemeStyle(string, ConsoleColor?, ConsoleColor?)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.ConsoleThemeStyle(string, System.ConsoleColor?, System.ConsoleColor?)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ConsoleThemeStyle(string ansiCode, ConsoleColor? foregroundColor, ConsoleColor? backgroundColor = null)
+    parameters:
+    - id: ansiCode
+      type: System.String
+      description: The VT ANSI code for the style. This parameter can be <code>null</code> if the whole theme does not support VT ANSI codes.
+    - id: foregroundColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The foreground color. It is used as a fallback when the console does not support VT ANSI codes.
+    - id: backgroundColor
+      type: System.Nullable{System.ConsoleColor}
+      description: The background color. It is used as a fallback when the console does not support VT ANSI codes.
+    content.vb: Public Sub New(ansiCode As String, foregroundColor As ConsoleColor?, backgroundColor As ConsoleColor? = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.#ctor*
+  nameWithType.vb: ConsoleThemeStyle.New(String, ConsoleColor?, ConsoleColor?)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.New(String, System.ConsoleColor?, System.ConsoleColor?)
+  name.vb: New(String, ConsoleColor?, ConsoleColor?)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.AnsiCode
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.AnsiCode
+  id: AnsiCode
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  langs:
+  - csharp
+  - vb
+  name: AnsiCode
+  nameWithType: ConsoleThemeStyle.AnsiCode
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.AnsiCode
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the VT ANSI code for the style.
+  remarks: <p>This property can return <code>null</code> if the whole theme does not support VT ANSI codes.</p>
+  example: []
+  syntax:
+    content: public string AnsiCode { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AnsiCode As String
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.AnsiCode*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.ForegroundColor
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.ForegroundColor
+  id: ForegroundColor
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  langs:
+  - csharp
+  - vb
+  name: ForegroundColor
+  nameWithType: ConsoleThemeStyle.ForegroundColor
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.ForegroundColor
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the foreground color. It is used as a fallback when the console does not support VT ANSI codes.
+  example: []
+  syntax:
+    content: public ConsoleColor? ForegroundColor { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.ConsoleColor}
+    content.vb: Public ReadOnly Property ForegroundColor As ConsoleColor?
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.ForegroundColor*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.BackgroundColor
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.BackgroundColor
+  id: BackgroundColor
+  parent: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle
+  langs:
+  - csharp
+  - vb
+  name: BackgroundColor
+  nameWithType: ConsoleThemeStyle.BackgroundColor
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.BackgroundColor
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Console
+  summary: Gets the background color. It is used as a fallback when the console does not support VT ANSI codes.
+  example: []
+  syntax:
+    content: public ConsoleColor? BackgroundColor { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.ConsoleColor}
+    content.vb: Public ReadOnly Property BackgroundColor As ConsoleColor?
+  overload: PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeStyle.BackgroundColor*

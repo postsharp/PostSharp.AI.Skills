@@ -1,0 +1,154 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  commentId: T:PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  id: PortableSerializer
+  parent: PostSharp.Patterns.Caching.Serializers
+  children:
+  - PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor
+  - PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor(PostSharp.Serialization.PortableFormatter)
+  - PostSharp.Patterns.Caching.Serializers.PortableSerializer.Deserialize(System.Byte[])
+  - PostSharp.Patterns.Caching.Serializers.PortableSerializer.Serialize(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: PortableSerializer
+  nameWithType: PortableSerializer
+  fullName: PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: >-
+    An implementation of <xref href="PostSharp.Patterns.Caching.Serializers.ISerializer" data-throw-if-not-resolved="false"></xref> that uses the <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref>
+
+    (for classes annotated with <xref href="PostSharp.Serialization.PSerializableAttribute" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: 'public sealed class PortableSerializer : ISerializer'
+    content.vb: Public NotInheritable Class PortableSerializer Implements ISerializer
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  langs:
+  - csharp
+  - vb
+  name: PortableSerializer()
+  nameWithType: PortableSerializer.PortableSerializer()
+  fullName: PostSharp.Patterns.Caching.Serializers.PortableSerializer.PortableSerializer()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Serializers.PortableSerializer" data-throw-if-not-resolved="false"></xref> class with a new default <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public PortableSerializer()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor*
+  nameWithType.vb: PortableSerializer.New()
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.PortableSerializer.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor(PostSharp.Serialization.PortableFormatter)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor(PostSharp.Serialization.PortableFormatter)
+  id: '#ctor(PostSharp.Serialization.PortableFormatter)'
+  parent: PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  langs:
+  - csharp
+  - vb
+  name: PortableSerializer(PortableFormatter)
+  nameWithType: PortableSerializer.PortableSerializer(PortableFormatter)
+  fullName: PostSharp.Patterns.Caching.Serializers.PortableSerializer.PortableSerializer(PostSharp.Serialization.PortableFormatter)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Serializers.PortableSerializer" data-throw-if-not-resolved="false"></xref> class with a given <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public PortableSerializer(PortableFormatter serializer)
+    parameters:
+    - id: serializer
+      type: PostSharp.Serialization.PortableFormatter
+      description: A <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref>, or <code>null</code> to use a new default <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(serializer As PortableFormatter)
+  overload: PostSharp.Patterns.Caching.Serializers.PortableSerializer.#ctor*
+  nameWithType.vb: PortableSerializer.New(PortableFormatter)
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.PortableSerializer.New(PostSharp.Serialization.PortableFormatter)
+  name.vb: New(PortableFormatter)
+- uid: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Serialize(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Serializers.PortableSerializer.Serialize(System.Object)
+  id: Serialize(System.Object)
+  parent: PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  langs:
+  - csharp
+  - vb
+  name: Serialize(object)
+  nameWithType: PortableSerializer.Serialize(object)
+  fullName: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Serialize(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Serializes an object into a byte array.
+  example: []
+  syntax:
+    content: public byte[] Serialize(object value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: The object to serialize.
+    return:
+      type: System.Byte[]
+      description: A byte array representing <code class="paramref">value</code>.
+    content.vb: Public Function Serialize(value As Object) As Byte()
+  overload: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Serialize*
+  implements:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(System.Object)
+  nameWithType.vb: PortableSerializer.Serialize(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Serialize(Object)
+  name.vb: Serialize(Object)
+- uid: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Deserialize(System.Byte[])
+  commentId: M:PostSharp.Patterns.Caching.Serializers.PortableSerializer.Deserialize(System.Byte[])
+  id: Deserialize(System.Byte[])
+  parent: PostSharp.Patterns.Caching.Serializers.PortableSerializer
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(byte[])
+  nameWithType: PortableSerializer.Deserialize(byte[])
+  fullName: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Deserialize(byte[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Serializers
+  summary: Deserializes a byte array into an object.
+  example: []
+  syntax:
+    content: public object Deserialize(byte[] array)
+    parameters:
+    - id: array
+      type: System.Byte[]
+      description: A byte array.
+    return:
+      type: System.Object
+      description: The object represented by <code class="paramref">array</code>.
+    content.vb: Public Function Deserialize(array As Byte()) As Object
+  overload: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Deserialize*
+  implements:
+  - PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(System.Byte[])
+  nameWithType.vb: PortableSerializer.Deserialize(Byte())
+  fullName.vb: PostSharp.Patterns.Caching.Serializers.PortableSerializer.Deserialize(Byte())
+  name.vb: Deserialize(Byte())

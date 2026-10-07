@@ -1,0 +1,320 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.FreezableAttribute
+  commentId: T:PostSharp.Patterns.Threading.FreezableAttribute
+  id: FreezableAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.FreezableAttribute.#ctor
+  - PostSharp.Patterns.Threading.FreezableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Threading.FreezableAttribute.Advise(System.Object)
+  - PostSharp.Patterns.Threading.FreezableAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Patterns.Threading.FreezableAttribute.ToString
+  langs:
+  - csharp
+  - vb
+  name: FreezableAttribute
+  nameWithType: FreezableAttribute
+  fullName: PostSharp.Patterns.Threading.FreezableAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a class, applies the <xref href="PostSharp.Patterns.Threading.Models.FreezableThreadingModel" data-throw-if-not-resolved="false"></xref> to this class.
+
+    The aspect introduces the <xref href="PostSharp.Patterns.Threading.IFreezable" data-throw-if-not-resolved="false"></xref> interface into the target class. After the <xref href="PostSharp.Patterns.Threading.IFreezable.Freeze" data-throw-if-not-resolved="false"></xref>
+
+    method has been invoked, the object can no longer be modified, and can therefore be safely shared between several threads.
+  remarks: >-
+    <p>Accessing a freezable object from a different thread than the one that created it, before the <xref href="PostSharp.Patterns.Threading.IFreezable.Freeze" data-throw-if-not-resolved="false"></xref> method
+        has been invoked, will result in a <xref href="PostSharp.Patterns.Threading.ThreadMismatchException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>Attempts to modify a freezable object after the <xref href="PostSharp.Patterns.Threading.IFreezable.Freeze" data-throw-if-not-resolved="false"></xref> method has been invoked will result in
+        an <xref href="PostSharp.Patterns.Threading.ObjectReadOnlyException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>The <xref href="PostSharp.Patterns.Threading.IFreezable" data-throw-if-not-resolved="false"></xref> interface is introduced after compilation, so tools that are not aware of PostSharp do not see it.
+        To call <xref href="PostSharp.Patterns.Threading.IFreezable.Freeze" data-throw-if-not-resolved="false"></xref>, cast the object to <xref href="PostSharp.Patterns.Threading.IFreezable" data-throw-if-not-resolved="false"></xref> or use the <xref href="PostSharp.Post.Cast%60%602(%60%600)" data-throw-if-not-resolved="false"></xref> method,
+        which is verified at build time.</p>
+    <p>Use this aspect instead of <xref href="PostSharp.Patterns.Threading.ImmutableAttribute" data-throw-if-not-resolved="false"></xref> when the object must be modified after its constructor has completed, for instance
+        during deserialization. The aspect implicitly adds the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect, so you can build freezable object trees.
+        Freezing an object also freezes its children. Children must be freezable or immutable.</p>
+  example: []
+  syntax:
+    content: >-
+      [IntroduceInterface(typeof(IFreezable), OverrideAction = InterfaceOverrideAction.Ignore, LinesOfCodeAvoided = 5)]
+
+      [Metric("UsedFeatures", "PostSharp.Patterns.Threading.Freezable")]
+
+      [Serializer(typeof(FreezableAttribute.Serializer))]
+
+      public sealed class FreezableAttribute : ReadOnlyThreadAwareAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IQueryInterface, IConcurrencyController, IFreezable, IThreadAware
+    content.vb: >-
+      <IntroduceInterface(GetType(IFreezable), OverrideAction:=InterfaceOverrideAction.Ignore, LinesOfCodeAvoided:=5)>
+
+      <Metric("UsedFeatures", "PostSharp.Patterns.Threading.Freezable")>
+
+      <Serializer(GetType(FreezableAttribute.Serializer))>
+
+      Public NotInheritable Class FreezableAttribute Inherits ReadOnlyThreadAwareAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IQueryInterface, IConcurrencyController, IFreezable, IThreadAware
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.ImmutableAttribute
+    commentId: T:PostSharp.Patterns.Threading.ImmutableAttribute
+  - linkType: HRef
+    linkId: '@freezable'
+    altText: 'Conceptual: Freezable Threading Model'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - PostSharp.Patterns.Threading.IConcurrencyController
+  - PostSharp.Patterns.Threading.IFreezable
+  - PostSharp.Patterns.Threading.IThreadAware
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.RuntimeInitializeInstance
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.IFreezable
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+    - name: LinesOfCodeAvoided
+      type: System.Int32
+      value: 5
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Threading.Freezable
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.FreezableAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.FreezableAttribute.Advise(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.FreezableAttribute.Advise(System.Object)
+  id: Advise(System.Object)
+  parent: PostSharp.Patterns.Threading.FreezableAttribute
+  langs:
+  - csharp
+  - vb
+  name: Advise(object)
+  nameWithType: FreezableAttribute.Advise(object)
+  fullName: PostSharp.Patterns.Threading.FreezableAttribute.Advise(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Injects the advice into the child object.
+  example: []
+  syntax:
+    content: protected override bool Advise(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to advise.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the children of <code class="paramref">obj</code> have to be advised as well, <code>false</code> otherwise.
+    content.vb: Protected Overrides Function Advise(obj As Object) As Boolean
+  overridden: PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute.Advise(System.Object)
+  overload: PostSharp.Patterns.Threading.FreezableAttribute.Advise*
+  nameWithType.vb: FreezableAttribute.Advise(Object)
+  fullName.vb: PostSharp.Patterns.Threading.FreezableAttribute.Advise(Object)
+  name.vb: Advise(Object)
+- uid: PostSharp.Patterns.Threading.FreezableAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  commentId: M:PostSharp.Patterns.Threading.FreezableAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  id: OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  parent: PostSharp.Patterns.Threading.FreezableAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnCloned(ICloneAwareAspect)
+  nameWithType: FreezableAttribute.OnCloned(ICloneAwareAspect)
+  fullName: PostSharp.Patterns.Threading.FreezableAttribute.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Method called after an object enhanced by the current aspect has been
+
+    cloned using <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>. The <code>this</code>
+
+    parameter refers to the new aspect instance in the cloned object.
+  remarks: >-
+    <p>Prior to calling the current method, the aspect framework
+        initializes the <code class="paramref">source</code> object using <xref href="PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> 
+        and <xref href="PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance" data-throw-if-not-resolved="false"></xref>. That is, the aspect instance
+        in the cloned object is not cloned from the source aspect instance, but from the prototype
+        aspect instance.
+        </p>
+  example: []
+  syntax:
+    content: public override void OnCloned(ICloneAwareAspect source)
+    parameters:
+    - id: source
+      type: PostSharp.Aspects.ICloneAwareAspect
+      description: >-
+        Aspect instance corresponding to the current
+                    aspect instance in the cloned target object.
+    content.vb: Public Overrides Sub OnCloned(source As ICloneAwareAspect)
+  overridden: PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  overload: PostSharp.Patterns.Threading.FreezableAttribute.OnCloned*
+- uid: PostSharp.Patterns.Threading.FreezableAttribute.ToString
+  commentId: M:PostSharp.Patterns.Threading.FreezableAttribute.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Threading.FreezableAttribute
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: FreezableAttribute.ToString()
+  fullName: PostSharp.Patterns.Threading.FreezableAttribute.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Threading.FreezableAttribute.ToString*
+- uid: PostSharp.Patterns.Threading.FreezableAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.FreezableAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.FreezableAttribute
+  langs:
+  - csharp
+  - vb
+  name: FreezableAttribute()
+  nameWithType: FreezableAttribute.FreezableAttribute()
+  fullName: PostSharp.Patterns.Threading.FreezableAttribute.FreezableAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: public FreezableAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.FreezableAttribute.#ctor*
+  nameWithType.vb: FreezableAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.FreezableAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.FreezableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.FreezableAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.FreezableAttribute
+  langs:
+  - csharp
+  - vb
+  name: FreezableAttribute(PortableFormatterConstructorContext)
+  nameWithType: FreezableAttribute.FreezableAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.FreezableAttribute.FreezableAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected FreezableAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.FreezableAttribute.#ctor*
+  nameWithType.vb: FreezableAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.FreezableAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

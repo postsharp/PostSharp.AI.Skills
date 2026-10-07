@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  id: TransactionPolicyExpressionFunctions
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(System.Double,System.String)
+  - PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(System.Double)
+  langs:
+  - csharp
+  - vb
+  name: TransactionPolicyExpressionFunctions
+  nameWithType: TransactionPolicyExpressionFunctions
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Contains extra functions usable from predicates in XML policy configuration files.
+  remarks: >-
+    <p>The <code>if</code> and <code>sample</code> expressions are interpreted by Dynamic Expresso, an expression engine that emulates C#.
+        Call these functions without the class name, for example <code>Matches(t.Request.Path, "^/invoices")</code>. <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(System.String%2cSystem.String)" data-throw-if-not-resolved="false"></xref> is
+        available in both expressions, while the sampling functions <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(System.Double)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(System.Double%2cSystem.String)" data-throw-if-not-resolved="false"></xref> are available
+        only in the <code>sample</code> expression and in extended expressions evaluated with <xref href="PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions.AllowSamplingFunctions" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public static class TransactionPolicyExpressionFunctions
+    content.vb: Public Module TransactionPolicyExpressionFunctions
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+    commentId: T:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(System.String,System.String)
+  id: Matches(System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  langs:
+  - csharp
+  - vb
+  name: Matches(string, string)
+  nameWithType: TransactionPolicyExpressionFunctions.Matches(string, string)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Returns <code>true</code> if the string <code class="paramref">input</code> matches the regex <code class="paramref">pattern</code>.
+  example: []
+  syntax:
+    content: public static bool Matches(string input, string pattern)
+    parameters:
+    - id: input
+      type: System.String
+      description: The input string.
+    - id: pattern
+      type: System.String
+      description: The regex pattern.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Matches(input As String, pattern As String) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches*
+  nameWithType.vb: TransactionPolicyExpressionFunctions.Matches(String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Matches(String, String)
+  name.vb: Matches(String, String)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(System.Double,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(System.Double,System.String)
+  id: OnceEveryXSeconds(System.Double,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  langs:
+  - csharp
+  - vb
+  name: OnceEveryXSeconds(double, string)
+  nameWithType: TransactionPolicyExpressionFunctions.OnceEveryXSeconds(double, string)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(double, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Returns <code>true</code> if the method has not returned <code>true</code> for the same key for a period of time.
+  remarks: >-
+    <p>
+        Note that the side effect of calling this method, in case it returns <code>true</code>, is to set a timestamp for the specified <code class="paramref">key</code>
+        so that the next call to the method with the same value of <code class="paramref">key</code> will return <code>false</code> unless it is called after the given time span has elapsed.
+        This is a side effect of calling this method and does not depend on the actual result of the <code>sampling</code> expression. That is,
+        the side effect will occur even in a combined expression like <code>OnceEveryXSeconds( 1, "foo") &amp;&amp; false</code>. 
+        </p>
+    <p>This function is only available in the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample" data-throw-if-not-resolved="false"></xref> expression.</p>
+  example: []
+  syntax:
+    content: public static bool OnceEveryXSeconds(double seconds, string key)
+    parameters:
+    - id: seconds
+      type: System.Double
+      description: An amount of time in seconds.
+    - id: key
+      type: System.String
+      description: An arbitrary key. Required but can be empty.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the method has not returned <code>true</code> for the same <code class="paramref">key</code> during the given period of time, otherwise <code>false</code>.
+    content.vb: Public Shared Function OnceEveryXSeconds(seconds As Double, key As String) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds*
+  nameWithType.vb: TransactionPolicyExpressionFunctions.OnceEveryXSeconds(Double, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.OnceEveryXSeconds(Double, String)
+  name.vb: OnceEveryXSeconds(Double, String)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(System.Double)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(System.Double)
+  id: Random(System.Double)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions
+  langs:
+  - csharp
+  - vb
+  name: Random(double)
+  nameWithType: TransactionPolicyExpressionFunctions.Random(double)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(double)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Configuration
+  namespace: PostSharp.Patterns.Diagnostics.Transactions.Model
+  summary: Returns <code>true</code> randomly, with a chance given by the threshold.
+  remarks: <p>This function is only available in the <xref href="PostSharp.Patterns.Diagnostics.Transactions.Model.PolicyConfigurationModel.Sample" data-throw-if-not-resolved="false"></xref> expression.</p>
+  example: []
+  syntax:
+    content: public static bool Random(double threshold)
+    parameters:
+    - id: threshold
+      type: System.Double
+      description: >-
+        The probability with which the method returns <code>true</code>. For example, if <code class="paramref">threshold</code> is 0.54, then this method returns <code>true</code> with
+                    probability 54%.
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function Random(threshold As Double) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random*
+  nameWithType.vb: TransactionPolicyExpressionFunctions.Random(Double)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.Model.TransactionPolicyExpressionFunctions.Random(Double)
+  name.vb: Random(Double)

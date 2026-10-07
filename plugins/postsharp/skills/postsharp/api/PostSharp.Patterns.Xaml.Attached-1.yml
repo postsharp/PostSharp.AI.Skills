@@ -1,0 +1,210 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Xaml.Attached`1
+  commentId: T:PostSharp.Patterns.Xaml.Attached`1
+  id: Attached`1
+  parent: PostSharp.Patterns.Xaml
+  children:
+  - PostSharp.Patterns.Xaml.Attached`1.GetValue(System.Windows.DependencyObject)
+  - PostSharp.Patterns.Xaml.Attached`1.Item(System.Windows.DependencyObject)
+  - PostSharp.Patterns.Xaml.Attached`1.RuntimeProperty
+  - PostSharp.Patterns.Xaml.Attached`1.SetCurrentValue(System.Windows.DependencyObject,`0)
+  - PostSharp.Patterns.Xaml.Attached`1.SetValue(System.Windows.DependencyObject,`0)
+  langs:
+  - csharp
+  - vb
+  name: Attached<T>
+  nameWithType: Attached<T>
+  fullName: PostSharp.Patterns.Xaml.Attached<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Type of properties that are turned into XAML attached properties by the <xref href="PostSharp.Patterns.Xaml.AttachedPropertyAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: >-
+    <p>The getter of a property with the <xref href="PostSharp.Patterns.Xaml.AttachedPropertyAttribute" data-throw-if-not-resolved="false"></xref> aspect returns an instance of this class. Use <xref href="PostSharp.Patterns.Xaml.Attached%601.GetValue(System.Windows.DependencyObject)" data-throw-if-not-resolved="false"></xref>,
+        <xref href="PostSharp.Patterns.Xaml.Attached%601.SetValue(System.Windows.DependencyObject%2c%600)" data-throw-if-not-resolved="false"></xref> or the indexer to read or write the attached property on a <xref href="System.Windows.DependencyObject" data-throw-if-not-resolved="false"></xref>, and <xref href="PostSharp.Patterns.Xaml.Attached%601.RuntimeProperty" data-throw-if-not-resolved="false"></xref>
+        to get the registered <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref>, for example to override its metadata.</p>
+  example: []
+  syntax:
+    content: public sealed class Attached<T>
+    typeParameters:
+    - id: T
+      description: The type of the underlying attached property.
+    content.vb: Public NotInheritable Class Attached(Of T)
+  seealso:
+  - linkType: HRef
+    linkId: '@attached-property'
+    altText: 'Conceptual: Attached Property'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: Attached(Of T)
+  fullName.vb: PostSharp.Patterns.Xaml.Attached(Of T)
+  name.vb: Attached(Of T)
+- uid: PostSharp.Patterns.Xaml.Attached`1.GetValue(System.Windows.DependencyObject)
+  commentId: M:PostSharp.Patterns.Xaml.Attached`1.GetValue(System.Windows.DependencyObject)
+  id: GetValue(System.Windows.DependencyObject)
+  parent: PostSharp.Patterns.Xaml.Attached`1
+  langs:
+  - csharp
+  - vb
+  name: GetValue(DependencyObject)
+  nameWithType: Attached<T>.GetValue(DependencyObject)
+  fullName: PostSharp.Patterns.Xaml.Attached<T>.GetValue(System.Windows.DependencyObject)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Gets the value of the current attached property for a given object.
+  example: []
+  syntax:
+    content: public T GetValue(DependencyObject obj)
+    parameters:
+    - id: obj
+      type: System.Windows.DependencyObject
+      description: The object for which to get the value of the property.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: '{T}'
+      description: The value of the attached property for <code class="paramref">obj</code>.
+    content.vb: Public Function GetValue(obj As DependencyObject) As T
+  overload: PostSharp.Patterns.Xaml.Attached`1.GetValue*
+  nameWithType.vb: Attached(Of T).GetValue(DependencyObject)
+  fullName.vb: PostSharp.Patterns.Xaml.Attached(Of T).GetValue(System.Windows.DependencyObject)
+- uid: PostSharp.Patterns.Xaml.Attached`1.SetCurrentValue(System.Windows.DependencyObject,`0)
+  commentId: M:PostSharp.Patterns.Xaml.Attached`1.SetCurrentValue(System.Windows.DependencyObject,`0)
+  id: SetCurrentValue(System.Windows.DependencyObject,`0)
+  parent: PostSharp.Patterns.Xaml.Attached`1
+  langs:
+  - csharp
+  - vb
+  name: SetCurrentValue(DependencyObject, T)
+  nameWithType: Attached<T>.SetCurrentValue(DependencyObject, T)
+  fullName: PostSharp.Patterns.Xaml.Attached<T>.SetCurrentValue(System.Windows.DependencyObject, T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Synonym of <xref href="PostSharp.Patterns.Xaml.Attached%601.SetValue(System.Windows.DependencyObject%2c%600)" data-throw-if-not-resolved="false"></xref>. Use that method instead.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use SetValue() instead.")]
+
+      public void SetCurrentValue(DependencyObject obj, T value)
+    parameters:
+    - id: obj
+      type: System.Windows.DependencyObject
+    - id: value
+      type: '{T}'
+    content.vb: >-
+      <Obsolete("Use SetValue() instead.")>
+
+      Public Sub SetCurrentValue(obj As DependencyObject, value As T)
+  overload: PostSharp.Patterns.Xaml.Attached`1.SetCurrentValue*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use SetValue() instead.
+  nameWithType.vb: Attached(Of T).SetCurrentValue(DependencyObject, T)
+  fullName.vb: PostSharp.Patterns.Xaml.Attached(Of T).SetCurrentValue(System.Windows.DependencyObject, T)
+- uid: PostSharp.Patterns.Xaml.Attached`1.SetValue(System.Windows.DependencyObject,`0)
+  commentId: M:PostSharp.Patterns.Xaml.Attached`1.SetValue(System.Windows.DependencyObject,`0)
+  id: SetValue(System.Windows.DependencyObject,`0)
+  parent: PostSharp.Patterns.Xaml.Attached`1
+  langs:
+  - csharp
+  - vb
+  name: SetValue(DependencyObject, T)
+  nameWithType: Attached<T>.SetValue(DependencyObject, T)
+  fullName: PostSharp.Patterns.Xaml.Attached<T>.SetValue(System.Windows.DependencyObject, T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Sets the value of this attached property for a given object without changing its value source (see <xref href="System.Windows.DependencyObject.SetCurrentValue(System.Windows.DependencyProperty%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public void SetValue(DependencyObject obj, T value)
+    parameters:
+    - id: obj
+      type: System.Windows.DependencyObject
+      description: The object for which to set the property value.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: value
+      type: '{T}'
+      description: The value to set.
+    content.vb: Public Sub SetValue(obj As DependencyObject, value As T)
+  overload: PostSharp.Patterns.Xaml.Attached`1.SetValue*
+  nameWithType.vb: Attached(Of T).SetValue(DependencyObject, T)
+  fullName.vb: PostSharp.Patterns.Xaml.Attached(Of T).SetValue(System.Windows.DependencyObject, T)
+- uid: PostSharp.Patterns.Xaml.Attached`1.RuntimeProperty
+  commentId: P:PostSharp.Patterns.Xaml.Attached`1.RuntimeProperty
+  id: RuntimeProperty
+  parent: PostSharp.Patterns.Xaml.Attached`1
+  langs:
+  - csharp
+  - vb
+  name: RuntimeProperty
+  nameWithType: Attached<T>.RuntimeProperty
+  fullName: PostSharp.Patterns.Xaml.Attached<T>.RuntimeProperty
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Gets the <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> registered at run time.
+  example: []
+  syntax:
+    content: public DependencyProperty RuntimeProperty { get; }
+    parameters: []
+    return:
+      type: System.Windows.DependencyProperty
+    content.vb: Public ReadOnly Property RuntimeProperty As DependencyProperty
+  overload: PostSharp.Patterns.Xaml.Attached`1.RuntimeProperty*
+  nameWithType.vb: Attached(Of T).RuntimeProperty
+  fullName.vb: PostSharp.Patterns.Xaml.Attached(Of T).RuntimeProperty
+- uid: PostSharp.Patterns.Xaml.Attached`1.Item(System.Windows.DependencyObject)
+  commentId: P:PostSharp.Patterns.Xaml.Attached`1.Item(System.Windows.DependencyObject)
+  id: Item(System.Windows.DependencyObject)
+  parent: PostSharp.Patterns.Xaml.Attached`1
+  langs:
+  - csharp
+  - vb
+  name: this[DependencyObject]
+  nameWithType: Attached<T>.this[DependencyObject]
+  fullName: PostSharp.Patterns.Xaml.Attached<T>.this[System.Windows.DependencyObject]
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Gets or sets the value of the current attached property for a given object (see <xref href="System.Windows.DependencyObject.GetValue(System.Windows.DependencyProperty)" data-throw-if-not-resolved="false"></xref> and <xref href="System.Windows.DependencyObject.SetValue(System.Windows.DependencyProperty%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public T this[DependencyObject obj] { get; set; }
+    parameters:
+    - id: obj
+      type: System.Windows.DependencyObject
+      description: The object for which the property is read or written.
+    return:
+      type: '{T}'
+      description: The value of the attached property for <code class="paramref">obj</code>.
+    content.vb: Public Default Property this[](obj As DependencyObject) As T
+  overload: PostSharp.Patterns.Xaml.Attached`1.Item*
+  nameWithType.vb: Attached(Of T).this[](DependencyObject)
+  fullName.vb: PostSharp.Patterns.Xaml.Attached(Of T).this[](System.Windows.DependencyObject)
+  name.vb: this[](DependencyObject)

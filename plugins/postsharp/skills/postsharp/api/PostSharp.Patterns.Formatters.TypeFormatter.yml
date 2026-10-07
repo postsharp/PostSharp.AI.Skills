@@ -1,0 +1,121 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.TypeFormatter
+  commentId: T:PostSharp.Patterns.Formatters.TypeFormatter
+  id: TypeFormatter
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.TypeFormatter.#ctor(System.Boolean)
+  - PostSharp.Patterns.Formatters.TypeFormatter.Instance
+  - PostSharp.Patterns.Formatters.TypeFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  langs:
+  - csharp
+  - vb
+  name: TypeFormatter
+  nameWithType: TypeFormatter
+  fullName: PostSharp.Patterns.Formatters.TypeFormatter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: A <xref href="PostSharp.Patterns.Formatters.Formatter%601" data-throw-if-not-resolved="false"></xref> for <xref href="System.Type" data-throw-if-not-resolved="false"></xref> values.
+  example: []
+  syntax:
+    content: 'public sealed class TypeFormatter : Formatter<Type>, IFormatter<Type>, IOptionAwareFormatter, IFormatter'
+    content.vb: Public NotInheritable Class TypeFormatter Inherits Formatter(Of Type) Implements IFormatter(Of Type), IOptionAwareFormatter, IFormatter
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.Formatter{System.Type}
+  implements:
+  - PostSharp.Patterns.Formatters.IFormatter{System.Type}
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  - PostSharp.Patterns.Formatters.IFormatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.Formatter{System.Type}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.Formatter{System.Type}.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.Formatter{System.Type}.Attributes
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - PostSharp.Patterns.Formatters.IFormatter.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.IFormatter{System.Type}.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions``1(PostSharp.Patterns.Formatters.FormattingOptions)
+- uid: PostSharp.Patterns.Formatters.TypeFormatter.Instance
+  commentId: F:PostSharp.Patterns.Formatters.TypeFormatter.Instance
+  id: Instance
+  parent: PostSharp.Patterns.Formatters.TypeFormatter
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: TypeFormatter.Instance
+  fullName: PostSharp.Patterns.Formatters.TypeFormatter.Instance
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: The default instance of <xref href="PostSharp.Patterns.Formatters.TypeFormatter" data-throw-if-not-resolved="false"></xref>, which includes namespaces.
+  example: []
+  syntax:
+    content: public static readonly TypeFormatter Instance
+    return:
+      type: PostSharp.Patterns.Formatters.TypeFormatter
+    content.vb: Public Shared ReadOnly Instance As TypeFormatter
+- uid: PostSharp.Patterns.Formatters.TypeFormatter.#ctor(System.Boolean)
+  commentId: M:PostSharp.Patterns.Formatters.TypeFormatter.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: PostSharp.Patterns.Formatters.TypeFormatter
+  langs:
+  - csharp
+  - vb
+  name: TypeFormatter(bool)
+  nameWithType: TypeFormatter.TypeFormatter(bool)
+  fullName: PostSharp.Patterns.Formatters.TypeFormatter.TypeFormatter(bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.TypeFormatter" data-throw-if-not-resolved="false"></xref> class and specifies whether it should include namespaces.
+  example: []
+  syntax:
+    content: public TypeFormatter(bool includeNamespace = true)
+    parameters:
+    - id: includeNamespace
+      type: System.Boolean
+      description: <code>true</code> to include namespaces; otherwise, <code>false</code>.
+    content.vb: Public Sub New(includeNamespace As Boolean = True)
+  overload: PostSharp.Patterns.Formatters.TypeFormatter.#ctor*
+  nameWithType.vb: TypeFormatter.New(Boolean)
+  fullName.vb: PostSharp.Patterns.Formatters.TypeFormatter.New(Boolean)
+  name.vb: New(Boolean)
+- uid: PostSharp.Patterns.Formatters.TypeFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  commentId: M:PostSharp.Patterns.Formatters.TypeFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  parent: PostSharp.Patterns.Formatters.TypeFormatter
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, Type)
+  nameWithType: TypeFormatter.Write(UnsafeStringBuilder, Type)
+  fullName: PostSharp.Patterns.Formatters.TypeFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: public override void Write(UnsafeStringBuilder stringBuilder, Type value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.Type
+      description: The value to be formatted.
+    content.vb: Public Overrides Sub Write(stringBuilder As UnsafeStringBuilder, value As Type)
+  overridden: PostSharp.Patterns.Formatters.Formatter{System.Type}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  overload: PostSharp.Patterns.Formatters.TypeFormatter.Write*

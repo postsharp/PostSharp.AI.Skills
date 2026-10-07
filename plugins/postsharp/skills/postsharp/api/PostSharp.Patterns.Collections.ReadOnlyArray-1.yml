@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  commentId: T:PostSharp.Patterns.Collections.ReadOnlyArray`1
+  id: ReadOnlyArray`1
+  parent: PostSharp.Patterns.Collections
+  children:
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.#ctor(`0[])
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals(PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals(System.Object)
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.GetHashCode
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.IsNull
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.Item(System.Int32)
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.Length
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Equality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  - PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Inequality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyArray<T>
+  nameWithType: ReadOnlyArray<T>
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Read-only array wrapper.
+  example: []
+  syntax:
+    content: 'public readonly struct ReadOnlyArray<T> : IEquatable<ReadOnlyArray<T>>'
+    typeParameters:
+    - id: T
+      description: The type of the array items.
+    content.vb: Public Structure ReadOnlyArray(Of T) Implements IEquatable(Of ReadOnlyArray(Of T))
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Collections.ReadOnlyArray`1}
+  inheritedMembers:
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  nameWithType.vb: ReadOnlyArray(Of T)
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T)
+  name.vb: ReadOnlyArray(Of T)
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.#ctor(`0[])
+  commentId: M:PostSharp.Patterns.Collections.ReadOnlyArray`1.#ctor(`0[])
+  id: '#ctor(`0[])'
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyArray(T[])
+  nameWithType: ReadOnlyArray<T>.ReadOnlyArray(T[])
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.ReadOnlyArray(T[])
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref> struct.
+  example: []
+  syntax:
+    content: public ReadOnlyArray(T[] array)
+    parameters:
+    - id: array
+      type: '{T}[]'
+      description: An array, or <code>null</code>.
+    content.vb: Public Sub New(array As T())
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.#ctor*
+  nameWithType.vb: ReadOnlyArray(Of T).New(T())
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).New(T())
+  name.vb: New(T())
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals(PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  commentId: M:PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals(PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  id: Equals(PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: Equals(ReadOnlyArray<T>)
+  nameWithType: ReadOnlyArray<T>.Equals(ReadOnlyArray<T>)
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.Equals(PostSharp.Patterns.Collections.ReadOnlyArray<T>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool Equals(ReadOnlyArray<T> other)
+    parameters:
+    - id: other
+      type: PostSharp.Patterns.Collections.ReadOnlyArray`1
+    return:
+      type: System.Boolean
+    content.vb: Public Function Equals(other As ReadOnlyArray(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals*
+  implements:
+  - System.IEquatable{PostSharp.Patterns.Collections.ReadOnlyArray`1}.Equals(PostSharp.Patterns.Collections.ReadOnlyArray{{T}})
+  nameWithType.vb: ReadOnlyArray(Of T).Equals(ReadOnlyArray(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).Equals(PostSharp.Patterns.Collections.ReadOnlyArray(Of T))
+  name.vb: Equals(ReadOnlyArray(Of T))
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals(System.Object)
+  commentId: M:PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: ReadOnlyArray<T>.Equals(object)
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.ValueType.Equals(System.Object)
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.Equals*
+  nameWithType.vb: ReadOnlyArray(Of T).Equals(Object)
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.GetHashCode
+  commentId: M:PostSharp.Patterns.Collections.ReadOnlyArray`1.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: ReadOnlyArray<T>.GetHashCode()
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.ValueType.GetHashCode
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.GetHashCode*
+  nameWithType.vb: ReadOnlyArray(Of T).GetHashCode()
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).GetHashCode()
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Equality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  commentId: M:PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Equality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  id: op_Equality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: operator ==(ReadOnlyArray<T>, ReadOnlyArray<T>)
+  nameWithType: ReadOnlyArray<T>.operator ==(ReadOnlyArray<T>, ReadOnlyArray<T>)
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.operator ==(PostSharp.Patterns.Collections.ReadOnlyArray<T>, PostSharp.Patterns.Collections.ReadOnlyArray<T>)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Determines whether two instances of the <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref> type are equal.
+  example: []
+  syntax:
+    content: public static bool operator ==(ReadOnlyArray<T> left, ReadOnlyArray<T> right)
+    parameters:
+    - id: left
+      type: PostSharp.Patterns.Collections.ReadOnlyArray`1
+      description: The first <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref>.
+    - id: right
+      type: PostSharp.Patterns.Collections.ReadOnlyArray`1
+      description: The second <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are equal, otherwise <code>false</code>.
+    content.vb: Public Shared Operator =(left As ReadOnlyArray(Of T), right As ReadOnlyArray(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Equality*
+  nameWithType.vb: ReadOnlyArray(Of T).=(ReadOnlyArray(Of T), ReadOnlyArray(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).=(PostSharp.Patterns.Collections.ReadOnlyArray(Of T), PostSharp.Patterns.Collections.ReadOnlyArray(Of T))
+  name.vb: =(ReadOnlyArray(Of T), ReadOnlyArray(Of T))
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Inequality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  commentId: M:PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Inequality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  id: op_Inequality(PostSharp.Patterns.Collections.ReadOnlyArray{`0},PostSharp.Patterns.Collections.ReadOnlyArray{`0})
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: operator !=(ReadOnlyArray<T>, ReadOnlyArray<T>)
+  nameWithType: ReadOnlyArray<T>.operator !=(ReadOnlyArray<T>, ReadOnlyArray<T>)
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.operator !=(PostSharp.Patterns.Collections.ReadOnlyArray<T>, PostSharp.Patterns.Collections.ReadOnlyArray<T>)
+  type: Operator
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Determines whether two instances of the <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref> type are different.
+  example: []
+  syntax:
+    content: public static bool operator !=(ReadOnlyArray<T> left, ReadOnlyArray<T> right)
+    parameters:
+    - id: left
+      type: PostSharp.Patterns.Collections.ReadOnlyArray`1
+      description: The first <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref>.
+    - id: right
+      type: PostSharp.Patterns.Collections.ReadOnlyArray`1
+      description: The second <xref href="PostSharp.Patterns.Collections.ReadOnlyArray%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if <code class="paramref">left</code> and <code class="paramref">right</code> are different, otherwise <code>false</code>.
+    content.vb: Public Shared Operator <>(left As ReadOnlyArray(Of T), right As ReadOnlyArray(Of T)) As Boolean
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.op_Inequality*
+  nameWithType.vb: ReadOnlyArray(Of T).<>(ReadOnlyArray(Of T), ReadOnlyArray(Of T))
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).<>(PostSharp.Patterns.Collections.ReadOnlyArray(Of T), PostSharp.Patterns.Collections.ReadOnlyArray(Of T))
+  name.vb: <>(ReadOnlyArray(Of T), ReadOnlyArray(Of T))
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.IsNull
+  commentId: P:PostSharp.Patterns.Collections.ReadOnlyArray`1.IsNull
+  id: IsNull
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: IsNull
+  nameWithType: ReadOnlyArray<T>.IsNull
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.IsNull
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets a value indicating whether the array is null.
+  example: []
+  syntax:
+    content: public bool IsNull { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsNull As Boolean
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.IsNull*
+  nameWithType.vb: ReadOnlyArray(Of T).IsNull
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).IsNull
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.Item(System.Int32)
+  commentId: P:PostSharp.Patterns.Collections.ReadOnlyArray`1.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: this[int]
+  nameWithType: ReadOnlyArray<T>.this[int]
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.this[int]
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets a specified element of the array.
+  example: []
+  syntax:
+    content: public T this[int index] { get; }
+    parameters:
+    - id: index
+      type: System.Int32
+      description: The element position.
+    return:
+      type: '{T}'
+      description: The element at position <code class="paramref">index</code>.
+    content.vb: Public ReadOnly Default Property this[](index As Integer) As T
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.Item*
+  nameWithType.vb: ReadOnlyArray(Of T).this[](Integer)
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).this[](Integer)
+  name.vb: this[](Integer)
+- uid: PostSharp.Patterns.Collections.ReadOnlyArray`1.Length
+  commentId: P:PostSharp.Patterns.Collections.ReadOnlyArray`1.Length
+  id: Length
+  parent: PostSharp.Patterns.Collections.ReadOnlyArray`1
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: ReadOnlyArray<T>.Length
+  fullName: PostSharp.Patterns.Collections.ReadOnlyArray<T>.Length
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets the array length.
+  example: []
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: PostSharp.Patterns.Collections.ReadOnlyArray`1.Length*
+  nameWithType.vb: ReadOnlyArray(Of T).Length
+  fullName.vb: PostSharp.Patterns.Collections.ReadOnlyArray(Of T).Length

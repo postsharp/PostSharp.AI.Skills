@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ActorDispatcher
+  commentId: T:PostSharp.Patterns.Threading.ActorDispatcher
+  id: ActorDispatcher
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ActorDispatcher.#ctor
+  - PostSharp.Patterns.Threading.ActorDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  - PostSharp.Patterns.Threading.ActorDispatcher.CheckAccess
+  - PostSharp.Patterns.Threading.ActorDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  - PostSharp.Patterns.Threading.ActorDispatcher.IsQueueEmpty
+  - PostSharp.Patterns.Threading.ActorDispatcher.MustYield(System.Int32)
+  - PostSharp.Patterns.Threading.ActorDispatcher.OnQueueEmpty
+  - PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue
+  - PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue
+  langs:
+  - csharp
+  - vb
+  name: ActorDispatcher
+  nameWithType: ActorDispatcher
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    A dispatcher compatible with the <xref href="PostSharp.Patterns.Threading.Models.ActorThreadingModel" data-throw-if-not-resolved="false"></xref> threading model, with a message queue based on a <code>ConcurrentQueue</code>.
+
+    The queue itself is processed from the <xref href="System.Threading.ThreadPool" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>This implementation will append every action (as a result of the <xref href="PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method) into a
+        <code>ConcurrentQueue</code>. It will then create a work item to process the <code>ConcurrentQueue</code> and schedule the work item to the <xref href="System.Threading.ThreadPool" data-throw-if-not-resolved="false"></xref>.
+        The same work item keeps running until the message queue is empty, and then terminates.</p>
+    <p>You can use a different scheduling mechanism instead of the <xref href="System.Threading.ThreadPool" data-throw-if-not-resolved="false"></xref> by deriving the class and overriding the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue" data-throw-if-not-resolved="false"></xref>
+        method.</p>
+    <p>Note that the <xref href="PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> method of the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface is not supported,
+        because the <xref href="PostSharp.Patterns.Threading.Models.ActorThreadingModel" data-throw-if-not-resolved="false"></xref> does not support synchronous calls.
+        </p>
+  example: []
+  syntax:
+    content: 'public class ActorDispatcher : IActorDispatcher, IDispatcher'
+    content.vb: Public Class ActorDispatcher Implements IActorDispatcher, IDispatcher
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Threading.IActorDispatcher
+  - PostSharp.Patterns.Threading.IDispatcher
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: ActorDispatcher()
+  nameWithType: ActorDispatcher.ActorDispatcher()
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.ActorDispatcher()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ActorDispatcher" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ActorDispatcher()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.#ctor*
+  nameWithType.vb: ActorDispatcher.New()
+  fullName.vb: PostSharp.Patterns.Threading.ActorDispatcher.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue
+  id: ProcessQueue
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: ProcessQueue()
+  nameWithType: ActorDispatcher.ProcessQueue()
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Processes the message queue synchronously.
+  remarks: >-
+    <p>This method can be invoked by an overridden implementation of the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue" data-throw-if-not-resolved="false"></xref> method.</p>
+
+    <p>This method will process all messages until the queue is empty, unless the overridden implementation of <xref href="PostSharp.Patterns.Threading.ActorDispatcher.MustYield(System.Int32)" data-throw-if-not-resolved="false"></xref> returns <code>false</code>.</p>
+  example: []
+  syntax:
+    content: protected void ProcessQueue()
+    content.vb: Protected Sub ProcessQueue()
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue*
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.CheckAccess
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.CheckAccess
+  id: CheckAccess
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: CheckAccess()
+  nameWithType: ActorDispatcher.CheckAccess()
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.CheckAccess()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether the current thread has access to the current dispatcher.
+  example: []
+  syntax:
+    content: public bool CheckAccess()
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the current thread can directly call methods of objects protected
+            by the current dispatcher, or <code>false</code> if the <xref href="PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback%2cSystem.Object)" data-throw-if-not-resolved="false"></xref> methods
+            must be used.
+    content.vb: Public Function CheckAccess() As Boolean
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.CheckAccess*
+  implements:
+  - PostSharp.Patterns.Threading.IDispatcher.CheckAccess
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  id: Invoke(System.Threading.SendOrPostCallback,System.Object)
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: Invoke(SendOrPostCallback, object)
+  nameWithType: ActorDispatcher.Invoke(SendOrPostCallback, object)
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.Invoke(System.Threading.SendOrPostCallback, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Executes an action synchronously.
+  example: []
+  syntax:
+    content: public void Invoke(SendOrPostCallback action, object state)
+    parameters:
+    - id: action
+      type: System.Threading.SendOrPostCallback
+      description: The action to execute.
+    - id: state
+      type: System.Object
+      description: The parameter passed to <code class="paramref">action</code>.
+    content.vb: Public Sub Invoke(action As SendOrPostCallback, state As Object)
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.Invoke*
+  implements:
+  - PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  nameWithType.vb: ActorDispatcher.Invoke(SendOrPostCallback, Object)
+  fullName.vb: PostSharp.Patterns.Threading.ActorDispatcher.Invoke(System.Threading.SendOrPostCallback, Object)
+  name.vb: Invoke(SendOrPostCallback, Object)
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.OnQueueEmpty
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.OnQueueEmpty
+  id: OnQueueEmpty
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: OnQueueEmpty()
+  nameWithType: ActorDispatcher.OnQueueEmpty()
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.OnQueueEmpty()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Method invoked when the queue becomes empty. The default implementation does not do anything.
+  example: []
+  syntax:
+    content: protected virtual void OnQueueEmpty()
+    content.vb: Protected Overridable Sub OnQueueEmpty()
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.OnQueueEmpty*
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue
+  id: ScheduleProcessQueue
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: ScheduleProcessQueue()
+  nameWithType: ActorDispatcher.ScheduleProcessQueue()
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Schedules the execution of the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue" data-throw-if-not-resolved="false"></xref> method, typically on a worker thread or in the <xref href="System.Threading.ThreadPool" data-throw-if-not-resolved="false"></xref>.
+
+    The default implementation uses the <xref href="System.Threading.ThreadPool" data-throw-if-not-resolved="false"></xref> on platforms that have a thread pool, otherwise it schedules a new <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual void ScheduleProcessQueue()
+    content.vb: Protected Overridable Sub ScheduleProcessQueue()
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue*
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.MustYield(System.Int32)
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.MustYield(System.Int32)
+  id: MustYield(System.Int32)
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: MustYield(int)
+  nameWithType: ActorDispatcher.MustYield(int)
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.MustYield(int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue" data-throw-if-not-resolved="false"></xref> method should interrupt the processing of the message queue before the queue is empty.
+  remarks: >-
+    <p>When this method returns <code>true</code>, the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue" data-throw-if-not-resolved="false"></xref> method will immediately invoke the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ScheduleProcessQueue" data-throw-if-not-resolved="false"></xref> method
+        to process remaining messages.</p>
+    <p>
+        The purpose of this method is to allow custom implementations of the <xref href="PostSharp.Patterns.Threading.ActorDispatcher" data-throw-if-not-resolved="false"></xref> class, which may dispatch the message queue execution
+        on a pool composed of a small number of threads, to prevent a few actors from consuming all available threads.
+        </p>
+  example: []
+  syntax:
+    content: protected virtual bool MustYield(int count)
+    parameters:
+    - id: count
+      type: System.Int32
+      description: The number of messages already processed by the current invocation of the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue" data-throw-if-not-resolved="false"></xref> method.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Threading.ActorDispatcher.ProcessQueue" data-throw-if-not-resolved="false"></xref> method should stop processing messages, <code>false</code> if it should continue.
+    content.vb: Protected Overridable Function MustYield(count As Integer) As Boolean
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.MustYield*
+  nameWithType.vb: ActorDispatcher.MustYield(Integer)
+  fullName.vb: PostSharp.Patterns.Threading.ActorDispatcher.MustYield(Integer)
+  name.vb: MustYield(Integer)
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ActorDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  id: BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(SendOrPostCallback, object)
+  nameWithType: ActorDispatcher.BeginInvoke(SendOrPostCallback, object)
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.BeginInvoke(System.Threading.SendOrPostCallback, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Queues an action for asynchronous execution.
+  example: []
+  syntax:
+    content: public void BeginInvoke(SendOrPostCallback action, object state)
+    parameters:
+    - id: action
+      type: System.Threading.SendOrPostCallback
+      description: The action to execute.
+    - id: state
+      type: System.Object
+      description: The parameter passed to <code class="paramref">action</code>.
+    content.vb: Public Sub BeginInvoke(action As SendOrPostCallback, state As Object)
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.BeginInvoke*
+  implements:
+  - PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  nameWithType.vb: ActorDispatcher.BeginInvoke(SendOrPostCallback, Object)
+  fullName.vb: PostSharp.Patterns.Threading.ActorDispatcher.BeginInvoke(System.Threading.SendOrPostCallback, Object)
+  name.vb: BeginInvoke(SendOrPostCallback, Object)
+- uid: PostSharp.Patterns.Threading.ActorDispatcher.IsQueueEmpty
+  commentId: P:PostSharp.Patterns.Threading.ActorDispatcher.IsQueueEmpty
+  id: IsQueueEmpty
+  parent: PostSharp.Patterns.Threading.ActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: IsQueueEmpty
+  nameWithType: ActorDispatcher.IsQueueEmpty
+  fullName: PostSharp.Patterns.Threading.ActorDispatcher.IsQueueEmpty
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets a value indicating whether the queue is empty.
+  example: []
+  syntax:
+    content: public bool IsQueueEmpty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsQueueEmpty As Boolean
+  overload: PostSharp.Patterns.Threading.ActorDispatcher.IsQueueEmpty*

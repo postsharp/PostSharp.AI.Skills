@@ -1,0 +1,701 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  id: CacheKeyBuilder
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor(System.Int32)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor(System.Int32,PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm,System.Int32)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type,System.Object)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendMethod(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodInfo)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendType(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(System.Object)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo,System.Collections.Generic.IList{System.Object},System.Object)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CompressKey(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Boolean,System.Int32)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose(System.Boolean)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.GetCachedMethodInfo(System.Reflection.MethodInfo)
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashBuffer(System.ReadOnlySpan{System.Byte})
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.IgnoredParameterSentinel
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.KeyCompressingThreshold
+  - PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.MaxKeySize
+  langs:
+  - csharp
+  - vb
+  name: CacheKeyBuilder
+  nameWithType: CacheKeyBuilder
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Builds cache item keys and dependency keys.
+  remarks: >-
+    <p>A method key is made of the declaring type, the method name and its generic arguments, the <code>this</code> instance (unless
+        <xref href="PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter" data-throw-if-not-resolved="false"></xref> is set) and, for each argument, the parameter type and the formatted value. Parameters annotated
+        with <xref href="PostSharp.Patterns.Caching.NotCacheKeyAttribute" data-throw-if-not-resolved="false"></xref> keep their type, but their value is replaced
+        by the <code>*</code> placeholder. Objects are formatted by the formatters of <xref href="PostSharp.Patterns.Caching.CachingServices.Formatters" data-throw-if-not-resolved="false"></xref>,
+        which fall back to <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>The key builder in use is <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder" data-throw-if-not-resolved="false"></xref>. To change the maximal key length or to compress long keys by hashing
+        them, assign a new instance created with the appropriate constructor; key compression is recommended with the Redis backend. To change how
+        keys are built, derive a class and override <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo%2cSystem.Collections.Generic.IList%7bSystem.Object%7d%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(System.Object)" data-throw-if-not-resolved="false"></xref>, or the <code>Append</code> methods they use.</p>
+  example: []
+  syntax:
+    content: 'public class CacheKeyBuilder : IDisposable'
+    content.vb: Public Class CacheKeyBuilder Implements IDisposable
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-keys'
+    altText: 'Conceptual: Customizing Cache Keys'
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: CacheKeyBuilder()
+  nameWithType: CacheKeyBuilder.CacheKeyBuilder()
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CacheKeyBuilder()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref> class with a default maximal key length of 2048 characters
+
+    and no key compression.
+  example: []
+  syntax:
+    content: public CacheKeyBuilder()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor*
+  nameWithType.vb: CacheKeyBuilder.New()
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor(System.Int32)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: CacheKeyBuilder(int)
+  nameWithType: CacheKeyBuilder.CacheKeyBuilder(int)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CacheKeyBuilder(int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref> class and specifies the maximal key length
+
+    and no key compression.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("It is recommended to enable key compression by calling the adequate constructor overload if you significantly increase the key lenght.")]
+
+      public CacheKeyBuilder(int maxKeySize)
+    parameters:
+    - id: maxKeySize
+      type: System.Int32
+      description: The maximal number of characters in cache keys before compression.
+    content.vb: >-
+      <Obsolete("It is recommended to enable key compression by calling the adequate constructor overload if you significantly increase the key lenght.")>
+
+      Public Sub New(maxKeySize As Integer)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: It is recommended to enable key compression by calling the adequate constructor overload if you significantly increase the key lenght.
+  nameWithType.vb: CacheKeyBuilder.New(Integer)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.New(Integer)
+  name.vb: New(Integer)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor(System.Int32,PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm,System.Int32)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor(System.Int32,PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm,System.Int32)
+  id: '#ctor(System.Int32,PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm,System.Int32)'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: CacheKeyBuilder(int, CacheKeyHashingAlgorithm, int)
+  nameWithType: CacheKeyBuilder.CacheKeyBuilder(int, CacheKeyHashingAlgorithm, int)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CacheKeyBuilder(int, PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm, int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref> class and specifies the maximal key length and compressing threshold.
+  example: []
+  syntax:
+    content: public CacheKeyBuilder(int maxKeySize, CacheKeyHashingAlgorithm hashingAlgorithm, int keyCompressingThreshold = 0)
+    parameters:
+    - id: maxKeySize
+      type: System.Int32
+      description: The maximal number of characters in cache keys before compression.
+    - id: hashingAlgorithm
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+      description: The algorithm used to hash the key if its length is above <code class="paramref">keyCompressingThreshold</code>.
+    - id: keyCompressingThreshold
+      type: System.Int32
+      description: The threshold in key length above which the key is compressed by hashing. The default value is 0.
+    content.vb: Public Sub New(maxKeySize As Integer, hashingAlgorithm As CacheKeyHashingAlgorithm, keyCompressingThreshold As Integer = 0)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.#ctor*
+  nameWithType.vb: CacheKeyBuilder.New(Integer, CacheKeyHashingAlgorithm, Integer)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.New(Integer, PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm, Integer)
+  name.vb: New(Integer, CacheKeyHashingAlgorithm, Integer)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.GetCachedMethodInfo(System.Reflection.MethodInfo)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.GetCachedMethodInfo(System.Reflection.MethodInfo)
+  id: GetCachedMethodInfo(System.Reflection.MethodInfo)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: GetCachedMethodInfo(MethodInfo)
+  nameWithType: CacheKeyBuilder.GetCachedMethodInfo(MethodInfo)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.GetCachedMethodInfo(System.Reflection.MethodInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the <xref href="PostSharp.Patterns.Caching.Implementation.CachedMethodInfo" data-throw-if-not-resolved="false"></xref> for a given <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected CachedMethodInfo GetCachedMethodInfo(MethodInfo method)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: A <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CachedMethodInfo
+      description: The <xref href="PostSharp.Patterns.Caching.Implementation.CachedMethodInfo" data-throw-if-not-resolved="false"></xref> for <code class="paramref">method</code>, or <code>null</code> if no <xref href="PostSharp.Patterns.Caching.Implementation.CachedMethodInfo" data-throw-if-not-resolved="false"></xref> was registered for <code class="paramref">method</code>.
+    content.vb: Protected Function GetCachedMethodInfo(method As MethodInfo) As CachedMethodInfo
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.GetCachedMethodInfo*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo,System.Collections.Generic.IList{System.Object},System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo,System.Collections.Generic.IList{System.Object},System.Object)
+  id: BuildMethodKey(System.Reflection.MethodInfo,System.Collections.Generic.IList{System.Object},System.Object)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildMethodKey(MethodInfo, IList<object>, object)
+  nameWithType: CacheKeyBuilder.BuildMethodKey(MethodInfo, IList<object>, object)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo, System.Collections.Generic.IList<object>, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Builds a cache key for a given method call.
+  example: []
+  syntax:
+    content: public virtual string BuildMethodKey(MethodInfo method, IList<object> arguments, object instance = null)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: The <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> representing the method.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438872"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    - id: arguments
+      type: System.Collections.Generic.IList{System.Object}
+      description: The arguments passed to the <code class="paramref">method</code> call.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438873"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    - id: instance
+      type: System.Object
+      description: The <code>this</code> instance of the <code class="paramref">method</code> call, or <code>null</code> if <code class="paramref">method</code> is static.
+    return:
+      type: System.String
+      description: A string that uniquely represents the method call.
+    content.vb: Public Overridable Function BuildMethodKey(method As MethodInfo, arguments As IList(Of Object), instance As Object = Nothing) As String
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey*
+  nameWithType.vb: CacheKeyBuilder.BuildMethodKey(MethodInfo, IList(Of Object), Object)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo, System.Collections.Generic.IList(Of Object), Object)
+  name.vb: BuildMethodKey(MethodInfo, IList(Of Object), Object)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(System.Object)
+  id: BuildDependencyKey(System.Object)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: BuildDependencyKey(object)
+  nameWithType: CacheKeyBuilder.BuildDependencyKey(object)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Builds a dependency key for a given object.
+  example: []
+  syntax:
+    content: public virtual string BuildDependencyKey(object o)
+    parameters:
+    - id: o
+      type: System.Object
+      description: An object.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438874"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    return:
+      type: System.String
+      description: A dependency key that uniquely represents <code class="paramref">o</code>.
+    content.vb: Public Overridable Function BuildDependencyKey(o As Object) As String
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey*
+  nameWithType.vb: CacheKeyBuilder.BuildDependencyKey(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(Object)
+  name.vb: BuildDependencyKey(Object)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendMethod(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodInfo)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendMethod(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodInfo)
+  id: AppendMethod(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodInfo)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendMethod(UnsafeStringBuilder, MethodInfo)
+  nameWithType: CacheKeyBuilder.AppendMethod(UnsafeStringBuilder, MethodInfo)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendMethod(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Reflection.MethodInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Appends the method name and generic arguments to an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual void AppendMethod(UnsafeStringBuilder stringBuilder, MethodInfo method)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: An <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438875"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: A <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438876"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    content.vb: Protected Overridable Sub AppendMethod(stringBuilder As UnsafeStringBuilder, method As MethodInfo)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendMethod*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type,System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type,System.Object)
+  id: AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type,System.Object)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendArgument(UnsafeStringBuilder, Type, object)
+  nameWithType: CacheKeyBuilder.AppendArgument(UnsafeStringBuilder, Type, object)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Type, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Appends a method argument to an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>. To avoid ambiguities between different overloads of the same method, the default implementation appends
+
+    both the parameter type and the value key.
+  example: []
+  syntax:
+    content: protected virtual void AppendArgument(UnsafeStringBuilder stringBuilder, Type parameterType, object parameterValue)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: An <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438877"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    - id: parameterType
+      type: System.Type
+      description: The type of the parameter.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438878"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    - id: parameterValue
+      type: System.Object
+      description: The value assigned to the parameter (can be <code>null</code>).
+    content.vb: Protected Overridable Sub AppendArgument(stringBuilder As UnsafeStringBuilder, parameterType As Type, parameterValue As Object)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument*
+  nameWithType.vb: CacheKeyBuilder.AppendArgument(UnsafeStringBuilder, Type, Object)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Type, Object)
+  name.vb: AppendArgument(UnsafeStringBuilder, Type, Object)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendType(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendType(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  id: AppendType(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendType(UnsafeStringBuilder, Type)
+  nameWithType: CacheKeyBuilder.AppendType(UnsafeStringBuilder, Type)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendType(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Appends a <xref href="System.Type" data-throw-if-not-resolved="false"></xref> name to an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual void AppendType(UnsafeStringBuilder stringBuilder, Type type)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: An <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: type
+      type: System.Type
+      description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438879"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    content.vb: Protected Overridable Sub AppendType(stringBuilder As UnsafeStringBuilder, type As Type)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendType*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  id: AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: AppendObject(UnsafeStringBuilder, object)
+  nameWithType: CacheKeyBuilder.AppendObject(UnsafeStringBuilder, object)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Appends a string representing an <xref href="System.Object" data-throw-if-not-resolved="false"></xref> to an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual void AppendObject(UnsafeStringBuilder stringBuilder, object o)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: An <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438880"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    - id: o
+      type: System.Object
+      description: An <xref href="System.Object" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+        namedArguments:
+        - name: AttributeId
+          type: System.Int64
+          value: "975532479039438881"
+        - name: AttributePriority
+          type: System.Int32
+          value: 671088640
+    content.vb: Protected Overridable Sub AppendObject(stringBuilder As UnsafeStringBuilder, o As Object)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject*
+  nameWithType.vb: CacheKeyBuilder.AppendObject(UnsafeStringBuilder, Object)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder, Object)
+  name.vb: AppendObject(UnsafeStringBuilder, Object)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashBuffer(System.ReadOnlySpan{System.Byte})
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashBuffer(System.ReadOnlySpan{System.Byte})
+  id: HashBuffer(System.ReadOnlySpan{System.Byte})
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: HashBuffer(ReadOnlySpan<byte>)
+  nameWithType: CacheKeyBuilder.HashBuffer(ReadOnlySpan<byte>)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashBuffer(System.ReadOnlySpan<byte>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Hashes a buffer using <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual string HashBuffer(ReadOnlySpan<byte> buffer)
+    parameters:
+    - id: buffer
+      type: System.ReadOnlySpan{System.Byte}
+      description: The buffer to hash.
+    return:
+      type: System.String
+      description: The hash of the buffer, as a string.
+    content.vb: Protected Overridable Function HashBuffer(buffer As ReadOnlySpan(Of Byte)) As String
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashBuffer*
+  nameWithType.vb: CacheKeyBuilder.HashBuffer(ReadOnlySpan(Of Byte))
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashBuffer(System.ReadOnlySpan(Of Byte))
+  name.vb: HashBuffer(ReadOnlySpan(Of Byte))
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CompressKey(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Boolean,System.Int32)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CompressKey(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Boolean,System.Int32)
+  id: CompressKey(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Boolean,System.Int32)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: CompressKey(UnsafeStringBuilder, bool, int)
+  nameWithType: CacheKeyBuilder.CompressKey(UnsafeStringBuilder, bool, int)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CompressKey(PostSharp.Patterns.Formatters.UnsafeStringBuilder, bool, int)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Compresses the key if necessary.
+  example: []
+  syntax:
+    content: protected virtual string CompressKey(UnsafeStringBuilder stringBuilder, bool useMethodNameAsPrefix, int threshold)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The uncompressed key.
+    - id: useMethodNameAsPrefix
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the key is from <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo%2cSystem.Collections.Generic.IList%7bSystem.Object%7d%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>, <code>false</code> when it is from <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(System.Object)" data-throw-if-not-resolved="false"></xref>.
+            In method keys, the method name is kept as a prefix, but parameters and type parameters are stripped.
+    - id: threshold
+      type: System.Int32
+      description: The minimal key length above which the key is compressed.
+    return:
+      type: System.String
+      description: The compressed key.
+    content.vb: Protected Overridable Function CompressKey(stringBuilder As UnsafeStringBuilder, useMethodNameAsPrefix As Boolean, threshold As Integer) As String
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CompressKey*
+  nameWithType.vb: CacheKeyBuilder.CompressKey(UnsafeStringBuilder, Boolean, Integer)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.CompressKey(PostSharp.Patterns.Formatters.UnsafeStringBuilder, Boolean, Integer)
+  name.vb: CompressKey(UnsafeStringBuilder, Boolean, Integer)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: CacheKeyBuilder.Dispose(bool)
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Disposes the current object.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose" data-throw-if-not-resolved="false"></xref> method has been called, <code>false</code> if the object is being finalized by the garbage collector.
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose*
+  nameWithType.vb: CacheKeyBuilder.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: CacheKeyBuilder.Dispose()
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm
+  id: HashingAlgorithm
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: HashingAlgorithm
+  nameWithType: CacheKeyBuilder.HashingAlgorithm
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the algorithm used to compress the key if its length is above <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.KeyCompressingThreshold" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CacheKeyHashingAlgorithm HashingAlgorithm { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm
+    content.vb: Public ReadOnly Property HashingAlgorithm As CacheKeyHashingAlgorithm
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.KeyCompressingThreshold
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.KeyCompressingThreshold
+  id: KeyCompressingThreshold
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: KeyCompressingThreshold
+  nameWithType: CacheKeyBuilder.KeyCompressingThreshold
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.KeyCompressingThreshold
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the length above which a key will be compressed if <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.HashingAlgorithm" data-throw-if-not-resolved="false"></xref> is not <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm.None" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int KeyCompressingThreshold { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property KeyCompressingThreshold As Integer
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.KeyCompressingThreshold*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.IgnoredParameterSentinel
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.IgnoredParameterSentinel
+  id: IgnoredParameterSentinel
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: IgnoredParameterSentinel
+  nameWithType: CacheKeyBuilder.IgnoredParameterSentinel
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.IgnoredParameterSentinel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets a sentinel object that means that the parameter is not a part of the cache key, and should be ignored.
+  example: []
+  syntax:
+    content: protected object IgnoredParameterSentinel { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Protected ReadOnly Property IgnoredParameterSentinel As Object
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.IgnoredParameterSentinel*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.MaxKeySize
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.MaxKeySize
+  id: MaxKeySize
+  parent: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+  langs:
+  - csharp
+  - vb
+  name: MaxKeySize
+  nameWithType: CacheKeyBuilder.MaxKeySize
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.MaxKeySize
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the maximal number of characters in cache keys.
+  example: []
+  syntax:
+    content: public int MaxKeySize { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property MaxKeySize As Integer
+  overload: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.MaxKeySize*

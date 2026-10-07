@@ -1,0 +1,859 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  commentId: T:PostSharp.Patterns.Collections.AdvisableDictionary`2
+  id: AdvisableDictionary`2
+  parent: PostSharp.Patterns.Collections
+  children:
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Int32)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Add(`0,`1)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.AddItem(`0,`1)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Clear
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.ClearItems
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsKey(`0)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsValue(`1)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Count
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.GetAdviceEnumerator
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.GetEnumerator
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.IsReadOnly
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Item(`0)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Keys
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.OnDeserialization(System.Object)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Remove(`0)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.RemoveItem(`0)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.SetItem(`0,`1,`1)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.TryGetValue(`0,`1@)
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2.Values
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary<TKey, TValue>
+  nameWithType: AdvisableDictionary<TKey, TValue>
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: >-
+    An implementation of a <xref href="System.Collections.Generic.Dictionary%602" data-throw-if-not-resolved="false"></xref> into which advices can be injected dynamically. The class also allows derived classes to add new behaviors by overriding methods,
+
+    like the <xref href="System.Collections.ObjectModel.Collection%601" data-throw-if-not-resolved="false"></xref> class does.
+  remarks: >-
+    <p>To learn how to extend this class, see the <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601" data-throw-if-not-resolved="false"></xref> class documentation.</p>
+
+    <p>Use this class instead of <xref href="System.Collections.Generic.Dictionary%602" data-throw-if-not-resolved="false"></xref> in the child properties of classes that use patterns such as Aggregatable, Recordable
+        or threading models, which inject their behavior into advisable collections at run time.</p>
+  example: []
+  syntax:
+    content: 'public class AdvisableDictionary<TKey, TValue> : DynamicallyAdvisableObject, ISerializable, IDeserializationCallback, IDynamicallyAdvisableDictionary, IDynamicallyAdvisable, IQueryInterface, IDictionary, ICollection, IDictionary<TKey, TValue>, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable'
+    typeParameters:
+    - id: TKey
+      description: The type of keys in the dictionary.
+    - id: TValue
+      description: The type of values in the dictionary.
+    content.vb: Public Class AdvisableDictionary(Of TKey, TValue) Inherits DynamicallyAdvisableObject Implements ISerializable, IDeserializationCallback, IDynamicallyAdvisableDictionary, IDynamicallyAdvisable, IQueryInterface, IDictionary, ICollection, IDictionary(Of TKey, TValue), ICollection(Of KeyValuePair(Of TKey, TValue)), IEnumerable(Of KeyValuePair(Of TKey, TValue)), IEnumerable
+  seealso:
+  - linkType: HRef
+    linkId: '@advisable-collections'
+    altText: 'Conceptual: Working With Child Collections'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  - System.Runtime.Serialization.IDeserializationCallback
+  - PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableDictionary
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - System.Collections.IDictionary
+  - System.Collections.ICollection
+  - System.Collections.Generic.IDictionary{{TKey},{TValue}}
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.InitializeAdvices(PostSharp.Patterns.DynamicAdvising.IExecuteActionDynamicAdvice)
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetAdviceEnumerator``1
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.ExecuteWithAdvices``2(PostSharp.Patterns.Model.ObjectAccessLevel,{TAction}@)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - System.Collections.Generic.IDictionary{`0,`1}.PostSharp.Patterns.Collections.Extensions.ToAdvisableDictionary``2
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}.PostSharp.Patterns.Collections.Extensions.ToAdvisableCollection``1
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}.PostSharp.Patterns.Collections.Extensions.ToAdvisableDictionary``3(System.Func{System.Collections.Generic.KeyValuePair{{TKey},{TValue}},{TKey}},System.Func{System.Collections.Generic.KeyValuePair{{TKey},{TValue}},{TValue}})
+  - System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,`1}}.PostSharp.Patterns.Collections.Extensions.ToAdvisableHashSet``1
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue)
+  name.vb: AdvisableDictionary(Of TKey, TValue)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary()
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary()
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> class
+
+    that is empty, has the default initial capacity, and uses the default equality comparer for the key type.
+  example: []
+  syntax:
+    content: public AdvisableDictionary()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})
+  id: '#ctor(System.Collections.Generic.IDictionary{`0,`1})'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary(IDictionary<TKey, TValue>)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary(IDictionary<TKey, TValue>)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary(System.Collections.Generic.IDictionary<TKey, TValue>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> class that contains elements copied from the specified <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> and uses the default equality comparer for the key type.
+  example: []
+  syntax:
+    content: public AdvisableDictionary(IDictionary<TKey, TValue> dictionary)
+    parameters:
+    - id: dictionary
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+      description: The <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> whose elements are copied to the new <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(dictionary As IDictionary(Of TKey, TValue))
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New(IDictionary(Of TKey, TValue))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New(System.Collections.Generic.IDictionary(Of TKey, TValue))
+  name.vb: New(IDictionary(Of TKey, TValue))
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})
+  id: '#ctor(System.Collections.Generic.IEqualityComparer{`0})'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary(IEqualityComparer<TKey>)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary(IEqualityComparer<TKey>)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary(System.Collections.Generic.IEqualityComparer<TKey>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> class that is empty, has the default initial capacity, and uses the specified equality comparer for the key type.
+  example: []
+  syntax:
+    content: public AdvisableDictionary(IEqualityComparer<TKey> comparer)
+    parameters:
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{TKey}}
+      description: The <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation to use when comparing keys, or <code>null</code> to use the default <xref href="System.Collections.Generic.EqualityComparer%601" data-throw-if-not-resolved="false"></xref> for the type of the key.
+    content.vb: Public Sub New(comparer As IEqualityComparer(Of TKey))
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New(IEqualityComparer(Of TKey))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New(System.Collections.Generic.IEqualityComparer(Of TKey))
+  name.vb: New(IEqualityComparer(Of TKey))
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Int32)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary(int)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary(int)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary(int)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> class
+
+    that is empty, has the specified initial capacity, and uses the default equality comparer for the key type.
+  example: []
+  syntax:
+    content: public AdvisableDictionary(int capacity)
+    parameters:
+    - id: capacity
+      type: System.Int32
+      description: The initial number of elements that the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> can contain.
+    content.vb: Public Sub New(capacity As Integer)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New(Integer)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New(Integer)
+  name.vb: New(Integer)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})
+  id: '#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IEqualityComparer{`0})'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary(IDictionary<TKey, TValue>, IEqualityComparer<TKey>)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary(IDictionary<TKey, TValue>, IEqualityComparer<TKey>)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary(System.Collections.Generic.IDictionary<TKey, TValue>, System.Collections.Generic.IEqualityComparer<TKey>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> class that contains elements copied from the specified <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> and uses the specified <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AdvisableDictionary(IDictionary<TKey, TValue> dictionary, IEqualityComparer<TKey> comparer)
+    parameters:
+    - id: dictionary
+      type: System.Collections.Generic.IDictionary{{TKey},{TValue}}
+      description: The <xref href="System.Collections.Generic.IDictionary%602" data-throw-if-not-resolved="false"></xref> whose elements are copied to the new <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{TKey}}
+      description: The <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation to use when comparing keys, or <code>null</code> to use the default <xref href="System.Collections.Generic.EqualityComparer%601" data-throw-if-not-resolved="false"></xref> for the type of the key.
+    content.vb: Public Sub New(dictionary As IDictionary(Of TKey, TValue), comparer As IEqualityComparer(Of TKey))
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New(IDictionary(Of TKey, TValue), IEqualityComparer(Of TKey))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New(System.Collections.Generic.IDictionary(Of TKey, TValue), System.Collections.Generic.IEqualityComparer(Of TKey))
+  name.vb: New(IDictionary(Of TKey, TValue), IEqualityComparer(Of TKey))
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})
+  id: '#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary(int, IEqualityComparer<TKey>)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary(int, IEqualityComparer<TKey>)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary(int, System.Collections.Generic.IEqualityComparer<TKey>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> class that is empty, has a specified initial capacity, and uses the specified equality comparer for the key type.
+  example: []
+  syntax:
+    content: public AdvisableDictionary(int capacity, IEqualityComparer<TKey> comparer)
+    parameters:
+    - id: capacity
+      type: System.Int32
+      description: The initial number of elements that the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> can contain.
+    - id: comparer
+      type: System.Collections.Generic.IEqualityComparer{{TKey}}
+      description: The <xref href="System.Collections.Generic.IEqualityComparer%601" data-throw-if-not-resolved="false"></xref> implementation to use when comparing keys, or <code>null</code> to use the default <xref href="System.Collections.Generic.EqualityComparer%601" data-throw-if-not-resolved="false"></xref> for the type of the key.
+    content.vb: Public Sub New(capacity As Integer, comparer As IEqualityComparer(Of TKey))
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New(Integer, IEqualityComparer(Of TKey))
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New(Integer, System.Collections.Generic.IEqualityComparer(Of TKey))
+  name.vb: New(Integer, IEqualityComparer(Of TKey))
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.GetAdviceEnumerator
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.GetAdviceEnumerator
+  id: GetAdviceEnumerator
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: GetAdviceEnumerator()
+  nameWithType: AdvisableDictionary<TKey, TValue>.GetAdviceEnumerator()
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.GetAdviceEnumerator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets an <xref href="PostSharp.Patterns.DynamicAdvising.AdviceEnumerator%601" data-throw-if-not-resolved="false"></xref> for the <xref href="PostSharp.Patterns.Collections.Advices.ICollectionDynamicAdvice%601" data-throw-if-not-resolved="false"></xref> interface.
+  example: []
+  syntax:
+    content: protected AdviceEnumerator<IDictionaryDynamicAdvice<TKey, TValue>> GetAdviceEnumerator()
+    return:
+      type: PostSharp.Patterns.DynamicAdvising.AdviceEnumerator{PostSharp.Patterns.Collections.Advices.IDictionaryDynamicAdvice{{TKey},{TValue}}}
+      description: ''
+    content.vb: Protected Function GetAdviceEnumerator() As AdviceEnumerator(Of IDictionaryDynamicAdvice(Of TKey, TValue))
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.GetAdviceEnumerator*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).GetAdviceEnumerator()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).GetAdviceEnumerator()
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.AddItem(`0,`1)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.AddItem(`0,`1)
+  id: AddItem(`0,`1)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AddItem(TKey, TValue)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AddItem(TKey, TValue)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AddItem(TKey, TValue)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Adds an element into the underlying dictionary.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void AddItem(TKey key, TValue value)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: The key of the element to add.
+    - id: value
+      type: '{TValue}'
+      description: The value of the element to add. The value can be <code>null</code> for reference types.
+    content.vb: Protected Overridable Sub AddItem(key As TKey, value As TValue)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.AddItem*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).AddItem(TKey, TValue)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).AddItem(TKey, TValue)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.SetItem(`0,`1,`1)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.SetItem(`0,`1,`1)
+  id: SetItem(`0,`1,`1)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: SetItem(TKey, TValue, TValue)
+  nameWithType: AdvisableDictionary<TKey, TValue>.SetItem(TKey, TValue, TValue)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.SetItem(TKey, TValue, TValue)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Sets the value with the specified key in the underlying dictionary.
+  remarks: >-
+    <p>There is redundancy in requiring both <code class="paramref">key</code> and <code class="paramref">oldValue</code>, but this redundancy is required for performance reasons.
+          </p>
+      <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void SetItem(TKey key, TValue value, TValue oldValue)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: The key of the element to add or replace.
+    - id: value
+      type: '{TValue}'
+      description: The new value to assign to the key.
+    - id: oldValue
+      type: '{TValue}'
+      description: The old value assigned to <code class="paramref">key</code>, or <code>null</code> if there is currently no value assigned to <code class="paramref">key</code>.
+    content.vb: Protected Overridable Sub SetItem(key As TKey, value As TValue, oldValue As TValue)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.SetItem*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).SetItem(TKey, TValue, TValue)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).SetItem(TKey, TValue, TValue)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.RemoveItem(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.RemoveItem(`0)
+  id: RemoveItem(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: RemoveItem(TKey)
+  nameWithType: AdvisableDictionary<TKey, TValue>.RemoveItem(TKey)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.RemoveItem(TKey)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Removes the value with the specific key from the underlying dictionary.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual bool RemoveItem(TKey key)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: The key of the element to remove.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the element was successfully found and removed, otherwise <code>false</code>. This method returns <code>false</code> if <code class="paramref">key</code>
+            is not found in the underlying dictionary.
+    content.vb: Protected Overridable Function RemoveItem(key As TKey) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.RemoveItem*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).RemoveItem(TKey)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).RemoveItem(TKey)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.ClearItems
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.ClearItems
+  id: ClearItems
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: ClearItems()
+  nameWithType: AdvisableDictionary<TKey, TValue>.ClearItems()
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.ClearItems()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Removes all keys and items from the underlying dictionary.
+  remarks: >-
+    <p>
+        <div class="NOTE"><h5>note</h5><p>
+      This method does not cause the advices to be executed. It should be invoked only from inside the scope of
+      the <code>ExecuteWithAdvices</code> method.
+    </p></div>
+      </p>
+  example: []
+  syntax:
+    content: protected virtual void ClearItems()
+    content.vb: Protected Overridable Sub ClearItems()
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.ClearItems*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).ClearItems()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).ClearItems()
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsKey(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsKey(`0)
+  id: ContainsKey(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: ContainsKey(TKey)
+  nameWithType: AdvisableDictionary<TKey, TValue>.ContainsKey(TKey)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.ContainsKey(TKey)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool ContainsKey(TKey key)
+    parameters:
+    - id: key
+      type: '{TKey}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function ContainsKey(key As TKey) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsKey*
+  implements:
+  - System.Collections.Generic.IDictionary{{TKey},{TValue}}.ContainsKey({TKey})
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).ContainsKey(TKey)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).ContainsKey(TKey)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsValue(`1)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsValue(`1)
+  id: ContainsValue(`1)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: ContainsValue(TValue)
+  nameWithType: AdvisableDictionary<TKey, TValue>.ContainsValue(TValue)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.ContainsValue(TValue)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Determines whether the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> contains a specific value.
+  example: []
+  syntax:
+    content: public bool ContainsValue(TValue value)
+    parameters:
+    - id: value
+      type: '{TValue}'
+      description: >-
+        The value to locate in the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+                    The value can be <code>null</code> for reference types.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref> contains an element with the specified value; otherwise, <code>false</code>.
+    content.vb: Public Function ContainsValue(value As TValue) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.ContainsValue*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).ContainsValue(TValue)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).ContainsValue(TValue)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Add(`0,`1)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.Add(`0,`1)
+  id: Add(`0,`1)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Add(TKey, TValue)
+  nameWithType: AdvisableDictionary<TKey, TValue>.Add(TKey, TValue)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.Add(TKey, TValue)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void Add(TKey key, TValue value)
+    parameters:
+    - id: key
+      type: '{TKey}'
+    - id: value
+      type: '{TValue}'
+    content.vb: Public Sub Add(key As TKey, value As TValue)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Add*
+  implements:
+  - System.Collections.Generic.IDictionary{{TKey},{TValue}}.Add({TKey},{TValue})
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).Add(TKey, TValue)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).Add(TKey, TValue)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Remove(`0)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.Remove(`0)
+  id: Remove(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Remove(TKey)
+  nameWithType: AdvisableDictionary<TKey, TValue>.Remove(TKey)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.Remove(TKey)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool Remove(TKey key)
+    parameters:
+    - id: key
+      type: '{TKey}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function Remove(key As TKey) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Remove*
+  implements:
+  - System.Collections.Generic.IDictionary{{TKey},{TValue}}.Remove({TKey})
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).Remove(TKey)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).Remove(TKey)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.TryGetValue(`0,`1@)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.TryGetValue(`0,`1@)
+  id: TryGetValue(`0,`1@)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: TryGetValue(TKey, out TValue)
+  nameWithType: AdvisableDictionary<TKey, TValue>.TryGetValue(TKey, out TValue)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.TryGetValue(TKey, out TValue)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool TryGetValue(TKey key, out TValue value)
+    parameters:
+    - id: key
+      type: '{TKey}'
+    - id: value
+      type: '{TValue}'
+    return:
+      type: System.Boolean
+    content.vb: Public Function TryGetValue(key As TKey, value As TValue) As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.TryGetValue*
+  implements:
+  - System.Collections.Generic.IDictionary{{TKey},{TValue}}.TryGetValue({TKey},{TValue}@)
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).TryGetValue(TKey, TValue)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).TryGetValue(TKey, TValue)
+  name.vb: TryGetValue(TKey, TValue)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Clear
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.Clear
+  id: Clear
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: AdvisableDictionary<TKey, TValue>.Clear()
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.Clear()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Clear*
+  implements:
+  - System.Collections.IDictionary.Clear
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}.Clear
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).Clear()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).Clear()
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: AdvisableDictionary(SerializationInfo, StreamingContext)
+  nameWithType: AdvisableDictionary<TKey, TValue>.AdvisableDictionary(SerializationInfo, StreamingContext)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.AdvisableDictionary(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Deserialization constructor.
+  example: []
+  syntax:
+    content: protected AdvisableDictionary(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: ''
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: ''
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.#ctor*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).New(SerializationInfo, StreamingContext)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).New(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  name.vb: New(SerializationInfo, StreamingContext)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: AdvisableDictionary<TKey, TValue>.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: >-
+      [SecurityCritical]
+
+      public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+    content.vb: >-
+      <SecurityCritical>
+
+      Public Overrides Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overridden: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.GetObjectData*
+  attributes:
+  - type: System.Security.SecurityCriticalAttribute
+    ctor: System.Security.SecurityCriticalAttribute.#ctor
+    arguments: []
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).GetObjectData(SerializationInfo, StreamingContext)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.OnDeserialization(System.Object)
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.OnDeserialization(System.Object)
+  id: OnDeserialization(System.Object)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: OnDeserialization(object)
+  nameWithType: AdvisableDictionary<TKey, TValue>.OnDeserialization(object)
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.OnDeserialization(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public override void OnDeserialization(object sender)
+    parameters:
+    - id: sender
+      type: System.Object
+    content.vb: Public Overrides Sub OnDeserialization(sender As Object)
+  overridden: PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject.OnDeserialization(System.Object)
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.OnDeserialization*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).OnDeserialization(Object)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).OnDeserialization(Object)
+  name.vb: OnDeserialization(Object)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.GetEnumerator
+  commentId: M:PostSharp.Patterns.Collections.AdvisableDictionary`2.GetEnumerator
+  id: GetEnumerator
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: AdvisableDictionary<TKey, TValue>.GetEnumerator()
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.GetEnumerator()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Returns an enumerator that iterates through the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AdvisableDictionary<TKey, TValue>.Enumerator GetEnumerator()
+    return:
+      type: PostSharp.Patterns.Collections.AdvisableDictionary`2.Enumerator
+      description: An <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602.Enumerator" data-throw-if-not-resolved="false"></xref> structure for the current <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function GetEnumerator() As AdvisableDictionary(Of TKey, TValue).Enumerator
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.GetEnumerator*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).GetEnumerator()
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).GetEnumerator()
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Item(`0)
+  commentId: P:PostSharp.Patterns.Collections.AdvisableDictionary`2.Item(`0)
+  id: Item(`0)
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: this[TKey]
+  nameWithType: AdvisableDictionary<TKey, TValue>.this[TKey]
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.this[TKey]
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public TValue this[TKey key] { get; set; }
+    parameters:
+    - id: key
+      type: '{TKey}'
+    return:
+      type: '{TValue}'
+    content.vb: Public Default Property this[](key As TKey) As TValue
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Item*
+  implements:
+  - System.Collections.Generic.IDictionary{{TKey},{TValue}}.Item({TKey})
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).this[](TKey)
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).this[](TKey)
+  name.vb: this[](TKey)
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Keys
+  commentId: P:PostSharp.Patterns.Collections.AdvisableDictionary`2.Keys
+  id: Keys
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Keys
+  nameWithType: AdvisableDictionary<TKey, TValue>.Keys
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.Keys
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets a collection containing the keys in the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AdvisableDictionary<TKey, TValue>.KeyCollection Keys { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Collections.AdvisableDictionary`2.KeyCollection
+    content.vb: Public ReadOnly Property Keys As AdvisableDictionary(Of TKey, TValue).KeyCollection
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Keys*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).Keys
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).Keys
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Values
+  commentId: P:PostSharp.Patterns.Collections.AdvisableDictionary`2.Values
+  id: Values
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Values
+  nameWithType: AdvisableDictionary<TKey, TValue>.Values
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.Values
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  summary: Gets a collection containing the values in the <xref href="PostSharp.Patterns.Collections.AdvisableDictionary%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AdvisableDictionary<TKey, TValue>.ValueCollection Values { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Collections.AdvisableDictionary`2.ValueCollection
+    content.vb: Public ReadOnly Property Values As AdvisableDictionary(Of TKey, TValue).ValueCollection
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Values*
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).Values
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).Values
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.IsReadOnly
+  commentId: P:PostSharp.Patterns.Collections.AdvisableDictionary`2.IsReadOnly
+  id: IsReadOnly
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: AdvisableDictionary<TKey, TValue>.IsReadOnly
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.IsReadOnly
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.IsReadOnly*
+  implements:
+  - System.Collections.IDictionary.IsReadOnly
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}.IsReadOnly
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).IsReadOnly
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).IsReadOnly
+- uid: PostSharp.Patterns.Collections.AdvisableDictionary`2.Count
+  commentId: P:PostSharp.Patterns.Collections.AdvisableDictionary`2.Count
+  id: Count
+  parent: PostSharp.Patterns.Collections.AdvisableDictionary`2
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: AdvisableDictionary<TKey, TValue>.Count
+  fullName: PostSharp.Patterns.Collections.AdvisableDictionary<TKey, TValue>.Count
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: PostSharp.Patterns.Collections.AdvisableDictionary`2.Count*
+  implements:
+  - System.Collections.ICollection.Count
+  - System.Collections.Generic.ICollection{System.Collections.Generic.KeyValuePair{{TKey},{TValue}}}.Count
+  nameWithType.vb: AdvisableDictionary(Of TKey, TValue).Count
+  fullName.vb: PostSharp.Patterns.Collections.AdvisableDictionary(Of TKey, TValue).Count

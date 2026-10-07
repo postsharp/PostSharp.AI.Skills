@@ -1,0 +1,250 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.UnsafeString
+  commentId: T:PostSharp.Patterns.Formatters.UnsafeString
+  id: UnsafeString
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.UnsafeString.#ctor(System.Char[])
+  - PostSharp.Patterns.Formatters.UnsafeString.#ctor(System.String)
+  - PostSharp.Patterns.Formatters.UnsafeString.Buffer
+  - PostSharp.Patterns.Formatters.UnsafeString.IsImmutable
+  - PostSharp.Patterns.Formatters.UnsafeString.Length
+  - PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable
+  - PostSharp.Patterns.Formatters.UnsafeString.ToCharArray
+  - PostSharp.Patterns.Formatters.UnsafeString.ToString
+  langs:
+  - csharp
+  - vb
+  name: UnsafeString
+  nameWithType: UnsafeString
+  fullName: PostSharp.Patterns.Formatters.UnsafeString
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    A generalized representation of a string that can be backed by a system <xref href="System.String" data-throw-if-not-resolved="false"></xref>,
+
+    a <code>char[]</code>, or an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>. Conversions between these types happen transparently
+
+    and are cached.
+  remarks: >-
+    <p>Because an <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> can be backed by an <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>, which is a mutable
+        type, and is generally pooled and reused for different purposes,
+        it is generally not safe to evaluate an <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> at a different moment than the one designated by
+        the API that exposes the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref>. To make it safe to evaluate the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> at any
+        moment, call the <xref href="PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable" data-throw-if-not-resolved="false"></xref> method, which unbinds the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> from
+        its parent <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public sealed class UnsafeString
+    content.vb: Public NotInheritable Class UnsafeString
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Formatters.UnsafeString.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeString.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: UnsafeString(string)
+  nameWithType: UnsafeString.UnsafeString(string)
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.UnsafeString(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> class backed by a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UnsafeString(string str)
+    parameters:
+    - id: str
+      type: System.String
+      description: A non-null <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(str As String)
+  overload: PostSharp.Patterns.Formatters.UnsafeString.#ctor*
+  nameWithType.vb: UnsafeString.New(String)
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeString.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Formatters.UnsafeString.#ctor(System.Char[])
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeString.#ctor(System.Char[])
+  id: '#ctor(System.Char[])'
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: UnsafeString(char[])
+  nameWithType: UnsafeString.UnsafeString(char[])
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.UnsafeString(char[])
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> class backed by an array of <xref href="System.Char" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public UnsafeString(char[] array)
+    parameters:
+    - id: array
+      type: System.Char[]
+      description: A non-null array of <xref href="System.Char" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(array As Char())
+  overload: PostSharp.Patterns.Formatters.UnsafeString.#ctor*
+  nameWithType.vb: UnsafeString.New(Char())
+  fullName.vb: PostSharp.Patterns.Formatters.UnsafeString.New(Char())
+  name.vb: New(Char())
+- uid: PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable
+  id: MakeImmutable
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: MakeImmutable()
+  nameWithType: UnsafeString.MakeImmutable()
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    If the current <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> is bound to its origin <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>,
+
+    this method evaluates the <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> and breaks the binding, so that later changes in the
+
+    <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> do not cause changes in the current <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref>.
+
+    This method also prevents the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> from being recycled.
+  example: []
+  syntax:
+    content: public void MakeImmutable()
+    content.vb: Public Sub MakeImmutable()
+  overload: PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable*
+- uid: PostSharp.Patterns.Formatters.UnsafeString.ToCharArray
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeString.ToCharArray
+  id: ToCharArray
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: ToCharArray()
+  nameWithType: UnsafeString.ToCharArray()
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.ToCharArray()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets an <xref href="System.ArraySegment%601" data-throw-if-not-resolved="false"></xref> that represents the current <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ArraySegment<char> ToCharArray()
+    return:
+      type: System.ArraySegment{System.Char}
+      description: An <xref href="System.ArraySegment%601" data-throw-if-not-resolved="false"></xref> that represents the current <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function ToCharArray() As ArraySegment(Of Char)
+  overload: PostSharp.Patterns.Formatters.UnsafeString.ToCharArray*
+- uid: PostSharp.Patterns.Formatters.UnsafeString.ToString
+  commentId: M:PostSharp.Patterns.Formatters.UnsafeString.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: UnsafeString.ToString()
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Formatters.UnsafeString.ToString*
+- uid: PostSharp.Patterns.Formatters.UnsafeString.Buffer
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeString.Buffer
+  id: Buffer
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: Buffer
+  nameWithType: UnsafeString.Buffer
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.Buffer
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets an unmanaged pointer to the string.
+  example: []
+  syntax:
+    content: public nint Buffer { get; }
+    parameters: []
+    return:
+      type: System.IntPtr
+    content.vb: Public ReadOnly Property Buffer As IntPtr
+  overload: PostSharp.Patterns.Formatters.UnsafeString.Buffer*
+- uid: PostSharp.Patterns.Formatters.UnsafeString.IsImmutable
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeString.IsImmutable
+  id: IsImmutable
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: IsImmutable
+  nameWithType: UnsafeString.IsImmutable
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.IsImmutable
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: >-
+    Gets a value indicating whether the current <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> is immutable
+
+    or, when the value of this property is <code>false</code>, if it is still bound to a mutable <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+
+    Call the <xref href="PostSharp.Patterns.Formatters.UnsafeString.MakeImmutable" data-throw-if-not-resolved="false"></xref> method to make the <xref href="PostSharp.Patterns.Formatters.UnsafeString" data-throw-if-not-resolved="false"></xref> immutable.
+  example: []
+  syntax:
+    content: public bool IsImmutable { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsImmutable As Boolean
+  overload: PostSharp.Patterns.Formatters.UnsafeString.IsImmutable*
+- uid: PostSharp.Patterns.Formatters.UnsafeString.Length
+  commentId: P:PostSharp.Patterns.Formatters.UnsafeString.Length
+  id: Length
+  parent: PostSharp.Patterns.Formatters.UnsafeString
+  langs:
+  - csharp
+  - vb
+  name: Length
+  nameWithType: UnsafeString.Length
+  fullName: PostSharp.Patterns.Formatters.UnsafeString.Length
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Gets the number of characters in the string.
+  example: []
+  syntax:
+    content: public int Length { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Length As Integer
+  overload: PostSharp.Patterns.Formatters.UnsafeString.Length*

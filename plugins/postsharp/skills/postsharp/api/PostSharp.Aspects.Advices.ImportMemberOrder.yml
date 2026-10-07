@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ImportMemberOrder
+  commentId: T:PostSharp.Aspects.Advices.ImportMemberOrder
+  id: ImportMemberOrder
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ImportMemberOrder.AfterIntroductions
+  - PostSharp.Aspects.Advices.ImportMemberOrder.BeforeIntroductions
+  - PostSharp.Aspects.Advices.ImportMemberOrder.Default
+  langs:
+  - csharp
+  - vb
+  name: ImportMemberOrder
+  nameWithType: ImportMemberOrder
+  fullName: PostSharp.Aspects.Advices.ImportMemberOrder
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Specifies the moment when members should be imported into an aspect.
+  example: []
+  syntax:
+    content: public enum ImportMemberOrder
+    content.vb: Public Enum ImportMemberOrder
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+- uid: PostSharp.Aspects.Advices.ImportMemberOrder.Default
+  commentId: F:PostSharp.Aspects.Advices.ImportMemberOrder.Default
+  id: Default
+  parent: PostSharp.Aspects.Advices.ImportMemberOrder
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: ImportMemberOrder.Default
+  fullName: PostSharp.Aspects.Advices.ImportMemberOrder.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The default value, which is <xref href="PostSharp.Aspects.Advices.ImportMemberOrder.AfterIntroductions" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.Advices.ImportMemberOrder
+- uid: PostSharp.Aspects.Advices.ImportMemberOrder.BeforeIntroductions
+  commentId: F:PostSharp.Aspects.Advices.ImportMemberOrder.BeforeIntroductions
+  id: BeforeIntroductions
+  parent: PostSharp.Aspects.Advices.ImportMemberOrder
+  langs:
+  - csharp
+  - vb
+  name: BeforeIntroductions
+  nameWithType: ImportMemberOrder.BeforeIntroductions
+  fullName: PostSharp.Aspects.Advices.ImportMemberOrder.BeforeIntroductions
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Before the aspect introduces its own members. This is similar to calling the overridden method using the
+
+    <code>base</code> keyword in C#. The overridden method implementation is always selected, even if the method
+
+    is virtual.
+  example: []
+  syntax:
+    content: BeforeIntroductions = 1
+    return:
+      type: PostSharp.Aspects.Advices.ImportMemberOrder
+- uid: PostSharp.Aspects.Advices.ImportMemberOrder.AfterIntroductions
+  commentId: F:PostSharp.Aspects.Advices.ImportMemberOrder.AfterIntroductions
+  id: AfterIntroductions
+  parent: PostSharp.Aspects.Advices.ImportMemberOrder
+  langs:
+  - csharp
+  - vb
+  name: AfterIntroductions
+  nameWithType: ImportMemberOrder.AfterIntroductions
+  fullName: PostSharp.Aspects.Advices.ImportMemberOrder.AfterIntroductions
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    After the aspect introduces its own members. Note that importing a member introduced by the current
+
+    aspect makes sense only if the member has been introduced as virtual. In this case,
+
+    the imported member is dynamically resolved using the virtual table of the target object.
+  example: []
+  syntax:
+    content: AfterIntroductions = 0
+    return:
+      type: PostSharp.Aspects.Advices.ImportMemberOrder

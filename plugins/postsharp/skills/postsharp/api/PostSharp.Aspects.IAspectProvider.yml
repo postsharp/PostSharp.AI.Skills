@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IAspectProvider
+  commentId: T:PostSharp.Aspects.IAspectProvider
+  id: IAspectProvider
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: IAspectProvider
+  nameWithType: IAspectProvider
+  fullName: PostSharp.Aspects.IAspectProvider
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Interface that, when implemented by an aspect class, allows aspect instances
+
+    to provide other aspects to the weaver.
+  remarks: >-
+    <p>Use this interface when aspects cannot be added declaratively with custom attributes, for instance when the
+            set of targets results from an analysis of the code using reflection, or from an external
+            configuration file. The <xref href="PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)" data-throw-if-not-resolved="false"></xref> method runs at build time and returns
+            <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> objects that specify each provided aspect and its target.</p>
+  example: []
+  syntax:
+    content: 'public interface IAspectProvider : IAspect, IService'
+    content.vb: Public Interface IAspectProvider Inherits IAspect, IService
+  seealso:
+  - linkId: PostSharp.Aspects.AspectInstance
+    commentId: T:PostSharp.Aspects.AspectInstance
+  - linkType: HRef
+    linkId: '@iaspectprovider'
+    altText: 'Conceptual: Adding Aspects Programmatically using IAspectProvider'
+  - linkType: HRef
+    linkId: '@aspect-provider'
+    altText: 'Conceptual: Adding Aspects Dynamically'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.ThreadingInstrumentation.ThreadingInstrumentationPolicy
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Model.DisposableAttribute
+  - PostSharp.Patterns.Recording.EditableObjectAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.DispatchedAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  - PostSharp.Patterns.Xaml.AttachedPropertyAttribute
+  - PostSharp.Patterns.Xaml.CommandAttribute
+  - PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+- uid: PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)
+  commentId: M:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)
+  id: ProvideAspects(System.Object)
+  parent: PostSharp.Aspects.IAspectProvider
+  langs:
+  - csharp
+  - vb
+  name: ProvideAspects(object)
+  nameWithType: IAspectProvider.ProvideAspects(object)
+  fullName: PostSharp.Aspects.IAspectProvider.ProvideAspects(object)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Provides new aspects.
+  remarks: >-
+    <p>Implementations of this method are allowed to return only aspect instances applied on elements
+            of code located under the target element of code (<code class="paramref">targetElement</code>).
+            For instance, a type-level <xref href="PostSharp.Aspects.IAspectProvider" data-throw-if-not-resolved="false"></xref> can provide aspects on methods of the current type,
+            but not of other types.</p>
+  example: []
+  syntax:
+    content: IEnumerable<AspectInstance> ProvideAspects(object targetElement)
+    parameters:
+    - id: targetElement
+      type: System.Object
+      description: >-
+        Code element (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) to which the current aspect has been applied.
+    return:
+      type: System.Collections.Generic.IEnumerable{PostSharp.Aspects.AspectInstance}
+      description: A set of aspect instances.
+    content.vb: Function ProvideAspects(targetElement As Object) As IEnumerable(Of AspectInstance)
+  overload: PostSharp.Aspects.IAspectProvider.ProvideAspects*
+  nameWithType.vb: IAspectProvider.ProvideAspects(Object)
+  fullName.vb: PostSharp.Aspects.IAspectProvider.ProvideAspects(Object)
+  name.vb: ProvideAspects(Object)

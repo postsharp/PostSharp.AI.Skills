@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.CancellationHelper
+  commentId: T:PostSharp.Patterns.Threading.CancellationHelper
+  id: CancellationHelper
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.Task,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.ValueTask,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Threading.CancellationHelper.WithCancellation``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)
+  - PostSharp.Patterns.Threading.CancellationHelper.WithCancellation``1(System.Threading.Tasks.ValueTask{``0},System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: CancellationHelper
+  nameWithType: CancellationHelper
+  fullName: PostSharp.Patterns.Threading.CancellationHelper
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Defines helper methods to work with <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static class CancellationHelper
+    content.vb: Public Module CancellationHelper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.Task,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.Task,System.Threading.CancellationToken)
+  id: WithCancellation(System.Threading.Tasks.Task,System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.CancellationHelper
+  langs:
+  - csharp
+  - vb
+  name: WithCancellation(Task, CancellationToken)
+  nameWithType: CancellationHelper.WithCancellation(Task, CancellationToken)
+  fullName: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.Task, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Awaits a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> with a <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task WithCancellation(this Task task, CancellationToken cancellationToken)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.Task
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Shared Function WithCancellation(task As Task, cancellationToken As CancellationToken) As Task
+  overload: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation*
+- uid: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Threading.CancellationHelper.WithCancellation``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)
+  id: WithCancellation``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.CancellationHelper
+  langs:
+  - csharp
+  - vb
+  name: WithCancellation<T>(Task<T>, CancellationToken)
+  nameWithType: CancellationHelper.WithCancellation<T>(Task<T>, CancellationToken)
+  fullName: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation<T>(System.Threading.Tasks.Task<T>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Awaits a <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> with a <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static Task<T> WithCancellation<T>(this Task<T> task, CancellationToken cancellationToken)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.Task{{T}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Shared Function WithCancellation(Of T)(task As Task(Of T), cancellationToken As CancellationToken) As Task(Of T)
+  overload: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation*
+  nameWithType.vb: CancellationHelper.WithCancellation(Of T)(Task(Of T), CancellationToken)
+  fullName.vb: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(Of T)(System.Threading.Tasks.Task(Of T), System.Threading.CancellationToken)
+  name.vb: WithCancellation(Of T)(Task(Of T), CancellationToken)
+- uid: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.ValueTask,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.ValueTask,System.Threading.CancellationToken)
+  id: WithCancellation(System.Threading.Tasks.ValueTask,System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.CancellationHelper
+  langs:
+  - csharp
+  - vb
+  name: WithCancellation(ValueTask, CancellationToken)
+  nameWithType: CancellationHelper.WithCancellation(ValueTask, CancellationToken)
+  fullName: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(System.Threading.Tasks.ValueTask, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Awaits a <xref href="System.Threading.Tasks.ValueTask" data-throw-if-not-resolved="false"></xref> with a <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static ValueTask WithCancellation(this ValueTask task, CancellationToken cancellationToken)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.ValueTask
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Public Shared Function WithCancellation(task As ValueTask, cancellationToken As CancellationToken) As ValueTask
+  overload: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation*
+- uid: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation``1(System.Threading.Tasks.ValueTask{``0},System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Threading.CancellationHelper.WithCancellation``1(System.Threading.Tasks.ValueTask{``0},System.Threading.CancellationToken)
+  id: WithCancellation``1(System.Threading.Tasks.ValueTask{``0},System.Threading.CancellationToken)
+  isExtensionMethod: true
+  parent: PostSharp.Patterns.Threading.CancellationHelper
+  langs:
+  - csharp
+  - vb
+  name: WithCancellation<T>(ValueTask<T>, CancellationToken)
+  nameWithType: CancellationHelper.WithCancellation<T>(ValueTask<T>, CancellationToken)
+  fullName: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation<T>(System.Threading.Tasks.ValueTask<T>, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Threading
+  summary: Awaits a <xref href="System.Threading.Tasks.ValueTask%601" data-throw-if-not-resolved="false"></xref> with a <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static ValueTask<T> WithCancellation<T>(this ValueTask<T> task, CancellationToken cancellationToken)
+    parameters:
+    - id: task
+      type: System.Threading.Tasks.ValueTask{{T}}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.ValueTask{{T}}
+    content.vb: Public Shared Function WithCancellation(Of T)(task As ValueTask(Of T), cancellationToken As CancellationToken) As ValueTask(Of T)
+  overload: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation*
+  nameWithType.vb: CancellationHelper.WithCancellation(Of T)(ValueTask(Of T), CancellationToken)
+  fullName.vb: PostSharp.Patterns.Threading.CancellationHelper.WithCancellation(Of T)(System.Threading.Tasks.ValueTask(Of T), System.Threading.CancellationToken)
+  name.vb: WithCancellation(Of T)(ValueTask(Of T), CancellationToken)

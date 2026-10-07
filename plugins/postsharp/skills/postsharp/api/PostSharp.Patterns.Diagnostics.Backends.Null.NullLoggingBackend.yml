@@ -1,0 +1,198 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  id: NullLoggingBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends.Null
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.Instance
+  langs:
+  - csharp
+  - vb
+  name: NullLoggingBackend
+  nameWithType: NullLoggingBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Null
+  summary: Logging backend that does nothing.
+  example: []
+  syntax:
+    content: 'public sealed class NullLoggingBackend : LoggingBackend, IDisposable'
+    content.vb: Public NotInheritable Class NullLoggingBackend Inherits LoggingBackend Implements IDisposable
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Options
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: NullLoggingBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Null
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  id: CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  nameWithType: NullLoggingBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Null
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and logger name.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSourceBySourceName(LoggingNamespaceSource parent, string sourceName)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent namespace source.
+    - id: sourceName
+      type: System.String
+      description: The name of the log source.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The new log source.
+    content.vb: Protected Overrides Function CreateTypeSourceBySourceName(parent As LoggingNamespaceSource, sourceName As String) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  overload: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSourceBySourceName*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: Thrown when the backend cannot create log sources based on names.
+  nameWithType.vb: NullLoggingBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, String)
+  name.vb: CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: NullLoggingBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Null
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.GetBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.GetBackendOptions
+  id: GetBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetBackendOptions()
+  nameWithType: NullLoggingBackend.GetBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.GetBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Null
+  summary: Gets the formatting and rendering options for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected override LoggingBackendOptions GetBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions" data-throw-if-not-resolved="false"></xref> for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overrides Function GetBackendOptions() As LoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.GetBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.GetBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.Instance
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.Instance
+  id: Instance
+  parent: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: NullLoggingBackend.Instance
+  fullName: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.Instance
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Backends.Null
+  summary: Gets the singleton instance of <xref href="PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static NullLoggingBackend Instance { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend
+    content.vb: Public Shared ReadOnly Property Instance As NullLoggingBackend
+  overload: PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend.Instance*

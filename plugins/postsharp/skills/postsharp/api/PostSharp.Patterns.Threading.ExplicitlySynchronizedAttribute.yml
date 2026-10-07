@@ -1,0 +1,209 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute
+  commentId: T:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute
+  id: ExplicitlySynchronizedAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor
+  - PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor(System.Boolean)
+  - PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly
+  langs:
+  - csharp
+  - vb
+  name: ExplicitlySynchronizedAttribute
+  nameWithType: ExplicitlySynchronizedAttribute
+  fullName: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a method or field, specifies that threading model aspects (derived from <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute" data-throw-if-not-resolved="false"></xref>)
+
+    should ignore all verifications for this field or method.
+  remarks: >-
+    <p>When the custom attribute is applied to a field, accesses to this field are never checked.</p>
+
+    <p>When the custom attribute is applied to a method, checking of accesses to all fields is disabled during the whole method execution, for the current thread.</p>
+
+    <p>Use this custom attribute when you synchronize accesses to the field or method with another mechanism. It increases the risk that multithreading
+        defects remain undetected, so cover code that uses it with reviews and tests.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method|AttributeTargets.Property|AttributeTargets.Field)]
+
+      [MulticastAttributeUsage(MulticastTargets.Class|MulticastTargets.Field|MulticastTargets.Method|MulticastTargets.Property, AllowMultiple = false)]
+
+      public sealed class ExplicitlySynchronizedAttribute : MulticastAttribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ClassOrAttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.Field)>
+
+      <MulticastAttributeUsage(MulticastTargets.ClassOrMulticastTargets.FieldOrMulticastTargets.MethodOrMulticastTargets.Property, AllowMultiple:=False)>
+
+      Public NotInheritable Class ExplicitlySynchronizedAttribute Inherits MulticastAttribute
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.EntryPointAttribute
+    commentId: T:PostSharp.Patterns.Threading.EntryPointAttribute
+  - linkType: HRef
+    linkId: '@threading-waiving-verification'
+    altText: 'Conceptual: Opting In and Out From Thread Safety'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  inheritedMembers:
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 453
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 609
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExplicitlySynchronizedAttribute()
+  nameWithType: ExplicitlySynchronizedAttribute.ExplicitlySynchronizedAttribute()
+  fullName: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.ExplicitlySynchronizedAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ExplicitlySynchronizedAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor*
+  nameWithType.vb: ExplicitlySynchronizedAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor(System.Boolean)
+  commentId: M:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor(System.Boolean)
+  id: '#ctor(System.Boolean)'
+  parent: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExplicitlySynchronizedAttribute(bool)
+  nameWithType: ExplicitlySynchronizedAttribute.ExplicitlySynchronizedAttribute(bool)
+  fullName: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.ExplicitlySynchronizedAttribute(bool)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref> class and specifies the synchronization strategy.
+  example: []
+  syntax:
+    content: public ExplicitlySynchronizedAttribute(bool appliesToMethodOnly)
+    parameters:
+    - id: appliesToMethodOnly
+      type: System.Boolean
+      description: >-
+        <code>true</code> to avoid adding any synchronization code to the target method, <code>false</code> to add synchronization code
+            that allows the method to access other fields or methods of the target object.
+    content.vb: Public Sub New(appliesToMethodOnly As Boolean)
+  overload: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor*
+  nameWithType.vb: ExplicitlySynchronizedAttribute.New(Boolean)
+  fullName.vb: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.New(Boolean)
+  name.vb: New(Boolean)
+- uid: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly
+  commentId: P:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly
+  id: AppliesToMethodOnly
+  parent: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute
+  langs:
+  - csharp
+  - vb
+  name: AppliesToMethodOnly
+  nameWithType: ExplicitlySynchronizedAttribute.AppliesToMethodOnly
+  fullName: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets a value that determines the synchronization strategy.
+
+    When <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly" data-throw-if-not-resolved="false"></xref> is <code>true</code>, no synchronization code is added to the target method.
+
+    When it is <code>false</code>, synchronization code is added to allow the method to access other fields or methods of the target object.
+
+    The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool AppliesToMethodOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property AppliesToMethodOnly As Boolean
+  overload: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly*

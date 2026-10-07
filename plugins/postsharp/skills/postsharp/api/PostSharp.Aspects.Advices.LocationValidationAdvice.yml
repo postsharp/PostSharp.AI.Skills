@@ -1,0 +1,163 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.LocationValidationAdvice
+  commentId: T:PostSharp.Aspects.Advices.LocationValidationAdvice
+  id: LocationValidationAdvice
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.LocationValidationAdvice.#ctor
+  - PostSharp.Aspects.Advices.LocationValidationAdvice.Priority
+  langs:
+  - csharp
+  - vb
+  name: LocationValidationAdvice
+  nameWithType: LocationValidationAdvice
+  fullName: PostSharp.Aspects.Advices.LocationValidationAdvice
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied on a method of an aspect class, specifies that this method
+
+    has the same semantics as the <xref href="PostSharp.Aspects.ILocationValidationAspect%601.ValidateValue(%600%2cSystem.String%2cPostSharp.Reflection.LocationKind%2cPostSharp.Aspects.LocationValidationContext)" data-throw-if-not-resolved="false"></xref> method
+
+    of the <xref href="PostSharp.Aspects.ILocationValidationAspect%601" data-throw-if-not-resolved="false"></xref> interface.
+  remarks: >-
+    <p>
+            The method to which this custom attribute is applied must be public and must have the same signature as
+            <xref href="PostSharp.Aspects.ILocationValidationAspect%601.ValidateValue(%600%2cSystem.String%2cPostSharp.Reflection.LocationKind%2cPostSharp.Aspects.LocationValidationContext)" data-throw-if-not-resolved="false"></xref>, where <code>T</code> can be any type. However, the method can be static.
+          </p>
+    <p>
+            To validate locations of different types, group several validation methods, each with a different value type,
+            by setting <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref>. For each field, property or parameter, PostSharp selects the method whose
+            value type is the closest match for the type of the location. When several methods match equally well, <xref href="PostSharp.Aspects.Advices.LocationValidationAdvice.Priority" data-throw-if-not-resolved="false"></xref>
+            decides; if it does not, or if no method matches, PostSharp emits a build error.
+          </p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
+
+      public class LocationValidationAdvice : GroupingAdvice
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Method, AllowMultiple:=True, Inherited:=True)>
+
+      Public Class LocationValidationAdvice Inherits GroupingAdvice
+  seealso:
+  - linkId: PostSharp.Aspects.ILocationValidationAspect`1
+    commentId: T:PostSharp.Aspects.ILocationValidationAspect`1
+  - linkType: HRef
+    linkId: '@advices'
+    altText: 'Conceptual: Adding Behaviors to Existing Members'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Advice
+  - PostSharp.Aspects.Advices.GroupingAdvice
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.GroupingAdvice.Master
+  - PostSharp.Aspects.Advices.Advice.Description
+  - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 64
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+    - name: Inherited
+      type: System.Boolean
+      value: true
+- uid: PostSharp.Aspects.Advices.LocationValidationAdvice.#ctor
+  commentId: M:PostSharp.Aspects.Advices.LocationValidationAdvice.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.LocationValidationAdvice
+  langs:
+  - csharp
+  - vb
+  name: LocationValidationAdvice()
+  nameWithType: LocationValidationAdvice.LocationValidationAdvice()
+  fullName: PostSharp.Aspects.Advices.LocationValidationAdvice.LocationValidationAdvice()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public LocationValidationAdvice()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.LocationValidationAdvice.#ctor*
+  nameWithType.vb: LocationValidationAdvice.New()
+  fullName.vb: PostSharp.Aspects.Advices.LocationValidationAdvice.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Advices.LocationValidationAdvice.Priority
+  commentId: P:PostSharp.Aspects.Advices.LocationValidationAdvice.Priority
+  id: Priority
+  parent: PostSharp.Aspects.Advices.LocationValidationAdvice
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: LocationValidationAdvice.Priority
+  fullName: PostSharp.Aspects.Advices.LocationValidationAdvice.Priority
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the priority for selecting a validation method from a group when more than one method matches the target element type.
+
+    A method with a lower value has priority over a method with a higher value.
+  example: []
+  syntax:
+    content: public int Priority { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Priority As Integer
+  overload: PostSharp.Aspects.Advices.LocationValidationAdvice.Priority*

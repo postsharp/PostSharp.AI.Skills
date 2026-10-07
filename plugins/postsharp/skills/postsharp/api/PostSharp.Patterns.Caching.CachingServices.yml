@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.CachingServices
+  commentId: T:PostSharp.Patterns.Caching.CachingServices
+  id: CachingServices
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.CachingServices.CurrentContext
+  - PostSharp.Patterns.Caching.CachingServices.DefaultBackend
+  - PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder
+  - PostSharp.Patterns.Caching.CachingServices.Profiles
+  - PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation
+  langs:
+  - csharp
+  - vb
+  name: CachingServices
+  nameWithType: CachingServices
+  fullName: PostSharp.Patterns.Caching.CachingServices
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: The entry point to configure <code>PostSharp.Patterns.Caching</code> at run time.
+  remarks: >-
+    <p>Set the <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> property before the first call to a cached method; otherwise, the call throws a <xref href="PostSharp.Patterns.Caching.CachingException" data-throw-if-not-resolved="false"></xref>.
+        Use <xref href="PostSharp.Patterns.Caching.CachingServices.Profiles" data-throw-if-not-resolved="false"></xref> to change the configuration of cached methods at run time, <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref> to remove items from the cache,
+        <xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref> to add dependencies to the cached method being evaluated, and <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder" data-throw-if-not-resolved="false"></xref> or
+        <xref href="PostSharp.Patterns.Caching.CachingServices.Formatters" data-throw-if-not-resolved="false"></xref> to customize cache keys.</p>
+  example: []
+  syntax:
+    content: public static class CachingServices
+    content.vb: Public Module CachingServices
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-getting-started'
+    altText: 'Conceptual: Caching Method Return Values'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation
+  commentId: M:PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation
+  id: SuspendDependencyPropagation
+  parent: PostSharp.Patterns.Caching.CachingServices
+  langs:
+  - csharp
+  - vb
+  name: SuspendDependencyPropagation()
+  nameWithType: CachingServices.SuspendDependencyPropagation()
+  fullName: PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Temporarily suspends propagation of dependencies from subsequently called methods to the caller method.
+  remarks: >-
+    <p>
+        By default, calling a cached method while another <xref href="PostSharp.Patterns.Caching.CachingContext" data-throw-if-not-resolved="false"></xref> is active automatically adds the former as a dependency of the latter. 
+        Since the <xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref> is stored in an <xref href="System.Threading.AsyncLocal%601" data-throw-if-not-resolved="false"></xref> variable, it may be inadvertently used after the method call associated with it
+        had already ended. This can happen, for example, when a method calls <xref href="System.Threading.Tasks.Task.Run(System.Action)" data-throw-if-not-resolved="false"></xref> and does not depend on the resulting <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>.
+        </p>
+    <p>
+        This context leak does not break correctness but may lead to unnecessary dependency invalidations. Therefore, it is recommended to use this method when calling asynchronous code
+        in the context of cached methods and not being dependent on its result.
+        </p>
+  example: []
+  syntax:
+    content: public static IDisposable SuspendDependencyPropagation()
+    return:
+      type: System.IDisposable
+      description: An <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> that represents the suspension. Disposing this object resumes the normal dependency propagation.
+    content.vb: Public Shared Function SuspendDependencyPropagation() As IDisposable
+  overload: PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-dependencies'
+    altText: 'Conceptual: Working with Cache Dependencies'
+- uid: PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder
+  commentId: P:PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder
+  id: DefaultKeyBuilder
+  parent: PostSharp.Patterns.Caching.CachingServices
+  langs:
+  - csharp
+  - vb
+  name: DefaultKeyBuilder
+  nameWithType: CachingServices.DefaultKeyBuilder
+  fullName: PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref> used to generate caching keys, i.e. to serialize objects into a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The default key builder limits keys to 2048 characters and does not compress them. Assign a new <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref>
+        to change these settings, or an instance of a derived class to change how keys are built. Setting this property to <code>null</code>
+        restores a default <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public static CacheKeyBuilder DefaultKeyBuilder { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+    content.vb: Public Shared Property DefaultKeyBuilder As CacheKeyBuilder
+  overload: PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-keys'
+    altText: 'Conceptual: Customizing Cache Keys'
+- uid: PostSharp.Patterns.Caching.CachingServices.DefaultBackend
+  commentId: P:PostSharp.Patterns.Caching.CachingServices.DefaultBackend
+  id: DefaultBackend
+  parent: PostSharp.Patterns.Caching.CachingServices
+  langs:
+  - csharp
+  - vb
+  name: DefaultBackend
+  nameWithType: CachingServices.DefaultBackend
+  fullName: PostSharp.Patterns.Caching.CachingServices.DefaultBackend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the default <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref>, i.e. the physical storage of cache items.
+  remarks: <p>Set this property before the first call to a cached method; until it is set, calling a cached method throws a <xref href="PostSharp.Patterns.Caching.CachingException" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public static CachingBackend DefaultBackend { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+    content.vb: Public Shared Property DefaultBackend As CachingBackend
+  overload: PostSharp.Patterns.Caching.CachingServices.DefaultBackend*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-backends'
+    altText: 'Conceptual: Caching Back-Ends'
+- uid: PostSharp.Patterns.Caching.CachingServices.Profiles
+  commentId: P:PostSharp.Patterns.Caching.CachingServices.Profiles
+  id: Profiles
+  parent: PostSharp.Patterns.Caching.CachingServices
+  langs:
+  - csharp
+  - vb
+  name: Profiles
+  nameWithType: CachingServices.Profiles
+  fullName: PostSharp.Patterns.Caching.CachingServices.Profiles
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets the repository of caching profiles (<xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public static CachingServices.CachingProfileRegistry Profiles { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.CachingServices.CachingProfileRegistry
+    content.vb: Public Shared ReadOnly Property Profiles As CachingServices.CachingProfileRegistry
+  overload: PostSharp.Patterns.Caching.CachingServices.Profiles*
+- uid: PostSharp.Patterns.Caching.CachingServices.CurrentContext
+  commentId: P:PostSharp.Patterns.Caching.CachingServices.CurrentContext
+  id: CurrentContext
+  parent: PostSharp.Patterns.Caching.CachingServices
+  langs:
+  - csharp
+  - vb
+  name: CurrentContext
+  nameWithType: CachingServices.CurrentContext
+  fullName: PostSharp.Patterns.Caching.CachingServices.CurrentContext
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets the current caching context, so dependencies can be added.
+  example: []
+  syntax:
+    content: public static ICachingContext CurrentContext { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.ICachingContext
+    content.vb: Public Shared ReadOnly Property CurrentContext As ICachingContext
+  overload: PostSharp.Patterns.Caching.CachingServices.CurrentContext*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-dependencies'
+    altText: 'Conceptual: Working with Cache Dependencies'

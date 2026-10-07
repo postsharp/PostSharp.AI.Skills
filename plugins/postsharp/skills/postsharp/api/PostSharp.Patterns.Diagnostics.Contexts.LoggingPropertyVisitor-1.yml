@@ -1,0 +1,155 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1
+  commentId: T:PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1
+  id: LoggingPropertyVisitor`1
+  parent: PostSharp.Patterns.Diagnostics.Contexts
+  children:
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.#ctor(System.Object,System.IntPtr)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.BeginInvoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@,System.AsyncCallback,System.Object)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.EndInvoke(`0@,System.IAsyncResult)
+  - PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.Invoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@)
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyVisitor<T>
+  nameWithType: LoggingPropertyVisitor<T>
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<T>
+  type: Delegate
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  summary: Delegate invoked by the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty%60%601(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: public delegate void LoggingPropertyVisitor<T>(LoggingProperty property, object value, ref T state)
+    parameters:
+    - id: property
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty
+      description: The visited <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.Object
+      description: The evaluated value of the property. Will not be <code>null</code> because null properties are ignored.
+    - id: state
+      type: '{T}'
+      description: The value passed to the <xref href="PostSharp.Patterns.Diagnostics.Contexts.ILoggingContext.ForEachProperty%60%601(PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor%7b%60%600%7d%2c%60%600%40%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> method.
+    typeParameters:
+    - id: T
+    content.vb: Public Delegate Sub LoggingPropertyVisitor(Of T)([property] As LoggingProperty, value As Object, state As T)
+  nameWithType.vb: LoggingPropertyVisitor(Of T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of T)
+  name.vb: LoggingPropertyVisitor(Of T)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.#ctor(System.Object,System.IntPtr)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.#ctor(System.Object,System.IntPtr)
+  id: '#ctor(System.Object,System.IntPtr)'
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: LoggingPropertyVisitor(object, nint)
+  nameWithType: LoggingPropertyVisitor<T>.LoggingPropertyVisitor(object, nint)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<T>.LoggingPropertyVisitor(object, nint)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  syntax:
+    content: public LoggingPropertyVisitor(object @object, nint method)
+    parameters:
+    - id: object
+      type: System.Object
+    - id: method
+      type: System.IntPtr
+    content.vb: Public Sub New([object] As Object, method As IntPtr)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.#ctor*
+  nameWithType.vb: LoggingPropertyVisitor(Of T).New(Object, IntPtr)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of T).New(Object, System.IntPtr)
+  name.vb: New(Object, IntPtr)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.Invoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.Invoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@)
+  id: Invoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: Invoke(LoggingProperty, object, ref T)
+  nameWithType: LoggingPropertyVisitor<T>.Invoke(LoggingProperty, object, ref T)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<T>.Invoke(PostSharp.Patterns.Diagnostics.LoggingProperty, object, ref T)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  syntax:
+    content: public virtual void Invoke(LoggingProperty property, object value, ref T state)
+    parameters:
+    - id: property
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty
+    - id: value
+      type: System.Object
+    - id: state
+      type: '{T}'
+    content.vb: Public Overridable Sub Invoke([property] As LoggingProperty, value As Object, state As T)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.Invoke*
+  nameWithType.vb: LoggingPropertyVisitor(Of T).Invoke(LoggingProperty, Object, T)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of T).Invoke(PostSharp.Patterns.Diagnostics.LoggingProperty, Object, T)
+  name.vb: Invoke(LoggingProperty, Object, T)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.BeginInvoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@,System.AsyncCallback,System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.BeginInvoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@,System.AsyncCallback,System.Object)
+  id: BeginInvoke(PostSharp.Patterns.Diagnostics.LoggingProperty,System.Object,`0@,System.AsyncCallback,System.Object)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: BeginInvoke(LoggingProperty, object, ref T, AsyncCallback, object)
+  nameWithType: LoggingPropertyVisitor<T>.BeginInvoke(LoggingProperty, object, ref T, AsyncCallback, object)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<T>.BeginInvoke(PostSharp.Patterns.Diagnostics.LoggingProperty, object, ref T, System.AsyncCallback, object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  syntax:
+    content: public virtual IAsyncResult BeginInvoke(LoggingProperty property, object value, ref T state, AsyncCallback callback, object @object)
+    parameters:
+    - id: property
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty
+    - id: value
+      type: System.Object
+    - id: state
+      type: '{T}'
+    - id: callback
+      type: System.AsyncCallback
+    - id: object
+      type: System.Object
+    return:
+      type: System.IAsyncResult
+    content.vb: Public Overridable Function BeginInvoke([property] As LoggingProperty, value As Object, state As T, callback As AsyncCallback, [object] As Object) As IAsyncResult
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.BeginInvoke*
+  nameWithType.vb: LoggingPropertyVisitor(Of T).BeginInvoke(LoggingProperty, Object, T, AsyncCallback, Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of T).BeginInvoke(PostSharp.Patterns.Diagnostics.LoggingProperty, Object, T, System.AsyncCallback, Object)
+  name.vb: BeginInvoke(LoggingProperty, Object, T, AsyncCallback, Object)
+- uid: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.EndInvoke(`0@,System.IAsyncResult)
+  commentId: M:PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.EndInvoke(`0@,System.IAsyncResult)
+  id: EndInvoke(`0@,System.IAsyncResult)
+  parent: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1
+  langs:
+  - csharp
+  - vb
+  name: EndInvoke(ref T, IAsyncResult)
+  nameWithType: LoggingPropertyVisitor<T>.EndInvoke(ref T, IAsyncResult)
+  fullName: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor<T>.EndInvoke(ref T, System.IAsyncResult)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Contexts
+  syntax:
+    content: public virtual void EndInvoke(ref T state, IAsyncResult result)
+    parameters:
+    - id: state
+      type: '{T}'
+    - id: result
+      type: System.IAsyncResult
+    content.vb: Public Overridable Sub EndInvoke(state As T, result As IAsyncResult)
+  overload: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor`1.EndInvoke*
+  nameWithType.vb: LoggingPropertyVisitor(Of T).EndInvoke(T, IAsyncResult)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.LoggingPropertyVisitor(Of T).EndInvoke(T, System.IAsyncResult)
+  name.vb: EndInvoke(T, IAsyncResult)

@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.FlowBehavior
+  commentId: T:PostSharp.Aspects.FlowBehavior
+  id: FlowBehavior
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.FlowBehavior.Continue
+  - PostSharp.Aspects.FlowBehavior.Default
+  - PostSharp.Aspects.FlowBehavior.RethrowException
+  - PostSharp.Aspects.FlowBehavior.Return
+  - PostSharp.Aspects.FlowBehavior.ThrowException
+  - PostSharp.Aspects.FlowBehavior.Yield
+  langs:
+  - csharp
+  - vb
+  name: FlowBehavior
+  nameWithType: FlowBehavior
+  fullName: PostSharp.Aspects.FlowBehavior
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Enumerates the possible behaviors of the calling method after the calling method has returned.
+  remarks: >-
+    <p>
+          This enumeration is used by the <xref href="PostSharp.Aspects.MethodExecutionArgs" data-throw-if-not-resolved="false"></xref> class.
+        </p>
+  example: []
+  syntax:
+    content: public enum FlowBehavior
+    content.vb: Public Enum FlowBehavior
+- uid: PostSharp.Aspects.FlowBehavior.Default
+  commentId: F:PostSharp.Aspects.FlowBehavior.Default
+  id: Default
+  parent: PostSharp.Aspects.FlowBehavior
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: FlowBehavior.Default
+  fullName: PostSharp.Aspects.FlowBehavior.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: "  Default flow behavior for the current method. The default flow is <xref href=\"PostSharp.Aspects.FlowBehavior.Continue\" data-throw-if-not-resolved=\"false\"></xref> for all advices except for\r\n<xref href=\"PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)\" data-throw-if-not-resolved=\"false\"></xref> where it is <xref href=\"PostSharp.Aspects.FlowBehavior.RethrowException\" data-throw-if-not-resolved=\"false\"></xref>."
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.FlowBehavior
+- uid: PostSharp.Aspects.FlowBehavior.Continue
+  commentId: F:PostSharp.Aspects.FlowBehavior.Continue
+  id: Continue
+  parent: PostSharp.Aspects.FlowBehavior
+  langs:
+  - csharp
+  - vb
+  name: Continue
+  nameWithType: FlowBehavior.Continue
+  fullName: PostSharp.Aspects.FlowBehavior.Continue
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Continues normal method execution. For <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> advice,
+
+    the <xref href="PostSharp.Aspects.FlowBehavior.Continue" data-throw-if-not-resolved="false"></xref> behavior works the same way as the <xref href="PostSharp.Aspects.FlowBehavior.Return" data-throw-if-not-resolved="false"></xref> behavior.
+  example: []
+  syntax:
+    content: Continue = 1
+    return:
+      type: PostSharp.Aspects.FlowBehavior
+- uid: PostSharp.Aspects.FlowBehavior.RethrowException
+  commentId: F:PostSharp.Aspects.FlowBehavior.RethrowException
+  id: RethrowException
+  parent: PostSharp.Aspects.FlowBehavior
+  langs:
+  - csharp
+  - vb
+  name: RethrowException
+  nameWithType: FlowBehavior.RethrowException
+  fullName: PostSharp.Aspects.FlowBehavior.RethrowException
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: The current exception will be rethrown. Available only for <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: RethrowException = 2
+    return:
+      type: PostSharp.Aspects.FlowBehavior
+- uid: PostSharp.Aspects.FlowBehavior.Return
+  commentId: F:PostSharp.Aspects.FlowBehavior.Return
+  id: Return
+  parent: PostSharp.Aspects.FlowBehavior
+  langs:
+  - csharp
+  - vb
+  name: Return
+  nameWithType: FlowBehavior.Return
+  fullName: PostSharp.Aspects.FlowBehavior.Return
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Returns immediately from the current method. Available only for <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> and
+
+    <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>. You may want to set the <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>
+
+    property. Otherwise, you may get a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. If there is another <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>
+
+    aspect before the current <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> aspect on the current method,
+
+    the <xref href="PostSharp.Aspects.FlowBehavior.Return" data-throw-if-not-resolved="false"></xref> behavior calls the <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>
+
+    and <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> methods of the other aspect.
+  remarks: "  If the advice is applied semantically to an iterator method in <xref href=\"PostSharp.Aspects.OnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)\" data-throw-if-not-resolved=\"false\"></xref>, it means that\r\nthe call to <xref href=\"System.Collections.IEnumerator.MoveNext\" data-throw-if-not-resolved=\"false\"></xref> should return <code>false</code> and the enumerator should thus behave as empty."
+  example: []
+  syntax:
+    content: Return = 3
+    return:
+      type: PostSharp.Aspects.FlowBehavior
+- uid: PostSharp.Aspects.FlowBehavior.ThrowException
+  commentId: F:PostSharp.Aspects.FlowBehavior.ThrowException
+  id: ThrowException
+  parent: PostSharp.Aspects.FlowBehavior
+  langs:
+  - csharp
+  - vb
+  name: ThrowException
+  nameWithType: FlowBehavior.ThrowException
+  fullName: PostSharp.Aspects.FlowBehavior.ThrowException
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Throws the exception contained in the <xref href="PostSharp.Aspects.MethodExecutionArgs.Exception" data-throw-if-not-resolved="false"></xref> property. Available only for <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ThrowException = 4
+    return:
+      type: PostSharp.Aspects.FlowBehavior
+- uid: PostSharp.Aspects.FlowBehavior.Yield
+  commentId: F:PostSharp.Aspects.FlowBehavior.Yield
+  id: Yield
+  parent: PostSharp.Aspects.FlowBehavior
+  langs:
+  - csharp
+  - vb
+  name: Yield
+  nameWithType: FlowBehavior.Yield
+  fullName: PostSharp.Aspects.FlowBehavior.Yield
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Awaits an awaiter. Available only for
+
+    <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> advices
+
+    applied to async methods.
+  remarks: In the future, this may also cause a value to be yielded in iterator methods. Currently, it is the same as <xref href="PostSharp.Aspects.FlowBehavior.Continue" data-throw-if-not-resolved="false"></xref> for iterator methods.
+  example: []
+  syntax:
+    content: Yield = 5
+    return:
+      type: PostSharp.Aspects.FlowBehavior

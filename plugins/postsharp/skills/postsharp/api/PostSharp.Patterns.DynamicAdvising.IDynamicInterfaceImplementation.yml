@@ -1,0 +1,63 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+  commentId: T:PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+  id: IDynamicInterfaceImplementation
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  langs:
+  - csharp
+  - vb
+  name: IDynamicInterfaceImplementation
+  nameWithType: IDynamicInterfaceImplementation
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: >-
+    Interface that must be implemented by objects implementing dynamic interfaces, which can be queried using <xref href="PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface%60%601" data-throw-if-not-resolved="false"></xref>.
+
+    The <xref href="PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation" data-throw-if-not-resolved="false"></xref> interface provides a means to get a reference back to the principal object.
+  example: []
+  syntax:
+    content: public interface IDynamicInterfaceImplementation
+    content.vb: Public Interface IDynamicInterfaceImplementation
+  seealso:
+  - linkId: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+    commentId: T:PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  - linkId: PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface``1(System.Object,System.Boolean)
+    commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface``1(System.Object,System.Boolean)
+  - linkId: PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryObject(System.Object)
+    commentId: M:PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryObject(System.Object)
+  derivedClasses:
+  - PostSharp.Patterns.Collections.Advices.CollectionDynamicAdvice`1
+  - PostSharp.Patterns.Collections.Advices.DictionaryDynamicAdvice`2
+  - PostSharp.Patterns.Collections.Advices.HashSetDynamicAdvice`1
+  - PostSharp.Patterns.DynamicAdvising.DynamicAdvice
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+- uid: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  commentId: P:PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  id: AdvisedObject
+  parent: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+  langs:
+  - csharp
+  - vb
+  name: AdvisedObject
+  nameWithType: IDynamicInterfaceImplementation.AdvisedObject
+  fullName: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets the principal object for which the current object is an indirect interface implementation.
+  example: []
+  syntax:
+    content: object AdvisedObject { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property AdvisedObject As Object
+  overload: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation.AdvisedObject*

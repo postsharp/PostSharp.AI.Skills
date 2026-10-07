@@ -1,0 +1,181 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  commentId: T:PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  id: CustomAttributeOverrideAction
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Add
+  - PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Default
+  - PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Fail
+  - PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Ignore
+  - PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeAddProperty
+  - PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeReplaceProperty
+  langs:
+  - csharp
+  - vb
+  name: CustomAttributeOverrideAction
+  nameWithType: CustomAttributeOverrideAction
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Behavior of <xref href="PostSharp.Aspects.Advices.CopyCustomAttributesAttribute" data-throw-if-not-resolved="false"></xref> when a custom
+
+    attribute of the same type already exists on the target declaration.
+  example: []
+  syntax:
+    content: public enum CustomAttributeOverrideAction
+    content.vb: Public Enum CustomAttributeOverrideAction
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+    commentId: T:PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Default
+  commentId: F:PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Default
+  id: Default
+  parent: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: CustomAttributeOverrideAction.Default
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Default
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The default action, which is <xref href="PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Fail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Fail
+  commentId: F:PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Fail
+  id: Fail
+  parent: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Fail
+  nameWithType: CustomAttributeOverrideAction.Fail
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Fail
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Emits an error message.
+  example: []
+  syntax:
+    content: Fail = 0
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Ignore
+  commentId: F:PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Ignore
+  id: Ignore
+  parent: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Ignore
+  nameWithType: CustomAttributeOverrideAction.Ignore
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Ignore
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Silently ignores this custom attribute. The attribute is not copied,
+
+    and no error message is emitted.
+  example: []
+  syntax:
+    content: Ignore = 1
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Add
+  commentId: F:PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Add
+  id: Add
+  parent: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: Add
+  nameWithType: CustomAttributeOverrideAction.Add
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.Add
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Adds a new copy (possibly duplicate) of the custom attribute.
+  example: []
+  syntax:
+    content: Add = 2
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeAddProperty
+  commentId: F:PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeAddProperty
+  id: MergeAddProperty
+  parent: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: MergeAddProperty
+  nameWithType: CustomAttributeOverrideAction.MergeAddProperty
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeAddProperty
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Merges the existing custom attribute with the template custom attribute
+
+    by adding properties and fields. If the existing custom attribute defines
+
+    the same properties and fields as the template custom attribute,
+
+    they are not overridden.
+  remarks: >-
+    Constructor arguments of the template custom attribute are 
+
+    ignored during merging.
+  example: []
+  syntax:
+    content: MergeAddProperty = 3
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+- uid: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeReplaceProperty
+  commentId: F:PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeReplaceProperty
+  id: MergeReplaceProperty
+  parent: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+  langs:
+  - csharp
+  - vb
+  name: MergeReplaceProperty
+  nameWithType: CustomAttributeOverrideAction.MergeReplaceProperty
+  fullName: PostSharp.Aspects.Advices.CustomAttributeOverrideAction.MergeReplaceProperty
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Merges the existing custom attribute with the template custom attribute
+
+    by adding and replacing properties and fields. If the existing custom
+
+    attribute defines the same properties and fields as the template custom
+
+    attribute, they are replaced by the values defined in the template
+
+    custom attribute.
+  remarks: >-
+    Constructor arguments of the template custom attribute are 
+
+    ignored during merging.
+  example: []
+  syntax:
+    content: MergeReplaceProperty = 4
+    return:
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction

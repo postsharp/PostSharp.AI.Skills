@@ -1,0 +1,59 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ISerializerDiscoverer
+  commentId: T:PostSharp.Serialization.ISerializerDiscoverer
+  id: ISerializerDiscoverer
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ISerializerDiscoverer.DiscoverSerializers(System.Type)
+  langs:
+  - csharp
+  - vb
+  name: ISerializerDiscoverer
+  nameWithType: ISerializerDiscoverer
+  fullName: PostSharp.Serialization.ISerializerDiscoverer
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Exposes a method <xref href="PostSharp.Serialization.ISerializerDiscoverer.DiscoverSerializers(System.Type)" data-throw-if-not-resolved="false"></xref> that allows implementations
+
+    of the <xref href="PostSharp.Serialization.ISerializerFactoryProvider" data-throw-if-not-resolved="false"></xref> interface to discover serializer types
+
+    for each type being serialized.
+  remarks: Only implementations of <xref href="PostSharp.Serialization.ISerializerFactoryProvider" data-throw-if-not-resolved="false"></xref> may implement this interface.
+  example: []
+  syntax:
+    content: public interface ISerializerDiscoverer
+    content.vb: Public Interface ISerializerDiscoverer
+  seealso:
+  - linkId: PostSharp.Serialization.ISerializerFactoryProvider
+    commentId: T:PostSharp.Serialization.ISerializerFactoryProvider
+- uid: PostSharp.Serialization.ISerializerDiscoverer.DiscoverSerializers(System.Type)
+  commentId: M:PostSharp.Serialization.ISerializerDiscoverer.DiscoverSerializers(System.Type)
+  id: DiscoverSerializers(System.Type)
+  parent: PostSharp.Serialization.ISerializerDiscoverer
+  langs:
+  - csharp
+  - vb
+  name: DiscoverSerializers(Type)
+  nameWithType: ISerializerDiscoverer.DiscoverSerializers(Type)
+  fullName: PostSharp.Serialization.ISerializerDiscoverer.DiscoverSerializers(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: >-
+    Invoked by <xref href="PostSharp.Serialization.PortableFormatter" data-throw-if-not-resolved="false"></xref> once for every type that needs to be serialized,
+
+    before <xref href="PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType(System.Type)" data-throw-if-not-resolved="false"></xref> is invoked.
+  example: []
+  syntax:
+    content: void DiscoverSerializers(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type being serialized.
+    content.vb: Sub DiscoverSerializers(objectType As Type)
+  overload: PostSharp.Serialization.ISerializerDiscoverer.DiscoverSerializers*

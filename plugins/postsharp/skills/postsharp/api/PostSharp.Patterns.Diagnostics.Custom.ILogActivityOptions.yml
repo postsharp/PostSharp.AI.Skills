@@ -1,0 +1,97 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  id: ILogActivityOptions
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ActivityLevel
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ExceptionLevel
+  - PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.FailureLevel
+  langs:
+  - csharp
+  - vb
+  name: ILogActivityOptions
+  nameWithType: ILogActivityOptions
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Exposes the default verbosity of the <xref href="PostSharp.Patterns.Diagnostics.Logger" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref> classes when creating and closing activities.
+  example: []
+  syntax:
+    content: public interface ILogActivityOptions
+    content.vb: Public Interface ILogActivityOptions
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Custom.LegacySourceLogger
+  - PostSharp.Patterns.Diagnostics.CustomRecordLoggingOptions
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ActivityLevel
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ActivityLevel
+  id: ActivityLevel
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: ActivityLevel
+  nameWithType: ILogActivityOptions.ActivityLevel
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ActivityLevel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the default severity for custom messages and for entry and success messages of activities.
+  example: []
+  syntax:
+    content: LogLevel ActivityLevel { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: ReadOnly Property ActivityLevel As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ActivityLevel*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.FailureLevel
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.FailureLevel
+  id: FailureLevel
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: FailureLevel
+  nameWithType: ILogActivityOptions.FailureLevel
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.FailureLevel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> for failures of custom activities (defined by the <xref href="PostSharp.Patterns.Diagnostics.LogActivity.SetFailure(System.String)" data-throw-if-not-resolved="false"></xref> method).
+  example: []
+  syntax:
+    content: LogLevel FailureLevel { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: ReadOnly Property FailureLevel As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.FailureLevel*
+- uid: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ExceptionLevel
+  commentId: P:PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ExceptionLevel
+  id: ExceptionLevel
+  parent: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions
+  langs:
+  - csharp
+  - vb
+  name: ExceptionLevel
+  nameWithType: ILogActivityOptions.ExceptionLevel
+  fullName: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ExceptionLevel
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Gets the default severity for failure custom messages.
+  example: []
+  syntax:
+    content: LogLevel ExceptionLevel { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: ReadOnly Property ExceptionLevel As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.Custom.ILogActivityOptions.ExceptionLevel*

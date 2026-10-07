@@ -1,0 +1,52 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IActor
+  commentId: T:PostSharp.Patterns.Threading.IActor
+  id: IActor
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IActor.Dispatcher
+  langs:
+  - csharp
+  - vb
+  name: IActor
+  nameWithType: IActor
+  fullName: PostSharp.Patterns.Threading.IActor
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Interface implemented by the <xref href="PostSharp.Patterns.Threading.ActorAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+  remarks: ''
+  example: []
+  syntax:
+    content: 'public interface IActor : IDispatcherObject, IThreadAware'
+    content.vb: Public Interface IActor Inherits IDispatcherObject, IThreadAware
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ActorAttribute
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.IThreadAware.OnParentControllerChanged(PostSharp.Patterns.Threading.IConcurrencyController)
+  - PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController
+- uid: PostSharp.Patterns.Threading.IActor.Dispatcher
+  commentId: P:PostSharp.Patterns.Threading.IActor.Dispatcher
+  id: Dispatcher
+  parent: PostSharp.Patterns.Threading.IActor
+  langs:
+  - csharp
+  - vb
+  name: Dispatcher
+  nameWithType: IActor.Dispatcher
+  fullName: PostSharp.Patterns.Threading.IActor.Dispatcher
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Gets the <xref href="PostSharp.Patterns.Threading.IActorDispatcher" data-throw-if-not-resolved="false"></xref> for the current actor.
+  example: []
+  syntax:
+    content: IActorDispatcher Dispatcher { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Threading.IActorDispatcher
+    content.vb: ReadOnly Property Dispatcher As IActorDispatcher
+  overload: PostSharp.Patterns.Threading.IActor.Dispatcher*

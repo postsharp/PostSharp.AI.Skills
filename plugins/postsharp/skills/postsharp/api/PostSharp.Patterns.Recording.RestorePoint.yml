@@ -1,0 +1,214 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.RestorePoint
+  commentId: T:PostSharp.Patterns.Recording.RestorePoint
+  id: RestorePoint
+  parent: PostSharp.Patterns.Recording
+  children:
+  - PostSharp.Patterns.Recording.RestorePoint.OperationKind
+  - PostSharp.Patterns.Recording.RestorePoint.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.RestorePoint.Remove
+  - PostSharp.Patterns.Recording.RestorePoint.RestorePointName
+  - PostSharp.Patterns.Recording.RestorePoint.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.RestorePoint.VisitAffectedObjects(System.Action{System.Object})
+  langs:
+  - csharp
+  - vb
+  name: RestorePoint
+  nameWithType: RestorePoint
+  fullName: PostSharp.Patterns.Recording.RestorePoint
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: >-
+    Represents a point to which operations can be undone or redone. A <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref> is a pseudo-<xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>
+
+    that does not represent any change.
+  remarks: >-
+    <p>Create a restore point with the <xref href="PostSharp.Patterns.Recording.Recorder.AddRestorePoint(System.String)" data-throw-if-not-resolved="false"></xref> method, then pass it to <xref href="PostSharp.Patterns.Recording.Recorder.UndoTo(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref> or
+        <xref href="PostSharp.Patterns.Recording.Recorder.RedoTo(PostSharp.Patterns.Recording.Operation)" data-throw-if-not-resolved="false"></xref>. Unlike other operations, a restore point can be removed from the history with the <xref href="PostSharp.Patterns.Recording.RestorePoint.Remove" data-throw-if-not-resolved="false"></xref> method.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class RestorePoint : Operation, IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class RestorePoint Inherits Operation Implements IOperationDescriptor
+  seealso:
+  - linkType: HRef
+    linkId: '@undoredo-conceptual'
+    altText: 'Conceptual: Understanding the Recordable Aspect'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  implements:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.RestorePoint.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.RestorePoint.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.RestorePoint
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: RestorePoint.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.RestorePoint.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Undo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.RestorePoint.Undo*
+- uid: PostSharp.Patterns.Recording.RestorePoint.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.RestorePoint.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.RestorePoint
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: RestorePoint.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.RestorePoint.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Redo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.RestorePoint.Redo*
+- uid: PostSharp.Patterns.Recording.RestorePoint.VisitAffectedObjects(System.Action{System.Object})
+  commentId: M:PostSharp.Patterns.Recording.RestorePoint.VisitAffectedObjects(System.Action{System.Object})
+  id: VisitAffectedObjects(System.Action{System.Object})
+  parent: PostSharp.Patterns.Recording.RestorePoint
+  langs:
+  - csharp
+  - vb
+  name: VisitAffectedObjects(Action<object>)
+  nameWithType: RestorePoint.VisitAffectedObjects(Action<object>)
+  fullName: PostSharp.Patterns.Recording.RestorePoint.VisitAffectedObjects(System.Action<object>)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Executes a given action on all recordable objects involved with the current <xref href="PostSharp.Patterns.Recording.Operation" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override void VisitAffectedObjects(Action<object> action)
+    parameters:
+    - id: action
+      type: System.Action{System.Object}
+      description: ''
+    content.vb: Public Overrides Sub VisitAffectedObjects(action As Action(Of Object))
+  overridden: PostSharp.Patterns.Recording.Operation.VisitAffectedObjects(System.Action{System.Object})
+  overload: PostSharp.Patterns.Recording.RestorePoint.VisitAffectedObjects*
+  nameWithType.vb: RestorePoint.VisitAffectedObjects(Action(Of Object))
+  fullName.vb: PostSharp.Patterns.Recording.RestorePoint.VisitAffectedObjects(System.Action(Of Object))
+  name.vb: VisitAffectedObjects(Action(Of Object))
+- uid: PostSharp.Patterns.Recording.RestorePoint.Remove
+  commentId: M:PostSharp.Patterns.Recording.RestorePoint.Remove
+  id: Remove
+  parent: PostSharp.Patterns.Recording.RestorePoint
+  langs:
+  - csharp
+  - vb
+  name: Remove()
+  nameWithType: RestorePoint.Remove()
+  fullName: PostSharp.Patterns.Recording.RestorePoint.Remove()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Removes the current <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref> from the <xref href="PostSharp.Patterns.Recording.Recorder.UndoOperations" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Recording.Recorder.RedoOperations" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Remove()
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref> was removed, <code>false</code> if it was not present in these collections.
+    content.vb: Public Function Remove() As Boolean
+  overload: PostSharp.Patterns.Recording.RestorePoint.Remove*
+- uid: PostSharp.Patterns.Recording.RestorePoint.RestorePointName
+  commentId: P:PostSharp.Patterns.Recording.RestorePoint.RestorePointName
+  id: RestorePointName
+  parent: PostSharp.Patterns.Recording.RestorePoint
+  langs:
+  - csharp
+  - vb
+  name: RestorePointName
+  nameWithType: RestorePoint.RestorePointName
+  fullName: PostSharp.Patterns.Recording.RestorePoint.RestorePointName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the name of the current <xref href="PostSharp.Patterns.Recording.RestorePoint" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public string RestorePointName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property RestorePointName As String
+  overload: PostSharp.Patterns.Recording.RestorePoint.RestorePointName*
+- uid: PostSharp.Patterns.Recording.RestorePoint.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.RestorePoint.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.RestorePoint
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: RestorePoint.OperationKind
+  fullName: PostSharp.Patterns.Recording.RestorePoint.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public override OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public Overrides ReadOnly Property OperationKind As OperationKind
+  overridden: PostSharp.Patterns.Recording.Operation.OperationKind
+  overload: PostSharp.Patterns.Recording.RestorePoint.OperationKind*

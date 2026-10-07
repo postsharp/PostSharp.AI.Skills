@@ -1,0 +1,346 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  id: LoggingBackendOptions
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.#ctor
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  - PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  langs:
+  - csharp
+  - vb
+  name: LoggingBackendOptions
+  nameWithType: LoggingBackendOptions
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Represents the options of the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>These options are run-time options. They are exposed by the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.Options" data-throw-if-not-resolved="false"></xref> property, and each backend can expose
+        a derived class with more options, for instance <xref href="PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions" data-throw-if-not-resolved="false"></xref>.
+        Unlike the build-time options of a <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile" data-throw-if-not-resolved="false"></xref>, they are not organized into profiles: they apply to all records
+        emitted through the backend.</p>
+  example: []
+  syntax:
+    content: public class LoggingBackendOptions
+    content.vb: Public Class LoggingBackendOptions
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-customizing'
+    altText: 'Conceptual: Formatting Log Records'
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerLoggingOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: LoggingBackendOptions()
+  nameWithType: LoggingBackendOptions.LoggingBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LoggingBackendOptions()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  syntax:
+    content: public LoggingBackendOptions()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.#ctor*
+  nameWithType.vb: LoggingBackendOptions.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  id: ContextMaxLength
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ContextMaxLength
+  nameWithType: LoggingBackendOptions.ContextMaxLength
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the maximum length of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Description" data-throw-if-not-resolved="false"></xref> property.
+  remarks: >-
+    <p>This property determines the size of the buffer allocated to build the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Description" data-throw-if-not-resolved="false"></xref> property.
+        If the actual length exceeds the value of <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength" data-throw-if-not-resolved="false"></xref>, no exception is thrown, and the excess content is ignored.</p>
+  example: []
+  syntax:
+    content: public int ContextMaxLength { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property ContextMaxLength As Integer
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextMaxLength*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  id: LogLevelIgnoredForSystemRecords
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: LogLevelIgnoredForSystemRecords
+  nameWithType: LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets a value indicating whether the <xref href="PostSharp.Patterns.Diagnostics.LoggingOptions.Level" data-throw-if-not-resolved="false"></xref> property is ignored by the current backend for auto-generated
+
+    (that is, non-manual) logging records. Some backends may not support overriding the level of records.
+  example: []
+  syntax:
+    content: public virtual bool LogLevelIgnoredForSystemRecords { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable ReadOnly Property LogLevelIgnoredForSystemRecords As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.LogLevelIgnoredForSystemRecords*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  id: ContextIdGenerationStrategy
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: ContextIdGenerationStrategy
+  nameWithType: LoggingBackendOptions.ContextIdGenerationStrategy
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the strategy that determines how the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.Id" data-throw-if-not-resolved="false"></xref> property is generated.
+  remarks: >-
+    <p>The default value is <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal" data-throw-if-not-resolved="false"></xref>. Together with <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId" data-throw-if-not-resolved="false"></xref>
+        and <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter" data-throw-if-not-resolved="false"></xref>, this strategy determines the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property, which correlates
+        records across processes. The <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Global" data-throw-if-not-resolved="false"></xref> and
+        <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.LazyGlobal" data-throw-if-not-resolved="false"></xref> strategies use one counter for the whole AppDomain
+        and produce short identifiers. The <xref href="PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy.Hierarchical" data-throw-if-not-resolved="false"></xref> strategy uses a counter in the parent
+        context when there is one, so the synthetic identifier of a context starts with the synthetic identifier of its parent. It produces
+        longer identifiers.</p>
+  example: []
+  syntax:
+    content: public ContextIdGenerationStrategy ContextIdGenerationStrategy { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.ContextIdGenerationStrategy
+    content.vb: Public Property ContextIdGenerationStrategy As ContextIdGenerationStrategy
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.ContextIdGenerationStrategy*
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  id: SyntheticIdFormatter
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: SyntheticIdFormatter
+  nameWithType: LoggingBackendOptions.SyntheticIdFormatter
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the formatter that determines how the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property is generated.
+
+    The default value is an instance of the <xref href="PostSharp.Patterns.Diagnostics.Formatters.DefaultSyntheticIdFormatter" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public SyntheticIdFormatter SyntheticIdFormatter { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+    content.vb: >-
+      <Required>
+
+      Public Property SyntheticIdFormatter As SyntheticIdFormatter
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdFormatter*
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+  attributes:
+  - type: PostSharp.Patterns.Contracts.RequiredAttribute
+    ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  id: SyntheticIdMaxLength
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: SyntheticIdMaxLength
+  nameWithType: LoggingBackendOptions.SyntheticIdMaxLength
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the maximum length of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public int SyntheticIdMaxLength { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SyntheticIdMaxLength As Integer
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.SyntheticIdMaxLength*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  id: RootSyntheticId
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: RootSyntheticId
+  nameWithType: LoggingBackendOptions.RootSyntheticId
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the root of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property. The default
+
+    is a hex-formatted random 64-bit value.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public string RootSyntheticId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property RootSyntheticId As String
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.RootSyntheticId*
+  seealso:
+  - linkType: HRef
+    linkId: '@distributed-logging'
+    altText: 'Conceptual: Logging in a Distributed System'
+  attributes:
+  - type: PostSharp.Patterns.Contracts.RequiredAttribute
+    ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  id: IncludeManualLoggingSourceLineInfo
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeManualLoggingSourceLineInfo
+  nameWithType: LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether source line information is included in the log output for manual
+
+    logging (written using <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public bool IncludeManualLoggingSourceLineInfo { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeManualLoggingSourceLineInfo As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  id: IsIncludeManualLoggingSourceLineInfoSpecified
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IsIncludeManualLoggingSourceLineInfoSpecified
+  nameWithType: LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a value indicating whether the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeManualLoggingSourceLineInfo" data-throw-if-not-resolved="false"></xref> property has been set.
+  example: []
+  syntax:
+    content: public bool IsIncludeManualLoggingSourceLineInfoSpecified { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsIncludeManualLoggingSourceLineInfoSpecified As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IsIncludeManualLoggingSourceLineInfoSpecified*
+- uid: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  id: IncludeActivityExecutionTime
+  parent: PostSharp.Patterns.Diagnostics.LoggingBackendOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeActivityExecutionTime
+  nameWithType: LoggingBackendOptions.IncludeActivityExecutionTime
+  fullName: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether the execution time is measured for custom activities. The default value is <code>false</code>.
+
+    This property does not affect the measurement of the execution time of methods, which is influenced only
+
+    by the <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.IncludeExecutionTime" data-throw-if-not-resolved="false"></xref> property of the build-time logging profile.
+  example: []
+  syntax:
+    content: public bool IncludeActivityExecutionTime { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeActivityExecutionTime As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime*
+  seealso:
+  - linkType: HRef
+    linkId: '@log-custom-activities'
+    altText: 'Conceptual: Working with Custom Activities'

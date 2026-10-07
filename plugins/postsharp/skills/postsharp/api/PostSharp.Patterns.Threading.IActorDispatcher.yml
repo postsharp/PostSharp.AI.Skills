@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.IActorDispatcher
+  commentId: T:PostSharp.Patterns.Threading.IActorDispatcher
+  id: IActorDispatcher
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.IActorDispatcher.Initialize
+  langs:
+  - csharp
+  - vb
+  name: IActorDispatcher
+  nameWithType: IActorDispatcher
+  fullName: PostSharp.Patterns.Threading.IActorDispatcher
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Augments the <xref href="PostSharp.Patterns.Threading.IDispatcher" data-throw-if-not-resolved="false"></xref> interface with an <xref href="PostSharp.Patterns.Threading.IActorDispatcher.Initialize" data-throw-if-not-resolved="false"></xref> method, which is invoked after the actor constructor has been invoked.
+  example: []
+  syntax:
+    content: 'public interface IActorDispatcher : IDispatcher'
+    content.vb: Public Interface IActorDispatcher Inherits IDispatcher
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ActorDispatcher
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.IDispatcher.CheckAccess
+  - PostSharp.Patterns.Threading.IDispatcher.Invoke(System.Threading.SendOrPostCallback,System.Object)
+  - PostSharp.Patterns.Threading.IDispatcher.BeginInvoke(System.Threading.SendOrPostCallback,System.Object)
+  - PostSharp.Patterns.Threading.IDispatcher.IsInvokeSupported
+  - PostSharp.Patterns.Threading.IDispatcher.SynchronizationContext
+- uid: PostSharp.Patterns.Threading.IActorDispatcher.Initialize
+  commentId: M:PostSharp.Patterns.Threading.IActorDispatcher.Initialize
+  id: Initialize
+  parent: PostSharp.Patterns.Threading.IActorDispatcher
+  langs:
+  - csharp
+  - vb
+  name: Initialize()
+  nameWithType: IActorDispatcher.Initialize()
+  fullName: PostSharp.Patterns.Threading.IActorDispatcher.Initialize()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Indicates that the controller should start enforcing access. Before this method is invoked, the <xref href="PostSharp.Patterns.Threading.IDispatcher.CheckAccess" data-throw-if-not-resolved="false"></xref>
+
+    method should always return <code>true</code>, allowing any access to the object. This mechanism allows the actor constructor to have full access to itself.
+  example: []
+  syntax:
+    content: void Initialize()
+    content.vb: Sub Initialize()
+  overload: PostSharp.Patterns.Threading.IActorDispatcher.Initialize*

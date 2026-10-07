@@ -1,0 +1,81 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+  id: LoggingContextLocalConfigurationScope
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Configuration
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Dispose
+  langs:
+  - csharp
+  - vb
+  name: LoggingContextLocalConfigurationScope
+  nameWithType: LoggingContextLocalConfigurationScope
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Represents a scope started with the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)" data-throw-if-not-resolved="false"></xref> method.
+
+    Dispose the scope to close it. It is recommended to use the <code>using</code> keyword.
+  example: []
+  syntax:
+    content: 'public struct LoggingContextLocalConfigurationScope : IDisposable'
+    content.vb: Public Structure LoggingContextLocalConfigurationScope Implements IDisposable
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: LoggingContextLocalConfigurationScope.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Disposes the current scope.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Configuration
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Configuration
+  id: Configuration
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope
+  langs:
+  - csharp
+  - vb
+  name: Configuration
+  nameWithType: LoggingContextLocalConfigurationScope.Configuration
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Configuration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> for the new context.
+  example: []
+  syntax:
+    content: public readonly LoggingContextLocalConfiguration Configuration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+    content.vb: Public ReadOnly Property Configuration As LoggingContextLocalConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfigurationScope.Configuration*

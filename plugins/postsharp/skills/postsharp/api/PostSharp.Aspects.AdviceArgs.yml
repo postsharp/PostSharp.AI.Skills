@@ -1,0 +1,131 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.AdviceArgs
+  commentId: T:PostSharp.Aspects.AdviceArgs
+  id: AdviceArgs
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.AdviceArgs.#ctor(System.Object)
+  - PostSharp.Aspects.AdviceArgs.DeclarationIdentifier
+  - PostSharp.Aspects.AdviceArgs.Instance
+  langs:
+  - csharp
+  - vb
+  name: AdviceArgs
+  nameWithType: AdviceArgs
+  fullName: PostSharp.Aspects.AdviceArgs
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Base class for the arguments of all advices.
+  example: []
+  syntax:
+    content: public class AdviceArgs
+    content.vb: Public Class AdviceArgs
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Aspects.EventInterceptionArgs
+  - PostSharp.Aspects.MethodExecutionArgs
+  - PostSharp.Aspects.MethodInterceptionArgs
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.AdviceArgs.#ctor(System.Object)
+  commentId: M:PostSharp.Aspects.AdviceArgs.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: PostSharp.Aspects.AdviceArgs
+  langs:
+  - csharp
+  - vb
+  name: AdviceArgs(object)
+  nameWithType: AdviceArgs.AdviceArgs(object)
+  fullName: PostSharp.Aspects.AdviceArgs.AdviceArgs(object)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.AdviceArgs" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AdviceArgs(object instance)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: >-
+        The instance related to the advice invocation, or
+                      <code>null</code> if the advice is associated with a static element of code.
+    content.vb: Public Sub New(instance As Object)
+  overload: PostSharp.Aspects.AdviceArgs.#ctor*
+  nameWithType.vb: AdviceArgs.New(Object)
+  fullName.vb: PostSharp.Aspects.AdviceArgs.New(Object)
+  name.vb: New(Object)
+- uid: PostSharp.Aspects.AdviceArgs.Instance
+  commentId: P:PostSharp.Aspects.AdviceArgs.Instance
+  id: Instance
+  parent: PostSharp.Aspects.AdviceArgs
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: AdviceArgs.Instance
+  fullName: PostSharp.Aspects.AdviceArgs.Instance
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Gets or sets the object instance on which the method is being executed.
+  remarks: >-
+    <p>This may be set by user code only when the instance is a value type.
+              As usual, user code is responsible for setting an object of the
+              right type.</p>
+        <div class="NOTE"><h5>note</h5><p>
+      As a result of weaving optimizations, the value of this property may appear as <code>null</code> in a debugger.
+      If you need to inspect the value at runtime, consider disabling aspect optimizations in the debug build configuration.
+    </p></div>
+  example: []
+  syntax:
+    content: public object Instance { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property Instance As Object
+  overload: PostSharp.Aspects.AdviceArgs.Instance*
+- uid: PostSharp.Aspects.AdviceArgs.DeclarationIdentifier
+  commentId: P:PostSharp.Aspects.AdviceArgs.DeclarationIdentifier
+  id: DeclarationIdentifier
+  parent: PostSharp.Aspects.AdviceArgs
+  langs:
+  - csharp
+  - vb
+  name: DeclarationIdentifier
+  nameWithType: AdviceArgs.DeclarationIdentifier
+  fullName: PostSharp.Aspects.AdviceArgs.DeclarationIdentifier
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Gets the <xref href="PostSharp.Aspects.AdviceArgs.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> of the declaration to which the
+
+    advice has been applied.
+  remarks: >-
+    <p>For usage information, see the remarks of the <xref href="PostSharp.Aspects.AdviceArgs.DeclarationIdentifier" data-throw-if-not-resolved="false"></xref> type documentation.</p>
+        <div class="NOTE"><h5>note</h5><p>
+      As a result of weaving optimizations, the value of this property may appear as <code>null</code> in a debugger.
+      If you need to inspect the value at runtime, consider disabling aspect optimizations in the debug build configuration.
+    </p></div>
+  example: []
+  syntax:
+    content: public DeclarationIdentifier DeclarationIdentifier { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.DeclarationIdentifier
+    content.vb: Public Property DeclarationIdentifier As DeclarationIdentifier
+  overload: PostSharp.Aspects.AdviceArgs.DeclarationIdentifier*

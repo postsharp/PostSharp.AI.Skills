@@ -1,0 +1,201 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.MulticastPointcut
+  commentId: T:PostSharp.Aspects.Advices.MulticastPointcut
+  id: MulticastPointcut
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.MulticastPointcut.#ctor
+  - PostSharp.Aspects.Advices.MulticastPointcut.Attributes
+  - PostSharp.Aspects.Advices.MulticastPointcut.MemberName
+  - PostSharp.Aspects.Advices.MulticastPointcut.Targets
+  langs:
+  - csharp
+  - vb
+  name: MulticastPointcut
+  nameWithType: MulticastPointcut
+  fullName: PostSharp.Aspects.Advices.MulticastPointcut
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied on an advice method, specifies to which elements of
+
+    code this advice applies, based on the kind, name and attributes of code elements.
+
+    Works similarly to <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>
+            Unlike <xref href="PostSharp.Extensibility.MulticastAttribute" data-throw-if-not-resolved="false"></xref>, this pointcut does not add aspects: it selects, within the target of the
+            aspect, the elements to which the advice applies. For a type-level aspect, it selects among the members declared
+            in the target type; for an aspect applied to a method, field, property or event, it can select only that element.
+            When <xref href="PostSharp.Aspects.Advices.MulticastPointcut.Targets" data-throw-if-not-resolved="false"></xref> is not set, the pointcut selects all the kinds of elements that the advice supports.
+          </p>
+    <p>
+            To select elements with logic that cannot be expressed declaratively, use <xref href="PostSharp.Aspects.Advices.MethodPointcut" data-throw-if-not-resolved="false"></xref>.
+          </p>
+  example: []
+  syntax:
+    content: 'public sealed class MulticastPointcut : Pointcut'
+    content.vb: Public NotInheritable Class MulticastPointcut Inherits Pointcut
+  seealso:
+  - linkType: HRef
+    linkId: '@advices'
+    altText: 'Conceptual: Adding Behaviors to Existing Members'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Pointcut
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.MulticastPointcut.#ctor
+  commentId: M:PostSharp.Aspects.Advices.MulticastPointcut.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.MulticastPointcut
+  langs:
+  - csharp
+  - vb
+  name: MulticastPointcut()
+  nameWithType: MulticastPointcut.MulticastPointcut()
+  fullName: PostSharp.Aspects.Advices.MulticastPointcut.MulticastPointcut()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public MulticastPointcut()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.MulticastPointcut.#ctor*
+  nameWithType.vb: MulticastPointcut.New()
+  fullName.vb: PostSharp.Aspects.Advices.MulticastPointcut.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Advices.MulticastPointcut.MemberName
+  commentId: P:PostSharp.Aspects.Advices.MulticastPointcut.MemberName
+  id: MemberName
+  parent: PostSharp.Aspects.Advices.MulticastPointcut
+  langs:
+  - csharp
+  - vb
+  name: MemberName
+  nameWithType: MulticastPointcut.MemberName
+  fullName: PostSharp.Aspects.Advices.MulticastPointcut.MemberName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the expression specifying to which members
+
+    the aspect extension applies.
+  example: []
+  syntax:
+    content: public string MemberName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: >-
+        A wildcard or regular expression specifying to which members
+
+        this instance applies, or <code>null</code> if this instance
+
+        applies to all members whose kind is given in <xref href="PostSharp.Aspects.Advices.MulticastPointcut.Targets" data-throw-if-not-resolved="false"></xref>.
+
+        Regular expressions should start with the <code>regex:</code> prefix.
+    content.vb: Public Property MemberName As String
+  overload: PostSharp.Aspects.Advices.MulticastPointcut.MemberName*
+- uid: PostSharp.Aspects.Advices.MulticastPointcut.Targets
+  commentId: P:PostSharp.Aspects.Advices.MulticastPointcut.Targets
+  id: Targets
+  parent: PostSharp.Aspects.Advices.MulticastPointcut
+  langs:
+  - csharp
+  - vb
+  name: Targets
+  nameWithType: MulticastPointcut.Targets
+  fullName: PostSharp.Aspects.Advices.MulticastPointcut.Targets
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets the kind of elements to which this aspect extension applies.
+  example: []
+  syntax:
+    content: public MulticastTargets Targets { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastTargets
+    content.vb: Public Property Targets As MulticastTargets
+  overload: PostSharp.Aspects.Advices.MulticastPointcut.Targets*
+- uid: PostSharp.Aspects.Advices.MulticastPointcut.Attributes
+  commentId: P:PostSharp.Aspects.Advices.MulticastPointcut.Attributes
+  id: Attributes
+  parent: PostSharp.Aspects.Advices.MulticastPointcut
+  langs:
+  - csharp
+  - vb
+  name: Attributes
+  nameWithType: MulticastPointcut.Attributes
+  fullName: PostSharp.Aspects.Advices.MulticastPointcut.Attributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the visibilities, scopes, virtualities, and implementation
+
+    of members to which this attribute applies.
+  remarks: >-
+    <p>
+            The <xref href="PostSharp.Extensibility.MulticastAttributes" data-throw-if-not-resolved="false"></xref> enumeration is a multi-part flag: there is one
+            part for visibility, one for scope, one for virtuality, and one for implementation.
+            If you specify one part, it will override the values defined on the custom attribute definition.
+          </p>
+  example: []
+  syntax:
+    content: public MulticastAttributes Attributes { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.MulticastAttributes
+    content.vb: Public Property Attributes As MulticastAttributes
+  overload: PostSharp.Aspects.Advices.MulticastPointcut.Attributes*

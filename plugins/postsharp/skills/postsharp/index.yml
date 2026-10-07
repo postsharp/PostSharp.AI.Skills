@@ -1,0 +1,1133 @@
+- name: Introduction
+  uid: introduction
+  path: conceptual/introduction/introduction.md
+  summary: This document introduces PostSharp, a tool designed to eliminate boilerplate code in object-oriented programming, enabling developers to work more efficiently and avoid bugs. The tool adds support for patterns into C# and VB languages.
+  items:
+  - name: Quick Examples
+    uid: what-is-postsharp
+    path: conceptual/introduction/quick-examples.md
+    summary: PostSharp is a .NET tool that provides ready-made implementations of common patterns and threading models. It also allows users to create and validate custom patterns using aspect-oriented programming (AOP).
+  - name: Why Use PostSharp
+    uid: benefits
+    path: conceptual/introduction/benefits/benefits.md
+    summary: PostSharp is a popular commercial product trusted by over 50,000 developers and 1,000 corporations, including 10% of Fortune 500 companies, for reducing development and maintenance costs. It's the leading pattern-aware extension to C# and VB.
+    items:
+    - name: Problems PostSharp Solves
+      uid: solved-problems
+      path: conceptual/introduction/benefits/solved-problems.md
+      summary: PostSharp addresses problems in conventional programming such as large codebases, reinventing solutions, high defect rates, multithreading issues, lack of robustness, code maintenance difficulty, strong coupling, slow onboarding of new team members, and long feedback loops.
+    - name: Benefits of Pattern-Aware Compiler Extensions
+      uid: pattern-aware-compilers
+      path: conceptual/introduction/benefits/pattern-aware-compilers.md
+      summary: Pattern-aware compiler extensions can enhance programming by reducing boilerplate code, improving software reliability, and making code easier to understand and modify. This allows faster development, easier onboarding of new team members, and future-proof architecture.
+    - name: Benefits of PostSharp over Alternatives
+      uid: comparative-benefits
+      path: conceptual/introduction/benefits/alternatives.md
+      summary: PostSharp is a pattern-aware extension to C#/VB that reduces boilerplate code and errors, enhancing productivity. It automates complex patterns, provides ready-made pattern implementations, and offers thread-safety features. It supports existing C#/VB codebases and delivers exceptional run-time performance.
+  - name: How PostSharp Works
+    uid: how-it-works
+    path: conceptual/introduction/how-it-works.md
+    summary: PostSharp is an extension to the C# or VB compiler that integrates into the build process, post-processing the compiler's output. It uses MSIL technology to transform and validate the intermediate assembly.
+    items:
+    - name: Key Technologies
+      uid: technologies
+      path: conceptual/introduction/technologies.md
+      summary: PostSharp is a metaprogramming tool for .NET that uses Aspect-Oriented Programming (AOP) for program transformations. It also uses static and dynamic program analysis for structural analysis and run-time checks respectively.
+  - name: How to Learn PostSharp
+    uid: getting-started
+    path: conceptual/introduction/getting-started/getting-started.md
+    summary: 'The document details the three phases of implementing PostSharp: learning about its concepts, deploying it into the development infrastructure, and daily usage, with different roles involved in each phase.'
+    items:
+    - name: 'Architecture Role: Selecting and Creating Aspects'
+      uid: getting-started-architecture
+      path: conceptual/introduction/getting-started/architect-role.md
+      summary: This document is a guide to understanding the architecture role in adopting PostSharp, a tool that offers pre-built aspects and allows users to create custom aspects for specific needs.
+    - name: 'Deployment Role: Installing and Deploying PostSharp'
+      uid: getting-started-deployment
+      path: conceptual/introduction/getting-started/deployment-role.md
+      summary: The document provides guidance on how to deploy PostSharp in various scenarios including development environments, build infrastructure, end-user devices, and large or regulated environments.
+    - name: 'Developer Role: Using Aspects'
+      uid: getting-started-development
+      path: conceptual/introduction/getting-started/developer-role.md
+      summary: The document provides a guide for developers on using PostSharp aspects, including how to install and upgrade PostSharp, work with pre-built patterns, and work with patterns.
+  - name: What's New
+    uid: whats-new
+    path: conceptual/introduction/whats-new/whats-new.md
+    summary: The document provides an overview of updates and new features added to PostSharp, a popular tool for aspect-oriented programming in .NET, since 2004.
+    items:
+    - name: What's New in PostSharp 2027.0
+      uid: whats-new-20270
+      path: conceptual/introduction/whats-new/2027-0.md
+      summary: PostSharp 2027.0 makes advice parameter binding a public feature, adds support for .NET 11 and C# 15, replaces the Windows options application with a cross-platform browser interface and command line tool, and integrates with the MSBuild server.
+      items:
+      - name: Breaking Changes in PostSharp 2027.0
+        uid: breaking-changes-20270
+        path: conceptual/introduction/whats-new/breaking-changes-2027-0.md
+        summary: PostSharp 2027.0 moves the supported .NET versions to .NET 10 and .NET 11, replaces the Windows options application, requires a license for interactive builds on Linux and macOS, switches on usage reporting by default, and applies TreatWarningsAsErrors to the warnings of PostSharp.
+    - name: What's New in PostSharp 2026.0
+      uid: whats-new-20260
+      path: conceptual/introduction/whats-new/2026-0.md
+      summary: PostSharp 2026.0 adds support for .NET 10.0 and C# 14, removes support for older .NET Framework versions (3.5-4.5.1), and unifies Pattern Libraries to target .NET Framework 4.7.1.
+      items:
+      - name: Breaking Changes in PostSharp 2026.0
+        uid: breaking-changes-20260
+        path: conceptual/introduction/whats-new/breaking-changes-2026-0.md
+        summary: PostSharp 2026.0 introduces major breaking changes including discontinued support for .NET Framework versions older than 4.5.2 (4.7.1 for the pattern libraries), .NET Standard 1.3, and end-of-life .NET versions.
+    - name: What's New in PostSharp 2025.0
+      uid: whats-new-20250
+      path: conceptual/introduction/whats-new/2025-0.md
+      summary: PostSharp 2025.0 adds support for .NET 9.0, Windows long paths and improves support for Windows PDB.
+      items:
+      - name: Breaking Changes in PostSharp 2025.0
+        uid: breaking-changes-20250
+        path: conceptual/introduction/whats-new/breaking-changes-2025-0.md
+        summary: PostSharp 2025.0 introduces several breaking changes and deprecates platforms and features.
+    - name: What's New in PostSharp 2024.1
+      uid: whats-new-20241
+      path: conceptual/introduction/whats-new/2024-1.md
+      summary: PostSharp 2024.1 introduces a consolidated Visual Studio extension for Metalama and PostSharp, along with support for CodeLens.
+    - name: What's New in PostSharp 2024.0
+      uid: whats-new-20240
+      path: conceptual/introduction/whats-new/2024-0.md
+      summary: PostSharp 2024.0 introduces support for .NET 8.0 and C# 12, including ARM64 build platforms and experimental support for ARM64 .NET Framework and Visual Studio.
+      items:
+      - name: Breaking Changes in PostSharp 2024.0
+        uid: breaking-changes-20240
+        path: conceptual/introduction/whats-new/breaking-changes-2024-0.md
+        summary: PostSharp 2024.0 introduces several breaking changes including build errors, changes in behavior, and deprecated platforms and features.
+    - name: What's New in PostSharp 2023.0
+      uid: whats-new-20230
+      path: conceptual/introduction/whats-new/2023-0.md
+      summary: PostSharp 2023.0 introduces support for .NET 7.0 and C# 11, and is now compatible with Metalama. However, it discontinues support for .NET Core 5.0 and older Visual Studio versions.
+    - name: What's New in PostSharp 6.10
+      uid: whats-new-610
+      path: conceptual/introduction/whats-new/6-10.md
+      summary: PostSharp 6.10 now supports .NET 6.0, Visual Studio 2022, and C# 10, but discontinues support for .NET Core 2.1 and Visual Studio 2019 before 16.4.
+    - name: What's New in PostSharp 6.9
+      uid: whats-new-69
+      path: conceptual/introduction/whats-new/6-9.md
+      summary: PostSharp 6.9 improves the performance of Visual Studio tooling, completes migration to modern Visual Studio's async APIs, and optimizes legacy code.
+    - name: What's New in PostSharp 6.8
+      uid: whats-new-68
+      path: conceptual/introduction/whats-new/6-8.md
+      summary: PostSharp 6.8 offers support for .NET 5 and C# 9, includes improvements in logging, and provides usage measurement for Per-Usage. It also features automatic instrumentation of ASP.NET Core and HttpClient.
+    - name: What's New in PostSharp 6.7
+      uid: whats-new-67
+      path: conceptual/introduction/whats-new/6-7.md
+      summary: PostSharp 6.7 has ended support for .NET Framework 4.0 and Visual Studio 2015, and now supports Xamarin and Blazor. It offers improved integration with existing logging frameworks, better support for async iterators, and enhanced telemetry reporting.
+      items:
+      - name: Breaking Changes in PostSharp 6.7
+        uid: breaking-changes-67
+        path: conceptual/introduction/whats-new/breaking-changes-6-7.md
+        summary: PostSharp 6.7 introduces several breaking changes including build errors, changes in behavior, and deprecated platforms and features. It no longer supports .NET Framework 4.0 and Visual Studio 2015.
+    - name: What's New in PostSharp 6.6
+      uid: whats-new-66
+      path: conceptual/introduction/whats-new/6-6.md
+      summary: PostSharp 6.6 introduces PostSharp Community, a free edition replacing PostSharp Essentials. It also includes per-usage pricing, open access to PostSharp SDK, and supports community add-ins.
+      items:
+      - name: Breaking Changes in PostSharp 6.6
+        uid: breaking-changes-66
+        path: conceptual/introduction/whats-new/breaking-changes-6-6.md
+        summary: 'PostSharp 6.6 has introduced changes such as counting lines of code instead of classes for premium features and replacing automatic switch to Developer Mode in PostSharp Logging with an opt-in approach. '
+    - name: What's New in PostSharp 6.5
+      uid: whats-new-65
+      path: conceptual/introduction/whats-new/6-5.md
+      summary: PostSharp 6.5 features improved build-time and design-time experience, official Docker support, and performance enhancements. It also brings updates for Visual Studio and Docker, and installer improvements.
+      items:
+      - name: Breaking Changes in PostSharp 6.5
+        uid: breaking-changes-65
+        path: conceptual/introduction/whats-new/breaking-changes-6-5.md
+        summary: The document outlines the breaking changes in PostSharp 6.5, including changes causing build errors, changes causing a silent change in behavior, and deprecated platforms and features.
+    - name: What's New in PostSharp 6.4
+      uid: whats-new-64
+      path: conceptual/introduction/whats-new/6-4.md
+      summary: PostSharp 6.4 introduces full support for .NET Core 3.0, .NET Standard 2.1, and C# 8.0. It also fixes field and property initializer interception, allows free ordering of OnMethodBoundary aspects, and can export build-time profiling information to a CSV file.
+      items:
+      - name: Breaking Changes in PostSharp 6.4
+        uid: breaking-changes-64
+        path: conceptual/introduction/whats-new/breaking-changes-6-4.md
+        summary: The document discusses a change in PostSharp 6.4 where the LocationInterceptionAspect.OnSetValue advice will now be invoked for initializers of static fields and properties.
+    - name: What's New in PostSharp 6.3
+      uid: whats-new-63
+      path: conceptual/introduction/whats-new/6-3.md
+      summary: PostSharp 6.3 now supports building on Linux and MacOS, offers improvements to PostSharp Tools for Visual Studio, respects the deterministic compiler option, allows free ordering of OnMethodBoundary aspects on async methods, and enables customization of exception types in contracts.
+      items:
+      - name: Breaking Changes in PostSharp 6.3
+        uid: breaking-changes-63
+        path: conceptual/introduction/whats-new/breaking-changes-6-3.md
+        summary: The document outlines breaking changes in PostSharp 6.3, including no longer supporting .NET Core 1.1 and requiring .NET Framework 4.7.2 or later.
+    - name: What's New in PostSharp 6.2
+      uid: whats-new-62
+      path: conceptual/introduction/whats-new/6-2.md
+      summary: PostSharp 6.2 introduces support for Visual Studio 2019 and improved startup performance of its Visual Studio extension, despite having some low-impact breaking changes.
+      items:
+      - name: Breaking Changes in PostSharp 6.2
+        uid: breaking-changes-62
+        path: conceptual/introduction/whats-new/breaking-changes-6-2.md
+        summary: The document details breaking changes in PostSharp 6.2, including updates to supported platforms and packages, specifically changes in dependencies and .NET Framework requirements for the PostSharp.Patterns.Caching.Redis package.
+    - name: What's New in PostSharp 6.1
+      uid: whats-new-61
+      path: conceptual/introduction/whats-new/6-1.md
+      summary: 'PostSharp 6.1 focuses on improving the logging API and debugging experience, with significant advancements made in the front-end API for logging high-load distributed systems. It also supports C# 7.3 and fixes .NET Standard gaps. '
+      items:
+      - name: Breaking Changes in PostSharp 6.1
+        uid: breaking-changes-61
+        path: conceptual/introduction/whats-new/breaking-changes-6-1.md
+        summary: PostSharp 6.1 introduces breaking changes including a change in logging behavior, method signature changes in the API for building custom logging back-ends, and replacement of the Logger class. It also drops support for Visual Studio 2013 and .NET Core SDK 2.0.
+    - name: What's New in PostSharp 6.0
+      uid: whats-new-60
+      path: conceptual/introduction/whats-new/6-0.md
+      summary: 'PostSharp 6.0 now supports .NET Core 2.0-2.1 and .NET Standard 2.0, runs natively in .NET Core, and supports C# 7.2. It has also improved the robustness of the logging component and is now GDPR compliant. '
+      items:
+      - name: Breaking Changes in PostSharp 6.0
+        uid: breaking-changes-60
+        path: conceptual/introduction/whats-new/breaking-changes-6-0.md
+        summary: PostSharp 6.0 introduces several breaking changes including changes in assembly loading algorithms, MSBuild properties, API removals, and licensing changes. It also discontinues support for certain platforms and features.
+    - name: What's New in PostSharp 5.0
+      uid: whats-new-50
+      path: conceptual/introduction/whats-new/5-0.md
+      summary: PostSharp 5.0 introduces breaking changes, dropping support for Windows Phone and WinRT, and adding support for .NET Core, .NET Standard and Visual Studio 2017. It also features a revamped logging system, a new caching framework, improved support for async methods, and new aspects for MVVM.
+      items:
+      - name: Breaking Changes in PostSharp 5.0
+        uid: breaking-changes-50
+        path: conceptual/introduction/whats-new/breaking-changes-5-0.md
+        summary: PostSharp 5.0 introduces breaking changes including silent changes of behavior, build errors, build warnings, deprecated platforms, and licensing changes. Users need to modify their code accordingly.
+    - name: What's New in PostSharp 4.3
+      uid: whats-new-43
+      path: conceptual/introduction/whats-new/4-3.md
+      summary: PostSharp 4.3 focuses on improving existing features, offering improved build-time performance, a better debugging experience, more flexible deployment, and enhancements to the NotifyPropertyChanged aspect. It also simplifies PostSharp Express licensing and source code sharing.
+    - name: What's New in PostSharp 4.2
+      uid: whats-new-42
+      path: conceptual/introduction/whats-new/4-2.md
+      summary: PostSharp 4.2 introduces improvements to Aggregatable Pattern, NotifyPropertyChanged, Threading Models, and Aspect Framework. It also adds support for ASP.NET v5, Visual Basic, and IncrediBuild, along with code saving metrics.
+    - name: What's New in PostSharp 4.1
+      uid: whats-new-41
+      path: conceptual/introduction/whats-new/4-1.md
+      summary: PostSharp 4.1 broadens its platform support, including Xamarin and Visual Studio 2015, and improves Windows Phone and Windows Store support. It allows building iOS and Android applications using Xamarin.
+    - name: What's New in PostSharp 4.0
+      uid: whats-new-40
+      path: conceptual/introduction/whats-new/4-0.md
+      summary: PostSharp 4.0 introduces several new features, including a redesign of the Threading Pattern Library, an undo/redo feature, and improvements to the Aspect Framework. It also introduces the Aggregatable, Disposable, Immutable, Freezable, and Synchronized patterns.
+    - name: What's New in PostSharp 3.1
+      uid: whats-new-31
+      path: conceptual/introduction/whats-new/3-1.md
+      summary: PostSharp 3.1 improves on version 3.0 with better support for iterator and async methods, an improved configuration system, build-time performance improvements, error message resolution, automatic indentation in logging, and more flexible licensing options.
+    - name: What's New in PostSharp 3.0
+      uid: whats-new-30
+      path: conceptual/introduction/whats-new/3-0.md
+      summary: PostSharp 3.0 offers ready-made implementations of popular design patterns, improved support for Windows Phone, Silverlight, Windows Store, and Portable Class Library, and better discoverability through smart tags and wizards in Visual Studio.
+    - name: What's New in PostSharp 2.1
+      uid: whats-new-21
+      path: conceptual/introduction/whats-new/2-1.md
+      summary: PostSharp 2.1 introduces several improvements, including build-time performance, compatibility with obfuscators and Code Contracts, support for NuGet and Silverlight 5.0, and a new license server.
+    - name: What's New in PostSharp 2.0
+      uid: whats-new-20
+      path: conceptual/introduction/whats-new/2-0.md
+      summary: PostSharp 2.0 enhances aspect-oriented programming (AOP) in the .NET community by improving convenience, reliability, and runtime performance. It introduces new features such as Visual Studio Extension, composite aspects, adaptive code generation, aspect dependencies, and instance-scoped aspects.
+    - name: What's New in PostSharp 1.5
+      uid: whats-new-15
+      path: conceptual/introduction/whats-new/1-5.md
+      summary: PostSharp 1.5 introduces aspect inheritance, the ability to read assemblies without loading them in the CLR, lazy loading of assemblies, build-time performance improvements, support for Mono, Silverlight 2.0, Compact Framework 2.0, and a pluggable aspect serializer.
+- name: Deployment and Configuration
+  uid: deployment-configuration
+  path: conceptual/deployment-configuration.md
+  summary: The document provides guidance on deploying and configuring PostSharp in complex situations, addressing challenges faced by large teams and regulated environments.
+  items:
+  - name: Deployment
+    uid: deployment
+    path: conceptual/deployment/deployment.md
+    summary: The document provides a detailed guide on the deployment and configuration of PostSharp, including installation, upgrading, uninstalling, and redistribution to end-user devices.
+    items:
+    - name: Requirements and Compatibility
+      uid: requirements
+      path: conceptual/deployment/requirements/requirements.md
+      summary: The document provides information on the requirements and compatibility for using PostSharp to build applications for various devices and versions.
+      items:
+      - name: Requirements of PostSharp 2026.0
+        uid: requirements-20260
+        path: conceptual/deployment/requirements/2026-0.md
+        summary: PostSharp 2026.0 supports C# 14.0 or earlier and VB 17.13 or earlier. It requires Microsoft Visual Studio 2022 or 2026, .NET Framework 4.7.2 or later, and is compatible with various operating systems and .NET SDK versions. It also supports Blazor via .NET Standard.
+      - name: Requirements of PostSharp 2025.0
+        uid: requirements-20250
+        path: conceptual/deployment/requirements/2025-0.md
+        summary: PostSharp 2025.0 supports C# 13.0 or earlier and VB 16.9 or earlier. It requires Microsoft Visual Studio 2022, .NET Framework 4.7.2 or later, and is compatible with various operating systems and .NET SDK versions. It also supports Blazor via .NET Standard.
+      - name: Requirements of PostSharp 2024.1
+        uid: requirements-20241
+        path: conceptual/deployment/requirements/2024-1.md
+        summary: PostSharp 2024.1 supports C# 12.0 or earlier and VB 16.9 or earlier. It requires Microsoft Visual Studio 2019 or 2022, .NET Framework 4.7.2 or later, and is compatible with various operating systems and .NET SDK versions. It also supports Xamarin and Blazor via .NET Standard.
+      - name: Requirements of PostSharp 2024.0
+        uid: requirements-20240
+        path: conceptual/deployment/requirements/2024-0.md
+        summary: PostSharp 2024.0 supports C# 12.0 or earlier and VB 16.9 or earlier. It requires Microsoft Visual Studio 2019 or 2022, .NET Framework 4.7.2 or later, and is compatible with various operating systems and .NET SDK versions. It also supports Xamarin and Blazor via .NET Standard.
+      - name: Requirements of PostSharp 2023.0
+        uid: requirements-20230
+        path: conceptual/deployment/requirements/2023-0.md
+        summary: PostSharp 2023.0 supports C# 11.0 or earlier and VB 16.9 or earlier. It requires Microsoft Visual Studio 2019 or 2022, .NET Framework 4.7.2 or later, and is compatible with various operating systems and .NET SDK versions. It also supports Xamarin and Blazor via .NET Standard.
+      - name: Requirements of PostSharp 6.10
+        uid: requirements-610
+        path: conceptual/deployment/requirements/6-10.md
+        summary: The document details the requirements and compatibility of the PostSharp 6.10 software. It includes information on supported programming languages, requirements for development workstations and end-user devices, and compatibility with various platforms and products.
+      - name: Requirements of PostSharp 6.9
+        uid: requirements-69
+        path: conceptual/deployment/requirements/6-9.md
+        summary: PostSharp 6.9 supports C# 9.0 and VB 16.0, and requires Microsoft Visual Studio 2017 Update 1 or 2019, .NET Framework 4.7.2, and .NET Core SDK 2.1 or later. It's compatible with Xamarin and Blazor via .NET Standard, but not with ARM platforms or certain older versions of Visual Studio.
+      - name: Requirements of PostSharp 6.8
+        uid: requirements-68
+        path: conceptual/deployment/requirements/6-8.md
+        summary: The document provides detailed information about the requirements and compatibility of PostSharp 6.8, including supported programming languages, development workstations, build servers, end-user devices, and known incompatibilities.
+      - name: Requirements of PostSharp 6.7
+        uid: requirements-67
+        path: conceptual/deployment/requirements/6-7.md
+        summary: The document details the requirements and compatibility of PostSharp 6.7, a tool used to build applications. It supports C# 8.0 and VB 16.0, and requires Microsoft Visual Studio and .NET Framework. It also lists known incompatibilities.
+      - name: Requirements of PostSharp 6.6
+        uid: requirements-66
+        path: conceptual/deployment/requirements/6-6.md
+        summary: PostSharp 6.6 supports C# 8.0 and VB 16.0, and requires .NET Framework 4.7.2 or later, and specific versions of Visual Studio and .NET Core SDK. It's compatible with ASP.NET, Microsoft Code Analysis, Code Contracts, and obfuscators, but not with certain products or features, including certain versions of Visual Studio, ILMerge, and Xamarin.
+      - name: Requirements of PostSharp 6.5
+        uid: requirements-65
+        path: conceptual/deployment/requirements/6-5.md
+        summary: PostSharp 6.5 supports C# 8.0 and VB 16.0, and requires Microsoft Visual Studio 2015 Update 3, 2017 version 15.9, or 2019, .NET Framework 4.7.2 or later, and specific operating systems. It is compatible with ASP.NET Application projects, Microsoft Code Analysis and Contracts, and obfuscators, but has known incompatibilities with certain products.
+      - name: Requirements of PostSharp 6.4
+        uid: requirements-64
+        path: conceptual/deployment/requirements/6-4.md
+        summary: PostSharp 6.4 supports C# 8.0 and VB 16.0, and is compatible with various versions of Microsoft Visual Studio, .NET Framework, and .NET Core. It also works with several operating systems, including Windows 10 and certain versions of Ubuntu, Alpine, and macOS.
+      - name: Requirements of PostSharp 6.3
+        uid: requirements-63
+        path: conceptual/deployment/requirements/6-3.md
+        summary: PostSharp 6.3, a tool for building applications, supports C# 7.3 and VB 15.5. It requires Microsoft Visual Studio, .NET Framework 4.7.2 or later, and specific operating systems. It is compatible with ASP.NET, Microsoft Code Analysis, Code Contracts, and obfuscators.
+      - name: Requirements of PostSharp 6.2
+        uid: requirements-62
+        path: conceptual/deployment/requirements/6-2.md
+        summary: The document outlines the requirements and compatibility of PostSharp 6.2 for development, build and end-user devices. It includes supported programming languages, software components, operating systems, and known incompatibilities.
+      - name: Requirements of PostSharp 6.1
+        uid: requirements-61
+        path: conceptual/deployment/requirements/6-1.md
+        summary: PostSharp 6.1 supports C# 7.3 and VB 15.5, and requires Microsoft Visual Studio 2015 Update 3 or 2017, .NET Framework 4.7.1 or later, and Windows 10. It's compatible with ASP.NET Application projects, Microsoft Code Analysis, Code Contracts and obfuscators, but not with ASP.NET Site projects, Visual Studio 2013, 2012, 2010, and others.
+      - name: Requirements of PostSharp 6.0
+        uid: requirements-60
+        path: conceptual/deployment/requirements/6-0.md
+        summary: The document outlines the requirements and compatibility of PostSharp 6.0. It supports C# 7.2 and VB 15.5, and requires Microsoft Visual Studio, .NET Framework 4.7.1 or later, and specific operating systems.
+      - name: Requirements of PostSharp 5.0
+        uid: requirements-50
+        path: conceptual/deployment/requirements/5-0.md
+        summary: The document details the requirements and compatibility for using PostSharp 5.0, including software components that need to be installed, requirements for end-user devices, and known incompatibilities and issues.
+      - name: Requirements of PostSharp 4.3
+        uid: requirements-43
+        path: conceptual/deployment/requirements/4-3.md
+        summary: The document details the requirements and compatibility of PostSharp 4.3 for development workstations, build servers, end-user devices, and its compatibility with ASP.NET, Microsoft Code Analysis, Code Contracts and Obfuscators. It also lists known incompatibilities.
+      - name: Compatibility with Xamarin
+        uid: xamarin
+        path: conceptual/deployment/requirements/xamarin.md
+        summary: PostSharp 2024.1 and earlier support Xamarin through .NET Standard libraries, but not directly in a Xamarin application project. A custom linker configuration is needed to prevent removal of required code.
+      - name: Compatibility with Blazor
+        uid: blazor
+        path: conceptual/deployment/requirements/blazor.md
+        summary: PostSharp supports Blazor via .NET Standard, but cannot be directly added to a Blazor application project. To prevent code removal, a custom linker configuration is needed.
+      - name: BinaryFormatter Security
+        uid: binary-formatter-security
+        path: conceptual/deployment/requirements/binary-formatter-security.md
+        summary: The .NET Core 3.1 BinaryFormatter, used for binary serialization, is considered insecure. PostSharp aspects are serialized at build time, but the vulnerability does not apply to PostSharp's use of serialization. The recommended action is to use PortableFormatter for serializing aspects.
+    - name: PostSharp Components
+      uid: postsharp-components
+      path: conceptual/deployment/components.md
+      summary: PostSharp offers components for Visual Studio, available as NuGet packages or a zip archive for teams not using NuGet. It includes build-time and run-time packages for various functions and aspects.
+    - name: Installing Visual Studio Tools for Metalama and PostSharp
+      uid: installation
+      path: conceptual/deployment/visual-studio-tools.md
+      summary: The document provides instructions on how to install Visual Studio Tools for Metalama and PostSharp.
+    - name: Configuring AI Coding Agents
+      uid: ai-agents
+      path: conceptual/deployment/ai-agents.md
+      summary: Install the PostSharp plugin for AI coding agents such as Claude Code and OpenAI Codex, so that they use the PostSharp documentation and API reference when they write code.
+    - name: Installing PostSharp Into a Project
+      uid: install-compiler
+      path: conceptual/deployment/install-into-project.md
+      summary: The document provides a step-by-step guide on how to install PostSharp into a project using a PostSharp NuGet package and how to include necessary files in your source control system.
+    - name: Using PostSharp on a Build Server
+      uid: build-server
+      path: conceptual/deployment/build-server.md
+      summary: PostSharp needs no installation or configuration on a build server. This article lists the ways to provide a license key to the build.
+      items:
+      - name: Restoring Packages at Build Time
+        uid: nuget-restore
+        path: conceptual/deployment/package-restore.md
+        summary: The document provides guidelines on how to restore NuGet packages at build time, specifically the PostSharp package, using different versions of NuGet, Visual Studio, and .NET Core Command Line Interface.
+    - name: Upgrading from a Previous Version of PostSharp
+      uid: upgrade
+      path: conceptual/deployment/upgrade.md
+      summary: The document provides detailed instructions on how to upgrade from a previous version of PostSharp, including upgrading Visual Studio Tools for Metalama and PostSharp and solutions from PostSharp 3 or later and PostSharp 2.
+    - name: Installing PostSharp Unattended
+      uid: postsharp-unattended
+      path: conceptual/deployment/unattended-installation.md
+      summary: This document provides a detailed guide on how to install PostSharp, a user interface for Visual Studio, unattended using a script. It also includes a PowerShell 2.0 script for automation.
+    - name: Uninstalling PostSharp
+      uid: uninstalling
+      path: conceptual/deployment/uninstall.md
+      summary: The document provides a detailed guide on how to uninstall PostSharp from individual projects or solutions and from Visual Studio, including removing PostSharp packages and cleaning temporary files.
+    - name: Deploying PostSharp to End-User Devices
+      uid: deployment-end-user
+      path: conceptual/deployment/end-user-devices.md
+      summary: The document provides a guide on how to deploy PostSharp, a compiler technology, to end-user devices either through bundling its run-time libraries in the final product or by using NuGet packages.
+  - name: Licensing
+    uid: licensing
+    path: conceptual/licensing/licensing.md
+    summary: The document provides technical information on licensing of PostSharp, including license types, installation of license keys, auditing, shared source code, user counting, server administration, and troubleshooting.
+    items:
+    - name: Deploying License Keys
+      uid: deploying-keys
+      path: conceptual/licensing/license-keys.md
+      summary: The document provides a detailed guide on how to install PostSharp license keys, including configuring the key in source code, registering it using the user interface, subscribing to a license server, and deploying the key as an environment variable.
+    - name: Sharing Source Code With Unlicensed Teams
+      uid: licensing-shared-source-code
+      path: conceptual/licensing/shared-source-code.md
+      summary: PostSharp requires a license to create or modify code, but not to build it. When the VcsCheckEnabled property is set, PostSharp reads the status of your source control repository and does not require a license for unmodified source code.
+    - name: Investigating Unexpected License Usage
+      uid: unexpected-license-usage
+      path: conceptual/licensing/unexpected-license-usage.md
+      summary: When more people build with PostSharp than your subscription covers, the two usual causes are a license key that has been copied outside the team that bought it, and developers who only build code they did not write. This article explains how to check both, and describes the perpetual rights that can cover an older build for more users.
+    - name: License Audit
+      uid: license-audit
+      path: conceptual/licensing/audit.md
+      summary: "PostSharp uses an asynchronous, fail-safe license audit instead of license activation, auditing license keys' use on each client machine and periodically reporting to their license servers. It does not require a permanent network connection and will not fail if the license server is unavailable. "
+    - name: Installing and Servicing PostSharp License Server
+      uid: license-server-admin
+      path: conceptual/licensing/license-server.md
+      summary: The document provides a detailed guide on how to install, service, and manage the PostSharp License Server. It covers system requirements, installation steps, license key installation, server testing, usage display, lease cancellation, and maintenance.
+    - name: PostSharp Essentials
+      uid: express-limitations
+      path: conceptual/licensing/essentials.md
+      summary: PostSharp Essentials is a free edition of PostSharp with unlimited free features and premium features limited to 1,000 lines of code. Premium features include semantic advising of async methods, instrumenting explicit properties, production mode logging, and integration with higher levels of PostSharp SDK.
+    - name: License Troubleshooting
+      uid: license-troubleshooting
+      path: conceptual/licensing/troubleshooting.md
+      summary: The document provides solutions for various technical issues that may arise with the PostSharp Licensing component, including license errors, uninstallation failures, and unexpected server disconnections.
+  - name: Configuration
+    uid: configuration
+    path: conceptual/configuration/configuration.md
+    summary: PostSharp, a metaprogramming tool, requires minimal custom configuration and sources its default settings from MSBuild integration, NuGet integration, and Visual Studio Tools for Metalama and PostSharp. Advanced configurations can be implemented if needed.
+    items:
+    - name: Configuring Projects in Visual Studio
+      uid: configuration-vs-project
+      path: conceptual/configuration/visual-studio.md
+      summary: The document provides a guide on how to configure PostSharp projects in Visual Studio, detailing each configuration setting and how to edit them. It also notes that starting from Visual Studio 2022, the project properties tab is no longer available for SDK-style projects.
+    - name: Configuring Projects Using MSBuild
+      uid: configuration-msbuild
+      path: conceptual/configuration/msbuild.md
+      summary: The document provides guidance on how to configure PostSharp projects using MSBuild properties, including setting properties with a text editor, environment variables, and from the command line.
+    - name: Configuring Projects Using postsharp.config
+      uid: configuration-system
+      path: conceptual/configuration/postsharp-config/postsharp-config.md
+      summary: PostSharp can be configured using an XML file named postsharp.config, placed in your project or parent directory. This file can be used for adding a license key, configuring build-time options, adding aspects, and sharing configurations between projects.
+      items:
+      - name: Configuration File Schema Reference
+        uid: configuration-schema
+        path: conceptual/configuration/postsharp-config/schema.md
+        summary: The document provides a detailed explanation of the schema for a PostSharp configuration file, including the elements it contains and the order in which they are processed.
+      - name: Including CLR Objects in Configuration
+        uid: configuration-serialization
+        path: conceptual/configuration/postsharp-config/clr-objects.md
+        summary: The document describes how PostSharp includes a facility to describe CLR objects using XML, including rules for XML serialized objects and attribute formatting. It also outlines specific rules for the Multicast section of the configuration file.
+      - name: Using Expressions in Configuration Files
+        uid: configuration-xpath
+        path: conceptual/configuration/postsharp-config/expressions.md
+        summary: The document explains how to use expressions in PostSharp configuration files, which work similarly to XSLT and are interpreted as XPath expressions. It covers accessing properties, using functions and operators, and mixing expressions with literal strings.
+    - name: Well-Known MSBuild Properties
+      uid: msbuild-properties
+      path: conceptual/configuration/msbuild-properties.md
+      summary: The document provides a detailed guide on well-known MSBuild properties in PostSharp, including general, hosting, diagnostic, directory, and other properties. Each property is described in a table format.
+    - name: Well-Known PostSharp Properties
+      uid: configuration-postsharp
+      path: conceptual/configuration/postsharp-properties.md
+      summary: The document provides a list of well-known PostSharp properties that can be set from the MSBuild project, their corresponding MSBuild property names, and descriptions. It also mentions the option of defining custom PostSharp properties.
+    - name: Accessing Configuration from Source Code
+      uid: configuration-consuming
+      path: conceptual/configuration/accessing-from-code.md
+      summary: The document explains how to access configuration elements from user code in PostSharp, including properties and custom sections, using specific methods.
+    - name: Working with Errors, Warnings, and Messages
+      uid: messages
+      path: conceptual/configuration/messages/messages.md
+      summary: The document discusses how PostSharp, a compiler, can emit messages, warnings, and errors, and how custom code can use this feature. It also mentions an experimental feature in PostSharp 2.1.
+      items:
+      - name: Ignoring and Escalating Warnings
+        uid: ignoring-warnings
+        path: conceptual/configuration/messages/ignoring-warnings.md
+        summary: The document explains how to ignore or escalate warnings in PostSharp, either globally or locally. It provides instructions for adjusting these settings in Visual Studio and MSBuild.
+      - name: Emitting Errors, Warnings, and Messages
+        uid: emitting-errors
+        path: conceptual/configuration/messages/emitting-errors.md
+        summary: The document explains how to emit custom messages, warnings, and errors using PostSharp's messaging facility. It also advises on using a MessageSource for storing all message texts in a single location.
+    - name: Resolution of Assembly Binding Redirections
+      uid: assembly-binding-resolution
+      path: conceptual/configuration/assembly-binding-redirects.md
+      summary: PostSharp follows assembly binding redirections at build time and stores the assembly binding redirection in a file named PostSharpHost.config. Users can override the default assembly redirections if required.
+- name: Adding Aspects to Code
+  uid: applying-aspects
+  path: conceptual/applying-aspects/applying-aspects.md
+  summary: The document explains various ways to add aspects to code using PostSharp, including using custom attributes, external configuration files, and programmatically at build time.
+  items:
+  - name: Adding Aspects Declaratively Using Attributes
+    uid: multicast
+    path: conceptual/applying-aspects/attributes/attributes.md
+    summary: The document discusses the use of multicast custom attributes in .NET, a feature of PostSharp that allows applying a custom attribute to multiple declarations with a single line of code.
+    items:
+    - name: Adding Aspects to a Single Declaration Using Attributes
+      uid: apply-to-single-declaration
+      path: conceptual/applying-aspects/attributes/single-declaration.md
+      summary: The document discusses how to add aspects to a single declaration using attributes in PostSharp, using a `Trace` aspect as an example.
+    - name: Adding Aspects to Multiple Declarations Using Attributes
+      uid: attribute-multicasting
+      path: conceptual/applying-aspects/attributes/multicasting.md
+      summary: The document describes how to use PostSharp's custom attribute multicasting to apply aspects to multiple declarations in an application code, including applying to all class members, all types in a namespace, excluding some members, and filtering by class visibility or method modifiers.
+      items:
+      - name: Understanding Attribute Multicasting
+        uid: multicast-conceptual
+        path: conceptual/applying-aspects/attributes/understanding-multicasting.md
+        summary: The document explains the concept of Attribute Multicasting in PostSharp. It outlines how multicast attributes are applied, the process of filtering target elements of code, user and developer-specified filtering, and overriding filtering attributes.
+      - name: C# 14 Extension Blocks and Multicasting
+        uid: extension-blocks-multicast
+        path: conceptual/applying-aspects/attributes/extension-blocks.md
+        summary: Explains how C# 14 extension blocks are handled by PostSharp's multicast engine in PostSharp 2026.0, including the AllowExtensionBlockMembers property and ReflectionHelper.IsExtensionBlockMetadata method.
+    - name: Adding Aspects to Derived Classes and Methods Using Attributes
+      uid: aspect-inheritance
+      path: conceptual/applying-aspects/attributes/inheritance.md
+      summary: The document explains how to use PostSharp's aspect inheritance feature to apply aspects to derived classes and methods. It provides examples of applying aspects to derived types, setting inheritance on a per-usage basis, and applying aspects to new methods of derived types.
+      items:
+      - name: Understanding Aspect Inheritance
+        uid: multicast-inheritance
+        path: conceptual/applying-aspects/attributes/understanding-inheritance.md
+        summary: The document explains aspect inheritance in PostSharp, including the difference between strict and multicast inheritance. It also discusses how to avoid duplicate aspects.
+    - name: Overriding and Removing Aspect Instances
+      uid: multicast-override
+      path: conceptual/applying-aspects/attributes/overriding-and-removing.md
+      summary: The document explains how to override and remove aspect instances in PostSharp. It covers applying multiple instances of the same aspect, manually and automatically overriding an aspect instance, and deleting an aspect instance.
+    - name: Reflecting Aspect Instances at Run Time
+      uid: multicast-reflection
+      path: conceptual/applying-aspects/attributes/reflection.md
+      summary: The document explains how to make attribute multicasting in PostSharp visible at runtime using the PersistMetaData property in the MulticastAttributeUsageAttribute class.
+  - name: Adding Aspects Using XML
+    uid: xml-multicasting
+    path: conceptual/applying-aspects/xml.md
+    summary: PostSharp allows aspects to be added in code and via XML. Adding aspects through XML does not require modifying the source code and can be applied to multiple projects. This is done by specifying an attribute in the project's postsharp.config file.
+  - name: Adding Aspects Programmatically Using IAspectProvider
+    uid: iaspectprovider
+    path: conceptual/applying-aspects/programmatically.md
+    summary: The document provides a guide on how to add aspects programmatically using the IAspectProvider interface in PostSharp, including creating aspect graphs and initializing aspects at run time.
+- name: Logging
+  uid: logging
+  path: conceptual/logging/logging.md
+  summary: PostSharp Logging is a tool that allows detailed, customizable logging for applications. It supports various logging frameworks and structured log servers, and is especially useful for distributed systems.
+  items:
+  - name: Getting Started with PostSharp Logging
+    uid: add-logging
+    path: conceptual/logging/getting-started.md
+    summary: The document provides a detailed guide on how to implement and configure PostSharp Logging in your codebase. It covers steps from adding logging to projects, choosing and configuring a logging framework, to setting logging verbosity.
+    items:
+    - name: 'Licensing of PostSharp Logging: Production vs Developer Mode'
+      uid: logging-license
+      path: conceptual/logging/licensing.md
+      summary: 'PostSharp Logging has two modes: Production Mode for unlimited logging and Developer Mode which stops emitting logs 24 hours after compilation. Production Mode is premium while Developer Mode is free.'
+  - name: Connecting to Source and Target Logging Frameworks
+    uid: backends
+    path: conceptual/logging/backends/backends.md
+    summary: The document provides instructions on how to configure PostSharp Logging to work with different logging frameworks and create custom logging backends. It also covers log collection and audit record addition.
+    items:
+    - name: Logging with System.Console
+      uid: logging-console
+      path: conceptual/logging/backends/console.md
+      summary: The document provides a guide on how to configure PostSharp Logging to output to the console and how to customize console themes for log messages.
+    - name: Logging with System.Diagnostics.TraceSource
+      uid: logging-tracesource
+      path: conceptual/logging/backends/tracesource.md
+      summary: The document provides a guide on how to use PostSharp Logging with System.Diagnostics.TraceSource, including sending PostSharp Logging events to TraceSource listeners and collecting TraceSource events into PostSharp Logging.
+    - name: Logging with System.Diagnostics.Trace
+      uid: logging-trace
+      path: conceptual/logging/backends/trace.md
+      summary: The document provides a guide on how to use PostSharp Logging with System.Diagnostics.Trace, including sending PostSharp Logging events to Trace listeners and collecting Trace events into PostSharp Logging.
+    - name: Logging with log4net
+      uid: log4net
+      path: conceptual/logging/backends/log4net.md
+      summary: The document provides a guide on how to use PostSharp Logging and log4net together, including steps to send PostSharp Logging events to log4net appenders and collect log4net events into PostSharp Logging.
+    - name: Logging with NLog
+      uid: nlog
+      path: conceptual/logging/backends/nlog.md
+      summary: The document provides a guide on how to use PostSharp Logging and NLog together, including how to write PostSharp Logging events to NLog and collect NLog events into PostSharp Logging.
+    - name: Logging with Serilog
+      uid: serilog
+      path: conceptual/logging/backends/serilog.md
+      summary: The document provides a guide on how to use PostSharp Logging and Serilog together, including how to write PostSharp Logging events to Serilog sinks, use Serilog formatters, include more semantic parameters, and collect Serilog events into PostSharp Logging.
+    - name: Logging with ETW
+      uid: etw
+      path: conceptual/logging/backends/etw.md
+      summary: The document provides a guide on how to use PostSharp Logging and Event Tracing for Windows (ETW) together, including targeting ETW with PostSharp Logging and listening to ETW events using PerfView.
+    - name: Logging with Common.Logging
+      uid: common-logging
+      path: conceptual/logging/backends/common-logging.md
+      summary: The document provides a guide on how to use PostSharp Logging with Common.Logging, including adding necessary packages and configuring output directions.
+    - name: Logging with Application Insights
+      uid: application-insights
+      path: conceptual/logging/backends/application-insights.md
+      summary: The document provides a guide on how to use PostSharp Logging and Application Insights together, including setting up and configuring the services.
+    - name: Logging with ASP.NET Core
+      uid: logging-aspnetcore
+      path: conceptual/logging/backends/aspnetcore.md
+      summary: The document provides a guide on how to use PostSharp Logging with ASP.NET Core. It details steps for writing PostSharp Logging events to ASP.NET Core and collecting ASP.NET Core logging events into PostSharp Logging.
+    - name: Multiplexing Log Output to Several Frameworks
+      uid: log-multiplexer
+      path: conceptual/logging/backends/multiplexer.md
+      summary: The document provides a guide on how to use PostSharp's MultiplexerBackend to send logging output to multiple logging frameworks simultaneously, including setting up, configuring backends, and handling logging errors.
+    - name: Collecting Logs from Other Frameworks
+      uid: log-collecting
+      path: conceptual/logging/backends/collecting.md
+      summary: The document explains how to use PostSharp to collect logs from other frameworks, detailing the benefits of log collection and providing examples of output with and without log collection. It also mentions support for various logging frameworks.
+    - name: Instrumentation of ASP.NET and HttpClient
+      uid: logging-instrumentation
+      path: conceptual/logging/backends/instrumentation.md
+      summary: PostSharp Logging offers packages that support specific software stacks like ASP.NET Core, legacy ASP.NET, and HttpClient. It allows dynamic logging verbosity changes and distributed transaction tracking.
+    - name: Building Your Own Logging Backend (Adapter)
+      uid: custom-logging-backend
+      path: conceptual/logging/backends/custom-backend.md
+      summary: 'The document provides a guide on how to build a custom logging backend (adapter) for PostSharp Logging by overriding four classes: TextLoggingBackendOptions, LoggingTypeSource, TextLogRecordBuilder, and TextLoggingBackend.'
+  - name: Formatting Log Records
+    uid: logging-customizing
+    path: conceptual/logging/formatting.md
+    summary: This document explains how to customize log records in PostSharp. It covers different scenarios and procedures, editing a build-time configuration, editing run-time options, implementing a custom formatter, and overriding a backend.
+    items:
+    - name: Implementing a Custom Formatter
+      uid: custom-formatter
+      path: conceptual/logging/custom-formatter.md
+      summary: 'The document provides a guide on how to implement a custom formatter in PostSharp for two contexts: logging and caching. It details when to use a custom formatter, how to implement the IFormattable interface, and how to register the custom formatter.'
+  - name: Adding Manual Logging
+    uid: manual-logging
+    path: conceptual/logging/manual-logging.md
+    summary: The document guides on adding manual logging using PostSharp's LogAttribute aspect and LogSource class for custom error or warning messages, custom activities, and properties.
+    items:
+    - name: Writing Custom Messages
+      uid: log-custom-messages
+      path: conceptual/logging/custom-messages.md
+      summary: The document provides detailed instructions on how to write custom messages using PostSharp Logging, including writing text messages, messages with parameters, and semantic messages for statistical processing. It also offers performance optimization tips and guidance on implementing custom message types.
+    - name: Working with Custom Activities
+      uid: log-custom-activities
+      path: conceptual/logging/custom-activities.md
+      summary: The document provides a guide on how to work with custom activities in PostSharp, including logging an activity, measuring execution time, and changing the default level for exceptions. It also provides examples of code implementation.
+    - name: Adding Properties to Messages and Activities
+      uid: log-properties
+      path: conceptual/logging/properties.md
+      summary: The document explains how to add properties to messages and activities in PostSharp. It covers defining properties using an anonymous type, defining inherited properties, and advanced scenarios with logging properties.
+  - name: Adjusting Logging Verbosity
+    uid: log-enabling
+    path: conceptual/logging/verbosity.md
+    summary: The document provides a detailed guide on how to adjust logging verbosity in PostSharp, using an XML configuration file or programmatically. It covers configuring logging verbosity, per-request or per-transaction logging, and sampled logging.
+    items:
+    - name: Adjusting Logging Verbosity Programmatically
+      uid: logging-verbosity-api
+      path: conceptual/logging/verbosity-api.md
+      summary: The document provides instructions on how to adjust logging verbosity programmatically using PostSharp Logging API, enabling/disabling with the backend API, and optimizing execution time when logging is disabled.
+    - name: Defining Your Own Logging Transactions
+      uid: custom-logging-transactions
+      path: conceptual/logging/transactions.md
+      summary: The document provides a step-by-step guide to defining custom logging transactions in applications not based on ASP.NET using the codeless configuration system of PostSharp.
+  - name: Hiding Sensitive Data When Logging
+    uid: logging-hiding-sensitive-data
+    path: conceptual/logging/sensitive-data.md
+    summary: The document provides guidelines for hiding sensitive data when logging with PostSharp, to prevent potential security breaches and maintain user data confidentiality. It suggests using wrapper objects or marking parameters with [NotLogged] to avoid exposing sensitive data.
+  - name: Logging in a Distributed System
+    uid: distributed-logging
+    path: conceptual/logging/distributed.md
+    summary: The document discusses the challenges and solutions of implementing logging in a distributed system using PostSharp Logging. It explains how to prepare applications for distributed logging, use hierarchical context IDs, and compare generation strategies.
+  - name: Handling Logging Exceptions
+    uid: logging-exception-handling
+    path: conceptual/logging/exception-handling.md
+    summary: PostSharp's logging feature catches all exceptions, preventing application failures due to logging issues. It allows users to override the default exception handling behavior, which logs messages, disables the logging backend, and cannot catch exceptions thrown in exception filters.
+  - name: Troubleshooting
+    uid: logging-troubleshooting
+    path: conceptual/logging/troubleshooting.md
+    summary: The document provides troubleshooting steps for issues related to PostSharp Logging, focusing on checking code enhancement at build time and verifying run-time setup.
+- name: Contracts
+  uid: contracts
+  path: conceptual/contracts/contracts.md
+  summary: The document discusses PostSharp Code Contracts, which improve code readability, are inheritable, and customizable for localization. It also outlines sections on adding, customizing contracts and exceptions.
+  items:
+  - name: Adding Contracts to Code
+    uid: adding-contracts
+    path: conceptual/contracts/adding.md
+    summary: The document explains how to use PostSharp's Contract attributes to validate parameters, fields, and properties in code, ensuring data integrity and reducing boilerplate code. It also covers contract inheritance in derived classes.
+  - name: Creating Custom Contracts
+    uid: custom-contracts
+    path: conceptual/contracts/custom.md
+    summary: The document provides a step-by-step guide on how to create custom contracts in PostSharp, specifically a contract that throws an exception if a numeric parameter is zero.
+  - name: Localizing Contract Error Messages
+    uid: contract-localization
+    path: conceptual/contracts/localization.md
+    summary: The document provides a guide on how to localize error messages in PostSharp's built-in contracts, using the ContractLocalizedTextProvider class, and also how to localize custom contracts.
+  - name: Customizing Contract Exceptions
+    uid: contract-custom-exceptions
+    path: conceptual/contracts/custom-exceptions.md
+    summary: The document provides a guide on how to customize contract exceptions in PostSharp by overriding exception types for built-in contracts, using localization service in custom exception factories, and using the exception factory from custom contracts.
+- name: INotifyPropertyChanged
+  uid: inotifypropertychanged
+  path: conceptual/inotifypropertychanged/inotifypropertychanged.md
+  summary: The document discusses the use of PostSharp's INotifyPropertyChanged attribute, which simplifies and optimizes the process of binding objects to the UI by automatically implementing property change notifications.
+  items:
+  - name: Implementing INotifyPropertyChanged
+    uid: inotifypropertychanged-add
+    path: conceptual/inotifypropertychanged/implementing.md
+    summary: The document provides a guide on how to implement the INotifyPropertyChanged interface using PostSharp, including adding the NotifyPropertyChanged aspect, and accessing the INotifyPropertyChanged interface from your code.
+  - name: Implementing INotifyPropertyChanged with Properties that Depend on Other Objects
+    uid: inotifypropertychanged-dependencies
+    path: conceptual/inotifypropertychanged/dependencies.md
+    summary: The document explains how to implement INotifyPropertyChanged with properties that depend on other objects using PostSharp. It provides a code example demonstrating the concept.
+  - name: Implementing INotifyPropertyChanging
+    uid: inotifypropertychanging
+    path: conceptual/inotifypropertychanged/inotifypropertychanging.md
+    summary: The document provides instructions on implementing the INotifyPropertyChanging interface with PostSharp, which signals before a property value changes, by creating an 'OnPropertyChanging' method.
+  - name: Handling Corner Cases of the NotifyPropertyChanged Aspect
+    uid: inotifypropertychanged-customization
+    path: conceptual/inotifypropertychanged/corner-cases.md
+    summary: The document provides a guide to handling corner cases of the NotifyPropertyChanged aspect in PostSharp. It covers ignoring property changes, handling complex data flows, dependencies on pure methods, and collections.
+  - name: Integrating the NotifyPropertyChanged Aspect with UI Frameworks
+    uid: inotifypropertychanged-frameworks
+    path: conceptual/inotifypropertychanged/ui-frameworks/ui-frameworks.md
+    summary: The document discusses how to integrate the NotifyPropertyChanged Aspect from PostSharp with various UI frameworks to simplify the creation of XAML applications.
+    items:
+    - name: INotifyPropertyChanged and Caliburn.Micro
+      uid: inotifypropertychanged-caliburnmicro
+      path: conceptual/inotifypropertychanged/ui-frameworks/caliburn-micro.md
+      summary: The document discusses how to use PostSharp with Caliburn.Micro to simplify the implementation of the INotifyPropertyChanged interface, reducing the need for boilerplate code.
+    - name: INotifyPropertyChanged and MVVM Light Toolkit
+      uid: inotifypropertychanged-mvvmlight
+      path: conceptual/inotifypropertychanged/ui-frameworks/mvvm-light.md
+      summary: The document explains how to use PostSharp with the MVVM Light Toolkit to simplify the implementation of the INotifyPropertyChanged interface, reducing boilerplate code and potential bugs.
+  - name: Understanding the NotifyPropertyChanged Aspect
+    uid: inotifypropertychanged-conceptual
+    path: conceptual/inotifypropertychanged/understanding.md
+    summary: The document explains the NotifyPropertyChanged Aspect in PostSharp, its implementation, how it analyzes field-property dependencies, its limitations, and how it raises notifications. It also covers dependencies on properties of external objects.
+  - name: Suppressing False Positives of the NotifyPropertyChanged Aspect
+    uid: inotifypropertychanged-false-positives
+    path: conceptual/inotifypropertychanged/false-positives.md
+    summary: The document explains how to suppress false positives in the NotifyPropertyChanged Aspect in PostSharp to avoid redundant event notifications, thereby improving application responsiveness. However, it warns against suppressing false positives when property getters have side effects.
+- name: Weak Event
+  uid: weak-event
+  path: conceptual/weak-event.md
+  summary: The document explains how to use the PostSharp.Patterns.Model.WeakEventAttribute aspect to prevent memory leaks in .NET by turning strong event references into weak ones, allowing for garbage collection of event clients.
+- name: XAML
+  uid: xaml
+  path: conceptual/xaml/xaml.md
+  summary: The document provides a guide on implementing various aspects specific to XAML applications using PostSharp, including command pattern, dependency properties, and attached properties.
+  items:
+  - name: Command
+    uid: command
+    path: conceptual/xaml/command.md
+    summary: The document provides a detailed guide on using PostSharp's CommandAttribute aspect to implement commands in MVVM pattern-based GUI applications, reducing boilerplate code and simplifying the implementation of the `CanExecute` logic.
+  - name: Dependency Property
+    uid: dependency-property
+    path: conceptual/xaml/dependency-property.md
+    summary: The document describes how to create and use XAML dependency properties in a PostSharp application. It provides examples of creating simple dependency properties, exposing the DependencyProperty object, validating values with contracts, and using a validation method.
+  - name: Attached Property
+    uid: attached-property
+    path: conceptual/xaml/attached-property.md
+    summary: The document explains how to create and use attached properties in XAML using PostSharp's AttachedPropertyAttribute aspect. It also discusses its relationship with DependencyPropertyAttribute aspect.
+- name: Parent/Child, Visitor and Disposable
+  uid: aggregatable
+  path: conceptual/aggregatable/aggregatable.md
+  summary: 'The document discusses the concept of parent-child relationship in object-oriented design, its implementation in PostSharp, and the three types of object relationships in UML specification: Aggregation, Composition, and Association.'
+  items:
+  - name: Annotating an Object Model for Parent/Child Relationships (Aggregatable)
+    uid: aggregatable-adding
+    path: conceptual/aggregatable/parent-child.md
+    summary: The document provides a guide on using PostSharp to describe parent-child relationships in an object model, including steps to apply the Aggregatable aspect and custom attributes to classes, fields, and properties.
+    items:
+    - name: Rule-Based Annotation
+      uid: aggregatable-adding-programmatically
+      path: conceptual/aggregatable/rule-based.md
+      summary: The document explains how to use rule-based annotation in PostSharp to programmatically annotate fields as a child or a reference, particularly useful for auto-generated fields or large numbers of fields.
+  - name: Enumerating Child Objects (Visitor)
+    uid: aggregatable-visitor
+    path: conceptual/aggregatable/visitor.md
+    summary: The document explains how to use the Aggregatable pattern in PostSharp to enumerate child objects of a parent, including a step-by-step guide and code examples.
+  - name: Automatically Disposing Children Objects (Disposable)
+    uid: disposable
+    path: conceptual/aggregatable/disposable.md
+    summary: The document explains how to automatically dispose of objects in hierarchies using the PostSharp.Patterns.Model.DisposableAttribute aspect in PostSharp. It covers implementing IDisposable interface, customizing the Dispose logic, and provides coding examples.
+  - name: Working With Child Collections
+    uid: advisable-collections
+    path: conceptual/aggregatable/child-collections.md
+    summary: The document provides a comprehensive guide on working with child collections in PostSharp, focusing on advisable collections, their implementation, and their advantages over standard .NET collections. It also discusses parent surrogates, enumerating children, collections of references, and using immutable collections.
+- name: Caching
+  uid: caching
+  path: conceptual/caching/caching.md
+  summary: The document discusses the use of PostSharp for simplifying caching in application development, reducing complexity, and avoiding errors associated with manual implementation. It also outlines various related topics.
+  items:
+  - name: Caching Method Return Values
+    uid: caching-getting-started
+    path: conceptual/caching/getting-started.md
+    summary: The document provides a detailed guide on how to cache method return values using PostSharp's caching method. It includes configuring cache behavior, using custom attributes for caching, and disabling caching at run time.
+  - name: Removing Items From the Cache
+    uid: caching-invalidation
+    path: conceptual/caching/invalidation.md
+    summary: The document explains how to remove items from the cache in PostSharp, using either direct invalidation, the InvalidateCache aspect, or by invalidating cache items imperatively.
+  - name: Working with Cache Dependencies
+    uid: caching-dependencies
+    path: conceptual/caching/dependencies.md
+    summary: The document provides a detailed guide on working with cache dependencies in PostSharp, including adding string dependencies, adding object-oriented dependencies, and suspending the collection of cache dependencies. It includes code examples for each scenario.
+  - name: Customizing Cache Keys
+    uid: caching-keys
+    path: conceptual/caching/keys.md
+    summary: The document provides a guide on customizing cache keys in PostSharp, including default key generation logic, overriding the ToString method, implementing a custom cache key formatter, excluding parameters from a cache key, changing the maximal length of a cache key, and implementing a custom cache key builder.
+  - name: Caching Backends
+    uid: caching-backends
+    path: conceptual/caching/backends/backends.md
+    summary: The document discusses the use of the CacheAttribute in PostSharp with different caching frameworks or servers, known as caching backends. It provides guides on storing cached values using the MemoryCache class or Redis.
+    items:
+    - name: Using In-Memory Cache
+      uid: caching-memory
+      path: conceptual/caching/backends/memory.md
+      summary: The document explains how to use in-memory caching in PostSharp. It provides instructions for the two backend classes, based on MemoryCache and IMemoryCache.
+    - name: Using Redis Cache
+      uid: caching-redis
+      path: conceptual/caching/backends/redis.md
+      summary: The document provides instructions on how to use Redis Cache with PostSharp, including server configuration, setting up PostSharp for Redis caching, adding local in-memory cache, and using dependencies with the Redis caching backend.
+  - name: Synchronizing Local In-Memory Caches for Multiple Servers
+    uid: caching-pubsub
+    path: conceptual/caching/synchronization.md
+    summary: The document provides a guide on how to synchronize local in-memory caches for multiple servers using PostSharp. It offers solutions for distributed cache invalidation using Azure Service Bus pub/sub and Redis pub/sub.
+  - name: Caching Special Types with Value Adapters
+    uid: caching-value-adapters
+    path: conceptual/caching/value-adapters.md
+    summary: The document explains how to use PostSharp's value adapters to cache special types that cannot be directly cached. It also provides instructions for implementing a custom value adapter.
+  - name: Preventing Concurrent Execution of Cached Methods
+    uid: cache-locking
+    path: conceptual/caching/locking.md
+    summary: 'PostSharp offers a lock manager feature to prevent concurrent execution of resource-heavy methods. It provides two lock managers: NullLockManager and LocalLockManager. Users can configure lock timeouts and implement a distributed lock manager using third-party implementations.'
+  - name: Troubleshooting Caching
+    uid: caching-logging-interaction
+    path: conceptual/caching/troubleshooting.md
+    summary: The document provides instructions on how to enable logging for the caching aspect in PostSharp, using either PostSharp Logging or System.Diagnostics.
+- name: Multithreading
+  uid: threading-library
+  path: conceptual/threading/threading.md
+  summary: The Threading Pattern Library aids in building multithreaded applications with fewer lines of code and defects, by implementing locking models and thread synchronization aspects.
+  items:
+  - name: Writing Thread-Safe Code with Threading Models
+    uid: threading-models
+    path: conceptual/threading/models/models.md
+    summary: The document discusses the concept of threading models, their benefits in multithreaded programming, and the various threading models provided by the PostSharp Threading Library. It also provides links to related topics and resources.
+    items:
+    - name: Immutable Threading Model
+      uid: immutable
+      path: conceptual/threading/models/immutable.md
+      summary: The document explains how to use the PostSharp software to create immutable objects in code, which can be safely accessed by multiple threads. It also distinguishes between 'immutable' and 'readonly', and explains how to use constructors to set up immutable objects.
+    - name: Freezable Threading Model
+      uid: freezable
+      path: conceptual/threading/models/freezable.md
+      summary: The document explains the Freezable Threading Model in PostSharp, which allows users to define when an object becomes immutable. It provides steps to make an object freezable and enforce rules by the Freezable aspect.
+    - name: Thread Affine Threading Model
+      uid: thread-affine
+      path: conceptual/threading/models/thread-affine.md
+      summary: The document explains the Thread Affine threading model in PostSharp, which restricts object instance access to the thread that created it. It illustrates how to apply this model to a class and its enforcement rules.
+    - name: Synchronized Threading Model
+      uid: synchronized
+      path: conceptual/threading/models/synchronized.md
+      summary: The document explains the Synchronized threading model in C#. It details how to apply the model, its differences from the 'lock(this)' statement, and how it works with object trees.
+    - name: Reader/Writer Synchronized Threading Model
+      uid: reader-writer-synchronized
+      path: conceptual/threading/models/reader-writer-synchronized.md
+      summary: The document details the Reader/Writer Synchronized Threading Model in PostSharp, which uses locks to prevent data races in multithreaded programs. It explains how to implement the model and provides usage examples.
+    - name: Actor Threading Model
+      uid: actor
+      path: conceptual/threading/models/actor.md
+      summary: The document explains the Actor Threading Model in PostSharp, which provides a race-free programming model by routing method calls to a single message queue processed by a single thread. It offers a guide on how to apply the model, examples, and potential constraints.
+    - name: Thread-Unsafe Threading Model
+      uid: thread-unsafe
+      path: conceptual/threading/models/thread-unsafe.md
+      summary: The document explains the thread-unsafe threading model in PostSharp, which throws exceptions when objects are accessed concurrently by multiple threads. It provides steps to apply this model to a class and details the rules enforced by this aspect.
+    - name: Making a Whole Project or Solution Thread Safe
+      uid: thread-safety-policy
+      path: conceptual/threading/models/thread-safety-policy.md
+      summary: The document provides instructions on how to implement thread-safety policies in a project or solution using PostSharp threading models, either manually or via Visual Studio Tools for Metalama and PostSharp.
+    - name: Opting In and Out From Thread Safety
+      uid: threading-waiving-verification
+      path: conceptual/threading/models/opting-out.md
+      summary: The document explains how to opt in and out of thread safety in PostSharp by using the ExplicitlySynchronizedAttribute and EntryPointAttribute on methods and fields. It also warns about potential multithreading defects.
+    - name: Compatibility of Threading Models
+      uid: threading-model-compatibility
+      path: conceptual/threading/models/compatibility.md
+      summary: The document presents a compatibility matrix showing which threading models can be used as children based on the parent model in PostSharp. Also, it explains how assignment between objects with threading models works.
+    - name: Enabling and Disabling Run-Time Verification
+      uid: threading-runtime-verification
+      path: conceptual/threading/models/runtime-verification.md
+      summary: The document explains how to enable or disable run-time verification in PostSharp, either for a whole project or a specific class, with run-time verification being enabled by default in the Debug build and disabled in the Release build.
+    - name: Run-Time Performance of Threading Model
+      uid: threading-performance
+      path: conceptual/threading/models/performance.md
+      summary: PostSharp threading models have minimal run-time overhead but high memory cost. They can significantly impact performance when instantiating large object graphs. To mitigate this, manually assign newly created objects to a concurrency controller.
+  - name: Dispatching a Method to Background
+    uid: background-dispatching
+    path: conceptual/threading/background-dispatching.md
+    summary: 'PostSharp allows for the execution of a method in a background thread, reducing the need for boilerplate code. This is achieved by adding the PostSharp.Patterns.Threading package and the BackgroundAttribute to the desired method. '
+  - name: Dispatching a Method to the UI Thread
+    uid: ui-dispatching
+    path: conceptual/threading/ui-dispatching.md
+    summary: The document provides a guide on how to dispatch methods to the UI thread using the PostSharp.Patterns.Threading.DispatchedAttribute aspect in PostSharp. It also covers synchronous and asynchronous execution of dispatched methods.
+- name: Developing Custom Aspects
+  uid: custom-aspects
+  path: conceptual/framework/aspects/aspects.md
+  summary: The document provides a guide on how to develop custom aspects in PostSharp, including creation, initialization, configuration, validation, serialization, and handling dependencies.
+  items:
+  - name: Developing Simple Aspects
+    uid: simple-aspects
+    path: conceptual/framework/aspects/simple-aspects/simple-aspects.md
+    summary: The document provides a guide on developing simple aspects in PostSharp, which are composed of a single transformation, and includes related articles for further reading.
+    items:
+    - name: Injecting Behaviors Before and After Method Execution
+      uid: method-decorator
+      path: conceptual/framework/aspects/simple-aspects/method-decorator.md
+      summary: The document provides an in-depth guide on how to use the PostSharp.Aspects.OnMethodBoundaryAspect aspect in PostSharp for injecting behaviors before and after method execution. It covers various scenarios including handling exceptions, sharing state between advices, working with async and iterator methods.
+    - name: Handling Exceptions
+      uid: exception-handling
+      path: conceptual/framework/aspects/simple-aspects/exception-handling.md
+      summary: PostSharp provides a solution to exception handling by encapsulating custom exception handling logic into a reusable class. This class can be applied as an attribute to methods and properties where exceptions are to be dealt with, making the process more efficient and code cleaner.
+    - name: Intercepting Methods
+      uid: method-interception
+      path: conceptual/framework/aspects/simple-aspects/method-interception.md
+      summary: The document outlines how to use PostSharp's MethodInterceptionAspect class to intercept method invocations and replace them with custom hooks. It also provides examples and instructions on how to create an aspect that retries a method call on exception.
+    - name: Intercepting Properties and Fields
+      uid: location-interception
+      path: conceptual/framework/aspects/simple-aspects/property-interception.md
+      summary: This document provides a detailed guide on how to intercept properties and fields in .NET using PostSharp's LocationInterceptionAspect. It covers intercepting get and set operations, getting and setting the underlying property, intercepting fields, and reacting to initialization of instance fields and properties.
+    - name: Intercepting Events
+      uid: event-interception
+      path: conceptual/framework/aspects/simple-aspects/event-interception.md
+      summary: The document explains how to use PostSharp to intercept events such as subscribing, unsubscribing, and raising. It provides detailed steps for intercepting add and remove actions, raise actions, and accessing the current context.
+    - name: Introducing Custom Attributes
+      uid: attribute-introduction
+      path: conceptual/framework/aspects/simple-aspects/attribute-introduction.md
+      summary: The document introduces PostSharp's ability to create custom attribute classes in C#, which can automatically decorate class members with custom attributes. It also explains how to copy attributes from one class to another.
+    - name: Introducing Managed Resources
+      uid: resource-introduction
+      path: conceptual/framework/aspects/simple-aspects/resource-introduction.md
+      summary: The document introduces PostSharp's AssemblyLevelAspect, which allows for programmatically adding resources at compile time in .NET, adding flexibility in determining which resources get embedded and how. It provides a coding example demonstrating the process.
+    - name: Semantic Advising of Iterator and Async Methods
+      uid: semantic-advising
+      path: conceptual/framework/aspects/simple-aspects/semantic-advising.md
+      summary: The document discusses semantic advising in PostSharp for async and iterator methods in C# and VB. It explains how to enable and disable semantic advising and how to handle situations where semantic advising is not available.
+  - name: Developing Member-Level Aspects
+    uid: member-level-aspects
+    path: conceptual/framework/aspects/member-level-aspects/member-level-aspects.md
+    summary: Explains how to develop aspects that apply to a method, a field, a property or an event, with advice methods that receive typed parameters, and how they compare with simple aspects.
+    items:
+    - name: Advice Methods
+      uid: advices
+      path: conceptual/framework/aspects/member-level-aspects/advices.md
+      summary: 'Explains how to write the advice methods of an aspect: the rules of their signature, the kinds of advices and the declarations they transform, the properties of the advice attributes, and the legacy AdviceArgs signature.'
+    - name: Advice Parameters
+      uid: advice-parameter-binding
+      path: conceptual/framework/aspects/member-level-aspects/advice-parameter-binding.md
+      summary: Explains how an advice method receives the values it needs, such as arguments, the return value, the exception or a variable shared between advices, as typed parameters annotated with binding attributes, and lists the bindings that each kind of advice accepts.
+    - name: Modernizing Your Custom Aspects
+      uid: modernizing-aspects
+      path: conceptual/framework/aspects/member-level-aspects/modernizing-aspects.md
+      summary: Explains why and how to convert an aspect that receives MethodExecutionArgs, MethodInterceptionArgs or LocationInterceptionArgs into an aspect whose advices receive typed, bound parameters, with a mapping from the members of these classes to binding attributes.
+  - name: Developing Type- and Assembly-Level Aspects
+    uid: complex-aspects
+    path: conceptual/framework/aspects/type-level-aspects/type-level-aspects.md
+    summary: Explains how to develop aspects that apply to a type or an assembly and transform several of its members with advices and pointcuts, introduce and import members, and add other aspects or advices with code.
+    items:
+    - name: Selecting Members with Pointcuts
+      uid: pointcuts
+      path: conceptual/framework/aspects/type-level-aspects/pointcuts.md
+      summary: Explains how the advices of a type-level or assembly-level aspect select the members they transform with pointcuts, how to select members with code, and how advices are grouped into one transformation.
+    - name: Introducing Interfaces, Methods, Properties and Events into Existing Classes
+      uid: code-injections
+      path: conceptual/framework/aspects/type-level-aspects/introducing-members.md
+      summary: The document provides a guide on how to add properties, methods, or interfaces to existing classes using PostSharp, a tool for aspect-oriented programming in .NET. It covers how to introduce interfaces, methods, properties, control visibility of introduced members, and handle potential conflicts.
+    - name: Accessing Members of the Target Class
+      uid: members
+      path: conceptual/framework/aspects/type-level-aspects/accessing-members.md
+      summary: 'PostSharp allows developers to import a delegate of a target class method, property, or event into the aspect class. This feature helps encapsulate more design patterns using aspects. It also provides a robust and predictable way to handle situations when multiple advices try to introduce or import the same member. '
+    - name: Adding Aspects Dynamically
+      uid: aspect-provider
+      path: conceptual/framework/aspects/type-level-aspects/aspect-provider.md
+      summary: The document explains how to add aspects dynamically in PostSharp using IAspectProvider, especially when it is impossible to add aspects declaratively to the source code.
+    - name: Providing Advices Dynamically
+      uid: advice-provider
+      path: conceptual/framework/aspects/type-level-aspects/advice-provider.md
+      summary: Explains how an instance-level aspect implements IAdviceProvider to import members of the target class and introduce interfaces and methods with code, when these advices depend on the target.
+  - name: Understanding Aspect Lifetime and Scope
+    uid: aspect-lifetime
+    path: conceptual/framework/aspects/lifetime.md
+    summary: 'PostSharp, an Aspect-Oriented Programming (AOP) framework, instantiates aspects at compile time, unlike most other frameworks. It offers two kinds of aspect scopes: static and per-instance. The framework serializes aspect instances into a binary resource for persistence between compile time and run time.'
+  - name: Initializing Aspects
+    uid: aspect-initialization
+    path: conceptual/framework/aspects/initialization.md
+    summary: 'The document explains how to initialize aspects in PostSharp, detailing three methods: `CompileTimeInitialize`, `RuntimeInitialize`, and instance-scoped aspects methods. It also suggests when to use compile-time initialization.'
+    items:
+    - name: Coping with Custom Object Serializers
+      uid: instance-initialization
+      path: conceptual/framework/aspects/custom-serializers.md
+      summary: The document explains how to handle custom object serializers in PostSharp. It details how to manually initialize aspects either by defining a method 'InitializeAspects' or invoking 'AspectUtilities.InitializeCurrentAspects'.
+  - name: Validating Aspect Usage
+    uid: aspect-validation
+    path: conceptual/framework/aspects/validation.md
+    summary: The document discusses validating aspect usage in PostSharp. It explains how to use MulticastAttributeUsage, implement CompileTimeValidate, and use message sources for error handling. It also provides code examples.
+  - name: Coping with Several Aspects on the Same Target
+    uid: aspect-dependencies
+    path: conceptual/framework/aspects/aspect-dependencies/aspect-dependencies.md
+    summary: The document explains how PostSharp provides a framework to manage dependencies between aspects in aspect-oriented programming, preventing conflicts and ensuring predictable order of execution. It also covers aspect dependency custom attributes and types of aspect dependency relationships.
+    items:
+    - name: Ordering Advices
+      uid: advice-ordering
+      path: conceptual/framework/aspects/aspect-dependencies/advice-ordering.md
+      summary: The document provides guidance on ordering advices in PostSharp, explaining aspect dependencies, execution order, and the use of custom attributes for defining dependencies and ordering.
+  - name: Understanding Aspect Serialization
+    uid: aspect-serialization
+    path: conceptual/framework/aspects/serialization.md
+    summary: The document provides a detailed explanation on aspect serialization in PostSharp, including the default and fallback serialization strategies, and how to handle aspects without serialization. It also discusses the aspect life cycle.
+  - name: Aspect Configuration
+    uid: aspect-configuration
+    path: conceptual/framework/aspects/configuration.md
+    summary: 'The document explains how to configure aspects in PostSharp, either declaratively using custom attributes, or imperatively by overriding configuration methods. It also discusses the benefits and limitations of each method. '
+  - name: Customizing Aspect Appearance in Visual Studio
+    uid: customize-vs-appearance
+    path: conceptual/framework/aspects/visual-studio/visual-studio.md
+    summary: The document provides guidance on customizing the appearance of custom aspects in Visual Studio Tools for Metalama and PostSharp, including changing descriptions and estimating code savings.
+    items:
+    - name: Customizing Aspect Description in CodeLens and Tooltips
+      uid: customizing-aspect-description
+      path: conceptual/framework/aspects/visual-studio/codelens.md
+      summary: The document provides guidance on customizing aspect descriptions in CodeLens and tooltips using Visual Studio Tools for Metalama and PostSharp, including instructions for both simple aspects and aspects with advice methods.
+    - name: Estimating Code Savings
+      uid: estimating-code-saving
+      path: conceptual/framework/aspects/visual-studio/code-savings.md
+      summary: PostSharp, a tool for Aspect-Oriented Programming, estimates lines of handwritten code saved by using aspects during build time. Users can adjust these estimates for more accuracy.
+    - name: Pushing Information to Visual Studio Programmatically
+      uid: programmatic-tooltip
+      path: conceptual/framework/aspects/visual-studio/tooltips.md
+      summary: The document discusses how to use the IWeavingSymbolsService in Visual Studio Tools for Metalama and PostSharp to push information from your aspect at build time.
+  - name: Consuming Dependencies from an Aspect
+    uid: consuming-dependencies
+    path: conceptual/framework/aspects/dependency-injection/dependency-injection.md
+    summary: The document discusses how to consume dependencies from an aspect in PostSharp, highlighting different patterns to overcome obstacles related to instantiation and static scope.
+    items:
+    - name: Using a Global Composition Container
+      uid: global-service-container
+      path: conceptual/framework/aspects/dependency-injection/global-container.md
+      summary: The document explains how to initialize an aspect from an ambient container at runtime using a global composition container in the PostSharp AOP framework. It includes relevant code examples.
+    - name: Using a Global Service Locator
+      uid: global-service-locator
+      path: conceptual/framework/aspects/dependency-injection/service-locator.md
+      summary: The document provides guidance on using a global service locator in PostSharp for dependency injection, to avoid wasting memory. It includes example code for a logging aspect.
+    - name: Using Dynamic Dependency Resolution
+      uid: dynamic-dependency-resolution
+      path: conceptual/framework/aspects/dependency-injection/dynamic-resolution.md
+      summary: The document discusses dynamic dependency resolution in PostSharp, which allows different configurations for testing and production. It presents an example of a testable logging aspect with a global MEF service container.
+    - name: Using Contextual Dependency Resolution
+      uid: contextual-dependency-resolution
+      path: conceptual/framework/aspects/dependency-injection/contextual-resolution.md
+      summary: The document discusses how to use contextual dependency resolution in PostSharp, including an example of a testable logging aspect with contextual dependency resolution.
+    - name: Importing Dependencies from the Target Object
+      uid: importing-dependencies
+      path: conceptual/framework/aspects/dependency-injection/from-target-object.md
+      summary: The document explains how to import dependencies from target objects in PostSharp by implementing the IInstanceScopedAspect interface and using custom attributes. It includes a step-by-step guide and code examples.
+- name: Validating Architecture
+  uid: constraints
+  path: conceptual/framework/architecture/architecture.md
+  summary: PostSharp allows users to validate their source code against architecture and design rules, known as constraints, at build time. It also supports custom constraints.
+  items:
+  - name: Restricting Interface Implementation
+    uid: control-implementation
+    path: conceptual/framework/architecture/interface-implementation.md
+    summary: "The document provides a guide on how to use PostSharp's InternalImplementAttribute to restrict users from implementing an interface in their own classes, helping prevent issues when new members are added to the interface. "
+  - name: Controlling Component Visibility Beyond Private and Internal
+    uid: control-visibility
+    path: conceptual/framework/architecture/component-visibility.md
+    summary: PostSharp offers the ability to define component access rules beyond the scope of private and internal keywords, allowing developers to restrict access to a component only from other components in the same namespace or specific types. It also supports error escalation and warning suppression.
+  - name: Developing Custom Architectural Constraints
+    uid: custom-constraints
+    path: conceptual/framework/architecture/custom-constraints.md
+    summary: The document explains how to develop custom architectural constraints in PostSharp, including scalar and referential constraints. It provides step-by-step instructions on creating these constraints and ensuring they are consistently implemented across a codebase.
+- name: Testing and Debugging
+  uid: testing-aspects
+  path: conceptual/framework/testing/testing.md
+  summary: The document discusses testing and debugging techniques for aspects in PostSharp, which differ from normal class libraries due to their unique characteristics.
+  items:
+  - name: Debugging Run-Time Logic
+    uid: debugging-runtime
+    path: conceptual/framework/testing/debugging-run-time.md
+    summary: PostSharp enhances debugging experience by allowing users to debug aspect code and show aspect code in the call stack window. Users can also disable PostSharp debugger extensions if needed.
+  - name: Debugging Build-Time Logic
+    uid: debugging-buildtime
+    path: conceptual/framework/testing/debugging-build-time.md
+    summary: The document provides a guide on how to debug build-time logic using PostSharp, by attaching a debugger to the PostSharp process and using Visual Studio to set breakpoints.
+  - name: Testing that an Aspect has been Applied
+    uid: testing-application
+    path: conceptual/framework/testing/aspect-applied.md
+    summary: The document provides guidelines on how to test if an aspect has been applied to the expected targets in PostSharp, including testing the aspect behavior and checking for the aspect's custom attribute.
+  - name: Testing Run-Time Logic
+    uid: simple-tests
+    path: conceptual/framework/testing/run-time-logic.md
+    summary: The document explains how to design a test strategy for aspects in PostSharp. It emphasizes the need for large test coverage and provides an example of testing a caching aspect.
+- name: Miscellaneous
+  uid: patterns-misc
+  path: conceptual/misc/misc.md
+  summary: The document lists miscellaneous articles that do not fit anywhere else.
+  items:
+  - name: Executing Code Just After the Assembly is Loaded
+    uid: module-initializer
+    path: conceptual/misc/module-initializer.md
+    summary: The document explains how to use the PostSharp.Aspects.ModuleInitializerAttribute attribute to implement module initializers in C# similar to Visual Basic.
+  - name: Deprecated Features
+    uid: deprecated-features
+    path: conceptual/deprecated/deprecated.md
+    summary: The document lists articles for past features of PostSharp which were deprecated.
+    items:
+    - name: Installing PostSharp without NuGet
+      uid: install-without-nuget
+      path: conceptual/deprecated/install-without-nuget.md
+      summary: The document provides instructions for installing PostSharp without using NuGet, an unsupported method primarily intended for users of legacy .NET Framework projects.
+    - name: Undo/Redo
+      uid: undoredo
+      path: conceptual/deprecated/undo-redo/undo-redo.md
+      summary: The document details how to use PostSharp's RecordableAttribute aspect to easily add undo/redo functionality to custom applications, requiring minimal code changes.
+      items:
+      - name: Making Your Model Recordable
+        uid: undoredo-start
+        path: conceptual/deprecated/undo-redo/getting-started.md
+        summary: The document provides a guide on making an object recordable for undo/redo operations using PostSharp's RecordableAttribute aspect, and how to exclude a property from these operations.
+      - name: Adding Undo/Redo to the User Interface
+        uid: undoredo-ui
+        path: conceptual/deprecated/undo-redo/user-interface.md
+        summary: The document provides instructions on how to add Undo/Redo functionality to a user interface using PostSharp's ready-made WPF controls and custom controls. It also explains how to clear initial history.
+      - name: Customizing Undo/Redo Operation Names
+        uid: undoredo-operation-name
+        path: conceptual/deprecated/undo-redo/operation-names.md
+        summary: The document provides detailed steps on how to customize Undo/Redo operation names in PostSharp, including default operation naming algorithm, setting operation name declaratively and dynamically, and using the OperationFormatter class.
+      - name: Assigning Recorders Manually
+        uid: undoredo-recorder
+        path: conceptual/deprecated/undo-redo/recorders.md
+        summary: The document provides instructions on how to manually assign recorders in PostSharp by either overriding the default RecorderProvider or attaching a recorder manually to objects where needed.
+      - name: Adding Callbacks on Undo and Redo
+        uid: undoredo-callbacks
+        path: conceptual/deprecated/undo-redo/callbacks.md
+        summary: The document explains how to use the IRecordableCallback interface in PostSharp to execute code before or after an Undo or Redo operation.
+      - name: Understanding the Recordable Aspect
+        uid: undoredo-conceptual
+        path: conceptual/deprecated/undo-redo/understanding.md
+        summary: The document explains the Recordable Aspect in PostSharp, which records changes performed on instances of a class. It covers topics like scopes, logical operations, atomic operations, primitive operations, restore points, implementing IEditableObject, callback methods, and memory consumption.
+- name: API Reference
+  uid: api
+  path: conceptual/api.md
+  summary: The document is an API reference for PostSharp, a design pattern automation tool for Microsoft .NET, detailing its various namespaces and their functions.
+- name: Articles not listed in the table of contents
+  items:
+  - name: immutable-collections
+    uid: immutable-collections
+    path: conceptual/aggregatable/immutable-collections.md
+    summary: The document is related to "PostSharp", a product associated with aspects of AOP and Metaprogramming. It references 'advisable-collections' as additional resources.
+  - name: What's New in PostSharp 2025.1
+    uid: whats-new-20251
+    path: conceptual/introduction/whats-new/2025-1.md
+    summary: PostSharp 2025.1 updates licensing terms with product consolidation and introduces source-available access with private build support for qualifying Enterprise users.
+  - name: licensing-counting-lines
+    uid: licensing-counting-lines
+    path: conceptual/licensing/licensing-counting-lines.md
+    summary: The document pertains to PostSharp, a product related to Aspect-Oriented Programming (AOP) and metaprogramming, but lacks specific details or context.

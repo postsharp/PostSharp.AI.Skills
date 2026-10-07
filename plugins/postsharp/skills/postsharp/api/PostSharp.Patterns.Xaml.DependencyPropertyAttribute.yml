@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  commentId: T:PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  id: DependencyPropertyAttribute
+  parent: PostSharp.Patterns.Xaml
+  children:
+  - PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor
+  - PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DefaultValue
+  langs:
+  - csharp
+  - vb
+  name: DependencyPropertyAttribute
+  nameWithType: DependencyPropertyAttribute
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: Custom attribute that, when applied to an automatic property, turns this property into a XAML dependency property of the same name.
+  remarks: >-
+    <p>Suppose the target property is named <code>Foo</code>. If a method named <code>ValidateFoo</code> exists in the class, it will be used to validate the values assigned to this property.
+        If a method named <code>OnFooChanged</code> exists in the class, it will be invoked whenever the property is set.
+        If a property named <code>FooProperty</code> exists in the class, it will be assigned to the corresponding <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> instance.
+        Naming conventions can be overridden by the <xref href="PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.ValidateValueMethod" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.PropertyChangedMethod" data-throw-if-not-resolved="false"></xref>
+        and <xref href="PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute.RegistrationProperty" data-throw-if-not-resolved="false"></xref> aspect properties.</p>
+    <p>The target property must be a non-static property with a non-private getter, declared in a class that derives from <xref href="System.Windows.DependencyObject" data-throw-if-not-resolved="false"></xref>.
+        To get the <xref href="System.Windows.DependencyProperty" data-throw-if-not-resolved="false"></xref> without a <code>FooProperty</code> property, use <xref href="PostSharp.Patterns.Xaml.DependencyPropertyServices.GetDependencyProperty(System.Type%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(PersistMetaData = true)]
+
+      [ComVisible(false)]
+
+      [Serializer(typeof(DependencyPropertyAttribute.Serializer))]
+
+      public sealed class DependencyPropertyAttribute : DependencyPropertyBaseAttribute, ILocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAspectProvider, IAspect, IService
+    content.vb: >-
+      <MulticastAttributeUsage(PersistMetaData:=True)>
+
+      <ComVisible(False)>
+
+      <Serializer(GetType(DependencyPropertyAttribute.Serializer))>
+
+      Public NotInheritable Class DependencyPropertyAttribute Inherits DependencyPropertyBaseAttribute Implements ILocationLevelAspect, ILocationLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAspectProvider, IAspect, IService
+  seealso:
+  - linkId: PostSharp.Patterns.Xaml.AttachedPropertyAttribute
+    commentId: T:PostSharp.Patterns.Xaml.AttachedPropertyAttribute
+  - linkId: PostSharp.Patterns.Xaml.DependencyPropertyServices
+    commentId: T:PostSharp.Patterns.Xaml.DependencyPropertyServices
+  - linkType: HRef
+    linkId: '@dependency-property'
+    altText: 'Conceptual: Dependency Property'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.LocationLevelAspect
+  - PostSharp.Patterns.Xaml.DependencyPropertyBaseAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.ILocationLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Extensibility.IService
+  inheritedMembers:
+  - PostSharp.Aspects.LocationLevelAspect.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeInitialize(PostSharp.Reflection.LocationInfo,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Aspects.LocationLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+  - type: System.Runtime.InteropServices.ComVisibleAttribute
+    ctor: System.Runtime.InteropServices.ComVisibleAttribute.#ctor(System.Boolean)
+    arguments:
+    - type: System.Boolean
+      value: false
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.Serializer
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  langs:
+  - csharp
+  - vb
+  name: DependencyPropertyAttribute()
+  nameWithType: DependencyPropertyAttribute.DependencyPropertyAttribute()
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DependencyPropertyAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  syntax:
+    content: public DependencyPropertyAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor*
+  nameWithType.vb: DependencyPropertyAttribute.New()
+  fullName.vb: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  langs:
+  - csharp
+  - vb
+  name: DependencyPropertyAttribute(PortableFormatterConstructorContext)
+  nameWithType: DependencyPropertyAttribute.DependencyPropertyAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DependencyPropertyAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  syntax:
+    content: protected DependencyPropertyAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.#ctor*
+  nameWithType.vb: DependencyPropertyAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DefaultValue
+  commentId: P:PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DefaultValue
+  id: DefaultValue
+  parent: PostSharp.Patterns.Xaml.DependencyPropertyAttribute
+  langs:
+  - csharp
+  - vb
+  name: DefaultValue
+  nameWithType: DependencyPropertyAttribute.DefaultValue
+  fullName: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DefaultValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Xaml
+  namespace: PostSharp.Patterns.Xaml
+  summary: >-
+    Gets or sets the initial value of the dependency property and the <xref href="System.Windows.PropertyMetadata.DefaultValue" data-throw-if-not-resolved="false"></xref> property of the dependency property metadata.
+
+    If you set this property, do not use a property initializer.
+  remarks: >-
+    <p>
+        There are two ways to set the initial value of a dependency property when you use <xref href="PostSharp.Patterns.Xaml.DependencyPropertyAttribute" data-throw-if-not-resolved="false"></xref>: You can use this property
+        (but in that case you are limited to constants) or you can use the property initializer or set the initial value in the constructor (but in that case,
+        the <xref href="System.Windows.PropertyMetadata.DefaultValue" data-throw-if-not-resolved="false"></xref> property will not be set).
+        </p>
+    <p>
+        If you set both this property and the property initializer to nonzero, nonnull values, an exception is thrown. However, you can set the metadata default
+        value using this property and you can change the actual initial value in the constructor (not the initializer).
+        </p>
+  example: []
+  syntax:
+    content: public object DefaultValue { get; set; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Property DefaultValue As Object
+  overload: PostSharp.Patterns.Xaml.DependencyPropertyAttribute.DefaultValue*

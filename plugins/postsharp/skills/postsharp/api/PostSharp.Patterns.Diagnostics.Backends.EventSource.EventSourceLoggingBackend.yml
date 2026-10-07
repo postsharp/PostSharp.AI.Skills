@@ -1,0 +1,267 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  id: EventSourceLoggingBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.Options
+  langs:
+  - csharp
+  - vb
+  name: EventSourceLoggingBackend
+  nameWithType: EventSourceLoggingBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Logging backend that uses <xref href="System.Diagnostics.Tracing.EventSource" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>It can be used with ETW or Enterprise Library Semantic Logging.</p>
+
+    <p>To use this backend, assign a new instance to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> when the application starts.
+
+    The default <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource" data-throw-if-not-resolved="false"></xref> emits events under the provider name <code>PostSharp-Patterns-Diagnostics</code>; enable this
+
+    provider in the ETW session that collects the events, for example with PerfView. An <xref href="System.Diagnostics.Tracing.EventSource" data-throw-if-not-resolved="false"></xref>
+
+    does not throw when its construction fails, so check <xref href="System.Diagnostics.Tracing.EventSource.ConstructionException" data-throw-if-not-resolved="false"></xref> of
+
+    the <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource" data-throw-if-not-resolved="false"></xref> property.</p>
+  example: []
+  syntax:
+    content: 'public class EventSourceLoggingBackend : TextLoggingBackend, IDisposable'
+    content.vb: Public Class EventSourceLoggingBackend Inherits TextLoggingBackend Implements IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+  - linkType: HRef
+    linkId: '@etw'
+    altText: 'Conceptual: Logging with ETW'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)'
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: EventSourceLoggingBackend(PostSharpEventSource)
+  nameWithType: EventSourceLoggingBackend.EventSourceLoggingBackend(PostSharpEventSource)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSourceLoggingBackend(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" data-throw-if-not-resolved="false"></xref> class and specifies a custom <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public EventSourceLoggingBackend(PostSharpEventSource eventSource)
+    parameters:
+    - id: eventSource
+      type: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+      description: The <xref href="System.Diagnostics.Tracing.EventSource" data-throw-if-not-resolved="false"></xref> to which events will be written.
+    content.vb: Public Sub New(eventSource As PostSharpEventSource)
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor*
+  nameWithType.vb: EventSourceLoggingBackend.New(PostSharpEventSource)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.New(PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource)
+  name.vb: New(PostSharpEventSource)
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: EventSourceLoggingBackend()
+  nameWithType: EventSourceLoggingBackend.EventSourceLoggingBackend()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSourceLoggingBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend" data-throw-if-not-resolved="false"></xref> class with the default event source.
+  example: []
+  syntax:
+    content: public EventSourceLoggingBackend()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.#ctor*
+  nameWithType.vb: EventSourceLoggingBackend.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: EventSourceLoggingBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: EventSourceLoggingBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions
+  id: GetTextBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetTextBackendOptions()
+  nameWithType: EventSourceLoggingBackend.GetTextBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Gets the options.
+  example: []
+  syntax:
+    content: protected override TextLoggingBackendOptions GetTextBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+      description: The options.
+    content.vb: Protected Overrides Function GetTextBackendOptions() As TextLoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetTextBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.GetTextBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource
+  id: EventSource
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: EventSource
+  nameWithType: EventSourceLoggingBackend.EventSource
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Gets the <xref href="System.Diagnostics.Tracing.EventSource" data-throw-if-not-resolved="false"></xref> to which events will be written.
+  example: []
+  syntax:
+    content: public PostSharpEventSource EventSource { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource
+    content.vb: Public ReadOnly Property EventSource As PostSharpEventSource
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.EventSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: EventSourceLoggingBackend.Options
+  fullName: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
+  summary: Gets the backend options.
+  example: []
+  syntax:
+    content: public EventSourceLoggingBackendOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackendOptions
+    content.vb: Public ReadOnly Property Options As EventSourceLoggingBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.EventSource.EventSourceLoggingBackend.Options*

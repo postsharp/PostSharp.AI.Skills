@@ -1,0 +1,217 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  commentId: T:PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  id: ReaderWriterSynchronizedAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  langs:
+  - csharp
+  - vb
+  name: ReaderWriterSynchronizedAttribute
+  nameWithType: ReaderWriterSynchronizedAttribute
+  fullName: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Custom attribute that, when applied to a class, applies the <xref href="PostSharp.Patterns.Threading.Models.ReaderWriterSynchronizedThreadingModel" data-throw-if-not-resolved="false"></xref> model to this class
+
+    and all derived classes.
+
+    Members of this class must then be annotated with attributes specifying the required access level
+
+    (<xref href="PostSharp.Patterns.Threading.ReaderAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.WriterAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Threading.YielderAttribute" data-throw-if-not-resolved="false"></xref>
+
+    or <xref href="PostSharp.Patterns.Threading.UpgradeableReaderAttribute" data-throw-if-not-resolved="false"></xref>), otherwise build-time and run-time errors are emitted.
+  remarks: >-
+    <p>Several threads can execute reader methods of the same object concurrently, but a writer method has exclusive access to the object.
+        Annotate public and internal methods with an access-level attribute; a warning is emitted at build time for a method that has none.
+        Public and internal property getters and setters do not need an attribute because they require read and write access respectively,
+        and event accessors do not need one either.</p>
+    <p>A build-time error is emitted when the class has public or internal fields, or when an <code>async</code> method is not annotated
+        with the <xref href="PostSharp.Patterns.Threading.ReentrantAttribute" data-throw-if-not-resolved="false"></xref> custom attribute. When run-time verification is enabled, accessing a field without the required
+        access level, for instance writing a field from a reader method, results in a <xref href="PostSharp.Patterns.Threading.ThreadAccessException" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>When the object becomes a child of an object that has the <xref href="PostSharp.Patterns.Threading.SynchronizedAttribute" data-throw-if-not-resolved="false"></xref> aspect, it shares the lock of its parent,
+        and all its methods then require exclusive access.</p>
+  example: []
+  syntax:
+    content: >-
+      [Metric("UsedFeatures", "PostSharp.Patterns.Threading.ReaderWriterSynchronized")]
+
+      [Serializer(typeof(ReaderWriterSynchronizedAttribute.Serializer))]
+
+      public sealed class ReaderWriterSynchronizedAttribute : ThreadAwareAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface
+    content.vb: >-
+      <Metric("UsedFeatures", "PostSharp.Patterns.Threading.ReaderWriterSynchronized")>
+
+      <Serializer(GetType(ReaderWriterSynchronizedAttribute.Serializer))>
+
+      Public NotInheritable Class ReaderWriterSynchronizedAttribute Inherits ThreadAwareAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.ReaderAttribute
+    commentId: T:PostSharp.Patterns.Threading.ReaderAttribute
+  - linkId: PostSharp.Patterns.Threading.WriterAttribute
+    commentId: T:PostSharp.Patterns.Threading.WriterAttribute
+  - linkId: PostSharp.Patterns.Threading.UpgradeableReaderAttribute
+    commentId: T:PostSharp.Patterns.Threading.UpgradeableReaderAttribute
+  - linkId: PostSharp.Patterns.Threading.YielderAttribute
+    commentId: T:PostSharp.Patterns.Threading.YielderAttribute
+  - linkType: HRef
+    linkId: '@reader-writer-synchronized'
+    altText: 'Conceptual: Reader/Writer Synchronized Threading Model'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.Threading.IThreadAware
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  inheritedMembers:
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: PostSharp.Patterns.Threading.ReaderWriterSynchronized
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReaderWriterSynchronizedAttribute()
+  nameWithType: ReaderWriterSynchronizedAttribute.ReaderWriterSynchronizedAttribute()
+  fullName: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.ReaderWriterSynchronizedAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: public ReaderWriterSynchronizedAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor*
+  nameWithType.vb: ReaderWriterSynchronizedAttribute.New()
+  fullName.vb: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  langs:
+  - csharp
+  - vb
+  name: ReaderWriterSynchronizedAttribute(PortableFormatterConstructorContext)
+  nameWithType: ReaderWriterSynchronizedAttribute.ReaderWriterSynchronizedAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.ReaderWriterSynchronizedAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected ReaderWriterSynchronizedAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.#ctor*
+  nameWithType.vb: ReaderWriterSynchronizedAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)

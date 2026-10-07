@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.AspectDescriptionAttribute
+  commentId: T:PostSharp.Aspects.AspectDescriptionAttribute
+  id: AspectDescriptionAttribute
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.AspectDescriptionAttribute.#ctor(System.String)
+  - PostSharp.Aspects.AspectDescriptionAttribute.Description
+  langs:
+  - csharp
+  - vb
+  name: AspectDescriptionAttribute
+  nameWithType: AspectDescriptionAttribute
+  fullName: PostSharp.Aspects.AspectDescriptionAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Custom attribute that, when applied to an aspect class, specifies a human-readable description of the aspect
+
+    that can be displayed in PostSharp Tools for Visual Studio.
+  remarks: >-
+    <p>This attribute is intended to be used on simple aspects like <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> or
+        <xref href="PostSharp.Aspects.MethodInterceptionAspect" data-throw-if-not-resolved="false"></xref>. For composite aspects, specify the description of each advice
+        using the <xref href="PostSharp.Aspects.Advices.Advice.Description" data-throw-if-not-resolved="false"></xref> property.</p>
+    <p>The description replaces the default description that the Visual Studio tooling displays in CodeLens
+        and in tooltips for the declarations enhanced by the aspect.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+
+      public sealed class AspectDescriptionAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Class, AllowMultiple:=False)>
+
+      Public NotInheritable Class AspectDescriptionAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@customizing-aspect-description'
+    altText: 'Conceptual: Customizing Aspect Description in CodeLens And Tooltips'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 4
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+- uid: PostSharp.Aspects.AspectDescriptionAttribute.#ctor(System.String)
+  commentId: M:PostSharp.Aspects.AspectDescriptionAttribute.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Aspects.AspectDescriptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: AspectDescriptionAttribute(string)
+  nameWithType: AspectDescriptionAttribute.AspectDescriptionAttribute(string)
+  fullName: PostSharp.Aspects.AspectDescriptionAttribute.AspectDescriptionAttribute(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.AspectDescriptionAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public AspectDescriptionAttribute(string description)
+    parameters:
+    - id: description
+      type: System.String
+      description: >-
+        A human-readable description of the aspect class to which
+                    the <xref href="PostSharp.Aspects.AspectDescriptionAttribute" data-throw-if-not-resolved="false"></xref> custom attribute is applied.
+    content.vb: Public Sub New(description As String)
+  overload: PostSharp.Aspects.AspectDescriptionAttribute.#ctor*
+  nameWithType.vb: AspectDescriptionAttribute.New(String)
+  fullName.vb: PostSharp.Aspects.AspectDescriptionAttribute.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Aspects.AspectDescriptionAttribute.Description
+  commentId: P:PostSharp.Aspects.AspectDescriptionAttribute.Description
+  id: Description
+  parent: PostSharp.Aspects.AspectDescriptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: AspectDescriptionAttribute.Description
+  fullName: PostSharp.Aspects.AspectDescriptionAttribute.Description
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Gets a human-readable description of the aspect class to which
+
+    the <xref href="PostSharp.Aspects.AspectDescriptionAttribute" data-throw-if-not-resolved="false"></xref> custom attribute is applied.
+  example: []
+  syntax:
+    content: public string Description { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Description As String
+  overload: PostSharp.Aspects.AspectDescriptionAttribute.Description*

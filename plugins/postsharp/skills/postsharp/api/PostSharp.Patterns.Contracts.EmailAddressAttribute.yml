@@ -1,0 +1,178 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.EmailAddressAttribute
+  commentId: T:PostSharp.Patterns.Contracts.EmailAddressAttribute
+  id: EmailAddressAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.EmailAddressAttribute.#ctor
+  - PostSharp.Patterns.Contracts.EmailAddressAttribute.GetErrorMessage
+  langs:
+  - csharp
+  - vb
+  name: EmailAddressAttribute
+  nameWithType: EmailAddressAttribute
+  fullName: PostSharp.Patterns.Contracts.EmailAddressAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Custom attribute that, when added to a field, property or parameter, throws
+
+    an <xref href="System.ArgumentException" data-throw-if-not-resolved="false"></xref> if the target is assigned a value that
+
+    is not a valid email address. Null strings are accepted and do not
+
+    throw an exception.
+  remarks: <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.EmailAddressErrorMessage" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [AspectConfiguration(SerializerType = typeof(MsilAspectSerializer))]
+
+      public sealed class EmailAddressAttribute : RegularExpressionAttribute, ILocationLevelAspect, IAspect
+    content.vb: >-
+      <AspectConfiguration(SerializerType:=GetType(MsilAspectSerializer))>
+
+      Public NotInheritable Class EmailAddressAttribute Inherits RegularExpressionAttribute Implements ILocationLevelAspect, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Patterns.Contracts.LocationContractAttribute
+  - PostSharp.Patterns.Contracts.RegularExpressionAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Contracts.RegularExpressionAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Configuration.AspectConfigurationAttribute
+    ctor: PostSharp.Aspects.Configuration.AspectConfigurationAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: SerializerType
+      type: System.Type
+      value: PostSharp.Aspects.Serialization.MsilAspectSerializer
+- uid: PostSharp.Patterns.Contracts.EmailAddressAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Contracts.EmailAddressAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Contracts.EmailAddressAttribute
+  langs:
+  - csharp
+  - vb
+  name: EmailAddressAttribute()
+  nameWithType: EmailAddressAttribute.EmailAddressAttribute()
+  fullName: PostSharp.Patterns.Contracts.EmailAddressAttribute.EmailAddressAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.EmailAddressAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public EmailAddressAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Contracts.EmailAddressAttribute.#ctor*
+  nameWithType.vb: EmailAddressAttribute.New()
+  fullName.vb: PostSharp.Patterns.Contracts.EmailAddressAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Contracts.EmailAddressAttribute.GetErrorMessage
+  commentId: M:PostSharp.Patterns.Contracts.EmailAddressAttribute.GetErrorMessage
+  id: GetErrorMessage
+  parent: PostSharp.Patterns.Contracts.EmailAddressAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: EmailAddressAttribute.GetErrorMessage()
+  fullName: PostSharp.Patterns.Contracts.EmailAddressAttribute.GetErrorMessage()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the unformatted error message as defined by the instance.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>The use of this method can be overridden by setting the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> property to a non-null value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      protected override string GetErrorMessage()
+    return:
+      type: System.String
+      description: The unformatted error message.
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessage() As String
+  overridden: PostSharp.Patterns.Contracts.RegularExpressionAttribute.GetErrorMessage
+  overload: PostSharp.Patterns.Contracts.EmailAddressAttribute.GetErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.

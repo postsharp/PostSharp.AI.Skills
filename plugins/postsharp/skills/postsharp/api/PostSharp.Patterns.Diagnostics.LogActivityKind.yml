@@ -1,0 +1,169 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind
+  commentId: T:PostSharp.Patterns.Diagnostics.LogActivityKind
+  id: LogActivityKind
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.Default
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.IncomingRequest
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.OutgoingRequest
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.Task
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.TaskLauncher
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.Transaction
+  - PostSharp.Patterns.Diagnostics.LogActivityKind.Wait
+  langs:
+  - csharp
+  - vb
+  name: LogActivityKind
+  nameWithType: LogActivityKind
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Specifies the kind of a <xref href="PostSharp.Patterns.Diagnostics.LogActivity" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum LogActivityKind
+    content.vb: Public Enum LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.Default
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.Default
+  id: Default
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: LogActivityKind.Default
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: The default kind, created by <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions%2cSystem.String)" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.Logger.OpenAsyncActivity(PostSharp.Patterns.Diagnostics.LogActivityOptions%2cSystem.String)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.TaskLauncher
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.TaskLauncher
+  id: TaskLauncher
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: TaskLauncher
+  nameWithType: LogActivityKind.TaskLauncher
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.TaskLauncher
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: An activity that creates a <xref href="PostSharp.Patterns.Diagnostics.LogActivityKind.Task" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: TaskLauncher = 1
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.Task
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.Task
+  id: Task
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: Task
+  nameWithType: LogActivityKind.Task
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.Task
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Code that runs in a <xref href="PostSharp.Patterns.Diagnostics.LogActivityKind.Task" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task = 2
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.Wait
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.Wait
+  id: Wait
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: Wait
+  nameWithType: LogActivityKind.Wait
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.Wait
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: An activity that waits for a <xref href="PostSharp.Patterns.Diagnostics.LogActivityKind.Task" data-throw-if-not-resolved="false"></xref> or another dispatcher object.
+  example: []
+  syntax:
+    content: Wait = 3
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.OutgoingRequest
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.OutgoingRequest
+  id: OutgoingRequest
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: OutgoingRequest
+  nameWithType: LogActivityKind.OutgoingRequest
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.OutgoingRequest
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: An outgoing request. The property "RequestId" is expected to be defined.
+  example: []
+  syntax:
+    content: OutgoingRequest = 4
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.IncomingRequest
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.IncomingRequest
+  id: IncomingRequest
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: IncomingRequest
+  nameWithType: LogActivityKind.IncomingRequest
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.IncomingRequest
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: An incoming request to the service (typically a web request). It is a transaction boundary.
+  example: []
+  syntax:
+    content: IncomingRequest = 5
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind
+- uid: PostSharp.Patterns.Diagnostics.LogActivityKind.Transaction
+  commentId: F:PostSharp.Patterns.Diagnostics.LogActivityKind.Transaction
+  id: Transaction
+  parent: PostSharp.Patterns.Diagnostics.LogActivityKind
+  langs:
+  - csharp
+  - vb
+  name: Transaction
+  nameWithType: LogActivityKind.Transaction
+  fullName: PostSharp.Patterns.Diagnostics.LogActivityKind.Transaction
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: A custom transaction.
+  example: []
+  syntax:
+    content: Transaction = 6
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogActivityKind

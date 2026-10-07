@@ -1,0 +1,225 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  commentId: T:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  id: MoveCollectionItemOperation`1
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.NewIndex
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldIndex
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldItem
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OperationKind
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  - PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  langs:
+  - csharp
+  - vb
+  name: MoveCollectionItemOperation<T>
+  nameWithType: MoveCollectionItemOperation<T>
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Represents a <xref href="PostSharp.Patterns.Collections.AdvisableCollection%601.Move(System.Int32%2cSystem.Int32)" data-throw-if-not-resolved="false"></xref> operation.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public sealed class MoveCollectionItemOperation<T> : CollectionOperation<T>, ICollectionOperation, IOperationDescriptor
+    typeParameters:
+    - id: T
+      description: The type of collection items.
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public NotInheritable Class MoveCollectionItemOperation(Of T) Inherits CollectionOperation(Of T) Implements ICollectionOperation, IOperationDescriptor
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Recording.Operation
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}
+  implements:
+  - PostSharp.Patterns.Recording.Operations.ICollectionOperation
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.VisitAffectedObjects(System.Action{System.Object})
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.Collection
+  - PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.NewItem
+  - PostSharp.Patterns.Recording.Operation.Name
+  - PostSharp.Patterns.Recording.Operation.OperationDescriptor
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: MoveCollectionItemOperation(Of T)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T)
+  name.vb: MoveCollectionItemOperation(Of T)
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Undo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Undo(ReplayContext)
+  nameWithType: MoveCollectionItemOperation<T>.Undo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Undoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Undo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Undo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Undo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Undo*
+  nameWithType.vb: MoveCollectionItemOperation(Of T).Undo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T).Undo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  commentId: M:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  id: Redo(PostSharp.Patterns.Recording.ReplayContext)
+  parent: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  langs:
+  - csharp
+  - vb
+  name: Redo(ReplayContext)
+  nameWithType: MoveCollectionItemOperation<T>.Redo(ReplayContext)
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Redoes the current operation.
+  example: []
+  syntax:
+    content: protected override void Redo(ReplayContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Recording.ReplayContext
+      description: Reserved for future use.
+    content.vb: Protected Overrides Sub Redo(context As ReplayContext)
+  overridden: PostSharp.Patterns.Recording.Operation.Redo(PostSharp.Patterns.Recording.ReplayContext)
+  overload: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.Redo*
+  nameWithType.vb: MoveCollectionItemOperation(Of T).Redo(ReplayContext)
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T).Redo(PostSharp.Patterns.Recording.ReplayContext)
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldIndex
+  commentId: P:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldIndex
+  id: OldIndex
+  parent: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OldIndex
+  nameWithType: MoveCollectionItemOperation<T>.OldIndex
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>.OldIndex
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the index before the operation.
+  example: []
+  syntax:
+    content: public override int OldIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property OldIndex As Integer
+  overridden: PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.OldIndex
+  overload: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldIndex*
+  nameWithType.vb: MoveCollectionItemOperation(Of T).OldIndex
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T).OldIndex
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.NewIndex
+  commentId: P:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.NewIndex
+  id: NewIndex
+  parent: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  langs:
+  - csharp
+  - vb
+  name: NewIndex
+  nameWithType: MoveCollectionItemOperation<T>.NewIndex
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>.NewIndex
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the index after the operation.
+  example: []
+  syntax:
+    content: public override int NewIndex { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property NewIndex As Integer
+  overridden: PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.NewIndex
+  overload: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.NewIndex*
+  nameWithType.vb: MoveCollectionItemOperation(Of T).NewIndex
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T).NewIndex
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldItem
+  commentId: P:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldItem
+  id: OldItem
+  parent: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OldItem
+  nameWithType: MoveCollectionItemOperation<T>.OldItem
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>.OldItem
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the item after the operation.
+  example: []
+  syntax:
+    content: public override T OldItem { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public Overrides ReadOnly Property OldItem As T
+  overridden: PostSharp.Patterns.Recording.Operations.CollectionOperation{{T}}.OldItem
+  overload: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OldItem*
+  nameWithType.vb: MoveCollectionItemOperation(Of T).OldItem
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T).OldItem
+- uid: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OperationKind
+  commentId: P:PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OperationKind
+  id: OperationKind
+  parent: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1
+  langs:
+  - csharp
+  - vb
+  name: OperationKind
+  nameWithType: MoveCollectionItemOperation<T>.OperationKind
+  fullName: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation<T>.OperationKind
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the kind of operation.
+  example: []
+  syntax:
+    content: public override OperationKind OperationKind { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Recording.OperationKind
+    content.vb: Public Overrides ReadOnly Property OperationKind As OperationKind
+  overridden: PostSharp.Patterns.Recording.Operation.OperationKind
+  overload: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation`1.OperationKind*
+  nameWithType.vb: MoveCollectionItemOperation(Of T).OperationKind
+  fullName.vb: PostSharp.Patterns.Recording.Operations.MoveCollectionItemOperation(Of T).OperationKind

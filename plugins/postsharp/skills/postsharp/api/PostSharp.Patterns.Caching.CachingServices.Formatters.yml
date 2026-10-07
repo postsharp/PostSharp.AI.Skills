@@ -1,0 +1,50 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.CachingServices.Formatters
+  commentId: T:PostSharp.Patterns.Caching.CachingServices.Formatters
+  id: CachingServices.Formatters
+  parent: PostSharp.Patterns.Caching
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: CachingServices.Formatters
+  nameWithType: CachingServices.Formatters
+  fullName: PostSharp.Patterns.Caching.CachingServices.Formatters
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Allows getting and registering formatters used to generate caching keys.
+  remarks: >-
+    <p>By default, the cache key builder formats objects with <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref>. Register a formatter here when the
+        <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> method of a parameter type does not return a distinct string for each distinct value, or when the caching
+        representation of the type must differ from its other representations. Formatters registered here are used only for caching.</p>
+  example: []
+  syntax:
+    content: 'public sealed class CachingServices.Formatters : FormatterRepository<CachingFormattingRole>'
+    content.vb: Public NotInheritable Class CachingServices.Formatters Inherits FormatterRepository(Of CachingFormattingRole)
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-keys'
+    altText: 'Conceptual: Customizing Cache Keys'
+  - linkType: HRef
+    linkId: '@custom-formatter'
+    altText: 'Conceptual: Implementing a Custom Formatter'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.SetDynamic``1
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.Register``1(PostSharp.Patterns.Formatters.IFormatter{{T}})
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.Register(System.Type,PostSharp.Patterns.Formatters.IFormatter)
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.Register(System.Type,System.Type)
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.Get``1
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.Get(System.Type)
+  - PostSharp.Patterns.Formatters.FormatterRepository{PostSharp.Patterns.Caching.Formatters.CachingFormattingRole}.Reset
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode

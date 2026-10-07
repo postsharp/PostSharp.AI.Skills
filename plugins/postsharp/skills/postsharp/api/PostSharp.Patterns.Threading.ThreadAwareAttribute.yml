@@ -1,0 +1,551 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  commentId: T:PostSharp.Patterns.Threading.ThreadAwareAttribute
+  id: ThreadAwareAttribute
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise(System.Object)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed(System.Object)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  langs:
+  - csharp
+  - vb
+  name: ThreadAwareAttribute
+  nameWithType: ThreadAwareAttribute
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Base class for all aspects implementing threading models.
+  remarks: >-
+    <p>Threading models rely on the Aggregatable pattern: the aspect implicitly adds the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect to the target class,
+        and the threading model extends to the child objects declared with the <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.</p>
+  example: []
+  syntax:
+    content: >-
+      [ProvideAspectRole("ThreadingModel")]
+
+      [ProvideAspectRole("Threading")]
+
+      [AspectRoleDependency(AspectDependencyAction.Conflict, "ThreadingModel")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Caching")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")]
+
+      [MulticastAttributeUsage(Inheritance = MulticastInheritance.Strict, AllowMultiple = false, PersistMetaData = true)]
+
+      [IntroduceInterface(typeof(IThreadAware), OverrideAction = InterfaceOverrideAction.Ignore)]
+
+      [IntroduceInterface(typeof(IThreadAwareImplementationProvider), OverrideAction = InterfaceOverrideAction.Ignore)]
+
+      [IntroduceInterface(typeof(IQueryInterface), OverrideAction = InterfaceOverrideAction.Ignore, AncestorOverrideAction = InterfaceOverrideAction.Ignore)]
+
+      [Serializer(typeof(ThreadAwareAttribute.Serializer))]
+
+      public abstract class ThreadAwareAttribute : AggregatableClientAttribute, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface
+    content.vb: >-
+      <ProvideAspectRole("ThreadingModel")>
+
+      <ProvideAspectRole("Threading")>
+
+      <AspectRoleDependency(AspectDependencyAction.Conflict, "ThreadingModel")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "Caching")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "CacheInvalidation")>
+
+      <MulticastAttributeUsage(Inheritance:=MulticastInheritance.Strict, AllowMultiple:=False, PersistMetaData:=True)>
+
+      <IntroduceInterface(GetType(IThreadAware), OverrideAction:=InterfaceOverrideAction.Ignore)>
+
+      <IntroduceInterface(GetType(IThreadAwareImplementationProvider), OverrideAction:=InterfaceOverrideAction.Ignore)>
+
+      <IntroduceInterface(GetType(IQueryInterface), OverrideAction:=InterfaceOverrideAction.Ignore, AncestorOverrideAction:=InterfaceOverrideAction.Ignore)>
+
+      <Serializer(GetType(ThreadAwareAttribute.Serializer))>
+
+      Public MustInherit Class ThreadAwareAttribute Inherits AggregatableClientAttribute Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect, IThreadAware, IQueryInterface
+  seealso:
+  - linkType: HRef
+    linkId: '@aggregatable'
+    altText: 'Conceptual: Parent/Child, Visitor and Disposable'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  derivedClasses:
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  - PostSharp.Patterns.Threading.IThreadAware
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  inheritedMembers:
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: ThreadingModel
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Threading
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 3
+    - type: System.String
+      value: ThreadingModel
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Tracing
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Validation
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: Caching
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: -1
+    - type: System.String
+      value: CacheInvalidation
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Inheritance
+      type: PostSharp.Extensibility.MulticastInheritance
+      value: 1
+    - name: AllowMultiple
+      type: System.Boolean
+      value: false
+    - name: PersistMetaData
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.IThreadAware
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+  - type: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute
+    ctor: PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+    - name: AncestorOverrideAction
+      type: PostSharp.Aspects.Advices.InterfaceOverrideAction
+      value: 1
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Threading.ThreadAwareAttribute.Serializer
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise(System.Object)
+  id: Advise(System.Object)
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: Advise(object)
+  nameWithType: ThreadAwareAttribute.Advise(object)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Injects the advice into the child object.
+  example: []
+  syntax:
+    content: protected override bool Advise(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to advise.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the children of <code class="paramref">obj</code> have to be advised as well, <code>false</code> otherwise.
+    content.vb: Protected Overrides Function Advise(obj As Object) As Boolean
+  overridden: PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise*
+  nameWithType.vb: ThreadAwareAttribute.Advise(Object)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAwareAttribute.Advise(Object)
+  name.vb: Advise(Object)
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed(System.Object)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed(System.Object)
+  id: OnAdviseChildFailed(System.Object)
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnAdviseChildFailed(object)
+  nameWithType: ThreadAwareAttribute.OnAdviseChildFailed(object)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    This method is invoked when a child is assigned to a parent and the advices of the parent cannot be added to the child.
+
+    Implementations can choose to throw an exception (thread-aware attributes do this) or ignore the situation (<code>DisposableAttribute</code> does this).
+  example: []
+  syntax:
+    content: protected override void OnAdviseChildFailed(object child)
+    parameters:
+    - id: child
+      type: System.Object
+      description: An object that is ineligible to be a child. It is guaranteed to be non-null.
+    content.vb: Protected Overrides Sub OnAdviseChildFailed(child As Object)
+  overridden: PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(System.Object)
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed*
+  nameWithType.vb: ThreadAwareAttribute.OnAdviseChildFailed(Object)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnAdviseChildFailed(Object)
+  name.vb: OnAdviseChildFailed(Object)
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  id: CompileTimeValidate(System.Type)
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeValidate(Type)
+  nameWithType: ThreadAwareAttribute.CompileTimeValidate(Type)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Method invoked at build time to ensure that the aspect has been applied to the right target.
+  remarks: >-
+    The implementation of this method is expected to emit an error message (see 
+
+    <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref>) or an exception in case of error. Returning <code>false</code> without emitting an
+
+    error message or exception causes the aspect to be silently ignored.
+  example: []
+  syntax:
+    content: public override bool CompileTimeValidate(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to which the aspect has been applied.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if the aspect was applied to an acceptable field, otherwise
+              <code>false</code>.
+    content.vb: Public Overrides Function CompileTimeValidate(type As Type) As Boolean
+  overridden: PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Type)
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.CompileTimeValidate*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsEligibleChild(object, ChildInfo)
+  nameWithType: ThreadAwareAttribute.IsEligibleChild(object, ChildInfo)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild(object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Determines whether an object is eligible to be a child of the target instance of the current aspect.
+  example: []
+  syntax:
+    content: protected override sealed bool IsEligibleChild(object child, ChildInfo childInfo)
+    parameters:
+    - id: child
+      type: System.Object
+      description: The object to test.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: The <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> that describes the location of the child.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if <code class="paramref">child</code> is eligible to be a child without injecting any advice, otherwise <code>false</code>. When this method returns <code>false</code>,
+            the aspect will invoke the <xref href="PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)" data-throw-if-not-resolved="false"></xref> method.
+    content.vb: Protected NotOverridable Overrides Function IsEligibleChild(child As Object, childInfo As ChildInfo) As Boolean
+  overridden: PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild*
+  nameWithType.vb: ThreadAwareAttribute.IsEligibleChild(Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAwareAttribute.IsEligibleChild(Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: IsEligibleChild(Object, ChildInfo)
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize
+  id: Finalize
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: Finalize()
+  nameWithType: ThreadAwareAttribute.Finalize()
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Destructor.
+  example: []
+  syntax:
+    content: public void Finalize()
+    content.vb: Public Sub Finalize()
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.Finalize*
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  id: OnSerializing(System.Runtime.Serialization.StreamingContext)
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnSerializing(StreamingContext)
+  nameWithType: ThreadAwareAttribute.OnSerializing(StreamingContext)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing(System.Runtime.Serialization.StreamingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Requires read access level to the current object before serialization can proceed.
+
+    This method will be introduced into the target class.
+  example: []
+  syntax:
+    content: >-
+      [CopyCustomAttributes(typeof(OnSerializingAttribute), OverrideAction = CustomAttributeOverrideAction.Ignore)]
+
+      [OnSerializing]
+
+      public void OnSerializing(StreamingContext streamingContext)
+    parameters:
+    - id: streamingContext
+      type: System.Runtime.Serialization.StreamingContext
+      description: The streaming context.
+    content.vb: >-
+      <CopyCustomAttributes(GetType(OnSerializingAttribute), OverrideAction:=CustomAttributeOverrideAction.Ignore)>
+
+      <OnSerializing>
+
+      Public Sub OnSerializing(streamingContext As StreamingContext)
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.OnSerializing*
+  attributes:
+  - type: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute
+    ctor: PostSharp.Aspects.Advices.CopyCustomAttributesAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: System.Runtime.Serialization.OnSerializingAttribute
+    namedArguments:
+    - name: OverrideAction
+      type: PostSharp.Aspects.Advices.CustomAttributeOverrideAction
+      value: 1
+  - type: System.Runtime.Serialization.OnSerializingAttribute
+    ctor: System.Runtime.Serialization.OnSerializingAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Threading.ThreadAwareAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: ThreadAwareAttribute(PortableFormatterConstructorContext)
+  nameWithType: ThreadAwareAttribute.ThreadAwareAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.ThreadAwareAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  syntax:
+    content: protected ThreadAwareAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.#ctor*
+  nameWithType.vb: ThreadAwareAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Threading.ThreadAwareAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  commentId: P:PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  id: RuntimeVerificationEnabled
+  parent: PostSharp.Patterns.Threading.ThreadAwareAttribute
+  langs:
+  - csharp
+  - vb
+  name: RuntimeVerificationEnabled
+  nameWithType: ThreadAwareAttribute.RuntimeVerificationEnabled
+  fullName: PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Gets or sets a value indicating whether the code should be verified against the model at run time.
+
+    The default value is <code>true</code> for the debug build configuration and <code>false</code> for the release build configuration.
+  remarks: >-
+    <p>This default value is <code>false</code> if the <code>Optimize</code> compiler setting is enabled,
+        and <code>true</code> if this setting is disabled. The default value can also be modified by setting the <code>PostSharpRuntimeVerificationEnabled</code>
+        MSBuild property, which can be edited from the PostSharp tab of project properties in Visual Studio.</p>
+    <p>Setting this property on the custom attribute of a class overrides the project-level setting for that class.</p>
+  example: []
+  syntax:
+    content: public bool RuntimeVerificationEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RuntimeVerificationEnabled As Boolean
+  overload: PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled*
+  seealso:
+  - linkType: HRef
+    linkId: '@threading-runtime-verification'
+    altText: 'Conceptual: Enabling and Disabling Runtime Verification'

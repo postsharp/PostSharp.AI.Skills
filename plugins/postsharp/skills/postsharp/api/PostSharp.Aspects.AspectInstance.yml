@@ -1,0 +1,273 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.AspectInstance
+  commentId: T:PostSharp.Aspects.AspectInstance
+  id: AspectInstance
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Aspects.IAspect)
+  - PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Aspects.IAspect,PostSharp.Aspects.Configuration.AspectConfiguration)
+  - PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Reflection.ObjectConstruction)
+  - PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)
+  - PostSharp.Aspects.AspectInstance.RepresentAsStandalone
+  - PostSharp.Aspects.AspectInstance.TargetElement
+  langs:
+  - csharp
+  - vb
+  name: AspectInstance
+  nameWithType: AspectInstance
+  fullName: PostSharp.Aspects.AspectInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Completely specifies an aspect instance, including its target code element. An <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+
+    contains either the aspect instance itself (<xref href="PostSharp.Aspects.Aspect" data-throw-if-not-resolved="false"></xref> property), or the information needed to construct the aspect 
+
+    (<xref href="PostSharp.Aspects.AspectSpecification.AspectConstruction" data-throw-if-not-resolved="false"></xref>) and to configure the weaver (<xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>).
+  remarks: >-
+    <p>Instances of this class are returned by <xref href="PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)" data-throw-if-not-resolved="false"></xref> to add aspects
+            to declarations programmatically, at build time.</p>
+  example: []
+  syntax:
+    content: 'public sealed class AspectInstance : AspectSpecification'
+    content.vb: Public NotInheritable Class AspectInstance Inherits AspectSpecification
+  seealso:
+  - linkId: PostSharp.Aspects.IAspectProvider
+    commentId: T:PostSharp.Aspects.IAspectProvider
+  - linkType: HRef
+    linkId: '@aspect-provider'
+    altText: 'Conceptual: Adding Aspects Dynamically'
+  - linkType: HRef
+    linkId: '@iaspectprovider'
+    altText: 'Conceptual: Adding Aspects Programmatically using IAspectProvider'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.AspectSpecification
+  inheritedMembers:
+  - PostSharp.Aspects.AspectSpecification.AspectConfiguration
+  - PostSharp.Aspects.AspectSpecification.AspectConstruction
+  - PostSharp.Aspects.AspectSpecification.Aspect
+  - PostSharp.Aspects.AspectSpecification.AspectAssemblyQualifiedTypeName
+  - PostSharp.Aspects.AspectSpecification.AspectTypeName
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Aspects.IAspect)
+  commentId: M:PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Aspects.IAspect)
+  id: '#ctor(System.Object,PostSharp.Aspects.IAspect)'
+  parent: PostSharp.Aspects.AspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectInstance(object, IAspect)
+  nameWithType: AspectInstance.AspectInstance(object, IAspect)
+  fullName: PostSharp.Aspects.AspectInstance.AspectInstance(object, PostSharp.Aspects.IAspect)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> class from a runtime aspect instance (<xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public AspectInstance(object targetElement, IAspect aspect)
+    parameters:
+    - id: targetElement
+      type: System.Object
+      description: >-
+        Code element (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) to which the current <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+                      is applied.
+    - id: aspect
+      type: PostSharp.Aspects.IAspect
+      description: The aspect runtime instance.
+    content.vb: Public Sub New(targetElement As Object, aspect As IAspect)
+  overload: PostSharp.Aspects.AspectInstance.#ctor*
+  nameWithType.vb: AspectInstance.New(Object, IAspect)
+  fullName.vb: PostSharp.Aspects.AspectInstance.New(Object, PostSharp.Aspects.IAspect)
+  name.vb: New(Object, IAspect)
+- uid: PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Aspects.IAspect,PostSharp.Aspects.Configuration.AspectConfiguration)
+  commentId: M:PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Aspects.IAspect,PostSharp.Aspects.Configuration.AspectConfiguration)
+  id: '#ctor(System.Object,PostSharp.Aspects.IAspect,PostSharp.Aspects.Configuration.AspectConfiguration)'
+  parent: PostSharp.Aspects.AspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectInstance(object, IAspect, AspectConfiguration)
+  nameWithType: AspectInstance.AspectInstance(object, IAspect, AspectConfiguration)
+  fullName: PostSharp.Aspects.AspectInstance.AspectInstance(object, PostSharp.Aspects.IAspect, PostSharp.Aspects.Configuration.AspectConfiguration)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> class from a runtime aspect instance (<xref href="PostSharp.Aspects.IAspect" data-throw-if-not-resolved="false"></xref>)
+
+    and its <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AspectInstance(object targetElement, IAspect aspect, AspectConfiguration aspectConfiguration)
+    parameters:
+    - id: targetElement
+      type: System.Object
+      description: >-
+        Code element (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) to which the current <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+                      is applied.
+    - id: aspect
+      type: PostSharp.Aspects.IAspect
+      description: The aspect runtime instance.
+    - id: aspectConfiguration
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        The aspect configuration. The type of this parameter should be equal to the
+                      type of the configuration objects expected by the concrete <code class="paramref">aspect</code>.
+    content.vb: Public Sub New(targetElement As Object, aspect As IAspect, aspectConfiguration As AspectConfiguration)
+  overload: PostSharp.Aspects.AspectInstance.#ctor*
+  nameWithType.vb: AspectInstance.New(Object, IAspect, AspectConfiguration)
+  fullName.vb: PostSharp.Aspects.AspectInstance.New(Object, PostSharp.Aspects.IAspect, PostSharp.Aspects.Configuration.AspectConfiguration)
+  name.vb: New(Object, IAspect, AspectConfiguration)
+- uid: PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Reflection.ObjectConstruction)
+  commentId: M:PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Reflection.ObjectConstruction)
+  id: '#ctor(System.Object,PostSharp.Reflection.ObjectConstruction)'
+  parent: PostSharp.Aspects.AspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectInstance(object, ObjectConstruction)
+  nameWithType: AspectInstance.AspectInstance(object, ObjectConstruction)
+  fullName: PostSharp.Aspects.AspectInstance.AspectInstance(object, PostSharp.Reflection.ObjectConstruction)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> class from an <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public AspectInstance(object targetElement, ObjectConstruction aspectConstruction)
+    parameters:
+    - id: targetElement
+      type: System.Object
+      description: >-
+        Code element (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) to which the current <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+                      is applied.
+    - id: aspectConstruction
+      type: PostSharp.Reflection.ObjectConstruction
+      description: >-
+        An <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref> that specifies how the aspect instance
+                      should be constructed.
+    content.vb: Public Sub New(targetElement As Object, aspectConstruction As ObjectConstruction)
+  overload: PostSharp.Aspects.AspectInstance.#ctor*
+  nameWithType.vb: AspectInstance.New(Object, ObjectConstruction)
+  fullName.vb: PostSharp.Aspects.AspectInstance.New(Object, PostSharp.Reflection.ObjectConstruction)
+  name.vb: New(Object, ObjectConstruction)
+- uid: PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)
+  commentId: M:PostSharp.Aspects.AspectInstance.#ctor(System.Object,PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)
+  id: '#ctor(System.Object,PostSharp.Reflection.ObjectConstruction,PostSharp.Aspects.Configuration.AspectConfiguration)'
+  parent: PostSharp.Aspects.AspectInstance
+  langs:
+  - csharp
+  - vb
+  name: AspectInstance(object, ObjectConstruction, AspectConfiguration)
+  nameWithType: AspectInstance.AspectInstance(object, ObjectConstruction, AspectConfiguration)
+  fullName: PostSharp.Aspects.AspectInstance.AspectInstance(object, PostSharp.Reflection.ObjectConstruction, PostSharp.Aspects.Configuration.AspectConfiguration)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> class from an <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref> and an <xref href="PostSharp.Aspects.Configuration.AspectConfiguration" data-throw-if-not-resolved="false"></xref> object.
+  example: []
+  syntax:
+    content: public AspectInstance(object targetElement, ObjectConstruction aspectConstruction, AspectConfiguration aspectConfiguration)
+    parameters:
+    - id: targetElement
+      type: System.Object
+      description: >-
+        Code element (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, 
+                      <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) to which the current <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+                      is applied.
+    - id: aspectConstruction
+      type: PostSharp.Reflection.ObjectConstruction
+      description: >-
+        An <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref> that specifies how the aspect instance
+                      should be constructed.
+    - id: aspectConfiguration
+      type: PostSharp.Aspects.Configuration.AspectConfiguration
+      description: >-
+        An optional configuration object whose type corresponds to 
+                      the aspect type.
+    content.vb: Public Sub New(targetElement As Object, aspectConstruction As ObjectConstruction, aspectConfiguration As AspectConfiguration)
+  overload: PostSharp.Aspects.AspectInstance.#ctor*
+  nameWithType.vb: AspectInstance.New(Object, ObjectConstruction, AspectConfiguration)
+  fullName.vb: PostSharp.Aspects.AspectInstance.New(Object, PostSharp.Reflection.ObjectConstruction, PostSharp.Aspects.Configuration.AspectConfiguration)
+  name.vb: New(Object, ObjectConstruction, AspectConfiguration)
+- uid: PostSharp.Aspects.AspectInstance.TargetElement
+  commentId: P:PostSharp.Aspects.AspectInstance.TargetElement
+  id: TargetElement
+  parent: PostSharp.Aspects.AspectInstance
+  langs:
+  - csharp
+  - vb
+  name: TargetElement
+  nameWithType: AspectInstance.TargetElement
+  fullName: PostSharp.Aspects.AspectInstance.TargetElement
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Gets the code element (<xref href="System.Reflection.Assembly" data-throw-if-not-resolved="false"></xref>, <xref href="System.Type" data-throw-if-not-resolved="false"></xref>, 
+
+    <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref>, <xref href="System.Reflection.EventInfo" data-throw-if-not-resolved="false"></xref>, 
+
+    <xref href="System.Reflection.ParameterInfo" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref>) to which the current <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+
+    is applied.
+  example: []
+  syntax:
+    content: public object TargetElement { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property TargetElement As Object
+  overload: PostSharp.Aspects.AspectInstance.TargetElement*
+- uid: PostSharp.Aspects.AspectInstance.RepresentAsStandalone
+  commentId: P:PostSharp.Aspects.AspectInstance.RepresentAsStandalone
+  id: RepresentAsStandalone
+  parent: PostSharp.Aspects.AspectInstance
+  langs:
+  - csharp
+  - vb
+  name: RepresentAsStandalone
+  nameWithType: AspectInstance.RepresentAsStandalone
+  fullName: PostSharp.Aspects.AspectInstance.RepresentAsStandalone
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Gets or sets a value indicating whether the <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref> should be represented as a standalone instance
+
+    in PostSharp Tools for Visual Studio. If <code>false</code>, the current <xref href="PostSharp.Aspects.AspectInstance" data-throw-if-not-resolved="false"></xref>
+
+    will not be represented as a standalone node, and its advices will be merged with the ones provided 
+
+    by the parent aspect (implementing <xref href="PostSharp.Aspects.IAspectProvider" data-throw-if-not-resolved="false"></xref>). The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool RepresentAsStandalone { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RepresentAsStandalone As Boolean
+  overload: PostSharp.Aspects.AspectInstance.RepresentAsStandalone*

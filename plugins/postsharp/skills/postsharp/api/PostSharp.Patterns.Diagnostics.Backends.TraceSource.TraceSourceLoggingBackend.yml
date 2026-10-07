@@ -1,0 +1,284 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  commentId: T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  id: TraceSourceLoggingBackend
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  children:
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.#ctor
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateRecordBuilder
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource(System.String)
+  - PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.Options
+  langs:
+  - csharp
+  - vb
+  name: TraceSourceLoggingBackend
+  nameWithType: TraceSourceLoggingBackend
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Logging backend that logs using <xref href="PostSharp.Patterns.Diagnostics.Backends.TraceSource" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>To use this backend, assign a new instance to <xref href="PostSharp.Patterns.Diagnostics.LoggingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref> when the application starts.
+
+    By default, the backend writes the records of each logged type to a separate <xref href="System.Diagnostics.TraceSource" data-throw-if-not-resolved="false"></xref> named
+
+    after the full name of the type. To write to a single trace source, set <xref href="PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions.GetTraceSourceName" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>When <xref href="PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceCollectingTraceListener" data-throw-if-not-resolved="false"></xref> collects the events of your manual logging, make the backend write to a
+
+    trace source whose listeners are the output listeners, not the collecting one.</p>
+  example: []
+  syntax:
+    content: 'public class TraceSourceLoggingBackend : TextLoggingBackend, IDisposable'
+    content.vb: Public Class TraceSourceLoggingBackend Inherits TextLoggingBackend Implements IDisposable
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceCollectingTraceListener
+    commentId: T:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceCollectingTraceListener
+  - linkType: HRef
+    linkId: '@logging-tracesource'
+    altText: 'Conceptual: Logging with System.Diagnostics.TraceSource'
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Diagnostics.LoggingBackend
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetBackendOptions
+  - PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.Type)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetSource(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithVerbosityConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenAsyncContext(PostSharp.Aspects.AsyncCallId,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenSyncContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenIteratorContext(System.Collections.IEnumerator,PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.LogMemberInfo@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.OpenEphemeralContext(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext@)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateThreadContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateEphemeralContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncMethodContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateIteratorContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncMethodContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateSyncCustomActivityContext(PostSharp.Patterns.Diagnostics.Contexts.ThreadLoggingContext)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateAsyncCustomActivityContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.GetAsyncContextOfTask(System.Threading.Tasks.Task)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateExecutionContextData
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.Dispose
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContext
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsDisposed
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsCorrupted
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultVerbosity
+  - PostSharp.Patterns.Diagnostics.LoggingBackend.TransactionPolicySelector
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: TraceSourceLoggingBackend()
+  nameWithType: TraceSourceLoggingBackend.TraceSourceLoggingBackend()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.TraceSourceLoggingBackend()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public TraceSourceLoggingBackend()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.#ctor*
+  nameWithType.vb: TraceSourceLoggingBackend.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource(System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource(System.String)
+  id: GetTraceSource(System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetTraceSource(string)
+  nameWithType: TraceSourceLoggingBackend.GetTraceSource(string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Gets a <xref href="System.Diagnostics.TraceSource" data-throw-if-not-resolved="false"></xref> of a given name.
+  example: []
+  syntax:
+    content: public static TraceSource GetTraceSource(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the <xref href="System.Diagnostics.TraceSource" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Diagnostics.TraceSource
+      description: >-
+        A <xref href="System.Diagnostics.TraceSource" data-throw-if-not-resolved="false"></xref> named <code class="paramref">name</code>. Two calls of this method
+                    are guaranteed to return the same instance, unless the previous instance has been garbage collected in the meantime.
+    content.vb: Public Shared Function GetTraceSource(name As String) As TraceSource
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource*
+  nameWithType.vb: TraceSourceLoggingBackend.GetTraceSource(String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTraceSource(String)
+  name.vb: GetTraceSource(String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  id: CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSource(LoggingNamespaceSource, Type)
+  nameWithType: TraceSourceLoggingBackend.CreateTypeSource(LoggingNamespaceSource, Type)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, System.Type)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and type.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+    - id: type
+      type: System.Type
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Protected Overrides Function CreateTypeSource(parent As LoggingNamespaceSource, type As Type) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSource(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.Type)
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSource*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  id: CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  nameWithType: TraceSourceLoggingBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, string)
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Creates a <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> for the given role and logger name.
+  example: []
+  syntax:
+    content: protected override LoggingTypeSource CreateTypeSourceBySourceName(LoggingNamespaceSource parent, string sourceName)
+    parameters:
+    - id: parent
+      type: PostSharp.Patterns.Diagnostics.LoggingNamespaceSource
+      description: The parent namespace source.
+    - id: sourceName
+      type: System.String
+      description: The name of the log source.
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The new log source.
+    content.vb: Protected Overrides Function CreateTypeSourceBySourceName(parent As LoggingNamespaceSource, sourceName As String) As LoggingTypeSource
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource,System.String)
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSourceBySourceName*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: Thrown when the backend cannot create log sources based on names.
+  nameWithType.vb: TraceSourceLoggingBackend.CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateTypeSourceBySourceName(PostSharp.Patterns.Diagnostics.LoggingNamespaceSource, String)
+  name.vb: CreateTypeSourceBySourceName(LoggingNamespaceSource, String)
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateRecordBuilder
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateRecordBuilder
+  id: CreateRecordBuilder
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: CreateRecordBuilder()
+  nameWithType: TraceSourceLoggingBackend.CreateRecordBuilder()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateRecordBuilder()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Creates a new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public override LogRecordBuilder CreateRecordBuilder()
+    return:
+      type: PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder
+      description: A new <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Overrides Function CreateRecordBuilder() As LogRecordBuilder
+  overridden: PostSharp.Patterns.Diagnostics.LoggingBackend.CreateRecordBuilder
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.CreateRecordBuilder*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions
+  commentId: M:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions
+  id: GetTextBackendOptions
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: GetTextBackendOptions()
+  nameWithType: TraceSourceLoggingBackend.GetTextBackendOptions()
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Gets the options.
+  example: []
+  syntax:
+    content: protected override TextLoggingBackendOptions GetTextBackendOptions()
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackendOptions
+      description: The options.
+    content.vb: Protected Overrides Function GetTextBackendOptions() As TextLoggingBackendOptions
+  overridden: PostSharp.Patterns.Diagnostics.Backends.TextLoggingBackend.GetTextBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.GetTextBackendOptions*
+- uid: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.Options
+  commentId: P:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.Options
+  id: Options
+  parent: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend
+  langs:
+  - csharp
+  - vb
+  name: Options
+  nameWithType: TraceSourceLoggingBackend.Options
+  fullName: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.Options
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Backends.Tracing
+  namespace: PostSharp.Patterns.Diagnostics.Backends.TraceSource
+  summary: Gets the backend options.
+  example: []
+  syntax:
+    content: public TraceSourceLoggingBackendOptions Options { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackendOptions
+    content.vb: Public ReadOnly Property Options As TraceSourceLoggingBackendOptions
+  overload: PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceLoggingBackend.Options*

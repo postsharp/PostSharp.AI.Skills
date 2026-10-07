@@ -1,0 +1,170 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  commentId: T:PostSharp.Patterns.Caching.Dependencies.StringDependency
+  id: StringDependency
+  parent: PostSharp.Patterns.Caching.Dependencies
+  children:
+  - PostSharp.Patterns.Caching.Dependencies.StringDependency.#ctor(System.String)
+  - PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  - PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(System.Object)
+  - PostSharp.Patterns.Caching.Dependencies.StringDependency.GetCacheKey
+  - PostSharp.Patterns.Caching.Dependencies.StringDependency.GetHashCode
+  langs:
+  - csharp
+  - vb
+  name: StringDependency
+  nameWithType: StringDependency
+  fullName: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  summary: A cache dependency that is already represented as a string.
+  example: []
+  syntax:
+    content: 'public sealed class StringDependency : ICacheDependency'
+    content.vb: Public NotInheritable Class StringDependency Implements ICacheDependency
+  inheritance:
+  - System.Object
+  implements:
+  - PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Caching.Dependencies.StringDependency.GetCacheKey
+  commentId: M:PostSharp.Patterns.Caching.Dependencies.StringDependency.GetCacheKey
+  id: GetCacheKey
+  parent: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  langs:
+  - csharp
+  - vb
+  name: GetCacheKey()
+  nameWithType: StringDependency.GetCacheKey()
+  fullName: PostSharp.Patterns.Caching.Dependencies.StringDependency.GetCacheKey()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  summary: Gets a string that uniquely represents the current object.
+  remarks: <p>The returned key should be globally unique, not just unique within the class implementing the method.</p>
+  example: []
+  syntax:
+    content: public string GetCacheKey()
+    return:
+      type: System.String
+      description: A string that uniquely represents the current object.
+    content.vb: Public Function GetCacheKey() As String
+  overload: PostSharp.Patterns.Caching.Dependencies.StringDependency.GetCacheKey*
+  implements:
+  - PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey
+- uid: PostSharp.Patterns.Caching.Dependencies.StringDependency.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Caching.Dependencies.StringDependency.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  langs:
+  - csharp
+  - vb
+  name: StringDependency(string)
+  nameWithType: StringDependency.StringDependency(string)
+  fullName: PostSharp.Patterns.Caching.Dependencies.StringDependency.StringDependency(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Dependencies.StringDependency" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public StringDependency(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The cache dependency.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Public Sub New(key As String)
+  overload: PostSharp.Patterns.Caching.Dependencies.StringDependency.#ctor*
+  nameWithType.vb: StringDependency.New(String)
+  fullName.vb: PostSharp.Patterns.Caching.Dependencies.StringDependency.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  commentId: M:PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  id: Equals(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  parent: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  langs:
+  - csharp
+  - vb
+  name: Equals(ICacheDependency)
+  nameWithType: StringDependency.Equals(ICacheDependency)
+  fullName: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  summary: Determines whether the specified object is equal to the current object.
+  example: []
+  syntax:
+    content: public bool Equals(ICacheDependency other)
+    parameters:
+    - id: other
+      type: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+      description: The object to compare with the current object.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the specified object is equal to the current object; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Equals(other As ICacheDependency) As Boolean
+  overload: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals*
+- uid: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  langs:
+  - csharp
+  - vb
+  name: Equals(object)
+  nameWithType: StringDependency.Equals(object)
+  fullName: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  example: []
+  syntax:
+    content: public override bool Equals(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals*
+  nameWithType.vb: StringDependency.Equals(Object)
+  fullName.vb: PostSharp.Patterns.Caching.Dependencies.StringDependency.Equals(Object)
+  name.vb: Equals(Object)
+- uid: PostSharp.Patterns.Caching.Dependencies.StringDependency.GetHashCode
+  commentId: M:PostSharp.Patterns.Caching.Dependencies.StringDependency.GetHashCode
+  id: GetHashCode
+  parent: PostSharp.Patterns.Caching.Dependencies.StringDependency
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: StringDependency.GetHashCode()
+  fullName: PostSharp.Patterns.Caching.Dependencies.StringDependency.GetHashCode()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Dependencies
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: PostSharp.Patterns.Caching.Dependencies.StringDependency.GetHashCode*

@@ -1,0 +1,406 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  id: LoggingTransaction
+  parent: PostSharp.Patterns.Diagnostics.Transactions
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Close
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Configuration
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.CriticalCount
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose(System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ErrorCount
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ExecutionTime
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.IsSampled
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Policy
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Properties
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Source
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.TryOpen(PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement)
+  - PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.WarningCount
+  langs:
+  - csharp
+  - vb
+  name: LoggingTransaction
+  nameWithType: LoggingTransaction
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Represents a top-level application transaction such as a network request.
+  example: []
+  syntax:
+    content: 'public class LoggingTransaction : IDisposable'
+    content.vb: Public Class LoggingTransaction Implements IDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingTypeSource,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)'
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: LoggingTransaction(LoggingTypeSource, in TransactionProperties, ITransactionPolicy)
+  nameWithType: LoggingTransaction.LoggingTransaction(LoggingTypeSource, in TransactionProperties, ITransactionPolicy)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.LoggingTransaction(PostSharp.Patterns.Diagnostics.LoggingTypeSource, in PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LoggingTransaction(LoggingTypeSource source, in TransactionProperties properties, ITransactionPolicy policy)
+    parameters:
+    - id: source
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> that opened the transaction.
+    - id: properties
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+      description: The properties, especially of the activity that created the transaction.
+    - id: policy
+      type: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+      description: The <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy" data-throw-if-not-resolved="false"></xref> that has been assigned to this transaction.
+    content.vb: Protected Sub New(source As LoggingTypeSource, properties As TransactionProperties, policy As ITransactionPolicy)
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.#ctor*
+  nameWithType.vb: LoggingTransaction.New(LoggingTypeSource, TransactionProperties, ITransactionPolicy)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.New(PostSharp.Patterns.Diagnostics.LoggingTypeSource, PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy)
+  name.vb: New(LoggingTypeSource, TransactionProperties, ITransactionPolicy)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.TryOpen(PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.TryOpen(PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement)
+  id: TryOpen(PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: TryOpen(TransactionRequirement)
+  nameWithType: LoggingTransaction.TryOpen(TransactionRequirement)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.TryOpen(PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Opens the transaction. The default implementation sets the current <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>
+
+    to the one defined by the policy.
+  example: []
+  syntax:
+    content: public virtual bool TryOpen(TransactionRequirement openTransactionResult)
+    parameters:
+    - id: openTransactionResult
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+    return:
+      type: System.Boolean
+    content.vb: Public Overridable Function TryOpen(openTransactionResult As TransactionRequirement) As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.TryOpen*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Close
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Close
+  id: Close
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Close()
+  nameWithType: LoggingTransaction.Close()
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Close()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Closes the current transaction. This method does not call <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose" data-throw-if-not-resolved="false"></xref>. It is called before the
+
+    corresponding <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> has been disposed.
+  example: []
+  syntax:
+    content: public virtual void Close()
+    content.vb: Public Overridable Sub Close()
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Close*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose(System.Boolean)
+  id: Dispose(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Dispose(bool)
+  nameWithType: LoggingTransaction.Dispose(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Disposes the current <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref>. This is called after the
+
+    corresponding <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> has been disposed.
+  example: []
+  syntax:
+    content: protected virtual void Dispose(bool disposing)
+    parameters:
+    - id: disposing
+      type: System.Boolean
+      description: <code>true</code> if the <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose" data-throw-if-not-resolved="false"></xref> method has been called, <code>false</code> if the object is being finalized by the garbage collector.
+    content.vb: Protected Overridable Sub Dispose(disposing As Boolean)
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose*
+  nameWithType.vb: LoggingTransaction.Dispose(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose
+  id: Dispose
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: LoggingTransaction.Dispose()
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Disposes the current <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref>. This is called after the
+
+    corresponding <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref> has been disposed.
+  example: []
+  syntax:
+    content: public void Dispose()
+    content.vb: Public Sub Dispose()
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Dispose*
+  implements:
+  - System.IDisposable.Dispose
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Configuration
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Configuration
+  id: Configuration
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Configuration
+  nameWithType: LoggingTransaction.Configuration
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Configuration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the verbosity configuration for the current transaction.
+  example: []
+  syntax:
+    content: public LoggingContextLocalConfiguration Configuration { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+    content.vb: Public ReadOnly Property Configuration As LoggingContextLocalConfiguration
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Configuration*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.IsSampled
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.IsSampled
+  id: IsSampled
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: IsSampled
+  nameWithType: LoggingTransaction.IsSampled
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.IsSampled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets a value indicating whether the current transaction was opened based on a sampling policy.
+  example: []
+  syntax:
+    content: public bool IsSampled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSampled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.IsSampled*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Source
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Source
+  id: Source
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Source
+  nameWithType: LoggingTransaction.Source
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Source
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the <xref href="PostSharp.Patterns.Diagnostics.LoggingTypeSource" data-throw-if-not-resolved="false"></xref> that opened the transaction.
+  example: []
+  syntax:
+    content: public LoggingTypeSource Source { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingTypeSource
+    content.vb: Public ReadOnly Property Source As LoggingTypeSource
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Source*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Properties
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Properties
+  id: Properties
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: LoggingTransaction.Properties
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Properties
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the list of logging properties associated with the activity that created the transaction.
+  example: []
+  syntax:
+    content: public TransactionProperties Properties { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+    content.vb: Public ReadOnly Property Properties As TransactionProperties
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Properties*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.CriticalCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.CriticalCount
+  id: CriticalCount
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: CriticalCount
+  nameWithType: LoggingTransaction.CriticalCount
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.CriticalCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Gets the number of critical errors in the transaction. This may be used by the <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy" data-throw-if-not-resolved="false"></xref>
+
+    to decide the outcome of the transaction.
+  example: []
+  syntax:
+    content: public int CriticalCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property CriticalCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.CriticalCount*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ErrorCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ErrorCount
+  id: ErrorCount
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: ErrorCount
+  nameWithType: LoggingTransaction.ErrorCount
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ErrorCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Gets the number of errors in the transaction including critical errors. This may be used by the <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy" data-throw-if-not-resolved="false"></xref>
+
+    to decide the outcome of the transaction.
+  example: []
+  syntax:
+    content: public int ErrorCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property ErrorCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ErrorCount*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.WarningCount
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.WarningCount
+  id: WarningCount
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: WarningCount
+  nameWithType: LoggingTransaction.WarningCount
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.WarningCount
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Gets the number of warnings in the transaction. This may be used by the <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy" data-throw-if-not-resolved="false"></xref>
+
+    to decide the outcome of the transaction.
+  example: []
+  syntax:
+    content: public int WarningCount { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property WarningCount As Integer
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.WarningCount*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ExecutionTime
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ExecutionTime
+  id: ExecutionTime
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: ExecutionTime
+  nameWithType: LoggingTransaction.ExecutionTime
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ExecutionTime
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Gets the transaction execution time in milliseconds, up to this moment.
+
+    This may be used by the <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy" data-throw-if-not-resolved="false"></xref> to decide the outcome of the transaction.
+  example: []
+  syntax:
+    content: public double ExecutionTime { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ExecutionTime As Double
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.ExecutionTime*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Policy
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Policy
+  id: Policy
+  parent: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+  langs:
+  - csharp
+  - vb
+  name: Policy
+  nameWithType: LoggingTransaction.Policy
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Policy
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the policy assigned to the current transaction. It can be <code>null</code> in the case of <xref href="PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public ITransactionPolicy Policy { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+    content.vb: Public ReadOnly Property Policy As ITransactionPolicy
+  overload: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction.Policy*

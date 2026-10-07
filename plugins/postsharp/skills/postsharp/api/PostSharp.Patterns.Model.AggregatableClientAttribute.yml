@@ -1,0 +1,423 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute
+  commentId: T:PostSharp.Patterns.Model.AggregatableClientAttribute
+  id: AggregatableClientAttribute
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(System.Object)
+  - PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  langs:
+  - csharp
+  - vb
+  name: AggregatableClientAttribute
+  nameWithType: AggregatableClientAttribute
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Base class for aspects that consume functionality from the <xref href="PostSharp.Patterns.Model.AggregatableAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+
+    This class provides functionality to advise and unadvise children.
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Class, TargetTypeAttributes = MulticastAttributes.UserGenerated)]
+
+      [AspectTypeDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, typeof(AggregatableAttribute))]
+
+      [Serializer(typeof(AggregatableClientAttribute.Serializer))]
+
+      public abstract class AggregatableClientAttribute : InstanceLevelAspect, ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.Class, TargetTypeAttributes:=MulticastAttributes.UserGenerated)>
+
+      <AspectTypeDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, GetType(AggregatableAttribute))>
+
+      <Serializer(GetType(AggregatableClientAttribute.Serializer))>
+
+      Public MustInherit Class AggregatableClientAttribute Inherits InstanceLevelAspect Implements ITypeLevelAspect, ITypeLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ICloneAwareAspect, IInstanceScopedAspect, IAspectProvider, IService, IAdviceProvider, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.TypeLevelAspect
+  - PostSharp.Aspects.InstanceLevelAspect
+  derivedClasses:
+  - PostSharp.Patterns.Model.DisposableAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  implements:
+  - PostSharp.Aspects.ITypeLevelAspect
+  - PostSharp.Aspects.ITypeLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.ICloneAwareAspect
+  - PostSharp.Aspects.IInstanceScopedAspect
+  - PostSharp.Aspects.IAspectProvider
+  - PostSharp.Extensibility.IService
+  - PostSharp.Aspects.Advices.IAdviceProvider
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.InstanceLevelAspect.RuntimeInitializeInstance
+  - PostSharp.Aspects.InstanceLevelAspect.OnCloned(PostSharp.Aspects.ICloneAwareAspect)
+  - PostSharp.Aspects.InstanceLevelAspect.CreateAspectConfiguration
+  - PostSharp.Aspects.InstanceLevelAspect.Instance
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Type)
+  - PostSharp.Aspects.TypeLevelAspect.SetAspectConfiguration(PostSharp.Aspects.Configuration.AspectConfiguration,System.Object)
+  - PostSharp.Aspects.TypeLevelAspect.RuntimeInitialize(System.Type)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.SerializerType
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 1
+    namedArguments:
+    - name: TargetTypeAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 524288
+  - type: PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.Type)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.Type
+      value: PostSharp.Patterns.Model.AggregatableAttribute
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Model.AggregatableClientAttribute.Serializer
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed
+  id: OnInstanceConstructed
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnInstanceConstructed()
+  nameWithType: AggregatableClientAttribute.OnInstanceConstructed()
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: This method is executed when the target instance is fully initialized, that is, just after all constructors have completed.
+  example: []
+  syntax:
+    content: >-
+      [OnInstanceConstructedAdvice(LinesOfCodeAvoided = 0)]
+
+      public virtual void OnInstanceConstructed()
+    content.vb: >-
+      <OnInstanceConstructedAdvice(LinesOfCodeAvoided:=0)>
+
+      Public Overridable Sub OnInstanceConstructed()
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.OnInstanceConstructed*
+  attributes:
+  - type: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice
+    ctor: PostSharp.Aspects.Advices.OnInstanceConstructedAdvice.#ctor
+    arguments: []
+    namedArguments:
+    - name: LinesOfCodeAvoided
+      type: System.Int32
+      value: 0
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  id: CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: CompileTimeInitialize(Type, AspectInfo)
+  nameWithType: AggregatableClientAttribute.CompileTimeInitialize(Type, AspectInfo)
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize(System.Type, PostSharp.Aspects.AspectInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Method invoked at build time to initialize the instance fields of the current aspect. This method is invoked
+
+    before any other build-time method.
+  example: []
+  syntax:
+    content: public override void CompileTimeInitialize(Type type, AspectInfo aspectInfo)
+    parameters:
+    - id: type
+      type: System.Type
+      description: Type to which the current aspect is applied.
+    - id: aspectInfo
+      type: PostSharp.Aspects.AspectInfo
+      description: Reserved for future usage.
+    content.vb: Public Overrides Sub CompileTimeInitialize(type As Type, aspectInfo As AspectInfo)
+  overridden: PostSharp.Aspects.TypeLevelAspect.CompileTimeInitialize(System.Type,PostSharp.Aspects.AspectInfo)
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.CompileTimeInitialize*
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-initialization'
+    altText: 'Conceptual: Initializing Aspects'
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(System.Object)
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(System.Object)
+  id: OnAdviseChildFailed(System.Object)
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: OnAdviseChildFailed(object)
+  nameWithType: AggregatableClientAttribute.OnAdviseChildFailed(object)
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    This method is invoked when a child is assigned to a parent and the advices of the parent cannot be added to the child.
+
+    Implementations can choose to throw an exception (thread-aware attributes do this) or ignore the situation (<code>DisposableAttribute</code> does this).
+  example: []
+  syntax:
+    content: protected virtual void OnAdviseChildFailed(object child)
+    parameters:
+    - id: child
+      type: System.Object
+      description: An object that is ineligible to be a child. It is guaranteed to be non-null.
+    content.vb: Protected Overridable Sub OnAdviseChildFailed(child As Object)
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed*
+  nameWithType.vb: AggregatableClientAttribute.OnAdviseChildFailed(Object)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableClientAttribute.OnAdviseChildFailed(Object)
+  name.vb: OnAdviseChildFailed(Object)
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)
+  id: Advise(System.Object)
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: Advise(object)
+  nameWithType: AggregatableClientAttribute.Advise(object)
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Injects the advice into the child object.
+  example: []
+  syntax:
+    content: protected abstract bool Advise(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: The object to advise.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the children of <code class="paramref">obj</code> have to be advised as well, <code>false</code> otherwise.
+    content.vb: Protected MustOverride Function Advise(obj As Object) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.Advise*
+  nameWithType.vb: AggregatableClientAttribute.Advise(Object)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(Object)
+  name.vb: Advise(Object)
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: IsEligibleChild(System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsEligibleChild(object, ChildInfo)
+  nameWithType: AggregatableClientAttribute.IsEligibleChild(object, ChildInfo)
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Determines whether an object is eligible to be a child of the target instance of the current aspect.
+  example: []
+  syntax:
+    content: protected abstract bool IsEligibleChild(object child, ChildInfo childInfo)
+    parameters:
+    - id: child
+      type: System.Object
+      description: The object to test.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: The <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> that describes the location of the child.
+    return:
+      type: System.Boolean
+      description: >-
+        <code>true</code> if <code class="paramref">child</code> is eligible to be a child without injecting any advice, otherwise <code>false</code>. When this method returns <code>false</code>,
+            the aspect will invoke the <xref href="PostSharp.Patterns.Model.AggregatableClientAttribute.Advise(System.Object)" data-throw-if-not-resolved="false"></xref> method.
+    content.vb: Protected MustOverride Function IsEligibleChild(child As Object, childInfo As ChildInfo) As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild*
+  nameWithType.vb: AggregatableClientAttribute.IsEligibleChild(Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableClientAttribute.IsEligibleChild(Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: IsEligibleChild(Object, ChildInfo)
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: AggregatableClientAttribute()
+  nameWithType: AggregatableClientAttribute.AggregatableClientAttribute()
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.AggregatableClientAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected AggregatableClientAttribute()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor*
+  nameWithType.vb: AggregatableClientAttribute.New()
+  fullName.vb: PostSharp.Patterns.Model.AggregatableClientAttribute.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: AggregatableClientAttribute(PortableFormatterConstructorContext)
+  nameWithType: AggregatableClientAttribute.AggregatableClientAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.AggregatableClientAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  syntax:
+    content: protected AggregatableClientAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.#ctor*
+  nameWithType.vb: AggregatableClientAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Model.AggregatableClientAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus
+  commentId: P:PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus
+  id: InitializationStatus
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: InitializationStatus
+  nameWithType: AggregatableClientAttribute.InitializationStatus
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Gets the current <xref href="PostSharp.Patterns.Model.AggregatableClientAttribute.AspectInitializationStatus" data-throw-if-not-resolved="false"></xref> of the current aspect.
+  example: []
+  syntax:
+    content: protected AggregatableClientAttribute.AspectInitializationStatus InitializationStatus { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Model.AggregatableClientAttribute.AspectInitializationStatus
+    content.vb: Protected ReadOnly Property InitializationStatus As AggregatableClientAttribute.AspectInitializationStatus
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.InitializationStatus*
+- uid: PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType
+  commentId: P:PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType
+  id: AppliedToCurrentType
+  parent: PostSharp.Patterns.Model.AggregatableClientAttribute
+  langs:
+  - csharp
+  - vb
+  name: AppliedToCurrentType
+  nameWithType: AggregatableClientAttribute.AppliedToCurrentType
+  fullName: PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets a value indicating whether the current custom attribute instance has been applied to the type of the target instance.
+
+    This value is <code>false</code> if the custom attribute has been applied to a base type.
+  example: []
+  syntax:
+    content: protected bool AppliedToCurrentType { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Protected ReadOnly Property AppliedToCurrentType As Boolean
+  overload: PostSharp.Patterns.Model.AggregatableClientAttribute.AppliedToCurrentType*

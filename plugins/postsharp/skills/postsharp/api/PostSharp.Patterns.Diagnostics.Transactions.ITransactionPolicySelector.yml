@@ -1,0 +1,96 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector
+  id: ITransactionPolicySelector
+  parent: PostSharp.Patterns.Diagnostics.Transactions
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetPolicy(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: ITransactionPolicySelector
+  nameWithType: ITransactionPolicySelector
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Selects an <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy" data-throw-if-not-resolved="false"></xref> given input <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface ITransactionPolicySelector
+    content.vb: Public Interface ITransactionPolicySelector
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  id: GetTransactionRequirement(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector
+  langs:
+  - csharp
+  - vb
+  name: GetTransactionRequirement(in TransactionProperties, bool)
+  nameWithType: ITransactionPolicySelector.GetTransactionRequirement(in TransactionProperties, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement(in PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Determines whether an activity should result in opening a transaction.
+  remarks: This method must apply sampling policies, if any.
+  example: []
+  syntax:
+    content: TransactionRequirement GetTransactionRequirement(in TransactionProperties properties, bool throwing = false)
+    parameters:
+    - id: properties
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+      description: The properties, especially of the activity that is creating a transaction.
+    - id: throwing
+      type: System.Boolean
+      description: >-
+        <code>true</code> if errors should be reported as exceptions, <code>false</code> if they should be handled without exception.
+            The default is <code>false</code>. The <code>true</code> value is used for debugging and diagnostics.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+      description: Policy to apply to the activity.
+    content.vb: Function GetTransactionRequirement(properties As TransactionProperties, throwing As Boolean = False) As TransactionRequirement
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement*
+  nameWithType.vb: ITransactionPolicySelector.GetTransactionRequirement(TransactionProperties, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, Boolean)
+  name.vb: GetTransactionRequirement(TransactionProperties, Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetPolicy(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetPolicy(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  id: GetPolicy(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector
+  langs:
+  - csharp
+  - vb
+  name: GetPolicy(in TransactionProperties, bool)
+  nameWithType: ITransactionPolicySelector.GetPolicy(in TransactionProperties, bool)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetPolicy(in PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the policy that determines whether an activity should be a logged transaction, and other details about the transaction.
+  remarks: This method must ignore any sampling policy since they have already been evaluated by <xref href="PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetTransactionRequirement(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties%40%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ITransactionPolicy GetPolicy(in TransactionProperties properties, bool throwing = false)
+    parameters:
+    - id: properties
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+      description: The properties, especially of the activity that is creating a transaction.
+    - id: throwing
+      type: System.Boolean
+      description: >-
+        <code>true</code> if errors should be reported as exceptions, <code>false</code> if they should be handled without exception.
+            The default is <code>false</code>. The <code>true</code> value is used for debugging and diagnostics.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+      description: Policy to apply to the activity.
+    content.vb: Function GetPolicy(properties As TransactionProperties, throwing As Boolean = False) As ITransactionPolicy
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetPolicy*
+  nameWithType.vb: ITransactionPolicySelector.GetPolicy(TransactionProperties, Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicySelector.GetPolicy(PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, Boolean)
+  name.vb: GetPolicy(TransactionProperties, Boolean)

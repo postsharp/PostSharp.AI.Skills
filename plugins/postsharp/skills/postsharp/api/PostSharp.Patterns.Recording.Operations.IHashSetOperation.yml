@@ -1,0 +1,116 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  commentId: T:PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  id: IHashSetOperation
+  parent: PostSharp.Patterns.Recording.Operations
+  children:
+  - PostSharp.Patterns.Recording.Operations.IHashSetOperation.HashSet
+  - PostSharp.Patterns.Recording.Operations.IHashSetOperation.NewItem
+  - PostSharp.Patterns.Recording.Operations.IHashSetOperation.OldItem
+  langs:
+  - csharp
+  - vb
+  name: IHashSetOperation
+  nameWithType: IHashSetOperation
+  fullName: PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Weakly typed interface for the <xref href="PostSharp.Patterns.Recording.Operations.HashSetOperation%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", false)]
+
+      public interface IHashSetOperation : IOperationDescriptor
+    content.vb: >-
+      <Obsolete("[Recordable] aspect and its components are deprecated and will be removed in a future version.", False)>
+
+      Public Interface IHashSetOperation Inherits IOperationDescriptor
+  derivedClasses:
+  - PostSharp.Patterns.Recording.Operations.AddSetItemOperation`1
+  - PostSharp.Patterns.Recording.Operations.ChangeManySetOperation`1
+  - PostSharp.Patterns.Recording.Operations.ClearSetOperation`1
+  - PostSharp.Patterns.Recording.Operations.HashSetOperation`1
+  - PostSharp.Patterns.Recording.Operations.RemoveSetItemOperation`1
+  inheritedMembers:
+  - PostSharp.Patterns.Recording.Operations.IOperationDescriptor.OperationKind
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: '[Recordable] aspect and its components are deprecated and will be removed in a future version.'
+    - type: System.Boolean
+      value: false
+- uid: PostSharp.Patterns.Recording.Operations.IHashSetOperation.HashSet
+  commentId: P:PostSharp.Patterns.Recording.Operations.IHashSetOperation.HashSet
+  id: HashSet
+  parent: PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  langs:
+  - csharp
+  - vb
+  name: HashSet
+  nameWithType: IHashSetOperation.HashSet
+  fullName: PostSharp.Patterns.Recording.Operations.IHashSetOperation.HashSet
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the collection on which the operation was performed.
+  example: []
+  syntax:
+    content: ICollection HashSet { get; }
+    parameters: []
+    return:
+      type: System.Collections.ICollection
+    content.vb: ReadOnly Property HashSet As ICollection
+  overload: PostSharp.Patterns.Recording.Operations.IHashSetOperation.HashSet*
+- uid: PostSharp.Patterns.Recording.Operations.IHashSetOperation.NewItem
+  commentId: P:PostSharp.Patterns.Recording.Operations.IHashSetOperation.NewItem
+  id: NewItem
+  parent: PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  langs:
+  - csharp
+  - vb
+  name: NewItem
+  nameWithType: IHashSetOperation.NewItem
+  fullName: PostSharp.Patterns.Recording.Operations.IHashSetOperation.NewItem
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the item after the operation.
+  example: []
+  syntax:
+    content: object NewItem { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property NewItem As Object
+  overload: PostSharp.Patterns.Recording.Operations.IHashSetOperation.NewItem*
+- uid: PostSharp.Patterns.Recording.Operations.IHashSetOperation.OldItem
+  commentId: P:PostSharp.Patterns.Recording.Operations.IHashSetOperation.OldItem
+  id: OldItem
+  parent: PostSharp.Patterns.Recording.Operations.IHashSetOperation
+  langs:
+  - csharp
+  - vb
+  name: OldItem
+  nameWithType: IHashSetOperation.OldItem
+  fullName: PostSharp.Patterns.Recording.Operations.IHashSetOperation.OldItem
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Model
+  namespace: PostSharp.Patterns.Recording.Operations
+  summary: Gets the item before the operation.
+  example: []
+  syntax:
+    content: object OldItem { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: ReadOnly Property OldItem As Object
+  overload: PostSharp.Patterns.Recording.Operations.IHashSetOperation.OldItem*

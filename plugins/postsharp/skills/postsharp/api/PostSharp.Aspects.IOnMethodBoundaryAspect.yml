@@ -1,0 +1,212 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IOnMethodBoundaryAspect
+  commentId: T:PostSharp.Aspects.IOnMethodBoundaryAspect
+  id: IOnMethodBoundaryAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)
+  - PostSharp.Aspects.IOnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)
+  langs:
+  - csharp
+  - vb
+  name: IOnMethodBoundaryAspect
+  nameWithType: IOnMethodBoundaryAspect
+  fullName: PostSharp.Aspects.IOnMethodBoundaryAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Runtime semantics of <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>See <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> for details.</p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IOnMethodBoundaryAspect : IMethodLevelAspect, IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IOnMethodBoundaryAspect Inherits IMethodLevelAspect, IAspect
+  seealso:
+  - linkId: PostSharp.Aspects.OnMethodBoundaryAspect
+    commentId: T:PostSharp.Aspects.OnMethodBoundaryAspect
+  - linkId: PostSharp.Aspects.Configuration.OnMethodBoundaryAspectConfiguration
+    commentId: T:PostSharp.Aspects.Configuration.OnMethodBoundaryAspectConfiguration
+  - linkId: PostSharp.Aspects.Configuration.OnMethodBoundaryAspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.OnMethodBoundaryAspectConfigurationAttribute
+  derivedClasses:
+  - PostSharp.Aspects.OnMethodBoundaryAspect
+  inheritedMembers:
+  - PostSharp.Aspects.IMethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnEntry(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnMethodBoundaryAspect
+  langs:
+  - csharp
+  - vb
+  name: OnEntry(MethodExecutionArgs)
+  nameWithType: IOnMethodBoundaryAspect.OnEntry(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Method executed before the body of the methods to which this aspect is applied.
+  remarks: >-
+    If the aspect is applied to a constructor, the current method is invoked
+
+    after the <code>this</code> pointer has been initialized, that is, after
+
+    the base constructor has been called.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnEntry(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: >-
+        Event arguments specifying which method
+                      is being executed, what its arguments are, and how the execution should continue
+                      after the execution of <xref href="PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnEntry(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnMethodBoundaryAspect.OnEntry*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnExit(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnMethodBoundaryAspect
+  langs:
+  - csharp
+  - vb
+  name: OnExit(MethodExecutionArgs)
+  nameWithType: IOnMethodBoundaryAspect.OnExit(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method executed after the body of the methods to which this aspect is applied,
+
+    even when the method exits with an exception. This method is invoked from
+
+    the <code>finally</code> block.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnExit(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: >-
+        Event arguments specifying which method
+                      is being executed and which are its arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnExit(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnMethodBoundaryAspect.OnExit*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnSuccess(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnMethodBoundaryAspect
+  langs:
+  - csharp
+  - vb
+  name: OnSuccess(MethodExecutionArgs)
+  nameWithType: IOnMethodBoundaryAspect.OnSuccess(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnMethodBoundaryAspect.OnSuccess(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method executed after the body of the methods to which this aspect is applied,
+
+    but only when the method returns successfully, that is, when no exception is thrown
+
+    out of the method.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnSuccess(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: >-
+        Event arguments specifying which method
+                      is being executed and which are its arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnSuccess(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnMethodBoundaryAspect.OnSuccess*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IOnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  commentId: M:PostSharp.Aspects.IOnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  id: OnException(PostSharp.Aspects.MethodExecutionArgs)
+  parent: PostSharp.Aspects.IOnMethodBoundaryAspect
+  langs:
+  - csharp
+  - vb
+  name: OnException(MethodExecutionArgs)
+  nameWithType: IOnMethodBoundaryAspect.OnException(MethodExecutionArgs)
+  fullName: PostSharp.Aspects.IOnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Method executed after the body of the methods to which this aspect is applied,
+
+    when the method ended with an exception.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void OnException(MethodExecutionArgs args)
+    parameters:
+    - id: args
+      type: PostSharp.Aspects.MethodExecutionArgs
+      description: >-
+        Event arguments specifying which method
+                      is being executed and which are its arguments.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub OnException(args As MethodExecutionArgs)
+  overload: PostSharp.Aspects.IOnMethodBoundaryAspect.OnException*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

@@ -1,0 +1,228 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.IAttacher
+  commentId: T:PostSharp.Patterns.Model.IAttacher
+  id: IAttacher
+  parent: PostSharp.Patterns.Model
+  children:
+  - PostSharp.Patterns.Model.IAttacher.AttachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Model.IAttacher.DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Model.IAttacher.GetNode(System.Object)
+  - PostSharp.Patterns.Model.IAttacher.OnChildAttached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  - PostSharp.Patterns.Model.IAttacher.OnChildDetached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  langs:
+  - csharp
+  - vb
+  name: IAttacher
+  nameWithType: IAttacher
+  fullName: PostSharp.Patterns.Model.IAttacher
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Describes the semantics of a service through which a child <xref href="PostSharp.Patterns.Model.IAggregatable" data-throw-if-not-resolved="false"></xref> object can attach itself to a parent object.
+
+    This interface is typically implemented by the parent object by composition.
+  remarks: <p>This interface should typically not be used or implemented in user code.</p>
+  example: []
+  syntax:
+    content: public interface IAttacher
+    content.vb: Public Interface IAttacher
+- uid: PostSharp.Patterns.Model.IAttacher.GetNode(System.Object)
+  commentId: M:PostSharp.Patterns.Model.IAttacher.GetNode(System.Object)
+  id: GetNode(System.Object)
+  parent: PostSharp.Patterns.Model.IAttacher
+  langs:
+  - csharp
+  - vb
+  name: GetNode(object)
+  nameWithType: IAttacher.GetNode(object)
+  fullName: PostSharp.Patterns.Model.IAttacher.GetNode(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: >-
+    Gets the underlying object instance that is subject to the current attacher.
+
+    The instance is the aggregatable node that participates in the parent-child relationships with other objects.
+  example: []
+  syntax:
+    content: object GetNode(object state)
+    parameters:
+    - id: state
+      type: System.Object
+      description: The opaque state object passed to <xref href="PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Object
+      description: An object implementing <xref href="PostSharp.Patterns.Model.IAggregatable" data-throw-if-not-resolved="false"></xref>, either directly or dynamically.
+    content.vb: Function GetNode(state As Object) As Object
+  overload: PostSharp.Patterns.Model.IAttacher.GetNode*
+  nameWithType.vb: IAttacher.GetNode(Object)
+  fullName.vb: PostSharp.Patterns.Model.IAttacher.GetNode(Object)
+  name.vb: GetNode(Object)
+- uid: PostSharp.Patterns.Model.IAttacher.OnChildAttached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Model.IAttacher.OnChildAttached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: OnChildAttached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Model.IAttacher
+  langs:
+  - csharp
+  - vb
+  name: OnChildAttached(object, object, object, ChildInfo)
+  nameWithType: IAttacher.OnChildAttached(object, object, object, ChildInfo)
+  fullName: PostSharp.Patterns.Model.IAttacher.OnChildAttached(object, object, object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: This method is invoked after a child has been successfully attached to the current node.
+  example: []
+  syntax:
+    content: void OnChildAttached(object state, object parent, object child, ChildInfo childInfo)
+    parameters:
+    - id: state
+      type: System.Object
+      description: The opaque state object passed to <xref href="PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.
+    - id: parent
+      type: System.Object
+      description: >-
+        The actual parent of <code class="paramref">child</code>. If <code class="paramref">child</code> is assigned to a parent surrogate,
+                        the parameter is set to the actual parent, that is, to the parent of the parent surrogate.
+    - id: child
+      type: System.Object
+      description: The child object.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: >-
+        Information about the location (field or collection item, typically) to which the child is assigned and
+                    about the relationship of the current node relative to the parent node.
+    content.vb: Sub OnChildAttached(state As Object, parent As Object, child As Object, childInfo As ChildInfo)
+  overload: PostSharp.Patterns.Model.IAttacher.OnChildAttached*
+  nameWithType.vb: IAttacher.OnChildAttached(Object, Object, Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Model.IAttacher.OnChildAttached(Object, Object, Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: OnChildAttached(Object, Object, Object, ChildInfo)
+- uid: PostSharp.Patterns.Model.IAttacher.OnChildDetached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Model.IAttacher.OnChildDetached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: OnChildDetached(System.Object,System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Model.IAttacher
+  langs:
+  - csharp
+  - vb
+  name: OnChildDetached(object, object, object, ChildInfo)
+  nameWithType: IAttacher.OnChildDetached(object, object, object, ChildInfo)
+  fullName: PostSharp.Patterns.Model.IAttacher.OnChildDetached(object, object, object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: This method is invoked when a child has been detached from the current node.
+  example: []
+  syntax:
+    content: void OnChildDetached(object state, object parent, object child, ChildInfo childInfo)
+    parameters:
+    - id: state
+      type: System.Object
+      description: The opaque state object passed to <xref href="PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.
+    - id: parent
+      type: System.Object
+      description: >-
+        The former actual parent of <code class="paramref">child</code>.  If <code class="paramref">child</code> was assigned to a parent surrogate,
+                        the parameter is set to the former actual parent, that is, to the parent of the parent surrogate.
+    - id: child
+      type: System.Object
+      description: The child object.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: >-
+        Information about the location (field or collection item, typically) to which the child was assigned and
+                    about the relationship of the current node relative to the parent node.
+    content.vb: Sub OnChildDetached(state As Object, parent As Object, child As Object, childInfo As ChildInfo)
+  overload: PostSharp.Patterns.Model.IAttacher.OnChildDetached*
+  nameWithType.vb: IAttacher.OnChildDetached(Object, Object, Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Model.IAttacher.OnChildDetached(Object, Object, Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: OnChildDetached(Object, Object, Object, ChildInfo)
+- uid: PostSharp.Patterns.Model.IAttacher.AttachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Model.IAttacher.AttachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: AttachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Model.IAttacher
+  langs:
+  - csharp
+  - vb
+  name: AttachChild(object, object, ChildInfo)
+  nameWithType: IAttacher.AttachChild(object, object, ChildInfo)
+  fullName: PostSharp.Patterns.Model.IAttacher.AttachChild(object, object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Attaches an object as a child of the current node.
+  remarks: >-
+    The new parent of <code class="paramref">child</code> will be the current node (the value returned by <xref href="PostSharp.Patterns.Model.IAttacher.GetNode(System.Object)" data-throw-if-not-resolved="false"></xref>);
+
+    or the parent of the current node, if the current node is a parent surrogate.
+  example: []
+  syntax:
+    content: object AttachChild(object state, object child, ChildInfo childInfo)
+    parameters:
+    - id: state
+      type: System.Object
+      description: The opaque state object passed to <xref href="PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.
+    - id: child
+      type: System.Object
+      description: The object that must be attached as a child to the current node.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: >-
+        Information about the location (field or collection item, typically) to which the child is assigned and
+                    about the relationship of the current node relative to the parent node.
+                    The <xref href="PostSharp.Patterns.Model.RelationshipInfo.Relationship" data-throw-if-not-resolved="false"></xref> property must be set to <xref href="PostSharp.Patterns.Model.RelationshipKind.Child" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Model.RelationshipKind.ParentSurrogate" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Object
+      description: >-
+        The new parent of <code class="paramref">child</code>, or <code>null</code> if <code class="paramref">child</code>
+                    was already attached to the same parent node through another relationship. If the current node is a parent surrogate, the method
+                    returns the parent of the current node.
+    content.vb: Function AttachChild(state As Object, child As Object, childInfo As ChildInfo) As Object
+  overload: PostSharp.Patterns.Model.IAttacher.AttachChild*
+  nameWithType.vb: IAttacher.AttachChild(Object, Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Model.IAttacher.AttachChild(Object, Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: AttachChild(Object, Object, ChildInfo)
+- uid: PostSharp.Patterns.Model.IAttacher.DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  commentId: M:PostSharp.Patterns.Model.IAttacher.DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  id: DetachChild(System.Object,System.Object,PostSharp.Patterns.Model.ChildInfo)
+  parent: PostSharp.Patterns.Model.IAttacher
+  langs:
+  - csharp
+  - vb
+  name: DetachChild(object, object, ChildInfo)
+  nameWithType: IAttacher.DetachChild(object, object, ChildInfo)
+  fullName: PostSharp.Patterns.Model.IAttacher.DetachChild(object, object, PostSharp.Patterns.Model.ChildInfo)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model
+  summary: Detaches an object as a child of the current node.
+  example: []
+  syntax:
+    content: object DetachChild(object state, object child, ChildInfo childInfo)
+    parameters:
+    - id: state
+      type: System.Object
+      description: The opaque state object passed to <xref href="PostSharp.Patterns.Model.IAttachable.AttachToParent(PostSharp.Patterns.Model.RelationshipInfo%2cPostSharp.Patterns.Model.IAttacher%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>.
+    - id: child
+      type: System.Object
+      description: The object that must be detached as a child of the current node.
+    - id: childInfo
+      type: PostSharp.Patterns.Model.ChildInfo
+      description: The <xref href="PostSharp.Patterns.Model.ChildInfo" data-throw-if-not-resolved="false"></xref> that describes the location of the child.
+    return:
+      type: System.Object
+      description: >-
+        The former effective parent of <code class="paramref">child</code>, or <code>null</code> if the child is still attached to
+                    the parent through another relationship.
+    content.vb: Function DetachChild(state As Object, child As Object, childInfo As ChildInfo) As Object
+  overload: PostSharp.Patterns.Model.IAttacher.DetachChild*
+  nameWithType.vb: IAttacher.DetachChild(Object, Object, ChildInfo)
+  fullName.vb: PostSharp.Patterns.Model.IAttacher.DetachChild(Object, Object, PostSharp.Patterns.Model.ChildInfo)
+  name.vb: DetachChild(Object, Object, ChildInfo)

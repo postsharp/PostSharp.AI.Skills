@@ -1,0 +1,174 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IEventBinding
+  commentId: T:PostSharp.Aspects.IEventBinding
+  id: IEventBinding
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IEventBinding.AddHandler(System.Object@,System.Delegate)
+  - PostSharp.Aspects.IEventBinding.InvokeHandler(System.Object@,System.Delegate,PostSharp.Aspects.Arguments)
+  - PostSharp.Aspects.IEventBinding.RemoveHandler(System.Object@,System.Delegate)
+  langs:
+  - csharp
+  - vb
+  name: IEventBinding
+  nameWithType: IEventBinding
+  fullName: PostSharp.Aspects.IEventBinding
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Interface through which an event-level aspect or advice can
+
+    invoke the next node in the chain of invocation.
+  example: []
+  syntax:
+    content: >-
+      [InternalImplement]
+
+      public interface IEventBinding
+    content.vb: >-
+      <InternalImplement>
+
+      Public Interface IEventBinding
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  - linkType: HRef
+    linkId: '@event-interception'
+    altText: 'Conceptual: Intercepting Events'
+  attributes:
+  - type: PostSharp.Constraints.InternalImplementAttribute
+    ctor: PostSharp.Constraints.InternalImplementAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IEventBinding.AddHandler(System.Object@,System.Delegate)
+  commentId: M:PostSharp.Aspects.IEventBinding.AddHandler(System.Object@,System.Delegate)
+  id: AddHandler(System.Object@,System.Delegate)
+  parent: PostSharp.Aspects.IEventBinding
+  langs:
+  - csharp
+  - vb
+  name: AddHandler(ref object, Delegate)
+  nameWithType: IEventBinding.AddHandler(ref object, Delegate)
+  fullName: PostSharp.Aspects.IEventBinding.AddHandler(ref object, System.Delegate)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Invokes the <code>Add</code> semantic on the next node in the chain of invocation.
+  remarks: >-
+    <p>
+      The
+      <code class="paramref">instance</code>
+      parameter is passed by reference so that instance methods of value types (
+      <code>struct</code>
+      in C#) are allowed to change the value of the instance.
+    </p>
+  example: []
+  syntax:
+    content: void AddHandler(ref object instance, Delegate handler)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: Target instance on which the event is defined (<code>null</code> if the event is static).
+    - id: handler
+      type: System.Delegate
+      description: Handler to be added to the event.
+    content.vb: Sub [AddHandler](instance As Object, handler As [Delegate])
+  overload: PostSharp.Aspects.IEventBinding.AddHandler*
+  nameWithType.vb: IEventBinding.AddHandler(Object, Delegate)
+  fullName.vb: PostSharp.Aspects.IEventBinding.AddHandler(Object, System.Delegate)
+  name.vb: AddHandler(Object, Delegate)
+- uid: PostSharp.Aspects.IEventBinding.RemoveHandler(System.Object@,System.Delegate)
+  commentId: M:PostSharp.Aspects.IEventBinding.RemoveHandler(System.Object@,System.Delegate)
+  id: RemoveHandler(System.Object@,System.Delegate)
+  parent: PostSharp.Aspects.IEventBinding
+  langs:
+  - csharp
+  - vb
+  name: RemoveHandler(ref object, Delegate)
+  nameWithType: IEventBinding.RemoveHandler(ref object, Delegate)
+  fullName: PostSharp.Aspects.IEventBinding.RemoveHandler(ref object, System.Delegate)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Invokes the <code>Remove</code> semantic on the next node in the chain of invocation.
+  remarks: >-
+    <p>
+      The
+      <code class="paramref">instance</code>
+      parameter is passed by reference so that instance methods of value types (
+      <code>struct</code>
+      in C#) are allowed to change the value of the instance.
+    </p>
+  example: []
+  syntax:
+    content: void RemoveHandler(ref object instance, Delegate handler)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: Target instance on which the event is defined (<code>null</code> if the event is static).
+    - id: handler
+      type: System.Delegate
+      description: Handler to be removed from the event.
+    content.vb: Sub [RemoveHandler](instance As Object, handler As [Delegate])
+  overload: PostSharp.Aspects.IEventBinding.RemoveHandler*
+  nameWithType.vb: IEventBinding.RemoveHandler(Object, Delegate)
+  fullName.vb: PostSharp.Aspects.IEventBinding.RemoveHandler(Object, System.Delegate)
+  name.vb: RemoveHandler(Object, Delegate)
+- uid: PostSharp.Aspects.IEventBinding.InvokeHandler(System.Object@,System.Delegate,PostSharp.Aspects.Arguments)
+  commentId: M:PostSharp.Aspects.IEventBinding.InvokeHandler(System.Object@,System.Delegate,PostSharp.Aspects.Arguments)
+  id: InvokeHandler(System.Object@,System.Delegate,PostSharp.Aspects.Arguments)
+  parent: PostSharp.Aspects.IEventBinding
+  langs:
+  - csharp
+  - vb
+  name: InvokeHandler(ref object, Delegate, Arguments)
+  nameWithType: IEventBinding.InvokeHandler(ref object, Delegate, Arguments)
+  fullName: PostSharp.Aspects.IEventBinding.InvokeHandler(ref object, System.Delegate, PostSharp.Aspects.Arguments)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Invokes the <code>Invoke</code> semantic on the next node in the chain of invocation.
+  remarks: >-
+    <p>
+      The
+      <code class="paramref">instance</code>
+      parameter is passed by reference so that instance methods of value types (
+      <code>struct</code>
+      in C#) are allowed to change the value of the instance.
+    </p>
+        <br />
+        <div class="NOTE"><h5>note</h5><p>
+      The
+      <b>Invoke Event Handler</b>
+      semantic is different from normal event firing.
+      Indeed, when you fire an event, all handlers that were added to this event are fired. However, the current method
+      invokes only a single handler: the one passed to the
+      <code>handler</code>
+      parameter.
+    </p></div>
+  example: []
+  syntax:
+    content: object InvokeHandler(ref object instance, Delegate handler, Arguments arguments)
+    parameters:
+    - id: instance
+      type: System.Object
+      description: Target instance on which the event is defined (<code>null</code> if the event is static).
+    - id: handler
+      type: System.Delegate
+      description: Handler to be removed from the event.
+    - id: arguments
+      type: PostSharp.Aspects.Arguments
+      description: Arguments with which the <code class="paramref">handler</code> should be invoked.
+    return:
+      type: System.Object
+      description: The value returned by the handler.
+    content.vb: Function InvokeHandler(instance As Object, handler As [Delegate], arguments As Arguments) As Object
+  overload: PostSharp.Aspects.IEventBinding.InvokeHandler*
+  nameWithType.vb: IEventBinding.InvokeHandler(Object, Delegate, Arguments)
+  fullName.vb: PostSharp.Aspects.IEventBinding.InvokeHandler(Object, System.Delegate, PostSharp.Aspects.Arguments)
+  name.vb: InvokeHandler(Object, Delegate, Arguments)

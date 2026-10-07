@@ -1,0 +1,138 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute
+  commentId: T:PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute
+  id: RegisterFieldRuleAttribute
+  parent: PostSharp.Patterns.Model.TypeAdapters
+  children:
+  - PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.#ctor(System.Type)
+  - PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.FieldRuleType
+  langs:
+  - csharp
+  - vb
+  name: RegisterFieldRuleAttribute
+  nameWithType: RegisterFieldRuleAttribute
+  fullName: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Custom attribute that registers a <xref href="PostSharp.Patterns.Model.TypeAdapters.FieldRule" data-throw-if-not-resolved="false"></xref>. The custom attribute must be applied to the current project at the assembly level.
+  remarks: >-
+    <p>PostSharp reads this custom attribute from the assembly that contains the aggregatable class. Apply it to each project
+        in which the rule must take effect.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Assembly)]
+
+      public sealed class RegisterFieldRuleAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Assembly)>
+
+      Public NotInheritable Class RegisterFieldRuleAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@aggregatable-adding-programmatically'
+    altText: 'Conceptual: Rule-Based Annotation'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 1
+- uid: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.#ctor(System.Type)
+  commentId: M:PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute
+  langs:
+  - csharp
+  - vb
+  name: RegisterFieldRuleAttribute(Type)
+  nameWithType: RegisterFieldRuleAttribute.RegisterFieldRuleAttribute(Type)
+  fullName: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.RegisterFieldRuleAttribute(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public RegisterFieldRuleAttribute(Type fieldRuleType)
+    parameters:
+    - id: fieldRuleType
+      type: System.Type
+      description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref> derived from <xref href="PostSharp.Patterns.Model.TypeAdapters.FieldRule" data-throw-if-not-resolved="false"></xref>. The type must have a default constructor.
+    content.vb: Public Sub New(fieldRuleType As Type)
+  overload: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.#ctor*
+  nameWithType.vb: RegisterFieldRuleAttribute.New(Type)
+  fullName.vb: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.FieldRuleType
+  commentId: P:PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.FieldRuleType
+  id: FieldRuleType
+  parent: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute
+  langs:
+  - csharp
+  - vb
+  name: FieldRuleType
+  nameWithType: RegisterFieldRuleAttribute.FieldRuleType
+  fullName: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.FieldRuleType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Aggregation
+  namespace: PostSharp.Patterns.Model.TypeAdapters
+  summary: Gets the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> (derived from <xref href="PostSharp.Patterns.Model.TypeAdapters.FieldRule" data-throw-if-not-resolved="false"></xref>).
+  example: []
+  syntax:
+    content: public Type FieldRuleType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property FieldRuleType As Type
+  overload: PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute.FieldRuleType*

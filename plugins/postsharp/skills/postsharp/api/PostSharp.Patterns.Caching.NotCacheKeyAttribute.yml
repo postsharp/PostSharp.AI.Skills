@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.NotCacheKeyAttribute
+  commentId: T:PostSharp.Patterns.Caching.NotCacheKeyAttribute
+  id: NotCacheKeyAttribute
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.NotCacheKeyAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: NotCacheKeyAttribute
+  nameWithType: NotCacheKeyAttribute
+  fullName: PostSharp.Patterns.Caching.NotCacheKeyAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Custom attribute that, when applied to a parameter of a cached method (i.e. a method enhanced by the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> aspect),
+
+    excludes this parameter from the cache key.
+  remarks: >-
+    <p>Calls that differ only by the value of an excluded parameter share the same cache item. An <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> does not
+        need a matching parameter for an excluded parameter. To exclude the <code>this</code> instance from the cache key, set
+        <xref href="PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter" data-throw-if-not-resolved="false"></xref> instead.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Parameter)]
+
+      public sealed class NotCacheKeyAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.Parameter)>
+
+      Public NotInheritable Class NotCacheKeyAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-keys'
+    altText: 'Conceptual: Customizing Cache Keys'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 2048
+- uid: PostSharp.Patterns.Caching.NotCacheKeyAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Caching.NotCacheKeyAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.NotCacheKeyAttribute
+  langs:
+  - csharp
+  - vb
+  name: NotCacheKeyAttribute()
+  nameWithType: NotCacheKeyAttribute.NotCacheKeyAttribute()
+  fullName: PostSharp.Patterns.Caching.NotCacheKeyAttribute.NotCacheKeyAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  syntax:
+    content: public NotCacheKeyAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.NotCacheKeyAttribute.#ctor*
+  nameWithType.vb: NotCacheKeyAttribute.New()
+  fullName.vb: PostSharp.Patterns.Caching.NotCacheKeyAttribute.New()
+  name.vb: New()

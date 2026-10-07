@@ -1,0 +1,217 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  commentId: T:PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  id: CompositionAspectConfiguration
+  parent: PostSharp.Aspects.Configuration
+  children:
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration.#ctor
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration.GenerateImplementationAccessor
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration.NonSerializedImplementation
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction
+  - PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces
+  langs:
+  - csharp
+  - vb
+  name: CompositionAspectConfiguration
+  nameWithType: CompositionAspectConfiguration
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Configuration of aspects of type <xref href="PostSharp.Aspects.ICompositionAspect" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public sealed class CompositionAspectConfiguration : AspectConfiguration'
+    content.vb: Public NotInheritable Class CompositionAspectConfiguration Inherits AspectConfiguration
+  seealso:
+  - linkId: PostSharp.Aspects.Configuration.CompositionAspectConfigurationAttribute
+    commentId: T:PostSharp.Aspects.Configuration.CompositionAspectConfigurationAttribute
+  - linkType: HRef
+    linkId: '@aspect-configuration'
+    altText: 'Conceptual: Aspect Configuration'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Configuration.AspectConfiguration
+  inheritedMembers:
+  - PostSharp.Aspects.Configuration.AspectConfiguration.AspectPriority
+  - PostSharp.Aspects.Configuration.AspectConfiguration.SerializerType
+  - PostSharp.Aspects.Configuration.AspectConfiguration.Dependencies
+  - PostSharp.Aspects.Configuration.AspectConfiguration.UnsupportedTargetAction
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.#ctor
+  commentId: M:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: CompositionAspectConfiguration()
+  nameWithType: CompositionAspectConfiguration.CompositionAspectConfiguration()
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.CompositionAspectConfiguration()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  syntax:
+    content: public CompositionAspectConfiguration()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.#ctor*
+  nameWithType.vb: CompositionAspectConfiguration.New()
+  fullName.vb: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.New()
+  name.vb: New()
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces
+  commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces
+  id: PublicInterfaces
+  parent: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: PublicInterfaces
+  nameWithType: CompositionAspectConfiguration.PublicInterfaces
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: Gets or sets the array of interfaces that should be introduced publicly into the target type of the aspect.
+  example: []
+  syntax:
+    content: public TypeIdentity[] PublicInterfaces { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.TypeIdentity[]
+    content.vb: Public Property PublicInterfaces As TypeIdentity()
+  overload: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces*
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction
+  commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction
+  id: OverrideAction
+  parent: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: OverrideAction
+  nameWithType: CompositionAspectConfiguration.OverrideAction
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: >-
+    Gets or sets the action (<xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Fail" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Ignore" data-throw-if-not-resolved="false"></xref>)
+
+    to take when one of the interfaces specified by <xref href="PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces" data-throw-if-not-resolved="false"></xref> 
+
+    is already implemented by the type to which the aspect is applied.
+  example: []
+  syntax:
+    content: public InterfaceOverrideAction? OverrideAction { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Aspects.Advices.InterfaceOverrideAction}
+    content.vb: Public Property OverrideAction As InterfaceOverrideAction?
+  overload: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction*
+  seealso:
+  - linkId: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction
+    commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction
+  commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction
+  id: AncestorOverrideAction
+  parent: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: AncestorOverrideAction
+  nameWithType: CompositionAspectConfiguration.AncestorOverrideAction
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: >-
+    Gets or sets the action (<xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Fail" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.InterfaceOverrideAction.Ignore" data-throw-if-not-resolved="false"></xref>)
+
+    to take when an ancestor of one of the interfaces specified by <xref href="PostSharp.Aspects.Configuration.CompositionAspectConfiguration.PublicInterfaces" data-throw-if-not-resolved="false"></xref>
+
+    is already implemented by the type to which the current aspect is applied.
+  example: []
+  syntax:
+    content: public InterfaceOverrideAction? AncestorOverrideAction { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Aspects.Advices.InterfaceOverrideAction}
+    content.vb: Public Property AncestorOverrideAction As InterfaceOverrideAction?
+  overload: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.AncestorOverrideAction*
+  seealso:
+  - linkId: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction
+    commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.OverrideAction
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.NonSerializedImplementation
+  commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.NonSerializedImplementation
+  id: NonSerializedImplementation
+  parent: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: NonSerializedImplementation
+  nameWithType: CompositionAspectConfiguration.NonSerializedImplementation
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.NonSerializedImplementation
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: >-
+    Gets or sets a value indicating whether the field containing the interface implementation (and storing the object returned by
+
+    <xref href="PostSharp.Aspects.ICompositionAspect.CreateImplementationObject(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref>) should be excluded from serialization by <xref href="System.Runtime.Serialization.Formatters.Binary.BinaryFormatter" data-throw-if-not-resolved="false"></xref>.
+
+    The same effect is typically obtained by applying the <xref href="System.NonSerializedAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to the field.
+  example: []
+  syntax:
+    content: public bool? NonSerializedImplementation { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property NonSerializedImplementation As Boolean?
+  overload: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.NonSerializedImplementation*
+- uid: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.GenerateImplementationAccessor
+  commentId: P:PostSharp.Aspects.Configuration.CompositionAspectConfiguration.GenerateImplementationAccessor
+  id: GenerateImplementationAccessor
+  parent: PostSharp.Aspects.Configuration.CompositionAspectConfiguration
+  langs:
+  - csharp
+  - vb
+  name: GenerateImplementationAccessor
+  nameWithType: CompositionAspectConfiguration.GenerateImplementationAccessor
+  fullName: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.GenerateImplementationAccessor
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Configuration
+  summary: This property has no effect.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property has no effect and will be removed in a future version.")]
+
+      public bool? GenerateImplementationAccessor { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: >-
+      <Obsolete("This property has no effect and will be removed in a future version.")>
+
+      Public Property GenerateImplementationAccessor As Boolean?
+  overload: PostSharp.Aspects.Configuration.CompositionAspectConfiguration.GenerateImplementationAccessor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This property has no effect and will be removed in a future version.

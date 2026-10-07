@@ -1,0 +1,281 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingProperty
+  id: LoggingProperty
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor(System.String,System.Func{System.Object})
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor(System.String,System.Object)
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.Formatter
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.IsBaggage
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.IsInherited
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.IsRendered
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.Name
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.ToString
+  - PostSharp.Patterns.Diagnostics.LoggingProperty.Value
+  langs:
+  - csharp
+  - vb
+  name: LoggingProperty
+  nameWithType: LoggingProperty
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Represents a property. A property has a name, a value and a few options.
+  example: []
+  syntax:
+    content: public sealed class LoggingProperty
+    content.vb: Public NotInheritable Class LoggingProperty
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor(System.String,System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor(System.String,System.Object)
+  id: '#ctor(System.String,System.Object)'
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: LoggingProperty(string, object)
+  nameWithType: LoggingProperty.LoggingProperty(string, object)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.LoggingProperty(string, object)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty" data-throw-if-not-resolved="false"></xref> class with a constant value.
+  example: []
+  syntax:
+    content: public LoggingProperty(string name, object value)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: value
+      type: System.Object
+      description: The property value.
+    content.vb: Public Sub New(name As String, value As Object)
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor*
+  nameWithType.vb: LoggingProperty.New(String, Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingProperty.New(String, Object)
+  name.vb: New(String, Object)
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor(System.String,System.Func{System.Object})
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor(System.String,System.Func{System.Object})
+  id: '#ctor(System.String,System.Func{System.Object})'
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: LoggingProperty(string, Func<object>)
+  nameWithType: LoggingProperty.LoggingProperty(string, Func<object>)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.LoggingProperty(string, System.Func<object>)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty" data-throw-if-not-resolved="false"></xref> class with a dynamic value.
+  example: []
+  syntax:
+    content: public LoggingProperty(string name, Func<object> func)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    - id: func
+      type: System.Func{System.Object}
+      description: A function that returns the property value. The function is evaluated every time the <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty.Value" data-throw-if-not-resolved="false"></xref> getter is invoked.
+    content.vb: Public Sub New(name As String, func As Func(Of Object))
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.#ctor*
+  nameWithType.vb: LoggingProperty.New(String, Func(Of Object))
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingProperty.New(String, System.Func(Of Object))
+  name.vb: New(String, Func(Of Object))
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingProperty.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: LoggingProperty.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.ToString*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.Name
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProperty.Name
+  id: Name
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: LoggingProperty.Name
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the property name.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.Name*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.Value
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProperty.Value
+  id: Value
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: LoggingProperty.Value
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.Value
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets the property value. The property is never rendered when the value is <code>null</code>.
+
+    If the <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty" data-throw-if-not-resolved="false"></xref> has been initialized with a <code>Func&lt;object&gt;</code>, this property
+
+    evaluates the delegate every time the property getter is invoked.
+  example: []
+  syntax:
+    content: public object Value { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public ReadOnly Property Value As Object
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.Value*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.Formatter
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProperty.Formatter
+  id: Formatter
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: Formatter
+  nameWithType: LoggingProperty.Formatter
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.Formatter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets the formatter used to render the <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty.Value" data-throw-if-not-resolved="false"></xref> as a string. By default, the default formatter
+
+    for the property value type is used.
+  example: []
+  syntax:
+    content: public IFormatter Formatter { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Formatters.IFormatter
+    content.vb: Public Property Formatter As IFormatter
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.Formatter*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.IsRendered
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProperty.IsRendered
+  id: IsRendered
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: IsRendered
+  nameWithType: LoggingProperty.IsRendered
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.IsRendered
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the property is included in the log message. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IsRendered { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRendered As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.IsRendered*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.IsInherited
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProperty.IsInherited
+  id: IsInherited
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: IsInherited
+  nameWithType: LoggingProperty.IsInherited
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.IsInherited
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether the property is inherited from the parent activity by child activities and messages. The default value is <code>true</code>.
+
+    When this property is set to <code>false</code>, <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty.IsBaggage" data-throw-if-not-resolved="false"></xref> is automatically set to <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IsInherited { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsInherited As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.IsInherited*
+- uid: PostSharp.Patterns.Diagnostics.LoggingProperty.IsBaggage
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingProperty.IsBaggage
+  id: IsBaggage
+  parent: PostSharp.Patterns.Diagnostics.LoggingProperty
+  langs:
+  - csharp
+  - vb
+  name: IsBaggage
+  nameWithType: LoggingProperty.IsBaggage
+  fullName: PostSharp.Patterns.Diagnostics.LoggingProperty.IsBaggage
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether the property is cross-process. The default value is <code>false</code>. When this property is set to <code>true</code>, <xref href="PostSharp.Patterns.Diagnostics.LoggingProperty.IsInherited" data-throw-if-not-resolved="false"></xref> is automatically
+
+    set to <code>true</code>.
+  example: []
+  syntax:
+    content: public bool IsBaggage { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsBaggage As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingProperty.IsBaggage*

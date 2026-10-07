@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  id: WriteMessageOptions
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@)
+  - PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor(System.Object)
+  - PostSharp.Patterns.Diagnostics.WriteMessageOptions.Data
+  - PostSharp.Patterns.Diagnostics.WriteMessageOptions.Properties
+  langs:
+  - csharp
+  - vb
+  name: WriteMessageOptions
+  nameWithType: WriteMessageOptions
+  fullName: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Represents the options of the <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.WriteMessageOptions%40)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>Use these options to add properties to a message. Properties are name-value pairs passed to the logging backend in addition to the message.
+        The simplest way to define them is to pass an instance of an anonymous type to the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions.%23ctor(System.Object)" data-throw-if-not-resolved="false"></xref> constructor.</p>
+  example: []
+  syntax:
+    content: public struct WriteMessageOptions
+    content.vb: Public Structure WriteMessageOptions
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.OpenActivityOptions
+    commentId: T:PostSharp.Patterns.Diagnostics.OpenActivityOptions
+  - linkType: HRef
+    linkId: '@log-properties'
+    altText: 'Conceptual: Adding Properties to Messages and Activities'
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.ValueType.ToString
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor(System.Object)
+  commentId: M:PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  langs:
+  - csharp
+  - vb
+  name: WriteMessageOptions(object)
+  nameWithType: WriteMessageOptions.WriteMessageOptions(object)
+  fullName: PostSharp.Patterns.Diagnostics.WriteMessageOptions.WriteMessageOptions(object)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions" data-throw-if-not-resolved="false"></xref> struct and optionally specifies the properties from a CLR object.
+  example: []
+  syntax:
+    content: public WriteMessageOptions(object data = null)
+    parameters:
+    - id: data
+      type: System.Object
+      description: >-
+        Optional. Specifies the properties of the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions" data-throw-if-not-resolved="false"></xref>. It is typically an instance of a well-known or anonymous CLR type.
+                    The resulting <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref> has the default <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>. This means that all CLR properties are exposed
+                    as logging properties, unless they are annotated with <xref href="PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyOptionsAttribute" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(data As Object = Nothing)
+  overload: PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor*
+  nameWithType.vb: WriteMessageOptions.New(Object)
+  fullName.vb: PostSharp.Patterns.Diagnostics.WriteMessageOptions.New(Object)
+  name.vb: New(Object)
+- uid: PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@)
+  commentId: M:PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.Custom.LogEventData@)'
+  parent: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  langs:
+  - csharp
+  - vb
+  name: WriteMessageOptions(in LogEventData)
+  nameWithType: WriteMessageOptions.WriteMessageOptions(in LogEventData)
+  fullName: PostSharp.Patterns.Diagnostics.WriteMessageOptions.WriteMessageOptions(in PostSharp.Patterns.Diagnostics.Custom.LogEventData)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions" data-throw-if-not-resolved="false"></xref> struct and optionally specifies the properties from a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public WriteMessageOptions(in LogEventData data)
+    parameters:
+    - id: data
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventData
+      description: Optional. Specifies the properties of the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions" data-throw-if-not-resolved="false"></xref>. See <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(data As LogEventData)
+  overload: PostSharp.Patterns.Diagnostics.WriteMessageOptions.#ctor*
+  nameWithType.vb: WriteMessageOptions.New(LogEventData)
+  fullName.vb: PostSharp.Patterns.Diagnostics.WriteMessageOptions.New(PostSharp.Patterns.Diagnostics.Custom.LogEventData)
+  name.vb: New(LogEventData)
+- uid: PostSharp.Patterns.Diagnostics.WriteMessageOptions.Properties
+  commentId: P:PostSharp.Patterns.Diagnostics.WriteMessageOptions.Properties
+  id: Properties
+  parent: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: WriteMessageOptions.Properties
+  fullName: PostSharp.Patterns.Diagnostics.WriteMessageOptions.Properties
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the activity properties.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Provide a LogEventData.")]
+
+      public LoggingProperty[] Properties { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingProperty[]
+    content.vb: >-
+      <Obsolete("Provide a LogEventData.")>
+
+      Public Property Properties As LoggingProperty()
+  overload: PostSharp.Patterns.Diagnostics.WriteMessageOptions.Properties*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Provide a LogEventData.
+- uid: PostSharp.Patterns.Diagnostics.WriteMessageOptions.Data
+  commentId: P:PostSharp.Patterns.Diagnostics.WriteMessageOptions.Data
+  id: Data
+  parent: PostSharp.Patterns.Diagnostics.WriteMessageOptions
+  langs:
+  - csharp
+  - vb
+  name: Data
+  nameWithType: WriteMessageOptions.Data
+  fullName: PostSharp.Patterns.Diagnostics.WriteMessageOptions.Data
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the properties of the <xref href="PostSharp.Patterns.Diagnostics.WriteMessageOptions" data-throw-if-not-resolved="false"></xref>. They are typically specified as an instance of a well-known or anonymous CLR type.
+  example: []
+  syntax:
+    content: public LogEventData Data { readonly get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventData
+    content.vb: Public Property Data As LogEventData
+  overload: PostSharp.Patterns.Diagnostics.WriteMessageOptions.Data*

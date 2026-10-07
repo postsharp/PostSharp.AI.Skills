@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Serialization.ISerializerFactoryProvider
+  commentId: T:PostSharp.Serialization.ISerializerFactoryProvider
+  id: ISerializerFactoryProvider
+  parent: PostSharp.Serialization
+  children:
+  - PostSharp.Serialization.ISerializerFactoryProvider.GetSerializerFactory(System.Type)
+  - PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType(System.Type)
+  - PostSharp.Serialization.ISerializerFactoryProvider.NextProvider
+  langs:
+  - csharp
+  - vb
+  name: ISerializerFactoryProvider
+  nameWithType: ISerializerFactoryProvider
+  fullName: PostSharp.Serialization.ISerializerFactoryProvider
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Provides instances of the <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref> interface given the object type.
+  example: []
+  syntax:
+    content: public interface ISerializerFactoryProvider
+    content.vb: Public Interface ISerializerFactoryProvider
+  seealso:
+  - linkId: PostSharp.Serialization.ISerializerDiscoverer
+    commentId: T:PostSharp.Serialization.ISerializerDiscoverer
+  derivedClasses:
+  - PostSharp.Serialization.SerializerFactoryProvider
+- uid: PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType(System.Type)
+  commentId: M:PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType(System.Type)
+  id: GetSurrogateType(System.Type)
+  parent: PostSharp.Serialization.ISerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSurrogateType(Type)
+  nameWithType: ISerializerFactoryProvider.GetSurrogateType(Type)
+  fullName: PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the surrogate type for a given object type.
+  remarks: >-
+    <p>This method is called only during serialization. The surrogate type is the type whose name will be serialized; therefore, it will also
+                    be the type that will be deserialized.</p>
+    <p>It is not the responsibility of this class to call the next provider (<xref href="PostSharp.Serialization.ISerializerFactoryProvider.NextProvider" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: Type GetSurrogateType(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: The type of the object being serialized.
+    return:
+      type: System.Type
+      description: >-
+        The surrogate type for <code class="paramref">objectType</code>, or <code>null</code> (or <code class="paramref">objectType</code>) if <code class="paramref">objectType</code>
+                    does not require a surrogate type.
+    content.vb: Function GetSurrogateType(objectType As Type) As Type
+  overload: PostSharp.Serialization.ISerializerFactoryProvider.GetSurrogateType*
+- uid: PostSharp.Serialization.ISerializerFactoryProvider.GetSerializerFactory(System.Type)
+  commentId: M:PostSharp.Serialization.ISerializerFactoryProvider.GetSerializerFactory(System.Type)
+  id: GetSerializerFactory(System.Type)
+  parent: PostSharp.Serialization.ISerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSerializerFactory(Type)
+  nameWithType: ISerializerFactoryProvider.GetSerializerFactory(Type)
+  fullName: PostSharp.Serialization.ISerializerFactoryProvider.GetSerializerFactory(System.Type)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the instance of <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref>.
+  remarks: <p>It is not the responsibility of this class to call the next provider (<xref href="PostSharp.Serialization.ISerializerFactoryProvider.NextProvider" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: ISerializerFactory GetSerializerFactory(Type objectType)
+    parameters:
+    - id: objectType
+      type: System.Type
+      description: >-
+        The type of object being serialized or deserialized. If a surrogate type has been specified during serialization,
+                    this parameter is set to the surrogate type during deserialization.
+    return:
+      type: PostSharp.Serialization.ISerializerFactory
+      description: >-
+        An instance of <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref> able to serialize or deserialize <code class="paramref">objectType</code>, or <code>null</code>
+                    if there is no known serializer factory for this object.
+    content.vb: Function GetSerializerFactory(objectType As Type) As ISerializerFactory
+  overload: PostSharp.Serialization.ISerializerFactoryProvider.GetSerializerFactory*
+- uid: PostSharp.Serialization.ISerializerFactoryProvider.NextProvider
+  commentId: P:PostSharp.Serialization.ISerializerFactoryProvider.NextProvider
+  id: NextProvider
+  parent: PostSharp.Serialization.ISerializerFactoryProvider
+  langs:
+  - csharp
+  - vb
+  name: NextProvider
+  nameWithType: ISerializerFactoryProvider.NextProvider
+  fullName: PostSharp.Serialization.ISerializerFactoryProvider.NextProvider
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Serialization
+  summary: Gets the next provider in the chain.
+  example: []
+  syntax:
+    content: ISerializerFactoryProvider NextProvider { get; }
+    parameters: []
+    return:
+      type: PostSharp.Serialization.ISerializerFactoryProvider
+    content.vb: ReadOnly Property NextProvider As ISerializerFactoryProvider
+  overload: PostSharp.Serialization.ISerializerFactoryProvider.NextProvider*

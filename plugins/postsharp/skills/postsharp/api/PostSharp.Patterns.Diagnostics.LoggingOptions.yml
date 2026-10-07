@@ -1,0 +1,349 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingOptions
+  id: LoggingOptions
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.Clone
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.Freeze
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeGenericParameters
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterName
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterType
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterValue
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeReturnValue
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeThisValue
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.Level
+  - PostSharp.Patterns.Diagnostics.LoggingOptions.Merge(PostSharp.Patterns.Diagnostics.LoggingOptions)
+  langs:
+  - csharp
+  - vb
+  name: LoggingOptions
+  nameWithType: LoggingOptions
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Represents the build-time options for logging records.
+
+    This class is exposed by <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.DefaultOptions" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile.ExceptionOptions" data-throw-if-not-resolved="false"></xref>.
+
+    The values of this class cannot be changed at run time because they influence the way PostSharp instruments the code.
+  remarks: >-
+    <p>Set these options in <code>postsharp.config</code>, with a <code>LoggingOptions</code> element under the <code>DefaultOptions</code> or <code>ExceptionOptions</code>
+        element of a <code>LoggingProfile</code>. Rebuild the project after changing them. Options that only affect the formatting of the records, such as
+        the delimiter or the indentation, are run-time options of the backend instead; see <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.Options" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: >-
+      [Serializer(typeof(LoggingOptions.Serializer))]
+
+      public class LoggingOptions
+    content.vb: >-
+      <Serializer(GetType(LoggingOptions.Serializer))>
+
+      Public Class LoggingOptions
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.LoggingProfile
+    commentId: T:PostSharp.Patterns.Diagnostics.LoggingProfile
+  - linkType: HRef
+    linkId: '@logging-customizing'
+    altText: 'Conceptual: Formatting Log Records'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  attributes:
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Diagnostics.LoggingOptions.Serializer
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: LoggingOptions()
+  nameWithType: LoggingOptions.LoggingOptions()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.LoggingOptions()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingOptions" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public LoggingOptions()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor*
+  nameWithType.vb: LoggingOptions.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingOptions.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.Freeze
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingOptions.Freeze
+  id: Freeze
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: Freeze()
+  nameWithType: LoggingOptions.Freeze()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.Freeze()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Prevents the object from being modified.
+  example: []
+  syntax:
+    content: public virtual void Freeze()
+    content.vb: Public Overridable Sub Freeze()
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.Freeze*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.Clone
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingOptions.Clone
+  id: Clone
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: LoggingOptions.Clone()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.Clone()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a clone of the current object.
+  example: []
+  syntax:
+    content: public virtual LoggingOptions Clone()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingOptions
+      description: A clone of the current object.
+    content.vb: Public Overridable Function Clone() As LoggingOptions
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.Clone*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.Merge(PostSharp.Patterns.Diagnostics.LoggingOptions)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingOptions.Merge(PostSharp.Patterns.Diagnostics.LoggingOptions)
+  id: Merge(PostSharp.Patterns.Diagnostics.LoggingOptions)
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: Merge(LoggingOptions)
+  nameWithType: LoggingOptions.Merge(LoggingOptions)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.Merge(PostSharp.Patterns.Diagnostics.LoggingOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Merges the values of another <xref href="PostSharp.Patterns.Diagnostics.LoggingOptions" data-throw-if-not-resolved="false"></xref> object into the current object.
+
+    The values of the other object take precedence over the values of the current object.
+  example: []
+  syntax:
+    content: public void Merge(LoggingOptions overridingOptions)
+    parameters:
+    - id: overridingOptions
+      type: PostSharp.Patterns.Diagnostics.LoggingOptions
+      description: The values to be merged into the current object.
+    content.vb: Public Sub Merge(overridingOptions As LoggingOptions)
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.Merge*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: LoggingOptions(PortableFormatterConstructorContext)
+  nameWithType: LoggingOptions.LoggingOptions(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.LoggingOptions(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  syntax:
+    content: protected LoggingOptions(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.#ctor*
+  nameWithType.vb: LoggingOptions.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingOptions.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.Level
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.Level
+  id: Level
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: Level
+  nameWithType: LoggingOptions.Level
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.Level
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets the <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> with which the record should be emitted. The default value is <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Debug" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LogLevel Level { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LogLevel
+    content.vb: Public Property Level As LogLevel
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.Level*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterType
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterType
+  id: IncludeParameterType
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeParameterType
+  nameWithType: LoggingOptions.IncludeParameterType
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the parameter types should be logged. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IncludeParameterType { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeParameterType As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterType*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeGenericParameters
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeGenericParameters
+  id: IncludeGenericParameters
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeGenericParameters
+  nameWithType: LoggingOptions.IncludeGenericParameters
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeGenericParameters
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Not implemented.
+  example: []
+  syntax:
+    content: public bool IncludeGenericParameters { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeGenericParameters As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeGenericParameters*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterName
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterName
+  id: IncludeParameterName
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeParameterName
+  nameWithType: LoggingOptions.IncludeParameterName
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the parameter names should be logged. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IncludeParameterName { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeParameterName As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterName*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterValue
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterValue
+  id: IncludeParameterValue
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeParameterValue
+  nameWithType: LoggingOptions.IncludeParameterValue
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the parameter values should be logged. The default value is <code>true</code>.
+  example: []
+  syntax:
+    content: public bool IncludeParameterValue { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeParameterValue As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeParameterValue*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeReturnValue
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeReturnValue
+  id: IncludeReturnValue
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeReturnValue
+  nameWithType: LoggingOptions.IncludeReturnValue
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeReturnValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the return value should be logged. The default value is <code>true</code>.
+  example: []
+  syntax:
+    content: public bool IncludeReturnValue { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeReturnValue As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeReturnValue*
+- uid: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeThisValue
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeThisValue
+  id: IncludeThisValue
+  parent: PostSharp.Patterns.Diagnostics.LoggingOptions
+  langs:
+  - csharp
+  - vb
+  name: IncludeThisValue
+  nameWithType: LoggingOptions.IncludeThisValue
+  fullName: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeThisValue
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets or sets a value indicating whether the value of the <code>this</code> argument in an instance method should be logged. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IncludeThisValue { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IncludeThisValue As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingOptions.IncludeThisValue*

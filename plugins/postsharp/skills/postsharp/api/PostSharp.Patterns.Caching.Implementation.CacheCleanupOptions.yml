@@ -1,0 +1,229 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  commentId: T:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  id: CacheCleanupOptions
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.#ctor
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Default
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Dry
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.MaxConcurrency
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.RemediationDelay
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Sequential
+  - PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.WaitDelay
+  langs:
+  - csharp
+  - vb
+  name: CacheCleanupOptions
+  nameWithType: CacheCleanupOptions
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Options for the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method.
+  remarks: >-
+    <p>Of the built-in backends, only the Redis backend with dependencies enabled implements the cleanup. These options apply both when you call
+        <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> and to the periodic cleanup of <code>RedisCacheDependencyGarbageCollector</code>, which takes them from
+        its own options.</p>
+    <p>The <xref href="PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Default" data-throw-if-not-resolved="false"></xref> options process keys without delay and with a concurrency of 20, which favors cleanup speed and can overload
+        a production server. On a production database, set a non-zero <xref href="PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.WaitDelay" data-throw-if-not-resolved="false"></xref> and a lower <xref href="PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.MaxConcurrency" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public sealed class CacheCleanupOptions
+    content.vb: Public NotInheritable Class CacheCleanupOptions
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-redis'
+    altText: 'Conceptual: Using Redis Cache'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.#ctor
+  commentId: M:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: CacheCleanupOptions()
+  nameWithType: CacheCleanupOptions.CacheCleanupOptions()
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.CacheCleanupOptions()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  syntax:
+    content: public CacheCleanupOptions()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.#ctor*
+  nameWithType.vb: CacheCleanupOptions.New()
+  fullName.vb: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.WaitDelay
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.WaitDelay
+  id: WaitDelay
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: WaitDelay
+  nameWithType: CacheCleanupOptions.WaitDelay
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.WaitDelay
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets or sets the delay between the processing of two keys. The default value is 0.
+  remarks: >-
+    With the Redis backend, when a cluster is used, all servers are processed concurrently and the delay applies while processing the requests
+                of a single server.
+  example: []
+  syntax:
+    content: public TimeSpan WaitDelay { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property WaitDelay As TimeSpan
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.WaitDelay*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.RemediationDelay
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.RemediationDelay
+  id: RemediationDelay
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: RemediationDelay
+  nameWithType: CacheCleanupOptions.RemediationDelay
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.RemediationDelay
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets or sets the delay between the moment an inconsistency is detected and the moment a remediation is attempted. The default value is 10 seconds.
+  remarks: >-
+    In distributed caching, there can be a slight delay before changes are replicated to all nodes.
+
+    These inconsistencies are harmless. Therefore, when a problem is found, the consistency is tested a second time after a delay.
+  example: []
+  syntax:
+    content: public TimeSpan RemediationDelay { get; set; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property RemediationDelay As TimeSpan
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.RemediationDelay*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Dry
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Dry
+  id: Dry
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: Dry
+  nameWithType: CacheCleanupOptions.Dry
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Dry
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets or sets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method should report errors but not attempt to fix them.
+  example: []
+  syntax:
+    content: public bool Dry { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Dry As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Dry*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Sequential
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Sequential
+  id: Sequential
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: Sequential
+  nameWithType: CacheCleanupOptions.Sequential
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Sequential
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets or sets a value indicating whether the <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.CleanUpAsync(PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> method should process items sequentially. By default,
+
+    it processes them concurrently.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use MaxConcurrency.")]
+
+      public bool Sequential { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Obsolete("Use MaxConcurrency.")>
+
+      Public Property Sequential As Boolean
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Sequential*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use MaxConcurrency.
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.MaxConcurrency
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.MaxConcurrency
+  id: MaxConcurrency
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: MaxConcurrency
+  nameWithType: CacheCleanupOptions.MaxConcurrency
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.MaxConcurrency
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets or sets the maximum number of keys being analyzed and cleaned up concurrently. The default value is 20.
+  example: []
+  syntax:
+    content: public int MaxConcurrency { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MaxConcurrency As Integer
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.MaxConcurrency*
+- uid: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Default
+  commentId: P:PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Default
+  id: Default
+  parent: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: CacheCleanupOptions.Default
+  fullName: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Default
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the default options.
+  example: []
+  syntax:
+    content: public static CacheCleanupOptions Default { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions
+    content.vb: Public Shared ReadOnly Property [Default] As CacheCleanupOptions
+  overload: PostSharp.Patterns.Caching.Implementation.CacheCleanupOptions.Default*

@@ -1,0 +1,88 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+  id: CustomLogParameterMode
+  parent: PostSharp.Patterns.Diagnostics.Custom
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Default
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Hidden
+  - PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.NameValuePair
+  langs:
+  - csharp
+  - vb
+  name: CustomLogParameterMode
+  nameWithType: CustomLogParameterMode
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+  type: Enum
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: >-
+    Specifies how a parameter of a custom record should be rendered by the <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.WriteCustomParameter%60%601(System.Int32%2cPostSharp.Patterns.Formatters.CharSpan%40%2c%60%600%2cPostSharp.Patterns.Diagnostics.Custom.CustomLogParameterOptions%40)" data-throw-if-not-resolved="false"></xref>
+
+    method.
+  example: []
+  syntax:
+    content: public enum CustomLogParameterMode
+    content.vb: Public Enum CustomLogParameterMode
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Default
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Default
+  id: Default
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: CustomLogParameterMode.Default
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Default
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: Only the parameter value is rendered.
+  example: []
+  syntax:
+    content: Default = 0
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.NameValuePair
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.NameValuePair
+  id: NameValuePair
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+  langs:
+  - csharp
+  - vb
+  name: NameValuePair
+  nameWithType: CustomLogParameterMode.NameValuePair
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.NameValuePair
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: The parameter is rendered in <code>name = value</code> form.
+  example: []
+  syntax:
+    content: NameValuePair = 1
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+- uid: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Hidden
+  commentId: F:PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Hidden
+  id: Hidden
+  parent: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode
+  langs:
+  - csharp
+  - vb
+  name: Hidden
+  nameWithType: CustomLogParameterMode.Hidden
+  fullName: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode.Hidden
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom
+  summary: The parameter is not rendered.
+  example: []
+  syntax:
+    content: Hidden = 2
+    return:
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogParameterMode

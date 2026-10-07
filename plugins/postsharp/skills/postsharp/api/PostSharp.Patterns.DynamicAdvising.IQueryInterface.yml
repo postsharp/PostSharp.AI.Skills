@@ -1,0 +1,89 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  commentId: T:PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  id: IQueryInterface
+  parent: PostSharp.Patterns.DynamicAdvising
+  children:
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface``1
+  langs:
+  - csharp
+  - vb
+  name: IQueryInterface
+  nameWithType: IQueryInterface
+  fullName: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: >-
+    Interface implemented by objects that can implement interfaces dynamically by composition, without
+
+    implementing the interface directly at MSIL level. The <xref href="PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface%60%601" data-throw-if-not-resolved="false"></xref> method
+
+    must then be used instead of a normal cast.
+  example: []
+  syntax:
+    content: public interface IQueryInterface
+    content.vb: Public Interface IQueryInterface
+  seealso:
+  - linkId: PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+    commentId: T:PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation
+  - linkId: PostSharp.Patterns.DynamicAdvising.QueryInterfaceExtensions
+    commentId: T:PostSharp.Patterns.DynamicAdvising.QueryInterfaceExtensions
+  derivedClasses:
+  - PostSharp.Patterns.Collections.AdvisableCollection`1
+  - PostSharp.Patterns.Collections.AdvisableDictionary`2
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1
+  - PostSharp.Patterns.Collections.AdvisableKeyedCollection`2
+  - PostSharp.Patterns.DynamicAdvising.DynamicallyAdvisableObject
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+- uid: PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface``1
+  commentId: M:PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface``1
+  id: QueryInterface``1
+  parent: PostSharp.Patterns.DynamicAdvising.IQueryInterface
+  langs:
+  - csharp
+  - vb
+  name: QueryInterface<T>()
+  nameWithType: IQueryInterface.QueryInterface<T>()
+  fullName: PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface<T>()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.DynamicAdvising
+  summary: Gets the implementation of a specified interface for the current object.
+  remarks: >-
+    <p>This method shall return the current object if the type of the current object statically implements the interface. Otherwise,
+        the method shall return another object that implements <code class="typeparamref">T</code> on behalf of the current object. In this case,
+        the returned object shall implement the <xref href="PostSharp.Patterns.DynamicAdvising.IDynamicInterfaceImplementation" data-throw-if-not-resolved="false"></xref> interface, which allows navigating back to the current object.</p>
+    <p>
+        User code typically uses the <xref href="PostSharp.Patterns.DynamicAdvising.QueryInterfaceExtensions.QueryInterface%60%601(System.Object%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> extension method.
+        </p>
+  example: []
+  syntax:
+    content: 'T QueryInterface<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: The type of the required interface.
+    return:
+      type: '{T}'
+      description: >-
+        An object implementing the <code class="typeparamref">T</code> interface on behalf of the current object, or <code>null</code>
+                    if the current object does not implement the <code class="typeparamref">T</code> interface.
+    content.vb: Function QueryInterface(Of T As Class)() As T
+  overload: PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface*
+  nameWithType.vb: IQueryInterface.QueryInterface(Of T)()
+  fullName.vb: PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface(Of T)()
+  name.vb: QueryInterface(Of T)()

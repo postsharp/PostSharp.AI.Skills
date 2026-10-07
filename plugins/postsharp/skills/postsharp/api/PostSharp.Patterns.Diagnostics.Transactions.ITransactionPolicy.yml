@@ -1,0 +1,206 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  id: ITransactionPolicy
+  parent: PostSharp.Patterns.Diagnostics.Transactions
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedCloseExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedOpenExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.GetExtendedProperty(System.String,System.String)
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Name
+  - PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Verbosity
+  langs:
+  - csharp
+  - vb
+  name: ITransactionPolicy
+  nameWithType: ITransactionPolicy
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Determines the verbosity of a transaction and what should be done
+
+    when the transaction is closed. One policy usually handles many transactions.
+  example: []
+  syntax:
+    content: public interface ITransactionPolicy
+    content.vb: Public Interface ITransactionPolicy
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.GetExtendedProperty(System.String,System.String)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.GetExtendedProperty(System.String,System.String)
+  id: GetExtendedProperty(System.String,System.String)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  langs:
+  - csharp
+  - vb
+  name: GetExtendedProperty(string, string)
+  nameWithType: ITransactionPolicy.GetExtendedProperty(string, string)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.GetExtendedProperty(string, string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets an extended property defined by the policy (typically an XML attribute) and specific to the backend.
+  example: []
+  syntax:
+    content: string GetExtendedProperty(string name, string defaultValue = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: The property name (or XML attribute). The name is case-sensitive.
+    - id: defaultValue
+      type: System.String
+      description: The returned value if the property is not defined.
+    return:
+      type: System.String
+    content.vb: Function GetExtendedProperty(name As String, defaultValue As String = Nothing) As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.GetExtendedProperty*
+  nameWithType.vb: ITransactionPolicy.GetExtendedProperty(String, String)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.GetExtendedProperty(String, String)
+  name.vb: GetExtendedProperty(String, String)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedOpenExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedOpenExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  id: EvaluateExtendedOpenExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties@,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  langs:
+  - csharp
+  - vb
+  name: EvaluateExtendedOpenExpression<T>(string, in TransactionProperties, T, ExtendedTransactionExpressionOptions)
+  nameWithType: ITransactionPolicy.EvaluateExtendedOpenExpression<T>(string, in TransactionProperties, T, ExtendedTransactionExpressionOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedOpenExpression<T>(string, in PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, T, PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Evaluates an expression defined as an extended property (typically an XML attribute) where
+
+    the argument of the expression is an <code>OpenTransactionExpressionModel</code>.
+  example: []
+  syntax:
+    content: T EvaluateExtendedOpenExpression<T>(string propertyName, in TransactionProperties transactionProperties, T defaultValue = default, ExtendedTransactionExpressionOptions options = ExtendedTransactionExpressionOptions.None)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: >-
+        The name of the property (or XML attribute) that defines the
+                    expression. The name is case-sensitive.
+    - id: transactionProperties
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties
+      description: The input <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties" data-throw-if-not-resolved="false"></xref>.
+    - id: defaultValue
+      type: '{T}'
+      description: The value returned if the expression is not defined or has an error.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions
+      description: >-
+        Determines whether exceptions should be thrown or swallowed or whether 
+                    the expression is allowed to use sampling functions.
+    typeParameters:
+    - id: T
+      description: The return type of the expression.
+    return:
+      type: '{T}'
+      description: The result of the expression, or <code class="paramref">defaultValue</code>.
+    content.vb: Function EvaluateExtendedOpenExpression(Of T)(propertyName As String, transactionProperties As TransactionProperties, defaultValue As T = Nothing, options As ExtendedTransactionExpressionOptions = ExtendedTransactionExpressionOptions.None) As T
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedOpenExpression*
+  nameWithType.vb: ITransactionPolicy.EvaluateExtendedOpenExpression(Of T)(String, TransactionProperties, T, ExtendedTransactionExpressionOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedOpenExpression(Of T)(String, PostSharp.Patterns.Diagnostics.Transactions.TransactionProperties, T, PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  name.vb: EvaluateExtendedOpenExpression(Of T)(String, TransactionProperties, T, ExtendedTransactionExpressionOptions)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedCloseExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedCloseExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  id: EvaluateExtendedCloseExpression``1(System.String,PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction,``0,PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  langs:
+  - csharp
+  - vb
+  name: EvaluateExtendedCloseExpression<T>(string, LoggingTransaction, T, ExtendedTransactionExpressionOptions)
+  nameWithType: ITransactionPolicy.EvaluateExtendedCloseExpression<T>(string, LoggingTransaction, T, ExtendedTransactionExpressionOptions)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedCloseExpression<T>(string, PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction, T, PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Evaluates an expression defined as an extended property (typically an XML attribute) where
+
+    the argument of the expression is a <code>CloseTransactionExpressionModel</code>.
+  example: []
+  syntax:
+    content: T EvaluateExtendedCloseExpression<T>(string propertyName, LoggingTransaction transaction, T defaultValue = default, ExtendedTransactionExpressionOptions options = ExtendedTransactionExpressionOptions.None)
+    parameters:
+    - id: propertyName
+      type: System.String
+      description: >-
+        The name of the property (or XML attribute) that defines the
+                    expression. The name is case-sensitive.
+    - id: transaction
+      type: PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction
+      description: The input <xref href="PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction" data-throw-if-not-resolved="false"></xref>.
+    - id: defaultValue
+      type: '{T}'
+      description: The value returned if the expression is not defined or has an error.
+    - id: options
+      type: PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions
+      description: >-
+        Determines whether exceptions should be thrown or swallowed or whether 
+                    the expression is allowed to use sampling functions.
+    typeParameters:
+    - id: T
+      description: The return type of the expression.
+    return:
+      type: '{T}'
+      description: The result of the expression, or <code class="paramref">defaultValue</code>.
+    content.vb: Function EvaluateExtendedCloseExpression(Of T)(propertyName As String, transaction As LoggingTransaction, defaultValue As T = Nothing, options As ExtendedTransactionExpressionOptions = ExtendedTransactionExpressionOptions.None) As T
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedCloseExpression*
+  nameWithType.vb: ITransactionPolicy.EvaluateExtendedCloseExpression(Of T)(String, LoggingTransaction, T, ExtendedTransactionExpressionOptions)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.EvaluateExtendedCloseExpression(Of T)(String, PostSharp.Patterns.Diagnostics.Transactions.LoggingTransaction, T, PostSharp.Patterns.Diagnostics.Transactions.ExtendedTransactionExpressionOptions)
+  name.vb: EvaluateExtendedCloseExpression(Of T)(String, LoggingTransaction, T, ExtendedTransactionExpressionOptions)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Name
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Name
+  id: Name
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ITransactionPolicy.Name
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Name
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the policy name. This is optional but useful for debugging and diagnostics.
+  example: []
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Name*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Verbosity
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Verbosity
+  id: Verbosity
+  parent: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy
+  langs:
+  - csharp
+  - vb
+  name: Verbosity
+  nameWithType: ITransactionPolicy.Verbosity
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Verbosity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets the verbosity of logging for all transactions assigned to this policy.
+  example: []
+  syntax:
+    content: LoggingVerbosityConfiguration Verbosity { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+    content.vb: ReadOnly Property Verbosity As LoggingVerbosityConfiguration
+  overload: PostSharp.Patterns.Diagnostics.Transactions.ITransactionPolicy.Verbosity*

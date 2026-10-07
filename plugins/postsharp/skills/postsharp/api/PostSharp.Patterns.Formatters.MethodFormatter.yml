@@ -1,0 +1,93 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Formatters.MethodFormatter
+  commentId: T:PostSharp.Patterns.Formatters.MethodFormatter
+  id: MethodFormatter
+  parent: PostSharp.Patterns.Formatters
+  children:
+  - PostSharp.Patterns.Formatters.MethodFormatter.Instance
+  - PostSharp.Patterns.Formatters.MethodFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodBase)
+  langs:
+  - csharp
+  - vb
+  name: MethodFormatter
+  nameWithType: MethodFormatter
+  fullName: PostSharp.Patterns.Formatters.MethodFormatter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: A formatter for <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref> values.
+  example: []
+  syntax:
+    content: 'public sealed class MethodFormatter : Formatter<MethodBase>, IFormatter<MethodBase>, IOptionAwareFormatter, IFormatter'
+    content.vb: Public NotInheritable Class MethodFormatter Inherits Formatter(Of MethodBase) Implements IFormatter(Of MethodBase), IOptionAwareFormatter, IFormatter
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.Formatter{System.Reflection.MethodBase}
+  implements:
+  - PostSharp.Patterns.Formatters.IFormatter{System.Reflection.MethodBase}
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  - PostSharp.Patterns.Formatters.IFormatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.Formatter{System.Reflection.MethodBase}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.Formatter{System.Reflection.MethodBase}.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.Formatter{System.Reflection.MethodBase}.Attributes
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  extensionMethods:
+  - PostSharp.Patterns.Formatters.IFormatter.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.IFormatter{System.Reflection.MethodBase}.PostSharp.Patterns.Formatters.FormatterExtensions.WithOptions``1(PostSharp.Patterns.Formatters.FormattingOptions)
+- uid: PostSharp.Patterns.Formatters.MethodFormatter.Instance
+  commentId: F:PostSharp.Patterns.Formatters.MethodFormatter.Instance
+  id: Instance
+  parent: PostSharp.Patterns.Formatters.MethodFormatter
+  langs:
+  - csharp
+  - vb
+  name: Instance
+  nameWithType: MethodFormatter.Instance
+  fullName: PostSharp.Patterns.Formatters.MethodFormatter.Instance
+  type: Field
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: The singleton instance of <xref href="PostSharp.Patterns.Formatters.MethodFormatter" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static readonly MethodFormatter Instance
+    return:
+      type: PostSharp.Patterns.Formatters.MethodFormatter
+    content.vb: Public Shared ReadOnly Instance As MethodFormatter
+- uid: PostSharp.Patterns.Formatters.MethodFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodBase)
+  commentId: M:PostSharp.Patterns.Formatters.MethodFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodBase)
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodBase)
+  parent: PostSharp.Patterns.Formatters.MethodFormatter
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, MethodBase)
+  nameWithType: MethodFormatter.Write(UnsafeStringBuilder, MethodBase)
+  fullName: PostSharp.Patterns.Formatters.MethodFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Reflection.MethodBase)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: public override void Write(UnsafeStringBuilder stringBuilder, MethodBase value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.Reflection.MethodBase
+      description: The value to be formatted.
+    content.vb: Public Overrides Sub Write(stringBuilder As UnsafeStringBuilder, value As MethodBase)
+  overridden: PostSharp.Patterns.Formatters.Formatter{System.Reflection.MethodBase}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodBase)
+  overload: PostSharp.Patterns.Formatters.MethodFormatter.Write*

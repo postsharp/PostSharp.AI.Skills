@@ -1,0 +1,325 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  commentId: T:PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  id: InvalidateCacheAttribute
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(System.String[])
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(System.Type,System.String[])
+  - PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads
+  langs:
+  - csharp
+  - vb
+  name: InvalidateCacheAttribute
+  nameWithType: InvalidateCacheAttribute
+  fullName: PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Custom attribute that, when applied to a method, causes an invocation of this method to remove from
+
+    the cache the result of invocations of other given methods with the same parameter values.
+  remarks: >-
+    <p>The invalidation happens after the target method returns. Each parameter of a cached method is matched with the parameter of the same name of the
+        target method, regardless of their order, and the type of the target method parameter must be assignable to the type of the cached method parameter.
+        Parameters annotated with <xref href="PostSharp.Patterns.Caching.NotCacheKeyAttribute" data-throw-if-not-resolved="false"></xref> are not matched. When no overload has all its parameters matched, the build fails with an error.</p>
+    <p>By default, the cached methods are looked up in the declaring type of the target method; use the constructor that takes a <xref href="System.Type" data-throw-if-not-resolved="false"></xref>
+        to specify another type. When the <code>this</code> instance is part of the cache key of an instance method (see <xref href="PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter" data-throw-if-not-resolved="false"></xref>),
+        the target method must be an instance method of the same type or of a derived type. When a method name matches several cached overloads,
+        set <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads" data-throw-if-not-resolved="false"></xref> to <code>true</code> to invalidate all of them.</p>
+    <p>To invalidate cached methods imperatively, use <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref>. To decouple the invalidating methods from the cached methods,
+        use cache dependencies (see <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: >-
+      [MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple = true)]
+
+      [Metric("UsedFeatures", "Patterns.Caching.InvalidateCache")]
+
+      [ProvideAspectRole("CacheInvalidation")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")]
+
+      [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")]
+
+      [LinesOfCodeAvoided(1)]
+
+      [Serializer(typeof(InvalidateCacheAttribute.Serializer))]
+
+      public sealed class InvalidateCacheAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+    content.vb: >-
+      <MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple:=True)>
+
+      <Metric("UsedFeatures", "Patterns.Caching.InvalidateCache")>
+
+      <ProvideAspectRole("CacheInvalidation")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")>
+
+      <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Tracing")>
+
+      <LinesOfCodeAvoided(1)>
+
+      <Serializer(GetType(InvalidateCacheAttribute.Serializer))>
+
+      Public NotInheritable Class InvalidateCacheAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-invalidation'
+    altText: 'Conceptual: Removing Items From the Cache'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Aspects.Aspect
+  - PostSharp.Aspects.MethodLevelAspect
+  - PostSharp.Aspects.MethodInterceptionAspect
+  implements:
+  - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
+  - PostSharp.Aspects.IAspectBuildSemantics
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAsyncMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodInterceptionAspect
+  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
+  - PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
+  - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
+  - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
+  - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
+  - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: PostSharp.Extensibility.MulticastAttributeUsageAttribute
+    ctor: PostSharp.Extensibility.MulticastAttributeUsageAttribute.#ctor(PostSharp.Extensibility.MulticastTargets)
+    arguments:
+    - type: PostSharp.Extensibility.MulticastTargets
+      value: 64
+    namedArguments:
+    - name: AllowMultiple
+      type: System.Boolean
+      value: true
+  - type: PostSharp.Extensibility.MetricAttribute
+    ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
+    arguments:
+    - type: System.String
+      value: UsedFeatures
+    - type: System.String
+      value: Patterns.Caching.InvalidateCache
+  - type: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute
+    ctor: PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: CacheInvalidation
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Validation
+  - type: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute
+    ctor: PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute.#ctor(PostSharp.Aspects.Dependencies.AspectDependencyAction,PostSharp.Aspects.Dependencies.AspectDependencyPosition,System.String)
+    arguments:
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyAction
+      value: 1
+    - type: PostSharp.Aspects.Dependencies.AspectDependencyPosition
+      value: 1
+    - type: System.String
+      value: Tracing
+  - type: PostSharp.Aspects.LinesOfCodeAvoidedAttribute
+    ctor: PostSharp.Aspects.LinesOfCodeAvoidedAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1
+  - type: PostSharp.Serialization.SerializerAttribute
+    ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: PostSharp.Patterns.Caching.InvalidateCacheAttribute.Serializer
+- uid: PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(System.String[])
+  commentId: M:PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(System.String[])
+  id: '#ctor(System.String[])'
+  parent: PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: InvalidateCacheAttribute(params string[])
+  nameWithType: InvalidateCacheAttribute.InvalidateCacheAttribute(params string[])
+  fullName: PostSharp.Patterns.Caching.InvalidateCacheAttribute.InvalidateCacheAttribute(params string[])
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> class that invalidates methods of the same type as the
+
+    type to which the current <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> aspect is being applied.
+  example: []
+  syntax:
+    content: public InvalidateCacheAttribute(params string[] methodNames)
+    parameters:
+    - id: methodNames
+      type: System.String[]
+      description: >-
+        A list of names of methods to invalidate. All parameters of these methods (except those marked 
+                    with <xref href="PostSharp.Patterns.Caching.NotCacheKeyAttribute" data-throw-if-not-resolved="false"></xref>) must have a parameter of the same name and compatible type in the target
+                    method of the current <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+    content.vb: Public Sub New(ParamArray methodNames As String())
+  overload: PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor*
+  nameWithType.vb: InvalidateCacheAttribute.New(ParamArray String())
+  fullName.vb: PostSharp.Patterns.Caching.InvalidateCacheAttribute.New(ParamArray String())
+  name.vb: New(ParamArray String())
+- uid: PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(System.Type,System.String[])
+  commentId: M:PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(System.Type,System.String[])
+  id: '#ctor(System.Type,System.String[])'
+  parent: PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: InvalidateCacheAttribute(Type, params string[])
+  nameWithType: InvalidateCacheAttribute.InvalidateCacheAttribute(Type, params string[])
+  fullName: PostSharp.Patterns.Caching.InvalidateCacheAttribute.InvalidateCacheAttribute(System.Type, params string[])
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> class that invalidates methods of a different type than the
+
+    type to which the current <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> aspect is being applied.
+  example: []
+  syntax:
+    content: public InvalidateCacheAttribute(Type declaringType, params string[] methodNames)
+    parameters:
+    - id: declaringType
+      type: System.Type
+      description: The type containing the methods to invalidate.
+    - id: methodNames
+      type: System.String[]
+      description: >-
+        A list of names of methods to invalidate. All parameters of these methods (except those marked 
+                    with <xref href="PostSharp.Patterns.Caching.NotCacheKeyAttribute" data-throw-if-not-resolved="false"></xref>) must have a parameter of the same name and compatible type in the target
+                    method of the current <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> aspect.
+    content.vb: Public Sub New(declaringType As Type, ParamArray methodNames As String())
+  overload: PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor*
+  nameWithType.vb: InvalidateCacheAttribute.New(Type, ParamArray String())
+  fullName.vb: PostSharp.Patterns.Caching.InvalidateCacheAttribute.New(System.Type, ParamArray String())
+  name.vb: New(Type, ParamArray String())
+- uid: PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  commentId: M:PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)
+  id: '#ctor(PostSharp.Serialization.PortableFormatterConstructorContext)'
+  parent: PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: InvalidateCacheAttribute(PortableFormatterConstructorContext)
+  nameWithType: InvalidateCacheAttribute.InvalidateCacheAttribute(PortableFormatterConstructorContext)
+  fullName: PostSharp.Patterns.Caching.InvalidateCacheAttribute.InvalidateCacheAttribute(PostSharp.Serialization.PortableFormatterConstructorContext)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  syntax:
+    content: protected InvalidateCacheAttribute(PortableFormatterConstructorContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Serialization.PortableFormatterConstructorContext
+    content.vb: Protected Sub New(context As PortableFormatterConstructorContext)
+  overload: PostSharp.Patterns.Caching.InvalidateCacheAttribute.#ctor*
+  nameWithType.vb: InvalidateCacheAttribute.New(PortableFormatterConstructorContext)
+  fullName.vb: PostSharp.Patterns.Caching.InvalidateCacheAttribute.New(PostSharp.Serialization.PortableFormatterConstructorContext)
+  name.vb: New(PortableFormatterConstructorContext)
+- uid: PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads
+  commentId: P:PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads
+  id: AllowMultipleOverloads
+  parent: PostSharp.Patterns.Caching.InvalidateCacheAttribute
+  langs:
+  - csharp
+  - vb
+  name: AllowMultipleOverloads
+  nameWithType: InvalidateCacheAttribute.AllowMultipleOverloads
+  fullName: PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the current <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> can match several overloads of the methods.
+
+    The default value is <code>false</code>, which means that an error will be emitted if the current <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> matches
+
+    several methods of the same name.
+  example: []
+  syntax:
+    content: public bool AllowMultipleOverloads { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property AllowMultipleOverloads As Boolean
+  overload: PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads*

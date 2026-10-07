@@ -1,0 +1,137 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessException
+  commentId: T:PostSharp.Patterns.Threading.ConcurrentAccessException
+  id: ConcurrentAccessException
+  parent: PostSharp.Patterns.Threading
+  children:
+  - PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor
+  - PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor(System.String)
+  - PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor(System.String,System.Exception)
+  langs:
+  - csharp
+  - vb
+  name: ConcurrentAccessException
+  nameWithType: ConcurrentAccessException
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessException
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: >-
+    Exception thrown when two threads simultaneously attempt to execute methods of an object whose class is annotated with the
+
+    <xref href="PostSharp.Patterns.Threading.ThreadUnsafeAttribute" data-throw-if-not-resolved="false"></xref> custom attribute.
+  remarks: <p>This exception is thrown only when run-time verification is enabled (see <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled" data-throw-if-not-resolved="false"></xref>).</p>
+  example: []
+  syntax:
+    content: 'public sealed class ConcurrentAccessException : ThreadingException, ISerializable'
+    content.vb: Public NotInheritable Class ConcurrentAccessException Inherits ThreadingException Implements ISerializable
+  seealso:
+  - linkId: PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+    commentId: T:PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  - linkType: HRef
+    linkId: '@thread-unsafe'
+    altText: 'Conceptual: Thread-Unsafe Threading Model'
+  inheritance:
+  - System.Object
+  - System.Exception
+  - PostSharp.Patterns.Threading.ThreadingException
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.ToString
+  - System.Exception.GetType
+  - System.Exception.TargetSite
+  - System.Exception.Message
+  - System.Exception.Data
+  - System.Exception.InnerException
+  - System.Exception.HelpLink
+  - System.Exception.Source
+  - System.Exception.HResult
+  - System.Exception.StackTrace
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessException
+  langs:
+  - csharp
+  - vb
+  name: ConcurrentAccessException()
+  nameWithType: ConcurrentAccessException.ConcurrentAccessException()
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessException.ConcurrentAccessException()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessException" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ConcurrentAccessException()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor*
+  nameWithType.vb: ConcurrentAccessException.New()
+  fullName.vb: PostSharp.Patterns.Threading.ConcurrentAccessException.New()
+  name.vb: New()
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor(System.String)
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessException
+  langs:
+  - csharp
+  - vb
+  name: ConcurrentAccessException(string)
+  nameWithType: ConcurrentAccessException.ConcurrentAccessException(string)
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessException.ConcurrentAccessException(string)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessException" data-throw-if-not-resolved="false"></xref> class and sets the error message.
+  example: []
+  syntax:
+    content: public ConcurrentAccessException(string message)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    content.vb: Public Sub New(message As String)
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor*
+  nameWithType.vb: ConcurrentAccessException.New(String)
+  fullName.vb: PostSharp.Patterns.Threading.ConcurrentAccessException.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor(System.String,System.Exception)
+  commentId: M:PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor(System.String,System.Exception)
+  id: '#ctor(System.String,System.Exception)'
+  parent: PostSharp.Patterns.Threading.ConcurrentAccessException
+  langs:
+  - csharp
+  - vb
+  name: ConcurrentAccessException(string, Exception)
+  nameWithType: ConcurrentAccessException.ConcurrentAccessException(string, Exception)
+  fullName: PostSharp.Patterns.Threading.ConcurrentAccessException.ConcurrentAccessException(string, System.Exception)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Threading
+  namespace: PostSharp.Patterns.Threading
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Threading.ConcurrentAccessException" data-throw-if-not-resolved="false"></xref> class and sets the error message and the inner exception.
+  example: []
+  syntax:
+    content: public ConcurrentAccessException(string message, Exception inner)
+    parameters:
+    - id: message
+      type: System.String
+      description: The error message.
+    - id: inner
+      type: System.Exception
+      description: The inner exception.
+    content.vb: Public Sub New(message As String, inner As Exception)
+  overload: PostSharp.Patterns.Threading.ConcurrentAccessException.#ctor*
+  nameWithType.vb: ConcurrentAccessException.New(String, Exception)
+  fullName.vb: PostSharp.Patterns.Threading.ConcurrentAccessException.New(String, System.Exception)
+  name.vb: New(String, Exception)

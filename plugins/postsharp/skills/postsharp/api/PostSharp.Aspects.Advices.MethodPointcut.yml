@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.MethodPointcut
+  commentId: T:PostSharp.Aspects.Advices.MethodPointcut
+  id: MethodPointcut
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.MethodPointcut.#ctor(System.String)
+  - PostSharp.Aspects.Advices.MethodPointcut.MethodName
+  langs:
+  - csharp
+  - vb
+  name: MethodPointcut
+  nameWithType: MethodPointcut
+  fullName: PostSharp.Aspects.Advices.MethodPointcut
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Custom attribute that, when applied on an advice method, specifies the name of
+
+    the method that is invoked at build time to return the set of elements of code
+
+    to which the advice applies.
+  remarks: >-
+    <p>
+            This method should have the signature
+            <code>IEnumerable&lt;AdviceTargetType&gt; SelectCodeElements(AspectTargetType target)</code>,
+            where <code>AspectTargetType</code> is either <code>object</code> or a reflection type
+            corresponding to the kind of targets of the aspect (for instance <code>System.Type</code>
+            for a type-level aspect), and <code>AdviceTargetType</code> is either <code>object</code> or
+            a reflection type of the kind of targets of the advice (for instance <code>System.Reflection.MethodInfo</code> for a method-level advice).
+          </p>
+    <p>
+            The method can select only elements of code that belong to the target of the aspect, for instance members of the
+            target type for a type-level aspect; selecting a member of another type causes a build error. When the selection
+            can be expressed by the kind, name and attributes of the elements, use <xref href="PostSharp.Aspects.Advices.MulticastPointcut" data-throw-if-not-resolved="false"></xref> instead.
+          </p>
+  example: []
+  syntax:
+    content: 'public sealed class MethodPointcut : Pointcut'
+    content.vb: Public NotInheritable Class MethodPointcut Inherits Pointcut
+  seealso:
+  - linkType: HRef
+    linkId: '@advices'
+    altText: 'Conceptual: Adding Behaviors to Existing Members'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Pointcut
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.MethodPointcut.#ctor(System.String)
+  commentId: M:PostSharp.Aspects.Advices.MethodPointcut.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Aspects.Advices.MethodPointcut
+  langs:
+  - csharp
+  - vb
+  name: MethodPointcut(string)
+  nameWithType: MethodPointcut.MethodPointcut(string)
+  fullName: PostSharp.Aspects.Advices.MethodPointcut.MethodPointcut(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.MethodPointcut" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MethodPointcut(string methodName)
+    parameters:
+    - id: methodName
+      type: System.String
+      description: >-
+        The name of the method returning the set of targets. This method should have
+                      a specific signature as discussed in the <xref href="PostSharp.Aspects.Advices.MethodPointcut?text=class+documentation" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Sub New(methodName As String)
+  overload: PostSharp.Aspects.Advices.MethodPointcut.#ctor*
+  nameWithType.vb: MethodPointcut.New(String)
+  fullName.vb: PostSharp.Aspects.Advices.MethodPointcut.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Aspects.Advices.MethodPointcut.MethodName
+  commentId: P:PostSharp.Aspects.Advices.MethodPointcut.MethodName
+  id: MethodName
+  parent: PostSharp.Aspects.Advices.MethodPointcut
+  langs:
+  - csharp
+  - vb
+  name: MethodName
+  nameWithType: MethodPointcut.MethodName
+  fullName: PostSharp.Aspects.Advices.MethodPointcut.MethodName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the name of the method returning the set of code elements.
+  example: []
+  syntax:
+    content: public string MethodName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MethodName As String
+  overload: PostSharp.Aspects.Advices.MethodPointcut.MethodName*

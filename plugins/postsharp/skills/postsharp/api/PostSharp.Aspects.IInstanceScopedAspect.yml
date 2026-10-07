@@ -1,0 +1,152 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.IInstanceScopedAspect
+  commentId: T:PostSharp.Aspects.IInstanceScopedAspect
+  id: IInstanceScopedAspect
+  parent: PostSharp.Aspects
+  children:
+  - PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  - PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance
+  langs:
+  - csharp
+  - vb
+  name: IInstanceScopedAspect
+  nameWithType: IInstanceScopedAspect
+  fullName: PostSharp.Aspects.IInstanceScopedAspect
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Runtime semantics of aspects that have the same lifetime as instances of types
+
+    to which they are applied (or instances of the declaring type of members to which they are applied).
+  remarks: >-
+    <p>Aspects that do not implement this interface are statically scoped: there is one aspect instance per target declaration,
+            stored in a static field, even when the aspect is applied to an instance member. Implement this interface when the aspect needs
+            state per instance of the target type, for instance to import dependencies from the target object.</p>
+    <p>When an aspect is instance-scoped, a new instance of this aspect is created whenever an instance of the
+            type to which it has been applied is created (concretely, before the call to the base constructor and to the constructor of this type).</p>
+    <p>New aspect instances are obtained using the prototype design pattern. As any other aspect, an instance-scoped aspect
+            has a static instance initialized at build time, then serialized, deserialized at runtime, and initialized by <code>RuntimeInitialize</code>.
+            This static instance then serves as a prototype. When a new instance of the target type is created, the prototype is cloned
+            by the method <xref href="PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> (typically implemented by a call to <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>). Then some system
+            initializations (for example, member import) are performed on the aspect instance, and finally the <xref href="PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance" data-throw-if-not-resolved="false"></xref>
+            method is invoked.
+          </p>
+    <p>When an aspect implementing the <xref href="PostSharp.Aspects.IInstanceScopedAspect" data-throw-if-not-resolved="false"></xref> interface is applied on a static method, field, property, or event,
+            the aspect will be statically scoped and the interface will be ignored.</p>
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      public interface IInstanceScopedAspect : IAspect
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Public Interface IInstanceScopedAspect Inherits IAspect
+  seealso:
+  - linkType: HRef
+    linkId: '@aspect-lifetime'
+    altText: 'Conceptual: Understanding Aspect Lifetime and Scope'
+  - linkType: HRef
+    linkId: '@importing-dependencies'
+    altText: 'Conceptual: Importing Dependencies from the Target Object'
+  derivedClasses:
+  - PostSharp.Aspects.InstanceLevelAspect
+  - PostSharp.Patterns.Model.AggregatableAttribute
+  - PostSharp.Patterns.Model.AggregatableClientAttribute
+  - PostSharp.Patterns.Model.DisposableAttribute
+  - PostSharp.Patterns.Model.NotifyPropertyChangedAttribute
+  - PostSharp.Patterns.Model.WeakEventAttribute
+  - PostSharp.Patterns.Recording.EditableObjectAttribute
+  - PostSharp.Patterns.Recording.RecordableAttribute
+  - PostSharp.Patterns.Threading.ActorAttribute
+  - PostSharp.Patterns.Threading.FreezableAttribute
+  - PostSharp.Patterns.Threading.ImmutableAttribute
+  - PostSharp.Patterns.Threading.PrivateThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ReaderWriterSynchronizedAttribute
+  - PostSharp.Patterns.Threading.ReadOnlyThreadAwareAttribute
+  - PostSharp.Patterns.Threading.SynchronizedAttribute
+  - PostSharp.Patterns.Threading.ThreadAffineAttribute
+  - PostSharp.Patterns.Threading.ThreadAwareAttribute
+  - PostSharp.Patterns.Threading.ThreadUnsafeAttribute
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  commentId: M:PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  id: CreateInstance(PostSharp.Aspects.AdviceArgs)
+  parent: PostSharp.Aspects.IInstanceScopedAspect
+  langs:
+  - csharp
+  - vb
+  name: CreateInstance(AdviceArgs)
+  nameWithType: IInstanceScopedAspect.CreateInstance(AdviceArgs)
+  fullName: PostSharp.Aspects.IInstanceScopedAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: Creates a new instance of the aspect based on the current instance, serving as a prototype.
+  remarks: This method is typically implemented by invoking <xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      object CreateInstance(AdviceArgs adviceArgs)
+    parameters:
+    - id: adviceArgs
+      type: PostSharp.Aspects.AdviceArgs
+      description: Aspect arguments.
+    return:
+      type: System.Object
+      description: A new instance of the aspect, typically a clone of the current prototype instance.
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Function CreateInstance(adviceArgs As AdviceArgs) As Object
+  overload: PostSharp.Aspects.IInstanceScopedAspect.CreateInstance*
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []
+- uid: PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance
+  commentId: M:PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance
+  id: RuntimeInitializeInstance
+  parent: PostSharp.Aspects.IInstanceScopedAspect
+  langs:
+  - csharp
+  - vb
+  name: RuntimeInitializeInstance()
+  nameWithType: IInstanceScopedAspect.RuntimeInitializeInstance()
+  fullName: PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance()
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects
+  summary: >-
+    Initializes the aspect instance. This method is invoked when all system elements of the aspect (such as member imports)
+
+    have completed.
+  example: []
+  syntax:
+    content: >-
+      [HasInheritedAttribute]
+
+      void RuntimeInitializeInstance()
+    content.vb: >-
+      <HasInheritedAttribute>
+
+      Sub RuntimeInitializeInstance()
+  overload: PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance*
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.InitializeAspectInstanceAdvice
+    commentId: T:PostSharp.Aspects.Advices.InitializeAspectInstanceAdvice
+  attributes:
+  - type: PostSharp.Extensibility.HasInheritedAttributeAttribute
+    ctor: PostSharp.Extensibility.HasInheritedAttributeAttribute.#ctor
+    arguments: []

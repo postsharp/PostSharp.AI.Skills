@@ -1,0 +1,192 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  commentId: T:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  id: LoggingContextLocalConfiguration
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.#ctor(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Clone
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Freeze
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsEnabled
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsReadOnly
+  - PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity
+  langs:
+  - csharp
+  - vb
+  name: LoggingContextLocalConfiguration
+  nameWithType: LoggingContextLocalConfiguration
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Stores the context-sensitive configuration, that is, the configuration that is specific to the current execution context.
+  remarks: >-
+    <p>
+        User code can switch from one <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> to another for the current context using the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)" data-throw-if-not-resolved="false"></xref> method.
+        The current instance is exposed by the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.CurrentContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> property. The default instance is exposed by the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.DefaultContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> property.
+        </p>
+    <p>Unlike <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>, this class is lightweight and can be allocated at high frequency. However, it is recommended that only a few instances of
+        the <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref> class are created.
+        </p>
+  example: []
+  syntax:
+    content: public class LoggingContextLocalConfiguration
+    content.vb: Public Class LoggingContextLocalConfiguration
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.#ctor(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.#ctor(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  id: '#ctor(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)'
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  langs:
+  - csharp
+  - vb
+  name: LoggingContextLocalConfiguration(LoggingVerbosityConfiguration)
+  nameWithType: LoggingContextLocalConfiguration.LoggingContextLocalConfiguration(LoggingVerbosityConfiguration)
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.LoggingContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: protected LoggingContextLocalConfiguration(LoggingVerbosityConfiguration verbosityConfiguration)
+    parameters:
+    - id: verbosityConfiguration
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+      description: A <xref href="PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: PostSharp.Patterns.Contracts.RequiredAttribute
+        ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
+        arguments: []
+    content.vb: Protected Sub New(verbosityConfiguration As LoggingVerbosityConfiguration)
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.#ctor*
+  nameWithType.vb: LoggingContextLocalConfiguration.New(LoggingVerbosityConfiguration)
+  fullName.vb: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.New(PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration)
+  name.vb: New(LoggingVerbosityConfiguration)
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Clone
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Clone
+  id: Clone
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: LoggingContextLocalConfiguration.Clone()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Clone()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Returns a shallow copy of the current instance. The copy shares the same value of the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public virtual LoggingContextLocalConfiguration Clone()
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+      description: A shallow copy of the current instance.
+    content.vb: Public Overridable Function Clone() As LoggingContextLocalConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Clone*
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Freeze
+  commentId: M:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Freeze
+  id: Freeze
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Freeze()
+  nameWithType: LoggingContextLocalConfiguration.Freeze()
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Freeze()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Prevents changes in the current instance. This method is called when the <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> is passed to the <xref href="PostSharp.Patterns.Diagnostics.LoggingBackend.WithContextLocalConfiguration(PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration)" data-throw-if-not-resolved="false"></xref> method.
+  example: []
+  syntax:
+    content: protected virtual void Freeze()
+    content.vb: Protected Overridable Sub Freeze()
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Freeze*
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity
+  id: Verbosity
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Verbosity
+  nameWithType: LoggingContextLocalConfiguration.Verbosity
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets the configuration of the minimum <xref href="PostSharp.Patterns.Diagnostics.LogLevel" data-throw-if-not-resolved="false"></xref> that is still logged for the current <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public LoggingVerbosityConfiguration Verbosity { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration
+    content.vb: Public Property Verbosity As LoggingVerbosityConfiguration
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.Verbosity*
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsReadOnly
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsReadOnly
+  id: IsReadOnly
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: LoggingContextLocalConfiguration.IsReadOnly
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsReadOnly
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Gets a value indicating whether the current <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> is read-only. A <xref href="PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration" data-throw-if-not-resolved="false"></xref> is frozen when it is assigned to a caching backend.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsReadOnly*
+- uid: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsEnabled
+  commentId: P:PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsEnabled
+  id: IsEnabled
+  parent: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: LoggingContextLocalConfiguration.IsEnabled
+  fullName: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: >-
+    Gets or sets a value indicating whether logging is enabled for all contexts that use this configuration. This is typically used
+
+    to disable logging for the current transaction. If logging is disabled, the default configuration is used.
+  example: []
+  syntax:
+    content: public bool IsEnabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsEnabled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.LoggingContextLocalConfiguration.IsEnabled*

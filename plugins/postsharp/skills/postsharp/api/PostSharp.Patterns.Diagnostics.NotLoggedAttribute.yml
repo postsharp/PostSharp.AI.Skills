@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.NotLoggedAttribute
+  commentId: T:PostSharp.Patterns.Diagnostics.NotLoggedAttribute
+  id: NotLoggedAttribute
+  parent: PostSharp.Patterns.Diagnostics
+  children:
+  - PostSharp.Patterns.Diagnostics.NotLoggedAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: NotLoggedAttribute
+  nameWithType: NotLoggedAttribute
+  fullName: PostSharp.Patterns.Diagnostics.NotLoggedAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  summary: Indicates that the value of this parameter should not be logged.
+  remarks: >-
+    <p>Apply this attribute to a parameter, or to a return value with <code>[return: NotLogged]</code>, of a method that is logged
+        with <xref href="PostSharp.Patterns.Diagnostics.LogAttribute" data-throw-if-not-resolved="false"></xref>. The log records then contain <code>*******</code> instead of the value.</p>
+    <p>The values of parameters of type <xref href="System.Security.SecureString" data-throw-if-not-resolved="false"></xref>, and of parameters whose name contains <code>password</code>
+        or <code>pwd</code> (case-insensitive), are hidden even without this attribute.</p>
+  example: []
+  syntax:
+    content: >-
+      [AttributeUsage(AttributeTargets.Parameter|AttributeTargets.ReturnValue)]
+
+      public sealed class NotLoggedAttribute : Attribute
+    content.vb: >-
+      <AttributeUsage(AttributeTargets.ParameterOrAttributeTargets.ReturnValue)>
+
+      Public NotInheritable Class NotLoggedAttribute Inherits Attribute
+  seealso:
+  - linkType: HRef
+    linkId: '@logging-hiding-sensitive-data'
+    altText: 'Conceptual: Hiding Sensitive Data When Logging'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.AttributeUsageAttribute
+    ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
+    arguments:
+    - type: System.AttributeTargets
+      value: 10240
+- uid: PostSharp.Patterns.Diagnostics.NotLoggedAttribute.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.NotLoggedAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.NotLoggedAttribute
+  langs:
+  - csharp
+  - vb
+  name: NotLoggedAttribute()
+  nameWithType: NotLoggedAttribute.NotLoggedAttribute()
+  fullName: PostSharp.Patterns.Diagnostics.NotLoggedAttribute.NotLoggedAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics
+  syntax:
+    content: public NotLoggedAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.NotLoggedAttribute.#ctor*
+  nameWithType.vb: NotLoggedAttribute.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.NotLoggedAttribute.New()
+  name.vb: New()

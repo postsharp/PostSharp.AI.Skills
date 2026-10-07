@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet
+  commentId: T:PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet
+  id: IDynamicallyAdvisableHashSet
+  parent: PostSharp.Patterns.Collections.Advices
+  children:
+  - PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet.ItemType
+  langs:
+  - csharp
+  - vb
+  name: IDynamicallyAdvisableHashSet
+  nameWithType: IDynamicallyAdvisableHashSet
+  fullName: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Defines the semantics of a collection that can be advised dynamically.
+  example: []
+  syntax:
+    content: 'public interface IDynamicallyAdvisableHashSet : IDynamicallyAdvisable, IQueryInterface, ICollection, IEnumerable'
+    content.vb: Public Interface IDynamicallyAdvisableHashSet Inherits IDynamicallyAdvisable, IQueryInterface, ICollection, IEnumerable
+  derivedClasses:
+  - PostSharp.Patterns.Collections.AdvisableHashSet`1
+  inheritedMembers:
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Advise(System.Type,System.Func{PostSharp.Patterns.DynamicAdvising.IQueryInterface,PostSharp.Patterns.DynamicAdvising.IDynamicAdvice})
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.Unadvise(System.Type)
+  - PostSharp.Patterns.DynamicAdvising.IDynamicallyAdvisable.QueryAdvice``1
+  - PostSharp.Patterns.DynamicAdvising.IQueryInterface.QueryInterface``1
+  - System.Collections.ICollection.CopyTo(System.Array,System.Int32)
+  - System.Collections.ICollection.Count
+  - System.Collections.ICollection.SyncRoot
+  - System.Collections.ICollection.IsSynchronized
+  - System.Collections.IEnumerable.GetEnumerator
+- uid: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet.ItemType
+  commentId: P:PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet.ItemType
+  id: ItemType
+  parent: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet
+  langs:
+  - csharp
+  - vb
+  name: ItemType
+  nameWithType: IDynamicallyAdvisableHashSet.ItemType
+  fullName: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet.ItemType
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Collections.Advices
+  summary: Gets the type of items in the collection.
+  example: []
+  syntax:
+    content: Type ItemType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: ReadOnly Property ItemType As Type
+  overload: PostSharp.Patterns.Collections.Advices.IDynamicallyAdvisableHashSet.ItemType*

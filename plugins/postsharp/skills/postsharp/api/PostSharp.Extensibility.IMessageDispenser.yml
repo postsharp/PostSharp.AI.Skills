@@ -1,0 +1,73 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.IMessageDispenser
+  commentId: T:PostSharp.Extensibility.IMessageDispenser
+  id: IMessageDispenser
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.IMessageDispenser.GetMessage(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IMessageDispenser
+  nameWithType: IMessageDispenser
+  fullName: PostSharp.Extensibility.IMessageDispenser
+  type: Interface
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Provides a method that returns a text given its key.
+  remarks: >-
+    <p>A message dispenser supplies the message texts of a <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref>, so that all the texts of a component are
+        stored in a single place. <xref href="PostSharp.Extensibility.MessageSource" data-throw-if-not-resolved="false"></xref> calls <xref href="PostSharp.Extensibility.IMessageDispenser.GetMessage(System.String)" data-throw-if-not-resolved="false"></xref> with the message identifier to get the formatting string
+        of the message text, and with the message identifier followed by <code>?</code> to get the help link. Return <code>null</code> when the
+        key is unknown.</p>
+    <p>Derive from <xref href="PostSharp.Extensibility.MessageDispenser" data-throw-if-not-resolved="false"></xref> instead of implementing this interface from scratch when your message identifiers
+        consist of a prefix followed by a number.</p>
+  example: []
+  syntax:
+    content: public interface IMessageDispenser
+    content.vb: Public Interface IMessageDispenser
+  seealso:
+  - linkId: PostSharp.Extensibility.MessageDispenser
+    commentId: T:PostSharp.Extensibility.MessageDispenser
+  - linkId: PostSharp.Extensibility.MessageSource
+    commentId: T:PostSharp.Extensibility.MessageSource
+  - linkType: HRef
+    linkId: '@emitting-errors'
+    altText: 'Conceptual: Emitting Errors, Warnings, and Messages'
+  - linkType: HRef
+    linkId: '@aspect-validation'
+    altText: 'Conceptual: Validating Aspect Usage'
+  derivedClasses:
+  - PostSharp.Extensibility.MessageDispenser
+- uid: PostSharp.Extensibility.IMessageDispenser.GetMessage(System.String)
+  commentId: M:PostSharp.Extensibility.IMessageDispenser.GetMessage(System.String)
+  id: GetMessage(System.String)
+  parent: PostSharp.Extensibility.IMessageDispenser
+  langs:
+  - csharp
+  - vb
+  name: GetMessage(string)
+  nameWithType: IMessageDispenser.GetMessage(string)
+  fullName: PostSharp.Extensibility.IMessageDispenser.GetMessage(string)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Returns the message text for a message key.
+  example: []
+  syntax:
+    content: string GetMessage(string key)
+    parameters:
+    - id: key
+      type: System.String
+      description: The message key.
+    return:
+      type: System.String
+      description: The text corresponding to <code class="paramref">key</code>.
+    content.vb: Function GetMessage(key As String) As String
+  overload: PostSharp.Extensibility.IMessageDispenser.GetMessage*
+  nameWithType.vb: IMessageDispenser.GetMessage(String)
+  fullName.vb: PostSharp.Extensibility.IMessageDispenser.GetMessage(String)
+  name.vb: GetMessage(String)

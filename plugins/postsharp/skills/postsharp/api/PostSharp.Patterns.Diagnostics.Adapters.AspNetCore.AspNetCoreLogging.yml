@@ -1,0 +1,119 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging
+  commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging
+  id: AspNetCoreLogging
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  children:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.#ctor
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)
+  langs:
+  - csharp
+  - vb
+  name: AspNetCoreLogging
+  nameWithType: AspNetCoreLogging
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: >-
+    Instruments the ASP.NET Core stack to define new logging activities (and possibly transactions) for incoming HTTP requests.
+
+    This implementation is based on <xref href="System.Diagnostics.DiagnosticListener" data-throw-if-not-resolved="false"></xref> and will capture all incoming requests.
+  remarks: >-
+    <p>Call <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol%2cSystem.Predicate%7bMicrosoft.AspNetCore.Http.HttpRequest%7d%2cPostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)" data-throw-if-not-resolved="false"></xref> once when the application starts, and dispose of the object it returns to stop the instrumentation.</p>
+
+    <p>For distributed logging, pass an <xref href="PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol" data-throw-if-not-resolved="false"></xref> such as <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol" data-throw-if-not-resolved="false"></xref>,
+        and use the same protocol in the instrumentation of the clients. Accept correlation headers from trusted callers only,
+        for example by passing a predicate to the constructor of <xref href="PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>Each captured request can open a logging transaction. A transaction policy of type <code>AspNetCoreRequest</code> in the
+        logging configuration file can set the verbosity of selected requests, and its expressions see the request as an
+        <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestExpressionModel" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public sealed class AspNetCoreLogging
+    content.vb: Public NotInheritable Class AspNetCoreLogging
+  seealso:
+  - linkId: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestExpressionModel
+    commentId: T:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestExpressionModel
+  - linkType: HRef
+    linkId: '@logging-instrumentation'
+    altText: 'Conceptual: Instrumentation of ASP.NET and HttpClient'
+  - linkType: HRef
+    linkId: '@log-enabling'
+    altText: 'Conceptual: Adjusting Logging Verbosity'
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)
+  id: Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging
+  langs:
+  - csharp
+  - vb
+  name: Initialize(ICorrelationProtocol, Predicate<HttpRequest>, LogEventMetadata)
+  nameWithType: AspNetCoreLogging.Initialize(ICorrelationProtocol, Predicate<HttpRequest>, LogEventMetadata)
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol, System.Predicate<Microsoft.AspNetCore.Http.HttpRequest>, PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  summary: Instruments the ASP.NET Core stack to define new logging activities (and possibly transactions) for incoming HTTP requests.
+  example: []
+  syntax:
+    content: public static IDisposable Initialize(ICorrelationProtocol correlationProtocol = null, Predicate<HttpRequest> filter = null, LogEventMetadata metadata = null)
+    parameters:
+    - id: correlationProtocol
+      type: PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol
+      description: >-
+        An optional implementation of <xref href="PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol" data-throw-if-not-resolved="false"></xref> to support
+                    distributed logging and interpret incoming request headers.
+    - id: filter
+      type: System.Predicate{Microsoft.AspNetCore.Http.HttpRequest}
+      description: >-
+        An optional predicate that determines which requests must be captured.
+                    If that parameter is omitted, the paths <code>/lib</code>, <code>/css</code> and <code>/js</code> will be ignored.
+    - id: metadata
+      type: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata
+      description: >-
+        An optional <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata" data-throw-if-not-resolved="false"></xref>, which maps an <xref href="Microsoft.AspNetCore.Http.HttpContext" data-throw-if-not-resolved="false"></xref>
+                    to a set of properties and an expression model. The default implementation is <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata" data-throw-if-not-resolved="false"></xref>.
+                    You can derive this class if you want to add or remove properties. If you want to change the expression model,
+                    you have to derive the generic abstract <xref href="PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreRequestMetadata%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.IDisposable
+      description: <p>An opaque <xref href="System.IDisposable" data-throw-if-not-resolved="false"></xref> that you can dispose to stop collecting logs from ASP.NET Core.</p>
+    content.vb: Public Shared Function Initialize(correlationProtocol As ICorrelationProtocol = Nothing, filter As Predicate(Of HttpRequest) = Nothing, metadata As LogEventMetadata = Nothing) As IDisposable
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize*
+  nameWithType.vb: AspNetCoreLogging.Initialize(ICorrelationProtocol, Predicate(Of HttpRequest), LogEventMetadata)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol, System.Predicate(Of Microsoft.AspNetCore.Http.HttpRequest), PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)
+  name.vb: Initialize(ICorrelationProtocol, Predicate(Of HttpRequest), LogEventMetadata)
+- uid: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging
+  langs:
+  - csharp
+  - vb
+  name: AspNetCoreLogging()
+  nameWithType: AspNetCoreLogging.AspNetCoreLogging()
+  fullName: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.AspNetCoreLogging()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  namespace: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore
+  syntax:
+    content: public AspNetCoreLogging()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.#ctor*
+  nameWithType.vb: AspNetCoreLogging.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.New()
+  name.vb: New()

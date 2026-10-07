@@ -1,0 +1,205 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  commentId: T:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  id: TransactionRequirement
+  parent: PostSharp.Patterns.Diagnostics.Transactions
+  children:
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.DeterministicTransaction
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.IsSampled
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.NoTransaction
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.SampledTransaction
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.ToString
+  - PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.WithRequiresTransaction(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: TransactionRequirement
+  nameWithType: TransactionRequirement
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  type: Struct
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Represents the decision whether, why and how a transaction must be opened for an activity.
+  example: []
+  syntax:
+    content: public readonly struct TransactionRequirement
+    content.vb: Public Structure TransactionRequirement
+  inheritedMembers:
+  - System.ValueType.Equals(System.Object)
+  - System.ValueType.GetHashCode
+  - System.Object.GetType
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.WithRequiresTransaction(System.Boolean)
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.WithRequiresTransaction(System.Boolean)
+  id: WithRequiresTransaction(System.Boolean)
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: WithRequiresTransaction(bool)
+  nameWithType: TransactionRequirement.WithRequiresTransaction(bool)
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.WithRequiresTransaction(bool)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: >-
+    Returns a copy of the current <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement" data-throw-if-not-resolved="false"></xref>, but with a different value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction" data-throw-if-not-resolved="false"></xref>.
+
+    Specifically, this method preserves the <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.IsSampled" data-throw-if-not-resolved="false"></xref> property if the <code class="paramref">value</code> parameter is <code>true</code>.
+  example: []
+  syntax:
+    content: public TransactionRequirement WithRequiresTransaction(bool value)
+    parameters:
+    - id: value
+      type: System.Boolean
+      description: The new value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+      description: A copy of the current <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement" data-throw-if-not-resolved="false"></xref> with the specified value of <xref href="PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function WithRequiresTransaction(value As Boolean) As TransactionRequirement
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.WithRequiresTransaction*
+  nameWithType.vb: TransactionRequirement.WithRequiresTransaction(Boolean)
+  fullName.vb: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.WithRequiresTransaction(Boolean)
+  name.vb: WithRequiresTransaction(Boolean)
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.ToString
+  commentId: M:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.ToString
+  id: ToString
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: TransactionRequirement.ToString()
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.ToString()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.ValueType.ToString
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.ToString*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.IsSampled
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.IsSampled
+  id: IsSampled
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: IsSampled
+  nameWithType: TransactionRequirement.IsSampled
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.IsSampled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets a value indicating whether the transaction must be opened based on a sampling policy.
+  example: []
+  syntax:
+    content: public bool IsSampled { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsSampled As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.IsSampled*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction
+  id: RequiresTransaction
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: RequiresTransaction
+  nameWithType: TransactionRequirement.RequiresTransaction
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Gets a value indicating whether the activity requires a transaction to be opened.
+  example: []
+  syntax:
+    content: public bool RequiresTransaction { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property RequiresTransaction As Boolean
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.RequiresTransaction*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.SampledTransaction
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.SampledTransaction
+  id: SampledTransaction
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: SampledTransaction
+  nameWithType: TransactionRequirement.SampledTransaction
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.SampledTransaction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Represents the request to open a transaction based on a sampling policy.
+  example: []
+  syntax:
+    content: public static TransactionRequirement SampledTransaction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+    content.vb: Public Shared ReadOnly Property SampledTransaction As TransactionRequirement
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.SampledTransaction*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.DeterministicTransaction
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.DeterministicTransaction
+  id: DeterministicTransaction
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: DeterministicTransaction
+  nameWithType: TransactionRequirement.DeterministicTransaction
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.DeterministicTransaction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Represents the request to open a transaction based on a deterministic policy (without sampling).
+  example: []
+  syntax:
+    content: public static TransactionRequirement DeterministicTransaction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+    content.vb: Public Shared ReadOnly Property DeterministicTransaction As TransactionRequirement
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.DeterministicTransaction*
+- uid: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.NoTransaction
+  commentId: P:PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.NoTransaction
+  id: NoTransaction
+  parent: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+  langs:
+  - csharp
+  - vb
+  name: NoTransaction
+  nameWithType: TransactionRequirement.NoTransaction
+  fullName: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.NoTransaction
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Transactions
+  summary: Represents the absence of a request to open a transaction.
+  example: []
+  syntax:
+    content: public static TransactionRequirement NoTransaction { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement
+    content.vb: Public Shared ReadOnly Property NoTransaction As TransactionRequirement
+  overload: PostSharp.Patterns.Diagnostics.Transactions.TransactionRequirement.NoTransaction*

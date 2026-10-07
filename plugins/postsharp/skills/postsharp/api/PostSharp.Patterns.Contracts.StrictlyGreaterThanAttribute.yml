@@ -1,0 +1,326 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  commentId: T:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  id: StrictlyGreaterThanAttribute
+  parent: PostSharp.Patterns.Contracts
+  children:
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.Double)
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.Int64)
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.UInt64)
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessage
+  - PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessageArguments
+  langs:
+  - csharp
+  - vb
+  name: StrictlyGreaterThanAttribute
+  nameWithType: StrictlyGreaterThanAttribute
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Custom attribute that, when added to a field, property or parameter, throws
+
+    an <xref href="System.ArgumentOutOfRangeException" data-throw-if-not-resolved="false"></xref> if the target is assigned a value that
+
+    is smaller than or equal to a given value.
+  remarks: >-
+    <p>Null values are accepted and do not throw an exception.
+        </p>
+    <p>
+            Floating-point values are tested to be greater than or equal to the minimum value
+            plus a tolerance value. The tolerance value is equal to the distance
+            of the value closest to the minimum value according to the precision
+            of the respective floating-point numerical data type.
+        </p>
+    <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictlyGreaterThanErrorMessage" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>The error message can use the additional argument <code>{4}</code> to refer to the minimum value used.</p>
+  example: []
+  syntax:
+    content: 'public class StrictlyGreaterThanAttribute : RangeAttribute, ILocationLevelAspect, IValidableAnnotation, IAspect'
+    content.vb: Public Class StrictlyGreaterThanAttribute Inherits RangeAttribute Implements ILocationLevelAspect, IValidableAnnotation, IAspect
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Extensibility.MulticastAttribute
+  - PostSharp.Patterns.Contracts.LocationContractAttribute
+  - PostSharp.Patterns.Contracts.RangeAttribute
+  derivedClasses:
+  - PostSharp.Patterns.Contracts.StrictlyPositiveAttribute
+  implements:
+  - PostSharp.Aspects.ILocationLevelAspect
+  - PostSharp.Extensibility.IValidableAnnotation
+  - PostSharp.Aspects.IAspect
+  inheritedMembers:
+  - PostSharp.Patterns.Contracts.RangeAttribute.ValidateValueDynamic(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  - PostSharp.Patterns.Contracts.RangeAttribute.CompileTimeValidate(System.Object)
+  - PostSharp.Patterns.Contracts.RangeAttribute.DisplayMinValue
+  - PostSharp.Patterns.Contracts.RangeAttribute.DisplayMaxValue
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CompileTimeValidate(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.SelectSelfOrNothing(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.RuntimeInitialize(PostSharp.Reflection.LocationInfo)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.FormatErrorMessage(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentNullException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreateArgumentOutOfRangeException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.CreatePostconditionFailedException(System.Object,System.String,PostSharp.Reflection.LocationKind)
+  - PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalTypeAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMembers
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetExternalMemberAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameters
+  - PostSharp.Extensibility.MulticastAttribute.AttributeTargetParameterAttributes
+  - PostSharp.Extensibility.MulticastAttribute.AttributeExclude
+  - PostSharp.Extensibility.MulticastAttribute.AttributePriority
+  - PostSharp.Extensibility.MulticastAttribute.AttributeReplace
+  - PostSharp.Extensibility.MulticastAttribute.AttributeInheritance
+  - PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.Int64)
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.Int64)
+  id: '#ctor(System.Int64)'
+  parent: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  langs:
+  - csharp
+  - vb
+  name: StrictlyGreaterThanAttribute(long)
+  nameWithType: StrictlyGreaterThanAttribute.StrictlyGreaterThanAttribute(long)
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.StrictlyGreaterThanAttribute(long)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute" data-throw-if-not-resolved="false"></xref> class with a given integer bound.
+  example: []
+  syntax:
+    content: public StrictlyGreaterThanAttribute(long min)
+    parameters:
+    - id: min
+      type: System.Int64
+      description: The lower bound.
+    content.vb: Public Sub New(min As Long)
+  overload: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor*
+  nameWithType.vb: StrictlyGreaterThanAttribute.New(Long)
+  fullName.vb: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.New(Long)
+  name.vb: New(Long)
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.UInt64)
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.UInt64)
+  id: '#ctor(System.UInt64)'
+  parent: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  langs:
+  - csharp
+  - vb
+  name: StrictlyGreaterThanAttribute(ulong)
+  nameWithType: StrictlyGreaterThanAttribute.StrictlyGreaterThanAttribute(ulong)
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.StrictlyGreaterThanAttribute(ulong)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute" data-throw-if-not-resolved="false"></xref> class with a given <xref href="System.UInt64" data-throw-if-not-resolved="false"></xref> bound.
+  example: []
+  syntax:
+    content: public StrictlyGreaterThanAttribute(ulong min)
+    parameters:
+    - id: min
+      type: System.UInt64
+      description: The lower bound.
+    content.vb: Public Sub New(min As ULong)
+  overload: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor*
+  nameWithType.vb: StrictlyGreaterThanAttribute.New(ULong)
+  fullName.vb: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.New(ULong)
+  name.vb: New(ULong)
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.Double)
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  langs:
+  - csharp
+  - vb
+  name: StrictlyGreaterThanAttribute(double)
+  nameWithType: StrictlyGreaterThanAttribute.StrictlyGreaterThanAttribute(double)
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.StrictlyGreaterThanAttribute(double)
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute" data-throw-if-not-resolved="false"></xref> class with a given floating-point bound.
+  example: []
+  syntax:
+    content: public StrictlyGreaterThanAttribute(double min)
+    parameters:
+    - id: min
+      type: System.Double
+      description: The lower bound.
+    content.vb: Public Sub New(min As Double)
+  overload: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.#ctor*
+  nameWithType.vb: StrictlyGreaterThanAttribute.New(Double)
+  fullName.vb: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.New(Double)
+  name.vb: New(Double)
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessage
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessage
+  id: GetErrorMessage
+  parent: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: StrictlyGreaterThanAttribute.GetErrorMessage()
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessage()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: Gets the unformatted error message as defined by the instance.
+  remarks: >-
+    <p>See remarks on <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref> for information about message parameters.</p>
+
+    <p>The use of this method can be overridden by setting the <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute.ErrorMessage" data-throw-if-not-resolved="false"></xref> property to a non-null value.</p>
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")]
+
+      protected override string GetErrorMessage()
+    return:
+      type: System.String
+      description: The unformatted error message.
+    content.vb: >-
+      <Obsolete("Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessage() As String
+  overridden: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessage
+  overload: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessage*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractExceptionFactory and ContractLocalizedTextProvider to generate error messages.
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  id: CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  parent: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  langs:
+  - csharp
+  - vb
+  name: CreateException(object, string, LocationKind, LocationValidationContext)
+  nameWithType: StrictlyGreaterThanAttribute.CreateException(object, string, LocationKind, LocationValidationContext)
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.CreateException(object, string, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  example: []
+  syntax:
+    content: protected override Exception CreateException(object value, string locationName, LocationKind locationKind, LocationValidationContext context)
+    parameters:
+    - id: value
+      type: System.Object
+    - id: locationName
+      type: System.String
+    - id: locationKind
+      type: PostSharp.Reflection.LocationKind
+    - id: context
+      type: PostSharp.Aspects.LocationValidationContext
+    return:
+      type: System.Exception
+    content.vb: Protected Overrides Function CreateException(value As Object, locationName As String, locationKind As LocationKind, context As LocationValidationContext) As Exception
+  overridden: PostSharp.Patterns.Contracts.RangeAttribute.CreateException(System.Object,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)
+  overload: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.CreateException*
+  nameWithType.vb: StrictlyGreaterThanAttribute.CreateException(Object, String, LocationKind, LocationValidationContext)
+  fullName.vb: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.CreateException(Object, String, PostSharp.Reflection.LocationKind, PostSharp.Aspects.LocationValidationContext)
+  name.vb: CreateException(Object, String, LocationKind, LocationValidationContext)
+- uid: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessageArguments
+  commentId: M:PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessageArguments
+  id: GetErrorMessageArguments
+  parent: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessageArguments()
+  nameWithType: StrictlyGreaterThanAttribute.GetErrorMessageArguments()
+  fullName: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessageArguments()
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Contracts
+  summary: >-
+    Gets the values of the additional arguments for the error message associated with a particular instance of <xref href="PostSharp.Patterns.Contracts.LocationContractAttribute" data-throw-if-not-resolved="false"></xref>.
+
+    These arguments can be referenced from the error message string by <code>{4}</code>, <code>{5}</code>, and so on.
+  remarks: >-
+    This method is expected to be pure, that is, its result can be cached. The implementer should not return information that may change
+
+    after the constructor of the class has finished.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")]
+
+      protected override object[] GetErrorMessageArguments()
+    return:
+      type: System.Object[]
+      description: An array of additional argument values.
+    content.vb: >-
+      <Obsolete("Use ContractServices.ExceptionFactory.CreateException to generate error messages.")>
+
+      Protected Overrides Function GetErrorMessageArguments() As Object()
+  overridden: PostSharp.Patterns.Contracts.RangeAttribute.GetErrorMessageArguments
+  overload: PostSharp.Patterns.Contracts.StrictlyGreaterThanAttribute.GetErrorMessageArguments*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use ContractServices.ExceptionFactory.CreateException to generate error messages.

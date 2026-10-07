@@ -1,0 +1,143 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  commentId: T:PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  id: SyntheticIdFormatter
+  parent: PostSharp.Patterns.Diagnostics.Formatters
+  children:
+  - PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.#ctor
+  - PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.GenerateChildContextId(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  - PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteContextId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  - PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteRecordId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  langs:
+  - csharp
+  - vb
+  name: SyntheticIdFormatter
+  nameWithType: SyntheticIdFormatter
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: An abstract class whose implementations generate the value of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property.
+  example: []
+  syntax:
+    content: public abstract class SyntheticIdFormatter
+    content.vb: Public MustInherit Class SyntheticIdFormatter
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Formatters.DefaultSyntheticIdFormatter
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteContextId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteContextId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  id: WriteContextId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  langs:
+  - csharp
+  - vb
+  name: WriteContextId(UnsafeStringBuilder, LoggingContext)
+  nameWithType: SyntheticIdFormatter.WriteContextId(UnsafeStringBuilder, LoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteContextId(PostSharp.Patterns.Formatters.UnsafeStringBuilder, PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Generates the value of the <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext.SyntheticId" data-throw-if-not-resolved="false"></xref> property of a <xref href="PostSharp.Patterns.Diagnostics.Contexts.LoggingContext" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract void WriteContextId(UnsafeStringBuilder stringBuilder, LoggingContext context)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+      description: The context for which the synthetic ID needs to be generated.
+    content.vb: Public MustOverride Sub WriteContextId(stringBuilder As UnsafeStringBuilder, context As LoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteContextId*
+- uid: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteRecordId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteRecordId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  id: WriteRecordId(PostSharp.Patterns.Formatters.UnsafeStringBuilder,PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  langs:
+  - csharp
+  - vb
+  name: WriteRecordId(UnsafeStringBuilder, LoggingContext)
+  nameWithType: SyntheticIdFormatter.WriteRecordId(UnsafeStringBuilder, LoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteRecordId(PostSharp.Patterns.Formatters.UnsafeStringBuilder, PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Generates the value of the <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder.SyntheticId" data-throw-if-not-resolved="false"></xref> property of a <xref href="PostSharp.Patterns.Diagnostics.RecordBuilders.LogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public abstract void WriteRecordId(UnsafeStringBuilder stringBuilder, LoggingContext context)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+      description: The context for which the synthetic ID needs to be generated.
+    content.vb: Public MustOverride Sub WriteRecordId(stringBuilder As UnsafeStringBuilder, context As LoggingContext)
+  overload: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.WriteRecordId*
+- uid: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.GenerateChildContextId(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.GenerateChildContextId(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  id: GenerateChildContextId(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  parent: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  langs:
+  - csharp
+  - vb
+  name: GenerateChildContextId(LoggingContext)
+  nameWithType: SyntheticIdFormatter.GenerateChildContextId(LoggingContext)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.GenerateChildContextId(PostSharp.Patterns.Diagnostics.Contexts.LoggingContext)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: >-
+    Generates a new synthetic ID for a child of a given context. This context ID can then be assigned to
+
+    <xref href="PostSharp.Patterns.Diagnostics.OpenActivityOptions.SyntheticRootId" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public virtual string GenerateChildContextId(LoggingContext context)
+    parameters:
+    - id: context
+      type: PostSharp.Patterns.Diagnostics.Contexts.LoggingContext
+      description: The parent context ID.
+    return:
+      type: System.String
+      description: The new synthetic ID.
+    content.vb: Public Overridable Function GenerateChildContextId(context As LoggingContext) As String
+  overload: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.GenerateChildContextId*
+- uid: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter
+  langs:
+  - csharp
+  - vb
+  name: SyntheticIdFormatter()
+  nameWithType: SyntheticIdFormatter.SyntheticIdFormatter()
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.SyntheticIdFormatter()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  syntax:
+    content: protected SyntheticIdFormatter()
+    content.vb: Protected Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.#ctor*
+  nameWithType.vb: SyntheticIdFormatter.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.SyntheticIdFormatter.New()
+  name.vb: New()

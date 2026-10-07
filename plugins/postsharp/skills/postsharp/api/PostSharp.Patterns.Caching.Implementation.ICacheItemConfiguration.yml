@@ -1,0 +1,208 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  commentId: T:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  id: ICacheItemConfiguration
+  parent: PostSharp.Patterns.Caching.Implementation
+  children:
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AbsoluteExpiration
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AutoReload
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IgnoreThisParameter
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IsEnabled
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.Priority
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.ProfileName
+  - PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.SlidingExpiration
+  langs:
+  - csharp
+  - vb
+  name: ICacheItemConfiguration
+  nameWithType: ICacheItemConfiguration
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Configuration of a cached method. This interface is implemented by several classes that allow the configuration of
+
+    cached methods.
+  example: []
+  syntax:
+    content: public interface ICacheItemConfiguration
+    content.vb: Public Interface ICacheItemConfiguration
+  derivedClasses:
+  - PostSharp.Patterns.Caching.CachingProfile
+  - PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IsEnabled
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IsEnabled
+  id: IsEnabled
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IsEnabled
+  nameWithType: ICacheItemConfiguration.IsEnabled
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IsEnabled
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets a value indicating whether caching is enabled.
+  example: []
+  syntax:
+    content: bool? IsEnabled { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: ReadOnly Property IsEnabled As Boolean?
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IsEnabled*
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AbsoluteExpiration
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AbsoluteExpiration
+  id: AbsoluteExpiration
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteExpiration
+  nameWithType: ICacheItemConfiguration.AbsoluteExpiration
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AbsoluteExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the total duration during which the result of the cached methods is stored in the cache. The absolute
+
+    expiration time is counted from the moment the method is evaluated and cached.
+  example: []
+  syntax:
+    content: TimeSpan? AbsoluteExpiration { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: ReadOnly Property AbsoluteExpiration As TimeSpan?
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AbsoluteExpiration*
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AutoReload
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AutoReload
+  id: AutoReload
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: AutoReload
+  nameWithType: ICacheItemConfiguration.AutoReload
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AutoReload
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a value indicating whether the method calls are automatically reloaded (by re-evaluating the target method with the same arguments)
+
+    when the cache item is removed from the cache.
+  example: []
+  syntax:
+    content: bool? AutoReload { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: ReadOnly Property AutoReload As Boolean?
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.AutoReload*
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.Priority
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.Priority
+  id: Priority
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Priority
+  nameWithType: ICacheItemConfiguration.Priority
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.Priority
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the priority of the cached methods.
+  example: []
+  syntax:
+    content: CacheItemPriority? Priority { get; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Patterns.Caching.Implementation.CacheItemPriority}
+    content.vb: ReadOnly Property Priority As CacheItemPriority?
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.Priority*
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.ProfileName
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.ProfileName
+  id: ProfileName
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ProfileName
+  nameWithType: ICacheItemConfiguration.ProfileName
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.ProfileName
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: Gets the name of the <xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref> that contains the configuration of the cached methods.
+  example: []
+  syntax:
+    content: string ProfileName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ProfileName As String
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.ProfileName*
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.SlidingExpiration
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.SlidingExpiration
+  id: SlidingExpiration
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: SlidingExpiration
+  nameWithType: ICacheItemConfiguration.SlidingExpiration
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.SlidingExpiration
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets the duration during which the result of the cached methods is stored in the cache after it has been
+
+    added to or accessed from the cache. The expiration is extended every time the value is accessed from the cache.
+  example: []
+  syntax:
+    content: TimeSpan? SlidingExpiration { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: ReadOnly Property SlidingExpiration As TimeSpan?
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.SlidingExpiration*
+- uid: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IgnoreThisParameter
+  commentId: P:PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IgnoreThisParameter
+  id: IgnoreThisParameter
+  parent: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration
+  langs:
+  - csharp
+  - vb
+  name: IgnoreThisParameter
+  nameWithType: ICacheItemConfiguration.IgnoreThisParameter
+  fullName: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IgnoreThisParameter
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching.Implementation
+  summary: >-
+    Gets a value indicating whether the <code>this</code> instance should be a part of the cache key. The default value of this property is <code>false</code>,
+
+    which means that by default the <code>this</code> instance is a part of the cache key.
+  example: []
+  syntax:
+    content: bool? IgnoreThisParameter { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: ReadOnly Property IgnoreThisParameter As Boolean?
+  overload: PostSharp.Patterns.Caching.Implementation.ICacheItemConfiguration.IgnoreThisParameter*

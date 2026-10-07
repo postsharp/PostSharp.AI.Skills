@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  commentId: T:PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  id: QueryableFormatter
+  parent: PostSharp.Patterns.Diagnostics.Formatters
+  children:
+  - PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.#ctor
+  - PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Linq.IQueryable)
+  langs:
+  - csharp
+  - vb
+  name: QueryableFormatter
+  nameWithType: QueryableFormatter
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  type: Class
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Formatter for any type that implements <xref href="System.Linq.IQueryable" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class QueryableFormatter : Formatter<IQueryable>, IFormatter<IQueryable>, IOptionAwareFormatter, IFormatter'
+    content.vb: Public Class QueryableFormatter Inherits Formatter(Of IQueryable) Implements IFormatter(Of IQueryable), IOptionAwareFormatter, IFormatter
+  inheritance:
+  - System.Object
+  - PostSharp.Patterns.Formatters.Formatter{System.Linq.IQueryable}
+  implements:
+  - PostSharp.Patterns.Formatters.IFormatter{System.Linq.IQueryable}
+  - PostSharp.Patterns.Formatters.IOptionAwareFormatter
+  - PostSharp.Patterns.Formatters.IFormatter
+  inheritedMembers:
+  - PostSharp.Patterns.Formatters.Formatter{System.Linq.IQueryable}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)
+  - PostSharp.Patterns.Formatters.Formatter{System.Linq.IQueryable}.WithOptions(PostSharp.Patterns.Formatters.FormattingOptions)
+  - PostSharp.Patterns.Formatters.Formatter{System.Linq.IQueryable}.Attributes
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Linq.IQueryable)
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Linq.IQueryable)
+  id: Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Linq.IQueryable)
+  parent: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  langs:
+  - csharp
+  - vb
+  name: Write(UnsafeStringBuilder, IQueryable)
+  nameWithType: QueryableFormatter.Write(UnsafeStringBuilder, IQueryable)
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder, System.Linq.IQueryable)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  summary: Appends the description of an object into the given <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref> (weakly-typed variant).
+  example: []
+  syntax:
+    content: public override void Write(UnsafeStringBuilder stringBuilder, IQueryable value)
+    parameters:
+    - id: stringBuilder
+      type: PostSharp.Patterns.Formatters.UnsafeStringBuilder
+      description: The target <xref href="PostSharp.Patterns.Formatters.UnsafeStringBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: value
+      type: System.Linq.IQueryable
+      description: The value to be formatted.
+    content.vb: Public Overrides Sub Write(stringBuilder As UnsafeStringBuilder, value As IQueryable)
+  overridden: PostSharp.Patterns.Formatters.Formatter{System.Linq.IQueryable}.Write(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Linq.IQueryable)
+  overload: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.Write*
+- uid: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.#ctor
+  commentId: M:PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.#ctor
+  id: '#ctor'
+  parent: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter
+  langs:
+  - csharp
+  - vb
+  name: QueryableFormatter()
+  nameWithType: QueryableFormatter.QueryableFormatter()
+  fullName: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.QueryableFormatter()
+  type: Constructor
+  assemblies:
+  - PostSharp.Patterns.Diagnostics
+  namespace: PostSharp.Patterns.Diagnostics.Formatters
+  syntax:
+    content: public QueryableFormatter()
+    content.vb: Public Sub New()
+  overload: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.#ctor*
+  nameWithType.vb: QueryableFormatter.New()
+  fullName.vb: PostSharp.Patterns.Diagnostics.Formatters.QueryableFormatter.New()
+  name.vb: New()

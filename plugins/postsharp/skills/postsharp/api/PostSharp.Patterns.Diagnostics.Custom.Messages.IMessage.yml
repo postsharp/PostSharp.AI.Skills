@@ -1,0 +1,91 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage
+  commentId: T:PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage
+  id: IMessage
+  parent: PostSharp.Patterns.Diagnostics.Custom.Messages
+  children:
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage.Write(PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  langs:
+  - csharp
+  - vb
+  name: IMessage
+  nameWithType: IMessage
+  fullName: PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom.Messages
+  summary: >-
+    Represents a message that can be used with the <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> class. To create a message
+
+    instance, you would typically use the <xref href="PostSharp.Patterns.Diagnostics.SemanticMessageBuilder" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref> class.
+  remarks: >-
+    <p>Implement this interface to define your own type of message when neither builder fits your needs. Prefer a value type:
+        methods such as <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.WriteMessageOptions%40)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.OpenActivity%60%601(%60%600%40%2cPostSharp.Patterns.Diagnostics.OpenActivityOptions%40)" data-throw-if-not-resolved="false"></xref>
+        are generic on the message type, so a message that is a value type is not boxed.</p>
+    <p>To reuse the formatting string syntax of <xref href="PostSharp.Patterns.Diagnostics.FormattedMessageBuilder" data-throw-if-not-resolved="false"></xref>, use the <xref href="PostSharp.Patterns.Diagnostics.Custom.FormattingStringParser" data-throw-if-not-resolved="false"></xref> type.</p>
+  example: []
+  syntax:
+    content: public interface IMessage
+    content.vb: Public Interface IMessage
+  seealso:
+  - linkType: HRef
+    linkId: '@log-custom-messages'
+    altText: 'Conceptual: Writing Custom Messages'
+  derivedClasses:
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`1
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`10
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`2
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`3
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`4
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`5
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`6
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`7
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`8
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessage`9
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.FormattedMessageArray
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`1
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`10
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`2
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`3
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`4
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`5
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`6
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`7
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`8
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessage`9
+  - PostSharp.Patterns.Diagnostics.Custom.Messages.SemanticMessageArray
+- uid: PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage.Write(PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  commentId: M:PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage.Write(PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  id: Write(PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder,PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  parent: PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage
+  langs:
+  - csharp
+  - vb
+  name: Write(ICustomLogRecordBuilder, CustomLogRecordItem)
+  nameWithType: IMessage.Write(ICustomLogRecordBuilder, CustomLogRecordItem)
+  fullName: PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage.Write(PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder, PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Common
+  namespace: PostSharp.Patterns.Diagnostics.Custom.Messages
+  summary: Renders the current message into a given <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>The <xref href="PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage" data-throw-if-not-resolved="false"></xref> implementation is responsible for invoking <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem%2cPostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions%40)" data-throw-if-not-resolved="false"></xref>
+        and <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.EndWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem)" data-throw-if-not-resolved="false"></xref>.
+        </p>
+  example: []
+  syntax:
+    content: void Write(ICustomLogRecordBuilder builder, CustomLogRecordItem kind)
+    parameters:
+    - id: builder
+      type: PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder
+      description: An <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: kind
+      type: PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem
+      description: The situation in which the message is rendered, to be passed to <xref href="PostSharp.Patterns.Diagnostics.Custom.ICustomLogRecordBuilder.BeginWriteItem(PostSharp.Patterns.Diagnostics.Custom.CustomLogRecordItem%2cPostSharp.Patterns.Diagnostics.Custom.CustomLogRecordTextOptions%40)" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Sub Write(builder As ICustomLogRecordBuilder, kind As CustomLogRecordItem)
+  overload: PostSharp.Patterns.Diagnostics.Custom.Messages.IMessage.Write*
