@@ -30,10 +30,9 @@ items:
     <p>Null values are accepted and do not throw an exception.
         </p>
     <p>
-            Floating-point values are tested to be strictly within the given bounds
-            with a tolerance value. The tolerance value is equal to the distance
-            of the value closest to the bounds according to the precision
-            of the respective floating-point numerical data type.
+            A floating-point or <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref> value is accepted when it is between the values of its type that are
+            adjacent to the bounds, inclusive. The bounds themselves are rejected. A <xref href="System.Double" data-throw-if-not-resolved="false"></xref> bound is first
+            converted to <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref>, with 15 significant digits, to compute the <xref href="System.Decimal" data-throw-if-not-resolved="false"></xref> bound.
         </p>
     <p>The error message is identified by <xref href="PostSharp.Patterns.Contracts.ContractLocalizedTextProvider.StrictRangeErrorMessage" data-throw-if-not-resolved="false"></xref>.</p>
 

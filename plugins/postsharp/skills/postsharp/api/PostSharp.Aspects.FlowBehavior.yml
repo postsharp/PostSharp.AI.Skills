@@ -24,7 +24,8 @@ items:
   summary: Enumerates the possible behaviors of the calling method after the calling method has returned.
   remarks: >-
     <p>
-          This enumeration is used by the <xref href="PostSharp.Aspects.MethodExecutionArgs" data-throw-if-not-resolved="false"></xref> class.
+          An advice sets the flow behavior through the <xref href="PostSharp.Aspects.MethodExecutionArgs.FlowBehavior" data-throw-if-not-resolved="false"></xref> property, or through a parameter
+          bound by <xref href="PostSharp.Aspects.Advices.FlowBehaviorAttribute" data-throw-if-not-resolved="false"></xref>.
         </p>
   example: []
   syntax:
@@ -112,7 +113,7 @@ items:
 
     <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>. You may want to set the <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>
 
-    property. Otherwise, you may get a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. If there is another <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>
+    property, or the parameter bound by <xref href="PostSharp.Aspects.Advices.ReturnValueAttribute" data-throw-if-not-resolved="false"></xref>. Otherwise, you may get a <xref href="System.NullReferenceException" data-throw-if-not-resolved="false"></xref>. If there is another <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>
 
     aspect before the current <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> aspect on the current method,
 
@@ -139,7 +140,10 @@ items:
   assemblies:
   - PostSharp
   namespace: PostSharp.Aspects
-  summary: Throws the exception contained in the <xref href="PostSharp.Aspects.MethodExecutionArgs.Exception" data-throw-if-not-resolved="false"></xref> property. Available only for <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>.
+  summary: >-
+    Throws the exception contained in the <xref href="PostSharp.Aspects.MethodExecutionArgs.Exception" data-throw-if-not-resolved="false"></xref> property, or in the parameter bound by
+
+    <xref href="PostSharp.Aspects.Advices.ExceptionAttribute" data-throw-if-not-resolved="false"></xref>. Available only for <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
     content: ThrowException = 4
@@ -160,11 +164,13 @@ items:
   - PostSharp
   namespace: PostSharp.Aspects
   summary: >-
-    Awaits an awaiter. Available only for
+    Awaits an awaiter. Available only for <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnMethodResumeAdvice" data-throw-if-not-resolved="false"></xref>
 
-    <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.OnMethodBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)" data-throw-if-not-resolved="false"></xref> advices
+    advice methods applied to async methods. The advice must have a parameter bound by <xref href="PostSharp.Aspects.Advices.AwaiterAttribute" data-throw-if-not-resolved="false"></xref>, to which it
 
-    applied to async methods.
+    assigns the awaiter, and a parameter bound by <xref href="PostSharp.Aspects.Advices.FlowBehaviorAttribute" data-throw-if-not-resolved="false"></xref>. The methods of <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>
+
+    cannot use this behavior.
   remarks: In the future, this may also cause a value to be yielded in iterator methods. Currently, it is the same as <xref href="PostSharp.Aspects.FlowBehavior.Continue" data-throw-if-not-resolved="false"></xref> for iterator methods.
   example: []
   syntax:

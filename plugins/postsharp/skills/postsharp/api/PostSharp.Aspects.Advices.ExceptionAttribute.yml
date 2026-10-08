@@ -1,0 +1,108 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ExceptionAttribute
+  commentId: T:PostSharp.Aspects.Advices.ExceptionAttribute
+  id: ExceptionAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ExceptionAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: ExceptionAttribute
+  nameWithType: ExceptionAttribute
+  fullName: PostSharp.Aspects.Advices.ExceptionAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Binds a parameter of an <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref> method to the exception thrown by the target method.
+  remarks: >-
+    <p>The parameter must be of type <xref href="System.Exception" data-throw-if-not-resolved="false"></xref>, or of type <xref href="System.Object" data-throw-if-not-resolved="false"></xref> when it is passed by value.</p>
+
+    <p>When the parameter is passed by reference (<code>ref</code> or <code>out</code>), the advice can replace the exception. When the advice then sets
+        <xref href="PostSharp.Aspects.FlowBehavior.ThrowException" data-throw-if-not-resolved="false"></xref>, the target method throws the exception that the parameter holds, as it throws
+        <xref href="PostSharp.Aspects.MethodExecutionArgs.Exception" data-throw-if-not-resolved="false"></xref> in an advice that receives <xref href="PostSharp.Aspects.MethodExecutionArgs" data-throw-if-not-resolved="false"></xref>. With
+        <xref href="PostSharp.Aspects.FlowBehavior.Default" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.FlowBehavior.RethrowException" data-throw-if-not-resolved="false"></xref>, the original exception is rethrown, and the value of the
+        parameter is ignored.</p>
+    <p>For an async method or an iterator, the value is the exception thrown by the code of the method, as
+        <xref href="PostSharp.Aspects.MethodExecutionArgs.Exception" data-throw-if-not-resolved="false"></xref> gives it.</p>
+  example: []
+  syntax:
+    content: 'public sealed class ExceptionAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class ExceptionAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
+  - linkId: PostSharp.Aspects.Advices.FlowBehaviorAttribute
+    commentId: T:PostSharp.Aspects.Advices.FlowBehaviorAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.ExceptionAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.ExceptionAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.ExceptionAttribute
+  langs:
+  - csharp
+  - vb
+  name: ExceptionAttribute()
+  nameWithType: ExceptionAttribute.ExceptionAttribute()
+  fullName: PostSharp.Aspects.Advices.ExceptionAttribute.ExceptionAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public ExceptionAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.ExceptionAttribute.#ctor*
+  nameWithType.vb: ExceptionAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.ExceptionAttribute.New()
+  name.vb: New()

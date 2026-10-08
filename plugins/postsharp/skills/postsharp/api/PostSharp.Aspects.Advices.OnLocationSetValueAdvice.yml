@@ -22,8 +22,12 @@ items:
     that this method is an advice that has the same semantics as <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
   remarks: >-
     <p>
-            The method to which this custom attribute is applied must be public and must have the same signature as
-            <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>. However, it can be static.
+            The method to which this custom attribute is applied must be public and must return <code>void</code>. It can be static.
+            Each parameter of the method receives a value of the target, selected by a custom attribute derived from
+            <xref href="PostSharp.Aspects.Advices.AdviceParameterAttribute" data-throw-if-not-resolved="false"></xref>, such as <xref href="PostSharp.Aspects.Advices.BindingAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.LocationValueAttribute" data-throw-if-not-resolved="false"></xref>.
+            Alternatively, the method can have the same signature as <xref href="PostSharp.Aspects.ILocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)" data-throw-if-not-resolved="false"></xref>,
+            whose <xref href="PostSharp.Aspects.LocationInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter is allocated on each call. The <xref href="PostSharp.Aspects.LocationInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter can also be the first parameter,
+            followed by bound parameters.
           </p>
     <p>
             If an aspect defines many advices (among <xref href="PostSharp.Aspects.Advices.OnLocationSetValueAdvice" data-throw-if-not-resolved="false"></xref>, 
@@ -54,7 +58,10 @@ items:
     commentId: T:PostSharp.Aspects.Advices.OnInstanceLocationInitializedAdvice
   - linkType: HRef
     linkId: '@advices'
-    altText: 'Conceptual: Adding Behaviors to Existing Members'
+    altText: 'Conceptual: Advice Methods'
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
   inheritance:
   - System.Object
   - System.Attribute

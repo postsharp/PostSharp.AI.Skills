@@ -18,14 +18,18 @@ items:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
   summary: >-
-    Base class for <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>,
+    Base class for <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>,
 
-    <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>.
+    <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodYieldAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnMethodResumeAdvice" data-throw-if-not-resolved="false"></xref>.
   remarks: >-
     <p>The derived advices are the counterparts of the methods of <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref> for aspects composed of
-        advices and pointcuts. Group them with the <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property so that they are woven as a single
-        <code>try</code>/<code>catch</code>/<code>finally</code> construct, consistent with <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>, and so that they can share state through
-        <xref href="PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag" data-throw-if-not-resolved="false"></xref>.</p>
+        advices and pointcuts. The advices of a group are woven as a single <code>try</code>/<code>catch</code>/<code>finally</code> construct, consistent with
+        <xref href="PostSharp.Aspects.OnMethodBoundaryAspect" data-throw-if-not-resolved="false"></xref>, and they can share variables through parameters bound by <xref href="PostSharp.Aspects.Advices.StateAttribute" data-throw-if-not-resolved="false"></xref>, or through
+        <xref href="PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag" data-throw-if-not-resolved="false"></xref> when they receive <xref href="PostSharp.Aspects.MethodExecutionArgs" data-throw-if-not-resolved="false"></xref>. The group is inferred when it is
+        unambiguous, for instance for the advices without pointcut of a <xref href="PostSharp.Aspects.MethodLevelAspect" data-throw-if-not-resolved="false"></xref>; otherwise, set the
+        <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property.</p>
+    <p>The parameters of the advice methods receive the values of the target method, such as its arguments or its return value,
+        through custom attributes derived from <xref href="PostSharp.Aspects.Advices.AdviceParameterAttribute" data-throw-if-not-resolved="false"></xref>.</p>
     <p>When applied to iterator or async methods, these advices are applied semantically by default.
         Use <xref href="PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction" data-throw-if-not-resolved="false"></xref> to change this behavior.</p>
   example: []
@@ -37,7 +41,7 @@ items:
     commentId: T:PostSharp.Aspects.OnMethodBoundaryAspect
   - linkType: HRef
     linkId: '@advices'
-    altText: 'Conceptual: Adding Behaviors to Existing Members'
+    altText: 'Conceptual: Advice Methods'
   - linkType: HRef
     linkId: '@semantic-advising'
     altText: 'Conceptual: Semantic Advising of Iterator and Async Methods'

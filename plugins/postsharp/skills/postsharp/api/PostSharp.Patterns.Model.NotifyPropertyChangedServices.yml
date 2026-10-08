@@ -129,6 +129,12 @@ items:
     content: public static void ResumeEvents()
     content.vb: Public Shared Sub ResumeEvents()
   overload: PostSharp.Patterns.Model.NotifyPropertyChangedServices.ResumeEvents*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: >-
+      The method is called from an event handler, or the events of the current thread
+                  are not suspended.
 - uid: PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(System.Object,System.String)
   commentId: M:PostSharp.Patterns.Model.NotifyPropertyChangedServices.SignalPropertyChanged(System.Object,System.String)
   id: SignalPropertyChanged(System.Object,System.String)

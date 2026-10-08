@@ -20,11 +20,18 @@ items:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
   summary: Base class for advice instances, which the aspect can provide dynamically through the <xref href="PostSharp.Aspects.Advices.IAdviceProvider" data-throw-if-not-resolved="false"></xref> interface.
-  remarks: <p>Currently, the only supported dynamic advice is <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref>.</p>
+  remarks: >-
+    <p>The advices that an aspect can provide are <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ImportMethodAdviceInstance" data-throw-if-not-resolved="false"></xref>,
+        <xref href="PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.IntroduceInterfaceAdviceInstance" data-throw-if-not-resolved="false"></xref>. Import advices and interface introductions
+        require an instance-scoped aspect, such as an <xref href="PostSharp.Aspects.InstanceLevelAspect" data-throw-if-not-resolved="false"></xref>.</p>
   example: []
   syntax:
     content: public abstract class AdviceInstance
     content.vb: Public MustInherit Class AdviceInstance
+  seealso:
+  - linkType: HRef
+    linkId: '@advice-provider'
+    altText: 'Conceptual: Providing Advices Dynamically'
   inheritance:
   - System.Object
   derivedClasses:

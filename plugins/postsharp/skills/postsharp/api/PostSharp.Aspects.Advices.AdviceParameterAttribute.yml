@@ -32,7 +32,7 @@ items:
         <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>,
         <xref href="PostSharp.Aspects.Advices.OnMethodYieldAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnMethodResumeAdvice" data-throw-if-not-resolved="false"></xref>), <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>,
         <xref href="PostSharp.Aspects.Advices.OnLocationGetValueAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnLocationSetValueAdvice" data-throw-if-not-resolved="false"></xref>, and <xref href="PostSharp.Aspects.Advices.OnInstanceConstructedAdvice" data-throw-if-not-resolved="false"></xref>, where the target of
-        the bindings is the constructor at the end of which the advice runs. The other advices, including <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAsyncAdvice" data-throw-if-not-resolved="false"></xref> and the event interception advices,
+        the bindings is the type: the advice runs once the object is constructed, whichever constructor ran. The other advices, including <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAsyncAdvice" data-throw-if-not-resolved="false"></xref> and the event interception advices,
         do not accept bound parameters.
         </p>
     <p>
@@ -60,8 +60,14 @@ items:
       Public MustInherit Class AdviceParameterAttribute Inherits Attribute
   seealso:
   - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
+  - linkType: HRef
+    linkId: '@modernizing-aspects'
+    altText: 'Conceptual: Modernizing Your Custom Aspects'
+  - linkType: HRef
     linkId: '@advices'
-    altText: 'Conceptual: Adding Behaviors to Existing Members'
+    altText: 'Conceptual: Advice Methods'
   inheritance:
   - System.Object
   - System.Attribute
@@ -74,8 +80,10 @@ items:
   - PostSharp.Aspects.Advices.AwaiterAttribute
   - PostSharp.Aspects.Advices.BindingAttribute
   - PostSharp.Aspects.Advices.CurrentTaskAttribute
+  - PostSharp.Aspects.Advices.DeclarationAttribute
   - PostSharp.Aspects.Advices.DeclarationIdentifierAttribute
   - PostSharp.Aspects.Advices.DeclarationNameAttribute
+  - PostSharp.Aspects.Advices.ExceptionAttribute
   - PostSharp.Aspects.Advices.FlowBehaviorAttribute
   - PostSharp.Aspects.Advices.LocationValueAttribute
   - PostSharp.Aspects.Advices.ReturnValueAttribute

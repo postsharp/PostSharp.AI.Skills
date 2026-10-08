@@ -22,6 +22,9 @@ items:
     <p>The <xref href="PostSharp.Patterns.Diagnostics.LoggingProfile" data-throw-if-not-resolved="false"></xref> named by the <xref href="PostSharp.Patterns.Diagnostics.LogAttributeBase.ProfileName" data-throw-if-not-resolved="false"></xref> property determines the build-time logging options of the aspect.
         To create an aspect that uses a specific profile by default, derive a class from <xref href="PostSharp.Patterns.Diagnostics.LogAttributeBase" data-throw-if-not-resolved="false"></xref> and set
         <xref href="PostSharp.Patterns.Diagnostics.LogAttributeBase.ProfileName" data-throw-if-not-resolved="false"></xref> in its constructor, as <xref href="PostSharp.Patterns.Diagnostics.LogExceptionAttribute" data-throw-if-not-resolved="false"></xref> does.</p>
+    <p>Logging aspects are ordered after the aspects of the <xref href="PostSharp.Aspects.Dependencies.StandardRoles.Validation" data-throw-if-not-resolved="false"></xref> role, such as the contracts of
+        <code>PostSharp.Patterns.Contracts</code>. A call that fails a precondition throws before the logging code of the method runs,
+        so neither the entry nor the exception of this call is logged. Log the exception in the caller if it must be recorded.</p>
   example: []
   syntax:
     content: >-

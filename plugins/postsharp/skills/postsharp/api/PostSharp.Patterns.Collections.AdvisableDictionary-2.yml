@@ -50,6 +50,9 @@ items:
 
     <p>Use this class instead of <xref href="System.Collections.Generic.Dictionary%602" data-throw-if-not-resolved="false"></xref> in the child properties of classes that use patterns such as Aggregatable, Recordable
         or threading models, which inject their behavior into advisable collections at run time.</p>
+    <p>A threading model synchronizes an advisable collection only after the collection is assigned to a child property of an object
+        that has a threading model. The collection then uses the concurrency controller of this object. Before that, the collection is not
+        thread-safe: do not access it from several threads at the same time, and do not modify it while another thread assigns it to its parent.</p>
   example: []
   syntax:
     content: 'public class AdvisableDictionary<TKey, TValue> : DynamicallyAdvisableObject, ISerializable, IDeserializationCallback, IDynamicallyAdvisableDictionary, IDynamicallyAdvisable, IQueryInterface, IDictionary, ICollection, IDictionary<TKey, TValue>, ICollection<KeyValuePair<TKey, TValue>>, IEnumerable<KeyValuePair<TKey, TValue>>, IEnumerable'

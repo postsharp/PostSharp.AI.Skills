@@ -39,6 +39,9 @@ items:
     commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
   - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
     commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  - linkType: HRef
+    linkId: '@advice-provider'
+    altText: 'Conceptual: Providing Advices Dynamically'
   inheritance:
   - System.Object
   - PostSharp.Aspects.Advices.AdviceInstance
@@ -80,6 +83,7 @@ items:
       description: >-
         The field of the aspect class to which <code class="paramref">location</code> should be bound at runtime.
                         This field can be of type <xref href="PostSharp.Aspects.ILocationBinding" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref>, or a type that both (a) derives from <code>ICollection&lt;ILocationBinding&gt;</code> and (b) has a parameterless constructor.
+                        A field of the target class cannot be imported into a <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref> field.
     - id: location
       type: PostSharp.Reflection.LocationInfo
       description: The field or property to import.

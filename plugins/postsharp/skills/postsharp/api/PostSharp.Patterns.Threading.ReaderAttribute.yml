@@ -17,6 +17,13 @@ items:
   - PostSharp.Patterns.Threading
   namespace: PostSharp.Patterns.Threading
   summary: Custom attribute that, when applied to a method, specifies that the method requires read access to the object.
+  remarks: >-
+    <p>Read access cannot be upgraded. A method that requires write access cannot be called while the current thread holds read access,
+        and throws a <xref href="System.Threading.LockRecursionException" data-throw-if-not-resolved="false"></xref>. Use <xref href="PostSharp.Patterns.Threading.UpgradeableReaderAttribute" data-throw-if-not-resolved="false"></xref> on a method that calls
+        a method that requires write access.</p>
+    <p>When the target method is an iterator, the read access is held from the first call of <xref href="System.Collections.IEnumerator.MoveNext" data-throw-if-not-resolved="false"></xref>
+        until the enumeration completes or the enumerator is disposed. Dispose the enumerator, for instance with a <code>foreach</code> or <code>using</code>
+        statement, when the enumeration does not complete.</p>
   example: []
   syntax:
     content: >-

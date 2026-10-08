@@ -34,14 +34,26 @@ items:
         class providing
         predefined advice
       </a>, or build a
-      <a href="@complex-aspects" target="_self">composite aspect</a>.
+      <a href="@member-level-aspects" target="_self">member-level aspect</a> or a
+      <a href="@complex-aspects" target="_self">type-level or assembly-level aspect</a> with advice methods.
     </p></div>
         <a href="@simple-aspects#AspectClasses" target="_self">
       Conceptual: Developing Simple Aspects
     </a>
-        <a href="@complex-aspects" target="_self">
-      Conceptual: Developing Composite Aspects
+        <a href="@member-level-aspects" target="_self">
+      Conceptual: Developing Member-Level Aspects
     </a>
+        <a href="@complex-aspects" target="_self">
+      Conceptual: Developing Type- and Assembly-Level Aspects
+    </a>
+        <p>
+            An aspect derived from this class can declare the following advices. Without a pointcut, or with <xref href="PostSharp.Aspects.Advices.SelfPointcut" data-throw-if-not-resolved="false"></xref>, they
+            apply to the field to which the aspect is applied: the location interception advices <xref href="PostSharp.Aspects.Advices.OnLocationGetValueAdvice" data-throw-if-not-resolved="false"></xref>,
+            <xref href="PostSharp.Aspects.Advices.OnLocationSetValueAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnInstanceLocationInitializedAdvice" data-throw-if-not-resolved="false"></xref>, and
+            <xref href="PostSharp.Aspects.Advices.LocationValidationAdvice" data-throw-if-not-resolved="false"></xref>. <xref href="PostSharp.Aspects.Advices.IntroduceMemberAttribute" data-throw-if-not-resolved="false"></xref> introduces members into the declaring type of
+            the target. <xref href="PostSharp.Aspects.Advices.IntroduceInterfaceAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref> require an instance-scoped
+            aspect (<xref href="PostSharp.Aspects.IInstanceScopedAspect" data-throw-if-not-resolved="false"></xref>).
+            </p>
         <br />
         <p>
           <div class="NOTE"><h5>note</h5><p>

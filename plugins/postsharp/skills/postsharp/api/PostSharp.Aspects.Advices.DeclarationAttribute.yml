@@ -1,0 +1,114 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.DeclarationAttribute
+  commentId: T:PostSharp.Aspects.Advices.DeclarationAttribute
+  id: DeclarationAttribute
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.DeclarationAttribute.#ctor
+  langs:
+  - csharp
+  - vb
+  name: DeclarationAttribute
+  nameWithType: DeclarationAttribute
+  fullName: PostSharp.Aspects.Advices.DeclarationAttribute
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Binds a parameter of an advice method to the reflection object of the target declaration.
+  remarks: >-
+    <p>The value depends on the kind of advice and on the type of the parameter:</p>
+
+    <ul><li>In a method boundary advice and in <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>, the value is the <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref> of the
+        target method. The parameter can be of type <xref href="System.Reflection.MethodBase" data-throw-if-not-resolved="false"></xref> or of a base type, of type <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> when no target is
+        a constructor, or of type <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref> when every target is a constructor. For an async method or an iterator, the value
+        is the method declared in source code, not the <code>MoveNext</code> method of the state machine. For a generic method or a method of a generic
+        type, the value is the method of the generic instance that is executing.</li><li>In a location advice, the value is the <xref href="PostSharp.Reflection.LocationInfo" data-throw-if-not-resolved="false"></xref> of the target field or property when the parameter can
+        receive it, and its <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> otherwise. The weaver encapsulates an intercepted field into a property, so a field
+        is a property at run time, and a parameter of type <xref href="System.Reflection.FieldInfo" data-throw-if-not-resolved="false"></xref> is not accepted.</li><li>In <xref href="PostSharp.Aspects.Advices.OnInstanceConstructedAdvice" data-throw-if-not-resolved="false"></xref>, the value is the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> of the target type.</li></ul>
+    <p>The parameter cannot be <code>ref</code>, <code>in</code> or <code>out</code>. A parameter of type <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> on a constructor, or of type
+        <xref href="System.Reflection.ConstructorInfo" data-throw-if-not-resolved="false"></xref> on a method, causes an error.</p>
+    <p>The reflection object is not looked up on each call: it is stored in a static field, except for a generic method or a method of a
+        generic type, which is looked up on each call as <xref href="PostSharp.Aspects.MethodExecutionArgs.Method" data-throw-if-not-resolved="false"></xref> is.</p>
+  example: []
+  syntax:
+    content: 'public sealed class DeclarationAttribute : AdviceParameterAttribute'
+    content.vb: Public NotInheritable Class DeclarationAttribute Inherits AdviceParameterAttribute
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
+    commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
+  - linkId: PostSharp.Aspects.Advices.DeclarationIdentifierAttribute
+    commentId: T:PostSharp.Aspects.Advices.DeclarationIdentifierAttribute
+  - linkId: PostSharp.Aspects.Advices.DeclarationNameAttribute
+    commentId: T:PostSharp.Aspects.Advices.DeclarationNameAttribute
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.AdviceParameterAttribute
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.DeclarationAttribute.#ctor
+  commentId: M:PostSharp.Aspects.Advices.DeclarationAttribute.#ctor
+  id: '#ctor'
+  parent: PostSharp.Aspects.Advices.DeclarationAttribute
+  langs:
+  - csharp
+  - vb
+  name: DeclarationAttribute()
+  nameWithType: DeclarationAttribute.DeclarationAttribute()
+  fullName: PostSharp.Aspects.Advices.DeclarationAttribute.DeclarationAttribute()
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  syntax:
+    content: public DeclarationAttribute()
+    content.vb: Public Sub New()
+  overload: PostSharp.Aspects.Advices.DeclarationAttribute.#ctor*
+  nameWithType.vb: DeclarationAttribute.New()
+  fullName.vb: PostSharp.Aspects.Advices.DeclarationAttribute.New()
+  name.vb: New()

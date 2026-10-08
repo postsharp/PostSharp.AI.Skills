@@ -29,16 +29,24 @@ items:
         class providing
         predefined advice
       </a>, or build a
-      <a href="@complex-aspects" target="_self">composite aspect</a>.
+      <a href="@member-level-aspects" target="_self">member-level aspect</a> or a
+      <a href="@complex-aspects" target="_self">type-level or assembly-level aspect</a> with advice methods.
     </p></div>
         <a href="@simple-aspects#AspectClasses" target="_self">
       Conceptual: Developing Simple Aspects
     </a>
+        <a href="@member-level-aspects" target="_self">
+      Conceptual: Developing Member-Level Aspects
+    </a>
         <a href="@complex-aspects" target="_self">
-      Conceptual: Developing Composite Aspects
+      Conceptual: Developing Type- and Assembly-Level Aspects
     </a>
         <p>An assembly-level aspect can also implement <xref href="PostSharp.Aspects.IAspectProvider" data-throw-if-not-resolved="false"></xref> to add aspects to the assembly
             programmatically, for instance a <xref href="PostSharp.Aspects.ManagedResourceIntroductionAspect" data-throw-if-not-resolved="false"></xref> that embeds a managed resource computed at build time.</p>
+        <p>An advice cannot apply to the assembly itself, and <xref href="PostSharp.Aspects.Advices.MulticastPointcut" data-throw-if-not-resolved="false"></xref> selects no member from an assembly. To add
+            advices to types or members of the assembly, apply a <xref href="PostSharp.Aspects.TypeLevelAspect" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.MethodLevelAspect" data-throw-if-not-resolved="false"></xref> or
+            <xref href="PostSharp.Aspects.LocationLevelAspect" data-throw-if-not-resolved="false"></xref> to them, by multicasting or through <xref href="PostSharp.Aspects.IAspectProvider" data-throw-if-not-resolved="false"></xref>. The advices that introduce or import
+            members need a type.</p>
         <br />
         <p>
           <div class="NOTE"><h5>note</h5><p>
@@ -79,6 +87,9 @@ items:
   seealso:
   - linkId: PostSharp.Aspects.IAssemblyLevelAspect
     commentId: T:PostSharp.Aspects.IAssemblyLevelAspect
+  - linkType: HRef
+    linkId: '@complex-aspects'
+    altText: 'Conceptual: Developing Type- and Assembly-Level Aspects'
   - linkType: HRef
     linkId: '@resource-introduction'
     altText: 'Conceptual: Introducing Managed Resources'

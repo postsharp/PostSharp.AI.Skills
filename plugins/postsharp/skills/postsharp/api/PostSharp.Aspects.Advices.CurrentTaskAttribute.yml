@@ -6,6 +6,7 @@ items:
   parent: PostSharp.Aspects.Advices
   children:
   - PostSharp.Aspects.Advices.CurrentTaskAttribute.#ctor
+  - PostSharp.Aspects.Advices.CurrentTaskAttribute.IsRequired
   langs:
   - csharp
   - vb
@@ -16,17 +17,31 @@ items:
   assemblies:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
-  summary: Binds a parameter of a method boundary advice to the task returned by the current async method.
+  summary: >-
+    Binds a parameter of a method boundary advice to the task that the caller of the current async method observes. The parameter is
+
+    <code>null</code> until the method has yielded, and always <code>null</code> when the method is not an async method, when it is implemented with
+
+    runtime async, or when its method builder is not supported.
   remarks: >-
-    The parameter must be of type <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> or <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, and it cannot be <code>ref</code>, <code>in</code> or
-
-    <code>out</code>. Its value is <code>null</code> when the
-
-    target method is not an async method, or when its builder is neither <xref href="System.Runtime.CompilerServices.AsyncTaskMethodBuilder" data-throw-if-not-resolved="false"></xref> nor
-
-    <xref href="System.Runtime.CompilerServices.AsyncTaskMethodBuilder%601" data-throw-if-not-resolved="false"></xref>, for instance when the method returns a
-
-    <code>ValueTask</code>. This attribute can be used only in the method boundary advices.
+    <p>
+        The task exists once the method has yielded, that is, once one of its <code>await</code> expressions has suspended it. This applies to every
+        async method, whether it returns <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref>, <code>ValueTask</code> or <code>ValueTask&lt;TResult&gt;</code>.
+        The parameter is the task in the resume advice, in a yield advice other than the first one, and in the success, exception and exit advices
+        of an execution that yielded. It is <code>null</code> in the entry advice, in the first yield advice, and in the advices of an execution that
+        completes without yielding. Reading the task of the method builder earlier would create a task that the first <code>await</code> replaces on .NET.
+        </p>
+    <p>
+        The supported method builders are <xref href="System.Runtime.CompilerServices.AsyncTaskMethodBuilder" data-throw-if-not-resolved="false"></xref>, <xref href="System.Runtime.CompilerServices.AsyncTaskMethodBuilder%601" data-throw-if-not-resolved="false"></xref>,
+        <code>AsyncValueTaskMethodBuilder</code> and <code>AsyncValueTaskMethodBuilder&lt;TResult&gt;</code>. For a method that returns <code>ValueTask</code> or
+        <code>ValueTask&lt;TResult&gt;</code>, the task is the one that the <code>ValueTask</code> of the caller wraps. Other builders, such as
+        <code>PoolingAsyncValueTaskMethodBuilder</code>, give <code>null</code>. A method implemented with runtime async has no task while it runs, and the
+        compiler reports a warning.
+        </p>
+    <p>
+        The parameter must be of type <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref>, <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> or <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, and it cannot be <code>ref</code>,
+        <code>in</code> or <code>out</code>. This attribute can be used only in the method boundary advices.
+        </p>
   example: []
   syntax:
     content: 'public sealed class CurrentTaskAttribute : AdviceParameterAttribute'
@@ -34,6 +49,9 @@ items:
   seealso:
   - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
     commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
   inheritance:
   - System.Object
   - System.Attribute
@@ -101,3 +119,39 @@ items:
   nameWithType.vb: CurrentTaskAttribute.New()
   fullName.vb: PostSharp.Aspects.Advices.CurrentTaskAttribute.New()
   name.vb: New()
+- uid: PostSharp.Aspects.Advices.CurrentTaskAttribute.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.CurrentTaskAttribute.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.CurrentTaskAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: CurrentTaskAttribute.IsRequired
+  fullName: PostSharp.Aspects.Advices.CurrentTaskAttribute.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the parameter must never be <code>null</code>. When this property is <code>true</code>, the compiler reports
+
+    an error when the advice can run before the method yields, which is the case of every advice except the resume advice, and when the
+
+    target method cannot provide its task. The resume advice can also run before the method yields when the entry advice of its group yields
+
+    on an awaiter that is already completed, so the compiler also reports an error when that entry advice has an <xref href="PostSharp.Aspects.Advices.AwaiterAttribute" data-throw-if-not-resolved="false"></xref>
+
+    parameter. The default value is <code>false</code>.
+  remarks: >-
+    When the advice is selected by <xref href="PostSharp.Aspects.Advices.MatchPointcut" data-throw-if-not-resolved="false"></xref>, a target method that cannot provide its task is skipped, and no error is
+
+    reported for it.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.CurrentTaskAttribute.IsRequired*

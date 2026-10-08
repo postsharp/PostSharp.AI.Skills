@@ -6,6 +6,7 @@ items:
   parent: PostSharp.Aspects.Advices
   children:
   - PostSharp.Aspects.Advices.ReturnValueAttribute.#ctor
+  - PostSharp.Aspects.Advices.ReturnValueAttribute.IsRequired
   langs:
   - csharp
   - vb
@@ -16,16 +17,26 @@ items:
   assemblies:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
-  summary: Binds a parameter of an <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref> method to the return value of the target method.
+  summary: Binds a parameter of a method interception or method boundary advice to the return value of the target method.
   remarks: >-
     <p>
-        The parameter must be <code>out</code> or <code>ref</code>, and its type must be the return type of the target method or a
-        type parameter of the advice method. The value that the advice assigns to the parameter is the value returned by the target method.
+        The type of the parameter must be the type of the return value, or a type parameter of the advice method. In an async method that a method
+        boundary advice applies to as a state machine, and in a non-async method that returns a task, the return value is the result of the task.
         An advice can have only one parameter bound by this attribute.
         </p>
     <p>
-        An advice applied to a method that returns a value must have either a parameter bound by this attribute or a
-        <xref href="PostSharp.Aspects.MethodInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter. This attribute can be used only in <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>.
+        The meaning of the parameter depends on the advice:
+        </p>
+    <ul><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>, the parameter must be <code>out</code> or <code>ref</code>, and the value that the advice
+        assigns to it is the value returned by the target method. An advice applied to a method that returns a value must have either a parameter
+        bound by this attribute or a <xref href="PostSharp.Aspects.MethodInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter.</li><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref> or an <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>, the advice reads the value that the
+        method returns, by value or <code>in</code>, or replaces it with <code>ref</code>. When the method throws, the exit advice reads the default
+        value.</li><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref> or an <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>, the parameter must be <code>out</code>
+        or <code>ref</code>. It sets the value that the method returns when the advice sets the flow behavior to <xref href="PostSharp.Aspects.FlowBehavior.Return" data-throw-if-not-resolved="false"></xref>.
+        </li></ul>
+    <p>
+        In a method boundary advice, an <code>out</code> or <code>ref</code> parameter takes precedence over <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>
+        when the advice has both.
         </p>
   example: []
   syntax:
@@ -34,6 +45,9 @@ items:
   seealso:
   - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
     commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
   inheritance:
   - System.Object
   - System.Attribute
@@ -101,3 +115,37 @@ items:
   nameWithType.vb: ReturnValueAttribute.New()
   fullName.vb: PostSharp.Aspects.Advices.ReturnValueAttribute.New()
   name.vb: New()
+- uid: PostSharp.Aspects.Advices.ReturnValueAttribute.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.ReturnValueAttribute.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.ReturnValueAttribute
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: ReturnValueAttribute.IsRequired
+  fullName: PostSharp.Aspects.Advices.ReturnValueAttribute.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the target method of a method boundary advice must have a return value. When this property is
+
+    <code>true</code>, the compiler reports an error when the method returns <code>void</code>, returns a task without a result, returns by
+
+    reference (<code>ref</code> or <code>ref readonly</code>), or is an iterator. When it is <code>false</code>, the parameter receives the default value of its type in these methods, and a value that the advice
+
+    writes to an <code>out</code> or <code>ref</code> parameter is ignored. The default value is <code>false</code>.
+  remarks: >-
+    When the advice is selected by <xref href="PostSharp.Aspects.Advices.MatchPointcut" data-throw-if-not-resolved="false"></xref>, a target method without a return value is skipped, and no error is reported
+
+    for it.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.ReturnValueAttribute.IsRequired*

@@ -1,0 +1,184 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.MatchPointcut
+  commentId: T:PostSharp.Aspects.Advices.MatchPointcut
+  id: MatchPointcut
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.MatchPointcut.#ctor(System.String)
+  - PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount
+  - PostSharp.Aspects.Advices.MatchPointcut.MethodName
+  langs:
+  - csharp
+  - vb
+  name: MatchPointcut
+  nameWithType: MatchPointcut
+  fullName: PostSharp.Aspects.Advices.MatchPointcut
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    <xref href="PostSharp.Aspects.Advices.Pointcut" data-throw-if-not-resolved="false"></xref> that selects the methods of the target type that have a given name, and applies the advice only to those
+         whose signature matches the bound parameters of the advice.
+  remarks: >-
+    <p>
+         The aspect must be applied to a type, for instance a <xref href="PostSharp.Aspects.TypeLevelAspect" data-throw-if-not-resolved="false"></xref>. The pointcut selects the methods declared by this type
+         whose name is <xref href="PostSharp.Aspects.Advices.MatchPointcut.MethodName" data-throw-if-not-resolved="false"></xref>, including the static and non-public ones. When <xref href="PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount" data-throw-if-not-resolved="false"></xref> is <code>true</code>,
+         it also requires a given number of parameters.
+         </p>
+    <p>
+         The advice is then applied only to the selected methods whose signature matches its parameters bound by custom attributes derived from
+         <xref href="PostSharp.Aspects.Advices.AdviceParameterAttribute" data-throw-if-not-resolved="false"></xref>. A method that does not match, for instance because an argument bound by <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref>
+         is missing or has an incompatible type, or because two bound values give conflicting type arguments to a generic advice, is skipped
+         without error and left unchanged. Errors that do not come from the signature of the method, such as a violated generic constraint, are
+         still reported. Several advices with the same pointcut can therefore handle the different overloads of a method.
+         </p>
+  example:
+  - >-
+    <p>The following advices of a <xref href="PostSharp.Aspects.TypeLevelAspect" data-throw-if-not-resolved="false"></xref> apply to the overloads <code>Add(string)</code> and <code>Add(string, string)</code>
+         of the target type <code>Catalog</code>. An overload <code>Add(int)</code> matches none of them and is left unchanged.</p>
+    <pre><code class="lang-csharp">[OnMethodEntryAdvice, MatchPointcut( nameof(Catalog.Add) )]
+
+    public static void OnAddItem( [Argument( 0 )] string item ) { }
+
+
+    [OnMethodEntryAdvice, MatchPointcut( nameof(Catalog.Add) )]
+
+    public static void OnAddPair( [Argument( 0 )] string key, [Argument( 1 )] string value ) { }</code></pre>
+  syntax:
+    content: 'public sealed class MatchPointcut : Pointcut'
+    content.vb: Public NotInheritable Class MatchPointcut Inherits Pointcut
+  seealso:
+  - linkType: HRef
+    linkId: '@pointcuts'
+    altText: 'Conceptual: Selecting Members with Pointcuts'
+  - linkType: HRef
+    linkId: '@advices'
+    altText: 'Conceptual: Advice Methods'
+  inheritance:
+  - System.Object
+  - System.Attribute
+  - PostSharp.Aspects.Advices.Pointcut
+  inheritedMembers:
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.MemberInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.ParameterInfo,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.ParameterInfo,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Module,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly)
+  - System.Attribute.GetCustomAttributes(System.Reflection.Assembly,System.Boolean)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type)
+  - System.Attribute.IsDefined(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type)
+  - System.Attribute.GetCustomAttribute(System.Reflection.Assembly,System.Type,System.Boolean)
+  - System.Attribute.Equals(System.Object)
+  - System.Attribute.GetHashCode
+  - System.Attribute.Match(System.Object)
+  - System.Attribute.IsDefaultAttribute
+  - System.Attribute.TypeId
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: PostSharp.Aspects.Advices.MatchPointcut.#ctor(System.String)
+  commentId: M:PostSharp.Aspects.Advices.MatchPointcut.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: PostSharp.Aspects.Advices.MatchPointcut
+  langs:
+  - csharp
+  - vb
+  name: MatchPointcut(string)
+  nameWithType: MatchPointcut.MatchPointcut(string)
+  fullName: PostSharp.Aspects.Advices.MatchPointcut.MatchPointcut(string)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.MatchPointcut" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public MatchPointcut(string methodName)
+    parameters:
+    - id: methodName
+      type: System.String
+      description: The name of the methods of the target type to which the advice can apply.
+    content.vb: Public Sub New(methodName As String)
+  overload: PostSharp.Aspects.Advices.MatchPointcut.#ctor*
+  nameWithType.vb: MatchPointcut.New(String)
+  fullName.vb: PostSharp.Aspects.Advices.MatchPointcut.New(String)
+  name.vb: New(String)
+- uid: PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount
+  commentId: P:PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount
+  id: MatchParameterCount
+  parent: PostSharp.Aspects.Advices.MatchPointcut
+  langs:
+  - csharp
+  - vb
+  name: MatchParameterCount
+  nameWithType: MatchPointcut.MatchParameterCount
+  fullName: PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the pointcut selects only the methods whose number of parameters is the highest index of the
+
+    parameters of the advice bound by <xref href="PostSharp.Aspects.Advices.ArgumentAttribute.%23ctor(System.Int32)" data-throw-if-not-resolved="false"></xref>, plus one. The default value is <code>true</code>.
+  remarks: >-
+    Only the parameters that select an argument by its index are counted. When the advice has no such parameter, all the methods with the
+
+    name <xref href="PostSharp.Aspects.Advices.MatchPointcut.MethodName" data-throw-if-not-resolved="false"></xref> are selected.
+  example: []
+  syntax:
+    content: public bool MatchParameterCount { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property MatchParameterCount As Boolean
+  overload: PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount*
+- uid: PostSharp.Aspects.Advices.MatchPointcut.MethodName
+  commentId: P:PostSharp.Aspects.Advices.MatchPointcut.MethodName
+  id: MethodName
+  parent: PostSharp.Aspects.Advices.MatchPointcut
+  langs:
+  - csharp
+  - vb
+  name: MethodName
+  nameWithType: MatchPointcut.MethodName
+  fullName: PostSharp.Aspects.Advices.MatchPointcut.MethodName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the name of the methods of the target type to which the advice can apply.
+  example: []
+  syntax:
+    content: public string MethodName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property MethodName As String
+  overload: PostSharp.Aspects.Advices.MatchPointcut.MethodName*

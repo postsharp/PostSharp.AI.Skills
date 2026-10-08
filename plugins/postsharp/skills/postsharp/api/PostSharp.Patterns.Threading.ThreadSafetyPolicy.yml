@@ -31,6 +31,11 @@ items:
             <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="System.ThreadStaticAttribute" data-throw-if-not-resolved="false"></xref> are not checked.
           </p>
     <p>
+            A type declared in a referenced assembly has a threading model only if PostSharp processed that assembly. The policy does not see
+            <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref> on a type of a referenced assembly, because this attribute is not kept in the compiled assembly.
+            Annotate the static field with <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute" data-throw-if-not-resolved="false"></xref> instead.
+          </p>
+    <p>
             The policy only emits warnings: it reminds you to assign a threading model to each class, but does not make the code thread-safe by itself.
             To apply the policy to all projects of a solution, add it as a multicast attribute to the <code>pssln</code> file.
           </p>

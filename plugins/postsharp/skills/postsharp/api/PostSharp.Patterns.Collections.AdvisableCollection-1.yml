@@ -65,6 +65,9 @@ items:
         of classes that use patterns such as Aggregatable, Recordable or threading models. These patterns cannot extend standard collections, so they inject
         their behavior into advisable collections at run time instead. Because the interfaces that they add are not known to the compiler,
         use <xref href="PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface%60%601(System.Object%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> instead of a cast to access them.</p>
+    <p>A threading model synchronizes an advisable collection only after the collection is assigned to a child property of an object
+        that has a threading model. The collection then uses the concurrency controller of this object. Before that, the collection is not
+        thread-safe: do not access it from several threads at the same time, and do not modify it while another thread assigns it to its parent.</p>
   example: []
   syntax:
     content: 'public class AdvisableCollection<T> : DynamicallyAdvisableObject, ISerializable, IDeserializationCallback, IList<T>, ICollection<T>, IList, IDynamicallyAdvisableCollection, ICollection, IDynamicallyAdvisable, IQueryInterface, INotifyPropertyChanged, IReadOnlyList<T>, IReadOnlyCollection<T>, IEnumerable<T>, IEnumerable, INotifyCollectionChanged'

@@ -36,6 +36,9 @@ items:
             into the target class, or that add advices to its members. Each instance of the target class gets its own copy of the aspect,
             created by <xref href="PostSharp.Aspects.InstanceLevelAspect.CreateInstance(PostSharp.Aspects.AdviceArgs)" data-throw-if-not-resolved="false"></xref> as a shallow copy (<xref href="System.Object.MemberwiseClone" data-throw-if-not-resolved="false"></xref>) of the aspect instance,
             and <xref href="PostSharp.Aspects.InstanceLevelAspect.Instance" data-throw-if-not-resolved="false"></xref> gives the target object.</p>
+        <p>An aspect derived from this class can declare the same advices as a <xref href="PostSharp.Aspects.TypeLevelAspect" data-throw-if-not-resolved="false"></xref>, with a pointcut for the advices
+            that target members, and also <xref href="PostSharp.Aspects.Advices.IntroduceInterfaceAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>, which
+            require an instance-scoped aspect. An instance advice method cannot apply to a static member of the target type.</p>
         <br />
         <p>
           <div class="NOTE"><h5>note</h5><p>
@@ -85,7 +88,7 @@ items:
     altText: 'Conceptual: Understanding Aspect Lifetime and Scope'
   - linkType: HRef
     linkId: '@complex-aspects'
-    altText: 'Conceptual: Developing Composite Aspects'
+    altText: 'Conceptual: Developing Type- and Assembly-Level Aspects'
   - linkType: HRef
     linkId: '@code-injections'
     altText: 'Conceptual: Introducing Interfaces, Methods, Properties and Events into Existing Classes'

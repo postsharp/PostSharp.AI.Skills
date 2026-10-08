@@ -22,6 +22,16 @@ items:
     allows other threads to read the object during the execution of the target method. This custom attribute is typically used on methods that raise events
 
     that must be processed synchronously by other threads.
+  remarks: >-
+    When the current thread has no access to the object, the target method acquires read access, which other threads share. Read access cannot be
+
+    upgraded: a method that requires write access, for instance called on the same thread by the handler of an event that the target method raises,
+
+    throws a <xref href="System.Threading.LockRecursionException" data-throw-if-not-resolved="false"></xref>. When a handler requires write access, annotate the method that raises the event
+
+    with <xref href="PostSharp.Patterns.Threading.UpgradeableReaderAttribute" data-throw-if-not-resolved="false"></xref> instead. Upgradeable read access is exclusive: while the method runs, no other thread can acquire
+
+    upgradeable read or write access.
   example: []
   syntax:
     content: 'public class YielderAttribute : AccessLevelAttribute, IValidableAnnotation'

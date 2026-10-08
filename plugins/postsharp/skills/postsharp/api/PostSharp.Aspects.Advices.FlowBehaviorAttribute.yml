@@ -26,9 +26,22 @@ items:
         <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.OnMethodResumeAdvice" data-throw-if-not-resolved="false"></xref>. The value has no effect in the other advices.
         </p>
     <p>
-        A bound advice cannot set the return value of the method. In <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>, a bound advice cannot supply an exception,
-        so <xref href="PostSharp.Aspects.FlowBehavior.ThrowException" data-throw-if-not-resolved="false"></xref> rethrows the current exception. <xref href="PostSharp.Aspects.FlowBehavior.Yield" data-throw-if-not-resolved="false"></xref> requires a parameter bound by
-        <xref href="PostSharp.Aspects.Advices.AwaiterAttribute" data-throw-if-not-resolved="false"></xref>.
+        With <xref href="PostSharp.Aspects.FlowBehavior.Return" data-throw-if-not-resolved="false"></xref>, the method returns the value assigned to the <code>out</code> or <code>ref</code> parameter bound by
+        <xref href="PostSharp.Aspects.Advices.ReturnValueAttribute" data-throw-if-not-resolved="false"></xref>. When the advice has no such parameter, the method returns <xref href="PostSharp.Aspects.MethodExecutionArgs.ReturnValue" data-throw-if-not-resolved="false"></xref>
+        if the advice has a <xref href="PostSharp.Aspects.MethodExecutionArgs" data-throw-if-not-resolved="false"></xref> parameter, and the default value of its return type otherwise.
+        In <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.FlowBehavior.ThrowException" data-throw-if-not-resolved="false"></xref> throws the exception held by the <code>out</code> or <code>ref</code>
+        parameter bound by <xref href="PostSharp.Aspects.Advices.ExceptionAttribute" data-throw-if-not-resolved="false"></xref>, which the advice can replace. Without such a parameter, it throws
+        <xref href="PostSharp.Aspects.MethodExecutionArgs.Exception" data-throw-if-not-resolved="false"></xref> or the caught exception, with a <code>throw</code> instruction, not a <code>rethrow</code> instruction.
+        <xref href="PostSharp.Aspects.FlowBehavior.Yield" data-throw-if-not-resolved="false"></xref> requires a parameter bound by <xref href="PostSharp.Aspects.Advices.AwaiterAttribute" data-throw-if-not-resolved="false"></xref>.
+        </p>
+    <p>
+        In <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.FlowBehavior.Continue" data-throw-if-not-resolved="false"></xref> behaves like <xref href="PostSharp.Aspects.FlowBehavior.Return" data-throw-if-not-resolved="false"></xref>.
+        In an entry or resume advice of an async method, a parameter bound by this attribute without a parameter bound by
+        <xref href="PostSharp.Aspects.Advices.AwaiterAttribute" data-throw-if-not-resolved="false"></xref> causes a build warning, because the advice cannot use <xref href="PostSharp.Aspects.FlowBehavior.Yield" data-throw-if-not-resolved="false"></xref>.
+        </p>
+    <p>
+        When the advice also has a <xref href="PostSharp.Aspects.MethodExecutionArgs" data-throw-if-not-resolved="false"></xref> parameter, the value of the parameter bound by this attribute is used, and
+        <xref href="PostSharp.Aspects.MethodExecutionArgs.FlowBehavior" data-throw-if-not-resolved="false"></xref> is ignored.
         </p>
   example: []
   syntax:
@@ -37,6 +50,9 @@ items:
   seealso:
   - linkId: PostSharp.Aspects.Advices.AdviceParameterAttribute
     commentId: T:PostSharp.Aspects.Advices.AdviceParameterAttribute
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
   inheritance:
   - System.Object
   - System.Attribute
