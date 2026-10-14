@@ -39,32 +39,15 @@ The <xref:PostSharp.Patterns.Model.DisposableAttribute> aspect relies on the <xr
 
 In this example, the `HomeMadeLogger` class has two fields, `_stream` and `_textWriter`, which should also be disposed of when the `HomeMadeLogger` is disposed of. 
 
-```csharp
-[Disposable]
-public class HomeMadeLogger 
-{
-  [Child]
-  private TextWriter _textWriter;
-  [Child]
-  private Stream _stream;
-  [Reference]
-  private MessageFormatter _formatter;
-
-  public HomeMadeLogger(MessageFormatter formatter)
-  {
-    _formatter = formatter;
-    _stream = new FileStream("our.log", FileMode.Append);
-    _textWriter = new StreamWriter(_stream);
-  }
-
-  public void Debug(string message)
-  {
-    _textWriter.WriteLine(_formatter.Format(message));
-  }
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/DisposableLogger.cs#example)]
 
 The `_stream` and `_textWriter` child objects will now have their `Dispose()` method called automatically when the `HomeMadeLogger` is disposed of. Since both the `_stream` and `_textWriter` objects are framework types that already implement <xref:System.IDisposable>, adding the <xref:PostSharp.Patterns.Model.DisposableAttribute> aspect to those object types is not necessary. 
+
+PostSharp disposes of the children in the reverse order of their declaration. In this example, `_textWriter` is disposed of first, so it can flush its buffer to `_stream`, which is still open. If `_stream` were declared after `_textWriter`, the writer would throw an <xref:System.ObjectDisposedException> when disposed of. 
+
+The following program writes a message and disposes of the logger. The message is in the file:
+
+[!code-text[](../../code/samples/Model/Aggregatable/DisposableLogger.txt)]
 
 
 ## Customizing the Dispose logic
@@ -73,11 +56,7 @@ There will be times when you have objects that need custom disposal logic. At th
 
 To add your own logic to the `Dispose` method, create a method with exactly the following signature: 
 
-```csharp
-protected virtual void Dispose( bool disposing )
-{
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/DisposableCustom.cs#dispose)]
 
 > [!WARNING]
 > The <xref:PostSharp.Patterns.Model.DisposableAttribute> aspect does not automatically dispose of the object when it is garbage collected. That is, the aspect does not implement a destructor. If you need a destructor, you have to do it manually and invoke the `Dispose`. 
@@ -87,19 +66,10 @@ protected virtual void Dispose( bool disposing )
 
 In the following example, we are customizing the Dispose pattern to expose the `IsDisposed` property: 
 
-```csharp
-[Disposable]
-public class HomeMadeLogger 
-{
-  public bool IsDisposed { get; private set; }
-  
-  protected virtual void Dispose( bool disposing )
-  {
-    this.IsDisposed = true;
-  }
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/DisposableCustom.cs#example)]
 
 Once you have done this, PostSharp will properly run your custom Dispose logic as well as running any of the parent and child implementations of the <xref:PostSharp.Patterns.Model.DisposableAttribute> that exist for the object. 
+
+[!code-text[](../../code/samples/Model/Aggregatable/DisposableCustom.txt)]
 
 

@@ -21,27 +21,7 @@ The Reader/Writer Synchronized Threading Model is implemented by the <xref:PostS
 
 Consider the following example of an `Order` class which stores an amount and a discount: 
 
-```csharp
-class Order  
-{        
-    int Amount { get; private set; }
-    int Discount { get; private set; }
-
-    public int AmountAfterDiscount
-    {
-        get { return this.Amount - this.Discount; }
-    }
-     
-    public void Set(int amount, int discount)
-    {
-        if (amount < discount)
-            throw new InvalidOperationException();
-
-        this.Amount = amount;
-        this.Discount = discount;
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ReaderWriterUnsynchronized.cs#example)]
 
 In this example, the `Set` method writes to the `Amount` and `Discount` members, while the `AmountAfterDiscount` property reads these members. In a single-threaded program, the `AmountAfterDiscount` property is guaranteed to be positive or zero. However, in a multithreaded program, the `AmountAfterDiscount` property could be evaluated in the middle of the `Set` operation, and return an inconsistent result. 
 
@@ -59,40 +39,7 @@ The easiest way to synchronize accesses to a class in C# is to use the `lock` ke
 
 Reader-writer locks take advantage of the fact that most applications involve far fewer writes than reads, and that concurrent reads are always safe. Reader-writer locks ensure that no other thread is accessing the object when it is being written. Reader-writer locks are normally implemented by the .NET classes <xref:System.Threading.ReaderWriterLock> or <xref:System.Threading.ReaderWriterLockSlim>. The following example shows how <xref:System.Threading.ReaderWriterLockSlim> would be used to control reads and writes in the `Order` class: 
 
-```csharp
-class Order
-{
-    private ReaderWriterLockSlim orderLock = new ReaderWriterLockSlim();
-
-    public decimal Amount { get; private set; }
-    public decimal Discount { get; private set; }
-
-    public decimal AmountAfterDiscount
-    {
-        get 
-        {
-            orderLock.EnterReadLock();
-            decimal result = this.Amount - this.Discount;
-            orderLock.ExitReadLock();
-            return result;
-        }
-    }
-
-    public void Set(decimal amount, decimal discount)
-    {
-
-        if (amount < discount)
-        {
-            throw new InvalidOperationException();
-        }
-
-        orderLock.EnterWriteLock();
-        this.Amount = amount;
-        this.Discount = discount;
-        orderLock.ExitWriteLock();
-    }    
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ReaderWriterManualLock.cs#example)]
 
 However, working directly with the <xref:System.Threading.ReaderWriterLock> and <xref:System.Threading.ReaderWriterLockSlim> classes has disadvantages: 
 
@@ -142,29 +89,7 @@ Likewise, invoking methods marked with <xref:PostSharp.Patterns.Threading.Writer
 
 The following code shows the `Order` class, synchronized with the reader-writer threading pattern: 
 
-```csharp
-[ReaderWriterSynchronized]
-class Order
-{        
-    decimal Amount { get; private set; }
-    decimal Discount { get; private set; }
-
-    public decimal AmountAfterDiscount
-    {
-        get { return this.Amount - this.Discount; }
-    }
-    
-    [Writer]
-    public void Set(decimal amount, decimal discount)
-    {
-        if (amount < discount)
-            throw new InvalidOperationException();
-
-        this.Amount = amount;
-        this.Discount = discount;
-    }    
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ReaderWriterSynchronized.cs#example)]
 
 
 ## Rules enforced by the ReaderWriterSynchronized aspect
@@ -195,54 +120,7 @@ In the following example, `OrderCollection` is a collection of `Order` objects. 
 
 Since listeners can be on other threads (for example, a UI thread), this event is invoked by the `Add()` and `Remove()` methods via a method called `OnCollectionChanged()` which has been marked with the <xref:PostSharp.Patterns.Threading.YielderAttribute> attribute. This lock ensures that the listener (which may be in another thread space) can read the current state of the collection without the collection being modified by another invocation of the `Add()` or `Remove()` operations from another thread. 
 
-```csharp
-[ReaderWriterSynchronized]
-class OrderCollection : ICollection, INotifyCollectionChanged
-{
-    ArrayList list = new ArrayList();
-
-    // Details skipped.
-
-    public int Count
-    {
-        [Reader]
-        get
-        {
-            return list.Count;
-        }
-    }
-
-    [Writer]
-    public void Add(Order o)
-    {
-        list.Add(o);
-        NotifyCollectionChangedEventArgs changedArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, o);
-        OnCollectionChanged(changedArgs);
-    }
-
-    [Writer]
-    public void Remove(int index)
-    {
-        NotifyCollectionChangedEventArgs changedArgs = new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, list[index]);            
-        list.RemoveAt(index);
-        OnCollectionChanged(changedArgs);
-    }
-
-    [Yielder]
-    private void OnCollectionChanged(NotifyCollectionChangedEventArgs changedArgs)
-    {
-        CollectionChanged(this, changedArgs);
-    }
-
-    [Reader]
-    public Order Get(int index)
-    {
-        return (Order)list[index];
-    }
-
-    public event NotifyCollectionChangedEventHandler CollectionChanged;
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ReaderWriterYielder.cs#example)]
 
 
 ## Executing long-running write methods
@@ -253,36 +131,7 @@ In the following example, the `Order` class contains a collection of `Line` obje
 
 Since the `Recalculate` method performs a series of reads followed by a write operation (to store the total in `Amount`), it is marked with the <xref:PostSharp.Patterns.Threading.UpgradeableReaderAttribute> attribute which ensures that all of the orders that it reads remain locked so that it calculates and writes out the correct total. In addition to this, the set accessor of the `Order`’s `Amount` property has been marked with <xref:PostSharp.Patterns.Threading.WriterAttribute>: 
 
-```csharp
-[ReaderWriterSynchronized]
-class Order
-{
-    // Other details skipped for brevity.
-
-    public decimal Amount
-    {
-       // The [Reader] attribute is optional here because the method is a public getter.
-       get;
-       
-       // The [Writer] attribute is required because, although the method is a setter, this setter is private, 
-       // therefore it does not acquire write access by default.
-       [Writer] private set;
-    }
-
-    [UpgradeableReader]
-    public void Recalculate()
-    {
-        decimal total = 0;
-        
-        for (int i = 0; i < lines.Count; ++i)
-        {
-            total += lines[i].Amount;
-        }
-
-        this.Amount = total;
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ReaderWriterUpgradeable.cs#example)]
 
 
 ## Working with object trees

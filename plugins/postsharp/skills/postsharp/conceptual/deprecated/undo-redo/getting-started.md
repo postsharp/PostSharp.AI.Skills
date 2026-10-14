@@ -31,50 +31,7 @@ To make an object usable for undo/redo operations, you will need to add the <xre
 
 The following example shows an object model that has been prepared for undo/redo.
 
-```csharp
-[Recordable]
-public class Invoice
-{
-  public Invoice()
-  {
-     this.Lines = new AdvisableCollection<InvoiceLine>();
-  }
-
-	[Reference]
-	public Customer Customer { get; set; }
-  
-	[Child]
-	public IList<InvoiceLine> Lines { get; private set; }
-  
-  [Child]
-  public Address DeliveryAddress { get; set; }
-  
-  [NotRecorded]
-  public bool Persisted { get; set; }
-}                
-
-[Recordable]
-public class InvoiceLine
-{
-  [Reference]
-  private Product product;
-  
-  public decimal Amount { get; set; }
-  
-  [Parent]
-  public Invoice ParentInvoice { get; private set; }
-}     
-
-[Recordable]
-public class Address
-{
-}
-
-[Recordable]
-public class Customer
-{
-}
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoModel.cs#example)]
 
 By adding the <xref:PostSharp.Patterns.Recording.RecordableAttribute> aspect to the classes, all modifications to properties of these classes (including modifications to child collections) will be recorded. 
 
@@ -83,15 +40,10 @@ By adding the <xref:PostSharp.Patterns.Recording.RecordableAttribute> aspect to 
 
 To exclude a property from participating in undo/redo, annotate that property with <xref:PostSharp.Patterns.Recording.NotRecordedAttribute>. 
 
-```csharp
-[Recordable]
-public class Document
-{
-  public string Text { get; set; }
-  
-  [NotRecorded]
-  public bool AnyChangesMade { get; set; }
-}
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoNotRecorded.cs#example)]
+
+After an undo, the `Text` property gets its previous value, but the `AnyChangesMade` property keeps its value:
+
+[!code-text[](../../../code/samples/Model/UndoRedo/UndoRedoNotRecorded.txt)]
 
 

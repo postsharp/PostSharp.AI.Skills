@@ -49,52 +49,11 @@ To log a custom activity:
 
 The following code shows how to open and close an activity.
 
-```csharp
-static class Hasher
-{
-    static readonly LogSource logSource = LogSource.Get();
+[!code-csharp[](../../code/samples/Logging/LogCustomActivities.cs#example)]
 
-    private static byte[] ReadAndHash(string file)
-    {
-        using ( var activity = logSource.Default.OpenActivity( Formatted( "Processing file {File}", file ) ) )
-        {
-            try
-            {
-                var totalSize = 0;
+This code produces the following output:
 
-                using var hashAlgorithm = SHA256.Create();
-
-                var buffer = new byte[128 * 1024];
-
-                logSource.Info.Write( Formatted( "Working with a {BufferSize}-byte buffer.", buffer.Length ) );
-
-                using (var stream = File.OpenRead(file))
-                {
-                    int countRead;
-                    while ((countRead = stream.Read(buffer, 0, buffer.Length)) != 0)
-                    {
-                        logSource.Info.Write( Formatted( "Got {CountRead} bytes.", countRead ) );
-
-                        hashAlgorithm.TransformBlock(buffer, 0, countRead, null, 0);
-                        totalSize += countRead;
-                    }
-                }
-
-                hashAlgorithm.TransformFinalBlock(buffer, 0, 0);
-
-                activity.SetOutcome( LogLevel.Info, Formatted( "Success. Read {TotalSize} bytes in total.", totalSize ) );
-
-                return hashAlgorithm.Hash;
-            }
-            catch ( Exception e )
-            {
-                activity.SetException(e);
-                throw;
-            }
-        }
-    }
-}
-```
+[!code-text[](../../code/samples/Logging/LogCustomActivities.txt)]
 
 
 ## Logging an activity the compact way, with an anonymous method
@@ -106,45 +65,13 @@ The inconvenient consequence of using <xref:PostSharp.Patterns.Diagnostics.Custo
 
 ### Example
 
-The following code does almost the same as the previous example but with fewer lines of code. The main difference is that, in the current example, the <xref:PostSharp.Patterns.Diagnostics.LogActivity`1.SetSuccess(PostSharp.Patterns.Diagnostics.CloseActivityOptions@)> method is invoked instead of <xref:PostSharp.Patterns.Diagnostics.LogActivity`1.SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)>, and there is heap allocation even when logging is disabled. 
+The following code does almost the same as the previous example but with fewer lines of code. The main difference is that, in the current example, the <xref:PostSharp.Patterns.Diagnostics.LogActivity`1.SetResult``1(``0,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)> method is invoked instead of <xref:PostSharp.Patterns.Diagnostics.LogActivity`1.SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)>, and there is heap allocation even when logging is disabled. 
 
-```csharp
-static class Hasher
-{
-    static readonly LogSource logSource = LogSource.Get();
+[!code-csharp[](../../code/samples/Logging/LogCustomActivitiesCompact.cs#example)]
 
-    private static byte[] ReadAndHash(string file)
-    {
-        return logSource.Default.LogActivity( Formatted( "Processing file {File}", file ),
-            () =>
-            {
-                var totalSize = 0;
+This code produces the following output:
 
-                using var hashAlgorithm = SHA256.Create();
-
-                var buffer = new byte[128 * 1024];
-
-                logSource.Info.Write( Formatted( "Working with a {BufferSize}-byte buffer.", buffer.Length ) );
-
-                using (var stream = File.OpenRead(file))
-                {
-                    int countRead;
-                    while ((countRead = stream.Read(buffer, 0, buffer.Length)) != 0)
-                    {
-                        logSource.Info.Write( Formatted( "Got {CountRead} bytes.", countRead ) );
-
-                        hashAlgorithm.TransformBlock(buffer, 0, countRead, null, 0);
-                        totalSize += countRead;
-                    }
-                }
-
-                hashAlgorithm.TransformFinalBlock(buffer, 0, 0);
-
-                return hashAlgorithm.Hash;
-            } );
-    }
-}
-```
+[!code-text[](../../code/samples/Logging/LogCustomActivitiesCompact.txt)]
 
 
 ## Changing the default level for exceptions
@@ -158,9 +85,7 @@ However, when the activity fails with an exception, the close message level will
 
 You can measure the execution time of all activities by enabling the <xref:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime> property: 
 
-```csharp
-backend.Options.IncludeActivityExecutionTime = true;
-```
+[!code-csharp[](../../code/samples/Logging/LogActivityExecutionTime.cs#example)]
 
 This will cause the execution time to be appended to the close message.
 

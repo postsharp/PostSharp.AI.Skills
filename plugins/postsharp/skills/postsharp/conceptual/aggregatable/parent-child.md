@@ -50,46 +50,11 @@ In the following example, an `Invoice` object owns several instances of the `Inv
 
 Note that in the constructor of the `Invoice` class, we assign an <xref:PostSharp.Patterns.Collections.AdvisableCollection`1> to the `Lines` field instead of a `List`. 
 
-```csharp
-[Aggregatable]
-public class Invoice
-{
-  public Invoice()
-  {
-     this.Lines = new AdvisableCollection<InvoiceLine>();
-  }
+[!code-csharp[](../../code/samples/Model/Aggregatable/AggregatableInvoice.cs#example)]
 
-  [Reference]
-  public Customer Customer { get; set; }
-  
-  [Child]
-  public IList<InvoiceLine> Lines { get; private set; }
-  
-  [Child]
-  public Address DeliveryAddress { get; set; }
-}                
+When a line is added to the `Lines` collection, PostSharp sets its `ParentInvoice` property:
 
-[Aggregatable]
-public class InvoiceLine
-{
-  [Reference]
-  private Product product;
-  
-  public decimal Amount { get; set; }
-  
-  [Parent]
-  public Invoice ParentInvoice { get; private set; }
-}     
-
-[Aggregatable]
-public class Address
-{
-}
-
-public class Customer
-{
-}
-```
+[!code-text[](../../code/samples/Model/Aggregatable/AggregatableInvoice.txt)]
 
 ## See Also
 

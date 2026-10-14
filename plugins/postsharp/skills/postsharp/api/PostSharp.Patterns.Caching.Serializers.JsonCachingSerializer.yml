@@ -57,13 +57,34 @@ items:
   summary: Initializes a new instance of the <xref href="PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer" data-throw-if-not-resolved="false"></xref> class.
   example: []
   syntax:
-    content: public JsonCachingSerializer(JsonSerializerOptions options = null)
+    content: >-
+      [RequiresUnreferencedCode("The serializer resolves the type of a cached value by name, and serializes it with the reflection-based JsonSerializer unless the TypeInfoResolver of the options is a source-generated JsonSerializerContext.")]
+
+      [RequiresDynamicCode("The serializer resolves the type of a cached value by name, and serializes it with the reflection-based JsonSerializer unless the TypeInfoResolver of the options is a source-generated JsonSerializerContext.")]
+
+      public JsonCachingSerializer(JsonSerializerOptions options = null)
     parameters:
     - id: options
       type: System.Text.Json.JsonSerializerOptions
       description: The optional options for the <xref href="System.Text.Json.JsonSerializer" data-throw-if-not-resolved="false"></xref>.
-    content.vb: Public Sub New(options As JsonSerializerOptions = Nothing)
+    content.vb: >-
+      <RequiresUnreferencedCode("The serializer resolves the type of a cached value by name, and serializes it with the reflection-based JsonSerializer unless the TypeInfoResolver of the options is a source-generated JsonSerializerContext.")>
+
+      <RequiresDynamicCode("The serializer resolves the type of a cached value by name, and serializes it with the reflection-based JsonSerializer unless the TypeInfoResolver of the options is a source-generated JsonSerializerContext.")>
+
+      Public Sub New(options As JsonSerializerOptions = Nothing)
   overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.#ctor*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: The serializer resolves the type of a cached value by name, and serializes it with the reflection-based JsonSerializer unless the TypeInfoResolver of the options is a source-generated JsonSerializerContext.
+  - type: System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: The serializer resolves the type of a cached value by name, and serializes it with the reflection-based JsonSerializer unless the TypeInfoResolver of the options is a source-generated JsonSerializerContext.
   nameWithType.vb: JsonCachingSerializer.New(JsonSerializerOptions)
   fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.New(System.Text.Json.JsonSerializerOptions)
   name.vb: New(JsonSerializerOptions)
@@ -84,7 +105,12 @@ items:
   summary: Serializes an object into a byte array.
   example: []
   syntax:
-    content: public byte[] Serialize(object value)
+    content: >-
+      [UnconditionalSuppressMessage("Trimming", "IL2026", Justification = "The constructor requires unreferenced and dynamic code.")]
+
+      [UnconditionalSuppressMessage("AOT", "IL3050", Justification = "The constructor requires unreferenced and dynamic code.")]
+
+      public byte[] Serialize(object value)
     parameters:
     - id: value
       type: System.Object
@@ -92,10 +118,38 @@ items:
     return:
       type: System.Byte[]
       description: A byte array representing <code class="paramref">value</code>.
-    content.vb: Public Function Serialize(value As Object) As Byte()
+    content.vb: >-
+      <UnconditionalSuppressMessage("Trimming", "IL2026", Justification:="The constructor requires unreferenced and dynamic code.")>
+
+      <UnconditionalSuppressMessage("AOT", "IL3050", Justification:="The constructor requires unreferenced and dynamic code.")>
+
+      Public Function Serialize(value As Object) As Byte()
   overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize*
   implements:
   - PostSharp.Patterns.Caching.Serializers.ISerializer.Serialize(System.Object)
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Trimming
+    - type: System.String
+      value: IL2026
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The constructor requires unreferenced and dynamic code.
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: AOT
+    - type: System.String
+      value: IL3050
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The constructor requires unreferenced and dynamic code.
   nameWithType.vb: JsonCachingSerializer.Serialize(Object)
   fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Serialize(Object)
   name.vb: Serialize(Object)
@@ -141,14 +195,32 @@ items:
   summary: Resolves an assembly-qualified type name to a <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: protected virtual Type ResolveTypeName(string assemblyQualifiedTypeName)
+    content: >-
+      [UnconditionalSuppressMessage("Trimming", "IL2057", Justification = "The constructor requires unreferenced and dynamic code.")]
+
+      protected virtual Type ResolveTypeName(string assemblyQualifiedTypeName)
     parameters:
     - id: assemblyQualifiedTypeName
       type: System.String
     return:
       type: System.Type
-    content.vb: Protected Overridable Function ResolveTypeName(assemblyQualifiedTypeName As String) As Type
+    content.vb: >-
+      <UnconditionalSuppressMessage("Trimming", "IL2057", Justification:="The constructor requires unreferenced and dynamic code.")>
+
+      Protected Overridable Function ResolveTypeName(assemblyQualifiedTypeName As String) As Type
   overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Trimming
+    - type: System.String
+      value: IL2057
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The constructor requires unreferenced and dynamic code.
   nameWithType.vb: JsonCachingSerializer.ResolveTypeName(String)
   fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.ResolveTypeName(String)
   name.vb: ResolveTypeName(String)
@@ -169,7 +241,12 @@ items:
   summary: Deserializes a byte array into an object.
   example: []
   syntax:
-    content: public object Deserialize(byte[] array)
+    content: >-
+      [UnconditionalSuppressMessage("Trimming", "IL2026", Justification = "The constructor requires unreferenced and dynamic code.")]
+
+      [UnconditionalSuppressMessage("AOT", "IL3050", Justification = "The constructor requires unreferenced and dynamic code.")]
+
+      public object Deserialize(byte[] array)
     parameters:
     - id: array
       type: System.Byte[]
@@ -177,10 +254,38 @@ items:
     return:
       type: System.Object
       description: The object represented by <code class="paramref">array</code>.
-    content.vb: Public Function Deserialize(array As Byte()) As Object
+    content.vb: >-
+      <UnconditionalSuppressMessage("Trimming", "IL2026", Justification:="The constructor requires unreferenced and dynamic code.")>
+
+      <UnconditionalSuppressMessage("AOT", "IL3050", Justification:="The constructor requires unreferenced and dynamic code.")>
+
+      Public Function Deserialize(array As Byte()) As Object
   overload: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize*
   implements:
   - PostSharp.Patterns.Caching.Serializers.ISerializer.Deserialize(System.Byte[])
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Trimming
+    - type: System.String
+      value: IL2026
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The constructor requires unreferenced and dynamic code.
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: AOT
+    - type: System.String
+      value: IL3050
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The constructor requires unreferenced and dynamic code.
   nameWithType.vb: JsonCachingSerializer.Deserialize(Byte())
   fullName.vb: PostSharp.Patterns.Caching.Serializers.JsonCachingSerializer.Deserialize(Byte())
   name.vb: Deserialize(Byte())

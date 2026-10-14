@@ -1,0 +1,140 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  id: InstantiateTypeAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.#ctor(System.Type)
+  - PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.MasterAspectMember
+  - PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.Type
+  langs:
+  - csharp
+  - vb
+  name: InstantiateTypeAdviceInstance
+  nameWithType: InstantiateTypeAdviceInstance
+  fullName: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Represents an advice that makes the ahead-of-time compiler (NativeAOT) generate the native code of a type, which the aspect creates by
+
+    reflection at run time. The advice has no effect unless the project is compiled for NativeAOT.
+  remarks: >-
+    <p>
+        In an application compiled ahead of time, a generic type instance has native code only when the code of the application instantiates
+        it. A generic type instance over reference types can also be created by reflection, because it shares the native code of the other
+        instances. A generic type instance over a value type cannot: <code>Activator.CreateInstance</code> throws a <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref>.
+        An aspect that creates such a type at run time, for instance a formatter or an adapter for the type of a parameter, returns this advice
+        from <xref href="PostSharp.Aspects.Advices.IAdviceProvider.ProvideAdvices(System.Object)" data-throw-if-not-resolved="false"></xref>, so that the weaver adds an instantiation of the type to the woven assembly.
+        </p>
+    <p>
+        The weaver adds the instantiations to a method that is referenced by the module initializer but never called, so that the woven code
+        does not execute them. The type can be internal to another assembly: the runtime never compiles the method, but an IL verifier such
+        as ILVerify reports the access to the internal type.
+        </p>
+    <p>
+        The advice has an effect only when the MSBuild property <code>PostSharpAotCompatibleWeaving</code> is <code>true</code>. Its default is <code>true</code>
+        when the project sets <code>PublishAot</code>, <code>IsAotCompatible</code> or <code>EnableAotAnalyzer</code>. Otherwise, the woven assembly is the same
+        as without the advice. A library whose aspects are used in an application compiled ahead of time must set <code>IsAotCompatible</code>.
+        </p>
+  example: []
+  syntax:
+    content: 'public sealed class InstantiateTypeAdviceInstance : AdviceInstance'
+    content.vb: Public NotInheritable Class InstantiateTypeAdviceInstance Inherits AdviceInstance
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IAdviceProvider
+    commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
+  - linkType: HRef
+    linkId: '@advice-provider'
+    altText: 'Conceptual: Providing Advices Dynamically'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.#ctor(System.Type)
+  commentId: M:PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: InstantiateTypeAdviceInstance(Type)
+  nameWithType: InstantiateTypeAdviceInstance.InstantiateTypeAdviceInstance(Type)
+  fullName: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.InstantiateTypeAdviceInstance(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public InstantiateTypeAdviceInstance(Type type)
+    parameters:
+    - id: type
+      type: System.Type
+      description: >-
+        The type to instantiate. It must be a class with a parameterless constructor, or a structure, and it must not
+                    contain generic parameters.
+    content.vb: Public Sub New(type As Type)
+  overload: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.#ctor*
+  nameWithType.vb: InstantiateTypeAdviceInstance.New(Type)
+  fullName.vb: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.Type
+  commentId: P:PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.Type
+  id: Type
+  parent: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: InstantiateTypeAdviceInstance.Type
+  fullName: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.Type
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the type to instantiate.
+  example: []
+  syntax:
+    content: public Type Type { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property Type As Type
+  overload: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.Type*
+- uid: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.MasterAspectMember
+  commentId: P:PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.MasterAspectMember
+  id: MasterAspectMember
+  parent: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MasterAspectMember
+  nameWithType: InstantiateTypeAdviceInstance.MasterAspectMember
+  fullName: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.MasterAspectMember
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the main field or method of the aspect class that the current <xref href="PostSharp.Aspects.Advices.AdviceInstance" data-throw-if-not-resolved="false"></xref> relates to.
+  example: []
+  syntax:
+    content: public override object MasterAspectMember { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides ReadOnly Property MasterAspectMember As Object
+  overridden: PostSharp.Aspects.Advices.AdviceInstance.MasterAspectMember
+  overload: PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance.MasterAspectMember*

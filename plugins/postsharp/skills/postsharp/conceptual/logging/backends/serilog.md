@@ -28,28 +28,11 @@ To send PostSharp Logging events to Serilog sinks:
 
 3. In the application startup file, include the following namespace imports:
 
-    ```csharp
-    using PostSharp.Patterns.Diagnostics;
-    using PostSharp.Patterns.Diagnostics.Backends.Serilog;
-    using Serilog;
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingSerilog.cs#usings)]
 
     In the application startup method, include the following code:
 
-    ```csharp
-    // The output template must include {Indent} for nice output.
-    const string template = "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Indent:l}{Message}{NewLine}{Exception}";
-    
-    // Configure a Serilog logger.
-    var logger = new LoggerConfiguration()
-      .MinimumLevel.Debug()
-      .WriteTo.File("serilog.log", outputTemplate: template)
-      .WriteTo.Console(outputTemplate: template)
-      .CreateLogger();
-    
-    // Configure PostSharp Logging to use Serilog
-    LoggingServices.DefaultBackend = new SerilogLoggingBackend(logger);
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingSerilog.cs#configure)]
 
     This example code instructs Serilog to write all log records to a file named `serilog.log` and to the console. 
 
@@ -58,7 +41,9 @@ To send PostSharp Logging events to Serilog sinks:
     See the [Serilog documentation](https://github.com/serilog/serilog/wiki/Configuration-Basics) for more details. 
 
 
-If you run your application, you should now see a detailed log in a file named `serilog.log`. If your application is a console application, you should also see the log in the console. 
+If you run your application, you should now see a detailed log in a file named `serilog.log`. If your application is a console application, you should also see the log in the console, for instance:
+
+[!code-text[](../../../code/samples/Logging/LoggingSerilog.txt)]
 
 
 ## Using Serilog formatters instead of PostSharp ones
@@ -86,47 +71,19 @@ If your source code already emits log events using Serilog, you can configure Po
 
 Suppose that you have already configured Serilog and PostSharp like this:
 
-```csharp
-// Configure Serilog
-ILogger logger = new LoggerConfiguration()
-   .MinimumLevel.Debug()
-   .WriteTo.Console()
-   .CreateLogger();
-   
-// Configure PostSharp Logging to use Serilog
-LoggingServices.DefaultBackend = new SerilogLoggingBackend(logger); 
-
-// Emit manual log records. Note that this logger will skip PostSharp Logging, so indentation
-// will not be respected.
-logger.Information("Hello, world.");
-```
+[!code-csharp[](../../../code/samples/Logging/SerilogManualLogging.cs#configure)]
 
 To collect Serilog manual logging events into PostSharp, replace that startup code with the following:
 
-```csharp
-// Create a Serilog logger that writes to the final output (for example, Console).
-// You would typically copy the configuration code of your original logger, but you would give it a different name.
-ILogger outputLogger = new LoggerConfiguration()
-   .MinimumLevel.Debug()
-   .WriteTo.Console()
-   .CreateLogger();
-   
-// Use this output logger to create a PostSharp backend and set it as the default backend:
-LoggingServices.DefaultBackend = new SerilogLoggingBackend(outputLogger); 
-
-// Create a second Serilog logger that sends all logging events to the PostSharp collector.
-// This becomes your new front-end logger, the one you will actually use to emit log records.
-var logger = new LoggerConfiguration()
-   .MinimumLevel.Verbose()	// The verbosity here must be higher or equal to the one of 'outputLogger'.
-   .WriteTo.PostSharp()
-   .CreateLogger();
-```
+[!code-csharp[](../../../code/samples/Logging/SerilogCollecting.cs#configure)]
 
 You can now do standard Serilog logging and the logging output will be collected and sent to PostSharp Logging. Use `logger`: 
 
-```csharp
-logger.Information("Hello, world.");
-```
+[!code-csharp[](../../../code/samples/Logging/SerilogCollecting.cs#manual)]
+
+When a logged method also writes a manual record, this record is indented like the records of PostSharp Logging:
+
+[!code-text[](../../../code/samples/Logging/SerilogCollecting.txt)]
 
 ## See Also
 

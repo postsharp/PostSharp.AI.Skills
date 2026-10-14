@@ -33,29 +33,11 @@ To add behaviors to a single method, field, property or event, a member-level as
 
 The following aspect writes a line to the console whenever an instance property of the target class is set. The pointcut selects the properties, and the advice is generic, so the value is not boxed. Apply it to classes only: on a struct, the `instance` parameter receives a boxed copy, so the value would be stored in the copy.
 
-```csharp
-using System;
-using PostSharp.Aspects;
-using PostSharp.Aspects.Advices;
-using PostSharp.Extensibility;
-using PostSharp.Serialization;
+[!code-csharp[](../../../../code/samples/framework/aspects/type-level-aspects/TraceProperties.cs#aspect)]
 
-[PSerializable]
-public sealed class TracePropertiesAttribute : TypeLevelAspect
-{
-    [OnLocationSetValueAdvice,
-     MulticastPointcut( Targets = MulticastTargets.Property, Attributes = MulticastAttributes.Instance )]
-    public void OnPropertySet<T>( [This] object instance,
-                                  [DeclarationName( IncludeTypeName = true )] string propertyName,
-                                  [LocationValue] T value,
-                                  [Binding] ILocationBinding<T> binding )
-    {
-        Console.WriteLine( "{0} = {1}", propertyName, value );
+When the aspect is applied to a `Customer` class, setting the `Name` and `Age` instance properties and a static property prints the following output:
 
-        binding.SetValue( instance, value );
-    }
-}
-```
+[!code-text[](../../../../code/samples/framework/aspects/type-level-aspects/TraceProperties.txt)]
 
 
 ## In this chapter

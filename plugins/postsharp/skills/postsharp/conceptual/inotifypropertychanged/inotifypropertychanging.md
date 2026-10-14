@@ -21,15 +21,7 @@ Because the <xref:System.ComponentModel.INotifyPropertyChanging> interface is no
 
 2. Add the `OnPropertyChanging` method with exactly the following signature, and invoke the <xref:System.ComponentModel.INotifyPropertyChanging.PropertyChanging> event. 
 
-    ```csharp
-    protected void OnPropertyChanging( string propertyName )
-    {
-        if ( this.PropertyChanging != null )
-        {
-          this.PropertyChanging( this, new PropertyChangingEventArgs ( propertyName ) );
-        }
-    }
-    ```
+    [!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcPropertyChanging.cs#on-property-changing)]
 
 
 3. Add the <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect to your class as described in <xref:inotifypropertychanged-add>. 
@@ -43,22 +35,10 @@ Because the <xref:System.ComponentModel.INotifyPropertyChanging> interface is no
 
 The following example demonstrates how to implement <xref:System.ComponentModel.INotifyPropertyChanging>. 
 
-```csharp
-[NotifyPropertyChanged]                
-public class MyClass : INotifyPropertyChanging
-{
-    public event PropertyChangingEventHandler PropertyChanging;
-    
-    protected void OnPropertyChanging( string propertyName )
-    {
-       if ( this.PropertyChanging != null )
-       {
-          this.PropertyChanging( this, new PropertyChangingEventArgs ( propertyName ) );
-       }
-    }
-    
-    public string MyProperty { get; set; }
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcPropertyChanging.cs#example)]
+
+When a program subscribes to both events and sets `MyProperty`, the `PropertyChanging` event is raised before the change and the `PropertyChanged` event after the change:
+
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcPropertyChanging.txt)]
 
 

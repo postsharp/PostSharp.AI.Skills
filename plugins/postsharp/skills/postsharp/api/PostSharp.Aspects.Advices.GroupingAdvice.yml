@@ -168,8 +168,8 @@ items:
         nearest base class that declares one. When no class declares one, the advices of the class without <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> and without pointcut
         form one group, whose master is the advice that sets a property that only a master can set, such as <xref href="PostSharp.Aspects.Advices.Advice.Description" data-throw-if-not-resolved="false"></xref>, or
         else the first advice. When several master advices could be selected, the compiler reports an error, and this property must be set.
-        An advice that sets this property cannot set <code>SemanticallyAdvisedMethodKinds</code> or <code>UnsupportedTargetAction</code>, which only the
-        master advice can set.
+        An advice that joins the group of a master advice, whether it sets this property or joins the group implicitly, cannot set
+        <code>SemanticallyAdvisedMethodKinds</code> or <code>UnsupportedTargetAction</code>, which only the master advice can set; the compiler reports an error.
         </p>
   example: []
   syntax:

@@ -17,43 +17,30 @@ Another scenario is when you have a large amount of fields and do not want to an
 
 Field rules allow you to annotate a field as a child or a reference programmatically, without adding a custom attribute to each field manually.
 
-In the following example, let us consider a class where PostSharp shows the error message *COM002: “Field/property InvoiceLine.product must be annotated with a custom attribute [Child], [Reference] or [Parent].”*:
+In the following example, the `product` field of the `InvoiceLine` class has no custom attribute.
 
-```csharp
-[Aggregatable]
-public class InvoiceLine
-{
-  private Product product;
+[!code-csharp[](../../code/samples/Model/Aggregatable/FieldRuleMissing.cs#example)]
 
-  public decimal Amount { get; set; }
-}
-```
+The build fails with the following error:
+
+[!code-text[](../../code/samples/Model/Aggregatable/FieldRuleMissing.build.txt)]
 
 
 ## Marking all fields as references by default
 
 1. Create a class derived from the <xref:PostSharp.Patterns.Model.TypeAdapters.FieldRule> class. 
 
-    ```csharp
-    public class ReferenceFieldRule : FieldRule
-    ```
+    [!code-csharp[](../../code/samples/Model/Aggregatable/FieldRules.cs#declaration)]
 
 
 2. Override the <xref:PostSharp.Patterns.Model.TypeAdapters.FieldRule.GetRelationshipInfo(System.Reflection.FieldInfo)> method. PostSharp calls the <xref:PostSharp.Patterns.Model.TypeAdapters.FieldRule.GetRelationshipInfo(System.Reflection.FieldInfo)> method for each field that is not annotated with the <xref:PostSharp.Patterns.Model.ChildAttribute>, <xref:PostSharp.Patterns.Model.ReferenceAttribute> or <xref:PostSharp.Patterns.Model.ParentAttribute> custom attribute. The <xref:PostSharp.Patterns.Model.TypeAdapters.FieldRule.GetRelationshipInfo(System.Reflection.FieldInfo)> method allows you to specify the field relationship by returning a <xref:PostSharp.Patterns.Model.RelationshipInfo> instance. 
 
-    ```csharp
-    public override RelationshipInfo? GetRelationshipInfo(FieldInfo field)
-    {
-        return new RelationshipInfo(RelationshipKind.None, RelationshipKind.Reference);
-    }
-    ```
+    [!code-csharp[](../../code/samples/Model/Aggregatable/FieldRules.cs#get-relationship-info)]
 
 
 3. Decorate your project’s assembly with a <xref:PostSharp.Patterns.Model.TypeAdapters.RegisterFieldRuleAttribute> custom attribute to activate your field rule. 
 
-    ```csharp
-    [assembly: RegisterFieldRule(typeof(ReferenceFieldRule))]
-    ```
+    [!code-csharp[](../../code/samples/Model/Aggregatable/FieldRules.cs#register)]
 
     > [!CAUTION]
     > You have to mark each project assembly to make your FieldRule active in the whole solution.

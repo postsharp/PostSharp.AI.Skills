@@ -29,8 +29,8 @@ items:
             when the application starts. Until then, the records are sent to the <xref href="PostSharp.Patterns.Diagnostics.Backends.Null.NullLoggingBackend" data-throw-if-not-resolved="false"></xref>, which discards them.</p>
   example: []
   syntax:
-    content: 'public class LogAttribute : LogAttributeBase, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect'
-    content.vb: Public Class LogAttribute Inherits LogAttributeBase Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect
+    content: 'public class LogAttribute : LogAttributeBase, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAdviceProvider, IAspect'
+    content.vb: Public Class LogAttribute Inherits LogAttributeBase Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAdviceProvider, IAspect
   seealso:
   - linkId: PostSharp.Patterns.Diagnostics.LogExceptionAttribute
     commentId: T:PostSharp.Patterns.Diagnostics.LogExceptionAttribute
@@ -53,6 +53,7 @@ items:
   - PostSharp.Aspects.IAspectBuildSemantics
   - PostSharp.Extensibility.IValidableAnnotation
   - PostSharp.Patterns.Diagnostics.ILogAspect
+  - PostSharp.Aspects.Advices.IAdviceProvider
   - PostSharp.Aspects.IAspect
   inheritedMembers:
   - PostSharp.Patterns.Diagnostics.LogAttributeBase.ProfileName

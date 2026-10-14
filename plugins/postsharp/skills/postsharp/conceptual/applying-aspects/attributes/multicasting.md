@@ -16,10 +16,11 @@ After you write an aspect, you must apply it to the application code so that it 
 
 To apply a method-level aspect, you can place an attribute on each method. As your codebase grows, this approach becomes tedious. You need to remember to add the attribute to all methods of the class. If you have hundreds of classes, you may have thousands of methods to which you must add the aspect attribute manually. This approach does not scale. Fortunately, there is an easier way. Instead of applying your aspect to each method, you can add that attribute to the class, and PostSharp ensures that the aspect is applied to all methods of that class.
 
-```csharp
-[OurLoggingAspect] 
-public class CustomerServices
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingClass.cs#example)]
+
+When the methods `Load` and `Save` of this class are called, the aspect logs both of them:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingClass.txt)]
 
 You can also add a location-level aspect to a class which applies it to all properties and all fields in that class. Note that this includes backing fields of auto-implemented properties.
 
@@ -38,12 +39,12 @@ The <xref:PostSharp.Extensibility.MulticastAttribute> is a special attribute tha
 
 3. Add the <xref:PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes> property to the aspect attribute and define the namespace that you would like the aspect applied to. 
 
-    ```csharp
-    [assembly: OurLoggingAspect(AttributeTargetTypes="OurCompany.OurApplication.Controllers.*")]
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingNamespace.cs#example)]
 
 
-This one line of code is the equivalent of adding the aspect attribute to every class in the desired namespace.
+This one line of code is the equivalent of adding the aspect attribute to every class in the desired namespace. In the following output, the methods of the classes `CustomerController` and `AuditController` of this namespace are logged, but not the method of the class `CustomerService` of another namespace:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingNamespace.txt)]
 
 > [!NOTE]
 > When setting the <xref:PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes> you can use wildcards (`*`) to indicate that all sub-namespaces should have the aspect applied to them. It is also possible to indicate the targets of the aspect using `regex`. Add `"regex:"` as a prefix to the pattern you wish to use for matching. 
@@ -53,12 +54,11 @@ This one line of code is the equivalent of adding the aspect attribute to every 
 
 Multicasting an attribute can apply the aspect to many targets. To restrict where the aspect is attached, use <xref:PostSharp.Extensibility.MulticastAttribute.AttributeExclude>. 
 
-```csharp
-[assembly: OurLoggingAspect(AttributeTargetTypes="OurCompany.OurApplication.Controllers.*", AttributePriority = 1)] 
-[assembly: OurLoggingAspect(AttributeTargetMembers="Dispose", AttributeExclude = true, AttributePriority = 2)]
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingExclude.cs#example)]
 
 In the example above, the first multicast line indicates that the `OurLoggingAspect` should be attached to all methods in the `Controllers` namespace. The second multicast line indicates that the `OurLoggingAspect` should not be applied to any method named `Dispose`. 
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingExclude.txt)]
 
 > [!NOTE]
 > Notice the <xref:PostSharp.Extensibility.MulticastAttribute.AttributePriority> property that is set in both of the multicast lines. Since there is no guarantee that the compiler will apply the attributes in the order you have specified in the code, it is necessary to declare an order to ensure processing is completed as desired. 
@@ -76,10 +76,11 @@ After you apply an aspect to all classes in a namespace and its sub-namespaces, 
 
 2. Set the <xref:PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes> value to `Public`. 
 
-    ```csharp
-    [assembly: OurLoggingAspect(AttributeTargetTypes="OurCompany.OurApplication.Controllers.*",  
-                                AttributeTargetTypeAttributes = MulticastAttributes.Public)]
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingPublic.cs#example)]
+
+The aspect is now applied to the public class `CustomerController`, but not to the internal class `AuditController`:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingPublic.txt)]
 
 
 By combining <xref:PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypeAttributes> values, you can create the combinations that you need. 
@@ -97,9 +98,11 @@ Filtering at the class level may not be granular enough for your needs. Aspects 
 
 2. Set the <xref:PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes> value to `Virtual`. 
 
-    ```csharp
-    [assembly: OurLoggingAspect(AttributeTargetTypes="OurCompany.OurApplication.Controllers.*", AttributeTargetMemberAttributes = MulticastAttributes.Virtual)]
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingVirtual.cs#example)]
+
+The aspect is now applied to the virtual method `Edit`. It is also applied to `Dispose`, because a method that implements an interface is virtual at the level of MSIL:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/AttributeMulticastingVirtual.txt)]
 
 
 Using this technique you can apply a method-level aspect, or stop it from being applied, based on whether keywords such as `static`, `abstract` and `virtual` are present.

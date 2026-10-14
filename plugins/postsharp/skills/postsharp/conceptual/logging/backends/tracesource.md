@@ -25,22 +25,12 @@ To send PostSharp Logging events to TraceSource listeners:
 
 3. In the application startup method, include the following code:
 
-    ```csharp
-    LoggingServices.DefaultBackend = new TraceSourceLoggingBackend();
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingTraceSource.cs#backend)]
 
 
 Note that by default, PostSharp Logging will use a different <xref:System.Diagnostics.TraceSource> for each logged type in source code, and the source will be named after the namespace-qualified type name. You can override this behavior using the following code: 
 
-```csharp
-LoggingServices.DefaultBackend = new TraceSourceLoggingBackend()
-{
-    Options =
-    {
-        GetTraceSourceName = ( source ) => "PostSharpLogging" // Change with your source name.
-    }
-};
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingTraceSource.cs#source-name)]
 
 
 ## Collecting TraceSource events into PostSharp Logging
@@ -57,54 +47,27 @@ To collect TraceSource manual logging events into PostSharp:
 
 2. Configure two trace sources in your `app.config` file, one that you will use in code, and one that controls the final output: 
 
-    ```xml
-    <configuration>  
-      <system.diagnostics>  
-        <sources>  
-          <source name="ManualLogging"
-            switchName="sourceSwitch"
-            switchType="System.Diagnostics.SourceSwitch">  
-            <listeners>  
-              <add name="toPostSharp" type="PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceCollectingTraceListener, PostSharp.Patterns.Diagnostics.Backends.Tracing" />
-              <remove name="Default"/>  
-            </listeners>  
-          </source>  
-          <source name="PostSharpLogging"
-            switchName="sourceSwitch"
-            switchType="System.Diagnostics.SourceSwitch">  
-            <listeners>  
-              <add name="console" type="System.Diagnostics.ConsoleTraceListener" />
-              <remove name="Default"/>  
-            </listeners>  
-          </source>  
-        </sources>  
-        <switches>  
-          <add name="sourceSwitch" value="Verbose"/>  
-        </switches>  
-      </system.diagnostics>  
-    </configuration>
-    ```
+    [!code-xml[](../../../code/samples/Logging/LoggingTraceSourceCollecting/app.config)]
+
+    On .NET Core and .NET 5 or later, specify the assembly name in the `type` attribute of the PostSharp listener, as in the example above.
 
 
-3. In the application startup method, include the following code:
+3. In the application startup method, configure the trace sources and the backend. On .NET Core and .NET 5 or later, `TraceSource` does not read `app.config` by default. Add the `System.Configuration.ConfigurationManager` package and call `TraceConfiguration.Register` first:
 
-    ```csharp
-    LoggingServices.DefaultBackend = new TraceSourceLoggingBackend()
-    {
-        Options =
-        {
-            GetTraceSourceName = ( source ) => "PostSharpLogging"
-        }
-    };
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingTraceSourceCollecting/LoggingTraceSourceCollecting.cs#register)]
+
+    Then set the backend:
+
+    [!code-csharp[](../../../code/samples/Logging/LoggingTraceSourceCollecting/LoggingTraceSourceCollecting.cs#configure)]
 
 
 4. You can now do standard `TraceSource` logging and the logging output will be collected and sent to PostSharp Logging. Use the `TraceSource` configured with <xref:PostSharp.Patterns.Diagnostics.Backends.TraceSource.TraceSourceCollectingTraceListener> to emit logging events: 
 
-    ```csharp
-    var ts = new TraceSource("ManualLogging");
-    ts.TraceInformation( "Hello, world." );
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingTraceSourceCollecting/LoggingTraceSourceCollecting.cs#manual)]
+
+    When this code runs in a logged method, the output is:
+
+    [!code-text[](../../../code/samples/Logging/LoggingTraceSourceCollecting/LoggingTraceSourceCollecting.txt)]
 
 
 Now, you can use <xref:PostSharp.Patterns.Diagnostics.LogAttribute> to add automatic logging and `TraceSource` methods to add manual log messages. 

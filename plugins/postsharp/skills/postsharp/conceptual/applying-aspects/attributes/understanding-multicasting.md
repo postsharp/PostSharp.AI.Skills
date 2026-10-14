@@ -43,19 +43,19 @@ Just as ordinary custom attributes should be decorated with the `[AttributeUsage
 
 For instance, the following piece of code specifies that the attribute `GuiThreadAttribute` can be applied to instance methods. Aspect users get a build-time error when they use this aspect on a constructor or static method. 
 
-```csharp
-[MulticastAttributeUsage(MulticastTargets.Method, TargetMemberAttributes = MulticastAttributes.Instance)]
-              [AttributeUsage(AttributeTargets.Assembly|AttributeTargets.Class|AttributeTargets.Method, AllowMultiple = true)]
-              [PSerializable]
-              public class GuiThreadAttribute : MethodInterceptionAspect
-              {
-              // Details skipped.
-              }
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastDeveloperFiltering.cs#example)]
 
 Note the presence of the <xref:System.AttributeUsageAttribute> attribute in the sample above. It tells the C# or VB compiler that the attribute can be directly applied to assemblies, classes, or methods. But this aspect is never applied to an assembly or a class. Indeed, the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute> attribute specifies that the only valid targets are methods. Furthermore, the `TargetMemberAttributes` property establishes a filter that includes only instance methods. 
 
 Therefore, if the aspect is applied to a type, it is not multicast to the static methods or the constructors of this type. It is not multicast to abstract methods either, because the base class <xref:PostSharp.Aspects.MethodInterceptionAspect> excludes them and the derived class inherits this filter.
+
+When the aspect is applied to a class that has an instance method `SetText` and a static method `Create`, only `SetText` is intercepted:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastDeveloperFiltering.txt)]
+
+If the aspect is applied directly to the static method `Create`, the build fails with the following error:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastDeveloperFilteringError.build.txt)]
 
 > [!TIP]
 > In addition to multicast filtering, consider using programmatic validation of aspect usage. Any custom attribute can implement <xref:PostSharp.Extensibility.IValidableAnnotation> to implement build-time validation of targets. Aspects that derive from <xref:PostSharp.Aspects.Aspect> already implement this interface: your aspect can override the method <xref:PostSharp.Aspects.Aspect.CompileTimeValidate(System.Object)>. 
@@ -74,9 +74,11 @@ Aspect users can apply aspects only to elements of code that the developer of th
 
 For instance, the following element of code adds a tracing aspect to all public methods of a namespace:
 
-```csharp
-[assembly: Trace( AttributeTargetTypes="AdventureWorks.BusinessLayer.*", AttributeTargetMemberAttributes = MulticastAttributes.Public )]
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastUserFiltering.cs#example)]
+
+In the following output, the public method `PlaceOrder` is traced, but not the private method `CheckStock`:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastUserFiltering.txt)]
 
 
 ## Filtering Properties

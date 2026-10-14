@@ -28,9 +28,17 @@ items:
     content: >-
       [Obsolete("BinaryFormatter used by this class is considered dangerous. Use JsonCachingSerializer instead.", false)]
 
+      [RequiresUnreferencedCode("BinaryFormatter serialization is not trim compatible, because the type of the data cannot be statically discovered.")]
+
+      [RequiresDynamicCode("BinaryFormatter serialization uses dynamic code generation.")]
+
       public sealed class BinarySerializer : ISerializer
     content.vb: >-
       <Obsolete("BinaryFormatter used by this class is considered dangerous. Use JsonCachingSerializer instead.", False)>
+
+      <RequiresUnreferencedCode("BinaryFormatter serialization is not trim compatible, because the type of the data cannot be statically discovered.")>
+
+      <RequiresDynamicCode("BinaryFormatter serialization uses dynamic code generation.")>
 
       Public NotInheritable Class BinarySerializer Implements ISerializer
   inheritance:
@@ -52,6 +60,16 @@ items:
       value: BinaryFormatter used by this class is considered dangerous. Use JsonCachingSerializer instead.
     - type: System.Boolean
       value: false
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BinaryFormatter serialization is not trim compatible, because the type of the data cannot be statically discovered.
+  - type: System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresDynamicCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: BinaryFormatter serialization uses dynamic code generation.
 - uid: PostSharp.Patterns.Caching.Serializers.BinarySerializer.Serialize(System.Object)
   commentId: M:PostSharp.Patterns.Caching.Serializers.BinarySerializer.Serialize(System.Object)
   id: Serialize(System.Object)

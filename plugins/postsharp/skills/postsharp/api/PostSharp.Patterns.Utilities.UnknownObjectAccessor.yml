@@ -97,6 +97,12 @@ items:
     - id: type
       type: System.Type
       description: The type of the objects to be wrapped. It must be the final type (cannot be <code>object</code>, for instance).
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 1536
     return:
       type: System.Func{System.Object,PostSharp.Patterns.Utilities.UnknownObjectAccessor}
       description: A delegate that takes the object as input and returns its <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref>.
@@ -119,7 +125,10 @@ items:
   summary: Gets an <xref href="PostSharp.Patterns.Utilities.UnknownObjectAccessor" data-throw-if-not-resolved="false"></xref> for a specific object.
   example: []
   syntax:
-    content: public static UnknownObjectAccessor GetInstance(object value)
+    content: >-
+      [RequiresUnreferencedCode("Reads the public properties of the run-time type of the object, which trimming can remove. Use the generic overload, which keeps the properties of its type argument.")]
+
+      public static UnknownObjectAccessor GetInstance(object value)
     parameters:
     - id: value
       type: System.Object
@@ -127,8 +136,17 @@ items:
     return:
       type: PostSharp.Patterns.Utilities.UnknownObjectAccessor
       description: A wrapper for <code class="paramref">value</code>.
-    content.vb: Public Shared Function GetInstance(value As Object) As UnknownObjectAccessor
+    content.vb: >-
+      <RequiresUnreferencedCode("Reads the public properties of the run-time type of the object, which trimming can remove. Use the generic overload, which keeps the properties of its type argument.")>
+
+      Public Shared Function GetInstance(value As Object) As UnknownObjectAccessor
   overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Reads the public properties of the run-time type of the object, which trimming can remove. Use the generic overload, which keeps the properties of its type argument.
   nameWithType.vb: UnknownObjectAccessor.GetInstance(Object)
   fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.GetInstance(Object)
   name.vb: GetInstance(Object)
@@ -185,7 +203,10 @@ items:
   summary: Gets the value of a named property for an arbitrary object.
   example: []
   syntax:
-    content: public static bool TryGetProperty<T>(object instance, string name, out T value)
+    content: >-
+      [RequiresUnreferencedCode("Reads the public properties of the run-time type of the object, which trimming can remove. Use the generic overload, which keeps the properties of its type argument.")]
+
+      public static bool TryGetProperty<T>(object instance, string name, out T value)
     parameters:
     - id: instance
       type: System.Object
@@ -202,8 +223,17 @@ items:
     return:
       type: System.Boolean
       description: <code>true</code> if a property named <code class="paramref">name</code> exists and its value can be cast to <code class="typeparamref">T</code>; otherwise, <code>false</code>.
-    content.vb: Public Shared Function TryGetProperty(Of T)(instance As Object, name As String, value As T) As Boolean
+    content.vb: >-
+      <RequiresUnreferencedCode("Reads the public properties of the run-time type of the object, which trimming can remove. Use the generic overload, which keeps the properties of its type argument.")>
+
+      Public Shared Function TryGetProperty(Of T)(instance As Object, name As String, value As T) As Boolean
   overload: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Reads the public properties of the run-time type of the object, which trimming can remove. Use the generic overload, which keeps the properties of its type argument.
   nameWithType.vb: UnknownObjectAccessor.TryGetProperty(Of T)(Object, String, T)
   fullName.vb: PostSharp.Patterns.Utilities.UnknownObjectAccessor.TryGetProperty(Of T)(Object, String, T)
   name.vb: TryGetProperty(Of T)(Object, String, T)

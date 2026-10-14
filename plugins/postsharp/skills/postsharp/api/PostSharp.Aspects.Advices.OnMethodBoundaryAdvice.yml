@@ -127,8 +127,8 @@ items:
         You can disable semantic advising by using this property to be consistent with the level of abstraction
         of MSIL and for backward compatibility with the versions of PostSharp prior to 3.1.
         </p>
-    <p>Set this property on the master advice of a group. Setting it on an advice whose <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property is set
-        is a build-time error.</p>
+    <p>Set this property on the master advice of a group. Setting it on another advice of the group, which sets the
+        <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property or joins the group implicitly, is a build-time error.</p>
   example: []
   syntax:
     content: public SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
@@ -160,8 +160,8 @@ items:
     <p>By default, applying the advice to a target method that it does not support, for example a method that it cannot advise semantically,
         is a build-time error. Set this property to <xref href="PostSharp.Aspects.UnsupportedTargetAction.Ignore" data-throw-if-not-resolved="false"></xref> to skip such methods silently, or to
         <xref href="PostSharp.Aspects.UnsupportedTargetAction.Fallback" data-throw-if-not-resolved="false"></xref> to apply non-semantic advising when it is available.</p>
-    <p>Set this property on the master advice of a group. Setting it on an advice whose <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property is set
-        is a build-time error.</p>
+    <p>Set this property on the master advice of a group. Setting it on another advice of the group, which sets the
+        <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property or joins the group implicitly, is a build-time error.</p>
   example: []
   syntax:
     content: public UnsupportedTargetAction UnsupportedTargetAction { get; set; }

@@ -25,50 +25,31 @@ This example shows how an aspect `RequirePermissionAttribute` can require being 
 
 1. Inherit from one of the pre-built aspects. In this case, <xref:PostSharp.Aspects.OnMethodBoundaryAspect>. 
 
-    ```csharp
-    public class RequirePermissionAttribute: OnMethodBoundaryAspect
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationException.cs#class)]
 
 
 2. Override the <xref:PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)> method. 
 
-    ```csharp
-    public override bool CompileTimeValidate(MethodBase target) 
-    {
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationException.cs#method)]
 
 
-3. Perform a check to see if the target class implements the interface in question.
+3. Get the type that declares the target method.
 
-    ```csharp
-    Type targetType = target.DeclaringType; 
-    if (!typeof(ISecurable).IsAssignableFrom(targetType)) 
-    { 
-     
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationException.cs#type)]
 
 
-4. If the target does not implement the interface, you must signal the compilation process that the aspect must not be applied to this target. There are two ways to do this. The first option is to throw an <xref:PostSharp.Extensibility.InvalidAnnotationException>. 
+4. Check whether the target type implements the interface in question. If it does not, you must signal the compilation process that the aspect must not be applied to this target. There are two ways to do this. The first option is to throw an <xref:PostSharp.Extensibility.InvalidAnnotationException>. 
 
-    ```csharp
-    if (!typeof(ISecurable).IsAssignableFrom(targetType)) 
-    { 
-      throw new InvalidAnnotationException("The target type does not implement ISecurable."); 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationException.cs#throw)]
 
 
 5. The second option is to emit an error message to the compilation process.
 
-    ```csharp
-    if (!typeof(ISecurable).IsAssignableFrom(targetType)) 
-    { 
-      Message.Write(target, SeverityType.Error, "Custom01", 
-                    "The target type does not implement ISecurable."); 
-      return false; 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationMessage.cs#message)]
+
+    When the aspect is applied to a method of a class that does not implement `ISecurable`, the build fails with the following error:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Aspects/AspectValidationMessage.build.txt)]
 
 
 > [!NOTE]
@@ -88,51 +69,16 @@ To create your own <xref:PostSharp.Extensibility.MessageSource>:
 * Create a static instance of the <xref:PostSharp.Extensibility.MessageSource> class for your message source. 
     For instance, the following code defines a message source based on a message dispenser:
 
-    ```csharp
-    internal class MyMessageSource : MessageSource
-    {
-        public static readonly MyMessageSource Instance = new MyMessageSource();
-    
-        private MyMessageSource() : base( "MyCompany.Validation", new Dispenser() )
-        {
-        }
-    
-        private class Dispenser : MessageDispenser
-        {
-            public Dispenser() : base( "CUS" )
-            {
-            }
-    
-            protected override string GetMessage( int number)
-            {
-                switch ( number )
-                {
-                    case 1:
-                        return "Interface {0} cannot be implemented by {1} because of the [InternalImplement] constraint.";
-    
-                    case 2:
-                        return "{0} {1} cannot be referenced from {2} {3} because of the [ComponentInternal] constraint.";
-    
-                    case 3:
-                        return "Cannot use [ComponentInternal] on {0} {1} because the {0} is not internal.";
-    
-                    case 4:
-                        return "Cannot use [Internal] on {0} {1} because the {0} is not public.";
-                        
-                    default:
-                        return null;
-                }
-            }
-        }
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationMessageSource.cs#source)]
 
 
 * Use the methods of your `MessageSource` object to write messages: 
 
-    ```csharp
-    MyMessageSource.Instance.Write( classType, SeverityType.Error, "CUS001", new object[] { interfaceType, classType } );
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectValidationMessageSource.cs#write)]
+
+    The build then reports the message with its code and its formatted text:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Aspects/AspectValidationMessageSource.build.txt)]
 
 
 > [!NOTE]

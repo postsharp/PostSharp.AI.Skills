@@ -16,57 +16,33 @@ Adding aspects through XML gives the advantage of applying aspects without modif
 
 ## Specifying an attribute in XML
 
-```csharp
-namespace MyCustomAttributes
-{
-    // We set up multicast inheritance so  the aspect is automatically added to children types.
-    [MulticastAttributeUsage( MulticastTargets.Class, Inheritance = MulticastInheritance.Strict )]
-    [PSerializable]
-    public sealed class AutoDataContractAttribute : TypeLevelAspect, IAspectProvider
-    {
-        // Details skipped.
-    }
-}
-```
+[!code-csharp[](../../code/samples/CustomPatterns/Aspects/Applying/XmlMulticasting/XmlMulticasting.cs#aspect)]
 
 Normally `AutoDataContractAttribute` would be applied to `Customer` in code as follows: 
 
-```csharp
-namespace MyNamespace
-{
-    [AutoDataContractAttribute]
-    class Customer    
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-    }
-}
-```
+[!code-csharp[](../../code/samples/CustomPatterns/Aspects/Applying/XmlMulticastingInCode.cs#customer)]
 
 Using XML instead, you can remove the custom attribute from source code and instead specify a `Multicast` element in the PostSharp project file, which is named *postsharp.config* and placed in the same directory as the project file: 
 
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.postsharp.org/1.0/configuration">
-    <Multicast xmlns:my="clr-namespace:MyCustomAttributes;assembly:MyAssembly">
-        <my:AutoDataContractAttribute  AttributeTargetTypes="MyNamespace.Customer" />
-    </Multicast>    
-</Project>
-```
+[!code-xml[](../../code/samples/CustomPatterns/Aspects/Applying/XmlMulticasting/postsharp.config)]
 
-In this snippet, the `xmlns:my` attribute associates a prefix with an XML namespace, which must be mapped to the .NET namespace and assembly where the custom attribute classes are defined: 
+In this snippet, the `xmlns:my` attribute associates a prefix with an XML namespace, which must be mapped to the .NET namespace and assembly where the custom attribute classes are defined. In this example, the aspect is defined in the namespace `MyCustomAttributes` of the assembly `XmlMulticasting`: 
 
 ```xml
-<Multicast xmlns:my="clr-namespace:MyCustomAttributes;assembly:MyAssembly">
+<Multicast xmlns:my="clr-namespace:MyCustomAttributes;assembly:XmlMulticasting">
 ```
 
 The next line then specifies the custom attribute to apply and the elements to which to apply it:
 
 ```xml
-<my:AutoDataContractAttribute  AttributeTargetTypes="MyNamespace.Customer" />
+<my:AutoDataContractAttribute AttributeTargetTypes="MyNamespace.Customer" />
 ```
 
 The XML element name must be the name of a class inside the .NET namespace and assembly as defined by the XML namespace. Attributes of this XML element map to public properties or fields of this class.
+
+When the `Customer` class has no custom attribute in source code, but the *postsharp.config* file above is in the project directory, a program that reads the custom attributes of `Customer` by reflection prints:
+
+[!code-text[](../../code/samples/CustomPatterns/Aspects/Applying/XmlMulticasting/XmlMulticasting.txt)]
 
 Note that any property inherited from <xref:PostSharp.Extensibility.MulticastAttribute> can be used here to apply the aspect to several classes at a time. See the section <xref:attribute-multicasting> for details about these properties. 
 

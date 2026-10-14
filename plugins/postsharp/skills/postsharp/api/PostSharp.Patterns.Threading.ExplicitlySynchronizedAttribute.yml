@@ -19,14 +19,21 @@ items:
   - PostSharp.Patterns.Threading
   namespace: PostSharp.Patterns.Threading
   summary: >-
-    Custom attribute that, when applied to a method or field, specifies that threading model aspects (derived from <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute" data-throw-if-not-resolved="false"></xref>)
+    Custom attribute that, when applied to a method, field or property, specifies that threading model aspects (derived from <xref href="PostSharp.Patterns.Threading.ThreadAwareAttribute" data-throw-if-not-resolved="false"></xref>)
 
-    should ignore all verifications for this field or method.
+    should ignore all verifications for this declaration.
   remarks: >-
     <p>When the custom attribute is applied to a field, accesses to this field are never checked.</p>
 
+    <p>On an automatic property, apply the custom attribute to the property. The threading models read it from the property, and the
+        custom attribute applied only to the backing field with the <code>field:</code> target has no effect and causes a warning, unless the
+        <code>PostSharpUnifiedAutomaticPropertyAnnotations</code> MSBuild property is <code>True</code>. In that case, the annotations of the property and
+        of its backing field are read as one set.</p>
     <p>When the custom attribute is applied to a method, checking of accesses to all fields is disabled during the whole method execution, for the current thread.</p>
 
+    <p>When the custom attribute is applied to a property, the <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly" data-throw-if-not-resolved="false"></xref> property is ignored. No synchronization code is added
+        to the accessors of an automatic property, and its backing field is treated as a field to which the custom attribute is applied. The accessors of
+        a property that is not automatic are treated as methods to which the custom attribute is applied with <xref href="PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.AppliesToMethodOnly" data-throw-if-not-resolved="false"></xref> set to <code>false</code>.</p>
     <p>Use this custom attribute when you synchronize accesses to the field or method with another mechanism. It increases the risk that multithreading
         defects remain undetected, so cover code that uses it with reviews and tests.</p>
   example: []
@@ -171,7 +178,7 @@ items:
       type: System.Boolean
       description: >-
         <code>true</code> to avoid adding any synchronization code to the target method, <code>false</code> to add synchronization code
-            that allows the method to access other fields or methods of the target object.
+            that allows the method to access other fields or methods of the target object. This parameter is ignored when the custom attribute is applied to a property.
     content.vb: Public Sub New(appliesToMethodOnly As Boolean)
   overload: PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute.#ctor*
   nameWithType.vb: ExplicitlySynchronizedAttribute.New(Boolean)
@@ -199,6 +206,8 @@ items:
     When it is <code>false</code>, synchronization code is added to allow the method to access other fields or methods of the target object.
 
     The default value is <code>false</code>.
+
+    This property is ignored when the custom attribute is applied to a property.
   example: []
   syntax:
     content: public bool AppliesToMethodOnly { get; }

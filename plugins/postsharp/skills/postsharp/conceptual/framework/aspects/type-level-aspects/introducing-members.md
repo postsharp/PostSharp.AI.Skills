@@ -22,12 +22,7 @@ One of the common situations that you will encounter is the need to implement a 
 
 1. Add the `IIdentifiable` interface to the target code. 
 
-    ```csharp
-    public interface IIdentifiable 
-    { 
-        Guid Id { get; }  
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceInterface.cs#interface)]
 
 
 2. Create an aspect that inherits from <xref:PostSharp.Aspects.InstanceLevelAspect> and add the custom attribute [<xref:PostSharp.Serialization.PSerializableAttribute>]. 
@@ -35,37 +30,16 @@ One of the common situations that you will encounter is the need to implement a 
 
 3. The key to adding an interface to target code is that you must implement that interface on your aspect. Implement the `IIdentifiable` interface on your aspect. The aspect's implementation of the interface is added to the target code, so anything that you include in method or property bodies is added to the target code as you have declared it in the aspect. 
 
-    ```csharp
-    [PSerializable] 
-    public class IdentifiableAspect : InstanceLevelAspect, IIdentifiable 
-    { 
-        public Guid Id { get; private set; } 
-    }
-    ```
 
 
 4. Add the <xref:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute> attribute to the aspect and include the interface type that you want to add to the target code. 
 
-    ```csharp
-    [IntroduceInterface(typeof(IIdentifiable))] 
-    [PSerializable] 
-    public class IdentifiableAspect : InstanceLevelAspect, IIdentifiable 
-    { 
-        public Guid Id { get; private set; } 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceInterface.cs#aspect)]
 
 
 5. Finally, declare where this aspect should be applied in the codebase. In this example, add it as an attribute to a class.
 
-    ```csharp
-    [IdentifiableAspect] 
-    public class Customer 
-    { 
-        public string Name { get; set; } 
-        public string Address { get; set; } 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceInterface.cs#customer)]
 
 
 6. After compilation, you can decompile the target code and see that the interface has been added to it.
@@ -93,41 +67,19 @@ The introduction of methods to your target code is very similar to introducing i
 
 2. Add to the aspect the method you want to introduce to the target code.
 
-    ```csharp
-    [PSerializable] 
-    public class OurCustomAspect : InstanceLevelAspect 
-    { 
-        public void TheMethodYouWantToUse(string aValue) 
-        { 
-            Console.WriteLine("Inside a method that was introduced {0}", aValue); 
-        } 
-    }
-    ```
 
     > [!NOTE]
     > The method that you declare must be marked as public. If it is not, you will see an error at compile time.
 
 
-3. Decorate the method with the <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute> attribute. 
+3. Decorate the method with the <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute> attribute. The complete aspect is the following:
 
-    ```csharp
-    [IntroduceMember] 
-    public void TheMethodYouWantToUse(string aValue) 
-    { 
-        Console.WriteLine("Inside a method that was introduced {0}", aValue); 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceMethod.cs#aspect)]
 
 
 4. Finally, declare where you want this aspect to be applied in the codebase.
 
-    ```csharp
-    [OurCustomAspect] 
-    public class Customer 
-    { 
-        public string Name { get; set; } 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceMethod.cs#customer)]
 
 
 5. After compilation, you can decompile the target code and see that the method has been added.
@@ -146,35 +98,19 @@ The introduction of properties is almost exactly the same as the introduction of
 
 2. Add the property you want to introduce to the aspect.
 
-    ```csharp
-    [PSerializable] 
-    public class OurCustomAspect : InstanceLevelAspect 
-    { 
-        public string Name { get; set; } 
-    }
-    ```
 
     > [!NOTE]
     > The property that you declare must be marked as public. If it is not, you will see a compiler error.
 
 
-3. Decorate the property with the <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute> attribute. 
+3. Decorate the property with the <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute> attribute. The complete aspect is the following:
 
-    ```csharp
-    [IntroduceMember] 
-    public string Name { get; set; }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceProperty.cs#aspect)]
 
 
 4. Add the aspect attribute to the target code where the aspect should be applied.
 
-    ```csharp
-    [OurCustomAspect] 
-    public class Customer 
-    { 
-     
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceProperty.cs#customer)]
 
 
 5. After you have compiled the codebase you can decompile the target code and see that the property has been added.
@@ -192,17 +128,11 @@ As noted for both the introduction of methods and properties, the code being int
 
 You may not want the introduced member to have public visibility once it has been introduced to the target code. PostSharp allows you to control the visibility of the introduced member through the use of the <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute.Visibility> property on the aspect. To declare that a member should be introduced with private visibility, set this property accordingly. 
 
-```csharp
-[IntroduceMember(Visibility = Visibility.Private)] 
-public string Name { get; set; }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceMemberOptions.cs#private)]
 
 You can introduce members with a number of different visibilities, including public, private, assembly (internal in C#) and others. You can also declare an introduced member as virtual by setting the <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute.IsVirtual> property to `true`. 
 
-```csharp
-[IntroduceMember(Visibility = Visibility.Private, IsVirtual = true)] 
-public string Name { get; set; }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceMemberOptions.cs#virtual)]
 
 
 ## Overriding members or interfaces
@@ -211,10 +141,7 @@ One thing you need to be aware of is the situation where you are introducing a m
 
 The <xref:PostSharp.Aspects.Advices.IntroduceMemberAttribute.OverrideAction> property allows you to declare a rule for how the introduction of a member should behave if the member already exists in the target type or its base type. This property allows you to declare rules such as <xref:PostSharp.Aspects.Advices.MemberOverrideAction.Fail> (any conflict causes a build-time error; this is the default), <xref:PostSharp.Aspects.Advices.MemberOverrideAction.Ignore> (continue on without trying to introduce the member), <xref:PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrFail> or <xref:PostSharp.Aspects.Advices.MemberOverrideAction.OverrideOrIgnore>. For interfaces, use the <xref:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute.OverrideAction> property of <xref:PostSharp.Aspects.Advices.IntroduceInterfaceAttribute>, which accepts <xref:PostSharp.Aspects.Advices.InterfaceOverrideAction.Fail> or <xref:PostSharp.Aspects.Advices.InterfaceOverrideAction.Ignore>. It is important to understand how you want to apply your introduced members and interfaces in situations where that member or interface may already exist. 
 
-```csharp
-[IntroduceMember(OverrideAction = MemberOverrideAction.Fail)] 
-public string Name { get; set; }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/IntroduceMemberOptions.cs#override-action)]
 
 
 ## Introducing interfaces dynamically
@@ -222,48 +149,17 @@ public string Name { get; set; }
 The final technique that you can use to introduce code constructs to your target code is the <xref:PostSharp.Aspects.CompositionAspect>. When you create a <xref:PostSharp.Aspects.CompositionAspect>, you choose at build time which interfaces to add to the target class, and you provide the object that implements them at run time. 
 
 
-1. Create an aspect that inherits from <xref:PostSharp.Aspects.CompositionAspect> and implements its abstract members. 
-
-    ```csharp
-    [PSerializable] 
-    public class GeneralCompose : CompositionAspect 
-    { 
-        public override object CreateImplementationObject(AdviceArgs args) 
-        { 
-            throw new System.NotImplementedException(); 
-        } 
-    }
-    ```
+1. Create an aspect that inherits from <xref:PostSharp.Aspects.CompositionAspect> and add the custom attribute [<xref:PostSharp.Serialization.PSerializableAttribute>]. The following steps add the members of the aspect.
 
 
-2. Next, you need some way to tell the aspect what interface and concrete type you want to implement on the target code. To do that, create a constructor for your aspect that accepts two parameters: one for the interface type and one for the concrete implementation type. Assign those two constructor parameters to fields so that you can use them in the aspect.
+2. Next, you need some way to tell the aspect what interface and concrete type you want to implement on the target code. To do that, create a constructor for your aspect that accepts two parameters: one for the interface type and one for the concrete implementation type. Assign those two constructor parameters to fields so that you can use them in the aspect. The fields cannot be `readonly` because the aspect is serializable.
 
-    ```csharp
-    [PSerializable] 
-    public class GeneralCompose : CompositionAspect 
-    { 
-        private readonly Type _interfaceType; 
-        private readonly Type _implementationType; 
-     
-        public GeneralCompose(Type interfaceType, Type implementationType) 
-        { 
-            _interfaceType = interfaceType; 
-            _implementationType = implementationType; 
-        }
-
-        // Details skipped.
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/GeneralCompose.cs#constructor)]
 
 
 3. There are two methods that you need to implement to complete this aspect. The first is an override of the <xref:PostSharp.Aspects.CompositionAspect.GetPublicInterfaces(System.Type)> method. This method has a target type parameter, which allows you to filter the application of the interface if you choose to. For this example, return an array that contains the interface type that was provided via the aspect constructor. 
 
-    ```csharp
-    protected override Type[] GetPublicInterfaces(Type targetType) 
-    { 
-        return new[] { _interfaceType }; 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/GeneralCompose.cs#get-public-interfaces)]
 
     > [!NOTE]
     > The interfaces that are returned from the <xref:PostSharp.Aspects.CompositionAspect.GetPublicInterfaces(System.Type)> method will be applied to the target code during compilation. 
@@ -271,12 +167,7 @@ The final technique that you can use to introduce code constructs to your target
 
 4. The second method that you need to override is <xref:PostSharp.Aspects.CompositionAspect.CreateImplementationObject(PostSharp.Aspects.AdviceArgs)>. For this example, return an instance of the concrete implementation type that was provided in the aspect constructor. To create the instance, use the <xref:System.Activator.CreateInstance(System.Type)> method. 
 
-    ```csharp
-    public override object CreateImplementationObject(AdviceArgs args) 
-    { 
-        return Activator.CreateInstance(_implementationType); 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/GeneralCompose.cs#create-implementation-object)]
 
     > [!NOTE]
     > The <xref:PostSharp.Aspects.CompositionAspect.CreateImplementationObject(PostSharp.Aspects.AdviceArgs)> method is invoked at run time. 
@@ -284,29 +175,16 @@ The final technique that you can use to introduce code constructs to your target
 
 5. Apply the aspect to the target code as an attribute. Provide the attribute with the interface and concrete types that you wish to implement. 
 
-    ```csharp
-    [GeneralCompose(typeof(IList), typeof(ArrayList))] 
-    public class Fruit 
-    {  
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/GeneralCompose.cs#attribute)]
 
 
 6. After compilation, the target class implements the interface and delegates its implementation to an instance of the concrete type. To use the interface from the same project, call the <xref:PostSharp.Post.Cast``2(``0)> method. 
 
-    ```csharp
-    [GeneralCompose(typeof(IList), typeof(ArrayList))] 
-    public class Fruit 
-    { 
-        public Fruit() 
-        { 
-            IList list = Post.Cast<Fruit,IList>(this); 
-            list.Add("apple"); 
-            list.Add("orange"); 
-            list.Add("banana"); 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/GeneralCompose.cs#fruit)]
+
+    When a program creates a `Fruit` and enumerates it through the <xref:System.Collections.IList> interface, it prints the following output:
+
+    [!code-text[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/GeneralCompose.txt)]
 
 
 ## See Also

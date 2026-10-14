@@ -22,27 +22,22 @@ To use PostSharp Logging with Common.Logging:
 
 3. In the application startup file, include the following namespace imports:
 
-    ```csharp
-    using Common.Logging;
-    using Common.Logging.Simple;
-    using PostSharp.Patterns.Diagnostics;
-    using PostSharp.Patterns.Diagnostics.Backends.CommonLogging;
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingCommonLogging.cs#usings)]
 
     In the application startup method, include the following code:
 
-    ```csharp
-    // Configure Common.Logging to direct outputs to the system console.
-    LogManager.Adapter = new ConsoleOutLoggerFactoryAdapter();
-    
-    // Configure PostSharp Logging to direct outputs to Common.Logging.
-    LoggingServices.DefaultBackend = new CommonLoggingLoggingBackend();
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingCommonLogging.cs#configure)]
 
     This example code instructs Common.Logging to write all log records to the system console. See the [Common.Logging documentation](http://netcommon.sourceforge.net/docs/2.1.0/reference/html/ch01.html#logging-config) for details. 
+    Common.Logging for .NET Standard does not include a console adapter. `ConsoleLoggerFactoryAdapter` is a small class of this example:
 
 
-If you run your application, you should also see the log in the console.
+    [!code-csharp[](../../../code/samples/Logging/LoggingCommonLogging.cs#adapter)]
+
+
+If you run your application, you should see the log in the console, for instance:
+
+[!code-text[](../../../code/samples/Logging/LoggingCommonLogging.txt)]
 
 ## See Also
 

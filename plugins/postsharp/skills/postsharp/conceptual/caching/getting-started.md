@@ -37,58 +37,11 @@ Suppose you have a time-consuming method that always returns the same return val
 
 In this example, the return value of the `GetNumber` method is cached. 
 
-```csharp
-using System;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-
-namespace PostSharp.Samples.Caching.MethodResults
-{
-    class Program
-    {
-        static void Main( string[] args )
-        {
-            CachingServices.DefaultBackend = new MemoryCachingBackend();
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + GetNumber( 1 ) );
-
-            Console.WriteLine( "Retrieving value of 1 for the 2nd time should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + GetNumber( 1 ) );
-
-            Console.WriteLine( "Retrieving value of 2 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + GetNumber( 2 ) );
-
-            Console.WriteLine( "Retrieving value of 2 for the 2nd time should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + GetNumber( 2 ) );
-        }
-
-        [Cache]
-        static int GetNumber( int id )
-        {
-            Console.WriteLine( $">> Retrieving {id} from the database..." );
-            Thread.Sleep( 1000 );
-            return id;
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingGettingStarted.cs#example)]
 
 The output of this sample is:
 
-```text
-Retrieving value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: 1
-Retrieving value of 1 for the 2nd time should NOT hit the database.
-Retrieved: 1
-Retrieving value of 2 for the 1st time should hit the database.
->> Retrieving 2 from the database...
-Retrieved: 2
-Retrieving value of 2 for the 2nd time should NOT hit the database.
-Retrieved: 2
-```
+[!code-text[](../../code/samples/Caching/CachingGettingStarted.txt)]
 
 
 ## Configuring the cache behavior
@@ -127,35 +80,7 @@ Configuration is defined on a per-property basis. For each property of the cache
 
 In the following example, the absolute expiration of cache items is set to 60 minutes for methods of the `AccountServices` class, but to 20 minutes for the `GetAccountsOfCustomer` method. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using PostSharp.Patterns.Caching;
-
-namespace PostSharp.Samples.Caching
-{
-    [CacheConfiguration( AbsoluteExpiration = 60 )]
-    class AccountServices
-    {
-        [Cache]
-        public static Account GetAccount(int id)
-        {
-           // Details skipped.
-        }
-
-        [Cache( AbsoluteExpiration = 20 )]
-        public static IEnumerable<Account> GetAccountsOfCustomer(int customerId)
-        {
-            // Details skipped.
-        }
-
-        public static void UpdateAccount(Account account)
-        {
-            // Details skipped.
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingConfiguration.cs#example)]
 
 
 ## Configuring caching with caching profiles
@@ -189,51 +114,17 @@ Caching profiles are represented by the <xref:PostSharp.Patterns.Caching.Caching
 
 The following code snippet sets the profile name to `Account` for all methods of the `AccountServices` class. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-
-namespace PostSharp.Samples.Caching
-{
-    [CacheConfiguration( ProfileName = "Account" )]
-    class AccountServices
-    {
-        [Cache]
-        public static Account GetAccount(int id)
-        {
-            // Details skipped.
-        }
-
-        [Cache]
-        public static IEnumerable<Account> GetAccountsOfCustomer(int customerId)
-        {
-            // Details skipped.
-        }
-
-        public static void UpdateAccount(Account account)
-        {
-            // Details skipped.
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingProfiles.cs#services)]
 
 The following code snippet sets the absolute expiration to 60 seconds for all methods using the `Account` profile. 
 
-```csharp
-CachingServices.Profiles["Account"].AbsoluteExpiration = TimeSpan.FromSeconds(60);
-```
+[!code-csharp[](../../code/samples/Caching/CachingProfiles.cs#configure)]
 
 
 ## Disabling caching at run time
 
 You can disable caching at run time by setting the <xref:PostSharp.Patterns.Caching.CachingProfile.IsEnabled> property of a caching profile to `false`, for instance: 
 
-```csharp
-CachingServices.Profiles.Default.IsEnabled = false;
-CachingServices.Profiles["Account"].IsEnabled = false;
-```
+[!code-csharp[](../../code/samples/Caching/CachingProfiles.cs#disable)]
 
 

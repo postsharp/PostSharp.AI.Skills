@@ -64,7 +64,7 @@ If the project is unmodified, the compilation requires no license.
 
 * The debug symbols of the compiled assembly must be available, because PostSharp reads the list of source files from them. If the project is compiled without debug symbols, PostSharp cannot determine which source files to check, and the project is considered modified.
 
-On a build server, you do not need this feature. PostSharp detects unattended builds and grants a different internal license in this situation, except for the features of PostSharp Logging. See <xref:build-server>.
+On a build server, you do not need this feature. PostSharp detects unattended builds and grants a different internal license in this situation. See <xref:build-server>.
 
 
 ## Diagnosing the source control check

@@ -34,6 +34,10 @@ items:
         of the type. <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ReturnValueAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.LocationValueAttribute" data-throw-if-not-resolved="false"></xref> and
         <xref href="PostSharp.Aspects.Advices.FlowBehaviorAttribute" data-throw-if-not-resolved="false"></xref> cannot be used.
         </p>
+    <p>
+        The aspect must be applied to a type or to a member of a type. For a member, the advice applies to the declaring type of the member.
+        In an aspect applied to an assembly, such as an <xref href="PostSharp.Aspects.AssemblyLevelAspect" data-throw-if-not-resolved="false"></xref>, the advice causes the error LA0088.
+        </p>
   example: []
   syntax:
     content: >-

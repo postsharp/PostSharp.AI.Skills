@@ -55,6 +55,9 @@ items:
   - PostSharp
   namespace: PostSharp.Serialization
   summary: Gets an instance of a given class implementing the <xref href="PostSharp.Serialization.IActivator" data-throw-if-not-resolved="false"></xref> interface.
+  remarks: >-
+    On .NET, this method returns <code>null</code>. The reflection of .NET does not check the accessibility of a type, so the
+                activator that the weaver generates in an assembly is not needed to instantiate a type that is not public.
   example: []
   syntax:
     content: public IActivator GetActivator(Type type)

@@ -16,72 +16,30 @@ PostSharp's <xref:PostSharp.Aspects.AssemblyLevelAspect> adds additional flexibi
 
 ## Introducing resources
 
-In the following example, we create an assembly decorator that retrieves the name of the user who runs the build, and then stores that information in the current assembly as a resource. The example then shows that this information can be retrieved from the assembly at run time.
+In the following example, we create an assembly-level aspect that builds a string during compilation and stores it in the current assembly as a resource. The example then shows that this string can be retrieved from the assembly at run time.
 
 
-1. Start by creating a class called `AddBuildInfoAspect` that derives from <xref:PostSharp.Aspects.AssemblyLevelAspect>. Also implement <xref:PostSharp.Aspects.IAspectProvider>, which exposes the <xref:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)> method. The <xref:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)> method will be called once by PostSharp, providing access to assembly information and allowing for a resource to be programmatically added to the assembly: 
+1. Create a class called `AddBuildInfoAspect` that derives from <xref:PostSharp.Aspects.AssemblyLevelAspect>. Also implement <xref:PostSharp.Aspects.IAspectProvider>, which exposes the <xref:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)> method. The <xref:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)> method will be called once by PostSharp, providing access to assembly information and allowing for a resource to be programmatically added to the assembly: 
 
-    ```csharp
-    public sealed class AddBuildInfoAspect : AssemblyLevelAspect, IAspectProvider
-        {
-            public IEnumerable<AspectInstance> ProvideAspects(object targetElement)
-            {
-            }
-        }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ResourceIntroduction.cs#aspect)]
+
+    In this example, the `targetElement` object passed in is cast to an `Assembly` object from which the assembly name is retrieved. The code then builds a string that contains the assembly name, and converts this string to a byte array. A real aspect could store other information that is only known at build time, for instance the build date or the name of the build machine. The byte array is then stored along with a name for the data in PostSharp’s <xref:PostSharp.Aspects.ManagedResourceIntroductionAspect> object, and returned via an <xref:PostSharp.Aspects.AspectInstance>. PostSharp then embeds the resource into the current assembly. 
 
 
-2. Implement the <xref:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)> method: 
+2. Add the `AddBuildInfoAspect` attribute to the assembly, for instance in the AssemblyInfo.cs file: 
 
-    ```csharp
-    public sealed class AddBuildInfoAspect : AssemblyLevelAspect, IAspectProvider
-        {
-            public IEnumerable<AspectInstance> ProvideAspects(object targetElement)
-            {
-                Assembly assembly = (Assembly)targetElement;
-    
-                byte[] userNameData = Encoding.ASCII.GetBytes(
-                   assembly.FullName + " was compiled by: " + Environment.UserName);
-                ManagedResourceIntroductionAspect mria2 = new ManagedResourceIntroductionAspect("BuildUser", userNameData);
-    
-                yield return new AspectInstance(assembly, mria2);
-            }
-        }
-    ```
-
-    In this example, the `targetElement` object passed in is cast to an `Assembly` object from which the assembly name is retrieved. The code then gets the current user name, concatenates it with the assembly name, and then converts this string to a byte array. The byte array is then stored along with a name for the data in PostSharp's <xref:PostSharp.Aspects.ManagedResourceIntroductionAspect> object, and returned via an <xref:PostSharp.Aspects.AspectInstance>. PostSharp then embeds the resource into the current assembly. 
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ResourceIntroduction.cs#assembly)]
 
 
-3. Open the `AssemblyInfo.cs` file of your project and add a line to include the `AddBuildInfoAspect` class: 
-
-    ```csharp
-    [assembly:AddBuildInfoAspect]
-    ```
-
-
-With this code in place, the assembly will now embed the user name as a resource into itself during compilation.
+With this code in place, the assembly embeds the string as a resource into itself during compilation.
 
 The following code demonstrates how to retrieve the data at run time:
 
-```csharp
-class Program
-    {
-        static void Main(string[] args)
-        {
-            Assembly a = Assembly.GetExecutingAssembly();
-            Stream stream = a.GetManifestResourceStream("BuildUser");
-            
-            byte[] bytesRead = new byte[stream.Length];
-            stream.Read(bytesRead, 0, (int)stream.Length);
-            string value = Encoding.ASCII.GetString(bytesRead);
-            Console.WriteLine(value);
-        }
-    }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ResourceIntroduction.cs#program)]
 
 This will display the following line in the console window:
 
-![](ResourceIntroduction.png)
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ResourceIntroduction.txt)]
 
 ## See Also
 

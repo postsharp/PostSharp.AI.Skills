@@ -41,6 +41,8 @@ To set a property that persistently applies to a specific project, but not to th
 
 Since all environment variables are imported into MSBuild properties, you can set any MSBuild property by setting the environment variable of the same name before starting the MSBuild process. This is a convenient way to set up PostSharp from a build server.
 
+PostSharp also reads some environment variables that are not MSBuild properties. See <xref:environment-variables>.
+
 
 ## Configuring several projects at a time
 

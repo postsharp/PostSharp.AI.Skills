@@ -38,53 +38,13 @@ The property <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute.Allo
 
 In the following example, the methods in type `MyClass` are enhanced by one, two and three instances of the `Trace` aspect (see code comments). 
 
-```csharp
-using System;
-using System.Diagnostics;
-using PostSharp.Aspects;
-using PostSharp.Extensibility;
-using PostSharp.Serialization;
-using Samples3;
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastMultipleInstances.cs#example)]
 
-[assembly: Trace(AttributeTargetTypes = "Samples3.My*", Category = "A")]
-[assembly: Trace(AttributeTargetTypes = "Samples3.My*",
-    AttributeTargetMemberAttributes = MulticastAttributes.Public, Category = "B")]
+The <xref:PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute> custom attribute specifies that several instances of the aspect can run in any order. Without it, PostSharp emits the warning PS0114 because the instances are not ordered. See <xref:aspect-dependencies> for details.
 
-namespace Samples3
-{
-    [PSerializable]
-    public sealed class TraceAttribute : OnMethodBoundaryAspect
-    {
-        public string Category { get; set; }
+When the program calls the three methods, every aspect instance writes a line:
 
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            Trace.WriteLine("Entering " +
-                            args.Method.DeclaringType.FullName + "." + args.Method.Name, this.Category);
-        }
-    }
-
-
-    public class MyClass
-    {
-        // This method will have 1 Trace aspect with Category set to A.
-        private void Method1()
-        {
-        }
-
-        // This method will have 2 Trace aspects with Category set to A, B
-        public void Method2()
-        {
-        }
-
-        // This method will have 3 Trace aspects with Category set to A, B, C.
-        [Trace(Category = "C")]
-        public void Method3()
-        {
-        }
-    }
-}
-```
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastMultipleInstances.txt)]
 
 
 ## Overriding an Aspect Instance Manually
@@ -93,53 +53,11 @@ You can require an aspect instance to override any previous one by setting the a
 
 In the following example, the first two methods of type `MyClass` are enhanced by aspects applied at assembly level, but these aspects are replaced by a different one on `Method3`. 
 
-```csharp
-using System;
-using System.Diagnostics;
-using PostSharp.Aspects;
-using PostSharp.Extensibility;
-using PostSharp.Serialization;
-using Samples5;
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastReplace.cs#example)]
 
-[assembly: Trace(AttributeTargetTypes = "Samples5.My*", Category = "A")]
-[assembly: Trace(AttributeTargetTypes = "Samples5.My*",
-    AttributeTargetMemberAttributes = MulticastAttributes.Public, Category = "B")]
+When the program calls the three methods, it prints:
 
-namespace Samples5
-{
-    [PSerializable]
-    public sealed class TraceAttribute : OnMethodBoundaryAspect
-    {
-        public string Category { get; set; }
-
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            Trace.WriteLine("Entering " +
-                            args.Method.DeclaringType.FullName + "." + args.Method.Name, this.Category);
-        }
-    }
-
-
-    public class MyClass
-    {
-        // This method will have 1 Trace aspect with Category set to A.
-        private void Method1()
-        {
-        }
-
-        // This method will have 2 Trace aspects with Category set to A, B.
-        public void Method2()
-        {
-        }
-
-        // This method will have 1 Trace aspect with Category set to C.
-        [Trace(Category = "C", AttributeReplace = true)]
-        public void Method3()
-        {
-        }
-    }
-}
-```
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastReplace.txt)]
 
 
 ## Overriding an Aspect Instance Automatically
@@ -148,54 +66,11 @@ To cause a new aspect instance to automatically override any previous one, the a
 
 In the following example, the methods in type `MyClass` are enhanced by a single `Trace` aspect: 
 
-```csharp
-using System;
-using System.Diagnostics;
-using PostSharp.Aspects;
-using PostSharp.Extensibility;
-using PostSharp.Serialization;
-using Samples4;
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastAllowMultipleFalse.cs#example)]
 
-[assembly: Trace(AttributeTargetTypes = "Samples4.My*", AttributePriority = 1, Category = "A")]
-[assembly: Trace(AttributeTargetTypes = "Samples4.My*",
-    AttributeTargetMemberAttributes = MulticastAttributes.Public, AttributePriority = 2, Category = "B")]
+When the program calls the three methods, it prints:
 
-namespace Samples4
-{
-    [MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple = false)]
-    [PSerializable]
-    public sealed class TraceAttribute : OnMethodBoundaryAspect
-    {
-        public string Category { get; set; }
-
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            Trace.WriteLine("Entering " +
-                            args.Method.DeclaringType.FullName + "." + args.Method.Name, this.Category);
-        }
-    }
-
-
-    public class MyClass
-    {
-        // This method will have 1 Trace aspect with Category set to A.
-        private void Method1()
-        {
-        }
-
-        // This method will have 1 Trace aspect with Category set to B.
-        public void Method2()
-        {
-        }
-
-        // This method will have 1 Trace aspect with Category set to C.
-        [Trace(Category = "C")]
-        public void Method3()
-        {
-        }
-    }
-}
-```
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastAllowMultipleFalse.txt)]
 
 
 ## Deleting an Aspect Instance
@@ -204,17 +79,8 @@ The <xref:PostSharp.Extensibility.MulticastAttribute.AttributeExclude> property 
 
 This is useful, for instance, when you need to exclude a target from the matching set of a wildcard expression. For example:
 
-```csharp
-[assembly: Configurable( AttributeTargetTypes = "BusinessLayer.*" )]
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastExclude.cs#example)]
 
-          namespace BusinessLayer
-          {
-            [Configurable( AttributeExclude = true )]
-            public static class Helpers
-            {
+In this example, `ConfigurableAttribute` is a multicast attribute that is kept in the metadata (see <xref:multicast-reflection>), so the program can check by reflection to which classes it has been applied:
 
-            }
-          }
-```
-
-
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastExclude.txt)]

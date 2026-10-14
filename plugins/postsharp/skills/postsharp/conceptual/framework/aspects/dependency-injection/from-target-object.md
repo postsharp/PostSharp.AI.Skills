@@ -37,144 +37,14 @@ The next example illustrates this procedure.
 
 The following code snippet shows a logging aspect and how it could be used in production code:
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Primitives;
-using System.ComponentModel.Design;
-using System.Reflection;
-using PostSharp.Aspects;
-using PostSharp.Aspects.Advices;
-using PostSharp.Extensibility;
-using PostSharp.Reflection;
-using PostSharp.Serialization;
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/ImportingDependencies.cs#production)]
 
-namespace DependencyResolution.InstanceScoped
-{
-    public interface ILogger
-    {
-        void Log(string message);
-    }
+The program prints:
 
-
-    [PSerializable]
-    public class LogAspect : OnMethodBoundaryAspect, IInstanceScopedAspect
-    {
-        [IntroduceMember(Visibility = Visibility.Family, OverrideAction = MemberOverrideAction.Ignore)]
-        [CopyCustomAttributes(typeof (ImportAttribute))]
-        [Import(typeof(ILogger))]
-        public ILogger Logger { get; set; }
-
-        [ImportMember("Logger", IsRequired = true)] 
-        public Property<ILogger> LoggerProperty;
-
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            this.LoggerProperty.Get().Log("OnEntry");
-        }
-
-        object IInstanceScopedAspect.CreateInstance(AdviceArgs adviceArgs)
-        {
-            return this.MemberwiseClone();
-        }
-
-        void IInstanceScopedAspect.RuntimeInitializeInstance()
-        {
-        }
-    }
-
-
-    [Export(typeof (MyServiceImpl))]
-    internal class MyServiceImpl
-    {
-        [LogAspect]
-        public void LoggedMethod()
-        {
-            Console.WriteLine("Hello, world.");
-        }
-    }
-
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-            AssemblyCatalog catalog = new AssemblyCatalog(typeof (Program).Assembly);
-            CompositionContainer container = new CompositionContainer(catalog);
-            MyServiceImpl service = container.GetExport<MyServiceImpl>().Value;
-            service.LoggedMethod();
-        }
-    }
-
-
-    [Export(typeof (ILogger))]
-    internal class ConsoleLogger : ILogger
-    {
-        public void Log(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
-}
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Testing/ImportingDependencies.txt)]
 
 The following code snippet shows how the logging aspect can be tested:
 
-```csharp
-using System;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace DependencyResolution.InstanceScoped.Test
-{
-    [TestClass]
-    public class TestLogAspect
-    {
-        [TestMethod]
-        public void TestMethod()
-        {
-            TypeCatalog catalog = new TypeCatalog(typeof (TestLogger), typeof (TestImpl));
-            CompositionContainer container = new CompositionContainer(catalog);
-            TestImpl service = container.GetExport<TestImpl>().Value;
-            TestLogger.Clear();
-            service.TargetMethod();
-            Assert.AreEqual("OnEntry" + Environment.NewLine, TestLogger.GetLog());
-        }
-
-        [Export(typeof (TestImpl))]
-        private class TestImpl
-        {
-            [LogAspect]
-            public void TargetMethod()
-            {
-            }
-        }
-    }
-
-    [Export(typeof (ILogger))]
-    internal class TestLogger : ILogger
-    {
-        public static readonly StringBuilder stringBuilder = new StringBuilder();
-
-        public void Log(string message)
-        {
-            stringBuilder.AppendLine(message);
-        }
-
-        public static string GetLog()
-        {
-            return stringBuilder.ToString();
-        }
-
-        public static void Clear()
-        {
-            stringBuilder.Clear();
-        }
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/ImportingDependenciesTest.cs#test)]
 
 

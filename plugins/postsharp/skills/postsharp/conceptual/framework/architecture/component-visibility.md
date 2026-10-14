@@ -45,51 +45,20 @@ To limit access to a class to other classes within the validation namespace:
 
 5. Notice that the only change in the code is the addition of the [<xref:PostSharp.Constraints.ComponentInternalAttribute>] attribute. 
 
-    ```csharp
-    namespace Sharpcrafters.Crm.Console.Repositories 
-    { 
-        public class InvoiceRepository 
-        { 
-                [ComponentInternal] 
-                internal IEnumerable<Invoice> FetchAllForCustomer(Guid id) 
-                { 
-                    //dostuff 
-                    return null; 
-                } 
-         } 
-    }
-    ```
 
 
 6. Without arguments, the [<xref:PostSharp.Constraints.ComponentInternalAttribute>] attribute allows access only from the namespace of the declaring type and its child namespaces. To grant access to other code, pass arguments to the constructor. There are two options. The first is to pass an array of `typeof(...)` values that represent the types that can access this method. The second is to pass an array of strings that contain the namespaces of the code that can access this method. A namespace also grants access to its child namespaces. For this example, pass a string for the validation namespace. 
 
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalNamespace.cs#repository)]
+
 
 7. If you try to access this component from a namespace that has not been granted access, you will see a build-time warning in the Output window.
 
-    ```csharp
-    namespace Sharpcrafters.Crm.Console.Services 
-    { 
-        public class InvoiceServices 
-        { 
-              public IEnumerable<InvoiceForList> FetchAllInvoicesForCustomer(Guid id) 
-              { 
-                  var invoiceRepository = new InvoiceRepository(); 
-     
-                  var allInvoices = invoiceRepository.FetchAllForCustomer(id); 
-                  return 
-                      allInvoices.Where(x => !x.PaidInFull).Select( 
-                          x => new InvoiceForList 
-                              { 
-                                  PurchaseDate = x.PurchaseDate,  
-                                  ShipDate = x.ShipDate,  
-                                  TotalAmount = x.Total 
-                               }); 
-              } 
-          } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalNamespace.cs#services)]
 
-    ![](ComponentInternalWarning.PNG)
+    The build reports the following warning:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalNamespace.build.txt)]
 
     > [!NOTE]
     > If you try to access the component from a namespace that is in a different project, PostSharp must process that project for the validation to occur.
@@ -102,34 +71,16 @@ Namespace-level restrictions may not be tight enough for your needs. In that cas
 
 1. To restrict access at the component type level, explicitly define which component types have access. To do this, pass types to the constructor of the <xref:PostSharp.Constraints.ComponentInternalAttribute> attribute. The constructor accepts an array of `Type`, so you can grant access to many different component types. 
 
-    ```csharp
-    public class InvoiceRepository 
-    { 
-        [ComponentInternal(typeof(Sharpcrafters.Crm.Console.Services.InvoiceServices))] 
-        internal IEnumerable<Invoice> FetchAllForCustomer(Guid id) 
-        { 
-            //dostuff 
-            return null; 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalWarning.cs#repository)]
 
 
 2. If you try to access this component from a type that has not been granted access, you will see a build-time warning in the Output window.
 
-    ```csharp
-    public class CustomerServices 
-    { 
-        public IEnumerable<Customer> FetchAll() 
-        { 
-            var invoiceRepository = new InvoiceRepository(); 
-            var allInvoices = invoiceRepository.FetchAllForCustomer(Guid.NewGuid()); 
-            return null; 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalWarning.cs#consumer)]
 
-    ![](ComponentInternalWarning.PNG)
+    The build reports the following warning:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalWarning.build.txt)]
 
 
 
@@ -143,16 +94,6 @@ As with the `internal` keyword, an assembly that the declaring assembly lists in
 
 1. Mark the `Customer` class so that it can be accessed only from the assembly where it resides. 
 
-    ```csharp
-    namespace Sharpcrafters.Crm.Core 
-    { 
-        public class Customer 
-        { 
-            public int Id { get; set; } 
-            public string Name { get; set; } 
-        } 
-    }
-    ```
 
 
 2. Place the caret on the publicly declared component that you want to restrict external access to, and expand the smart tag. Select "Add architectural constraint". This procedure requires [Visual Studio Tools for Metalama and PostSharp](https://marketplace.visualstudio.com/items?itemName=PostSharpTechnologies.PostSharp). You can also achieve the same result by editing the code and the project manually. 
@@ -177,33 +118,16 @@ As with the `internal` keyword, an assembly that the declaring assembly lists in
 
 6. Notice that the only change in the code is the addition of the [<xref:PostSharp.Constraints.InternalAttribute>] attribute. 
 
-    ```csharp
-    namespace Sharpcrafters.Crm.Core 
-    { 
-        [Internal] 
-        public class Customer 
-        { 
-            public int Id { get; set; } 
-            public string Name { get; set; } 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalCustomer/Library/Customer.cs#customer)]
 
 
-7. When you use that public component in a different assembly, the build-time warning `AR0105` appears in the Output window. Applying a custom attribute that has this restriction in a different assembly also emits `AR0105`.
+7. When you use that public component in a different assembly, the build-time warning `AR0105` appears in the Output window. Applying a custom attribute that has this restriction in a different assembly also emits `AR0105`. In the following code, `CustomerRepository` is in a different assembly than `Customer`.
 
-    ```csharp
-    namespace Sharpcrafters.Crm.Console.Repositories 
-    { 
-        public class CustomerRepository:ICustomerRepository 
-        { 
-            public IEnumerable<Customer> FetchAll() 
-            { 
-                return new List<Customer>{new Customer{Id=1,Name="Joe Johnson"}}; 
-            } 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalCustomer/InternalCustomer.cs#repository)]
+
+    The build reports the following warnings:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/InternalCustomer/InternalCustomer.build.txt)]
 
     > [!NOTE]
     > PostSharp must process the project that uses the public component for this validation to occur.
@@ -216,19 +140,12 @@ By default, any code that breaks the access rules defined by the <xref:PostSharp
 
 1. To change the warning to an error, set the <xref:PostSharp.Constraints.ComponentInternalAttribute.Severity> property. 
 
-    ```csharp
-    [ComponentInternal(typeof (InvoiceServices), Severity = SeverityType.Error)] 
-    public IEnumerable<Invoice> FetchAllForCustomer(Guid id) 
-    { 
-        //dostuff 
-        return null; 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalError.cs#repository)]
 
 
-2. When you try to access the component without being granted access, the Output window displays an error message.
+2. When you try to access the component without being granted access, the build fails with an error:
 
-    ![](ComponentInternalError.PNG)
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalError.build.txt)]
 
 
 
@@ -241,18 +158,7 @@ In some situations, you may want to suppress the warning that is generated at bu
 
 To allow access to the constrained component in a specific method, add the <xref:PostSharp.Extensibility.SuppressWarningAttribute> attribute to that method. 
 
-```csharp
-public class CustomerServices 
-{ 
-    [SuppressWarning("AR0102")] 
-    public IEnumerable<Customer> FetchAll() 
-    { 
-        var invoiceRepository = new InvoiceRepository(); 
-        var allInvoices = invoiceRepository.FetchAllForCustomer(Guid.NewGuid()); 
-        return null; 
-    } 
-}
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalSuppress.cs#method)]
 
 > [!NOTE]
 > `AR0102` is the identifier of the warning emitted by <xref:PostSharp.Constraints.ComponentInternalAttribute>. To ignore warnings emitted by <xref:PostSharp.Constraints.InternalAttribute>, use the identifier `AR0105`. 
@@ -261,18 +167,7 @@ public class CustomerServices
 
 To allow access in an entire class, add the <xref:PostSharp.Extensibility.SuppressWarningAttribute> attribute at the class level. The warning is then suppressed for any access to the constrained component within the class. 
 
-```csharp
-[SuppressWarning("AR0102")] 
-public class CustomerServices 
-{ 
-    public IEnumerable<Customer> FetchAll() 
-    { 
-        var invoiceRepository = new InvoiceRepository(); 
-        var allInvoices = invoiceRepository.FetchAllForCustomer(Guid.NewGuid()); 
-        return null; 
-    } 
-}
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalSuppress.cs#class)]
 
 ## See Also
 

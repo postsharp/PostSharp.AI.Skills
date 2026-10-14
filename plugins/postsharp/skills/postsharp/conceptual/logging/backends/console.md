@@ -22,16 +22,15 @@ To send the output of PostSharp Logging to the console:
 
 2. In the application startup file, include the following namespace imports:
 
-    ```csharp
-    using PostSharp.Patterns.Diagnostics;
-    using PostSharp.Patterns.Diagnostics.Backends.Console;
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingConsole.cs#usings)]
 
     In the application startup method, include the following code:
 
-    ```csharp
-    LoggingServices.DefaultBackend = new ConsoleLoggingBackend();
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingConsole.cs#configure)]
+
+    The log records then appear in the console:
+
+    [!code-text[](../../../code/samples/Logging/LoggingConsole.txt)]
 
 
 
@@ -46,11 +45,7 @@ A nicer and more sophisticated theme is <xref:PostSharp.Patterns.Diagnostics.Bac
 
 You can change the current theme by setting the <xref:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackendOptions.Theme> as demonstrated in the following example: 
 
-```csharp
-var backend = new ConsoleLoggingBackend();
-backend.Options.Theme = ConsoleThemes.Dark;
-LoggingServices.DefaultBackend = backend;
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingConsoleThemes.cs#dark)]
 
 
 ### Customizing a theme
@@ -63,58 +58,17 @@ The easiest way to customize the dark theme is to take a copy of the theme by ca
 
 For instance, the following code changes the colors of critical error messages:
 
-```csharp
-ConsoleTheme myTheme = ConsoleThemes.Dark.Clone();
-myTheme.NormalStyles[LogLevel.Critical] = new ConsoleThemeStyle("\x1b[38;5;0199m\x1b[49m", ConsoleColor.Magenta );
-myTheme.HightlightedStyles[LogLevel.Critical] = new ConsoleThemeStyle("\x1b[38;5;0201m\x1b[48;5;0236m", ConsoleColor.Magenta);              
-    
-var backend = new ConsoleLoggingBackend();
-backend.Options.Theme = myTheme;
-LoggingServices.DefaultBackend = backend;
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingConsoleThemes.cs#customized)]
 
 When the simplifications of the <xref:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme> class are too restrictive for your needs, you can directly implement the <xref:PostSharp.Patterns.Diagnostics.Backends.Console.IConsoleTheme> or override the <xref:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme.GetStyle(System.String,PostSharp.Patterns.Diagnostics.LogLevel,PostSharp.Patterns.Diagnostics.LogRecordKind,PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleThemeItem)> method of the <xref:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleTheme> class. 
 
 The following code example displays the message time in a special color:
 
-```csharp
-class CustomTheme : ConsoleTheme
-{
-    readonly ConsoleThemeStyle timeStyle = new ConsoleThemeStyle(" \x1b[38;5;0006m", ConsoleColor.Cyan);
-    readonly ConsoleThemeStyle delimiterStyle = new ConsoleThemeStyle("\x1b[38;5;0255m", ConsoleColor.Gray);
-
-    public CustomTheme() : base(ConsoleThemes.Dark)
-    {
-
-    }
-
-    public override ConsoleThemeStyle GetStyle(string role, LogLevel level, LogRecordKind kind, ConsoleThemeItem item)
-    {
-        if ( item == ConsoleThemeItem.Time )
-        {
-            return timeStyle;
-        }
-        else if ( item == ConsoleThemeItem.Delimiter )
-        {
-            return delimiterStyle;
-        }
-
-        return base.GetStyle(role, level, kind, item);
-                    
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingConsoleThemes.cs#custom-theme)]
 
 To include the message time, you need the following code:
 
-```csharp
-var backend = new ConsoleLoggingBackend();
-backend.Options.Theme = new CustomTheme();
-backend.Options.IncludeTimestamp = true;
-backend.Options.TimestampFormat = "HH:mm:ss";
-
-LoggingServices.DefaultBackend = backend;
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingConsoleThemes.cs#timestamp)]
 
 ## See Also
 

@@ -20,6 +20,16 @@ items:
     Custom attribute that, when applied to a field or automatic property, specifies that this field or property is a simple reference,
 
     and is not involved in a parent-child relationship.
+  remarks: >-
+    <p>When applied to a read-only field, this custom attribute also excludes the field from the immutability analysis of the declaring
+        type: the type can be immutable even though the object referenced by the field is not.</p>
+    <p>On an automatic property, the relationship is read from the property, and the immutability analysis reads the backing field. Apply
+        the custom attribute to the property to set the relationship. On a read-only automatic property, applying it to both the property and,
+        with the <code>field:</code> target, to the backing field gives it both meanings. When the <code>PostSharpUnifiedAutomaticPropertyAnnotations</code>
+        MSBuild property is <code>True</code>, the annotations of the property and of its backing field are read as one set, and the custom attribute
+        applied to either declaration has both meanings. The build then adds the custom attribute to the backing field of the assembly, so that the
+        application classifies the declaring type as the build did. Otherwise, a <xref href="PostSharp.Patterns.Model.ChildAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Patterns.Model.ReferenceAttribute" data-throw-if-not-resolved="false"></xref> or
+        <xref href="PostSharp.Patterns.Model.ParentAttribute" data-throw-if-not-resolved="false"></xref> applied only to the backing field has no effect on the relationship, and a warning is reported.</p>
   example: []
   syntax:
     content: 'public sealed class ReferenceAttribute : MemberRelationshipAttribute, IValidableAnnotation'

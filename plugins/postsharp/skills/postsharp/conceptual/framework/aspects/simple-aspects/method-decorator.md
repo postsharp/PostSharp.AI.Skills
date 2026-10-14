@@ -50,51 +50,11 @@ The following table shows the advice methods available in the <xref:PostSharp.As
 
 The following code snippet shows a simple aspect based on <xref:PostSharp.Aspects.OnMethodBoundaryAspect> which writes a line to the console during each of the four events. The aspect is applied to the `Program.Main` method. 
 
-```csharp
-[PSerializable]
-public class LoggingAspect : OnMethodBoundaryAspect
-{
-
-  public override void OnEntry(MethodExecutionArgs args)
-  {
-     Console.WriteLine("The {0} method has been entered.", args.Method.Name);
-  }
-  
-  public override void OnSuccess(MethodExecutionArgs args)
-  {
-      Console.WriteLine("The {0} method executed successfully.", args.Method.Name);
-  }
-  
-  public override void OnExit(MethodExecutionArgs args)
-  {
-     Console.WriteLine("The {0} method has exited.", args.Method.Name);
-  }     
- 
-  public override void OnException(MethodExecutionArgs args)
-  {
-      Console.WriteLine("An exception was thrown in {0}.", args.Method.Name);
-  }
-
-}
-
-static class Program
-{
-   [LoggingAspect]
-   static void Main()
-   {
-     Console.WriteLine("Hello, world.");
-   }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/MethodDecoratorLogging.cs#example)]
 
 Executing the program prints the following lines to the console:
 
-```none
-The Main method has been entered.
-Hello, world.
-The Main method executed successfully.
-The Main method has exited.
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/MethodDecoratorLogging.txt)]
 
 
 ## Accessing the current execution context
@@ -119,66 +79,24 @@ The <xref:PostSharp.Aspects.MethodExecutionArgs> object contains more informatio
 
 The following program illustrates how to consume the current context from the <xref:PostSharp.Aspects.MethodExecutionArgs> parameter: 
 
-```csharp
-[PSerializable]
-public class LoggingAspect : OnMethodBoundaryAspect
-{
-
-  public override void OnEntry(MethodExecutionArgs args)
-  {
-     Console.WriteLine("Method {0}({1}) started.", args.Method.Name, string.Join( ", ", args.Arguments ) );
-  }
-  
-  public override void OnSuccess(MethodExecutionArgs args)
-  {
-      Console.WriteLine("Method {0}({1}) returned {2}.", args.Method.Name, string.Join( ", ", args.Arguments ), args.ReturnValue );
-  }
- 
-
-}
-
-static class Program
-{
-   static void Main()
-   {
-     Foo( 1, 2 );
-   }
-   
-   [LoggingAspect]
-   static int Foo(int a, int b)
-   {
-       Console.WriteLine("Hello, world.");
-       return 3;
-   }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodDecorator.cs#example)]
 
 When this program executes, it prints the following output:
 
-```none
-Method Foo(1, 2) started.
-Hello, world.
-Method Foo(1, 2) returned 3.
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/MethodDecorator.txt)]
 
 
 ## Returning without executing the method
 
 When your aspect is interacting with the target code, there are situations where you will need to alter the execution flow behavior. For example, your <xref:PostSharp.Aspects.OnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)> advice may want to prevent the target method from being executed. PostSharp offers this ability through the use of the <xref:PostSharp.Aspects.MethodExecutionArgs.FlowBehavior> property. Unless the target method is `void` or is an iterator method, you will also need to set the <xref:PostSharp.Aspects.MethodExecutionArgs.ReturnValue> property. 
 
-```csharp
-public override void OnEntry(MethodExecutionArgs args)
-{
-    if (args.Arguments.Count > 0 && args.Arguments[0] == null)
-    {
-        args.FlowBehavior = FlowBehavior.Return;
-        args.ReturnValue = -1;
-    }
+The following <xref:PostSharp.Aspects.OnMethodBoundaryAspect.OnEntry(PostSharp.Aspects.MethodExecutionArgs)> advice prevents the execution of the target method when its first argument is `null`, and makes it return `-1`:
 
-    Console.WriteLine("The {0} method was entered with the parameter values: {1}",
-                      args.Method.Name, string.Join(", ", args.Arguments));
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ReturnWithoutExecuting.cs#on-entry)]
+
+When this aspect is applied to a `GetLength` method that returns the length of a string, calling the method with `"abc"` and then with `null` prints the following output:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ReturnWithoutExecuting.txt)]
 
 To exit the execution of the target code, set the <xref:PostSharp.Aspects.MethodExecutionArgs.FlowBehavior> property on the <xref:PostSharp.Aspects.MethodExecutionArgs> to `Return`. 
 
@@ -198,25 +116,7 @@ When you are working with multiple advices on a single aspect, you will encounte
 
 To do this, use the <xref:PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag> property on the <xref:PostSharp.Aspects.MethodExecutionArgs> parameter in each of the advices. Because <xref:PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag> is an object type, you will need to cast the value stored in it while retrieving it and before using it. 
 
-```csharp
-[PSerializable]
-public class ProfilingAspect : OnMethodBoundaryAspect
-{
-    public override void OnEntry(MethodExecutionArgs args)
-    {
-        args.MethodExecutionTag = Stopwatch.StartNew();
-    }
-
-    public override void OnExit(MethodExecutionArgs args)
-    {
-        var sw = (Stopwatch)args.MethodExecutionTag;
-        sw.Stop();
-
-        System.Diagnostics.Debug.WriteLine("{0} executed in {1} seconds", args.Method.Name,
-                                           sw.ElapsedMilliseconds / 1000);
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/Profiling.cs#aspect)]
 
 > [!NOTE]
 > The value stored in <xref:PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag> will not be shared between different instances of the aspect. If the aspect is attached to two different pieces of target code, each attachment will have its own unshared <xref:PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag> for state storage. 
@@ -243,57 +143,17 @@ See <xref:semantic-advising> for more details regarding the behavior <xref:PostS
 
 ### Example
 
-In this example, we will reuse the `ProfilingAspect` class from the previous section and will extend it to exclude the time spent while waiting for dependent operations. 
+In this example, we will reuse the `ProfilingAttribute` class from the previous section and will extend it to exclude the time spent while waiting for dependent operations. Add the following methods to the aspect:
 
-```csharp
-[PSerializable]
-public class ProfilingAspect : OnMethodBoundaryAspect
-{
-    public override void OnEntry(MethodExecutionArgs args)
-    {
-      args.MethodExecutionTag = Stopwatch.StartNew();
-    }
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ProfilingAsync.cs#yield-resume)]
 
-    public override void OnExit(MethodExecutionArgs args)
-    {
-      var sw = (Stopwatch)args.MethodExecutionTag;
-      sw.Stop();
+Apply the `[Profiling]` attribute to the `TestProfiling` method. 
 
-      Console.WriteLine("Method {0} executed for {1}ms.", args.Method.Name,
-                        sw.ElapsedMilliseconds);
-    }
-    
-    public override void OnYield( MethodExecutionArgs args )
-    {
-      Stopwatch sw = (Stopwatch) args.MethodExecutionTag;
-      sw.Stop();
-    }
-    
-    public override void OnResume( MethodExecutionArgs args )
-    {
-        Stopwatch sw = (Stopwatch) args.MethodExecutionTag;
-        sw.Start();
-    }
-    
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ProfilingAsync.cs#method)]
 
-Apply the `[ProfilingAspect]` attribute to the `TestProfiling` method. 
+During the code execution, the stopwatch will start upon entering the `TestProfiling` method. It will stop before the `await` statement and resume when the awaited task is done. Finally, the time measurement is stopped again before exiting the `TestProfiling` method and the result is written to the console. The measured time does not include the 0.8 seconds of the `await` statement:
 
-```csharp
-[ProfilingAspect]
-public async Task TestProfiling()
-{
-    await Task.Delay( 3000 );
-    Thread.Sleep( 1000 );
-}
-```
-
-During the code execution, the stopwatch will start upon entering the `TestProfiling` method. It will stop before the `await` statement and resume when the awaited task is done. Finally, the time measurement is stopped again before exiting the `TestProfiling` method and the result is written to the console. 
-
-```none
-Method TestProfiling executed for 1007ms.
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/ProfilingAsync.txt)]
 
 
 ## Working with iterator methods
@@ -320,82 +180,11 @@ See <xref:semantic-advising> for more details regarding the behavior <xref:PostS
 
 The following program illustrates the timing of different advices in the context of an iterator.
 
-```csharp
-[PSerializable]
-    class MyAspect : OnMethodBoundaryAspect
-    {
-        public override void OnEntry(MethodExecutionArgs args)
-        {
-            Console.WriteLine("! entry");
-        }
-
-        public override void OnResume(MethodExecutionArgs args)
-        {
-            Console.WriteLine("! resume");
-        }
-        public override void OnYield(MethodExecutionArgs args)
-        {
-            Console.WriteLine($"! yield return {args.YieldValue}");
-        }
-
-        public override void OnSuccess(MethodExecutionArgs args)
-        {
-            Console.WriteLine("! success");
-        }
-
-        public override void OnExit(MethodExecutionArgs args)
-        {
-            Console.WriteLine("! exit");
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            foreach (var i in Foo())
-            {
-                Console.WriteLine($"# received {i}");
-            }
-
-            Console.WriteLine("# done");
-        }
-
-        [MyAspect]
-        static IEnumerable<int> Foo()
-        {
-            Console.WriteLine("@ part 1");
-            yield return 1;
-            Console.WriteLine("@ part 2");
-            yield return 2;
-            Console.WriteLine("@ part 3");
-            yield return 3;
-            Console.WriteLine("@ part 4");
-        }
-    }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/IteratorAdvices.cs#example)]
 
 Executing the program prints the following output:
 
-```none
-! entry
-@ part 1
-! yield return 1
-# received 1
-! resume
-@ part 2
-! yield return 2
-# received 2
-! resume
-@ part 3
-! yield return 3
-# received 3
-! resume
-@ part 4
-! success
-! exit
-# done
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/IteratorAdvices.txt)]
 
 
 ### Working with other enumerable methods
@@ -414,16 +203,18 @@ You can also enable this behavior for other methods with the return type <xref:S
 When there is a non-semantically-advised method boundary aspect or a method interception aspect ordered after a semantically-advised method boundary aspect on an iterator method, or when a semantically-advised method boundary aspect is applied to a method that returns <xref:System.Collections.Generic.IEnumerable`1>, <xref:System.Collections.Generic.IEnumerator`1> or their non-generic variants, PostSharp transforms the target method equivalently to this example: 
 
 Suppose the original target method is:
+<!-- not-compiled: input of the transformation described in this section; the aspect names are placeholders -->
 
 ```csharp
 [MySemanticBoundaryAspect, MyInterceptionAspect] // in that order
 static IEnumerable<int> Return2()
 {
-	yield return 2;
+    yield return 2;
 }
 ```
 
 Then that piece of code is equivalent to this code:
+<!-- not-compiled: equivalent of the code generated by PostSharp -->
 
 ```csharp
 [MySemanticBoundaryAspect]
@@ -431,19 +222,19 @@ static IEnumerable<int> Return2()
 {
     var innerEnumerable = Return2__OriginalMethod();
     var innerEnumerator = innerEnumerable?.GetEnumerator();
-    if (innerEnumerator == null) 
+    if (innerEnumerator == null)
     {
         yield break;
     }
-    foreach(var element in innerEnumerator)
+    while (innerEnumerator.MoveNext())
     {
-        yield return element;
+        yield return innerEnumerator.Current;
     }
 }
 [MyInterceptionAspect]
 static IEnumerable<int> Return2__OriginalMethod()
 {
-	yield return 2;
+    yield return 2;
 }
 ```
 

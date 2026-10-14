@@ -29,7 +29,8 @@ items:
         </p>
     <ul><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref>, the parameter must be <code>out</code> or <code>ref</code>, and the value that the advice
         assigns to it is the value returned by the target method. An advice applied to a method that returns a value must have either a parameter
-        bound by this attribute or a <xref href="PostSharp.Aspects.MethodInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter.</li><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref> or an <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>, the advice reads the value that the
+        bound by this attribute or a <xref href="PostSharp.Aspects.MethodInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter. When the method returns <code>void</code>, the parameter receives the
+        default value of its type, and the value that the advice assigns to it is ignored.</li><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodSuccessAdvice" data-throw-if-not-resolved="false"></xref> or an <xref href="PostSharp.Aspects.Advices.OnMethodExitAdvice" data-throw-if-not-resolved="false"></xref>, the advice reads the value that the
         method returns, by value or <code>in</code>, or replaces it with <code>ref</code>. When the method throws, the exit advice reads the default
         value.</li><li>In an <xref href="PostSharp.Aspects.Advices.OnMethodEntryAdvice" data-throw-if-not-resolved="false"></xref> or an <xref href="PostSharp.Aspects.Advices.OnMethodExceptionAdvice" data-throw-if-not-resolved="false"></xref>, the parameter must be <code>out</code>
         or <code>ref</code>. It sets the value that the method returns when the advice sets the flow behavior to <xref href="PostSharp.Aspects.FlowBehavior.Return" data-throw-if-not-resolved="false"></xref>.
@@ -130,11 +131,13 @@ items:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
   summary: >-
-    Gets or sets a value indicating whether the target method of a method boundary advice must have a return value. When this property is
+    Gets or sets a value indicating whether the target method must have a return value. When this property is <code>true</code>, the compiler
 
-    <code>true</code>, the compiler reports an error when the method returns <code>void</code>, returns a task without a result, returns by
+    reports an error when the method of a method boundary advice returns <code>void</code>, returns a task without a result, returns by reference
 
-    reference (<code>ref</code> or <code>ref readonly</code>), or is an iterator. When it is <code>false</code>, the parameter receives the default value of its type in these methods, and a value that the advice
+    (<code>ref</code> or <code>ref readonly</code>), or is an iterator, and when the method of an <xref href="PostSharp.Aspects.Advices.OnMethodInvokeAdvice" data-throw-if-not-resolved="false"></xref> returns
+
+    <code>void</code>. When it is <code>false</code>, the parameter receives the default value of its type in these methods, and a value that the advice
 
     writes to an <code>out</code> or <code>ref</code> parameter is ignored. The default value is <code>false</code>.
   remarks: >-

@@ -26,99 +26,42 @@ Start with a scalar constraint that verifies the first condition of the `Busines
 
 1. Create a class that inherits from the <xref:PostSharp.Constraints.ScalarConstraint> class in PostSharp. 
 
-    ```csharp
-    using System; 
-    public class BusinessRulePatternValidation : ScalarConstraint 
-    { 
-    }
-    ```
 
 
 2. Specify the kind of code element that this validation aspect targets by adding the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute> attribute. In this case, the validation must occur on types only, and inheritance must be enabled. <xref:PostSharp.Extensibility.MulticastInheritance.Strict> means that `BusinessRulePatternValidation` is applied not only to the class that it annotates but also to all of its subclasses, even in other assemblies. 
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRulePatternValidation : ScalarConstraint 
-    { 
-    }
-    ```
 
 
 3. Override the <xref:PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)> method. 
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRulePatternValidation : ScalarConstraint 
-    { 
-        public override void ValidateCode(object target) 
-        { 
-        } 
-    }
-    ```
 
 
-4. Create a rule that checks that there is a nested type named `Factory`. The `target` parameter of the <xref:PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)> method is of type `object`. The type of the value passed in this parameter depends on the target kind that you declare in the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute> attribute. For `MulticastTargets.Class`, the value is a `Type`. To use the target for validation, first cast it to that type. 
-
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRulePatternValidation : ScalarConstraint 
-    { 
-        public override void ValidateCode(object target) 
-        { 
-            var targetType = (Type) target; 
-     
-            if ( targetType.GetNestedType("Factory") == null ) 
-            { 
-               // warning 
-            } 
-        } 
-    }
-    ```
+4. Create a rule that checks that there's a nested type called `Factory`. You'll note that the `target` parameter for the <xref:PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)> method is an `object` type. Depending on which target type you declare in the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute> attribute, the value passed through this parameter will change. For `MulticastTargets.Class` the type passed is `Type`. To make use of the target for validation you must cast to that type first. The rule skips abstract classes, such as `BusinessRule` itself. 
 
     > [!NOTE]
     > Valid types for the `target` parameter of the <xref:PostSharp.Constraints.ScalarConstraint.ValidateCode(System.Object)> method include `Assembly`, `Type`, `MethodInfo`, `ConstructorInfo`, `PropertyInfo`, `EventInfo`, `FieldInfo` and `ParameterInfo`. 
 
 
-5. Write a warning about the broken rule to the Output window in Visual Studio.
+5. Write a warning about the broken rule to the Output window in Visual Studio. The complete constraint is the following:
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRulePatternValidation : ScalarConstraint 
-    { 
-        public override void ValidateCode(object target) 
-        { 
-            var targetType = (Type)target; 
-     
-            if (targetType.GetNestedType("Factory") == null) 
-            { 
-                Message.Write( 
-                    targetType, SeverityType.Warning, 
-                    "2001", 
-                    "The {0} type does not have a nested type named 'Factory'.", 
-                    targetType); 
-            } 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRulePattern.cs#constraint)]
 
 
 6. Attach the rule to the code that needs to be protected. In this example, add the rule to the `BusinessRule` class. 
 
-    ```csharp
-    [BusinessRulePatternValidation] 
-    public class BusinessRule 
-    { 
-        // No nested Factory class: the constraint emits a warning for this class and for any subclass without one.
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRulePattern.cs#business-rule)]
 
     > [!NOTE]
     > This example applies the constraint to only one class. To apply a constraint to large portions of your codebase, see <xref:attribute-multicasting>. 
 
 
-7. Build the project. A warning appears in the Output window of Visual Studio.
+7. Build the project. A warning appears in the Output window of Visual Studio. In the following code, `DiscountRule` does not have a nested `Factory` class:
 
-    ![](CustomArchConstraint_warning.PNG)
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRulePattern.cs#rules)]
+
+    The build reports the following warning:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/BusinessRulePattern.build.txt)]
 
     > [!NOTE]
     > Due to a bug, the error code may not be shown in the Error list.
@@ -126,27 +69,11 @@ Start with a scalar constraint that verifies the first condition of the `Busines
 
 8. If a warning is not strict enough, you can change the rule so that it emits a build-time error instead. To do this, change the <xref:PostSharp.Extensibility.SeverityType> in `Message.Write` to `Error`. 
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRulePatternValidation : ScalarConstraint 
-    { 
-        public override void ValidateCode(object target) 
-        { 
-            var targetType = (Type)target; 
-     
-            if (targetType.GetNestedType("Factory") == null) 
-            { 
-                Message.Write( 
-                targetType, SeverityType.Error, 
-                "2001", 
-                "The {0} type does not have a nested type named 'Factory'.", 
-                targetType); 
-            } 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRulePatternError.cs#message)]
 
-    ![](CustomArchConstraint_error.PNG)
+    The build now fails with the following error:
+
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/BusinessRulePatternError.build.txt)]
 
 
 With this technique, you can create rules or restrictions based on many different criteria and implement validation for several design patterns.
@@ -160,122 +87,41 @@ Now create a referential constraint that verifies the second condition of the `B
 
 1. Create a class that inherits from the <xref:PostSharp.Constraints.ReferentialConstraint> class in PostSharp. 
 
-    ```csharp
-    public class BusinessRuleUseValidation : ReferentialConstraint 
-    { 
-    }
-    ```
 
 
 2. Declare that this aspect works only on types by adding the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute> attribute to the class. You will apply this class to `BusinessRule` to prevent all code in the project from using `BusinessRule` or its subclasses, unless the code is in the `Controllers` namespace. 
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRuleUseValidation : ReferentialConstraint 
-    { 
-    }
-    ```
 
 
 3. Override the <xref:PostSharp.Constraints.ReferentialConstraint.ValidateCode(System.Object,System.Reflection.Assembly)> method. In this case, the target is the `BusinessRule` class or one of its subclasses. The assembly is the assembly that is currently searched for violations. 
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRuleUseValidation : ReferentialConstraint 
-    { 
-        public override void ValidateCode(object target, Assembly assembly) 
-        { 
-        } 
-    }
-    ```
 
 
 4. Create the rule that checks for the use of the default constructor of the `BusinessRule` type in all code. 
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRuleUseValidation : ReferentialConstraint 
-    { 
-        public override void ValidateCode(object target, Assembly assembly) 
-        { 
-            var targetType = (Type) target; 
-            var usages = ReflectionSearch 
-                    .GetMethodsUsingDeclaration(targetType.GetConstructor(new Type[0]));
-     
-            foreach (MethodUsageCodeReference methodUsageCodeReference in usages)
-            {
-                if (!methodUsageCodeReference.UsingMethod.DeclaringType.Namespace.Contains("Controllers"))
-                {
-                    // warning
-                }
-            }
-        }
-    }
-    ```
 
     > [!NOTE]
     > The rule uses the <xref:PostSharp.Reflection.ReflectionSearch> helper class that PostSharp provides. This class, along with others, extends the built-in reflection functionality of .NET and can be used outside of aspects as well. The method <xref:PostSharp.Reflection.ReflectionSearch.GetMethodsUsingDeclaration(System.Reflection.MemberInfo)> already searches the current assembly, so the `assembly` parameter of `ValidateCode` is not needed. 
 
 
-5. Write a warning message to the Output window of Visual Studio.
+5. Write a warning message to the Output window of Visual Studio. The complete constraint is the following:
 
-    ```csharp
-    [MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-    public class BusinessRuleUseValidation : ReferentialConstraint 
-    { 
-        public override void ValidateCode(object target, Assembly assembly) 
-        { 
-            var targetType = (Type) target; 
-            var usages = ReflectionSearch 
-                    .GetMethodsUsingDeclaration(targetType.GetConstructor(new Type[0]));
-     
-            foreach (MethodUsageCodeReference methodUsageCodeReference in usages)
-            {
-                if (!methodUsageCodeReference.UsingMethod.DeclaringType.Namespace.Contains("Controllers"))
-                {
-                    Message.Write( 
-                        targetType, SeverityType.Warning,  
-                        "2002", 
-                        "The {0} type contains a reference to '{1}' which can only be referenced from Controllers.",
-                        methodUsageCodeReference.UsingMethod.DeclaringType,
-                        target);
-                }
-            }
-        }
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRuleUse.cs#constraint)]
 
 
 6. Attach the referential constraint to the `BusinessRule` class. 
 
-    ```csharp
-    [BusinessRuleUseValidation] 
-    public class BusinessRule 
-    { 
-        // Now, only code in the Controllers namespace can call this class's constructor.
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRuleUse.cs#business-rule)]
 
 
 7. Test the rule by adding nonconforming code to your project.
 
-    ```csharp
-    namespace PostSharp.Architecture.Repositories 
-    { 
-        public class AccountRepository 
-        { 
-            public void AddAccount(string name) 
-            { 
-                var businessRule = new BusinessRule(); 
-            } 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/BusinessRuleUse.cs#repository)]
 
 
 8. Build the project. A warning appears in the Output window in Visual Studio.
 
-    ![](ReferentialConstraint_Warning.PNG)
+    [!code-text[](../../../code/samples/CustomPatterns/Constraints/BusinessRuleUse.build.txt)]
 
     > [!NOTE]
     > If a warning is not strict enough, you can change the <xref:PostSharp.Extensibility.SeverityType> to `Error`. When the rule is broken, an error then appears in the Output window of Visual Studio and the build fails. 

@@ -16,24 +16,11 @@ It would not be possible to implement the Aggregatable pattern without support f
 
 In the following example, an Invoice entity is composed of one instance of the `Invoice` class and several instances of the `InvoiceLine` class. The relationship between the `Invoice` and `InvoiceLine` classes is implemented using a collection. 
 
-```csharp
-[Aggregatable]
-public class Invoice
-{
-    public Invoice()
-    {
-        this.Lines = new List<InvoiceLine>();
-    }
+[!code-csharp[](../../code/samples/Model/Aggregatable/StandardCollection.cs#example)]
 
-    [Child]
-    public IList<InvoiceLine> Lines { get; private set; }
-}
+When you add a line to this collection, the line does not get a parent:
 
-[Aggregatable]
-public class InvoiceLine
-{    
-}
-```
+[!code-text[](../../code/samples/Model/Aggregatable/StandardCollection.txt)]
 
 When we add a new element to the `Lines` collection, we also need to update the parent-child relationship between the corresponding invoice and invoice line. It is not possible to do this with the standard <xref:System.Collections.Generic.List`1> class, so we need to build a specialized aggregatable collection class instead. However, we may later decide to apply another pattern to our object model, such as a threading model or undo/redo. This new pattern would, in turn, require support from the collection class. Creating new collection classes for each pattern (and potentially for each pattern combination) is clearly unmanageable. 
 
@@ -41,25 +28,7 @@ Instead of providing a new collection class for each specific behavior we need t
 
 Let us modify our previous example to work correctly with the Aggregatable aspect.
 
-```csharp
-[Aggregatable]
-public class Invoice
-{
-    public Invoice()
-    {
-        this.Lines = new AdvisableCollection<InvoiceLine>();
-    }
-
-    [Child]
-    public IList<InvoiceLine> Lines { get; private set; }
-
-}
-
-[Aggregatable]
-public class InvoiceLine
-{
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/AdvisableCollections.cs#example)]
 
 As you can see, the only change we made is using the <xref:PostSharp.Patterns.Collections.AdvisableCollection`1> class instead of <xref:System.Collections.Generic.List`1>. The Aggregatable aspect applied to the `Invoice` class detects that the child property is an advisable collection and applies dynamic Aggregatable advice to the collection instance at run time. This turns our collection of invoice lines into an aggregatable collection. If we apply another aspect to the `Invoice` class later, it can add new behaviors to this collection in the same way. 
 
@@ -89,17 +58,11 @@ Instead of a normal cast, you can use the <xref:PostSharp.Patterns.DynamicAdvisi
 
 The following code snippet gets the <xref:PostSharp.Patterns.Model.IAggregatable> interface of the `Lines` collection in the example above: 
 
-```csharp
-IAggregatable aggregatable = DynamicAdvisingServices.QueryInterface<IAggregatable>( invoice.Lines );
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/AdvisableCollections.cs#query-interface)]
 
 By default, the <xref:PostSharp.Patterns.DynamicAdvising.DynamicAdvisingServices.QueryInterface``1(System.Object,System.Boolean)> method throws `InvalidCastException` if the given instance does not implement the queried interface. You can also safely check whether the interface is implemented by passing `false` as a method argument. 
 
-```csharp
-if ( DynamicAdvisingServices.QueryInterface<IAggregatable>( collection, false ) != null )
-{
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/AdvisableCollections.cs#query-interface-safe)]
 
 
 ## Parent surrogates
@@ -108,27 +71,7 @@ Collections play a special role in implementing the parent-child relationships b
 
 Consider the following example:
 
-```csharp
-[Aggregatable]
-public class Invoice
-{
-   public Invoice()
-   {
-     this.Lines = new AdvisableCollection<InvoiceLine>();
-   }
-
-   [Child]
-   public IList<InvoiceLine> Lines { get; private set; }
-
-}
-
-[Aggregatable]
-public class InvoiceLine
-{
-   [Parent]
-   public Invoice Invoice { get; private set; }
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/ParentSurrogate.cs#example)]
 
 The `Invoice` class contains a collection of `InvoiceLine` instances. We want each item of the `Lines` collection to be a child of the `Invoice` instance. However, the collection itself should not be considered a child of the `Invoice`. Additionally, we want the `InvoiceLine.Invoice` property to be set to the `Invoice`, not to the collection. 
 
@@ -138,33 +81,11 @@ Any aggregatable object can act as a parent surrogate, but only collections act 
 
 In the next example, the `Lines` collection will be treated as a first-class entity. 
 
-```csharp
-[Aggregatable]
-public class Invoice
-{
-   public Invoice()
-   {
-     this.Lines = new AdvisableCollection<InvoiceLine>();
-   }
+[!code-csharp[](../../code/samples/Model/Aggregatable/ParentSurrogateDisabled.cs#example)]
 
-  [Child(IsParentSurrogate = false)]
-   public IList<InvoiceLine> Lines { get; private set; }
+To cause a custom class to behave like a parent surrogate by default, set the <xref:PostSharp.Patterns.Model.AggregatableAttribute.IsParentSurrogate> property of the <xref:PostSharp.Patterns.Model.AggregatableAttribute> applied to your class to `true`. In this case, it's not allowed to override the value in the `[Child]` attributes applied to individual properties. In the following example, an `InvoiceSection` is a parent surrogate: the parent of its line is the invoice that contains the section, not the section.
 
-}
-
-[Aggregatable]
-public class InvoiceLine
-{
-   [Parent]
-   public IList<InvoiceLine> Parent { get; private set; }
-}
-```
-
-To cause a custom class to behave like a parent surrogate by default, set the <xref:PostSharp.Patterns.Model.AggregatableAttribute.IsParentSurrogate> property of the <xref:PostSharp.Patterns.Model.AggregatableAttribute> applied to your class to `true`. In this case, it is not allowed to override the value in the `[Child]` attributes applied to individual properties. 
-
-```csharp
-[Aggregatable(IsParentSurrogate = true)]
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/CustomParentSurrogate.cs#example)]
 
 
 ## Enumerating children and parent surrogates
@@ -184,24 +105,7 @@ To implement this requirement, you can set the <xref:PostSharp.Patterns.Model.Ch
 
 In the example below, the `RelatedOrders` collection is a child and therefore its changes are being recorded by the Recordable aspect. However, collection items are not children of the parent entity, because related orders do not belong to the invoice. 
 
-```csharp
-[Recordable]
-public class Invoice
-{
-   public Invoice()
-   {
-     this.Lines = new AdvisableCollection<InvoiceLine>();
-     this.RelatedOrders = new AdvisableCollection<Order>();
-   }
-
-   [Child]
-   public IList<InvoiceLine> Lines { get; private set; }
-
-   [Child(ItemsRelationship = RelationshipKind.Reference)]
-   public IList<Order> RelatedOrders { get; private set; }
-
-}
-```
+[!code-csharp[](../../code/samples/Model/Aggregatable/CollectionOfReferences.cs#example)]
 
 
 ## Using immutable collections

@@ -28,6 +28,9 @@ items:
     <p>Unlike <xref href="PostSharp.Aspects.IInstanceScopedAspect.RuntimeInitializeInstance" data-throw-if-not-resolved="false"></xref>, the advice method receives the reason of the initialization:
         a constructor, a call of <code>MemberwiseClone</code>, deserialization, or a manual call of the <code>InitializeAspects</code> method.</p>
     <p>To run logic after all the aspects applied to the same target have been initialized, use <xref href="PostSharp.Aspects.Advices.OnAspectsInitializedAdvice" data-throw-if-not-resolved="false"></xref>.</p>
+
+    <p>The aspect must be applied to a type or to a member of a type. For a member, the advice is registered on the declaring type of the member.
+        In an aspect applied to an assembly, such as an <xref href="PostSharp.Aspects.AssemblyLevelAspect" data-throw-if-not-resolved="false"></xref>, the advice causes the error LA0088.</p>
   example: []
   syntax:
     content: >-

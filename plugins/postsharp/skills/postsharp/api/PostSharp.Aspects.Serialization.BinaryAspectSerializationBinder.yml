@@ -78,7 +78,10 @@ items:
   namespace: PostSharp.Aspects.Serialization
   example: []
   syntax:
-    content: public override Type BindToType(string assemblyName, string typeName)
+    content: >-
+      [UnconditionalSuppressMessage("Trimming", "IL2026", Justification = "Only the BinaryFormatter calls this method, and the BinaryAspectSerializer uses the BinaryFormatter only when it is enabled, which the .NET SDK does not do in a trimmed application.")]
+
+      public override Type BindToType(string assemblyName, string typeName)
     parameters:
     - id: assemblyName
       type: System.String
@@ -86,9 +89,24 @@ items:
       type: System.String
     return:
       type: System.Type
-    content.vb: Public Overrides Function BindToType(assemblyName As String, typeName As String) As Type
+    content.vb: >-
+      <UnconditionalSuppressMessage("Trimming", "IL2026", Justification:="Only the BinaryFormatter calls this method, and the BinaryAspectSerializer uses the BinaryFormatter only when it is enabled, which the .NET SDK does not do in a trimmed application.")>
+
+      Public Overrides Function BindToType(assemblyName As String, typeName As String) As Type
   overridden: System.Runtime.Serialization.SerializationBinder.BindToType(System.String,System.String)
   overload: PostSharp.Aspects.Serialization.BinaryAspectSerializationBinder.BindToType*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Trimming
+    - type: System.String
+      value: IL2026
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: Only the BinaryFormatter calls this method, and the BinaryAspectSerializer uses the BinaryFormatter only when it is enabled, which the .NET SDK does not do in a trimmed application.
   nameWithType.vb: BinaryAspectSerializationBinder.BindToType(String, String)
   fullName.vb: PostSharp.Aspects.Serialization.BinaryAspectSerializationBinder.BindToType(String, String)
   name.vb: BindToType(String, String)

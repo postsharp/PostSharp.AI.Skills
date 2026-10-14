@@ -161,7 +161,10 @@ items:
   summary: Invokes an action for each property in the raw CLR object of a <xref href="PostSharp.Patterns.Diagnostics.Custom.LogEventData" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public virtual void VisitProperties<TVisitorState>(object data, ILoggingPropertyVisitor<TVisitorState> visitor, ref TVisitorState visitorState, in LoggingPropertyVisitorOptions visitorOptions = default)
+    content: >-
+      [UnconditionalSuppressMessage("Trimming", "IL2026", Justification = "The metadata reads the properties of the type of an object that the application logs. When trimming removes a property, the property is not logged.")]
+
+      public virtual void VisitProperties<TVisitorState>(object data, ILoggingPropertyVisitor<TVisitorState> visitor, ref TVisitorState visitorState, in LoggingPropertyVisitorOptions visitorOptions = default)
     parameters:
     - id: data
       type: System.Object
@@ -178,8 +181,23 @@ items:
     typeParameters:
     - id: TVisitorState
       description: The type of the <code class="paramref">visitorState</code> parameter, an opaque value passed to <code class="paramref">visitor</code>.
-    content.vb: Public Overridable Sub VisitProperties(Of TVisitorState)(data As Object, visitor As ILoggingPropertyVisitor(Of TVisitorState), visitorState As TVisitorState, visitorOptions As LoggingPropertyVisitorOptions = Nothing)
+    content.vb: >-
+      <UnconditionalSuppressMessage("Trimming", "IL2026", Justification:="The metadata reads the properties of the type of an object that the application logs. When trimming removes a property, the property is not logged.")>
+
+      Public Overridable Sub VisitProperties(Of TVisitorState)(data As Object, visitor As ILoggingPropertyVisitor(Of TVisitorState), visitorState As TVisitorState, visitorOptions As LoggingPropertyVisitorOptions = Nothing)
   overload: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.VisitProperties*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Trimming
+    - type: System.String
+      value: IL2026
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The metadata reads the properties of the type of an object that the application logs. When trimming removes a property, the property is not logged.
   nameWithType.vb: LogEventMetadata.VisitProperties(Of TVisitorState)(Object, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyVisitorOptions)
   fullName.vb: PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata.VisitProperties(Of TVisitorState)(Object, PostSharp.Patterns.Diagnostics.Custom.ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, PostSharp.Patterns.Diagnostics.Custom.LoggingPropertyVisitorOptions)
   name.vb: VisitProperties(Of TVisitorState)(Object, ILoggingPropertyVisitor(Of TVisitorState), TVisitorState, LoggingPropertyVisitorOptions)

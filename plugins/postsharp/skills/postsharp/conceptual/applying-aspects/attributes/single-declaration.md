@@ -13,21 +13,10 @@ Aspects in PostSharp are plain custom attributes. You can apply them to any elem
 
 In the following example, the `Trace` aspect is applied to two methods. 
 
-```csharp
-public class CustomerService
-          {
-              [Trace]
-              public Customer GetCustomer( int customerId )
-              {
-                  // Details skipped.
-              }
-              
-              [Trace]
-              public void MergeCustomers( Customer customer1, Customer customer2 )
-              {
-                  // Details skipped.
-              }
-          }
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ApplyToSingleDeclaration.cs#example)]
+
+When the program gets two customers and merges them, the aspect writes a line each time one of these methods is called:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/ApplyToSingleDeclaration.txt)]
 
 

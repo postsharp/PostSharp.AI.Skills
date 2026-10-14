@@ -61,60 +61,11 @@ To exclude the value of the `this` parameter of an instance method from the cach
 
 In this example, the `this` and `callId` parameters of the `GetNumber` method are not part of the cache key. 
 
-```csharp
-using System;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-
-namespace PostSharp.Samples.Caching.ExcludingParameters
-{
-    class Database
-    {
-        [Cache( IgnoreThisParameter = true )]
-        public int GetNumber( int id, [NotCacheKey] int callId )
-        {
-            Console.WriteLine( $">> Retrieving {id} from the database, call ID {callId}..." );
-            Thread.Sleep( 1000 );
-            return id;
-        }
-    }
-
-    class Program
-    {
-        static void Main( string[] args )
-        {
-            CachingServices.DefaultBackend = new MemoryCachingBackend();
-
-            int callId = 0;
-
-            Database db1 = new Database();
-            Database db2 = new Database();
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time from DB 1 should hit the database." );
-            Console.WriteLine( "Retrieved: " + db1.GetNumber( 1, callId++ ) );
-
-            Console.WriteLine( "Retrieving value of 1 for the 2nd time from DB 1 passing different call ID should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + db1.GetNumber( 1, callId++ ) );
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time from DB 2 should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + db2.GetNumber( 1, callId++ ) );
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingKeysExcludingParameters.cs#example)]
 
 The output of this sample is:
 
-```text
-Retrieving value of 1 for the 1st time from DB 1 should hit the database.
->> Retrieving 1 from the database, call ID 0...
-Retrieved: 1
-Retrieving value of 1 for the 2nd time from DB 1 passing different call ID should NOT hit the database.
-Retrieved: 1
-Retrieving value of 1 for the 1st time from DB 2 should NOT hit the database.
-Retrieved: 1
-```
+[!code-text[](../../code/samples/Caching/CachingKeysExcludingParameters.txt)]
 
 
 ## Changing the maximal length of a cache key
@@ -126,11 +77,11 @@ To change the maximal length of a cache key, create a new instance of the <xref:
 > [!WARNING]
 > If you need large cache keys, we suggest you also hash the cache key before submitting it to the caching backend. To hash the cache key, pass a <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm> value other than `None` to the constructor of the <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder> class. You can also implement a custom cache key builder (see below).
 
-The following example sets the maximal length of a cache key to 4096 characters:
 
-```csharp
-CachingServices.DefaultKeyBuilder = new CacheKeyBuilder(4096);
-```
+
+The following example sets the maximal length of a cache key to 4096 characters, and hashes the keys that are longer than 1024 characters with the XxHash128 algorithm:
+
+[!code-csharp[](../../code/samples/Caching/CachingKeysMaxLength.cs#max-length)]
 
 
 ## Implementing a custom cache key builder

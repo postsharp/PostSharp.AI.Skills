@@ -28,71 +28,11 @@ You can add the <xref:PostSharp.Patterns.Caching.InvalidateCacheAttribute> aspec
 
 In this example, the `Update` method invalidates the cached return value of the `GetValue` method. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-
-namespace PostSharp.Samples.Caching.Invalidation
-{
-    class Database
-    {
-        private Dictionary<int, string> data = new Dictionary<int, string>();
-
-        [Cache]
-        public string GetValue( int id )
-        {
-            Console.WriteLine( $">> Retrieving {id} from the database..." );
-            Thread.Sleep( 1000 );
-            return this.data[id];
-        }
-
-        [InvalidateCache( nameof(GetValue) )]
-        public void Update( int id, string value )
-        {
-            this.data[id] = value;
-        }
-    }
-
-    class Program
-    {
-        static void Main( string[] args )
-        {
-            CachingServices.DefaultBackend = new MemoryCachingBackend();
-
-            Database db = new Database();
-
-            db.Update( 1, "first" );
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-
-            Console.WriteLine( "Retrieving value of 1 for the 2nd time should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-
-            db.Update( 1, "second" );
-
-            Console.WriteLine( "Retrieving updated value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingInvalidation.cs#example)]
 
 The output of this sample is:
 
-```text
-Retrieving value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: first
-Retrieving value of 1 for the 2nd time should NOT hit the database.
-Retrieved: first
-Retrieving updated value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: second
-```
+[!code-text[](../../code/samples/Caching/CachingImperativeInvalidation.txt)]
 
 
 ## Invalidating cache items imperatively
@@ -104,70 +44,10 @@ Instead of annotating invalidating methods with a custom attribute, you can call
 
 In this example, the cached return value of the `GetValue` method is invalidated by calling one of the overloads of the <xref:PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate``1(System.Func{``0})> method. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-
-namespace PostSharp.Samples.Caching.ImperativeInvalidation
-{
-    class Database
-    {
-        private Dictionary<int, string> data = new Dictionary<int, string>();
-
-        [Cache]
-        public string GetValue( int id )
-        {
-            Console.WriteLine( $">> Retrieving {id} from the database..." );
-            Thread.Sleep( 1000 );
-            return this.data[id];
-        }
-
-        public void Update( int id, string value )
-        {
-            this.data[id] = value;
-        }
-    }
-
-    class Program
-    {
-        static void Main( string[] args )
-        {
-            CachingServices.DefaultBackend = new MemoryCachingBackend();
-
-            Database db = new Database();
-
-            db.Update( 1, "first" );
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-
-            Console.WriteLine( "Retrieving value of 1 for the 2nd time should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-
-            db.Update( 1, "second" );
-            CachingServices.Invalidation.Invalidate( db.GetValue, 1 );
-
-            Console.WriteLine( "Retrieving updated value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingImperativeInvalidation.cs#example)]
 
 The output of this sample is:
 
-```text
-Retrieving value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: first
-Retrieving value of 1 for the 2nd time should NOT hit the database.
-Retrieved: first
-Retrieving updated value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: second
-```
+[!code-text[](../../code/samples/Caching/CachingInvalidation.txt)]
 
 

@@ -16,27 +16,11 @@ You may run into situations where you will want to execute some code before or a
 
 In the following example, we output a message each time an undo or redo operation executes.
 
-```csharp
-[Recordable]
-public class Invoice : IRecordableCallback
-{
-  public void OnReplaying(ReplayKind kind, ReplayContext context)
-  {
-      if (kind == ReplayKind.Redo) {
-           Console.WriteLine("I will now redo a previously undone change to the shipping date.");
-      }
-  }
-  
-  public void OnReplayed(ReplayKind kind, ReplayContext context)
-  {
-      if (kind == ReplayKind.Undo) {
-           Console.WriteLine("A change to the shipping date is now undone.");
-      }
-  }
-  
-  public DateTime ShippingDate { get; set; }   
-}
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoCallbacks.cs#example)]
+
+When a program changes the shipping date, then calls <xref:PostSharp.Patterns.Recording.Recorder.Undo> and <xref:PostSharp.Patterns.Recording.Recorder.Redo>, the output is:
+
+[!code-text[](../../../code/samples/Model/UndoRedo/UndoRedoCallbacks.txt)]
 
 For more information, see the reference documentation for the <xref:PostSharp.Patterns.Recording.IRecordableCallback> interface. 
 

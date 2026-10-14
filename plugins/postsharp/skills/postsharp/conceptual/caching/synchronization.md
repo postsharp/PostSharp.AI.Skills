@@ -87,20 +87,6 @@ If you are already using Redis for PostSharp caching, it is useless to add anoth
 
 This example shows how to initialize an in-memory caching backend to let it invalidate and be invalidated using Redis Pub/Sub.
 
-```csharp
-var localCache = new MemoryCachingBackend();
-
-string connectionConfiguration = "localhost";
-string channelName = "myChannel";
-
-ConnectionMultiplexer connection = ConnectionMultiplexer.Connect( connectionConfiguration );
-
-var redisCacheInvalidatorOptions = new RedisCacheInvalidatorOptions
-                                    {
-                                        ChannelName = channelName
-                                    };
-
-CachingServices.DefaultBackend = RedisCacheInvalidator.Create( localCache, connection, redisCacheInvalidatorOptions );
-```
+[!code-csharp[](../../code/samples/Caching/CachingPubSub.cs#redis)]
 
 

@@ -35,74 +35,11 @@ Eventually, all dependencies are represented as strings. Although we recommend u
 
 In this example, the `GetValue` method assigns a string dependency to its cached return value. The `Update` method invalidates the dependency. This causes the related cached return value to be invalidated as well. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-
-namespace PostSharp.Samples.Caching.StringDependencies
-{
-    class Database
-    {
-        private Dictionary<int, string> data = new Dictionary<int, string>();
-
-        private static string GetValueDependencyString( int id ) => $"value:{id}";
-
-        [Cache]
-        public string GetValue( int id )
-        {
-            Console.WriteLine( $">> Retrieving {id} from the database..." );
-            Thread.Sleep( 1000 );
-            CachingServices.CurrentContext.AddDependency( GetValueDependencyString( id ) );
-            return this.data[id];
-        }
-
-        public void Update( int id, string value )
-        {
-            this.data[id] = value;
-            CachingServices.Invalidation.Invalidate( GetValueDependencyString( id ) );
-        }
-    }
-
-    class Program
-    {
-        static void Main( string[] args )
-        {
-            CachingServices.DefaultBackend = new MemoryCachingBackend();
-
-            Database db = new Database();
-
-            db.Update( 1, "first" );
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-
-            Console.WriteLine( "Retrieving value of 1 for the 2nd time should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-
-            db.Update( 1, "second" );
-
-            Console.WriteLine( "Retrieving updated value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetValue( 1 ) );
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingStringDependencies.cs#example)]
 
 The output of this sample is:
 
-```text
-Retrieving value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: first
-Retrieving value of 1 for the 2nd time should NOT hit the database.
-Retrieved: first
-Retrieving updated value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: second
-```
+[!code-text[](../../code/samples/Caching/CachingObjectDependencies.txt)]
 
 
 ## Adding object-oriented dependencies through the ICacheDependency interface
@@ -119,89 +56,11 @@ If you own the source code of the class you want to use as a cache dependency, t
 
 In the following example, the `Customer` class represents a business entity. Instances of this class are cached. At the same time, they serve as object dependencies, so the `Customer` class implements the <xref:PostSharp.Patterns.Caching.Dependencies.ICacheDependency> interface. The `GetValue` method assigns an object dependency of type `Customer` to its cached return value. The `Update` method invalidates the dependency. This causes the related cached return value to be invalidated as well. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-using PostSharp.Patterns.Caching.Dependencies;
-
-namespace PostSharp.Samples.Caching.ICacheDependencies
-{
-    class Customer : ICacheDependency
-    {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-
-        public bool Equals( ICacheDependency other )
-        {
-            Customer otherCustomer = other as Customer;
-            return otherCustomer != null && this.Id == otherCustomer.Id;
-        }
-
-        public string GetCacheKey() => $"{nameof(Customer)}:{this.Id}";
-    }
-
-    class Database
-    {
-        private Dictionary<int, Customer> customers = new Dictionary<int, Customer>();
-
-        [Cache]
-        public Customer GetCustomer( int id )
-        {
-            Console.WriteLine( $">> Retrieving {id} from the database..." );
-            Thread.Sleep( 1000 );
-            Customer customer = this.customers[id];
-            CachingServices.CurrentContext.AddDependency( customer );
-            return customer;
-        }
-
-        public void Update( Customer customer )
-        {
-            this.customers[customer.Id] = customer;
-            CachingServices.Invalidation.Invalidate( customer );
-        }
-    }
-
-    class Program
-    {
-        static void Main( string[] args )
-        {
-            CachingServices.DefaultBackend = new MemoryCachingBackend();
-
-            Database db = new Database();
-
-            db.Update( new Customer() {Id = 1, Name = "Alice"} );
-
-            Console.WriteLine( "Retrieving value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetCustomer( 1 ).Name );
-
-            Console.WriteLine( "Retrieving value of 1 for the 2nd time should NOT hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetCustomer( 1 ).Name );
-
-            db.Update( new Customer() {Id = 1, Name = "Bob"} );
-
-            Console.WriteLine( "Retrieving updated value of 1 for the 1st time should hit the database." );
-            Console.WriteLine( "Retrieved: " + db.GetCustomer( 1 ).Name );
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingObjectDependencies.cs#example)]
 
 The output of this sample is:
 
-```text
-Retrieving value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: Alice
-Retrieving value of 1 for the 2nd time should NOT hit the database.
-Retrieved: Alice
-Retrieving updated value of 1 for the 1st time should hit the database.
->> Retrieving 1 from the database...
-Retrieved: Bob
-```
+[!code-text[](../../code/samples/Caching/CachingStringDependencies.txt)]
 
 
 ## Adding object-oriented dependencies through a formatter
@@ -224,31 +83,8 @@ To suspend the collection of dependencies in the current context and in all chil
 
 ### Example
 
-In the next example, the dependencies of `ChildMethod` (a side-effect method calling the cached method `ToString`) are not propagated to the parent `CachedMethod`. 
+In the next example, the dependencies of `ChildMethod` (a side-effect method calling the cached method `GetName`) are not propagated to the parent `CachedMethod`. 
 
-```csharp
-[Cache]
-int CachedMethod()
-{
-    using ( CachingServices.SuspendDependencyPropagation() )
-    {
-        Task.Run( ChildMethod );
-    }
-
-    return 0;
-}
-
-void ChildMethod()
-{
-    Console.WriteLine( "ChildMethod:" + this.ToString() );
-}
-
-[Cache]
-public override string ToString()
-{
-    CachingServices.CurrentContext.AddDependency( "MyDependency" );
-    return "{MyObject}";
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingSuspendDependencies.cs#example)]
 
 

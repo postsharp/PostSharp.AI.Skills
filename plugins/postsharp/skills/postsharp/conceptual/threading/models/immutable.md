@@ -62,23 +62,11 @@ Many C# developers make use of the `readonly` keyword in an attempt to make thei
 
 In the following code sample, the `_id` variable is a primitive type and cannot be altered outside the constructor. This is enforced at compile time and an error would be displayed where the `SetIdentifier` method attempts to change the `_id` field value. The compiler does not see that the `SetIdentifier` method is called only from the constructor. In this example, the `readonly` keyword is too strong even if the class is legitimately immutable. 
 
-```csharp
-public class Invoice
-{
-  public readonly long _id;
-  
-  public Invoice(long id)
-  {
-    SetIdentifier(id);
-  }
-  
-  private void SetIdentifier(long id)
-  {
-    // Will cause compilation error.
-    _id = id;
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ImmutableReadonlyTooStrict.cs#example)]
+
+The compiler reports the following error:
+
+[!code-text[](../../../code/samples/Threading/ImmutableReadonlyTooStrict.build.txt)]
 
 
 ### The readonly keyword may also be too loose
@@ -87,48 +75,15 @@ When you have complex entities composed of several objects, immutability is a ch
 
 In the following example, the `Invoice` is not immutable even if the `_invoiceHeader` field is `readonly`. 
 
-```csharp
-public class Invoice
-{
-  public readonly InvoiceHeader _invoiceHeader;
-  
-  public Invoice()
-  {
-    _invoiceHeader = new InvoiceHeader();
-  }
-  
-  public void Refresh()
-  {
-    // Valid but not immutable.
-    _invoiceHeader.CustomerName = "Jim";
-    _invoiceHeader.CustomerPhone = "555-123-9876";
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ImmutableReadonlyTooLoose.cs#example)]
 
 The same type of change to object state can happen with collections. You cannot reinitialize a `readonly` collection, but you can freely `Add`, `Remove`, `Clear` and do other operations that the collection itself exposes. Additionally, if the collection contains complex types, you are able to change values on each instance that the collection contains. 
 
-```csharp
-public class Invoice
-{
-  public readonly IList<Item> _items;
-  public Invoice()
-  {
-    _items = new List<Item>();
-  }
-  
-  public void Refresh()
-  {
-    //will cause a compilation error
-    _items = new List<Item>();
-    
-    //valid but not immutable
-    _items.Add(new Item());
-    _items[0].Price = 3.50;
-    _items.RemoveAt(0);
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ImmutableReadonlyCollection.cs#example)]
+
+The compiler reports an error only for the assignment of the field:
+
+[!code-text[](../../../code/samples/Threading/ImmutableReadonlyCollection.build.txt)]
 
 As you can see, there is no way to use the `readonly` keyword to make complex object graphs immutable. Combining the <xref:PostSharp.Patterns.Threading.ImmutableAttribute>, <xref:PostSharp.Patterns.Model.ChildAttribute>, <xref:PostSharp.Patterns.Collections.AdvisableCollection`1> and the <xref:PostSharp.Patterns.Collections.AdvisableDictionary`2> types allows you to make immutable objects that guarantee no changes to primitive or complex objects after constructor execution has completed. 
 
@@ -137,42 +92,11 @@ As you can see, there is no way to use the `readonly` keyword to make complex ob
 
 Objects are not frozen until the last constructor has finished executing. Because of this, you can use the constructor to set up the state of the parent instance through its own constructor as well as chained, or inherited object, constructors. You are also able to make changes to child object instances through their constructors at this time.
 
-```csharp
-[Immutable]
-public class Invoice : Document
-{
-  public Invoice(long id) : base(id)
-  {
-    Items = new AdvisableCollection<Item>();
-    Items.Add(new Item("widget"));
-  }
-  
-  [Child]
-  public AdvisableCollection<Item> Items { get; set; }
-}
+[!code-csharp[](../../../code/samples/Threading/ImmutableConstructors.cs#example)]
 
-[Immutable]
-public class Document
-{
-  private long _id;
-  public Document (long id)
-  {
-    _id = id;
-  }
-}
+In this example, the constructors finish executing in the order of `Document`, `Item` and finally `Invoice`. It is not until after the `Invoice` constructor finishes executing that the object graph is made immutable. The following output shows the order of the constructors, and the exceptions thrown when the program then tries to modify the object graph:
 
-[Immutable]
-public class Item
-{
-  public Item (string name)
-  {
-    Name = name;
-  }
-  public string Name { get; set; }
-}
-```
-
-In this example, the constructors finish executing in the order of `Document`, `Item` and finally `Invoice`. It is not until after the `Invoice` constructor finishes executing that the object graph is made immutable. 
+[!code-text[](../../../code/samples/Threading/ImmutableConstructors.txt)]
 
 
 ## Immutable collections

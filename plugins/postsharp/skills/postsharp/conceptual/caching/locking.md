@@ -22,10 +22,7 @@ To configure the lock manager, you have to set the <xref:PostSharp.Patterns.Cach
 
 The following code shows how to configure locking for two profiles:
 
-```csharp
-CachingServices.Profiles.Default.LockManager = new LocalLockManager();
-CachingServices.Profiles["MyProfile"].LockManager = new LocalLockManager();
-```
+[!code-csharp[](../../code/samples/Caching/CacheLocking.cs#local-lock)]
 
 > [!NOTE]
 > Each instance of the <xref:PostSharp.Patterns.Caching.Locking.LocalLockManager> class maintains its own set of locks. However, whether several profiles use the same or a different instance of the <xref:PostSharp.Patterns.Caching.Locking.LocalLockManager> does not matter because each method is associated with one and only one profile. 
@@ -47,23 +44,11 @@ Two properties influence the timeout behavior:
 
 The following code shows how to set a 10-second timeout and ignore any timeout situation.
 
-```csharp
-CachingServices.Profiles.Default.AcquireLockTimeout = TimeSpan.FromSeconds(10);
-CachingServices.Profiles.Default.AcquireLockTimeoutStrategy = new IgnoreLockStrategy();
-```
+[!code-csharp[](../../code/samples/Caching/CacheLocking.cs#timeout)]
 
 Here is the code of the `IgnoreLockStrategy` class: 
 
-```csharp
-public class IgnoreLockStrategy : IAcquireLockTimeoutStrategy
-{
-    public void OnTimeout( string key )
-    {
-        // The cached method will be evaluated regardless of our inability to acquire a lock,
-        // unless we throw an exception here.
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CacheLocking.cs#strategy)]
 
 
 ## Implementing a distributed lock manager

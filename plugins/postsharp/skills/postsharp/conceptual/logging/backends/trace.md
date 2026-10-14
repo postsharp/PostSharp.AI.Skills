@@ -25,9 +25,7 @@ To send PostSharp Logging events to Trace listeners:
 
 3. In the application startup method, include the following code:
 
-    ```csharp
-    LoggingServices.DefaultBackend = new TraceLoggingBackend();
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingTrace.cs#backend)]
 
 
 
@@ -37,36 +35,19 @@ If your source code already emits log events using `System.Diagnostics.Trace`, y
 
 Suppose that you have already configured `System.Diagnostics.Trace` and PostSharp like this: 
 
-```csharp
-// Add additional listeners:
-Trace.Listeners.Add( new ConsoleTraceListener() );
-
-// Configure PostSharp Logging to use Trace:
-LoggingServices.DefaultBackend = new TraceLoggingBackend();
-
-// Emit manual log records. Note that this logger will skip PostSharp Logging, so indentation
-// will not be respected.
-Trace.TraceError( "The {0} sky is shining {1}!", "blue", "bright" );
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingTrace.cs#configure)]
 
 To collect Trace manual logging events into PostSharp, replace that startup code with the following:
 
-```csharp
-// Add additional listeners:
-Trace.Listeners.Add( new ConsoleTraceListener() );
-
-// Then capture all trace listeners and remove them:
-var listeners = TraceCollectingTraceListener.RedirectLoggingToPostSharp();
-
-// Then create a PostSharp backend and pass the captured trace listeners to the backend:
-LoggingServices.DefaultBackend = new TraceLoggingBackend( listeners );
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingTraceCollecting.cs#configure)]
 
 You can now do standard Trace logging and the logging output will be collected and sent to PostSharp Logging:
 
-```csharp
-Trace.TraceError( "The {0} sky is shining {1}!", "blue", "bright" );
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingTraceCollecting.cs#manual)]
+
+When a logged method also writes a manual record, this record is indented like the records of PostSharp Logging:
+
+[!code-text[](../../../code/samples/Logging/LoggingTraceCollecting.txt)]
 
 ## See Also
 

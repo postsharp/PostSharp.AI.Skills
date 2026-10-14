@@ -72,20 +72,7 @@ In-memory cache must be enabled globally for the whole backend. It is not possib
 
 ### Example
 
-```csharp
-// Enable logging
-LoggingServices.DefaultBackend = new ConsoleLoggingBackend();
-LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel( LogLevel.Warning, LoggingRoles.Caching );
-
-// Connect to Redis
-string connectionConfiguration = "localhost";
-ConnectionMultiplexer connection = ConnectionMultiplexer.Connect( connectionConfiguration );
-
-// Set Redis as the default backend.
-RedisCachingBackendConfiguration redisCachingConfiguration =
-    new RedisCachingBackendConfiguration() { KeyPrefix = "MyApp-1.0.1" };
-CachingServices.DefaultBackend = RedisCachingBackend.Create( connection, redisCachingConfiguration );
-```
+[!code-csharp[](../../../code/samples/Caching/Backends/CachingRedis.cs#example)]
 
 ### Important configuration settings
 
@@ -103,11 +90,7 @@ This feature relies on Redis' Pub/Sub subsystem to propagate cache invalidation 
 
 The following code enables the in-memory cache:
 
-```csharp
-RedisCachingBackendConfiguration redisCachingConfiguration =
-     new RedisCachingBackendConfiguration() { IsLocallyCached = true, SupportsEvents = true };
-CachingServices.DefaultBackend = RedisCachingBackend.Create( connection, redisCachingConfiguration );
-```
+[!code-csharp[](../../../code/samples/Caching/Backends/CachingRedis.cs#local-cache)]
 
 > [!IMPORTANT]
 > If one node enables the local cache, all nodes must enable events.
@@ -273,9 +256,7 @@ There are two ways to do it:
 
 - If necessary, increase the logging verbosity to `Info` (suitable for production in troubleshooting situations) or `Debug` (extremely verbose and never suitable for production). If you don't see any message in `Debug` verbosity, it means that logging is not properly configured.
 
-    ```csharp
-    LoggingServices.DefaultBackend.DefaultVerbosity.SetMinimalLevel( LogLevel.Info, LoggingRoles.Caching );
-    ```
+    [!code-csharp[](../../../code/samples/Caching/Backends/CachingRedis.cs#verbosity)]
 
 - Use the Redis `MONITOR` command in Redis CLI, or Redis Insight's profiler tool.
 

@@ -41,24 +41,7 @@ To apply the Actor threading model:
 
 Consider the following example of an `AverageCalculator` class. The code is not thread-safe because the `AddSample` method performs four operations (two reads and two writes) that must all be performed atomically. 
 
-```csharp
-class AverageCalculator
-{
-    float sum;
-    int count;
-
-    public void AddSample(float n)
-    {
-        this.count++;
-        this.sum += n;
-    }
-    
-    public float GetAverage()
-    {
-        return this.sum / this.count;
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ActorUnsafe.cs#example)]
 
 We could use the Synchronized or Reader-Writer Synchronized threading model to make sure that the calling thread will wait if the object is currently being accessed by another thread. Another solution in this situation is to avoid concurrency altogether using the Actor pattern and asynchronous methods.
 
@@ -66,69 +49,15 @@ In the reworked example below, the `AverageCalculator` class has the <xref:PostS
 
 Note that we could keep the methods non-async, but it is good practice to make the public API of all actors async methods.
 
-```csharp
-[Actor]
-    class AverageCalculator
-    {
-        float sum;
-        int count;
+[!code-csharp[](../../../code/samples/Threading/Actor.cs#calculator)]
 
-        [Reentrant]
-        public async Task AddSample(float n)
-        {
-            this.count++;
-            this.sum += n;
-        }
+You can now use the same `AverageCalculator` from two concurrent threads. In the following program, two threads add samples to the same `AverageCalculator` instance.
 
-        [Reentrant]
-        public async Task<float> GetAverage()
-        {
-            return this.sum / this.count;
-        }
-    }
-```
+[!code-csharp[](../../../code/samples/Threading/Actor.cs#program)]
 
-You can now use the same `AverageCalculator` from two concurrent threads. 
+The output of this program is:
 
-```csharp
-class Program
-{
-    static void Main(string[] args)
-    {
-        MainAsync().GetAwaiter().GetResult();
-    }
-
-    static async Task MainAsync()
-    {
-        AverageCalculator averageCalculator = new AverageCalculator();
-
-        SampleObserver observer = new SampleObserver(averageCalculator);
-        DataSources.Source1.Subscribe(observer);
-        DataSources.Source2.Subscribe(observer);
-
-        Console.ReadKey();
-
-        float average = await averageCalculator.GetAverage();
-
-        Console.WriteLine("Average: {0}", average);
-    }
-}
-    
-class SampleObserver : IObserver<float>
-{
-    AverageCalculator calculator;
-
-       
-    public void OnNext( float value )
-    {
-      // Each of the data sources can call us from a different thread and concurrently.
-      // But we don't have to care since our calculator will enqueue method calls.
-      this.calculator.AddSample( value );
-    }
-       
-    // Details skipped.
-}
-```
+[!code-text[](../../../code/samples/Threading/Actor.txt)]
 
 Behind the scenes, each invocation of `AverageCalculator.AddSample` is added to the message queue by the <xref:PostSharp.Patterns.Threading.ActorAttribute>, which then processes each call sequentially in the order it was added to the queue. This gives us the guarantee that an instance of the `AverageCalculator` class is never being accessed concurrently by two threads, and eliminates the need to take multithreading into account. 
 
@@ -164,25 +93,7 @@ For more information regarding parent-child relationships in threading models, s
 
 ### Example
 
-```csharp
-[Actor]          
-class AverageCalculator
-{
-    float sum;
-    int count;
-    
-    [Child]
-    private CounterInfo counterInfo;
-    
-    // Other details skipped for brevity
-}
-
-[PrivateThreadAware]
-public class CounterInfo
-{
-    public string Name { get; set; }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ActorComplexState.cs#example)]
 
 
 ## Dealing with constraints of the Actor model

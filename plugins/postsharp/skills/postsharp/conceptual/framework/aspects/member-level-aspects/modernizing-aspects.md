@@ -104,69 +104,11 @@ In the following table, `binding` is a `[Binding] ILocationBinding<T>` parameter
 
 The following aspect logs the execution of a method with an <xref:PostSharp.Aspects.OnMethodBoundaryAspect>. It reads the first argument and the return value as objects, and it stores a <xref:System.Diagnostics.Stopwatch> in <xref:PostSharp.Aspects.MethodExecutionArgs.MethodExecutionTag>.
 
-```csharp
-[PSerializable]
-public sealed class LogAttribute : OnMethodBoundaryAspect
-{
-    public override void OnEntry( MethodExecutionArgs args )
-    {
-        Console.WriteLine( "Entering {0}({1}).", args.Method.Name, args.Arguments[0] );
-        args.MethodExecutionTag = Stopwatch.StartNew();
-    }
-
-    public override void OnSuccess( MethodExecutionArgs args )
-    {
-        Console.WriteLine( "{0} returned {1}.", args.Method.Name, args.ReturnValue );
-    }
-
-    public override void OnException( MethodExecutionArgs args )
-    {
-        Console.WriteLine( "{0} failed: {1}", args.Method.Name, args.Exception.Message );
-    }
-
-    public override void OnExit( MethodExecutionArgs args )
-    {
-        var stopwatch = (Stopwatch) args.MethodExecutionTag;
-        Console.WriteLine( "{0} took {1} ms.", args.Method.Name, stopwatch.ElapsedMilliseconds );
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/ModernizingLogLegacy.cs#aspect)]
 
 The following code is the same aspect with bound parameters. The name of the method is a constant, the stopwatch is a typed variable shared by the advices, and the success advice is generic, so the return value is passed without boxing. The first argument is still boxed because the parameter is of type <xref:System.Object>. To avoid this, make the advice generic and bind the argument to a parameter of type `T`.
 
-```csharp
-[PSerializable]
-public sealed class LogAttribute : MethodLevelAspect
-{
-    [OnMethodEntryAdvice]
-    public void OnEntry( [DeclarationName] string methodName,
-                         [Argument( 0 )] object argument,
-                         [State( StateScope.MethodInvocation )] out Stopwatch stopwatch )
-    {
-        Console.WriteLine( "Entering {0}({1}).", methodName, argument );
-        stopwatch = Stopwatch.StartNew();
-    }
-
-    [OnMethodSuccessAdvice]
-    public void OnSuccess<T>( [DeclarationName] string methodName, [ReturnValue] T returnValue )
-    {
-        Console.WriteLine( "{0} returned {1}.", methodName, returnValue );
-    }
-
-    [OnMethodExceptionAdvice]
-    public void OnException( [DeclarationName] string methodName, [Exception] Exception exception )
-    {
-        Console.WriteLine( "{0} failed: {1}", methodName, exception.Message );
-    }
-
-    [OnMethodExitAdvice]
-    public void OnExit( [DeclarationName] string methodName,
-                        [State( StateScope.MethodInvocation )] Stopwatch stopwatch )
-    {
-        Console.WriteLine( "{0} took {1} ms.", methodName, stopwatch.ElapsedMilliseconds );
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/ModernizingLog.cs#aspect)]
 
 The original aspect could be applied to any method. The modernized aspect requires a method with at least one parameter: on a method without parameters, `[Argument( 0 )]` causes the error LA0225. On a method that returns `void`, the `returnValue` parameter receives the default value.
 
@@ -175,33 +117,11 @@ The original aspect could be applied to any method. The modernized aspect requir
 
 The following aspect converts the value assigned to a string property of a class to uppercase, first with a <xref:PostSharp.Aspects.LocationInterceptionAspect>:
 
-```csharp
-[PSerializable]
-public sealed class UpperCaseAttribute : LocationInterceptionAspect
-{
-    public override void OnSetValue( LocationInterceptionArgs args )
-    {
-        args.Value = ((string) args.Value)?.ToUpperInvariant();
-        args.ProceedSetValue();
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/ModernizingUpperCaseLegacy.cs#aspect)]
 
 And then with bound parameters:
 
-```csharp
-[PSerializable]
-public sealed class UpperCaseAttribute : LocationLevelAspect
-{
-    [OnLocationSetValueAdvice]
-    public void OnSetValue( [This] object instance,
-                            [LocationValue] string value,
-                            [Binding] ILocationBinding<string> binding )
-    {
-        binding.SetValue( instance, value?.ToUpperInvariant() );
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/ModernizingUpperCase.cs#aspect)]
 
 
 ## Differences in behavior

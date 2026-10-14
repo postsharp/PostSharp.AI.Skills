@@ -64,6 +64,12 @@ items:
     - id: type
       type: System.Type
       description: A type.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 1536
     content.vb: Public Sub New(type As Type)
   overload: PostSharp.Patterns.Formatters.AnonymousTypeFormatter`1.#ctor*
   nameWithType.vb: AnonymousTypeFormatter(Of TKind).New(Type)

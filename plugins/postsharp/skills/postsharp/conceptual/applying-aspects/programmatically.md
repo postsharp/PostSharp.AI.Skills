@@ -12,44 +12,23 @@ In some situations, you may want to implement an aspect as part of a larger patt
 
 The following steps show the implementation.
 
-1. Create an aspect that implements the <xref:PostSharp.Aspects.IAspectProvider> interface. 
+1. Create an aspect that implements the <xref:PostSharp.Aspects.IAspectProvider> interface. The class must derive from an aspect class, for instance <xref:PostSharp.Aspects.TypeLevelAspect>, so that you can apply it to the target code as a custom attribute. 
 
-    ```csharp
-    [PSerializable]
-    public class ProviderAspect : TypeLevelAspect, IAspectProvider 
-     { 
-        public IEnumerable<AspectInstance> ProvideAspects(object targetElement) 
-        { 
-            throw new System.NotImplementedException(); 
-        } 
-     }
-    ```
+    [!code-csharp[](../../code/samples/CustomPatterns/Aspects/Applying/AspectProvider.cs#class)]
 
 
-2. Cast the target object parameter to the type that will be targeted by this aspect: `Assembly`, `Type`, `FieldInfo`, `MethodBase`, `PropertyInfo`, `EventInfo`, `ParameterInfo` or `LocationInfo`. 
+2. Implement the <xref:PostSharp.Aspects.IAspectProvider.ProvideAspects(System.Object)> method. Cast the target object parameter to the type that will be targeted by this aspect: `Assembly`, `Type`, `FieldInfo`, `MethodBase`, `PropertyInfo`, `EventInfo`, `ParameterInfo` or `LocationInfo`. 
 
-    ```csharp
-    public IEnumerable<AspectInstance> ProvideAspects(object targetElement) 
-     { 
-        Type type = (Type) targetElement; 
-     
-        throw new NotImplementedException(); 
-     }
-    ```
+    [!code-csharp[](../../code/samples/CustomPatterns/Aspects/Applying/AspectProvider.cs#cast)]
 
 
-3. Return an <xref:PostSharp.Aspects.AspectInstance> of the aspect type you want for every target element of code. The target elements must be inside the element of code to which the provider aspect is applied. For instance, a type-level provider can add aspects to the methods of its own type, but not to the methods of other types. 
+3. Return an <xref:PostSharp.Aspects.AspectInstance> of the aspect type you want for every target element of code. The target elements must be inside the element of code to which the provider aspect is applied. For instance, a type-level provider can add aspects to the methods of its own type, but not to the methods of other types. In this example, the method returns a `LoggingAspect` for every method declared by the type. The `BindingFlags.DeclaredOnly` flag excludes the methods inherited from `System.Object`. 
 
-    ```csharp
-    public IEnumerable<AspectInstance> ProvideAspects(object targetElement) 
-     { 
-         Type type = (Type)targetElement; 
-     
-         return type.GetMethods( BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly ).Select( 
-            m => new AspectInstance(m, new LoggingAspect() ) ); 
-     
-     }
-    ```
+    [!code-csharp[](../../code/samples/CustomPatterns/Aspects/Applying/AspectProvider.cs#provide)]
+
+    When `[ProviderAspect]` is applied to a `CustomerService` class, calling its methods `Load` and `Save` prints:
+
+    [!code-text[](../../code/samples/CustomPatterns/Aspects/Applying/AspectProvider.txt)]
 
 
 This aspect now adds aspects dynamically at build time. The <xref:PostSharp.Aspects.IAspectProvider> interface is usually reserved for situations where you implement a larger design pattern. For example, you can use it to implement an aspect that creates the <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> pattern across a large number of locations in your codebase. It is more than many situations require. Use it only for aspects that implement complex patterns. 

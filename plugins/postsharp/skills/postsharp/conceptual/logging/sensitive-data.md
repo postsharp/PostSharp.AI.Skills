@@ -14,9 +14,24 @@ When combining PostSharp Logging and multicasting to add logging to large parts 
 
 ## Avoiding the exposure of sensitive data
 
-PostSharp Logging can capture all parameters and return values. If sensitive data is passed as a `string` parameter or return value, it will be included in the log. 
+PostSharp Logging can capture all parameters and return values. It hides some parameters automatically, as described below. Any other sensitive data passed as a parameter or returned by a method is included in the log.
 
-There are two techniques to prevent confidential data from being leaked into a log:
+### Parameters hidden automatically
+
+PostSharp Logging writes `*******` instead of the value of the following parameters:
+
+* parameters whose name contains `password` or `pwd`, ignoring case, for example `pwd`, `oldPassword` or `PasswordHash`;
+* parameters of type <xref:System.Security.SecureString>.
+
+Return values are never hidden automatically, and neither are parameters with other names, such as `secret` or `token`.
+
+[!code-csharp[](../../code/samples/Root/HidingSensitiveDataByName.cs#example)]
+
+These methods produce the following log:
+
+[!code-text[](../../code/samples/Root/HidingSensitiveDataByName.txt)]
+
+There are two techniques to prevent other confidential data from being leaked into a log:
 
 ### Option 1. Use a wrapper object for all sensitive parameters and return values
 
@@ -24,27 +39,11 @@ The first option is storing sensitive data in a wrapper object that hides its va
 
 Here is an example implementation:
 
-```csharp
-[Log(AttributeExclude=true)]
-[DebuggerDisplay("{Value}")]
-public readonly struct Sensitive<T> : PostSharp.Patterns.Formatters.IFormattable
-{
-    public T Value { get; }
+[!code-csharp[](../../code/samples/Root/HidingSensitiveDataWrapper.cs#example)]
 
-    public Sensitive( T value )
-    {
-        Value = value;
-    }
+When a logged method returns or receives a `Sensitive<string>`, the log does not contain the value:
 
-    public override string? ToString() => "(Confidential)";
-
-    void PostSharp.Patterns.Formatters.IFormattable.Format(UnsafeStringBuilder stringBuilder, FormattingRole role)
-    {
-        stringBuilder.Append("(Confidential)");
-    }
-}
-
-```
+[!code-text[](../../code/samples/Root/HidingSensitiveDataWrapper.txt)]
 
 The benefit of using this pattern is that it will force you to change all APIs to pass sensitive values transitively, making you less likely to forget some occurrences.
 
@@ -52,28 +51,11 @@ The benefit of using this pattern is that it will force you to change all APIs t
 
 Alternatively, mark every sensitive parameter and return value with the <xref:PostSharp.Patterns.Diagnostics.NotLoggedAttribute?text=[NotLogged]> custom attribute. It causes PostSharp Logging to use `*******` instead of the actual value. You can add this attribute to the return value using `[return: NotLogged]`.
 
+[!code-csharp[](../../code/samples/Root/HidingSensitiveDataNotLogged.cs#example)]
 
-```csharp
-[Log]
-private static void NotLoggedMethod( string p1, [NotLogged] string p2 )
-{
-}
+These methods produce the following log:
 
-[Log]
-[return: NotLogged]
-private static string NotLoggedReturnValueMethod( string p1,  string p2 )
-{
-    return p1 + p2;
-}
-
-[Log]
-[return: NotLogged]
-private static (string a, string b) NotLoggedReturnValueTupleMethod( string p1, string p2 )
-{
-    return (p1, p2);
-}
-
-```
+[!code-text[](../../code/samples/Root/HidingSensitiveDataNotLogged.txt)]
 
 ## Sensitive data scanning
 

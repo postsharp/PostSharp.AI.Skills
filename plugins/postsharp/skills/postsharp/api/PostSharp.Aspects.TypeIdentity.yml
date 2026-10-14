@@ -111,12 +111,24 @@ items:
   summary: Converts a <xref href="PostSharp.Aspects.TypeIdentity" data-throw-if-not-resolved="false"></xref> into a <xref href="System.Type" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public Type ToType()
+    content: >-
+      [RequiresUnreferencedCode("Resolves the type by name when the TypeIdentity was created from a name, and trimming can remove the type.")]
+
+      public Type ToType()
     return:
       type: System.Type
       description: ''
-    content.vb: Public Function ToType() As Type
+    content.vb: >-
+      <RequiresUnreferencedCode("Resolves the type by name when the TypeIdentity was created from a name, and trimming can remove the type.")>
+
+      Public Function ToType() As Type
   overload: PostSharp.Aspects.TypeIdentity.ToType*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Resolves the type by name when the TypeIdentity was created from a name, and trimming can remove the type.
 - uid: PostSharp.Aspects.TypeIdentity.FromTypeName(System.String)
   commentId: M:PostSharp.Aspects.TypeIdentity.FromTypeName(System.String)
   id: FromTypeName(System.String)

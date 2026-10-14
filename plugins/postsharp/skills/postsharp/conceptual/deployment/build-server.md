@@ -16,14 +16,14 @@ PostSharp is designed for frictionless use on build servers. PostSharp build-tim
 
 There are several ways to install a license on the build server:
 
-* Do not install it. A build server does not need a license key unless your projects use PostSharp Logging. This works only when PostSharp detects that the build is unattended; see <xref:unexpected-license-usage> for the conditions.
+* Do not install it. A build server does not need a license key. This works only when PostSharp detects that the build is unattended; see <xref:unexpected-license-usage> for the conditions.
 
 * Add your license key to the *postsharp.config* file and add this file to the source repository as described in <xref:deploying-keys>. 
 
 * Set an environment variable named `PostSharpLicense` to a semicolon-separated list of your license keys. 
 
 > [!NOTE]
-> An unattended build never uses a license server, so that build servers do not take seats from developers. PostSharp ignores license server URLs in unattended builds. To build projects that use PostSharp Logging on a build server, use a license key, not a license server.
+> An unattended build never uses a license server, so that build servers do not take seats from developers.
 
 We do not recommend installing the license key on a build server using the user interface.
 

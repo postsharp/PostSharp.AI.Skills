@@ -49,95 +49,10 @@ The following value adapters are used automatically by default:
 
 In this example, we create the ``EnumerableValueAdapter`1`` class, which transforms instances of the <xref:System.Collections.Generic.IEnumerable`1> interface into an array. 
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using PostSharp.Patterns.Caching;
-using PostSharp.Patterns.Caching.Backends;
-using PostSharp.Patterns.Caching.ValueAdapters;
-
-namespace PostSharp.Samples.Caching.ValueAdapters
-{
-    class EnumerableValueAdapter<T> : ValueAdapter<IEnumerable<T>>
-    {
-        public override IEnumerable<T> GetExposedValue(object storedValue)
-        {
-            return (IEnumerable<T>)storedValue;
-        }
-
-        public override object GetStoredValue(IEnumerable<T> value)
-        {
-            Console.WriteLine("Caching enumerable.");
-            return value.ToArray();
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            MemoryCachingBackend memoryCachingBackend = new MemoryCachingBackend();
-            memoryCachingBackend.ValueAdapters.Register(typeof(IEnumerable<>), typeof(EnumerableValueAdapter<>));
-            CachingServices.DefaultBackend = memoryCachingBackend;
-
-            Console.WriteLine("Cache miss:");
-            foreach (int value in GetValues())
-            {
-                Console.WriteLine("Value {0} obtained.", value);
-            }
-
-            Console.WriteLine("Cache hit:");
-            foreach (int value in GetValues())
-            {
-                Console.WriteLine("Value {0} obtained.", value);
-            }
-
-            Console.WriteLine("Cache miss for null:");
-            Console.WriteLine(GetNull() == null);
-
-            Console.WriteLine("Cache hit for null:");
-            Console.WriteLine(GetNull() == null);
-        }
-
-        [Cache]
-        static IEnumerable<int> GetValues()
-        {
-            for (int value = 0; value < 3; value++)
-            {
-                Console.WriteLine("Returning value {0}.", value);
-                yield return value;
-            }
-        }
-
-        [Cache]
-        static IEnumerable<int> GetNull()
-        {
-            return null;
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Caching/CachingValueAdapters.cs#example)]
 
 The output of this sample is:
 
-```text
-Cache miss:
-Caching enumerable.
-Returning value 0.
-Returning value 1.
-Returning value 2.
-Value 0 obtained.
-Value 1 obtained.
-Value 2 obtained.
-Cache hit:
-Value 0 obtained.
-Value 1 obtained.
-Value 2 obtained.
-Cache miss for null:
-True
-Cache hit for null:
-True
-```
+[!code-text[](../../code/samples/Caching/CachingValueAdapters.txt)]
 
 

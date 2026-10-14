@@ -109,6 +109,12 @@ items:
     - id: typeAdapterFactoryType
       type: System.Type
       description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref> derived from <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory" data-throw-if-not-resolved="false"></xref>. The type must have a public default constructor.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 1
     content.vb: Public Sub New(targetTypeName As String, typeAdapterFactoryType As Type)
   overload: PostSharp.Patterns.Model.TypeAdapters.RegisterTypeAdapterAttribute.#ctor*
   nameWithType.vb: RegisterTypeAdapterAttribute.New(String, Type)
@@ -139,6 +145,12 @@ items:
     - id: typeAdapterFactoryType
       type: System.Type
       description: A <xref href="System.Type" data-throw-if-not-resolved="false"></xref> derived from <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory" data-throw-if-not-resolved="false"></xref>. The type must have a public default constructor.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 1
     content.vb: Public Sub New(targetType As Type, typeAdapterFactoryType As Type)
   overload: PostSharp.Patterns.Model.TypeAdapters.RegisterTypeAdapterAttribute.#ctor*
   nameWithType.vb: RegisterTypeAdapterAttribute.New(Type, Type)
@@ -184,9 +196,21 @@ items:
   summary: Gets the <xref href="System.Type" data-throw-if-not-resolved="false"></xref> (derived from <xref href="PostSharp.Patterns.Model.TypeAdapters.TypeAdapterFactory" data-throw-if-not-resolved="false"></xref>).
   example: []
   syntax:
-    content: public Type TypeAdapterFactoryType { get; }
+    content: >-
+      [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]
+
+      public Type TypeAdapterFactoryType { get; }
     parameters: []
     return:
       type: System.Type
-    content.vb: Public ReadOnly Property TypeAdapterFactoryType As Type
+    content.vb: >-
+      <DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)>
+
+      Public ReadOnly Property TypeAdapterFactoryType As Type
   overload: PostSharp.Patterns.Model.TypeAdapters.RegisterTypeAdapterAttribute.TypeAdapterFactoryType*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+    ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+    arguments:
+    - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+      value: 1

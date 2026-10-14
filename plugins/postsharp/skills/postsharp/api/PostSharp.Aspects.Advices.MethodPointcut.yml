@@ -33,9 +33,13 @@ items:
             a reflection type of the kind of targets of the advice (for instance <code>System.Reflection.MethodInfo</code> for a method-level advice).
           </p>
     <p>
-            The method can select only elements of code that belong to the target of the aspect, for instance members of the
-            target type for a type-level aspect; selecting a member of another type causes a build error. When the selection
-            can be expressed by the kind, name and attributes of the elements, use <xref href="PostSharp.Aspects.Advices.MulticastPointcut" data-throw-if-not-resolved="false"></xref> instead.
+            The method should select only elements of code that belong to the target of the aspect, for instance members of the
+            target type for a type-level aspect. This rule is enforced only for an instance-scoped aspect, which is an aspect that
+            implements <xref href="PostSharp.Aspects.IInstanceScopedAspect" data-throw-if-not-resolved="false"></xref> and is applied to a type or to an instance member of a type. For such an aspect,
+            selecting a member of another type causes the error LA0110. Another aspect can select a member of any type of the current assembly.
+          </p>
+    <p>
+            When the selection can be expressed by the kind, name and attributes of the elements, use <xref href="PostSharp.Aspects.Advices.MulticastPointcut" data-throw-if-not-resolved="false"></xref> instead.
           </p>
   example: []
   syntax:

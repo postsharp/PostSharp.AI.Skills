@@ -19,6 +19,19 @@ items:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
   summary: The base class for method interception advices.
+  remarks: >-
+    <p>
+        A method interception advice can be applied to an abstract method of the current assembly. PostSharp then gives the method an
+        implementation that throws <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref>, unless another aspect implements the method. The advice runs when
+        the method is called, and gets the exception only when it proceeds to this implementation; an advice that does not proceed returns
+        normally. The overrides of the method in derived classes are not intercepted. The compiler reports warning LA0254 in this case.
+        To exclude abstract methods from a multicast aspect, set the
+        <xref href="PostSharp.Extensibility.MulticastAttribute.AttributeTargetMemberAttributes" data-throw-if-not-resolved="false"></xref> property of the aspect, or the
+        <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute.TargetMemberAttributes" data-throw-if-not-resolved="false"></xref> property of its
+        <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref>, to
+        <xref href="PostSharp.Extensibility.MulticastAttributes.NonAbstract" data-throw-if-not-resolved="false"></xref>. An aspect provider (<xref href="PostSharp.Aspects.IAspectProvider" data-throw-if-not-resolved="false"></xref>) or a pointcut
+        that selects methods must exclude abstract methods itself, because multicast filters do not apply to the targets it selects.
+        </p>
   example: []
   syntax:
     content: 'public abstract class OnMethodInvokeBaseAdvice : GroupingAdvice'
@@ -122,6 +135,8 @@ items:
         You can disable semantic advising by using this property to be consistent with the level of abstraction
         of MSIL and for backward compatibility with the versions of PostSharp prior to 3.1.
         </p>
+    <p>Set this property on the master advice of a group. Setting it on another advice of the group, which sets the
+        <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property or joins the group implicitly, is a build-time error.</p>
   example: []
   syntax:
     content: public SemanticallyAdvisedMethodKinds SemanticallyAdvisedMethodKinds { get; set; }
@@ -154,6 +169,8 @@ items:
     <p>
         Set this property to change how unsupported async methods are handled during compile time.
         </p>
+    <p>Set this property on the master advice of a group. Setting it on another advice of the group, which sets the
+        <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> property or joins the group implicitly, is a build-time error.</p>
   example: []
   syntax:
     content: public UnsupportedTargetAction UnsupportedTargetAction { get; set; }

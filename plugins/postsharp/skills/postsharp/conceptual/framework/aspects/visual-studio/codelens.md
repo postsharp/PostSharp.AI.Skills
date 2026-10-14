@@ -19,20 +19,7 @@ To set the description of a simple aspect, add the <xref:PostSharp.Aspects.Aspec
 
 This is illustrated in the following code snippet.
 
-```csharp
-[PSerializable]
-    [AspectDescription("Applies the exception handling policy")]
-    public sealed class ExceptionHandlerAttribute : OnExceptionAspect
-    {
-        public override void OnException( MethodExecutionArgs eventArgs )
-        {
-            if ( !ExceptionHandler.OnException( eventArgs.Exception ) )
-            {
-                eventArgs.FlowBehavior = FlowBehavior.Continue;
-            }
-        }
-    }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Intellisense/AspectDescription.cs#example)]
 
 
 ## Aspects with advice methods
@@ -43,14 +30,6 @@ With these aspects, you should add a description to every group of advices. You 
 
 The following code snippet illustrates how to set the description of the advice. This description will appear in CodeLens and the IntelliSense tooltip of each property affected by this advice.
 
-```csharp
-[OnLocationSetValueAdvice( Description="Persists the property to disk." ),
- MulticastPointcut( Targets = MulticastTargets.Property,
-                    Attributes = MulticastAttributes.Instance | MulticastAttributes.NonAbstract )]
-public void OnPropertySet<T>( [This] object instance, [LocationValue] T value, [Binding] ILocationBinding<T> binding )
-{
-    // Details skipped.
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Intellisense/AdviceDescription.cs#example)]
 
 

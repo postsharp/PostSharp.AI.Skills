@@ -41,133 +41,25 @@ This article covers method *interception*. For another approach to injecting beh
 
 Consider the following `CustomerService` class, which has methods to load and save customer entities and relies on calls to a database or a web service. 
 
-```csharp
-public class CustomerService
-{
-    public void Save(Customer customer)
-    {
-        // Database or web-service call.
-    }
-
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionService.cs#example)]
 
 Occasionally, the connection to the underlying store may become unreliable, and the application user is presented with an error message. To improve the user experience, you may want to retry the failing operation several times before displaying the error message. In the following code, we create a method interception class that can be applied to repository methods and retries the invocation whenever the original method throws an exception.
 
 The complete aspect code is as follows:
 
-```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PostSharp.Aspects;
-using PostSharp.Serialization;
-
-namespace Samples.RetryOnException_NonAsync
-{
-    #region RetryOnExceptionAttribute
-
-    [PSerializable]
-    public class RetryOnExceptionAttribute : MethodInterceptionAspect
-    {
-        public RetryOnExceptionAttribute()
-        {
-            this.MaxRetries = 3;
-        }
-
-        public int MaxRetries { get; set; }
-
-        public override void OnInvoke(MethodInterceptionArgs args)
-        {
-            int retriesCounter = 0;
-
-            while (true)
-            {
-                try
-                {
-                    args.Proceed();
-                    return;
-                }
-                catch (Exception e)
-                {
-                    retriesCounter++;
-                    if (retriesCounter > this.MaxRetries) throw;
-
-                    Console.WriteLine(
-                        "Exception during attempt {0} of calling method {1}.{2}: {3}",
-                        retriesCounter, args.Method.DeclaringType, args.Method.Name, e.Message);
-                }
-            }
-        }
-    }
-
-    #endregion
-
-    [TestClass]
-    public class InterceptionTests
-    {
-        private int counter;
-
-        [TestMethod]
-        public void When_NonAsyncMethodThrows_Then_MethodCallIsRetried()
-        {
-            this.counter = 2;
-            NonAsyncThrow();
-
-            Assert.AreEqual(0, this.counter);
-        }
-
-        [RetryOnException]
-        private void NonAsyncThrow()
-        {
-            if (--this.counter > 0)
-            {
-                throw new Exception();
-            }
-        }
-
-        #region When_AsyncMethodThrows_Then_MethodCallIsRetried 
-
-        [TestMethod]
-        public async Task When_AsyncMethodThrows_Then_MethodCallIsRetried()
-        {
-            this.counter = 2;
-            await AsyncThrow();
-
-            Assert.AreEqual(0, this.counter);
-        }
-
-        [RetryOnException]
-        private async Task AsyncThrow()
-        {
-            await Task.Yield();
-            if (--this.counter > 0)
-            {
-                throw new Exception();
-            }
-        }
-
-        #endregion
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionRetry.cs#aspect)]
 
 Apply the `[RetryOnException]` custom attributes to all methods where the behavior is needed. 
 
 In the following snippet, this aspect is applied to the `CustomerService.Save` method: 
 
-```csharp
-public class CustomerService
-{
-    [RetryOnException(MaxRetries = 5)]
-    public void Save(Customer customer)
-    {
-        // Database or web-service call.
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionRetry.cs#service)]
 
 Whenever the `CustomerService.Save` method is invoked, the `RetryOnExceptionAttribute.OnInvoke` method is called instead. The aspect method will invoke the original method and retry if necessary. 
+
+When the database call fails twice before it succeeds, the program prints:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionRetry.txt)]
 
 
 ## Accessing the current execution context
@@ -203,174 +95,30 @@ In this article, we will demonstrate how to control the semantic behavior of the
 
 To demonstrate when the semantic approach to method interception can be useful, we extend the `RetryOnExceptionAttribute` aspect created in the previous example. 
 
-The previous version of `RetryOnExceptionAttribute` aspect intercepts the original method, but it does not intercept the async task returned by the method. As a result, the aspect cannot catch the exception thrown by the async task and the test method fails. To handle async methods properly, we need to add an implementation of the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> method to the `RetryOnExceptionAttribute` aspect: 
+The previous version of `RetryOnExceptionAttribute` aspect intercepts the original method, but it does not intercept the async task returned by the method. As a result, the aspect cannot catch the exception thrown by the async task, and the exception reaches the caller. To handle async methods properly, we need to add an implementation of the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> method to the `RetryOnExceptionAttribute` aspect: 
 
-```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PostSharp.Aspects;
-using PostSharp.Serialization;
-
-namespace Samples.RetryOnException_Async
-{
-    #region RetryOnExceptionAttribute
-
-    [PSerializable]
-    public class RetryOnExceptionAttribute : MethodInterceptionAspect
-    {
-        public RetryOnExceptionAttribute()
-        {
-            this.MaxRetries = 3;
-        }
-
-        public int MaxRetries { get; set; }
-
-        public override void OnInvoke(MethodInterceptionArgs args)
-        {
-            int retriesCounter = 0;
-
-            while (true)
-            {
-                try
-                {
-                    args.Proceed();
-                    return;
-                }
-                catch (Exception e)
-                {
-                    retriesCounter++;
-                    if (retriesCounter > this.MaxRetries) throw;
-
-                    Console.WriteLine(
-                        "Exception during attempt {0} of calling method {1}.{2}: {3}",
-                        retriesCounter, args.Method.DeclaringType, args.Method.Name, e.Message);
-                }
-            }
-        }
-
-        public override async Task OnInvokeAsync(MethodInterceptionArgs args)
-        {
-            int retriesCounter = 0;
-
-            while (true)
-            {
-                try
-                {
-                    await args.ProceedAsync();
-                    return;
-                }
-                catch (Exception e)
-                {
-                    retriesCounter++;
-                    if (retriesCounter > this.MaxRetries) throw;
-
-                    Console.WriteLine(
-                        "Exception during attempt {0} of calling method {1}.{2}: {3}",
-                        retriesCounter, args.Method.DeclaringType, args.Method.Name, e.Message);
-                }
-            }
-        }
-    }
-
-    #endregion
-
-    [TestClass]
-    public class InterceptionTests
-    {
-        private int counter;
-
-        [TestMethod]
-        public void When_NonAsyncMethodThrows_Then_MethodCallIsRetried()
-        {
-            this.counter = 2;
-            NonAsyncThrow();
-
-            Assert.AreEqual(0, this.counter);
-        }
-
-        [RetryOnException]
-        private void NonAsyncThrow()
-        {
-            if (--this.counter > 0)
-            {
-                throw new Exception();
-            }
-        }
-
-        [TestMethod]
-        public async Task When_AsyncMethodThrows_Then_MethodCallIsRetried()
-        {
-            this.counter = 2;
-            await AsyncThrow();
-
-            Assert.AreEqual(0, this.counter);
-        }
-
-        #region AsyncThrow
-
-        [RetryOnException]
-        private async Task AsyncThrow()
-        {
-            await Task.Yield();
-            if (--this.counter > 0)
-            {
-                throw new Exception();
-            }
-        }
-
-        #endregion
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionRetryAsync.cs#aspect)]
 
 We can now apply the `[RetryOnException]` aspect to an async method: 
 
-```csharp
-[RetryOnException]
-private async Task AsyncThrow()
-{
-    await Task.Yield();
-    if (--this.counter > 0)
-    {
-        throw new Exception();
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionRetryAsync.cs#async-method)]
 
-Whenever the `AsyncThrow` method is invoked, the `RetryOnExceptionAttribute.OnInvokeAsync` method is called instead. The aspect method will invoke the original method asynchronously and await its completion. If the asynchronous task throws an exception, the aspect will catch the exception and either retry the asynchronous call or rethrow the exception. 
+Whenever the `SaveAsync` method is invoked, the `RetryOnExceptionAttribute.OnInvokeAsync` method is called instead. The aspect method will invoke the original method asynchronously and await its completion. If the asynchronous task throws an exception, the aspect will catch the exception and either retry the asynchronous call or rethrow the exception. 
+
+When the database call fails twice before it succeeds, the program prints:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionRetryAsync.txt)]
 
 
 ### Intercepting methods returning a null Task
 
 The following example shows how to intercept methods that may return a null <xref:System.Threading.Tasks.Task>. There is no way for an aspect based on a semantically-advised <xref:PostSharp.Aspects.MethodInterceptionAspect> to return a null <xref:System.Threading.Tasks.Task>. If the aspect requires returning a null <xref:System.Threading.Tasks.Task>, it must use non-semantic advising. See <xref:semantic-advising> for details. 
 
-```csharp
-[PSerializable]
-public sealed class MyAspect1 : MethodInterceptionAspect
-{
-    public override async Task OnInvokeAsync(MethodInterceptionArgs args)
-    {
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionNullTask.cs#example)]
 
-        object instance = args.Instance;
-        Arguments arguments = args.Arguments;
-        
-        MethodBindingInvokeAwaitable bindingInvokeAwaitable = args.AsyncBinding.InvokeAsync(ref instance, arguments);
-        
-        Task task = bindingInvokeAwaitable.GetTask();
-        
-        if (task != null)
-        {
-            args.ReturnValue = await bindingInvokeAwaitable;
-        }
-        else
-        {
-            args.ReturnValue = "Some special value";
-        }
+When this aspect is applied to a method that returns `Task<string>`, and the method is called once with a non-null task and once with a null task, the program prints:
 
-    }
-}
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/MethodInterceptionNullTask.txt)]
 
 ## See Also
 

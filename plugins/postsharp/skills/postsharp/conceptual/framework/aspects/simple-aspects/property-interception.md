@@ -25,75 +25,26 @@ In this example, we will see how to create an aspect that filters the value read
 2. Create an aspect that inherits from <xref:PostSharp.Aspects.LocationInterceptionAspect> and add the custom attribute [<xref:PostSharp.Serialization.PSerializableAttribute>]. 
 
 
-3. Override the <xref:PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)> method. 
+3. Override the <xref:PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)> method. Calling `base.OnGetValue` actually retrieves the value from the underlying field or property, and populates the `Value` property. Add some code to check if the property currently is set to `null`. If the current value is `null`, we want to return a predefined value. To do this we can set the `Value` property. Any time this property is requested, and it is set to `null`, the value `"foo"` will be returned. 
 
-    ```csharp
-    [PSerializable] 
-    public class StringCheckerAttribute : LocationInterceptionAspect 
-    { 
-        public override void OnGetValue(LocationInterceptionArgs args) 
-        { 
-            base.OnGetValue(args); 
-        } 
-     
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptGet.cs#aspect)]
 
 
-4. Calling `base.OnGetValue` actually retrieves the value from the underlying field or property, and populates the `Value` property. Add some code to check whether the property is currently set to `null`. If the current value is `null`, we want to return a predefined value. To do this, set the `Value` property. Any time this property is requested and it is set to `null`, the value `"foo"` is returned. 
+4. Now that you have a complete getter interception aspect, you can attach it to the target code. Add the attribute to properties or fields to intercept them.
 
-    ```csharp
-    public override void OnGetValue(LocationInterceptionArgs args) 
-    { 
-        base.OnGetValue(args); 
-     
-        if (args.Value == null) 
-        { 
-            args.Value = "foo"; 
-        } 
-    }
-    ```
-
-
-5. Now that you have written a complete getter interception aspect, you can attach it to the target code. Add an attribute to either properties or fields to attach the interception.
-
-    ```csharp
-    public class Customer 
-    { 
-        [StringChecker] 
-        private readonly string _address; 
-     
-        public Customer(string address) 
-        { 
-            _address = address; 
-        } 
-        
-        [StringChecker] 
-        public string Name { get; set; } 
-        public string Address { get { return _address; } } 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptGet.cs#customer)]
 
     > [!NOTE]
     > Adding aspects to target code one property or field at a time can be a tedious process. There are a number of techniques in the article <xref:attribute-multicasting> that explain how to add aspects en masse. 
 
 
-6. Now when you create an instance of a customer and immediately try to access the `Name` and `Address` values, the get request will be intercepted and null values will be returned as `"foo"`. 
+5. Now when you create an instance of a customer and immediately try to access the `Name` and `Address` values, the get request will be intercepted and null values will be returned as `"foo"`. 
 
-    ```csharp
-    class Program 
-    { 
-        static void Main(string[] args) 
-        { 
-            var customer = new Customer("123 Main Street"); 
-            Console.WriteLine("Address: {0}", customer.Address); 
-            Console.WriteLine("Name: {0}", customer.Name); 
-            Console.ReadKey(); 
-        } 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptGet.cs#program)]
 
-    ![](InterceptingProperties1.png)
+    The program prints the following output:
+
+    [!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptGet.txt)]
 
 
 Property and field interception is a simple and seamless task. Once you have intercepted your target, you can act on the target or allow the original code to execute.
@@ -103,53 +54,18 @@ Property and field interception is a simple and seamless task. Once you have int
 
 The previous section showed how to intercept a get accessor. Intercepting a set accessor is accomplished in a similar manner by implementing <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> in the <xref:PostSharp.Aspects.LocationInterceptionAspect>. 
 
-The following snippet shows the addition of <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> to the `StringCheckerAttribute` example: 
-
-```csharp
-[PSerializable] 
-public class StringCheckerAttribute : LocationInterceptionAspect 
-{ 
-    public override void OnGetValue(LocationInterceptionArgs args) 
-    { 
-        base.OnGetValue(args); 
-    } 
-   
-    public override void OnSetValue(LocationInterceptionArgs args) 
-    { 
-        base.OnSetValue(args); 
-    } 
-}
-```
 
 When applied to a property with a set accessor, <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> will intercept the set operation. In the `Customer` example shown below, <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> will be called whenever the `Name` property is set: 
 
-```csharp
-public class Customer 
-{ 
-	// ...
-	
-    [StringChecker]
-    public string Name { get; set; } 
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptSet.cs#customer)]
 
 You can set the `Value` property of <xref:PostSharp.Aspects.LocationInterceptionArgs> and then call <xref:PostSharp.Aspects.LocationInterceptionArgs.ProceedSetValue> to pass a different value for the property. For example, <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> could be used to check for a null string, and then change the string to a non-null value: 
 
-```csharp
-[PSerializable] 
-public class StringCheckerAttribute : LocationInterceptionAspect 
-{ 
-    public override void OnSetValue(LocationInterceptionArgs args) 
-    { 
-        if (args.Value == null)
-        {
-            args.Value = "Empty String";
-        } 
-              
-        args.ProceedSetValue();
-    } 
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptSet.cs#aspect)]
+
+When the program sets the `Name` property to `"Jane"` and then to `null`, it prints the following values of the property:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptSet.txt)]
 
 > [!WARNING]
 > Inline initializers of instance fields and properties are not intercepted by <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)>. To react to the initialization of an instance field or property, use the <xref:PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)> advice. See [Reacting to initialization of instance fields and properties](#reacting-to-initialization-of-instance-fields-and-properties) for details. 
@@ -161,37 +77,18 @@ PostSharp provides a mechanism to check a property's underlying value via the <x
 
 For example, the following snippet shows a modified <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> method that gets the current underlying property value and compares the (new) value passed into the setter against the current value. If the current and new values do not match, a message is written: 
 
-```csharp
-public override void OnSetValue(LocationInterceptionArgs args)
-{
-    // get the current underlying value
-    string existingValue = (string)args.GetCurrentValue();
-
-    if (!Equals(existingValue, args.Value))
-    {
-        Console.WriteLine("Value changed.");
-        args.ProceedSetValue();
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/UnderlyingValue.cs#on-set-value)]
 
 > [!NOTE]
 > <xref:PostSharp.Aspects.LocationInterceptionArgs.GetCurrentValue> will call the underlying property getter without going through <xref:PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)>. If several aspects are applied to the property (or to the property setter), <xref:PostSharp.Aspects.LocationInterceptionArgs.GetCurrentValue> will go through the next aspect in the chain of invocation. 
 
 PostSharp also provides a mechanism to set the underlying property in a getter via the <xref:PostSharp.Aspects.LocationInterceptionArgs.SetNewValue(System.Object)> method of <xref:PostSharp.Aspects.LocationInterceptionArgs>. This could be used, for example, to ensure that a default value is assigned to the underlying property if there is currently no value. The following snippet shows a modified <xref:PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)> method that gets the current underlying value and sets a default value if the current value is null: 
 
-```csharp
-public override void OnGetValue(LocationInterceptionArgs args)
-{
-    object o = args.GetCurrentValue();
-    if (o == null)
-    {
-        args.SetNewValue("value not set");
-    }
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/UnderlyingValue.cs#on-get-value)]
 
-    base.OnGetValue(args);
-}
-```
+With both methods in the aspect, a program that reads the `Name` property, sets it to `"John"` twice, and reads it again prints the following output:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/UnderlyingValue.txt)]
 
 
 ## Intercepting fields
@@ -200,19 +97,15 @@ One benefit of implementing a <xref:PostSharp.Aspects.LocationInterceptionAspect
 
 To apply a <xref:PostSharp.Aspects.LocationInterceptionAspect> implementation to a field, set it as an attribute on the field, as you do for a property: 
 
-```csharp
-public class Customer 
-{ 
-    // ...
-    
-    [StringChecker]
-    public string name; 
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptField.cs#customer)]
 
 With the attribute applied to the name field, all attempts to get and set that field will be intercepted by `StringChecker` in its <xref:PostSharp.Aspects.LocationInterceptionAspect.OnGetValue(PostSharp.Aspects.LocationInterceptionArgs)> and <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> methods. 
 
 Note that when a <xref:PostSharp.Aspects.LocationInterceptionAspect> is added to a field, the field is replaced by a property of the same name and visibility. The field itself is renamed and made private. 
+
+The following output shows that the get and set operations on the `name` field are intercepted, and that `name` is now a public property:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/InterceptField.txt)]
 
 
 ## Getting the property or field being accessed
@@ -221,57 +114,26 @@ Information about the property or field being intercepted can be obtained throug
 
 Here you will find <xref:PostSharp.Aspects.ILocationBinding.LocationInfo>, which can represent a <xref:PostSharp.Reflection.LocationInfo.FieldInfo>, a <xref:PostSharp.Reflection.LocationInfo.PropertyInfo>, or a <xref:PostSharp.Reflection.LocationInfo.ParameterInfo> (although <xref:PostSharp.Aspects.LocationInterceptionAspect> cannot be added to parameters). 
 
-One use for this is to reflect the property name whenever a property is changed. In the following example, we have an `Entity` class that implements <xref:System.ComponentModel.INotifyPropertyChanged> and a public `OnPropertyChanged` method that allows notifications to be made whenever a property is changed. The `Customer` class has been modified to derive from `Entity`. 
+One use for this is to reflect the property name whenever a property is changed. In the following example, we have an `Entity` class that implements <xref:System.ComponentModel.INotifyPropertyChanged> and a public `OnPropertyChanged` method that allows notifications to be made whenever a property is changed. 
 
-```csharp
-class Entity : INotifyPropertyChanged
-{
-    public event PropertyChangedEventHandler PropertyChanged;
-  
-    public void OnPropertyChanged(string propertyName)
-    {
-        if (PropertyChanged != null)
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-    }
-}
-
-class Customer : Entity
-{
-    public string Name { get; set; }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationNotifyPropertyChanged.cs#entity)]
 
 With the ability to invoke an `OnPropertyChanged` event, we can create a <xref:PostSharp.Aspects.LocationInterceptionAspect> that invokes this event when setting a value and passes in the property name from the underlying <xref:PostSharp.Reflection.LocationInfo.PropertyInfo> object: 
 
-```csharp
-[PSerializable] 
-public class NotifyPropertyChangedAttribute : LocationInterceptionAspect 
-{ 
-    public override void OnSetValue(LocationInterceptionArgs args) 
-    { 
-        if ( !Equals( args.Value, args.GetCurrentValue() ) )
-        {
-            args.ProceedSetValue();
-            ((Entity)args.Instance).OnPropertyChanged(args.Binding.LocationInfo.Name);
-        } 
-    } 
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationNotifyPropertyChanged.cs#aspect)]
 
 > [!NOTE]
 > This example is a simplistic implementation of the <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect. For a production-ready implementation, see <xref:inotifypropertychanged>. 
 
-This aspect can then be applied to the `Customer` class: 
+The <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute> attribute restricts the aspect to properties, so that it is not applied to fields, including the backing fields of automatic properties, when it is added to a class.
 
-```csharp
-[NotifyPropertyChangedAttribute]
-class Customer : Entity
-{
-	public string Name { get; set; }
-}
-```
+This aspect can then be applied to the `Customer` class, which derives from `Entity`: 
 
-Now when the `Name` property is changed, the `NotifyPropertyChangedAttribute` aspect will invoke the `Entity.OnPropertyChanged` method, passing in the property name retrieved from its underlying property. 
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationNotifyPropertyChanged.cs#customer)]
+
+Now when the `Name` property is changed, the `NotifyPropertyChanged` aspect will invoke the `Entity.OnPropertyChanged` method, passing in the property name retrieved from its underlying property. When the program sets the `Name` property twice to the same value, only the first change raises the event:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationNotifyPropertyChanged.txt)]
 
 
 ## Reacting to initialization of instance fields and properties
@@ -285,46 +147,19 @@ The initialization of instance fields or properties cannot be intercepted. Howev
 
 Suppose you have an item in an auction and you want to take an action each time the price of the item changes. You have the following class:
 
-```csharp
-class AuctionItem
-{
-    [Report]
-    public int Price { get; set; } = 40000;
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationInitialization.cs#item)]
 
 And you write your <xref:PostSharp.Aspects.LocationInterceptionAspect>: 
 
-```csharp
-[PSerializable]
-class ReportAttribute : LocationInterceptionAspect
-{
-    public override void OnSetValue(LocationInterceptionArgs args) 
-    {
-        args.ProceedSetValue();
-        Console.WriteLine("The " + args.LocationName + " of the item changed to " + args.Value);
-    }
-    
-    public override void OnInstanceLocationInitialized(LocationInitializationArgs args)
-    {
-        Console.WriteLine("The " + args.LocationName + " of the item starts out at " + args.Value);
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationInitialization.cs#aspect)]
 
 Then the following code snippet:
 
-```csharp
-AuctionItem item = new AuctionItem(); 
-item.Price += 2000;
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationInitialization.cs#program)]
 
 will have this output:
 
-```none
-The Price of the item starts out at 40000
-The Price of the item changed to 42000
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/LocationInitialization.txt)]
 
 See the Remarks section of <xref:PostSharp.Aspects.LocationInterceptionAspect.OnSetValue(PostSharp.Aspects.LocationInterceptionArgs)> and <xref:PostSharp.Aspects.LocationInterceptionAspect.OnInstanceLocationInitialized(PostSharp.Aspects.LocationInitializationArgs)> for more details. 
 

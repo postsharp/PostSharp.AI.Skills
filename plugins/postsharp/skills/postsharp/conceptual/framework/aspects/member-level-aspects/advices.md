@@ -27,13 +27,7 @@ An advice method follows these rules:
 
 The following advice writes the name of the target method and the value of its first argument to the console. The name is a constant, so this advice allocates no memory, except to box the argument when it is of a value type.
 
-```csharp
-[OnMethodEntryAdvice]
-public void OnEntry( [DeclarationName( IncludeTypeName = true )] string methodName, [Argument( 0 )] object argument )
-{
-    Console.WriteLine( "Entering {0}({1})", methodName, argument );
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/AdviceMethod.cs#advice)]
 
 
 ## Advice kinds
@@ -47,7 +41,7 @@ The advices of one row form a *family*. The advices of a family that apply to th
 | <xref:PostSharp.Aspects.Advices.OnMethodEntryAdvice><br><xref:PostSharp.Aspects.Advices.OnMethodSuccessAdvice><br><xref:PostSharp.Aspects.Advices.OnMethodExceptionAdvice><br><xref:PostSharp.Aspects.Advices.OnMethodExitAdvice><br><xref:PostSharp.Aspects.Advices.OnMethodYieldAdvice><br><xref:PostSharp.Aspects.Advices.OnMethodResumeAdvice> | Methods | These advices are equivalent to the advices of the aspect <xref:PostSharp.Aspects.OnMethodBoundaryAspect>. The target method is wrapped by a `try` / `catch` / `finally` construct. The yield and resume advices run around the `await` operators of async methods and the `yield return` statements of iterators.  | Yes |
 | <xref:PostSharp.Aspects.Advices.OnMethodInvokeAdvice> | Methods | This advice is equivalent to the aspect <xref:PostSharp.Aspects.MethodInterceptionAspect>. The body of the target method is replaced by a call to the advice, which can invoke the original implementation.  | Yes |
 | <xref:PostSharp.Aspects.Advices.OnLocationGetValueAdvice><br><xref:PostSharp.Aspects.Advices.OnLocationSetValueAdvice> | Fields, properties | These advices are equivalent to the advices of the aspect <xref:PostSharp.Aspects.LocationInterceptionAspect>. Fields are changed into properties, and calls to the accessors are replaced by calls to the proper advice.  | Yes |
-| <xref:PostSharp.Aspects.Advices.OnInstanceConstructedAdvice> | Types | This advice runs once an instance of the target type is constructed, whichever constructor ran. | Yes |
+| <xref:PostSharp.Aspects.Advices.OnInstanceConstructedAdvice> | Types | This advice runs once an instance of the target type is constructed, whichever constructor ran. In a member-level aspect, the target type is the declaring type of the member. In an assembly-level aspect, the advice causes the error LA0088. | Yes |
 | <xref:PostSharp.Aspects.Advices.LocationValidationAdvice> | Fields, properties, parameters | This advice is equivalent to the <xref:PostSharp.Aspects.ILocationValidationAspect`1.ValidateValue(`0,System.String,PostSharp.Reflection.LocationKind,PostSharp.Aspects.LocationValidationContext)> method of the <xref:PostSharp.Aspects.ILocationValidationAspect`1> aspect interface. It validates values assigned to their targets and returns an exception, which PostSharp throws, in case of error.  | No |
 | <xref:PostSharp.Aspects.Advices.OnEventAddHandlerAdvice><br><xref:PostSharp.Aspects.Advices.OnEventRemoveHandlerAdvice><br><xref:PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice> | Events | These advices are equivalent to the advices of the aspect <xref:PostSharp.Aspects.EventInterceptionAspect>. Calls to `add` and `remove` semantics are replaced by calls to advices. When the event is fired, the `OnEventInvokeHandler` is invoked for each handler, instead of the handler itself.  | No |
 
@@ -63,14 +57,7 @@ The advice attributes have properties that control how the advice is woven and h
 
 <xref:PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.SemanticallyAdvisedMethodKinds> and <xref:PostSharp.Aspects.Advices.OnMethodBoundaryAdvice.UnsupportedTargetAction> apply to the whole group, so PostSharp reads them from the master advice only. When PostSharp infers the group, the advice that sets one of these properties, or <xref:PostSharp.Aspects.Advices.Advice.Description>, becomes the master advice. When several advices set them, PostSharp reports the error LA0231. An advice that sets the <xref:PostSharp.Aspects.Advices.GroupingAdvice.Master> property cannot set them (error LA0135).
 
-```csharp
-[OnMethodEntryAdvice( Description = "Measures the duration of the method",
-                      SemanticallyAdvisedMethodKinds = SemanticallyAdvisedMethodKinds.None )]
-public void OnEntry( [State( StateScope.MethodInvocation )] out Stopwatch stopwatch )
-{
-    stopwatch = Stopwatch.StartNew();
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/AdviceProperties.cs#advice)]
 
 
 ## Legacy AdviceArgs signature
@@ -83,15 +70,7 @@ The event interception advices do not accept bound parameters, so they must use 
 
 The following advice of an <xref:PostSharp.Aspects.EventLevelAspect> intercepts the `add` accessor of the target event:
 
-```csharp
-[OnEventAddHandlerAdvice]
-public void OnAddHandler( EventInterceptionArgs args )
-{
-    // Details skipped.
-
-    args.ProceedAddHandler();
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/AdviceEventAddHandler.cs#advice)]
 
 
 ## See Also

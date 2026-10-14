@@ -18,10 +18,7 @@ Every method that allows you to write a message, open an activity, or close an a
 
 For instance, the <xref:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)> method accepts an `options` parameter of type <xref:PostSharp.Patterns.Diagnostics.WriteMessageOptions>, and this type has a constructor that accepts an `object`. 
 
-```csharp
-logSource.Default.Write( Formatted( "Hello, World." ),
-                         new WriteMessageOptions( new { User = User.Identity.Name, Day = DateTime.Today.DayOfWeek } ) );
-```
+[!code-csharp[](../../code/samples/Logging/LogProperties.cs#anonymous)]
 
 The code above adds two properties to the message: `User` and `Day`. 
 
@@ -38,16 +35,7 @@ You can also use other properties of <xref:PostSharp.Patterns.Diagnostics.Custom
 
 For instance, the following class exports a single property to PostSharp Logging, and this property will be inherited by all children messages and activities:
 
-```csharp
-private class PropertiesWithAttributes
-{
-    [LoggingPropertyOptions( IsIgnored = true )]
-    public string Ignored { get; set; }
-
-    [LoggingPropertyOptions( IsInherited = true )]
-    public string Inherited { get; set; }
-}
-```
+[!code-csharp[](../../code/samples/Logging/LogProperties.cs#attributes)]
 
 
 ## Advanced scenarios with logging properties
@@ -58,54 +46,7 @@ This design, which separates data from metadata, allows you to pass several prop
 
 The following example shows how to expose the HTTP context to properties (this is an abbreviated version of what is implemented by <xref:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging>): 
 
-```csharp
-internal abstract class AspNetCoreMetadata : LogEventMetadata<AspNetCoreRequestExpressionModel>
-{
-    protected AspNetCoreMetadata() : base( "AspNetCoreRequest" )
-    {
-    }
-
-    public override void VisitProperties<TVisitorState>( object data, ILoggingPropertyVisitor<TVisitorState> visitor,
-                                                         ref TVisitorState visitorState, in LoggingPropertyVisitorOptions visitorOptions = default )
-    {
-        this.VisitProperties( (HttpContext) data, visitor, ref visitorState );
-    }
-
-    protected void Visit<TVisitorState>( string name, object value, ILoggingPropertyVisitor<TVisitorState> visitor,
-                                         ref TVisitorState visitorState, bool isBaggage = false )
-    {
-        if ( value != null && !(value is string s && string.IsNullOrEmpty( s )) )
-        {
-            visitor.Visit( name, value, new LoggingPropertyOptions( isBaggage: isBaggage ), ref visitorState );
-        }
-    }
-
-    protected void VisitProperties<TVisitorState>( HttpContext httpContext, ILoggingPropertyVisitor<TVisitorState> visitor,
-                                                   ref TVisitorState visitorState )
-    {
-        this.Visit( "User", httpContext.User?.Identity?.Name, visitor, ref visitorState );
-
-        this.Visit( "RemoteIpAddress", httpContext.Connection.RemoteIpAddress, visitor, ref visitorState );
-        this.Visit( "ConnectionId", httpContext.Connection.Id, visitor, ref visitorState );
-
-        HttpRequest request = httpContext.Request;
-        this.Visit( "Method", request.Method, visitor, ref visitorState );
-        this.Visit( "Path", request.Path, visitor, ref visitorState );
-        this.Visit( "Protocol", request.Protocol, visitor, ref visitorState );
-        if ( request.QueryString.HasValue )
-        {
-            this.Visit( "QueryString", request.QueryString.Value, visitor, ref visitorState );
-        }
-
-        this.Visit( "Scheme", request.Scheme, visitor, ref visitorState );
-
-        foreach ( KeyValuePair<string, StringValues> header in request.Headers )
-        {
-            this.Visit( header.Key, header.Value.ToString(), visitor, ref visitorState );
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Logging/LogPropertiesMetadata.cs#example)]
 
 You will also create a custom <xref:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata> if you want to define custom transactions. See <xref:custom-logging-transactions> for details. 
 

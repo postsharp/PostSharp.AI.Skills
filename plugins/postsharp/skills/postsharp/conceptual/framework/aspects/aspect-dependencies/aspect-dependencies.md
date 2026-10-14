@@ -36,7 +36,7 @@ You can express dependencies of an aspect by annotating the aspect class with cu
 |----------------|-------------|
 | <xref:PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute> | This custom attribute expresses a dependency with a well-known aspect class. |
 | <xref:PostSharp.Aspects.Dependencies.AspectRoleDependencyAttribute> | This custom attribute expresses a dependency with any aspect classes enrolled in a given role. Its dual is <xref:PostSharp.Aspects.Dependencies.ProvideAspectRoleAttribute>: this custom attribute enrolls an aspect class into a role. A role is simply a string. Whenever possible, consider using one of the roles defined in the class <xref:PostSharp.Aspects.Dependencies.StandardRoles>.  |
-| <xref:PostSharp.Aspects.Dependencies.AspectEffectDependencyAttribute> | This custom attribute expresses a dependency with any aspect that has a specific effect on the source code or the control flow. Effects are represented as a string, whose valid values are listed in the type <xref:PostSharp.Aspects.Dependencies.StandardEffects>. Effects are provisioned by the aspect weaver on the basis of a rough analysis of what the aspect may do; aspect developers cannot assign new effects to aspects. However, they can waive effects by using the custom attribute <xref:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute>. For instance, an aspect developer can specify that a trace attribute has no effect at all; this aspect will commute with any other aspect (see below).  |
+| <xref:PostSharp.Aspects.Dependencies.AspectEffectDependencyAttribute> | This custom attribute expresses a dependency with any aspect that has a specific effect on the source code or the control flow. Effects are represented as a string, whose valid values are listed in the type <xref:PostSharp.Aspects.Dependencies.StandardEffects>. Effects are provisioned by the aspect weaver on the basis of a rough analysis of what the aspect may do; aspect developers cannot assign new effects to aspects. However, they can waive effects by using the custom attribute <xref:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute>, on the aspect class or on an advice method. For instance, an aspect developer can specify that a trace attribute has no effect at all; this aspect will commute with any other aspect (see below).  |
 
 All these custom attributes have similar structure and members. The first parameter of their constructor, of type <xref:PostSharp.Aspects.Dependencies.AspectDependencyAction>, determines the kind of dependency relationship added between the current aspect and the aspects matched by the custom attribute. 
 
@@ -49,7 +49,7 @@ PostSharp supports the following kinds of relationships:
 |--------|-------------|
 | `Order` | The dependency expresses an order relationship. The second constructor parameter of the custom attribute, of type <xref:PostSharp.Aspects.Dependencies.AspectDependencyPosition> (with values `Before` or `After`), must be specified. The custom attribute determines the position of the current aspect with respect to matched aspects.  |
 | `Require` | The dependency expresses a requirement. PostSharp will issue a compile-time error if the requirement is not satisfied for any target of the current aspect. The second constructor parameter of the custom attribute, of type <xref:PostSharp.Aspects.Dependencies.AspectDependencyPosition>, is optional. If specified, the current aspect must be before or after the matching aspect.  |
-| `Conflict` | The dependency expresses a conflict. PostSharp will issue a compile-time error if any aspect matching the dependency rule is present on any target of the current aspect. The second constructor parameter of the custom attribute, of type <xref:PostSharp.Aspects.Dependencies.AspectDependencyPosition>, is optional. If specified, an error is issued only if the current aspect is before or after a matching aspect.  |
+| `Conflict` | The dependency expresses a conflict. PostSharp will issue a compile-time error if any aspect matching the dependency rule is present on any target of the current aspect. The second constructor parameter of the custom attribute, of type <xref:PostSharp.Aspects.Dependencies.AspectDependencyPosition>, is optional. If specified, an error is issued only if the current aspect is before or after a matching aspect: with `After`, the error is issued when a matching aspect runs before the current aspect.  |
 | `Commute` | The dependency specifies that the current aspect is commutable with any matching aspect. When aspects are commutable, PostSharp does not issue any warning if they are not strongly ordered. |
 
 Custom attribute types and values of the enumeration <xref:PostSharp.Aspects.Dependencies.AspectDependencyAction> are orthogonal; they can be freely combined. 
@@ -62,48 +62,24 @@ Custom attribute types and values of the enumeration <xref:PostSharp.Aspects.Dep
 
 The following code shows how three aspects can be ordered without having explicit knowledge of each other. Each aspect provides a different role, and defines dependencies with respect to other roles.
 
-```csharp
-[ProvideAspectRole( StandardRoles.Threading )]
-[AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.Before, "UI")]
-public sealed class BackgroundAttribute : MethodInterceptionAspect
-{
-  // Details skipped
-}
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectRoleDependencies.cs#example)]
 
-[ProvideAspectRole( StandardRoles.ExceptionHandling )]
-[AspectRoleDependency( AspectDependencyAction.Order, AspectDependencyPosition.After, StandardRoles.Threading )]
-[AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "UI")]
-public sealed class ExceptionDialogAttribute : OnExceptionAspect
-{
-  // Details skipped
-}
+When the three aspects are applied to a method that throws an exception, `BackgroundAttribute` runs first, then `StatusTextAttribute`, and `ExceptionDialogAttribute` handles the exception inside the other two aspects:
 
-[ProvideAspectRole("UI")]
-public sealed class StatusTextAttribute : OnMethodBoundaryAspect
-{
-  // Details skipped
-}
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectRoleDependencies.txt)]
 
 
 ### Using effect-based dependencies
 
 The following code shows how to prevent an authorization aspect from being executed after an aspect that may change the control flow and skip the execution of the method, such as a caching aspect. Then, it shows how the aspect `BackgroundAttribute` can opt out of this effect, because the aspect developer knows that this aspect does not skip the execution of the method, but only defers it. 
 
-```csharp
-[AspectEffectDependency( AspectDependencyAction.Conflict, AspectDependencyPosition.After, 
-                         StandardEffects.ChangeControlFlow )]
-public sealed class AuthorizationAttribute : OnMethodBoundaryAspect
-{
-  // Details skipped.
-}
+Both aspects use advice methods. `AuthorizationAttribute` declares a conflict positioned `After`: it conflicts with any aspect that changes the control flow and runs before it. `BackgroundAttribute` intercepts the method, so the weaver gives it the effect `ChangeControlFlow`, and the custom attribute <xref:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute> removes it.
 
-[WaiveAspectEffect(StandardEffects.ChangeControlFlow)]
-public sealed class BackgroundAttribute : MethodInterceptionAspect
-{
-  // Details skipped
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectEffectDependencies.cs#example)]
+
+`BackgroundAttribute` runs before `AuthorizationAttribute` because of their <xref:PostSharp.Aspects.Aspect.AspectPriority>. Without <xref:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute>, the build fails with the error PS0112, which says that `AuthorizationAttribute` cannot be preceded by `BackgroundAttribute`. Because `BackgroundAttribute` waives the effect, both aspects can be applied to the same method in this order:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectEffectDependencies.txt)]
 
 
 ## Deferring ordering to aspect users
@@ -126,10 +102,11 @@ You can do that by adding any custom attribute derived from <xref:PostSharp.Aspe
 
 Here is an example:
 
-```csharp
-[assembly: AspectTypeDependency( AspectDependencyAction.Order, AspectDependencyPosition.Before,
-                                 typeof(Vendor1.TraceAspect), TargetType = typeof(Vendor2.ExceptionHandlingAspect) )]
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectTypeDependencyThirdParty.cs#example)]
+
+The dependency applies to `Vendor2.ExceptionHandlingAspect`, the aspect type given by <xref:PostSharp.Aspects.Dependencies.AspectDependencyAttribute.TargetType>. Therefore, `Vendor2.ExceptionHandlingAspect` is positioned before `Vendor1.TraceAspect`: it runs outside of the trace aspect, and handles the exception after the trace aspect has written its messages:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectTypeDependencyThirdParty.txt)]
 
 ## See Also
 

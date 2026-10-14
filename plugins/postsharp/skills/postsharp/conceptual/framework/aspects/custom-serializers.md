@@ -28,6 +28,7 @@ There are two ways to initialize an aspect from user code.
 ### By Defining a Method InitializeAspects
 
 You can define in your classes (typically in one of the root classes of your class hierarchy) a method with the following name and signature:
+<!-- not-compiled: signature only -->
 
 ```csharp
 protected virtual void InitializeAspects();
@@ -43,21 +44,13 @@ The following constraints apply:
 
 For instance, the following class would enable aspects (applied to this class or on derived classes) to be initialized after deserialization (PostSharp automatically generates this code for <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> and <xref:System.Runtime.Serialization.DataContractSerializer>, so you need to write it manually only for a custom serializer). 
 
-```csharp
-[DataContract]
-public abstract class BaseClass
-{
-    protected virtual void InitializeAspects()
-    {
-    }
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Advanced/InstanceInitialization.cs#example)]
 
-    [OnDeserializing]
-    private void OnDeserializingInitializeAspects(StreamingContext context)
-    {
-        this.InitializeAspects();
-    }
-}
-```
+A method annotated with <xref:System.Runtime.Serialization.OnDeserializingAttribute> must have a parameter of type <xref:System.Runtime.Serialization.StreamingContext>.
+
+In the following program, a `Customer` class derived from `BaseClass` has a method enhanced by an instance-scoped aspect that counts the calls. After a `Customer` object is deserialized by <xref:System.Runtime.Serialization.DataContractSerializer>, the aspect works as usual:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Advanced/InstanceInitialization.txt)]
 
 
 ### By Invoking AspectUtilities.InitializeCurrentAspects

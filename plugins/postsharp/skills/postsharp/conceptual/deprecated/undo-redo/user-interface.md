@@ -55,9 +55,7 @@ Those actions are listing the changes that were made when the different `Person`
 
 To provide an empty list of recorded actions when the window is initially opened, open the `ViewModelMain` class and find the constructor. Add the following as the last line in the constructor: 
 
-```csharp
-RecordingServices.DefaultRecorder.Clear();
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoClearHistory.cs#clear)]
 
 The <xref:PostSharp.Patterns.Recording.Recorder> class is accessed through the <xref:PostSharp.Patterns.Recording.RecordingServices.DefaultRecorder> property. This property contains the current <xref:PostSharp.Patterns.Recording.Recorder> instance that is being used by the <xref:PostSharp.Patterns.Recording.RecordableAttribute> aspect. The <xref:PostSharp.Patterns.Recording.Recorder> class has two collections, <xref:PostSharp.Patterns.Recording.Recorder.UndoOperations> and <xref:PostSharp.Patterns.Recording.Recorder.RedoOperations>, which contain all of the past operations that can be undone and redone. The <xref:PostSharp.Patterns.Recording.Recorder.Clear> method removes all operations from both of those collections. 
 

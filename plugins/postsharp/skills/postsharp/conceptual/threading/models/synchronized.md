@@ -18,17 +18,7 @@ This article describes how to use the Synchronized model and how it differs from
 
 Traditionally, the C# `lock(this)` statement has been used to synchronize access of several threads to a single object. When an object is locked by one thread, any other thread that attempts to access that object will have its execution blocked. 
 
-```csharp
-private object myLockingObject = new Object();
-        
-public void DoSomething()
-{
-    lock(myLockingObject)
-    {
-        //some code that does something in one thread at a time
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/SynchronizedLock.cs#example)]
 
 In this example, the `myLockingObject` member variable is used as a locking object. Once a thread runs the `lock(myLockingObject)` line, all other threads that enter the `DoSomething` method will stop executing, or be blocked, until the original thread has exited the `lock(myLockingObject)` code block. 
 
@@ -65,42 +55,17 @@ To apply the Synchronized threading model to a class:
 
 In the example below, the <xref:PostSharp.Patterns.Threading.SynchronizedAttribute> has been added to the class. 
 
-```csharp
-[Synchronized]
-public class OrderService
-{
-    public void Process(int sequence)
-    {
-        Console.WriteLine("sequence {0}", sequence);
-        Console.WriteLine("sleeping for 10s");
-        
-        Thread.Sleep(new TimeSpan(0,0,10));
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/Synchronized.cs#service)]
 
 To test this, we can run the following code.
 
-```csharp
-public void Main()
-{
-    var orderService = new OrderService();
-    
-    var backgroundWorker = new BackgroundWorker();
-    backgroundWorker.DoWork += (sender, args) => orderService.Process(1);
-    backgroundWorker.RunWorkerAsync();
-    
-    orderService.Process(2);
-}
-```
+[!code-csharp[](../../../code/samples/Threading/Synchronized.cs#program)]
 
-The code above will attempt to execute the `Process` method on two different threads: the main thread and a background worker thread. Because these two threads are trying to access the same instance of the `OrderService` the first thread to access it will block the second. As a result, when you run the program you will first see the following. 
+The code above executes the `Process` method on two different threads: a background thread and the main thread. The `started` event makes sure that the background thread enters the method first. Because both threads access the same instance of `OrderService`, the background thread blocks the main thread until it exits the `Process` method. The `Thread.Sleep` call does not let the main thread in. When the background thread exits the method, the main thread is no longer blocked and continues its execution.
 
-![](Synchronized5.PNG)
+The output of this program is:
 
-Because the `OrderService.Process` method has a `Thread.Sleep` call, the first thread accessing that method will block the second for 10 seconds. After those 10 seconds have passed the second thread will no longer be blocked and it will be able to continue its execution. 
-
-![](Synchronized6.PNG)
+[!code-text[](../../../code/samples/Threading/Synchronized.txt)]
 
 
 ## Rules enforced by the Synchronized aspect

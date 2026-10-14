@@ -25,25 +25,7 @@ This article discusses all details of semantic advising.
 
 Consider the following code snippet:
 
-```csharp
-public class FlowerService
-{
-  [MyAspect]
-  public Task<Flower> GetFlowerAsync1( int flowerId, string connectionString )
-  {
-    var connection = ConnectionManager.GetConnection( connectionString );
-    return this.GetFlowerAsync2( flowerId, connection );
-  }
-
-  [MyAspect]
-  public async Task<Flower> GetFlowerAsync2( int flowerId, Connection connection )
-  {
-      var flowerData = await connection.GetFlowerAsync( flowerId );
-      var familyData = await connection.GetFlowerFamilyAsync( flowerData.FamilyId );
-      return new Flower( flowerId, flowerData.Name, familyData.Name );
-  }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingAsync.cs#example)]
 
 The `GetFlowerAsync1` method returns a <xref:System.Threading.Tasks.Task> but is not `async` (it would be useless and hurt performance to make it `async`). The `GetFlowerAsync2` method both returns a <xref:System.Threading.Tasks.Task> and is `async`. 
 
@@ -54,6 +36,10 @@ Both methods are enhanced by `[MyAspect]`. For different behaviors implemented b
 * If `MyAspect` was a profiling aspect, you would probably want to measure the time taken by the whole method to execute. That is, you will probably be interested in the time of the whole `Task<Flower>` to run to completion, not just the time to instantiate it and run to the first waiting point. 
 
 * If `MyAspect` was a caching aspect, you would probably want to cache the `Flower` object, not the `Task<Flower>` itself. 
+
+With semantic advising, which is the default, a `MyAspect` that writes a message in `OnEntry` and the return value in `OnSuccess` sees the `Flower` object, and its `OnSuccess` advice runs when the whole task completes:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingAsync.txt)]
 
 That is, most of the time, you want the aspect to apply to the semantics of the method, not to its implementation (how it is implemented in MSIL and executed by the .NET runtime). 
 
@@ -70,19 +56,7 @@ It is generally a good choice to execute the advices in the current synchronizat
 
 Example of the deadlock:
 
-```csharp
-[OnMethodBoundaryAspect1]
-Task Return4()
-{
-  return Task.Delay(500);
-} 
-void button1_Clicked(object sender, EventArgs args)
-{
-  Return4().Wait(); // blocks the Windows Forms UI thread
-  // without PostSharp, the thread would get unblocked when the delay completes
-  // with PostSharp, there is a deadlock because OnMethodBoundaryAspect1's OnExit advice needs to happen in the Windows Forms UI thread
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingDeadlock.cs#example)]
 
 If you do not want to execute advices in the current synchronization context, use <xref:PostSharp.Aspects.MethodInterceptionAspect> instead of <xref:PostSharp.Aspects.OnMethodBoundaryAspect>. The interception aspect gives you more control over the synchronization context. 
 
@@ -93,25 +67,7 @@ The notion of semantic advising also applies to iterator methods, that is, metho
 
 Consider the following code snippet:
 
-```csharp
-public class PostcardService
-{
-
-  [MyAspect]
-  public IEnumerable<Postcard> GetPostcards1( )
-  {
-      return new [] { new Postcard("Hello from Alaska"), new Postcard("Hello from Siberia") };
-  }
-
-  [MyAspect]
-  public IEnumerable<Postcard> GetPostcards2( int flowerId, Connection connection )
-  {
-      yield return new Postcard("Hello from Alaska");
-      yield return new Postcard("Hello from Siberia");
-  }
-
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingIterator.cs#example)]
 
 The `GetPostcards2` method requires special attention. Internally, the C# or VB compiler generates a new class implementing the <xref:System.Collections.Generic.IEnumerable`1> and <xref:System.Collections.Generic.IEnumerator`1> interfaces, called the enumerator class. At run time, calling the `GetPostcards2` method only instantiates the enumerator class. The initial logic of `GetPostcards2` is moved to the `MoveNext` method of the enumerator. 
 
@@ -122,6 +78,10 @@ Consider the same situation as for asynchronous methods. For different behaviors
 * If `MyAspect` was a profiling aspect, you may want to only measure the time when `GetPostcards2` is actually executing, but exclude the time when the caller is processing the data returned by the enumerator. Therefore, you will also want to add behaviors to the `MoveNext` method of the enumerator class. In this case again, you need semantic advising. 
 
 * If `MyAspect` was a caching aspect, however, you will want to cache a copy of the enumerator itself. Therefore, you need to enhance the `GetPostcards2` method and not the `MoveNext` method. In this case, you do not need semantic advising. 
+
+With the default advising modes, a `MyAspect` that writes a message in `OnEntry` and `OnExit` runs when `GetPostcards1` is called, but runs during the enumeration of the result of `GetPostcards2`:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingIterator.txt)]
 
 
 ## Semantic advising vs non-semantic advising
@@ -165,7 +125,7 @@ The following table specifies where semantic advising is supported and where it 
 | Async iterator method (C# 8) | Non-semantic | Non-semantic | Semantic |
 
 > [!WARNING]
-> With <xref:PostSharp.Aspects.MethodInterceptionAspect>, the default advising mode is *always* non-semantic when the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice is not implemented by the aspect. 
+> With <xref:PostSharp.Aspects.MethodInterceptionAspect>, the default advising mode is *always* non-semantic when the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice is not implemented by the aspect. PostSharp then emits the warning LA0185 for methods returning a <xref:System.Threading.Tasks.Task>. To remove this warning, implement the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice or set the <xref:PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds> property to `None`. 
 
 The default mode is always semantic, even in situations where semantic advising is not available. This design allows us to implement support for semantic advising in future versions of PostSharp without breaking backward compatibility. However, PostSharp will emit a build-time error if you try to use semantic advising on a method that is not supported.
 
@@ -183,20 +143,11 @@ If you want to disable semantic advising in all situations, set the <xref:PostSh
 
 The following code snippet shows how to configure a caching aspect so that semantic advising is used for methods returning a <xref:System.Threading.Tasks.Task> but not for methods returning an enumerable. 
 
-```csharp
-[PSerializable]
-    public class CacheAttribute : MethodInterceptionAspect
-    {
-    
-      public CacheAttribute()
-      {
-          this.SemanticallyAdvisedMethodKinds = SemanticallyAdvisedMethodKinds.ReturnsAwaitable;
-      }
-      
-      // Details skipped.
-    
-    }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingCache.cs#example)]
+
+The aspect then caches the result of a method returning a `Task<decimal>`, but caches the enumerable object returned by an iterator method, so the iterator runs again at each enumeration:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingCache.txt)]
 
 
 ## Coping with situations where semantic advising is not available

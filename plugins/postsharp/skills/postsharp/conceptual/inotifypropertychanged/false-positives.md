@@ -18,65 +18,22 @@ In certain scenarios, such as rich client applications with many UI controls, re
 
 The following `Calc` class has two integer fields `a` and `b`, and a property `Sum` that returns the sum of these two numbers. The `Main` method creates an instance of the `Calc` class and changes the fields from `(a=1, b=2)` to `(a=2, b=1)`. There are two `PropertyChanged` event notifications shown in the output, even though the actual `Sum` value does not change in the second case. 
 
-```csharp
-[NotifyPropertyChanged]
-class Calc
-{
-    private int a, b;
-
-    public int Sum
-    {
-        get { return this.a + this.b; }
-    }
-
-    public void Update(int a1, int b1)
-    {
-        this.a = a1;
-        this.b = b1;
-    }
-}
-
-static void Main()
-{
-    Calc calc = new Calc();
-    ((INotifyChildPropertyChanged) calc).PropertyChanged +=
-        (sender, eventArgs) =>
-        {
-            Console.WriteLine("Property {0} changed. New value = {1}.",
-                eventArgs.PropertyName,
-                sender.GetType().GetProperty(eventArgs.PropertyName).GetValue(sender));
-        };
-
-    calc.Update(1, 2);
-    calc.Update(2, 1);
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcFalsePositives.cs#example)]
 
 Output:
 
-```none
-Property Sum changed. New value = 3.
-Property Sum changed. New value = 3.
-```
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcFalsePositives.txt)]
 
 
 ## How to suppress false positives
 
 To suppress false positive event notifications, set the `PreventFalsePositives` property to `true` when you apply the aspect to the target element.
 
-```csharp
-[NotifyPropertyChanged(PreventFalsePositives = true)]
-class Calc
-{
-    // ...
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcPreventFalsePositives.cs#example)]
 
 If you run the test code snippet again after this change, you can see that there is only one change notification now.
 
-```none
-Property Sum changed. New value = 3.
-```
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcPreventFalsePositives.txt)]
 
 > [!WARNING]
 > Do not suppress false positive notifications in your class when the property getters in the class have side effects. In this case, reset the `PreventFalsePositives` property to its default value of `false`. 

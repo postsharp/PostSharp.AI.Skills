@@ -23,43 +23,19 @@ To send PostSharp Logging events to the logging system of ASP.NET Core:
 2. Add the `PostSharp.Patterns.Diagnostics.Microsoft` package to your startup project. 
 
 
-3. Set up ASP.NET Core logging in your `CreateHostBuilder` like this: 
+3. In *Program.cs*, set up ASP.NET Core logging like this: 
 
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-      Host.CreateDefaultBuilder(args)
-        .ConfigureLogging(loggingBuilder =>
-        {
-          loggingBuilder.ClearProviders();
-          loggingBuilder.AddConsole();
-        })
-        .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingAspNetCore/LoggingAspNetCore.cs#logging)]
 
 
 4. In *appsettings.json* and *appsettings.Development.json*, reduce the minimum logged `LogLevel` to `Debug`. PostSharp outputs most traces at the `Debug` level: 
 
-    ```json
-    {
-      "Logging": {
-        "LogLevel": {
-          "Default": "Debug",
-          "Microsoft": "Warning",
-          "Microsoft.Hosting.Lifetime": "Information"
-        }
-      }
-    }
-    ```
+    [!code-json[](../../../code/samples/Logging/LoggingAspNetCore/appsettings.json)]
 
 
-5. Set <xref:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackend> as the default backend in your `Main` method: 
+5. After you build the application, and before you run it, set <xref:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackend> as the default backend: 
 
-    ```csharp
-    IHost host = CreateHostBuilder(args).Build();
-    var loggerFactory = (ILoggerFactory) host.Services.GetService(typeof(ILoggerFactory));
-    LoggingServices.DefaultBackend = new MicrosoftLoggingBackend(loggerFactory);
-    host.Run();
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingAspNetCore/LoggingAspNetCore.cs#backend)]
 
 
 Any methods annotated with <xref:PostSharp.Patterns.Diagnostics.LogAttribute> will now emit log messages into ASP.NET Core logging, as in this example:
@@ -82,43 +58,9 @@ To collect .NET Core manual logging events into PostSharp:
 1. Add the `PostSharp.Patterns.Diagnostics.Microsoft` package to your startup project. 
 
 
-2. Find your `CreateHostBuilder` method and add `ConfigureLogging`. All initialization code will go in there: 
+2. In *Program.cs*, after you create the `WebApplicationBuilder`, add the following code: 
 
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-      Host.CreateDefaultBuilder(args)
-      .ConfigureLogging(loggingBuilder =>
-        {
-          // Logging initialization code goes here.
-        })
-      .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-    ```
-
-
-3. Replace that code with the following:
-
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-      Host.CreateDefaultBuilder(args)
-      .ConfigureLogging(loggingBuilder =>
-        {
-          // First, set up your final logging providers. These are the providers, 
-          // such as console or a log file, where you want the final output of logging to go:
-          loggingBuilder.ClearProviders();
-          loggingBuilder.AddConsole();
-    	  
-          // Next, capture those logging providers in a list and remove them:
-          List<ILoggerProvider> loggerProviders =  loggingBuilder.Services.BuildServiceProvider().GetServices<ILoggerProvider>().ToList();
-          loggingBuilder.ClearProviders();
-    	  
-          // Next, add the PostSharp logging provider which sends all events to PostSharp:
-          loggingBuilder.AddPostSharp();
-    	  
-          // Finally, use the captured providers to create a PostSharp backend and set it as the default backend:
-          LoggingServices.DefaultBackend = new MicrosoftLoggingBackend(new LoggerFactory(loggerProviders));
-        })
-      .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingAspNetCoreCollecting.cs#collecting)]
 
 
 Now, you can use <xref:PostSharp.Patterns.Diagnostics.LogAttribute> to add automatic logging and <xref:Microsoft.Extensions.Logging.ILogger> loggers to add manual log messages. 

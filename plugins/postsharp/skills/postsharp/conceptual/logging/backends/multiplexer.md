@@ -18,16 +18,11 @@ The <xref:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
 
 To set it up, create two or more logging backends in your initialization code, pass them as arguments to the constructor of the multiplexer, and then use the multiplexer as your backend, for example:
 
-```csharp
-// Set up the first logging backend (console):
-LoggingBackend backend1 = new ConsoleLoggingBackend();
+[!code-csharp[](../../../code/samples/Logging/LogMultiplexer.cs#example)]
 
-// Set up the second logging backend:
-LoggingBackend backend2 = new ApplicationInsightsLoggingBackend();
+Each record is written twice, once by each backend:
 
-// Configure PostSharp Logging to use both backends:
-LoggingServices.DefaultBackend = new MultiplexerBackend(backend1, backend2);
-```
+[!code-text[](../../../code/samples/Logging/LogMultiplexer.txt)]
 
 
 ## Configuring the backends
@@ -38,18 +33,11 @@ If you attempt to set the minimum verbosity for a role, namespace or type on the
 
 For example, you can configure one backend to receive all logging events and a second backend to receive only warnings like this:
 
-```csharp
-// Set up the first logging backend (console):
-LoggingBackend backend1 = new ConsoleLoggingBackend();
-backend1.DefaultVerbosity.SetMinimalLevel(LogLevel.Trace);
+[!code-csharp[](../../../code/samples/Logging/LogMultiplexerVerbosity.cs#example)]
 
-// Set up the second logging backend:
-LoggingBackend backend2 = new ApplicationInsightsLoggingBackend();
-backend2.DefaultVerbosity.SetMinimalLevel(LogLevel.Warning);
+The second backend only writes the warning:
 
-// Configure PostSharp Logging to use both backends:
-LoggingServices.DefaultBackend = new MultiplexerBackend(backend1, backend2);
-```
+[!code-text[](../../../code/samples/Logging/LogMultiplexerVerbosity.txt)]
 
 
 ## Handling logging errors

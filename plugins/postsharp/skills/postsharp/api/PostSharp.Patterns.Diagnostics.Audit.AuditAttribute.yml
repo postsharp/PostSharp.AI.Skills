@@ -32,11 +32,11 @@ items:
     content: >-
       [Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")]
 
-      public class AuditAttribute : LogAttributeBase, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect
+      public class AuditAttribute : LogAttributeBase, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAdviceProvider, IAspect
     content.vb: >-
       <Obsolete("This feature has been moved to the sample PostSharp.Samples.Logging.Audit.")>
 
-      Public Class AuditAttribute Inherits LogAttributeBase Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect
+      Public Class AuditAttribute Inherits LogAttributeBase Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAdviceProvider, IAspect
   inheritance:
   - System.Object
   - System.Attribute
@@ -50,6 +50,7 @@ items:
   - PostSharp.Aspects.IAspectBuildSemantics
   - PostSharp.Extensibility.IValidableAnnotation
   - PostSharp.Patterns.Diagnostics.ILogAspect
+  - PostSharp.Aspects.Advices.IAdviceProvider
   - PostSharp.Aspects.IAspect
   inheritedMembers:
   - PostSharp.Patterns.Diagnostics.LogAttributeBase.ProfileName

@@ -68,7 +68,7 @@ items:
           <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.After" data-throw-if-not-resolved="false"></xref>
         </td>
         <td>The current aspect or advice requires another aspect or advice
-                matched by the custom attribute positioned <i>after</i> the current one.</td>
+                matched by the custom attribute, and is positioned <i>after</i> it.</td>
       </tr>
       <tr>
         <td>
@@ -78,7 +78,7 @@ items:
           <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Before" data-throw-if-not-resolved="false"></xref>
         </td>
         <td>The current aspect or advice requires another aspect or advice
-                matched by the custom attribute positioned <i>before</i> the current one.</td>
+                matched by the custom attribute, and is positioned <i>before</i> it.</td>
       </tr>
       <tr>
         <td>
@@ -98,7 +98,7 @@ items:
           <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.After" data-throw-if-not-resolved="false"></xref>
         </td>
         <td>The current aspect or advice conflicts with any aspect or advice
-                matched by the custom attribute, if positioned <i>after</i> the current one.</td>
+                matched by the custom attribute, if the current one is positioned <i>after</i> it.</td>
       </tr>
       <tr>
         <td>
@@ -108,7 +108,7 @@ items:
           <xref href="PostSharp.Aspects.Dependencies.AspectDependencyPosition.Before" data-throw-if-not-resolved="false"></xref>
         </td>
         <td>The current aspect or advice conflicts with any aspect or advice
-                matched by the custom attribute, if positioned <i>before</i> the current one.</td>
+                matched by the custom attribute, if the current one is positioned <i>before</i> it.</td>
       </tr>
       <tr>
         <td>
@@ -121,6 +121,9 @@ items:
       </tr>
     </table>
 
+    <p>For every action, the position is that of the current aspect or advice with respect to the matched one.
+            For instance, <code>Conflict</code> with <code>After</code> on an authorization aspect reports an aspect that changes the control flow
+            and runs before the authorization aspect.</p>
     <p>An unsatisfied <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Require" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAction.Conflict" data-throw-if-not-resolved="false"></xref> dependency causes a build error, or a warning
             if <xref href="PostSharp.Aspects.Dependencies.AspectDependencyAttribute.IsWarning" data-throw-if-not-resolved="false"></xref> is set.</p>
   example: []

@@ -18,58 +18,14 @@ In the example below, there is a View-Model implemented according to the MVVM Li
 
 Part of the boilerplate that usually appears in the NotifyPropertyChanged pattern is still present. For each property, you must have an explicit field, and you must manually notify all dependencies and the property itself. The result is not only more code written, but also much room for bugs because you must discover and maintain the chain of dependent properties yourself.
 
-```csharp
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using System.Windows.Input;
-using System.Windows;
-
-namespace MvvmLightTest.ViewModel
-{
-    public class MainViewModel : ViewModelBase
-    {
-        int _exampleValue;
-
-        public int ExampleValue
-        {
-            get
-            {
-                return _exampleValue;
-            }
-            set
-            {
-                if (_exampleValue == value)
-                    return;
-                _exampleValue = value;
-                RaisePropertyChanged("ExampleValue");
-            }
-        }
-
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Model/NotifyPropertyChanged/Frameworks/MvvmLightWithoutPostSharp.cs#example)]
 
 
 ## With PostSharp
 
 With PostSharp, you do not need to do any of that. You indicate which classes should have the NotifyPropertyChanged pattern implemented using the <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> attribute and PostSharp does the hard work for you. You can see the difference in the second example, where the previous code was refactored to keep the same functionality. 
 
-```csharp
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using System.Windows.Input;
-using System.Windows;
-using PostSharp.Patterns.Model;
-
-namespace MvvmLightTest.ViewModel
-{
-    [NotifyPropertyChanged]
-    public class MainViewModel : ViewModelBase
-    {
-        public int ExampleValue { get; set; }
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Model/NotifyPropertyChanged/Frameworks/MvvmLightWithPostSharp.cs#example)]
 
 Note that it is no longer necessary to derive your class from the `ViewModelBase` class. Even if you remove the inheritance from the `ViewModelBase` class, you can still use other MVVM Light features in your code such as commands. However, if you do keep the inheritance from `ViewModelBase`, the <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect will invoke the `RaisePropertyChanged` method of the `ViewModelBase` class, consistently with the coding practices of MVVM Light. 
 

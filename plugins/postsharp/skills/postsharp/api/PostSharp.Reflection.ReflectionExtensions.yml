@@ -54,7 +54,10 @@ items:
   summary: Gets the <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> of which a given field is the backing field, in the current type or its base types.
   example: []
   syntax:
-    content: public static PropertyInfo GetAutomaticProperty(this FieldInfo field)
+    content: >-
+      [RequiresUnreferencedCode("Finds the property by name in the declaring type of the field, and trimming can remove the property.")]
+
+      public static PropertyInfo GetAutomaticProperty(this FieldInfo field)
     parameters:
     - id: field
       type: System.Reflection.FieldInfo
@@ -64,8 +67,17 @@ items:
       description: >-
         The <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> representing the property whose <code class="paramref">field</code> is the backing field, or <code>null</code>
                     if <code class="paramref">field</code> is not the backing field of an automatic property.
-    content.vb: Public Shared Function GetAutomaticProperty(field As FieldInfo) As PropertyInfo
+    content.vb: >-
+      <RequiresUnreferencedCode("Finds the property by name in the declaring type of the field, and trimming can remove the property.")>
+
+      Public Shared Function GetAutomaticProperty(field As FieldInfo) As PropertyInfo
   overload: PostSharp.Reflection.ReflectionExtensions.GetAutomaticProperty*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Finds the property by name in the declaring type of the field, and trimming can remove the property.
 - uid: PostSharp.Reflection.ReflectionExtensions.GetAutomaticProperty(System.Reflection.FieldInfo,System.Boolean)
   commentId: M:PostSharp.Reflection.ReflectionExtensions.GetAutomaticProperty(System.Reflection.FieldInfo,System.Boolean)
   id: GetAutomaticProperty(System.Reflection.FieldInfo,System.Boolean)
@@ -84,7 +96,10 @@ items:
   summary: Gets the <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> of which a given field is the backing field. The <code class="paramref">inherit</code> parameter specifies whether base types should be considered.
   example: []
   syntax:
-    content: public static PropertyInfo GetAutomaticProperty(this FieldInfo field, bool inherit)
+    content: >-
+      [RequiresUnreferencedCode("Finds the property by name in the declaring type of the field, and trimming can remove the property.")]
+
+      public static PropertyInfo GetAutomaticProperty(this FieldInfo field, bool inherit)
     parameters:
     - id: field
       type: System.Reflection.FieldInfo
@@ -97,8 +112,17 @@ items:
       description: >-
         The <xref href="System.Reflection.PropertyInfo" data-throw-if-not-resolved="false"></xref> representing the property whose <code class="paramref">field</code> is the backing field, or <code>null</code>
                     if <code class="paramref">field</code> is not the backing field of an automatic property.
-    content.vb: Public Shared Function GetAutomaticProperty(field As FieldInfo, inherit As Boolean) As PropertyInfo
+    content.vb: >-
+      <RequiresUnreferencedCode("Finds the property by name in the declaring type of the field, and trimming can remove the property.")>
+
+      Public Shared Function GetAutomaticProperty(field As FieldInfo, inherit As Boolean) As PropertyInfo
   overload: PostSharp.Reflection.ReflectionExtensions.GetAutomaticProperty*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute
+    ctor: System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Finds the property by name in the declaring type of the field, and trimming can remove the property.
   nameWithType.vb: ReflectionExtensions.GetAutomaticProperty(FieldInfo, Boolean)
   fullName.vb: PostSharp.Reflection.ReflectionExtensions.GetAutomaticProperty(System.Reflection.FieldInfo, Boolean)
   name.vb: GetAutomaticProperty(FieldInfo, Boolean)

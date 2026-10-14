@@ -33,49 +33,18 @@ This class has a single method of interest named <xref:PostSharp.Patterns.Contra
 
 ### Example
 
-The following example overrides the default behavior of the <xref:PostSharp.Patterns.Contracts.RequiredAttribute>. This program fails with a `CustomException`. 
+The following example overrides the default behavior of the <xref:PostSharp.Patterns.Contracts.RequiredAttribute>. When it calls the `Oops` method with a `null` argument, this program gets a `CustomException`. 
 
-```csharp
-public class MyContractExceptionFactory : ContractExceptionFactory
-{
-    public MyContractExceptionFactory(ContractExceptionFactory next)
-        : base(next)
-    {
-    }
+[!code-csharp[](../../code/samples/Model/Contracts/ContractExceptionFactoryCustom.cs#example)]
 
-    public override Exception CreateException( ContractExceptionInfo exceptionInfo )
-    {
-        if ( exceptionInfo.ExceptionType == typeof(ArgumentNullException) )
-        {
-            return new CustomException( $"Argument {exceptionInfo.LocationName} was null, but with a custom exception." );
-        }
-        else
-        {
-            // Call the next node in the chain of invocation.
-            return base.CreateException( exceptionInfo );
-        }
-    }
-}
+The output of this program is:
 
-public static class Program
-{
-    public static void Main()
-    {
-        ContractServices.ExceptionFactory = new MyContractExceptionFactory(ContractServices.ExceptionFactory);
-
-        Oops( null );  // Throws CustomException.
-    }
-
-    private static void Oops( [Required] string p )
-    {
-    }
-}
-```
+[!code-text[](../../code/samples/Model/Contracts/ContractExceptionFactoryCustom.txt)]
 
 
 ## Using the localization service in custom exception factories
 
-The default exception factory uses the localization service to render human-readable error messages. You can use the same facility in your own exception factories. It is exposed on the <xref:PostSharp.Patterns.Contracts.ContractServices.LocalizedTextProvider>.
+The default exception factory uses the localization service to render human-readable error messages. You can use the same facility in your own exception factories. It is exposed on the <xref:PostSharp.Patterns.Contracts.ContractServices.LocalizedTextProvider> property.
 
 For details about localization, see <xref:contract-localization>.
 
@@ -84,29 +53,11 @@ For details about localization, see <xref:contract-localization>.
 
 Like the previous example, this example overrides the exception type raised in case of violation of a `[Required]` contract, but it uses the standard contract localization service to format the error message. 
 
-```csharp
-public class MyContractExceptionFactory : ContractExceptionFactory
-{
-    public MyContractExceptionFactory(ContractExceptionFactory next)
-        : base(next)
-    {
-    }
+[!code-csharp[](../../code/samples/Model/Contracts/ContractExceptionFactoryLocalized.cs#example)]
 
-    public override Exception CreateException( ContractExceptionInfo exceptionInfo )
-    {
-        if ( exceptionInfo.ExceptionType == typeof(ArgumentNullException) )
-        {
-            string errorMessage = ContractServices.LocalizedTextProvider.GetFormattedMessage( exceptionInfo );
+With this factory, the program of the previous example prints the standard message:
 
-            return new CustomException( errorMessage );
-        }
-        else
-        {
-            return base.CreateException( exceptionInfo );
-        }
-    }
-}
-```
+[!code-text[](../../code/samples/Model/Contracts/ContractExceptionFactoryLocalized.txt)]
 
 
 ## Using the exception factory from custom contracts
@@ -120,30 +71,7 @@ If your custom contracts throw different exception types or use different error 
 
 The following contract uses the built-in exception factory to create a standard <xref:System.ArgumentOutOfRangeException> when a value is zero. Note that if you want a custom message shown, you need to use a custom `messageId` and then implement localization as described in <xref:contract-localization>. 
 
-```csharp
-public class NonZeroAttribute : LocationContractAttribute, ILocationValidationAspect<int>
-{
-    public NonZeroAttribute()
-    {
-    }
-
-    public Exception ValidateValue(int value, string locationName, LocationKind locationKind, LocationValidationContext context)
-    {
-        if (value == 0)
-        {
-            object[] additionalArguments = Array.Empty<object>();
-            const string messageId = ContractLocalizedTextProvider.LocationContractErrorMessage;
-            ContractExceptionInfo exceptionInfo = new ContractExceptionInfo( typeof(ArgumentOutOfRangeException), this, value, locationName,
-                                                                             locationKind, context, messageId, additionalArguments );
-            return ContractServices.ExceptionFactory.CreateException( exceptionInfo );
-        }
-        else
-        {
-            return null;
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Model/Contracts/NonZeroWithExceptionFactory.cs#example)]
 
 > [!NOTE]
 > You need to pass a message ID that is known by the localization service. Otherwise, an exception is thrown. If the message identified by `messageId` needs to format any additional arguments into the error message, put them in the `additionalArguments` array. The message IDs of built-in contracts are defined as public const fields of <xref:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider>. 

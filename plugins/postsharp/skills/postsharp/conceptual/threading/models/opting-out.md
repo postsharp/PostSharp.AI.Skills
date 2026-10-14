@@ -22,19 +22,7 @@ To disable enforcement of the class-level threading model for a specific method,
 
 In the following example, this custom attribute allows us to implement the `ToString` in a class that respects the Actor model. Without the custom attribute, this would not have been possible because non-void public methods must have the `async` keyword. 
 
-```csharp
-[Actor]
-class Player          
-{
-   private readonly string name;
-
-   [ExplicitlySynchronized] 
-   public override string ToString()
-   {
-      return this.name;
-   }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ExplicitlySynchronizedMethod.cs#example)]
 
 When used on a method, the <xref:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute> attribute has several effects: 
 
@@ -52,22 +40,7 @@ When used on a method, the <xref:PostSharp.Patterns.Threading.ExplicitlySynchron
 
 To disable enforcement of the class-level threading model for a specific field, add the <xref:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute> attribute to the field: 
 
-```csharp
-[Actor]
-class MyActor
-{
-
-  [ExplicitlySynchronized]
-  int counter;
-
-  public void FooBar()
-  {
-    // This line would throw an exception without [ExplicitlySynchronized].
-    Task.Factory.StartNew(() => Interlocked.Increment( ref this.counter ));
-  }
-  
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ExplicitlySynchronizedField.cs#example)]
 
 When used on a field, the <xref:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute> attribute has several effects: 
 
@@ -82,35 +55,7 @@ By default, thread safety is ensured when a thread first invokes a public or int
 
 In the following code snippet, the `OnCreated` method is invoked from a background thread by the `FileSystemWatcher` class. The `InputQueueWatcher` is thread-safe because of the <xref:PostSharp.Patterns.Threading.SynchronizedAttribute> aspect. 
 
-```csharp
-[Synchronized]
-class InputQueueWatcher         
-{
-  FileSystemWatcher watcher;
-  
-  [Child]
-  AdvisableCollection<string> files = new AdvisableCollection<string>();
-  
-  public InputQueueWatcher(string path)
-  {
-    this.watcher = new FileSystemWatcher();
-    this.watcher.Path = path;
-    this.watcher.NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName;
-    this.watcher.Filter = "*.xml";
-    this.watcher.Created += new FileSystemEventHandler(OnCreated);
-  }
-  
-  [EntryPoint]
-  private void OnCreated(object source, FileSystemEventArgs e)
-  {
-     // Without [EntryPoint], the following line would throw ThreadAccessException.
-     this.files.Add(e.FullPath);
-  }
-   
-   public ICollection Files { get { return this.files; } }
-   
- }
-```
+[!code-csharp[](../../../code/samples/Threading/EntryPoint.cs#example)]
 
 ## See Also
 

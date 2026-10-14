@@ -35,26 +35,11 @@ The difference between strict and multicast inheritance is that, with multicast 
 
 Consider the following piece of code, where `A` and `B` are both method-level aspects. 
 
-```csharp
-[A(AttributeInheritance = MulticastInheritance.Strict)]
-          [B(AttributeInheritance = MulticastInheritance.Multicast)]
-          public class BaseClass
-          {
-            // Aspect A, B.
-            public virtual void Method1() {}
-          }
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastInheritanceModes.cs#example)]
 
-          public class DerivedClass : BaseClass
-          {
-            // Aspects A, B.
-            public override void Method1() {}
+If you look only at `BaseClass`, there is no difference between strict and multicast inheritance. However, if you look at `DerivedClass`, you see the difference: only aspect `B` is applied to `Method2`. When both aspects write a message, calling the methods of `DerivedClass` prints:
 
-            // Aspect B.
-            public void Method2() {}
-          }
-```
-
-If you look only at `BaseClass`, there is no difference between strict and multicast inheritance. However, if you look at `DerivedClass`, you see the difference: only aspect `B` is applied to `Method2`. 
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastInheritanceModes.txt)]
 
 The multicasting mechanism for aspect `A` is the following: 
 

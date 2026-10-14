@@ -23,52 +23,11 @@ From the end user's perspective, the undo/redo feature exposes a flat list of op
 
 The following code example illustrates this:
 
-```csharp
-[Recordable]
-        public class Picture
-        {
-           private double x, y;
-           
-           public double X 
-           { 
-              get { return x; }
-              set { x = value; }
-           }
-           
-           public double Y 
-           { 
-              get { return y; }
-              set { y = value; }
-           }
-           
-           public void Move( double x, double y )
-           {
-              this.X = x;
-              this.Y = y;
-           }
-           
-        }
-        
-        public static class Program
-        {
-           public static void Main()
-           {
-              var picture = new Picture();
-              
-              picture.Move( 10, 10 );
-              
-              // 1 undo operation at this point: Move.
-              
-              picture.X = 20;
-              
-              // 2 undo operations at this point: set_X, Move.
-              
-              picture.Y = 20;
-              
-              // 3 undo operations at this point: set_Y, set_X, Move.
-           }
-        }
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoOperationNames.cs#example)]
+
+The `UndoHistory.Print` method prints the names of the operations of the <xref:PostSharp.Patterns.Recording.Recorder.UndoOperations> collection, from the oldest to the most recent:
+
+[!code-text[](../../../code/samples/Model/UndoRedo/UndoRedoOperationNames.txt)]
 
 By default, the <xref:PostSharp.Patterns.Recording.RecordableAttribute> aspect will automatically open a new operation for any public or internal method unless the current <xref:PostSharp.Patterns.Recording.Recorder> already has an open operation. Therefore, invoking the `Move` method results in a single operation, even if it modifies two fields. Note that the `Move` method invokes the setters of public properties `X` and `Y`, which are themselves public methods, but they do not open new operations since they run from within the `Move` method. However, when properties `X` and `Y` are accessed from outside of the `Picture` class, new operations are created for the `set_X` and `set_Y` methods. 
 
@@ -79,21 +38,7 @@ By default, the name of an operation is set to the name of the method. There are
 
 In the following example, we are declaring a different name for the `Move` method: 
 
-```csharp
-[Recordable]
-        public class Picture
-        {
-           private double x, y;
-           
-           [RecordingScope("Moving the picture")]
-           public void Move( double x, double y )
-           {
-              this.x = x;
-              this.y = y;
-           }
-           
-        }
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoRecordingScope.cs#example)]
 
 With that <xref:PostSharp.Patterns.Recording.RecordingScopeAttribute> added, the recorded operation will now have a name of `Moving the picture` instead of just `Move`. 
 
@@ -120,25 +65,11 @@ In the following example, we will modify the `Move` method to include the target
 
 ### Example
 
-```csharp
-[Recordable]
-        public class Picture
-        {
-           private double x, y;
-           
-           [RecordingScope(RecordingScopeOption.Skip)]
-           public void Move( double x, double y )
-           {
-              string scopeName = string.Format( "Moving to ({0}, {1})", x, y );
-              
-              using (RecordingScope scope = RecordingServices.DefaultRecorder.OpenScope(scopeName))
-              {
-                this.x = x;
-                this.y = y;
-              }
-           }           
-        }
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoOpenScope.cs#example)]
+
+After two calls of the `Move` method, the names of the undo operations are:
+
+[!code-text[](../../../code/samples/Model/UndoRedo/UndoRedoOpenScope.txt)]
 
 
 ## Using the OperationFormatter class
@@ -164,9 +95,7 @@ In the following example, we will create a custom formatter that reads the opera
 
 4. Finally, you need to add your custom name formatter into the chain of responsibility.
 
-    ```csharp
-    RecordingServices.OperationFormatter = new MyOperationFormatter(RecordingServices.OperationFormatter);
-    ```
+    [!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoOperationFormatter.cs#register)]
 
     Because the <xref:PostSharp.Patterns.Recording.RecordingServices> is making use of a chain of responsibility, you are able to insert as many custom name formatters as you want. You are also able to determine their order of execution based on the order that you insert them into the chain of responsibility. 
 
@@ -174,50 +103,15 @@ In the following example, we will create a custom formatter that reads the opera
 
 ### Example
 
-```csharp
-class MyOperationFormatter : OperationFormatter
-         {
-             public MyOperationFormatter( OperationFormatter next ) : base( next )
-             {
-             }
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoOperationFormatter.cs#formatter)]
 
-             protected override string FormatOperationDescriptor( IOperationDescriptor operation )
-             {
-                 if ( operation.OperationKind != OperationKind.Method )
-                     return null;
+The <xref:PostSharp.Patterns.Recording.Operations.MethodExecutionOperationDescriptor.Method> property is `null` unless the <xref:PostSharp.Patterns.Recording.RecordableAttribute.ProvideMethodContext> property of the <xref:PostSharp.Patterns.Recording.RecordableAttribute> aspect is `true`. Therefore, this formatter requires the following recordable class:
 
-                 var descriptor = (MethodExecutionOperationDescriptor) operation;
-                 
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoOperationFormatter.cs#customer)]
 
-                 if ( descriptor.Method.IsSpecialName && descriptor.Method.Name.StartsWith( "set_" ) )
-                 {
-                     // We have a property setter.
+When a program sets the `FirstName` property, then calls the `Clear` method, the names of the undo operations are:
 
-                     var property = descriptor.Method.DeclaringType.GetProperty( 
-                            descriptor.Method.Name.Substring( 4 ), 
-                            BindingFlags.Instance|BindingFlags.Public|BindingFlags.NonPublic );
-                            
-                     var attributes = 
-                          (DisplayNameAttribute[]) property.GetCustomAttributes(typeof(DisplayNameAttribute), false);
-
-                     if ( attributes.Length > 0 )
-                         return string.Format( "Set {0} to {1}", attributes[0].DisplayName, descriptor.Arguments[0] ?? "null" );
-                 }
-                 else
-                 {
-                     // We have another method.
-
-                     var attributes =  (DisplayNameAttribute[]) 
-                        descriptor.Method.GetCustomAttributes(typeof(DisplayNameAttribute), false);
-
-                     if ( attributes.Length > 0 )
-                         return attributes[0].DisplayName;
-                 }
-
-                 return null;
-             }
-         }
-```
+[!code-text[](../../../code/samples/Model/UndoRedo/UndoRedoOperationFormatter.txt)]
 
 > [!NOTE]
 > The `Method` and `Arguments` properties of the `MethodExecutionOperationDescriptor` class are `null` unless the <xref:PostSharp.Patterns.Recording.RecordableAttribute.ProvideMethodContext> property is set to `true`. Apply the aspect as `[Recordable(ProvideMethodContext = true)]` to the classes that this formatter must handle.

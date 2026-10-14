@@ -32,52 +32,11 @@ Behaviors such as method boundary and interception advices cannot be provided th
 
 The following aspect implements <xref:System.IDisposable> on its target class, and disposes all the fields of the class whose type implements <xref:System.IDisposable>. `ProvideAdvices` imports each of these fields into the `DisposableFields` list, and introduces the interface only when the class has such fields.
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using PostSharp.Aspects;
-using PostSharp.Aspects.Advices;
-using PostSharp.Reflection;
-using PostSharp.Serialization;
+[!code-csharp[](../../../../code/samples/framework/aspects/type-level-aspects/DisposeFields.cs#aspect)]
 
-[PSerializable]
-public sealed class DisposeFieldsAttribute : InstanceLevelAspect, IAdviceProvider, IDisposable
-{
-    [PNonSerialized]
-    public List<ILocationBinding> DisposableFields;
+When the aspect is applied to a class that has two fields of a disposable `Connection` type, disposing an instance of the class prints the following output:
 
-    public IEnumerable<AdviceInstance> ProvideAdvices( object targetElement )
-    {
-        Type targetType = (Type) targetElement;
-        FieldInfo aspectField = typeof(DisposeFieldsAttribute).GetField( nameof(DisposableFields) );
-
-        List<FieldInfo> fields = targetType
-            .GetFields( BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly )
-            .Where( field => typeof(IDisposable).IsAssignableFrom( field.FieldType ) )
-            .ToList();
-
-        foreach ( FieldInfo field in fields )
-        {
-            yield return new ImportLocationAdviceInstance( aspectField, new LocationInfo( field ) );
-        }
-
-        if ( fields.Count > 0 )
-        {
-            yield return new IntroduceInterfaceAdviceInstance( typeof(IDisposable), InterfaceOverrideAction.Ignore );
-        }
-    }
-
-    public void Dispose()
-    {
-        foreach ( ILocationBinding binding in this.DisposableFields )
-        {
-            ((IDisposable) binding.GetValue( this.Instance ))?.Dispose();
-        }
-    }
-}
-```
+[!code-text[](../../../../code/samples/framework/aspects/type-level-aspects/DisposeFields.txt)]
 
 
 With <xref:PostSharp.Aspects.Advices.InterfaceOverrideAction.Ignore?text=InterfaceOverrideAction.Ignore>, a class that already implements <xref:System.IDisposable>, for instance through a base class, keeps its own `Dispose` method, and the aspect does not dispose its fields.

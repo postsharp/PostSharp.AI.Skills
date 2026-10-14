@@ -98,6 +98,12 @@ items:
       description: >-
         The type of the value adapter. This type must implement the <xref href="PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter" data-throw-if-not-resolved="false"></xref>
                     interface and have the same number of generic parameters as <code class="paramref">valueType</code>.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 8193
     content.vb: Public Sub Register(valueType As Type, valueAdapterType As Type)
   overload: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register*
 - uid: PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory.Register``1(PostSharp.Patterns.Caching.ValueAdapters.IValueAdapter{``0})

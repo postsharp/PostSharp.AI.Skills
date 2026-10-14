@@ -25,29 +25,7 @@ If you own the source code of a type, the easiest way to implement a custom form
 
 The following example shows how to implement the <xref:PostSharp.Patterns.Formatters.IFormattable> interface: 
 
-```csharp
-using PostSharp.Patterns.Diagnostics;
-using PostSharp.Patterns.Formatters;
-
-namespace PostSharp.Samples.Logging
-{
-    class CustomerData : PostSharp.Patterns.Formatters.IFormattable
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        
-        [Log(AttributeExclude=true)]
-        void Patterns.Formatters.IFormattable.Format(UnsafeStringBuilder stringBuilder, FormattingRole role)
-        {
-            stringBuilder.Append("{CustomerData FirstName=\"");
-            stringBuilder.Append(this.FirstName);
-            stringBuilder.Append("\", LastName=\"");
-            stringBuilder.Append(this.LastName);
-            stringBuilder.Append("\"}");
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#formattable)]
 
 > [!TIP]
 > To prevent the formatter from being logged, add `[Log(AttributeExclude=true)]` to the formatting method. 
@@ -61,40 +39,7 @@ If you do not own the source code of a type, you cannot implement the <xref:Post
 
 The following example illustrates a formatter for the <xref:System.Int32> type. 
 
-```csharp
-using PostSharp.Patterns.Diagnostics;
-using PostSharp.Patterns.Formatters;
-
-[Log(AttributeExclude=true)]
-class FancyIntFormatter : Formatter<int>
-{
-    public override void Write(UnsafeStringBuilder stringBuilder, int value)
-    {
-        switch ( value )
-        {
-            case 0:
-                stringBuilder.Append("zero");
-                break;
-
-            case 1:
-                stringBuilder.Append("one");
-                break;
-
-            case 2:
-                stringBuilder.Append("two");
-                break;
-
-            case 3:
-                stringBuilder.Append("three");
-                break;
-
-            default:
-                stringBuilder.Append(value);
-                break;
-        }
-    }
-}
-```
+[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#formatter)]
 
 > [!TIP]
 > To prevent the formatter from being logged, add `[Log(AttributeExclude=true)]` to the formatting method. 
@@ -106,15 +51,15 @@ Creating a new formatter class does not cause PostSharp to use it. You still nee
 
 Use the following code to register your formatter with PostSharp Logging:
 
-```csharp
-LoggingServices.Formatters.Register(new FancyIntFormatter());
-```
+[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#register-logging)]
+
+With the two formatters of this article, a logged method that receives a `CustomerData` object and the number 2 produces the following records:
+
+[!code-text[](../../code/samples/Logging/CustomFormatter.txt)]
 
 To use the same formatter in PostSharp Caching, use:
 
-```csharp
-CachingServices.Formatters.Register(new FancyIntFormatter());
-```
+[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#register-caching)]
 
 ## See Also
 

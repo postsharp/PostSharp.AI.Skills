@@ -38,7 +38,7 @@ items:
 
       [AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")]
 
-      public abstract class LogAttributeBase : MethodLevelAspect, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect
+      public abstract class LogAttributeBase : MethodLevelAspect, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAdviceProvider, IAspect
     content.vb: >-
       <AttributeUsage(AttributeTargets.AssemblyOrAttributeTargets.ModuleOrAttributeTargets.ClassOrAttributeTargets.StructOrAttributeTargets.ConstructorOrAttributeTargets.MethodOrAttributeTargets.PropertyOrAttributeTargets.Event, AllowMultiple:=True, Inherited:=False)>
 
@@ -50,7 +50,7 @@ items:
 
       <AspectRoleDependency(AspectDependencyAction.Order, AspectDependencyPosition.After, "Validation")>
 
-      Public MustInherit Class LogAttributeBase Inherits MethodLevelAspect Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAspect
+      Public MustInherit Class LogAttributeBase Inherits MethodLevelAspect Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, ILogAspect, IAdviceProvider, IAspect
   seealso:
   - linkType: HRef
     linkId: '@logging-customizing'
@@ -71,6 +71,7 @@ items:
   - PostSharp.Aspects.IAspectBuildSemantics
   - PostSharp.Extensibility.IValidableAnnotation
   - PostSharp.Patterns.Diagnostics.ILogAspect
+  - PostSharp.Aspects.Advices.IAdviceProvider
   - PostSharp.Aspects.IAspect
   inheritedMembers:
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)

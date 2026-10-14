@@ -23,16 +23,7 @@ To enable per-request logging with ASP.NET Core:
 * In your `Program.Main` method, include a call to the <xref:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)> method. 
     If you want to enable support for distributed logging, you need to pass a value to the `correlationProtocol` parameter. The only available implementation is currently <xref:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol>. 
 
-```csharp
-// Defines a filter that selects trusted requests.
-// Enabling HTTP Correlation Protocol for communication with untrusted devices is a security risk.
-Predicate<CorrelationRequest> trustedRequests = request => request.RemoteHost == "localhost" ||
-                                                          request.RemoteHost == "127.0.0.1" ||
-                                                          request.RemoteHost == "::1";
-
-// Assigns the HTTP Correlation Protocol to ASP.NET Core instrumentation.
-AspNetCoreLogging.Initialize( correlationProtocol: new LegacyHttpCorrelationProtocol( trustedRequests ) );
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingInstrumentationAspNetCore.cs#example)]
 
 This will log any incoming HTTP request and, if you have set up request correlation, it will interpret the HTTP headers related to distributed logging. To learn how to configure verbosity on a per-request basis, see <xref:log-enabling> for details. 
 
@@ -59,6 +50,7 @@ To enable per-request logging with ASP.NET:
 
 * If you want to enable support for distributed logging, you need to set the <xref:PostSharp.Patterns.Diagnostics.Adapters.AspNetFramework.PostSharpLoggingHttpModule.CorrelationProtocol> property during your application startup. The only available implementation is currently <xref:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol>. 
     Therefore, add this to your `Global.asax`: 
+    <!-- not-compiled: ASP.NET Framework only (Global.asax) -->
     ```csharp
     // Defines a filter that selects trusted requests.
     // Enabling HTTP Correlation Protocol for communication with untrusted devices is a security risk.
@@ -85,16 +77,7 @@ To add the `HttpClient` instrumentation to your code:
 * In your `Program.Main` method, include a call to the <xref:PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{System.Uri})> method. 
     If you want to enable support for distributed logging, you need to pass a value to the `correlationProtocol` parameter. The only available implementation is currently <xref:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol>. It is important that you use the same protocol in the client and the server. 
 
-```csharp
-// Defines a filter that selects trusted requests.
-// Enabling HTTP Correlation Protocol for communication with untrusted devices is a security risk.
-Predicate<CorrelationRequest> trustedRequests = request => request.RemoteHost == "localhost" ||
-                                                          request.RemoteHost == "127.0.0.1" ||
-                                                          request.RemoteHost == "::1";
-
-// Assigns the HTTP Correlation Protocol to HttpClient instrumentation.
-HttpClientLogging.Initialize( correlationProtocol: new LegacyHttpCorrelationProtocol( trustedRequests ) );
-```
+[!code-csharp[](../../../code/samples/Logging/LoggingInstrumentationHttpClient.cs#example)]
 
 ## See Also
 

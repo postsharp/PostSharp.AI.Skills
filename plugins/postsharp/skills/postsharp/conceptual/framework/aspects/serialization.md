@@ -53,12 +53,7 @@ See section <xref:aspect-configuration> for details.
 
 The following code shows how to choose the serializer type for an <xref:PostSharp.Aspects.OnMethodBoundaryAspect>: 
 
-```csharp
-[OnMethodBoundaryAspectConfiguration(SerializerType=typeof(MsilAspectSerializer))]
-public sealed class MyAspect : OnMethodBoundaryAspect
-{
-}
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Advanced/MsilAspectSerializerSample.cs#example)]
 
 ## See Also
 

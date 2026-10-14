@@ -193,6 +193,12 @@ items:
       type: System.Type
     - id: formatterType
       type: System.Type
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 8193
     content.vb: Public Shared Sub Register(targetType As Type, formatterType As Type)
   overload: PostSharp.Patterns.Formatters.FormatterRepository`1.Register*
   nameWithType.vb: FormatterRepository(Of TRole).Register(Type, Type)

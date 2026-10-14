@@ -25,6 +25,8 @@ items:
   remarks: >-
     <p>Use this advice instead of <xref href="PostSharp.Aspects.Advices.InitializeAspectInstanceAdvice" data-throw-if-not-resolved="false"></xref> when the initialization logic of the aspect
         depends on other aspects of the same target being initialized.</p>
+    <p>The aspect must be applied to a type or to a member of a type. For a member, the advice is registered on the declaring type of the member.
+        In an aspect applied to an assembly, such as an <xref href="PostSharp.Aspects.AssemblyLevelAspect" data-throw-if-not-resolved="false"></xref>, the advice causes the error LA0088.</p>
   example: []
   syntax:
     content: >-

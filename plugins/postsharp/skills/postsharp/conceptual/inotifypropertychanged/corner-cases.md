@@ -21,20 +21,7 @@ Use the <xref:PostSharp.Patterns.Model.IgnoreAutoChangeNotificationAttribute> cl
 
 In this example, the `CustomerModel` class contains a `Country` property among others. To prevent a property notification from being invoked when the value of this property is set, place the <xref:PostSharp.Patterns.Model.IgnoreAutoChangeNotificationAttribute> attribute above the property. 
 
-```csharp
-[NotifyPropertyChanged]
-public class CustomerModel 
-{ 
-    public string FirstName { get; set; } 
-    public string LastName { get; set; } 
-    public string Phone { get; set; } 
-    public string Mobile { get; set; } 
-    public string Email { get; set; } 
-
-    [IgnoreAutoChangeNotification]
-    public string Country { get; set;}
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcIgnore.cs#example)]
 
 
 ## Handling virtual calls, delegates, external methods, or complex data flows
@@ -69,35 +56,7 @@ Even if you remove the error, PostSharp still analyzes the `Country` property ge
 
 
 
-```csharp
-[NotifyPropertyChanged]
-public class Address 
-{ 
-  string _country;
-  public string Continent { get; set; }
- 
-  public virtual bool ValidateCountry(string country)
-  {
-     return GeoService.ContinentContains( this.Continent, country );
-  }
-
-  [SafeForDependencyAnalysis]
-  public string Country 
-  { 
-    get
-    {
-      Depends.On( this.Continent );
-    
-      if(this.ValidateCountry(_country))
-        return _country;
-      else
-        return "Lilliput";
-    }
-    
-    set { _country = value; }
-  }
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcSafeForDependencyAnalysis.cs#example)]
 
 
 ## Handling dependencies on pure methods
@@ -111,30 +70,7 @@ Consider the following variation to `CustomerModel` where the `ValidPhoneNumber`
 
 Since `GetValidPhoneNumber()` is a standalone method of another class, it is not analyzed. Therefore the <xref:PostSharp.Patterns.Model.PureAttribute> attribute needs to be applied to this method to acknowledge this dependency. 
 
-```csharp
-public class ContactHelper
-{
-  [Pure]
-  public static string GetValidPhoneNumber(string firstPhoneNumber, string secondPhoneNumber)
-  {
-    return firstPhoneNumber ?? secondPhoneNumber;
-  }
-}
-
-[NotifyPropertyChanged]
-public class CustomerModel 
-{ 
-  public Contact PrimaryContact {get; set;}
-  public Contact SecondaryContact {get; set;}
-
-  public string ValidPhoneNumber
-  { 
-    get {
-      return ContactHelper.GetValidPhoneNumber(this.PrimaryContact.Phone, this.SecondaryContact.Phone);
-    }
-  }
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcPure.cs#example)]
 
 
 ## Handling dependencies on collections
@@ -150,38 +86,7 @@ In the following `Recipe` class, the `LongestStep` property gets the duration of
 
 Since the collection property is marked with <xref:PostSharp.Patterns.Model.AggregateAllChangesAttribute>, each change to this collection will result in a change of the `LongestStep` property even though the property still contains the same collection object. 
 
-```csharp
-public class RecipeStep
-{  
-  public TimeSpan Duration { get; }
-  
-  public RecipeStep(TimeSpan duration)
-  {
-    Duration = duration;
-  }
-}
-
-[NotifyPropertyChanged]
-public class Recipe 
-{ 
-  [AggregateAllChanges]
-  public ObservableCollection<RecipeStep> Steps { get; }
-  
-  public Recipe()
-  {
-    Steps = new ObservableCollection<RecipeStep>();
-  }
-
-  [SafeForDependencyAnalysis]
-  public TimeSpan LongestStep
-  { 
-    get 
-    {      
-      return this.Steps.Max(x => x.Duration);
-    }
-  }
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcAggregateAllChanges.cs#example)]
 
 ## See Also
 

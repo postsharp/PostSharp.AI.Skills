@@ -33,24 +33,7 @@ To force a method to execute on the foreground thread:
 
 The following example shows how to use both <xref:PostSharp.Patterns.Threading.BackgroundAttribute> and <xref:PostSharp.Patterns.Threading.DispatchedAttribute> to specify on which threads different methods of the class are executed. 
 
-```csharp
-[Background]
-private void SaveButton_Click( object sender, RoutedEventArgs e )
-{
-   using ( var file = File.CreateText( this.path ) )
-   {
-      this.model.SaveTo( file );
-   }
-   
-   this.SaveCompleted();
-}
-
-[Dispatched] 
-private void SaveCompleted() 
-{ 
-    this.StatusLabel.Text = "Finished Saving"; 
-}
-```
+[!code-csharp[](../../code/samples/Threading/UiDispatching.cs#example)]
 
 
 ## Executing a method asynchronously
@@ -59,13 +42,7 @@ By default, the <xref:PostSharp.Patterns.Threading.DispatchedAttribute> forces t
 
 You can enable asynchronous execution of a dispatched method by passing the `true` value to the parameter of the <xref:PostSharp.Patterns.Threading.DispatchedAttribute> class constructor, for instance: 
 
-```csharp
-[Dispatched(true)] 
-private void SaveCompleted() 
-{ 
-    this.StatusLabel.Text = "Finished Saving"; 
-}
-```
+[!code-csharp[](../../code/samples/Threading/UiDispatching.cs#async)]
 
 
 ## Executing async methods in the foreground thread

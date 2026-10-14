@@ -45,36 +45,15 @@ Both classes define a virtual method named <xref:PostSharp.Aspects.OnExceptionAs
 
 The following snippet shows an example of an exception handler which watches for exceptions of any type, and then writes a message to the console when an exception occurs:
 
-```csharp
-[PSerializable]
-public class PrintExceptionAttribute : OnExceptionAspect
-{
-
-    public override void OnException(MethodExecutionArgs args)
-    {
-        Console.WriteLine(args.Exception.Message);
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintException.cs#aspect)]
 
 Once created, apply the derived class to all methods and/or properties for which the exception handling logic is to be used, as shown in the following example:
 
-```csharp
-class Customer
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintException.cs#customer)]
 
-    [PrintException]
-    public void StoreName(string path)
-    {
-        File.WriteAllText( path, string.Format( "{0} {1}", this.FirstName, this.LastName ) );
-    }
+Here `PrintException` will output a message when an exception occurs in trying to write text to a file. For instance, when the directory of the file does not exist, the program prints the following output. The exception is still thrown to the caller after the aspect prints the message:
 
-}
-```
-
-Here `PrintException` will output a message when an exception occurs in trying to write text to a file. 
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintException.txt)]
 
 
 ## Specifying the type of handled exceptions
@@ -88,44 +67,11 @@ If the aspect needs to handle several types of exception, the `GetExceptionType`
 
 In the following snippet, we have updated the `PrintExceptionAttribute` aspect and added the possibility to specify, in the custom attribute constructor, which type of exception should be traced. 
 
-```csharp
-[PSerializable]
-public class PrintExceptionAttribute : OnExceptionAspect
-{
-    Type type;
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintExceptionType.cs#example)]
 
-    public PrintExceptionAttribute(Type type)
-    {
-        this.type = type;
-    }
+When `StoreName` fails with an <xref:System.IO.IOException>, the aspect prints the message. When it fails with an <xref:System.ArgumentException>, the aspect does nothing:
 
-    // Method invoked at build time.
-    // Should return the type of exceptions to be handled. 
-    public override Type GetExceptionType(MethodBase method)
-    {
-        return this.type;
-    }
-
-
-    public override void OnException(MethodExecutionArgs args)
-    {
-        Console.WriteLine(args.Exception.Message);
-    }
-}
-
-class Customer
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-
-    [PrintException(typeof(IOException))]
-    public void StoreName(string path)
-    {
-        File.WriteAllText( path, string.Format( "{0} {1}", this.FirstName, this.LastName ) );
-    }
-
-}
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintExceptionType.txt)]
 
 
 ## Ignoring ("swallowing") exceptions
@@ -139,29 +85,11 @@ Exceptions can be ignored by setting the <xref:PostSharp.Aspects.MethodExecution
 
 The following aspect catches all exceptions flowing from the methods the aspect is applied to, prints the exception to the console, and makes the target method return `-1` instead of failing with an exception. 
 
-```csharp
-[PSerializable]
-public class PrintAndIgnoreExceptionAttribute : OnExceptionAspect
-{
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintAndIgnoreException.cs#example)]
 
-    public override void OnException(MethodExecutionArgs args)
-    {
-        Console.WriteLine(args.Exception.Message);
-        args.FlowBehavior = FlowBehavior.Return;
-        args.ReturnValue = -1;
-    }
-}
+When the file does not exist, `GetDataLength` prints the message and returns `-1`:
 
-public class Customer
-{
-    [PrintAndIgnoreException]
-    public int GetDataLength(string path)
-    {
-       return File.ReadAllText(path).Length;
-    }
-
-}
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/PrintAndIgnoreException.txt)]
 
 
 ## Replacing or wrapping exceptions
@@ -170,20 +98,9 @@ Often, the original exception must be hidden from the user or the client of the 
 
 * `FlowBehavior.RethrowException`: rethrows the original exception after the exception handler exits. This is the default behavior for the <xref:PostSharp.Aspects.OnExceptionAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)> advice. 
 
-* `FlowBehavior.ThrowException`: throws a new exception once the exception handler exits. This is useful when details of the original exception should be hidden from the user or when a more meaningful exception is to be shown instead. When throwing a new exception, a new exception object must be assigned to the `Exception` member of <xref:PostSharp.Aspects.MethodExecutionArgs>. The following snippet shows the creation of a new `BusinessExceptionAttribute` which throws a `BusinessException` containing a description of the cause: 
+* `FlowBehavior.ThrowException`: throws a new exception once the exception handler exits. This is useful when details of the original exception should be hidden from the user or when a more meaningful exception is to be shown instead. When throwing a new exception, a new exception object must be assigned to the `Exception` member of <xref:PostSharp.Aspects.MethodExecutionArgs>. The following snippet shows the creation of a new `BusinessExceptionAttribute` which throws a `BusinessException` containing a description of the cause, and the original exception as the inner exception: 
 
-    ```csharp
-    [PSerializable]
-    public sealed class BusinessExceptionAttribute : OnExceptionAspect
-    {
-        public override void OnException(MethodExecutionArgs args)
-        {
-            Guid guid = Guid.NewGuid();
-            args.FlowBehavior = FlowBehavior.ThrowException;        
-            args.Exception = new BusinessException("Bad arguments. Use the id " + guid.ToString() + " for more information.");
-        }
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/BusinessExceptionWrapping.cs#aspect)]
 
 
 > [!NOTE]
@@ -194,36 +111,7 @@ Often, the original exception must be hidden from the user or the client of the 
 
 The following aspect handles all exceptions in the `BusinessServices` class by generating a GUID for it, writing all details to the trace file and then throwing a `BusinessException` showing just the incident GUID and hiding other details. 
 
-```csharp
-[PSerializable]
-public sealed class HandleExceptionsAttribute : OnExceptionAspect
-{
-    public override void OnException(MethodExecutionArgs args)
-    {
-        Guid guid = Guid.NewGuid();
-
-        // In a real-world app, we would file the exception in the QA database.
-        Trace.WriteLine( $"Exception {guid}:");
-        Trace.WriteLine(args.Exception.ToString());
-
-        args.FlowBehavior = FlowBehavior.ThrowException;
-        args.Exception = new BusinessException( $"The service failed unexpectedly. Please report the incident to the QA team with the id #{guid}." );
-    }
-}              
-
-[HandleExceptions]
-public class BusinessServices
-{ 
-   // Dozens of methods here.
-}
-
-public class BusinessException : Exception
-{
-    public BusinessException(string message) : base(message)
-    {            
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/HandleExceptions.cs#example)]
 
 
 ## Accessing the current execution context
@@ -247,23 +135,7 @@ The following table lists the pieces of context made available by the <xref:Post
 
 The following code improves the previous example by adding more context information to the print-out of the exception details.
 
-```csharp
-[PSerializable]
-public sealed class HandleExceptionsAttribute : OnExceptionAspect
-{
-    public override void OnException(MethodExecutionArgs args)
-    {
-        Guid guid = Guid.NewGuid();
-
-        // In a real-world app, we would file the exception in the QA database.
-        Trace.WriteLine( $"Exception {guid} when invoking the method {args.Method.DeclaringType.FullName}.{args.Method.Name}({string.Join(", ", args.Arguments)}) ");
-        Trace.WriteLine(args.Exception.ToString());
-
-        args.FlowBehavior = FlowBehavior.ThrowException;
-        args.Exception = new BusinessException( $"The service failed unexpectedly. Please report the incident to the QA team with the id #{guid}." );
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/HandleExceptionsContext.cs#aspect)]
 
 ## See Also
 

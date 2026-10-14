@@ -71,6 +71,12 @@ items:
   - PostSharp
   namespace: PostSharp.Serialization
   summary: Gets a <xref href="System.Type" data-throw-if-not-resolved="false"></xref> given a type name and an assembly name.
+  remarks: >-
+    The default implementation resolves the name with <xref href="System.Type.GetType(System.String)" data-throw-if-not-resolved="false"></xref>. It throws a <xref href="System.NotSupportedException" data-throw-if-not-resolved="false"></xref>
+
+    in an application that is trimmed or compiled ahead of time, because the trimmer can remove the type. Override this method to
+
+    resolve the names in such an application.
   example: []
   syntax:
     content: public virtual Type BindToType(string typeName, string assemblyName)

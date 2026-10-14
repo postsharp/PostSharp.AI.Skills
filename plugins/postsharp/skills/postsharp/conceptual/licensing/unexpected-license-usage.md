@@ -24,7 +24,7 @@ A license key identifies your account. It does not carry the number of users tha
 
 We aggregate the reported usage on our servers, per product and per product version, over all the license keys that belong to your account. The key that a given developer used therefore does not change the total.
 
-Builds running unattended on a build server are not counted, whether or not a license key is installed there. PostSharp detects an unattended build and uses an internal license for it, before it reads any key of yours. That internal license is not audited. The internal license does not cover the features of PostSharp Logging, so a license key is still needed on the build server for these features, but the use of that key on the build server is not counted either. See <xref:build-server>.
+Builds running unattended on a build server are not counted, whether or not a license key is installed there. PostSharp detects an unattended build and uses an internal license for it, before it reads any key of yours. That internal license is not audited, and it covers every feature. See <xref:build-server>.
 
 PostSharp treats a build as unattended when it does not run interactively, when it runs in a container, or when its parent process is a known build agent. The known build agents include TeamCity, Jenkins, Azure Pipelines, GitHub Actions, GitLab CI, Bamboo, GoCD, Buildkite, CircleCI, Semaphore and Travis. A build machine that matches none of these conditions, such as a scheduled build on somebody's desktop computer, is counted like any other machine.
 

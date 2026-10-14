@@ -167,6 +167,12 @@ items:
     - id: serializerType
       type: System.Type
       description: The type of the serializer. It must be derived from <xref href="PostSharp.Serialization.ISerializer" data-throw-if-not-resolved="false"></xref>.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 1
     content.vb: Public Sub AddSerializer(objectType As Type, serializerType As Type)
   overload: PostSharp.Serialization.SerializerFactoryProvider.AddSerializer*
 - uid: PostSharp.Serialization.SerializerFactoryProvider.GetSurrogateType(System.Type)

@@ -21,38 +21,12 @@ To define custom transactions and use them in the policy XML file:
 
 2. Create the *expression model* class, for instance `MorningBatchExpressionModel`. That will become the type of the <xref:PostSharp.Patterns.Diagnostics.Transactions.Model.OpenTransactionExpressionModel`1.Request> property that is visible to the XML policy file. 
 
-    ```csharp
-    public readonly struct MorningBatchExpressionModel
-    {
-        internal MorningBatchExpressionModel( string fileName )
-        {
-            this.FileName = fileName;
-        }
-
-        public string FileName { get; }
-
-        public DateTime LastWriteTime => File.GetLastWriteTime(this.FileName);
-
-        public long Size => new FileInfo(this.FileName).Length;
-    }
-    ```
+    [!code-csharp[](../../code/samples/Logging/LoggingCustomTransactions/LoggingCustomTransactions.cs#expression-model)]
 
 
 3. Derive a class from <xref:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata> and use your expression model type as the generic argument. Expose a singleton instance of this class. 
 
-    ```csharp
-    internal sealed class MorningBatchMetadata : LogEventMetadata<MorningBatchExpressionModel>
-    {
-        public static readonly MorningBatchMetadata Instance = new MorningBatchMetadata();
-
-        private MorningBatchMetadata() : base( "MorningBatch" )
-        {
-        }
-
-        public override MorningBatchExpressionModel GetExpressionModel( object data )
-            => new MorningBatchExpressionModel( (string) data );
-    }
-    ```
+    [!code-csharp[](../../code/samples/Logging/LoggingCustomTransactions/LoggingCustomTransactions.cs#metadata)]
 
 
 4. In your source code, find the place where the transaction starts and ends. Create an <xref:PostSharp.Patterns.Diagnostics.OpenActivityOptions> instance and pass a <xref:PostSharp.Patterns.Diagnostics.Custom.LogEventData> created from your singleton <xref:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata>. 
@@ -68,50 +42,16 @@ To define custom transactions and use them in the policy XML file:
 
     Your transaction code will now look like this:
 
-    ```csharp
-    var logSource = LogSource.Get();
-
-    foreach ( var fileName in Directory.GetFiles( ".", "*.batch" ) )
-    {
-        var options = new OpenActivityOptions(
-                            LogEventData.Create( fileName, MorningBatchMetadata.Instance ),
-                            LogActivityKind.Transaction );
-
-        logSource.ApplyTransactionRequirements( ref options );
-
-        var transaction = logSource.Default.OpenActivity(
-                            Formatted( "Processing {FileName}", fileName ),
-                            options );
-
-        try
-        {
-            // The original transaction processing code is here.
-
-            transaction.SetSuccess();
-        }
-        catch ( Exception e )
-        {
-            transaction.SetException( e );
-            throw;
-        }
-    }
-    ```
+    [!code-csharp[](../../code/samples/Logging/LoggingCustomTransactions/LoggingCustomTransactions.cs#transaction)]
 
 
 8. You can now create a configuration file that references your expression model. For instance, the following file will enable logging for batch files larger than a thousand bytes:
 
-    ```xml
-    <logging>
-        <verbosity level='warning'/>
-        <transactions>
-            <policy type='MorningBatch' if='t.Request.Size &gt; 1000' name='Policy1'>
-                <verbosity>
-                    <source level='debug'/>
-                </verbosity>
-            </policy>
-        </transactions>
-    </logging>
-    ```
+    [!code-xml[](../../code/samples/Logging/LoggingCustomTransactions/logging.xml)]
+
+    With a file of 100 bytes and a file of 2000 bytes, only the processing of the large file is logged:
+
+    [!code-text[](../../code/samples/Logging/LoggingCustomTransactions/LoggingCustomTransactions.txt)]
 
 
 

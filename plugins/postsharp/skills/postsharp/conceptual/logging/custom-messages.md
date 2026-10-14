@@ -24,17 +24,12 @@ To write a custom text message to the log:
 
 1. Add the following statements at the top of your C# file:
 
-    ```csharp
-    using PostSharp.Patterns.Diagnostics;
-    using static PostSharp.Patterns.Diagnostics.FormattedMessageBuilder;
-    ```
+    [!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#usings)]
 
 
 2. Add a static read-only field of type <xref:PostSharp.Patterns.Diagnostics.LogSource> and initialize it with the <xref:PostSharp.Patterns.Diagnostics.LogSource.Get> method: 
 
-    ```csharp
-    private static readonly LogSource logSource = LogSource.Get();
-    ```
+    [!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#field)]
 
 
 3. Evaluate the property corresponding to the desired log level, e.g. <xref:PostSharp.Patterns.Diagnostics.LogSource.Debug> or <xref:PostSharp.Patterns.Diagnostics.LogSource.Error>. 
@@ -42,35 +37,13 @@ To write a custom text message to the log:
 
 4. Invoke the <xref:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)> method. Construct the message object to pass to this method by invoking the <xref:PostSharp.Patterns.Diagnostics.FormattedMessageBuilder.Formatted*> method. 
 
-    ```csharp
-    logSource.Debug.Write( Formatted( "Hello, world." ) );
-    ```
+    [!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#write)]
 
 
 
 ### Example
 
-```csharp
-using System.Threading.Tasks;
-using PostSharp.Patterns.Diagnostics;
-using static PostSharp.Patterns.Diagnostics.FormattedMessageBuilder;
-
-static class Hasher
-{
-    private static readonly LogSource logSource = LogSource.Get();
-
-    public static async Task ReadAndHashAsync(string url)
-    {
-        if ( string.IsNullOrEmpty( url ) )
-        {
-            logSource.Warning.Write( Formatted( "Empty URL passed. Skipping this method." ) );
-            return;
-        }
-
-        // Details skipped.
-    }
-}
-```
+[!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#example)]
 
 
 ## Writing text messages with parameters
@@ -97,40 +70,11 @@ The formatting string has the following specifications:
 
 ### Example
 
-```csharp
-using System.Net.Http;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using PostSharp.Patterns.Diagnostics;
-using static PostSharp.Patterns.Diagnostics.FormattedMessageBuilder;
+[!code-csharp[](../../code/samples/Logging/LogFormattedMessages.cs#example)]
 
-static class Hasher
-{
-    private static readonly LogSource logSource = LogSource.Get();
-    private static readonly HttpClient httpClient = new HttpClient();
+With a file of 40,000 bytes, this code produces the following output:
 
-    public static async Task<byte[]> ReadAndHashAsync(string url)
-    {
-        using var hashAlgorithm = SHA256.Create();
-        var buffer = new byte[16 * 1024];
-
-        logSource.Info.Write( Formatted( "Using a {BufferSize}-byte buffer.", buffer.Length ) );
-
-        using (var stream = await httpClient.GetStreamAsync(url))
-        {
-            int countRead;
-            while ((countRead = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
-            {
-                logSource.Info.Write( Formatted( "Got {CountRead} bytes.", countRead ) );
-                hashAlgorithm.TransformBlock(buffer, 0, countRead, null, 0);
-            }
-        }
-
-        hashAlgorithm.TransformFinalBlock(buffer, 0, 0);
-        return hashAlgorithm.Hash;
-    }
-}
-```
+[!code-text[](../../code/samples/Logging/LogFormattedMessages.txt)]
 
 
 ## Writing semantic messages for easy statistical processing
@@ -146,40 +90,11 @@ To emit semantic messages, use the <xref:PostSharp.Patterns.Diagnostics.Semantic
 
 ### Example
 
-```csharp
-using System.Net.Http;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
-using PostSharp.Patterns.Diagnostics;
-using static PostSharp.Patterns.Diagnostics.SemanticMessageBuilder;
+[!code-csharp[](../../code/samples/Logging/LogSemanticMessages.cs#example)]
 
-static class Hasher
-{
-    private static readonly LogSource logSource = LogSource.Get();
-    private static readonly HttpClient httpClient = new HttpClient();
+With a file of 40,000 bytes, this code produces the following output:
 
-    public static async Task<byte[]> ReadAndHashAsync(string url)
-    {
-        using var hashAlgorithm = SHA256.Create();
-        var buffer = new byte[16 * 1024];
-
-        logSource.Info.Write( Semantic( "Initialize", ("BufferSize", buffer.Length) ) );
-
-        using (var stream = await httpClient.GetStreamAsync(url))
-        {
-            int countRead;
-            while ((countRead = await stream.ReadAsync(buffer, 0, buffer.Length)) != 0)
-            {
-                logSource.Info.Write( Semantic( "ReadChunk", ("CountRead", countRead) ) );
-                hashAlgorithm.TransformBlock(buffer, 0, countRead, null, 0);
-            }
-        }
-
-        hashAlgorithm.TransformFinalBlock(buffer, 0, 0);
-        return hashAlgorithm.Hash;
-    }
-}
-```
+[!code-text[](../../code/samples/Logging/LogSemanticMessages.txt)]
 
 
 ## Using default log levels
@@ -202,28 +117,7 @@ Alternatively, you can use the <xref:PostSharp.Patterns.Diagnostics.LogSource.De
 
 The following example illustrates how to configure log sources centrally:
 
-```csharp
-using PostSharp.Patterns.Diagnostics;
-using static PostSharp.Patterns.Diagnostics.FormattedMessageBuilder;
-
-static class LogSources
-{
-    // Configure a prototype LogSource that you will reuse in several classes.
-    public static readonly LogSource Default = LogSource.Get().WithLevels( LogLevel.Trace, LogLevel.Warning );
-}
-
-class MyClass
-{
-    // Instantiates a LogSource from the prototype for the current type.
-    static readonly LogSource logSource = LogSources.Default.ForCurrentType();
-
-    void MyMethod()
-    {
-        // Write a message with default verbosity.
-        logSource.Default.Write( Formatted( "Hello, World." ) );
-    }
-}
-```
+[!code-csharp[](../../code/samples/Logging/LogDefaultLevels.cs#example)]
 
 
 ## Optimizing performance with the 'Elvis' operator
@@ -239,9 +133,7 @@ However, it is much more convenient to use the <xref:PostSharp.Patterns.Diagnost
 
 The following example uses the <xref:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull> and the Elvis operator to make sure the expensive `File.GetLastWriteTime` method is evaluated only when debug-level logging is enabled. 
 
-```csharp
-logSource.Debug.EnabledOrNull?.Write( Formatted( "The last change date of the file is {LastChangeDate}.", File.GetLastWriteTime("oh-my.txt")  ) );
-```
+[!code-csharp[](../../code/samples/Logging/LogEnabledOrNull.cs#example)]
 
 
 ## Implementing your own type of messages

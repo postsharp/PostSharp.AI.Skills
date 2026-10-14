@@ -26,15 +26,7 @@ To make an object freezable:
 
 2. Add the <xref:PostSharp.Patterns.Threading.FreezableAttribute> custom attribute to your class. 
 
-    ```csharp
-    using PostSharp.Patterns.Threading;
-    
-    [Freezable]
-    public class Invoice
-    {
-      public long Id { get; set; }
-    }
-    ```
+    [!code-csharp[](../../../code/samples/Threading/Freezable.cs#class)]
 
 
 3. Annotate your object model for parent/child relationships as described in <xref:aggregatable-adding>. 
@@ -45,12 +37,7 @@ To make an object freezable:
 
 To freeze an object, you will first have to cast the object to the <xref:PostSharp.Patterns.Threading.IFreezable> interface. After that, you will be able to call the <xref:PostSharp.Patterns.Threading.IFreezable.Freeze> method. 
 
-```csharp
-var invoice = new Invoice();
-invoice.Id = 123456;
-
-((IFreezable)invoice).Freeze();
-```
+[!code-csharp[](../../../code/samples/Threading/Freezable.cs#freeze)]
 
 > [!NOTE]
 > The <xref:PostSharp.Patterns.Threading.IFreezable> interface will be injected into the `Invoice` class *after* compilation. Tools that are not aware of PostSharp may incorrectly report that the `Invoice` class does not implement the <xref:PostSharp.Patterns.Threading.IFreezable> interface. 
@@ -61,15 +48,7 @@ invoice.Id = 123456;
 
 Once you have called the <xref:PostSharp.Patterns.Threading.IFreezable.Freeze> method on an object instance, the code will no longer be able to change the property values on that instance. If a value change is attempted, the code will throw an <xref:PostSharp.Patterns.Threading.ObjectReadOnlyException>. 
 
-```csharp
-var invoice = new Invoice();
-invoice.Id = 123456;
-
-((IFreezable)invoice).Freeze();
-
-// This will throw an exception.
-invoice.Id = 345678;
-```
+[!code-csharp[](../../../code/samples/Threading/Freezable.cs#modify)]
 
 
 ## Rules enforced by the Freezable aspect
@@ -89,15 +68,7 @@ A freezable object will throw the following exceptions at run time:
 
 To determine whether an object has been frozen, cast it to <xref:PostSharp.Patterns.Threading.IThreadAware> and get the read-only value from <xref:PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly> via the <xref:PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController> property. 
 
-```csharp
-var invoice = new Invoice();
-invoice.Id = 123456;
-
-((IFreezable)invoice).Freeze();
-
-// The 'frozen' property will be set to 'true'.
-bool frozen = ((IThreadAware)invoice).ConcurrencyController.IsReadOnly;
-```
+[!code-csharp[](../../../code/samples/Threading/Freezable.cs#frozen)]
 
 
 ## Freezable object trees

@@ -22,10 +22,7 @@ In the following example, we see how to implement recursive validation for an ob
 
 1. Cast the parent object to the <xref:PostSharp.Patterns.Model.IAggregatable> interface. 
 
-    ```csharp
-    var invoice = new Invoice();
-    IAggregatable aggregatable = (IAggregatable) invoice;
-    ```
+    [!code-csharp[](../../code/samples/Model/Aggregatable/AggregatableVisitor.cs#cast)]
 
     > [!NOTE]
     > The <xref:PostSharp.Patterns.Model.IAggregatable> interface will be injected into the `Invoice` class *after* compilation. Tools that are not aware of PostSharp may incorrectly report that the `Invoice` class does not implement the <xref:PostSharp.Patterns.Model.IAggregatable> interface. Instead of using the cast operator, you can also use the <xref:PostSharp.Post.Cast``2(``0)> method. This method is faster and safer than the cast operator because it is verified and compiled by PostSharp at build time. 
@@ -36,24 +33,14 @@ In the following example, we see how to implement recursive validation for an ob
 
 2. Invoke the <xref:PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)> method and pass a delegate to the method to be executed. 
 
-    ```csharp
-    var invoice = new Invoice();
-    IAggregatable aggregatable = DynamicAdvisingServices.QueryInterface<IAggregatable>( invoice );
-    int errors = 0;
-    bool isValid = aggregatable.VisitChildren( (child, childInfo, state) =>
-            {
-    	        var validatable = child as IValidatable;
-    	        if (validatable != null)
-    	        {
-    		        if ( !validatable.Validate() )
-                  errors++;
-    	        }
-              return true;
-            });
-    ```
+    [!code-csharp[](../../code/samples/Model/Aggregatable/AggregatableVisitor.cs#visit)]
 
     > [!NOTE]
-    > The visitor must return `true` to continue the enumeration and `false` to stop the enumeration. 
+    > The visitor must return `true` to continue the enumeration and `false` to stop the enumeration. The <xref:PostSharp.Patterns.Model.IAggregatable.VisitChildren(PostSharp.Patterns.Model.ChildVisitor,PostSharp.Patterns.Model.ChildVisitorOptions,System.Object)> method returns `false` if the visitor stopped the enumeration. 
+
+With an invoice that has a line whose amount is zero and a delivery address without a city, the program finds two errors:
+
+[!code-text[](../../code/samples/Model/Aggregatable/AggregatableVisitor.txt)]
 
 
 ## See Also

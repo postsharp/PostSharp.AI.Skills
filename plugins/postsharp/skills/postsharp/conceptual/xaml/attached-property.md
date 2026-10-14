@@ -27,9 +27,7 @@ The <xref:PostSharp.Patterns.Xaml.AttachedPropertyAttribute> aspect is a special
 
 3. Create a method that calls `SetValue` on the attached property. This method must be named `SetX`, where `X` is the name of the attached property and must look as follows: 
 
-    ```csharp
-    public static void SetDock(DependencyObject host, Dock value) => Dock.SetValue(host, value);
-    ```
+    [!code-csharp[](../../code/samples/XAML/AttachedProperty.cs#set-method)]
 
     > [!NOTE]
     > PostSharp cannot create the "Set" method boilerplate automatically because PostSharp runs after compilation, but this code must already exist before XAML compilation.
@@ -37,37 +35,30 @@ The <xref:PostSharp.Patterns.Xaml.AttachedPropertyAttribute> aspect is a special
 
 ### Example
 
-The following example declares a `Dock` attached property in the `MyDockPanel` class:
+The following example declares a `Position` attached property in the `MyDockPanel` class:
 
-```csharp
-[AttachedProperty]
-public static Attached<Dock> Dock { get; private set; }
-
-public static void SetDock(DependencyObject host, Dock value) => Dock.SetValue(host, value);
-```
+[!code-csharp[](../../code/samples/XAML/AttachedProperty.cs#property)]
 
 
 ## Using the attached property
 
 After you have marked your property with the <xref:PostSharp.Patterns.Xaml.AttachedPropertyAttribute> attribute, you can directly start to use it in XAML. For example, you can set the value of the property on any object using the attached property syntax in XAML. 
 
-```xml
-<MyDockPanel>
-  <CheckBox MyDockPanel.Dock="Top">Hello</CheckBox>
-</MyDockPanel>
-```
+[!code-xml[](../../code/samples/XAML/AttachedProperty.xaml)]
 
 You can also read and write the property value on any object in C# by using the <xref:PostSharp.Patterns.Xaml.Attached`1.GetValue(System.Windows.DependencyObject)> and <xref:PostSharp.Patterns.Xaml.Attached`1.SetValue(System.Windows.DependencyObject,`0)> methods. 
 
-```csharp
-MyDockPanel.Dock.SetValue(this.HelloCheckBox, Dock.Top);
-```
+[!code-csharp[](../../code/samples/XAML/AttachedProperty.cs#set-value)]
 
 To get a <xref:System.Windows.DependencyProperty> instance that is backing your attached property, read the value of the <xref:PostSharp.Patterns.Xaml.Attached`1.RuntimeProperty> property. 
 
-```csharp
-MyDockPanel.Dock.RuntimeProperty.OverrideMetadata( typeof(MyPropertiesListView), new PropertyMetadata(Dock.Right) );
-```
+[!code-csharp[](../../code/samples/XAML/AttachedProperty.cs#override-metadata)]
+
+The aspect registers the attached property with a <xref:System.Windows.FrameworkPropertyMetadata>, so the metadata that overrides it must also be a <xref:System.Windows.FrameworkPropertyMetadata>.
+
+The sample program reads the attached property after each of these operations:
+
+[!code-text[](../../code/samples/XAML/AttachedProperty.txt)]
 
 ## See Also
 

@@ -9,9 +9,9 @@ summary: "Explains how the advices of a type-level or assembly-level aspect sele
 
 In a type-level or assembly-level aspect, an advice usually transforms members of the target, not the target itself. For instance, an aspect applied to a class intercepts the setters of its properties. A *pointcut* is a custom attribute on the advice method that selects these members.
 
-A pointcut should select only declarations that are inside the target of the aspect. If an aspect is applied to a class `A`, the pointcut can select the class `A` and the members of `A`, but not other classes or their members. PostSharp enforces this rule for instance-scoped aspects, such as an <xref:PostSharp.Aspects.InstanceLevelAspect>.
+A pointcut should select only declarations that are inside the target of the aspect. If an aspect is applied to a class `A`, the pointcut can select the class `A` and the members of `A`, but not other classes or their members. PostSharp enforces this rule, with the error LA0110, only for instance-scoped aspects, such as an <xref:PostSharp.Aspects.InstanceLevelAspect>. An aspect is instance-scoped when it implements <xref:PostSharp.Aspects.IInstanceScopedAspect> and is applied to a type or to an instance member. A <xref:PostSharp.Aspects.Advices.MethodPointcut> of another aspect can select a member of any type of the current assembly without error.
 
-In an assembly-level aspect, <xref:PostSharp.Aspects.Advices.MulticastPointcut> and <xref:PostSharp.Aspects.Advices.MatchPointcut> select nothing. Use a <xref:PostSharp.Aspects.Advices.MethodPointcut> whose parameter is an <xref:System.Reflection.Assembly>, or add type-level aspects with <xref:PostSharp.Aspects.IAspectProvider> (see <xref:aspect-provider>).
+In an assembly-level aspect, <xref:PostSharp.Aspects.Advices.MulticastPointcut> selects nothing, and <xref:PostSharp.Aspects.Advices.MatchPointcut> causes the error LA0251. Use a <xref:PostSharp.Aspects.Advices.MethodPointcut> whose parameter is an <xref:System.Reflection.Assembly>, or add type-level aspects with <xref:PostSharp.Aspects.IAspectProvider> (see <xref:aspect-provider>).
 
 In a member-level aspect, such as a <xref:PostSharp.Aspects.MethodLevelAspect>, you do not need a pointcut: an advice without pointcut applies to the target of the aspect (see <xref:member-level-aspects>).
 
@@ -22,17 +22,11 @@ The pointcut type <xref:PostSharp.Aspects.Advices.MulticastPointcut> selects mem
 
 The following code applies the `OnPropertySet` advice to all non-abstract instance properties of the class to which the aspect is applied. The advice is generic: for each property, `T` is the type of the property, so the value is not boxed. The advice stores the value through the binding of the property.
 
-```csharp
-[OnLocationSetValueAdvice, 
- MulticastPointcut( Targets = MulticastTargets.Property, 
-                    Attributes = MulticastAttributes.Instance | MulticastAttributes.NonAbstract)]
-public void OnPropertySet<T>( [This] object instance, [LocationValue] T value, [Binding] ILocationBinding<T> binding )
-{
-    // Details skipped.
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/AdviceMulticastPointcut.cs#advice)]
 
-    binding.SetValue( instance, value );
-}
-```
+When this advice is part of a type-level aspect applied to a `Customer` class, setting the `Name` and `Address` instance properties and the static `Count` property prints the following output:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/AdviceMulticastPointcut.txt)]
 
 
 ## Method pointcut
@@ -43,33 +37,18 @@ The pointcut method is an instance method of the aspect class, and it can be pri
 
 The following code applies the `OnPropertySet` advice to all writable properties that are not annotated with the `IgnorePropertyChanged` custom attribute. 
 
-```csharp
-private IEnumerable<PropertyInfo> SelectProperties( Type type )
-{
-    const BindingFlags bindingFlags = BindingFlags.Instance | 
-        BindingFlags.DeclaredOnly | BindingFlags.Public;
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/AdviceMethodPointcut.cs#pointcut)]
 
-    return from property
-               in type.GetProperties( bindingFlags )
-           where property.CanWrite && !property.IsDefined(typeof(IgnorePropertyChanged))
-           select property;
-}
+When the `Address` property of the target class is annotated with `[IgnorePropertyChanged]`, setting the `Name` and `Address` properties prints the following output:
 
-[OnLocationSetValueAdvice, MethodPointcut( nameof(SelectProperties) )]
-public void OnPropertySet<T>( [This] object instance, [LocationValue] T value, [Binding] ILocationBinding<T> binding )
-{
-    // Details skipped.
-
-    binding.SetValue( instance, value );
-}
-```
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/AdviceMethodPointcut.txt)]
 
 Pointcut methods run at build time and can use LINQ to query <xref:System.Reflection>.
 
 
 ## Match pointcut
 
-By default, an advice that does not fit a target causes an error. For instance, `[Argument( 1 )]` causes the error LA0225 on a method that has only one parameter. The <xref:PostSharp.Aspects.Advices.MatchPointcut> pointcut skips these targets instead. It selects the methods declared by the target type that have a given name, including static and non-public methods, but not inherited methods. Each advice applies only to the methods whose signature matches its bound parameters (see <xref:advice-parameter-binding>). Several advices can therefore handle different overloads of the same method.
+By default, an advice that does not fit a target causes an error. For instance, `[Argument( 1 )]` causes the error LA0225 on a method that has only one parameter. The <xref:PostSharp.Aspects.Advices.MatchPointcut> pointcut skips these targets instead. It requires an aspect applied to a type, such as a <xref:PostSharp.Aspects.TypeLevelAspect>. On any other target, it causes the error LA0251. It selects the methods declared by the target type that have a given name, including static and non-public methods, but not inherited methods. Each advice applies only to the methods whose signature matches its bound parameters (see <xref:advice-parameter-binding>). Several advices can therefore handle different overloads of the same method.
 
 When <xref:PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount> is `true`, which is the default value, the pointcut also requires that the number of parameters of the method is the highest index of the `[Argument( index )]` parameters of the advice, plus one.
 
@@ -77,33 +56,11 @@ Only the `[Argument]` parameters that select the argument by its index are count
 
 The following aspect validates the arguments of the overloads of the `Catalog.Add` method. The first advice applies to `Add( string )`, and the second one to `Add( string, string )`. The method `Add( int )` matches none of them, so it is left unchanged. The `nameof` operator names the method, so that the compiler checks the name.
 
-```csharp
-[ValidateAdd]
-public class Catalog
-{
-    public void Add( string item ) { }
-    public void Add( string key, string value ) { }
-    public void Add( int id ) { }
-}
+[!code-csharp[](../../../../code/samples/framework/aspects/type-level-aspects/PointcutMatch.cs#example)]
 
-[PSerializable]
-public sealed class ValidateAddAttribute : TypeLevelAspect
-{
-    [OnMethodEntryAdvice, MatchPointcut( nameof(Catalog.Add) )]
-    public static void OnAddItem( [Argument( 0 )] string item )
-    {
-        if ( string.IsNullOrEmpty( item ) )
-            throw new ArgumentException( "The item cannot be empty." );
-    }
+When a program calls `Add( "" )`, `Add( "", "value" )` and `Add( 0 )`, it prints the following output:
 
-    [OnMethodEntryAdvice, MatchPointcut( nameof(Catalog.Add) )]
-    public static void OnAddPair( [Argument( 0 )] string key, [Argument( 1 )] string value )
-    {
-        if ( string.IsNullOrEmpty( key ) )
-            throw new ArgumentException( "The key cannot be empty." );
-    }
-}
-```
+[!code-text[](../../../../code/samples/framework/aspects/type-level-aspects/PointcutMatch.txt)]
 
 A target is skipped when it does not have the signature of the advice, for instance when an argument is missing or has an incompatible type, or when two bound values give conflicting type arguments. An error that does not come from the signature, such as a violated generic constraint, is still reported.
 
@@ -135,6 +92,7 @@ Consider three advices of the method boundary family: <xref:PostSharp.Aspects.Ad
 
 The following two code blocks compare two results. In the first block, the advices are separate transformations, ordered as `OnEntry`, `OnExit`, `OnException`. In the second block, the advices are grouped. 
 
+<!-- not-compiled: equivalent of the code generated by PostSharp -->
 ```csharp
 void Method()
 {
@@ -159,6 +117,7 @@ void Method()
 }
 ```
 
+<!-- not-compiled: equivalent of the code generated by PostSharp -->
 ```csharp
 void Method()
 {
@@ -193,44 +152,14 @@ In most aspects, PostSharp infers the groups. An advice without pointcut and wit
 
 The following code groups an <xref:PostSharp.Aspects.Advices.OnMethodEntryAdvice> and an <xref:PostSharp.Aspects.Advices.OnMethodExitAdvice>. `OnEntry` is the master advice because it has a pointcut, and `OnExit` joins its group. The `stopwatch` parameters of both advices are bound to the same variable: the entry advice assigns it, and the exit advice reads it. 
 
-```csharp
-[OnMethodEntryAdvice, MulticastPointcut]
-public void OnEntry( [State( StateScope.MethodInvocation )] out Stopwatch stopwatch )
-{
-    stopwatch = Stopwatch.StartNew();
-}
-
-[OnMethodExitAdvice]
-public void OnExit( [State( StateScope.MethodInvocation )] Stopwatch stopwatch, [DeclarationName] string methodName )
-{
-    Console.WriteLine( "{0} took {1} ms.", methodName, stopwatch.ElapsedMilliseconds );
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/CompositeAspects/AdviceGrouping.cs#advices)]
 
 
 ### Several groups of the same family
 
 When the class declares several master advices of the same family, PostSharp cannot infer the group of an advice without pointcut, and reports the error LA0230. Set the <xref:PostSharp.Aspects.Advices.GroupingAdvice.Master> property of each subordinate advice to the name of its master advice method, with the `nameof` operator.
 
-```csharp
-[OnMethodEntryAdvice, MulticastPointcut( MemberName = "Get*" )]
-public void OnGetterEntry( [State( StateScope.MethodInvocation )] out Stopwatch stopwatch )
-{
-    stopwatch = Stopwatch.StartNew();
-}
-
-[OnMethodExitAdvice( Master = nameof(OnGetterEntry) )]
-public void OnGetterExit( [State( StateScope.MethodInvocation )] Stopwatch stopwatch )
-{
-    // Details skipped.
-}
-
-[OnMethodEntryAdvice, MulticastPointcut( MemberName = "Set*" )]
-public void OnSetterEntry()
-{
-    // Details skipped.
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/type-level-aspects/PointcutSeveralGroups.cs#advices)]
 
 PostSharp reports the following errors and warnings about groups:
 

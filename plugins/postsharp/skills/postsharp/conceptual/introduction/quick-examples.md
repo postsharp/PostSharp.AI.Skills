@@ -25,46 +25,13 @@ PostSharp provides implementations of some of the patterns that are most commonl
 
 ### Example
 
-The following code snippet illustrates an object model where <xref:System.ComponentModel.INotifyPropertyChanged>, code contracts, and aggregation are all implemented using PostSharp ready-made attributes. 
+The following code snippet illustrates an object model where <xref:System.ComponentModel.INotifyPropertyChanged>, code contracts, and aggregation are all implemented using PostSharp ready-made attributes. The `[Child]` and `[Parent]` attributes require the `[Aggregatable]` aspect. 
 
-```csharp
-[NotifyPropertyChanged]
-public class CustomerViewModel
-{
-   [Required]
-   public Customer Customer { get; set; }
-   
-   public string FullName { get { return this.Customer.FirstName + " " + this.Customer.LastName; } }
-}
+[!code-csharp[](../../code/samples/Introduction/QuickExampleModel.cs#example)]
 
-[NotifyPropertyChanged]
-public class Customer
-{
-   public string FirstName { get; set; }
-   public string LastName { get; set; }
-   
-   [Child]
-   public AdvisableCollection<Address> Addresses { get; set; }
-   
-   [Url]
-   public string HomePage { get; set; }
-   
-   [Log]
-   public void Save(DbConnection connection)
-   {
-      // ...
-   }
-}
+The following program changes the object model. Changing the customer notifies the view model, adding an address sets its parent, contracts reject invalid values, and the `Save` method is logged:
 
-[NotifyPropertyChanged]
-public class Address
-{
-   [Parent]
-   public Customer Parent { get; private set; }
-   
-   public string Line1 { get; set; }
-}
-```
+[!code-text[](../../code/samples/Introduction/QuickExampleModel.txt)]
 
 
 ## Thread safety patterns
@@ -98,40 +65,11 @@ PostSharp supports the following threading models and features:
 
 The following code snippet shows how a data transfer object can be made freezable, recursively but easily:
 
-```csharp
-[Freezable]
-public class Customer
-{
-   public string Name { get; set; }
-   
-   [Child]
-   public AdvisableCollection<Address> Addresses { get; set; }
-   
-}
+[!code-csharp[](../../code/samples/Introduction/QuickExampleFreezable.cs#example)]
 
-[Freezable]
-public class Address
-{
-   [Parent]
-   public Customer Parent { get; private set; }
-   
-   public string Line1 { get; set; }
-}
+The program prints the following output:
 
-public class Program
-{
-   public static void Main()
-   {
-      Customer customer = ReadCustomer( "http://customers.org/11234" );
-      
-      // Prevent changes.
-      ((IFreezable)customer).Freeze();
-      
-      // The following line will cause an ObjectReadOnlyException.
-      customer.Addresses[0].Line1 = "Here";
-   }
-}
-```
+[!code-text[](../../code/samples/Introduction/QuickExampleFreezable.txt)]
 
 
 ## Implementation of custom patterns
@@ -147,32 +85,15 @@ To learn more about developing your own aspects, see <xref:custom-aspects>.
 
 The following code snippet shows a simple `[PrintException]` aspect that writes an exception message to the console before rethrowing it: 
 
-```csharp
-[PSerializable]
-class PrintExceptionAttribute : OnExceptionAspect
-{
-    public override void OnException(MethodExecutionArgs args)
-    {
-        Console.WriteLine( args.Exception.Message );
-    }
-}
-```
+[!code-csharp[](../../code/samples/Introduction/QuickExamplePrintException.cs#aspect)]
 
 In the next snippet, the `[PrintException]` aspect is applied to a method: 
 
-```csharp
-class Customer
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+[!code-csharp[](../../code/samples/Introduction/QuickExamplePrintException.cs#customer)]
 
-    [PrintException]
-    public void Store(string path)
-    {
-        File.WriteAllText( path, string.Format( "{0} {1}", this.FirstName, this.LastName ) );
-    }
-}
-```
+When `Store` fails, the aspect prints the message of the exception, and the exception is rethrown:
+
+[!code-text[](../../code/samples/Introduction/QuickExamplePrintException.txt)]
 
 
 ## Validation of custom patterns
@@ -188,30 +109,6 @@ See <xref:constraints> for more details about architecture validation.
 
 Consider a form-processing application. There may be hundreds of forms, and each form can have dozens of business rules. To reduce complexity, the team decides that all business rules will respect the same pattern. The team decides that each class representing a business rule must contain a public nested class named `Factory`, and that this class must have an `[Export(typeof(IBusinessRuleFactory))]` custom attribute and a default public constructor. The team wants all developers to follow the convention. Therefore, the team decides to create an architectural constraint that will validate the code against the project-specific *Business Rule Factory* pattern. 
 
-```csharp
-[MulticastAttributeUsage(MulticastTargets.Class, Inheritance = MulticastInheritance.Strict)] 
-public class BusinessRulePatternValidation : ScalarConstraint 
-{ 
-    public override void ValidateCode(object target) 
-    { 
-        var targetType = (Type)target; 
-
-        if (targetType.GetNestedType( "Factory" ) == null) 
-        { 
-            Message.Write( targetType, SeverityType.Error,  "2001", 
-                           "The {0} type does not have a nested type named 'Factory'.", 
-                           targetType.Name ); 
-        } 
-        
-        // ...
-    } 
-}
-
-[BusinessRulePatternValidation]
-public abstract class BusinessRule
-{
-  // ...
-}
-```
+[!code-csharp[](../../code/samples/Introduction/QuickExampleConstraint.cs#example)]
 
 

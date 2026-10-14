@@ -16,13 +16,15 @@ If you need your aspect (or any other multicast attribute) to be reflected by <x
 
 For instance:
 
-```csharp
-[MulticastAttributeUsage( MulticastTargets.Class, PersistMetaData = true )]
-        public class TagAttribute : MulticastAttribute
-        {
-          public string Tag;
-        }
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastReflection.cs#example)]
+
+Suppose that this attribute is multicast to some classes with the following line:
+
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastReflection.cs#multicast)]
+
+A program that reads the attribute of each class with <xref:System.Reflection> then finds it on the classes `Customer` and `CustomerRepository`, but not on the class `Logger`:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastReflection.txt)]
 
 > [!NOTE]
 > Multicasting of attributes is not limited to PostSharp aspects. You can multicast any custom attribute in your codebase in the same way as shown here. If a custom attribute is multicast with the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute.PersistMetaData> property set to `true`, the compiled code, when reflected, looks as if you had manually added the custom attribute in all of the locations. 

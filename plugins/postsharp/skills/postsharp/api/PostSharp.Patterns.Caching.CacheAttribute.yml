@@ -59,7 +59,7 @@ items:
 
       [Serializer(typeof(CacheAttribute.Serializer))]
 
-      public sealed class CacheAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+      public sealed class CacheAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAdviceProvider, IAspect
     content.vb: >-
       <Metric("UsedFeatures", "Patterns.Caching.Cache")>
 
@@ -75,7 +75,7 @@ items:
 
       <Serializer(GetType(CacheAttribute.Serializer))>
 
-      Public NotInheritable Class CacheAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+      Public NotInheritable Class CacheAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAdviceProvider, IAspect
   seealso:
   - linkType: HRef
     linkId: '@caching-getting-started'
@@ -97,6 +97,7 @@ items:
   - PostSharp.Aspects.IAsyncMethodInterceptionAspect
   - PostSharp.Aspects.IMethodInterceptionAspect
   - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.Advices.IAdviceProvider
   - PostSharp.Aspects.IAspect
   inheritedMembers:
   - PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)

@@ -27,31 +27,7 @@ To send PostSharp Logging events to log4net appenders:
 
     Add the following content to this file:
 
-    ```xml
-    <log4net>
-      <appender name="file" type="log4net.Appender.FileAppender">
-    
-        <file value="log4net.log" />
-    
-        <layout type="log4net.Layout.PatternLayout">
-          <conversionPattern value="%date [%thread] %-5level %logger %ndc - %message%newline" />
-        </layout>
-      </appender>
-    
-      <appender name="console" type="log4net.Appender.ColoredConsoleAppender">
-        <layout type="log4net.Layout.PatternLayout">
-          <conversionPattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline" />
-        </layout>
-      </appender>
-    
-      <root>
-        <level value="DEBUG" />
-        <appender-ref ref="file" />
-        <appender-ref ref="console" />
-      </root>
-    
-    </log4net>
-    ```
+    [!code-xml[](../../../code/samples/Logging/LoggingLog4Net/log4net.config)]
 
     This example configuration file instructs log4net to write all log records to a file named `log4net.log` and to the console. 
 
@@ -60,24 +36,18 @@ To send PostSharp Logging events to log4net appenders:
 
 4. In the application startup file, include the following namespace imports:
 
-    ```csharp
-    using log4net.Config;
-    using PostSharp.Patterns.Diagnostics;
-    using PostSharp.Patterns.Diagnostics.Backends.Log4Net;
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingLog4Net/LoggingLog4Net.cs#usings)]
 
     In the application startup method, include the following code:
 
-    ```csharp
-    // Configure log4net
-    XmlConfigurator.Configure(new FileInfo("log4net.config"));
-    
-    // Configure PostSharp Logging to use log4net
-    LoggingServices.DefaultBackend = new Log4NetLoggingBackend();
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingLog4Net/LoggingLog4Net.cs#configure)]
+
+    On .NET Core and .NET 5 or later, log4net does not support the default repository, so this code passes the repository explicitly.
 
 
-If you run your application, you should now see a detailed log in a file named `log4net.log`. If your application is a console application, you should also see the log in the console. 
+If you run your application, you should now see a detailed log in a file named `log4net.log`. If your application is a console application, you should also see the log in the console, for instance:
+
+[!code-text[](../../../code/samples/Logging/LoggingLog4Net/LoggingLog4Net.txt)]
 
 
 ## Collecting log4net events into PostSharp Logging
@@ -86,45 +56,21 @@ If your source code already emits log events using log4net, you can configure Po
 
 Suppose that you have already configured log4net and PostSharp like this:
 
-```csharp
-// Configure log4net
-XmlConfigurator.Configure(new FileInfo("log4net.config"));
+[!code-csharp[](../../../code/samples/Logging/Log4NetManualLogging/Log4NetManualLogging.cs#configure)]
 
-// Configure PostSharp Logging to use Log4Net
-LoggingServices.DefaultBackend = new Log4NetLoggingBackend();
-
-// Emit manual log records. Note that this logger will skip PostSharp Logging, so indentation
-// will not be respected.
-var logger = LogManager.GetLogger( typeof(HelloWorldClass) );
-logger.Warn( "Hello, world." );
-```
+[!code-csharp[](../../../code/samples/Logging/Log4NetManualLogging/Log4NetManualLogging.cs#manual)]
 
 To collect log4net manual logging events into PostSharp Logging, replace that startup code with the following. You must do this before you create any log4net loggers: 
 
-```csharp
-// This sets the PostSharp repository selector as the active log4net repository selector.
-// All loggers created from log4net static methods, and all logger repositories created from
-// now on will come from this repository selector. 
-//
-// This repository selector creates loggers that send all logging events to PostSharp Logging.
-//
-// The relay repository returned by the RedirectLoggingToPostSharp method creates loggers that 
-// are *not* redirected to PostSharp Logging and it serves as the repository for your final output loggers.
-ILoggerRepository relay = Log4NetCollectingRepositorySelector.RedirectLoggingToPostSharp();
-
-// Configure the *relay* repository (instead of the default repository) with your final output appenders:
-XmlConfigurator.Configure(relay, new FileInfo("log4net.config"));
-
-// Use the relay repository to create a Log4NetLoggingBackend and set it as the default backend:
-LoggingServices.DefaultBackend = new Log4NetLoggingBackend(relay);
-```
+[!code-csharp[](../../../code/samples/Logging/Log4NetCollecting/Log4NetCollecting.cs#configure)]
 
 You can now do standard log4net logging and the logging output will be collected and sent to PostSharp Logging:
 
-```csharp
-var logger = LogManager.GetLogger( typeof(HelloWorldClass) );
-logger.Warn( "Hello, world." );
-```
+[!code-csharp[](../../../code/samples/Logging/Log4NetCollecting/Log4NetCollecting.cs#manual)]
+
+When this code runs in a logged method, the manual record is indented like the records of PostSharp Logging:
+
+[!code-text[](../../../code/samples/Logging/Log4NetCollecting/Log4NetCollecting.txt)]
 
 ## See Also
 

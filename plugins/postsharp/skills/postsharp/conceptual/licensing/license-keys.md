@@ -10,7 +10,7 @@ summary: "The document provides a detailed guide on how to install PostSharp lic
 # Deploying License Keys
 
 This section explains how to install PostSharp license keys.
-Whether you are using a free or commercial edition, PostSharp requires a license before you can build a project on a development machine. A build server does not require one, except for PostSharp Logging. See <xref:build-server>.
+Whether you are using a free or commercial edition, PostSharp requires a license before you can build a project on a development machine. A build server does not require one. See <xref:build-server>.
 
 
 ## Configuring the license key in your source code

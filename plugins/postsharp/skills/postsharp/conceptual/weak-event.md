@@ -35,31 +35,11 @@ Classes consuming weak events can register events as usual and do not need to ta
 
 The following code snippet shows a weak event named `MyEvent` and an event client named `MyEventClient`. Note that the `MyEventClient` does not need to take care of unregistering the `OnMyEvent` event handler. 
 
-```csharp
-using System;
-using PostSharp.Patterns.Model;
+[!code-csharp[](../code/samples/Model/WeakEvent/WeakEventClient.cs#example)]
 
-static class MyEventSource
-{
-   [WeakEvent]
-   public static event EventHandler MyEvent;
-}
+In the following output, the program raises the event while the client is alive, then releases the client and runs the garbage collector. The client is collected even though it did not unregister its handler, and the second event is not handled:
 
-class MyEventClient
-{
-  
-  public MyEventClient()
-  {
-     MyEventSource.MyEvent += OnMyEvent;
-  }
-
-  public void OnMyEvent(object sender, EventArgs e)
-  {
-      Console.WriteLine("Oops!");
-  }
-
-}
-```
+[!code-text[](../code/samples/Model/WeakEvent/WeakEventClient.txt)]
 
 
 ## Making all events weak events
@@ -68,14 +48,10 @@ Because there are very few situations in which you would not want an event to be
 
 The following code snippet makes all events of the current assembly weak events:
 
-```csharp
-[assembly: PostSharp.Patterns.Model.WeakEvent]
-```
+[!code-csharp[](../code/samples/Model/WeakEvent/WeakEventAssembly.cs#example)]
 
 The following code snippet makes all events of a specific namespace weak events: 
 
-```csharp
-[assembly: PostSharp.Patterns.Model.WeakEvent(AttributeTargetTypes="OurCompany.OurApplication.ViewModel.*")]
-```
+[!code-csharp[](../code/samples/Model/WeakEvent/WeakEventNamespace.cs#example)]
 
 

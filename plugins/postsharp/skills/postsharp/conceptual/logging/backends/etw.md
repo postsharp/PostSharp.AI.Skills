@@ -25,20 +25,11 @@ To target ETW with PostSharp Logging:
 
 3. In the application startup file, include the following namespace imports:
 
-    ```csharp
-    using PostSharp.Patterns.Diagnostics;
-    using PostSharp.Patterns.Diagnostics.Backends.EventSource;
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingEtw.cs#usings)]
 
     In the application startup method, include the following code:
 
-    ```csharp
-    var eventSourceBackend = new EventSourceLoggingBackend(new PostSharpEventSource());
-    if (eventSourceBackend.EventSource.ConstructionException != null)
-        throw eventSourceBackend.EventSource.ConstructionException;
-
-    LoggingServices.DefaultBackend = eventSourceBackend;
-    ```
+    [!code-csharp[](../../../code/samples/Logging/LoggingEtw.cs#configure)]
 
 
 As a result of this procedure, PostSharp Logging will emit records to the ETW event source named `PostSharp-Patterns-Diagnostics`. You now need to attach a listener to this event source. 

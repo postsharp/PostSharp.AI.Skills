@@ -17,6 +17,12 @@ The thread-safety policy emits warnings in two situations:
 
 * static fields that are not read-only or not of a thread-safe type.
 
+For instance, when the policy is enabled, the following code produces two warnings:
+
+[!code-csharp[](../../../code/samples/Threading/ThreadSafetyPolicyWarnings.cs#example)]
+
+[!code-text[](../../../code/samples/Threading/ThreadSafetyPolicyWarnings.build.txt)]
+
 > [!IMPORTANT]
 > The thread-safety policy does not make your application thread-safe by itself. What the thread-safety policy does is to remind you to use threading models in your code. It is the use of threading models that makes your application thread-safe.
 
@@ -64,10 +70,7 @@ To add the thread-safety policy to a project manually:
 
 2. Add the <xref:PostSharp.Patterns.Threading.ThreadSafetyPolicy> to any C# file. We recommend you add it to a new file named `GlobalAspects.cs`. 
 
-    ```csharp
-    using PostSharp.Patterns.Threading;
-                      [assembly: ThreadSafetyPolicy]
-    ```
+    [!code-csharp[](../../../code/samples/Threading/ThreadSafetyPolicyWarnings.cs#policy)]
 
 
 

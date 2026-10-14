@@ -23,19 +23,10 @@ At the IL level and when viewed through `System.Reflection`, the compiler genera
 
 For example, consider this C# 14 extension block:
 
-```csharp
-public static class TestClassExtensions
-{
-    extension<TInstance>(TInstance instance)
-    {
-        public TInstance ExtensionMethod() => instance;
-
-        public TInstance ExtensionProperty => instance;
-    }
-}
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlock.cs#example)]
 
 The compiler generates nested types similar to:
+<!-- not-compiled: compiler-generated metadata, shown as pseudo-C# -->
 
 ```csharp
 public static class TestClassExtensions
@@ -82,95 +73,34 @@ To apply aspects to extension block members, do one of the following:
 
 ### Example: Applying aspects directly to extension members
 
-When applied explicitly to extension members, aspects are added without the need to change any of the properties.
+When applied explicitly to extension methods or to the accessors of extension properties, aspects are added without the need to change any of the properties.
 
-```csharp
-[PSerializable]
-class LoggingAspect : OnMethodBoundaryAspect
-{
-    public override void OnEntry(MethodExecutionArgs args)
-    {
-        Console.WriteLine($"Entering: {args.Method.Name}");
-    }
-}
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockDirect.cs#example)]
 
-public static class TestClassExtensions
-{
-    extension<TInstance>(TInstance instance)
-    {
-        [LoggingAspect]
-        public TInstance ExtensionMethod() => instance;
+You can also add a method-level aspect to the extension property itself. It is then applied to both accessors, as for an ordinary property.
 
-        [LoggingAspect]
-        public TInstance ExtensionProperty
-        {
-            get => instance;
-            set { }
-        }
-    }
-}
-```
+> [!NOTE]
+> A location-level aspect, such as <xref:PostSharp.Aspects.LocationInterceptionAspect>, cannot be applied to an extension property, because an extension property has no implementation of its own. PostSharp reports the error LA0252. Use a method-level aspect instead.
+
+A program that calls the extension method, then gets and sets the extension property, prints:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockDirect.txt)]
 
 ### Example: Multicasting with AllowExtensionBlockMembers set to true
 
 After setting <xref:PostSharp.Extensibility.MulticastAttribute.AllowExtensionBlockMembers> to `true` and multicasting on the whole class, members within extension blocks will be eligible for the aspect.
 
-```csharp
-[PSerializable]
-class LoggingAspect : OnMethodBoundaryAspect
-{
-    public override void OnEntry(MethodExecutionArgs args)
-    {
-        Console.WriteLine($"Entering: {args.Method.Name}");
-    }
-}
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockMulticast.cs#example)]
 
-[LoggingAspect(AllowExtensionBlockMembers = true)]
-public static class TestClassExtensions
-{
-    extension<TInstance>(TInstance instance)
-    {
-        public TInstance ExtensionMethod() => instance;
+The aspect is applied to the extension method and to both accessors of the extension property:
 
-        public TInstance ExtensionProperty
-        {
-            get => instance;
-            set { }
-        }
-    }
-}
-```
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockMulticast.txt)]
 
 ### Example: Changing default behavior for custom aspects
 
 Setting the <xref:PostSharp.Extensibility.MulticastAttributeUsageAttribute.AllowExtensionBlockMembers> property to `true` on the aspect class will make extension members automatically eligible for the aspect:
 
-```csharp
-[MulticastAttributeUsage(MulticastTargets.Method, AllowExtensionBlockMembers = true)]
-[PSerializable]
-public class LoggingAspect : OnMethodBoundaryAspect
-{
-    public override void OnEntry(MethodExecutionArgs args)
-    {
-        Console.WriteLine($"Entering: {args.Method.Name}");
-    }
-}
-
-[LoggingAspect]
-public static class TestClassExtensions
-{
-    extension<TInstance>(TInstance instance)
-    {
-        public TInstance ExtensionMethod() => instance;
-
-        public TInstance ExtensionProperty
-        {
-            get => instance;
-            set { }
-        }
-    }
-}
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockAspectUsage.cs#example)]
 
 ## IAspectProvider and IAdviceProvider
 
@@ -181,7 +111,13 @@ When implementing `IAspectProvider` or `IAdviceProvider`, you receive reflection
 - Static implementation methods for extension members
 - Compiler-generated nested metadata types (e.g., `<G>$BA41CFE2B5EDAEB8C1B9062F59ED4D69<TInstance>`)
 
-Attempting to target extension block metadata types or their members will result in error LA0167.
+Attempting to target extension block metadata types or their members will result in error LA0167. For instance, the following aspect provider adds an aspect to the methods of all nested types, including the extension block metadata types:
+
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockMetadataError.cs#example)]
+
+The build then fails with the following errors:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockMetadataError.build.txt)]
 
 To make your `IAspectProvider` or `IAdviceProvider` safe to use with extension blocks, remember that:
 
@@ -194,43 +130,7 @@ PostSharp 2026.0 introduces the <xref:PostSharp.Reflection.ReflectionHelper.IsEx
 
 When implementing `IAspectProvider`, use `IsExtensionBlockMetadata` to skip compiler-generated metadata types:
 
-```csharp
-using PostSharp.Aspects;
-using PostSharp.Reflection;
-using PostSharp.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-[PSerializable]
-public class MyAspectProvider : TypeLevelAspect, IAspectProvider
-{
-    public IEnumerable<AspectInstance> ProvideAspects(object targetElement)
-    {
-        Type type = (Type)targetElement;
-
-        // Get all nested types, but filter out extension block metadata
-        var nestedTypes = type.GetNestedTypes(BindingFlags.Public | BindingFlags.NonPublic)
-            .Where(t => !ReflectionHelper.IsExtensionBlockMetadata(t));
-
-        foreach (var nestedType in nestedTypes)
-        {
-            // Safely process non-metadata nested types
-            yield return new AspectInstance(nestedType, new MyAspect());
-        }
-
-        // Extension member implementation methods are safe to target
-        var methods = type.GetMethods(BindingFlags.Public | BindingFlags.Static)
-            .Where(m => !ReflectionHelper.IsExtensionBlockMetadata(m));
-
-        foreach (var method in methods)
-        {
-            yield return new AspectInstance(method, new MyMethodAspect());
-        }
-    }
-}
-```
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockProvider.cs#example)]
 
 
 

@@ -252,7 +252,10 @@ items:
   summary: Gets a <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> of the caller by performing a stack walk with <xref href="System.Diagnostics.StackFrame" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: public static CallerInfo GetDynamic(int skipFrames)
+    content: >-
+      [UnconditionalSuppressMessage("Trimming", "IL2026", Justification = "The caller information is diagnostic. When trimming removes the metadata of a frame, StackFrame.GetMethod returns null, and the method returns an empty CallerInfo.")]
+
+      public static CallerInfo GetDynamic(int skipFrames)
     parameters:
     - id: skipFrames
       type: System.Int32
@@ -260,8 +263,23 @@ items:
     return:
       type: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo
       description: A <xref href="PostSharp.Patterns.Diagnostics.Contexts.CallerInfo" data-throw-if-not-resolved="false"></xref> for the caller, after skipping the specified number of stack frames, or <code>default</code> if the platform does not support the <xref href="System.Diagnostics.StackFrame" data-throw-if-not-resolved="false"></xref> class.
-    content.vb: Public Shared Function GetDynamic(skipFrames As Integer) As CallerInfo
+    content.vb: >-
+      <UnconditionalSuppressMessage("Trimming", "IL2026", Justification:="The caller information is diagnostic. When trimming removes the metadata of a frame, StackFrame.GetMethod returns null, and the method returns an empty CallerInfo.")>
+
+      Public Shared Function GetDynamic(skipFrames As Integer) As CallerInfo
   overload: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute
+    ctor: System.Diagnostics.CodeAnalysis.UnconditionalSuppressMessageAttribute.#ctor(System.String,System.String)
+    arguments:
+    - type: System.String
+      value: Trimming
+    - type: System.String
+      value: IL2026
+    namedArguments:
+    - name: Justification
+      type: System.String
+      value: The caller information is diagnostic. When trimming removes the metadata of a frame, StackFrame.GetMethod returns null, and the method returns an empty CallerInfo.
   nameWithType.vb: CallerInfo.GetDynamic(Integer)
   fullName.vb: PostSharp.Patterns.Diagnostics.Contexts.CallerInfo.GetDynamic(Integer)
   name.vb: GetDynamic(Integer)

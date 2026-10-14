@@ -21,16 +21,7 @@ By design, every logging backend must implement a class exposing all available r
 
 ### Example
 
-```csharp
-using PostSharp.Patterns.Diagnostics.Backends;
-
-namespace PostSharp.Samples.Logging.CustomBackend.ServiceStack
-{
-  public class ServiceStackLoggingBackendOptions : TextLoggingBackendOptions
-  {
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#options)]
 
 
 ## Override the LoggingTypeSource class
@@ -44,38 +35,7 @@ Your implementation of <xref:PostSharp.Patterns.Diagnostics.LoggingTypeSource> m
 
 ### Example
 
-```csharp
-using PostSharp.Patterns.Diagnostics;
-using ServiceStack.Logging;
-using System;
-
-namespace PostSharp.Samples.Logging.CustomBackend.ServiceStack
-{
-  public class ServiceStackLoggingTypeSource : LoggingTypeSource
-  {
-    public ServiceStackLoggingTypeSource(LoggingNamespaceSource parent, string name, Type sourceType)
-      : base(parent, name, sourceType )
-    {
-      Log = LogManager.GetLogger(sourceType);
-    }
-
-    public ILog Log { get; }
-
-    protected override bool IsBackendEnabled(LogLevel level)
-    {
-      switch (level)
-      {
-        case LogLevel.Trace:
-        case LogLevel.Debug:
-          return Log.IsDebugEnabled;
-
-        default:
-          return true;
-      }
-    }
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#type-source)]
 
 
 ## Override the TextLogRecordBuilder class
@@ -91,95 +51,7 @@ Your implementation of the <xref:PostSharp.Patterns.Diagnostics.RecordBuilders.T
 
 ### Example
 
-```csharp
-using PostSharp.Patterns.Diagnostics;
-using PostSharp.Patterns.Diagnostics.Backends;
-using PostSharp.Patterns.Diagnostics.RecordBuilders;
-using PostSharp.Patterns.Formatters;
-
-namespace PostSharp.Samples.Logging.CustomBackend.ServiceStack
-{
-  public class ServiceStackLogRecordBuilder : TextLogRecordBuilder
-  {
-    public ServiceStackLogRecordBuilder(TextLoggingBackend backend) : base(backend)
-    {
-    }
-
-    protected override void Write(UnsafeString message)
-    {
-      var log = ((ServiceStackLoggingTypeSource) TypeSource).Log;
-      var messageString = message.ToString();
-
-      switch (Level)
-      {
-        case LogLevel.None:
-          break;
-
-        case LogLevel.Trace:
-        case LogLevel.Debug:
-          if (Exception == null)
-          {
-            log.Debug(messageString);
-          }
-          else
-          {
-            log.Debug(messageString, Exception);
-          }
-
-          break;
-
-        case LogLevel.Info:
-          if (Exception == null)
-          {
-            log.Info(messageString);
-          }
-          else
-          {
-            log.Info(messageString, Exception);
-          }
-
-          break;
-
-        case LogLevel.Warning:
-          if (Exception == null)
-          {
-            log.Warn(messageString);
-          }
-          else
-          {
-            log.Warn(messageString, Exception);
-          }
-
-          break;
-
-        case LogLevel.Error:
-          if (Exception == null)
-          {
-            log.Error(messageString);
-          }
-          else
-          {
-            log.Error(messageString, Exception);
-          }
-
-          break;
-
-        case LogLevel.Critical:
-          if (Exception == null)
-          {
-            log.Fatal(messageString);
-          }
-          else
-          {
-            log.Fatal(messageString, Exception);
-          }
-
-          break;
-      }
-    }
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#record-builder)]
 
 
 ## Override the TextLoggingBackend class
@@ -208,40 +80,7 @@ To implement the backend class:
 
 ### Example
 
-```csharp
-using PostSharp.Patterns.Diagnostics;
-using PostSharp.Patterns.Diagnostics.Backends;
-using PostSharp.Patterns.Diagnostics.RecordBuilders;
-using System;
-
-namespace PostSharp.Samples.Logging.CustomBackend.ServiceStack
-{
-  public class ServiceStackLoggingBackend : TextLoggingBackend
-  {
-    public new ServiceStackLoggingBackendOptions Options { get; } = new ServiceStackLoggingBackendOptions();
-
-    protected override LoggingTypeSource CreateTypeSourceBySourceName(LoggingNamespaceSource parent, string sourceName)
-    {
-      return new ServiceStackLoggingTypeSource(parent, sourceName, null);
-    }
-
-    protected override LoggingTypeSource CreateTypeSource(LoggingNamespaceSource parent, Type type)
-    {
-      return new ServiceStackLoggingTypeSource(parent, null, type);
-    }
-
-    public override LogRecordBuilder CreateRecordBuilder()
-    {
-      return new ServiceStackLogRecordBuilder(this);
-    }
-
-    protected override TextLoggingBackendOptions GetTextBackendOptions()
-    {
-      return Options;
-    }
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#backend)]
 
 
 ## Overriding context classes

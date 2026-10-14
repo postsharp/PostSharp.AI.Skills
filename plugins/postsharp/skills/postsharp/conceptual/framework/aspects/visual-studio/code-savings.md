@@ -25,20 +25,7 @@ To override the default value, add the <xref:PostSharp.Aspects.LinesOfCodeAvoide
 
 The following code snippet shows how to specify that 4 lines of code are avoided every time the aspect is applied. If the aspect is applied to 100 methods, PostSharp will estimate that 400 lines of handwritten code have been avoided.
 
-```csharp
-[PSerializable]
-    [LinesOfCodeAvoided(4)]
-    public sealed class ExceptionHandlerAttribute : OnExceptionAspect
-    {
-        public override void OnException( MethodExecutionArgs eventArgs )
-        {
-            if ( !ExceptionHandler.OnException( eventArgs.Exception ) )
-            {
-                eventArgs.FlowBehavior = FlowBehavior.Continue;
-            }
-        }
-    }
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Intellisense/LinesOfCodeAvoided.cs#example)]
 
 
 ## Aspects with advice methods
@@ -53,15 +40,7 @@ To specify how many lines of handwritten code are avoided every time an advice i
 
 The following code snippet shows how to specify that 1 line of code is avoided every time the advice is applied. Suppose that the aspect is applied to 100 classes and each class has on average 5 non-abstract instance properties. In this situation, PostSharp will estimate that 500 lines of handwritten code have been avoided.
 
-```csharp
-[OnLocationSetValueAdvice( LinesOfCodeAvoided = 1 ),
- MulticastPointcut( Targets = MulticastTargets.Property,
-                    Attributes = MulticastAttributes.Instance | MulticastAttributes.NonAbstract )]
-public void OnPropertySet<T>( [This] object instance, [LocationValue] T value, [Binding] ILocationBinding<T> binding )
-{
-    // Details skipped.
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Intellisense/AdviceLinesOfCodeAvoided.cs#example)]
 
 
 ## Adding code saving hints programmatically

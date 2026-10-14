@@ -35,25 +35,7 @@ To adequately raise the <xref:System.ComponentModel.INotifyPropertyChanged.Prope
 
 Consider the following code snippet:
 
-```csharp
-[NotifyPropertyChanged]              
-class Invoice
-{
-  private decimal _amount;
-  private decimal _tax;
-  
-  public decimal Amount { get { return this._amount; } set { this._amount = value; } }
-  public decimal Tax { get { return this._tax; } set { this._tax = value; } }
-  
-  public void Set( decimal amount, decimal tax )
-  {
-     this._amount = amount;
-     this._tax = tax;
-  }
-  
-  public decimal Total { get { return this._amount + this._tax; } }
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcFieldDependencies.cs#example)]
 
 The result of the analysis for the code snippet above would be the map `{ _amount => ( Amount, Total ), _tax => ( Tax, Total ) }`. Whenever the `_amount` field is changed, the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event will be raised for properties `Amount` and `Total`. 
 
@@ -66,25 +48,7 @@ Field references are not only looked for in the getter, but in any method invoke
 
 Consider the following code snippet:
 
-```csharp
-[NotifyPropertyChanged]              
-class Invoice
-{
-  private decimal _amount;
-  private decimal _exchangeRate;
-  
-  public decimal Amount { get { return this._amount; } set { this._amount = value; } }
-  public decimal ExchangeRate { get { return this._exchangeRate; } set { this._exchangeRate = value; } }
-  
-  private decimal Convert( decimal amount )
-  {
-    return amount * this.ExchangeRate;
-  }
-  
-  public decimal AmountBase { get { return this.Convert( this.Amount ); } }
-  
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcCallGraph.cs#example)]
 
 In the code snippet above, the analyzer starts from the getter of the `AmountBase` property, follows the call to the `Amount` property getter, then the call to the `Convert` method and recursively follows the `ExchangeRate` property getter. Therefore, the resulting property map remains `{ _amount => ( Amount, AmountBase ), _exchangeRate => ( ExchangeRate, AmountBase ) }`. 
 
@@ -95,28 +59,7 @@ The <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect does n
 
 Consider the following code snippet:
 
-```csharp
-[NotifyPropertyChanged]              
-class InvoiceModel
-{
-  private decimal _amount;
-  private decimal _tax;
-  
-  public decimal Amount { get { return this._amount; } set { this._amount = value; } }
-  public decimal Tax { get { return this._tax; } set { this._tax = value; } }
-}
-
-[NotifyPropertyChanged]
-class InvoiceViewModel
-{
-  InvoiceModel _model;  
-  
-  public InvoiceModel Model { get { return this._model; } }
-  
-  public decimal Total { get { return this._model.Amount + this.Model.Tax; } }
-  
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcExternalObjects.cs#example)]
 
 In the example above, the `InvoiceViewModel.Total` property is dependent on properties `Amount` and `Tax` of the `_model` field. Therefore, changes in the `InvoiceModel._amount` field will trigger a change notification for the `InvoiceModel.Amount` and `InvoiceViewModel.Total` properties. 
 
@@ -148,23 +91,7 @@ Simplistic implementations of the <xref:System.ComponentModel.INotifyPropertyCha
 
 Consider the following code:
 
-```csharp
-[NotifyPropertyChanged]
-class Invoice
-{
-  public decimal Amount { get; private set; }
-  public decimal Tax { get; private set; }
-  public decimal Total { get; private set; }
-
-  public void Set( decimal amount, decimal tax )
-  {
-    /* 1 */ this.Amount = amount;
-    /* 2 */ this.Tax = tax;
-    /* 3 */ this.Total = amount + tax;
-  }
-
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcRaisingNotifications.cs#example)]
 
 As a class invariant, the assumption `Total == Amount + Tax` should always be true. 
 
@@ -173,6 +100,10 @@ However, suppose that the <xref:System.ComponentModel.INotifyPropertyChanged.Pro
 Therefore, it is not safe to raise change notifications immediately after a change has been achieved. It is necessary to wait until the object can be safely observed by external code, when all class invariants are valid again (that is, when the object state is consistent). A common best practice in object-oriented programming is to ensure that class invariants are valid before the control flow goes back from the current object to the caller. Typically, it means that a private or protected method can exit with an inconsistent object state, but public and internal methods must guarantee that the object state is consistent upon exit.
 
 The <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect relies on this best practice and raises the property change notifications just before the control flow exits the current object, that is, just before the last public or internal method in the call stack for the current object exits. 
+
+In the example above, a client that checks the class invariant in its event handler always sees a consistent object, because the three notifications are raised when the `Set` method exits:
+
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcRaisingNotifications.txt)]
 
 Besides avoiding the exposure of an invalid object state, this strategy also prevents the same property from being notified several times during the execution of a single public method, which has a potentially large positive impact on performance.
 

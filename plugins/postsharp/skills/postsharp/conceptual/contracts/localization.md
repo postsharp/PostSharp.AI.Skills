@@ -25,51 +25,12 @@ The following steps illustrate how to override an error message of a given contr
 
 1. Declare a class that derives from <xref:PostSharp.Patterns.Contracts.ContractLocalizedTextProvider> and implement the chain constructor. 
 
-    ```csharp
-    public class CzechContractLocalizedTextProvider : ContractLocalizedTextProvider
-    {
-        public CzechContractLocalizedTextProvider(ContractLocalizedTextProvider next)
-          : base(next)
-        {
-        }
-        
-    }
-    ```
+    [!code-csharp[](../../code/samples/Model/Contracts/ContractLocalization.cs#declaration)]
 
 
-2. Implement the <xref:PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)> method. In the next code snippet, we show how to build a simple and efficient dictionary-based implementation. 
+2. Add the following members to implement the <xref:PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)> method. In the next code snippet, we show how to build a simple and efficient dictionary-based implementation. 
 
-    ```csharp
-    public class CzechContractLocalizedTextProvider : ContractLocalizedTextProvider
-    {
-        private readonly Dictionary<string, string> messages = new Dictionary<string, string>
-        {
-            {RegularExpressionErrorMessage, "Hodnota {2} neodpovídá regulárnímu výrazu '{4}'."},
-        };
-
-        public CzechContractLocalizedTextProvider(ContractLocalizedTextProvider next)
-          : base(next)
-        {
-        }
-        
-        public override string GetMessage( string messageId )
-        {
-            if ( string.IsNullOrEmpty( messageId ))
-                throw new ArgumentNullException(nameof(messageId));
-    
-            string message;
-            if ( this.messages.TryGetValue( messageId, out message ) )
-            {
-                return message;
-            }
-            else
-            {
-                // Fall back to the default provider.
-                return base.GetMessage( messageId );
-            }
-        }
-    }
-    ```
+    [!code-csharp[](../../code/samples/Model/Contracts/ContractLocalization.cs#get-message)]
 
     > [!NOTE]
     > If you need to support several languages, you can make your implementation of the <xref:PostSharp.Patterns.Utilities.LocalizedTextProvider.GetMessage(System.String)> method depend on the value of the <xref:System.Globalization.CultureInfo.CurrentCulture> property. You can optionally store your error messages in a managed resource and use the <xref:System.Resources.ResourceManager> class to access it and manage localization issues. The design of PostSharp Code Contracts is agnostic to these decisions. 
@@ -77,14 +38,7 @@ The following steps illustrate how to override an error message of a given contr
 
 3. At the beginning of the application, create a new instance of the provider and set the current provider as its successor.
 
-    ```csharp
-    public static void Main()
-    {
-        ContractServices.LocalizedTextProvider = new CzechContractLocalizedTextProvider(ContractServices.LocalizedTextProvider);
-    
-        // ...
-    }
-    ```
+    [!code-csharp[](../../code/samples/Model/Contracts/ContractLocalization.cs#main)]
 
 
 
@@ -97,16 +51,16 @@ Once you have configured a text provider, you can use it to localize error messa
 
 1. Edit the code contract class (`NonZeroAttribute` in our case) to call `ContractServices.ExceptionFactory.CreateException()` in the validation method(s), as shown in <xref:contract-custom-exceptions>. Use a unique `messageId` (for example, "NonZeroErrorMessage") to identify the message text template. 
 
+    [!code-csharp[](../../code/samples/Model/Contracts/ContractLocalizationCustom.cs#message-id)]
+
 
 2. Edit your text provider class (`CzechContractLocalizedTextProvider` in our case) and include the message for your custom contract: 
 
-    ```csharp
-    private readonly Dictionary<string, string> messages = new Dictionary<string, string>
-      {
-         {RegularExpressionErrorMessage, "Hodnota {2} neodpovídá regulárnímu výrazu '{4}'."},
-         {"NonZeroErrorMessage", "Hodnota {2} nesmí být 0."}
-      };
-    ```
+    [!code-csharp[](../../code/samples/Model/Contracts/ContractLocalizationCustom.cs#messages)]
+
+    With this provider, a violation of the `[NonZero]` contract throws an exception with the following message:
+
+    [!code-text[](../../code/samples/Model/Contracts/ContractLocalizationCustom.txt)]
 
 
 

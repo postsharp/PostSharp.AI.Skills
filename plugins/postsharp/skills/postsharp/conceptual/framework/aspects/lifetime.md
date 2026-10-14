@@ -24,26 +24,11 @@ With statically-scoped aspects, PostSharp creates one aspect instance for each e
 
 In generic types, the aspect instance does not have exactly the same scope as static fields. Consider the following piece of code:
 
-```csharp
-public class GenericClass<T>
-{
-    static T f;
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectLifetimeGeneric.cs#example)]
 
-    [Trace]
-    public static void SetField(T value) { f = value; }
-}
+In this program, there are two instances of the static field `f` (one for `GenericClass<int>`, the second for `GenericClass<long>`) but only a single instance of the aspect `Trace`. The aspect of this example numbers its instances, and both calls print the same number:
 
-public class Program
-{
-    public static void Main()
-    {
-        GenericClass<int>.SetField(1);
-        GenericClass<long>.SetField(2);
-    }
-}
-```
-
-In this program, there are two instances of the static field `f` (one for `GenericClass<int>`, the second for `GenericClass<long>`) but only a single instance of the aspect `Trace`. 
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/AspectLifetimeGeneric.txt)]
 
 
 ### Instance-Scoped Aspects
@@ -52,18 +37,13 @@ Instance-scoped aspects have the same scope (instance or static) as the element 
 
 Instance-scoped aspects are implemented according to the prototype pattern: the aspect instance created at compile time serves as a prototype, and is cloned at run time whenever the target class is instantiated. 
 
-Instance-scoped aspects must implement the interface <xref:PostSharp.Aspects.IInstanceScopedAspect>. Any aspect may be made instance-scoped. The following code is a typical implementation of the interface <xref:PostSharp.Aspects.IInstanceScopedAspect>: 
+Instance-scoped aspects must implement the interface <xref:PostSharp.Aspects.IInstanceScopedAspect>. Any aspect may be made instance-scoped. The following code is a typical implementation of the interface <xref:PostSharp.Aspects.IInstanceScopedAspect>, taken from an aspect that counts the calls of a method for each instance of the target class: 
 
-```csharp
-object IInstanceScopedAspect.CreateInstance( AdviceArgs adviceArgs )
-{
-    return this.MemberwiseClone();
-}
+[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/AspectLifetimeInstanceScoped.cs#example)]
 
-void IInstanceScopedAspect.RuntimeInitializeInstance()
-{
-}
-```
+When the aspect is applied to a method of an `Account` class, each `Account` object gets its own aspect instance and its own counter:
+
+[!code-text[](../../../code/samples/CustomPatterns/Aspects/AspectLifetimeInstanceScoped.txt)]
 
 
 ## Steps in the Lifetime of an Aspect Instance

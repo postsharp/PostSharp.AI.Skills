@@ -14,6 +14,8 @@ summary: "PostSharp Logging has two modes: Production Mode for unlimited logging
 
 This is the default mode. It is meant for logging of the application without a time limit. Production Mode is a premium feature and is included in PostSharp Logging and PostSharp Ultimate.
 
+A build server does not need a license key for Production Mode when PostSharp detects that the build is unattended. See <xref:build-server>.
+
 
 ## Developer Mode
 

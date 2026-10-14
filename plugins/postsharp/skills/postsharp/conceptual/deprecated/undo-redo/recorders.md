@@ -35,9 +35,7 @@ You can override this automatic assignment to inject your own <xref:PostSharp.Pa
 
 4. Insert an instance of your custom <xref:PostSharp.Patterns.Recording.RecorderProvider> class into the chain of responsibility by assigning it to the <xref:PostSharp.Patterns.Recording.RecordingServices.RecorderProvider>. 
 
-    ```csharp
-    RecordingServices.RecorderProvider = new MyProvider(RecordingServices.RecorderProvider);
-    ```
+    [!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoRecorderProvider.cs#register)]
 
 
 > [!NOTE]
@@ -48,27 +46,7 @@ By overriding the default <xref:PostSharp.Patterns.Recording.RecorderProvider> y
 
 ### Example
 
-```csharp
-public class ThreadStaticRecorderProvider : RecorderProvider
-{                
-  [ThreadStatic]
-  private static Recorder _recorder;
-
-  public ThreadStaticRecorderProvider(RecorderProvider next) : base(next)
-  {
-  }
-  
-  protected override Recorder GetRecorderCore(object obj)
-  {
-    if ( _recorder == null )
-    {
-       _recorder = new Recorder();
-    }
-    
-    return _recorder;
-  }
-}
-```
+[!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoRecorderProvider.cs#provider)]
 
 
 ## Attaching a recorder manually
@@ -80,12 +58,7 @@ The second way that you can add a <xref:PostSharp.Patterns.Recording.Recorder> t
 
 1. Set the <xref:PostSharp.Patterns.Recording.RecordableAttribute.AutoRecord> property to `false` for that class. 
 
-    ```csharp
-    [Recordable(AutoRecord = false)]
-    public class Invoice
-    {
-    }
-    ```
+    [!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoManualRecorder.cs#invoice)]
 
     > [!NOTE]
     > By disabling <xref:PostSharp.Patterns.Recording.RecordableAttribute.AutoRecord> you are telling the <xref:PostSharp.Patterns.Recording.RecordingServices> that this object should not be included in recordings unless the recording is explicitly declared in your code. 
@@ -93,12 +66,7 @@ The second way that you can add a <xref:PostSharp.Patterns.Recording.Recorder> t
 
 2. Create a new instance of a <xref:PostSharp.Patterns.Recording.Recorder> and attach the object to it using the <xref:PostSharp.Patterns.Recording.Recorder.Attach(System.Object)> method. 
 
-    ```csharp
-    var invoice = new Invoice();
-    
-    var recorder = new Recorder();
-    recorder.Attach(invoice);
-    ```
+    [!code-csharp[](../../../code/samples/Model/UndoRedo/UndoRedoManualRecorder.cs#attach)]
 
     You can then use the <xref:PostSharp.Patterns.Recording.Recorder.Detach(System.Object)> method to remove the <xref:PostSharp.Patterns.Recording.Recorder> from the object in question. 
 

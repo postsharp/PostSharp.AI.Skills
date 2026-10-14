@@ -19,7 +19,7 @@ Throughout the life of an event, it is possible to have many different event han
 1. Add a reference to the *PostSharp* package to your project. 
 
 
-2. Create an aspect that inherits from <xref:PostSharp.Aspects.EventInterceptionAspect>. Add the [<xref:PostSharp.Serialization.PSerializableAttribute>] custom attribute. 
+2. Create an aspect class named `CustomEventHandling` that inherits from <xref:PostSharp.Aspects.EventInterceptionAspect>. Add the [<xref:PostSharp.Serialization.PSerializableAttribute>] custom attribute. 
 
 
 3. Override the <xref:PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)> method and add your logging code to the method body. 
@@ -27,17 +27,7 @@ Throughout the life of an event, it is possible to have many different event han
 
 4. Add the `base.OnAddHandler` call to the body of the <xref:PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)> method. If this is omitted, the original call to add a handler will not be executed. Unless you want to stop the addition of the handler, add this line of code. 
 
-    ```csharp
-    [PSerializable]
-    public class CustomEventHandling : EventInterceptionAspect
-    {
-        public override void OnAddHandler(EventInterceptionArgs args)
-        {
-            base.OnAddHandler(args);
-            Console.WriteLine("A handler was added");
-        }
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInterception.cs#add)]
 
 
 5. To log the removal of an event handler, override the <xref:PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)> method. 
@@ -48,32 +38,12 @@ Throughout the life of an event, it is possible to have many different event han
 
 7. Add the `base.OnRemoveHandler` call to the body of the <xref:PostSharp.Aspects.EventInterceptionAspect.OnRemoveHandler(PostSharp.Aspects.EventInterceptionArgs)> method. Like you saw when overriding the <xref:PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)> method, if you omit this call, the original call to remove the handler will not occur. 
 
-    ```csharp
-    public override void OnRemoveHandler(EventInterceptionArgs args) 
-    { 
-        base.OnRemoveHandler(args); 
-        Console.WriteLine("A handler was removed"); 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInterception.cs#remove)]
 
 
 Once you have defined the interception points in the aspect, you will need to attach the aspect to the target code. The simplest way to do this is to add the attribute to the event declaration.
 
-```csharp
-public class Example 
-{
-    [CustomEventHandling]
-    public event EventHandler<EventArgs> SomeEvent; 
- 
-    public void DoSomething() 
-    { 
-        if (SomeEvent != null) 
-        { 
-            SomeEvent.Invoke(this, EventArgs.Empty); 
-        } 
-    } 
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInterception.cs#example)]
 
 
 ## Intercepting raise
@@ -86,16 +56,18 @@ When you are intercepting events, you may also have situations where you want to
 
 2. Add a call to `base.OnInvokeHandler` to ensure that the original invocation occurs. 
 
-    ```csharp
-    public override void OnInvokeHandler(EventInterceptionArgs args) 
-    { 
-        base.OnInvokeHandler(args); 
-        Console.WriteLine("A handler was invoked"); 
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInterception.cs#invoke)]
 
 
 By adding the attribute to the target event earlier in this process, you have enabled interception of each raised event.
+
+The following program subscribes to the event, raises it, and unsubscribes from it:
+
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInterception.cs#program)]
+
+The program prints the following output:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInterception.txt)]
 
 
 ## Accessing the current context
@@ -120,50 +92,25 @@ When events are subscribed to, the component that raises the event has no way to
 
 3. In the `try` block, add a call to `base.OnInvokeHandler`, and in the `catch` block, add a call to <xref:PostSharp.Aspects.EventInterceptionArgs.RemoveHandler(System.Delegate)>. 
 
-    ```csharp
-    [PSerializable]
-    public class CustomEventHandling : EventInterceptionAspect 
-    { 
-        public override void OnInvokeHandler(EventInterceptionArgs args) 
-        { 
-            try 
-            { 
-                base.OnInvokeHandler(args); 
-            } 
-            catch (Exception e) 
-            { 
-                Console.WriteLine("Handler '{0}' invoked with arguments {1} failed with exception {2}.", 
-                                  args.Handler.Method,  
-                                  string.Join(", ", args.Arguments.Select(a => a == null ? "null" : a.ToString())), 
-                                  e.GetType().Name); 
-     
-                args.RemoveHandler(args.Handler);  
-                throw; 
-            } 
-        } 
-     
-    }
-    ```
+    [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventRemoveFailingHandler.cs#aspect)]
 
 
 Now, any time an exception is thrown during event execution, the offending event handler will be unsubscribed from the event.
+
+In the following output, a handler throws an exception when the event is raised the first time. It is not invoked anymore when the event is raised the second time:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventRemoveFailingHandler.txt)]
 
 
 ## Intercepting the event initializer
 
 The <xref:PostSharp.Aspects.EventInterceptionAspect.OnAddHandler(PostSharp.Aspects.EventInterceptionArgs)> method does not intercept the initializer of a field-like event. If you want to intercept the adding of all handlers, do not use event initializers and instead add the initial handler in the constructor. 
 
-```csharp
-public class TargetClass 
-{ 
-    [EventInterception]
-    public event EventHandler FieldLikeEvent = EventHandler1; // will not be intercepted
-    public TargetClass() 
-    {
-        this.FieldLikeEvent += EventHandler2; // will be intercepted
-    } 
-}
-```
+[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInitializer.cs#example)]
+
+When the aspect logs the added handlers, creating an instance of `TargetClass` prints only the handler added in the constructor:
+
+[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Tutorials/EventInitializer.txt)]
 
 ## See Also
 

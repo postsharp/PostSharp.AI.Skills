@@ -111,6 +111,12 @@ items:
         The serializer type. This type must implement <xref href="PostSharp.Serialization.ISerializer" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Serialization.ISerializerFactory" data-throw-if-not-resolved="false"></xref>,
                     and must have a public default constructor. If <code class="paramref">serializerType</code> is a generic type, it must have the same number
                     of generic type parameters as the target type, and have a compatible set of constraints.
+      attributes:
+      - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+        ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+        arguments:
+        - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+          value: 1
     content.vb: Public Sub New(serializerType As Type)
   overload: PostSharp.Serialization.SerializerAttribute.#ctor*
   nameWithType.vb: SerializerAttribute.New(Type)
@@ -139,9 +145,21 @@ items:
     of generic type parameters as the target type, and have a compatible set of constraints.
   example: []
   syntax:
-    content: public Type SerializerType { get; }
+    content: >-
+      [DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]
+
+      public Type SerializerType { get; }
     parameters: []
     return:
       type: System.Type
-    content.vb: Public ReadOnly Property SerializerType As Type
+    content.vb: >-
+      <DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)>
+
+      Public ReadOnly Property SerializerType As Type
   overload: PostSharp.Serialization.SerializerAttribute.SerializerType*
+  attributes:
+  - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute
+    ctor: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)
+    arguments:
+    - type: System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes
+      value: 1

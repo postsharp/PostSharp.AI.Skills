@@ -34,19 +34,7 @@ To apply the Thread-Affine threading model to a class:
 
 In the example below, the <xref:PostSharp.Patterns.Threading.ThreadAffineAttribute> has been added to the class. 
 
-```csharp
-[ThreadAffine]
-public class OrderService
-{
-    public void Process(int sequence)
-    {
-        Console.WriteLine("sequence {0}", sequence);
-        Console.WriteLine("sleeping for 10s");
-        
-        Thread.Sleep(new TimeSpan(0,0,10));
-    }
-}
-```
+[!code-csharp[](../../../code/samples/Threading/ThreadAffine.cs#service)]
 
 
 ## Rules enforced by the Thread-Affine aspect
@@ -57,40 +45,15 @@ Except for the types of fields, the <xref:PostSharp.Patterns.Threading.ThreadAff
 
 To test the thread-affine `OrderService` class, we can run the following code: 
 
-```csharp
-public void Main()
-{
-    var orderService = new OrderService();
-            
-    orderService.Process(1);
+[!code-csharp[](../../../code/samples/Threading/ThreadAffine.cs#program)]
 
-    var backgroundWorker = new BackgroundWorker();
-    backgroundWorker.DoWork += (sender, args) =>
-    {
-        try
-        {
-            orderService.Process(2);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex.ToString());
-        }
-    };
-    backgroundWorker.RunWorkerAsync();  
-}
-```
+The output of this program is:
 
-The above code will execute the `orderService.Process(1)` method and output the following to the console. 
+[!code-text[](../../../code/samples/Threading/ThreadAffine.txt)]
 
-![](threadaffine5.PNG)
+The `orderService.Process(1)` call succeeds because the `orderService` instance is created (with the `new` keyword) and used on the same thread.
 
-That code successfully executed because the `orderService` instance was both created (via the `new` keyword) and executed on the same thread. 
-
-After the 10-second sleep period, a `BackgroundWorker` thread is opened and it is set to execute the `orderService.Process(2)` method. If an exception is thrown, it will be output to the console. When this piece of code executes you will see the following console output. 
-
-![](threadaffine6.PNG)
-
-As you can see, a <xref:PostSharp.Patterns.Threading.ThreadMismatchException> exception was thrown. This happened because the `orderService` instance was created on the main thread and the `BackgroundWorker` thread attempted to execute it. Because the `OrderService` class has been marked with the <xref:PostSharp.Patterns.Threading.ThreadAffineAttribute> attribute, only the thread that creates an instance of it can access that instance. 
+Then, a background thread executes the `orderService.Process(2)` method, and the program writes the exception to the console. A <xref:PostSharp.Patterns.Threading.ThreadMismatchException> exception is thrown because the `orderService` instance was created on the main thread and the background thread attempted to use it. Because the `OrderService` class has been marked with the <xref:PostSharp.Patterns.Threading.ThreadAffineAttribute> attribute, only the thread that creates an instance of it can access that instance. 
 
 
 ## Working with object trees

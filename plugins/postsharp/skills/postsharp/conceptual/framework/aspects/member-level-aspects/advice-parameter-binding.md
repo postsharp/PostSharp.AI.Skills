@@ -22,31 +22,7 @@ The binding attributes derive from <xref:PostSharp.Aspects.Advices.AdviceParamet
 
 The following aspect measures the duration of a method and writes it to the console with the value of the first argument. The entry advice starts a <xref:System.Diagnostics.Stopwatch> and stores it in a variable bound by <xref:PostSharp.Aspects.Advices.StateAttribute>. The advices have no pointcut, so they apply to the target method of the aspect and form one group (see [How it works](xref:member-level-aspects#how-it-works)). The `stopwatch` parameter of the exit advice is therefore bound to the same variable.
 
-```csharp
-using System;
-using System.Diagnostics;
-using PostSharp.Aspects;
-using PostSharp.Aspects.Advices;
-using PostSharp.Serialization;
-
-[PSerializable]
-public sealed class StopwatchAttribute : MethodLevelAspect
-{
-    [OnMethodEntryAdvice]
-    public void OnEntry( [State( StateScope.MethodInvocation )] out Stopwatch stopwatch )
-    {
-        stopwatch = Stopwatch.StartNew();
-    }
-
-    [OnMethodExitAdvice]
-    public void OnExit( [DeclarationName] string methodName,
-                        [Argument( 0 )] object argument,
-                        [State( StateScope.MethodInvocation )] Stopwatch stopwatch )
-    {
-        Console.WriteLine( "{0}({1}) took {2} ms.", methodName, argument, stopwatch.ElapsedMilliseconds );
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/BindingStopwatch.cs#aspect)]
 
 
 ## Rules of an advice signature
@@ -83,7 +59,7 @@ The following table lists the binding attributes, the value they bind and the pa
 | <xref:PostSharp.Aspects.Advices.AsyncCallIdAttribute> | The <xref:PostSharp.Aspects.AsyncCallId> that identifies the current execution of the async method. | <xref:PostSharp.Aspects.AsyncCallId>. | By value. |
 | <xref:PostSharp.Aspects.Advices.DeclarationAttribute> | The reflection object of the target: <xref:System.Reflection.MethodBase>, <xref:PostSharp.Reflection.LocationInfo> or <xref:System.Type>, depending on the advice. It is not looked up on each call, except for generic targets. | The type of the reflection object, or a base type. | By value. |
 | <xref:PostSharp.Aspects.Advices.DeclarationIdentifierAttribute> | The <xref:PostSharp.Reflection.DeclarationIdentifier> of the target. | <xref:PostSharp.Reflection.DeclarationIdentifier>. | By value. |
-| <xref:PostSharp.Aspects.Advices.DeclarationNameAttribute> | The name of the target, which is a constant. With <xref:PostSharp.Aspects.Advices.DeclarationNameAttribute.IncludeTypeName>, the name is prefixed with the name of the declaring type. | <xref:System.String>. | By value. |
+| <xref:PostSharp.Aspects.Advices.DeclarationNameAttribute> | The name of the target, which is a constant. With <xref:PostSharp.Aspects.Advices.DeclarationNameAttribute.IncludeTypeName>, the name is prefixed with the full name of the declaring type. | <xref:System.String>. | By value. |
 | <xref:PostSharp.Aspects.Advices.LocationValueAttribute> | The value of the field or property. | The type of the field or property. | `out` or `ref` in a get advice. Any in a set advice. |
 | <xref:PostSharp.Aspects.Advices.BindingAttribute> | The binding object, which invokes the next node in the chain of interceptions of the target. | <xref:PostSharp.Aspects.IMethodBinding> in a method interception advice. <xref:PostSharp.Aspects.ILocationBinding`1> or <xref:PostSharp.Aspects.ILocationBinding> in a location advice. | By value. |
 
@@ -147,32 +123,11 @@ In a method boundary advice applied semantically to an async method, or to a non
 
 The following aspect returns a cached value from the entry advice, and stores the value that the method returns in the success advice. The advices are generic, so the value is not boxed. <xref:PostSharp.Aspects.Advices.ReturnValueAttribute.IsRequired> makes the build fail on a method that returns no value, to which the aspect does not apply. `Cache<T>` is a class of your application.
 
-```csharp
-[PSerializable]
-public sealed class CacheAttribute : MethodLevelAspect
-{
-    [OnMethodEntryAdvice]
-    public static void OnEntry<T>( [Argument( 0 )] string key,
-                                   [ReturnValue( IsRequired = true )] out T returnValue,
-                                   [FlowBehavior] out FlowBehavior flowBehavior )
-    {
-        if ( Cache<T>.TryGetValue( key, out returnValue ) )
-        {
-            flowBehavior = FlowBehavior.Return;
-        }
-        else
-        {
-            flowBehavior = FlowBehavior.Default;
-        }
-    }
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/BindingCache.cs#aspect)]
 
-    [OnMethodSuccessAdvice]
-    public static void OnSuccess<T>( [Argument( 0 )] string key, [ReturnValue] T returnValue )
-    {
-        Cache<T>.Set( key, returnValue );
-    }
-}
-```
+When the aspect is applied to a `GetStock` method, calling the method twice with the same argument executes it only once:
+
+[!code-text[](../../../../code/samples/framework/aspects/member-level-aspects/BindingCache.txt)]
 
 On an async method, the entry advice of this aspect causes the warning LA0154, because it has a `[FlowBehavior]` parameter but no `[Awaiter]` parameter.
 
@@ -189,16 +144,7 @@ In <xref:PostSharp.Aspects.Advices.OnMethodExceptionAdvice>, a parameter annotat
 
 The following advice wraps every exception into a `DataAccessException`:
 
-```csharp
-[OnMethodExceptionAdvice]
-public static void OnException( [DeclarationName] string methodName,
-                                [Exception] ref Exception exception,
-                                [FlowBehavior] out FlowBehavior flowBehavior )
-{
-    exception = new DataAccessException( $"{methodName} failed.", exception );
-    flowBehavior = FlowBehavior.ThrowException;
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/BindingException.cs#advice)]
 
 The `[Exception]` binding is not available in <xref:PostSharp.Aspects.Advices.OnMethodExitAdvice>.
 
@@ -207,30 +153,11 @@ The `[Exception]` binding is not available in <xref:PostSharp.Aspects.Advices.On
 
 In <xref:PostSharp.Aspects.Advices.OnMethodInvokeAdvice>, the advice calls the intercepted method through the <xref:PostSharp.Aspects.IMethodBinding> received by a `[Binding]` parameter. The <xref:PostSharp.Aspects.IMethodBinding.Invoke*> method takes the instance and an <xref:PostSharp.Aspects.Arguments> object, which a `[Arguments]` parameter provides. The following aspect calls the method again, up to three times, when the method throws an <xref:System.IO.IOException>. For each target method, `T` is the return type of the method.
 
-```csharp
-[PSerializable]
-public sealed class RetryAttribute : MethodLevelAspect
-{
-    [OnMethodInvokeAdvice]
-    public static void OnInvoke<T>( [This] object instance,
-                                    [Binding] IMethodBinding binding,
-                                    [Arguments] Arguments arguments,
-                                    [ReturnValue] out T returnValue )
-    {
-        for ( int attempt = 1; ; attempt++ )
-        {
-            try
-            {
-                returnValue = (T) binding.Invoke( ref instance, arguments );
-                return;
-            }
-            catch ( IOException ) when ( attempt < 3 )
-            {
-            }
-        }
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/BindingRetry.cs#aspect)]
+
+When the aspect is applied to a method that fails twice with an <xref:System.IO.IOException>, the third call succeeds:
+
+[!code-text[](../../../../code/samples/framework/aspects/member-level-aspects/BindingRetry.txt)]
 
 Apply this aspect only to methods that return a value and that are not async. An exception thrown after the first `await` of an async method is stored in the returned task, so this advice does not retry it.
 
@@ -248,27 +175,7 @@ On an instance field or property of a struct, the `instance` parameter receives 
 
 In a get advice, a `[LocationValue]` parameter passed by value compiles, but the getter then returns the default value.
 
-```csharp
-[PSerializable]
-public sealed class TrimAttribute : LocationLevelAspect
-{
-    [OnLocationGetValueAdvice]
-    public static void OnGetValue( [This] object instance,
-                                   [Binding] ILocationBinding<string> binding,
-                                   [LocationValue] out string value )
-    {
-        value = binding.GetValue( instance );
-    }
-
-    [OnLocationSetValueAdvice]
-    public static void OnSetValue( [This] object instance,
-                                   [Binding] ILocationBinding<string> binding,
-                                   [LocationValue] string value )
-    {
-        binding.SetValue( instance, value?.Trim() );
-    }
-}
-```
+[!code-csharp[](../../../../code/samples/framework/aspects/member-level-aspects/BindingTrim.cs#aspect)]
 
 
 ### Async methods

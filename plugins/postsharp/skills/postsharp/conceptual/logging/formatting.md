@@ -59,20 +59,11 @@ Logging aspects are assigned to a default profile, as shown in the following tab
 
 2. Edit `postsharp.config` as in the following example: 
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <Project xmlns="http://schemas.postsharp.org/1.0/configuration">
-      <Logging xmlns="clr-namespace:PostSharp.Patterns.Diagnostics;assembly:PostSharp.Patterns.Diagnostics">
-        <Profiles>
-          <LoggingProfile Name="default" IncludeSourceLineInfo="True">
-            <DefaultOptions>
-              <LoggingOptions IncludeParameterType="True"/>
-            </DefaultOptions>
-          </LoggingProfile>
-        </Profiles>
-      </Logging>
-    </Project>
-    ```
+    [!code-xml[](../../code/samples/Logging/LoggingProfileDefault/postsharp.config)]
+
+    With this profile, the records include the parameter types and the source line:
+
+    [!code-text[](../../code/samples/Logging/LoggingProfileDefault/LoggingProfileDefault.txt)]
 
     See the documentation of the <xref:PostSharp.Patterns.Diagnostics.LoggingProfile> and <xref:PostSharp.Patterns.Diagnostics.LoggingOptions> classes for details. 
 
@@ -82,27 +73,12 @@ Logging aspects are assigned to a default profile, as shown in the following tab
 
 1. Configure a logging profile in `postsharp.config`, but choose a different name from `default`, `exceptions` or `audit`. 
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <Project xmlns="http://schemas.postsharp.org/1.0/configuration">
-      <Logging xmlns="clr-namespace:PostSharp.Patterns.Diagnostics;assembly:PostSharp.Patterns.Diagnostics">
-        <Profiles>
-          <LoggingProfile Name="detailed" IncludeSourceLineInfo="True" IncludeExecutionTime="True" IncludeAwaitedTask="True">
-            <DefaultOptions>
-              <LoggingOptions IncludeParameterType="True" IncludeThisValue="True"/>
-            </DefaultOptions>
-          </LoggingProfile>
-        </Profiles>
-      </Logging>
-    </Project>
-    ```
+    [!code-xml[](../../code/samples/Logging/LoggingProfileDetailed/postsharp.config)]
 
 
 2. Specify the profile name when you add the <xref:PostSharp.Patterns.Diagnostics.LogAttribute> aspect to a method, type, or project. 
 
-    ```csharp
-    [assembly: Log("detailed", AttributeTargetTypes = "My.Namespace.*", AttributePriority = 1, AttributeTargetMemberAttributes = MulticastAttributes.Public)]
-    ```
+    [!code-csharp[](../../code/samples/Logging/LoggingProfileDetailed/LoggingProfileDetailed.cs#example)]
 
     > [!NOTE]
     > Alternatively, you can create a new aspect class and derive it from <xref:PostSharp.Patterns.Diagnostics.LogAttributeBase>. 
@@ -117,12 +93,11 @@ Unlike the build-time options, the run-time options are not organized into profi
 
 To edit run-time options, go to the startup method where PostSharp Logging is initialized, and set the backend options:
 
-```csharp
-var backend = new ConsoleLoggingBackend();
-backend.Options.Delimiter = " \u00A6 ";
-backend.Options.Theme = ConsoleThemes.None;
-LoggingServices.DefaultBackend = backend;
-```
+[!code-csharp[](../../code/samples/Logging/LoggingRuntimeOptions.cs#example)]
+
+This code produces records like the following:
+
+[!code-text[](../../code/samples/Logging/LoggingRuntimeOptions.txt)]
 
 
 ## Implementing a custom formatter

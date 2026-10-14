@@ -38,20 +38,7 @@ By using PostSharp to add <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAt
 
 ### Example
 
-```csharp
-[NotifyPropertyChanged] 
-public class CustomerForEditing 
-{ 
-    public string FirstName { get; set; } 
-    public string LastName { get; set; } 
-
-    public string FullName  
-    {  
-        get { return string.Format("{0} {1}", this.FirstName, this.LastName); }  
-    } 
-
-}
-```
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcAdd.cs#example)]
 
 
 ## Consuming the INotifyPropertyChanged interface
@@ -63,20 +50,14 @@ In many cases, this limitation does not matter because the interface is consumed
 There are two ways to access the <xref:System.ComponentModel.INotifyPropertyChanged> interface from your code: 
 
 * You can cast your object to <xref:System.ComponentModel.INotifyPropertyChanged>, for instance: 
-    ```csharp
-    ((INotifyPropertyChanged) obj).PropertyChanged += obj_OnPropertyChanged;
-    ```
+    [!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcAdd.cs#cast)]
 
     If your tooling complains that the object does not implement the interface, you can first cast to `object`: 
-    ```csharp
-    ((INotifyPropertyChanged) (object) obj).PropertyChanged += obj_OnPropertyChanged;
-    ```
+    [!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcAdd.cs#object-cast)]
 
 
 * You can use the <xref:PostSharp.Post.Cast``2(``0)> method. The benefit of using this method is that the cast operation is validated by PostSharp, so the build will fail if you try to cast an object that does not implement the <xref:System.ComponentModel.INotifyPropertyChanged> interface. For instance: 
-    ```csharp
-    Post.Cast<Foo,INotifyPropertyChanged>(obj).PropertyChanged += obj_OnPropertyChanged;
-    ```
+    [!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcAdd.cs#post-cast)]
 
 
 ## See Also
