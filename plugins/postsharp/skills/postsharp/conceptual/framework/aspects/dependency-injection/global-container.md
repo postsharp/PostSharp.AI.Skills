@@ -26,14 +26,14 @@ The dependency injection method can be invoked from the <xref:PostSharp.Aspects.
 
 The following code snippet shows a logging aspect and how it could be used in production code:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/GlobalServiceContainer.cs#production)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/GlobalServiceContainer.cs#production)]
 
 The program prints:
 
-[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Testing/GlobalServiceContainer.txt)]
+[!code-text[](../../../../code/samples/CustomPatterns/Testing/GlobalServiceContainer.txt)]
 
 The following code snippet shows how the logging aspect can be tested:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/GlobalServiceContainerTest.cs#test)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/GlobalServiceContainerTest.cs#test)]
 
 

@@ -28,7 +28,7 @@ items:
     <p>Implementing this interface encapsulates the generation of the dependency key in the dependency object, so that the cached method and
         the invalidating method cannot build different keys. Add the dependency from the cached method by calling
         <xref href="PostSharp.Patterns.Caching.ICachingContext.AddDependency(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref> on <xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref>, and invalidate it by calling
-        <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref>. The string returned by <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey" data-throw-if-not-resolved="false"></xref> is used as the dependency key as is.</p>
+        <xref href="PostSharp.Patterns.Caching.ICachingService.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)" data-throw-if-not-resolved="false"></xref>. The string returned by <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency.GetCacheKey" data-throw-if-not-resolved="false"></xref> is used as the dependency key as is.</p>
     <p>When you cannot modify the dependency class, register a formatter for it instead.</p>
   example: []
   syntax:

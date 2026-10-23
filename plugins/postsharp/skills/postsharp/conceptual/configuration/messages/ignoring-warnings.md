@@ -30,11 +30,11 @@ There are several ways to ignore or escalate a warning for a complete project:
 
 PostSharp also reads the standard MSBuild properties that control the warnings of the C# compiler:
 
-* When the `TreatWarningsAsErrors` property is `True`, PostSharp escalates all its warnings, and all the warnings that aspects emit at build time, into errors. The only exception is the warning `PS0131`, which reports that the project contains no aspect.
+* When the `TreatWarningsAsErrors` property is `True`, PostSharp escalates all its warnings, and all the warnings that aspects emit at build time, into errors. The only exception is the warning <xref:ps0131?text=PS0131>, which reports that the project contains no aspect.
 
   To keep the warnings of PostSharp as warnings in a project that treats the warnings of the compiler as errors, set the `PostSharpTreatWarningsAsErrors` property to `False`.
 
-* The PostSharp message codes that are listed in the `WarningsAsErrors` property are escalated into errors, including `PS0131`.
+* The PostSharp message codes that are listed in the `WarningsAsErrors` property are escalated into errors, including <xref:ps0131?text=PS0131>.
 
 * The PostSharp message codes that are listed in the `WarningsNotAsErrors` property are excluded from the escalation caused by `TreatWarningsAsErrors` or `PostSharpTreatWarningsAsErrors`. They are still escalated when they are listed explicitly in `WarningsAsErrors` or `PostSharpEscalatedMessages`.
 

@@ -1,0 +1,252 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Extensibility.ProjectLocal`1
+  commentId: T:PostSharp.Extensibility.ProjectLocal`1
+  id: ProjectLocal`1
+  parent: PostSharp.Extensibility
+  children:
+  - PostSharp.Extensibility.ProjectLocal`1.#ctor(System.Func{`0})
+  - PostSharp.Extensibility.ProjectLocal`1.#ctor(System.String,System.Func{`0})
+  - PostSharp.Extensibility.ProjectLocal`1.SlotName
+  - PostSharp.Extensibility.ProjectLocal`1.TryGetValue(`0@)
+  - PostSharp.Extensibility.ProjectLocal`1.Value
+  langs:
+  - csharp
+  - vb
+  name: ProjectLocal<T>
+  nameWithType: ProjectLocal<T>
+  fullName: PostSharp.Extensibility.ProjectLocal<T>
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Stores a value that belongs to the project that PostSharp is currently processing. Use it instead of a static field
+
+    to hold build-time state, for instance in an aspect or in a build-time service.
+  remarks: >-
+    <p>
+         Store the <xref href="PostSharp.Extensibility.ProjectLocal%601" data-throw-if-not-resolved="false"></xref> itself in a static field. Each project then has its own value, even when
+         PostSharp processes several projects in the same process at the same time. A static field would share its value
+         between these projects.
+         </p>
+    <p>
+         Each project starts with the value that the initial value factory returns, or with the default value of
+         <code class="typeparamref">T</code>. The factory runs at most once per project, even when several threads of the project read
+         the value for the first time at the same time.
+         </p>
+    <p>
+         A value exists only while PostSharp processes a project. At run time, and at build time outside of the processing
+         of a project, <xref href="PostSharp.Extensibility.ProjectLocal%601.Value" data-throw-if-not-resolved="false"></xref> throws an <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref>. Use <xref href="PostSharp.Extensibility.ProjectLocal%601.TryGetValue(%600%40)" data-throw-if-not-resolved="false"></xref>
+         in code that also runs at run time.
+         </p>
+    <p>
+         The value of the current project flows to the tasks and threads that the processing of the project starts.
+         </p>
+  example:
+  - >-
+    <pre><code class="lang-csharp">private static readonly ProjectLocal&lt;HashSet&lt;MethodInfo&gt;&gt; processedMethods =
+        new ProjectLocal&lt;HashSet&lt;MethodInfo&gt;&gt;( () =&gt; new HashSet&lt;MethodInfo&gt;() );
+
+    // At build time:
+
+    processedMethods.Value.Add( method );</code></pre>
+  syntax:
+    content: public sealed class ProjectLocal<T>
+    typeParameters:
+    - id: T
+      description: Type of the value.
+    content.vb: Public NotInheritable Class ProjectLocal(Of T)
+  seealso:
+  - linkId: PostSharp.Extensibility.PostSharpEnvironment.CurrentProject
+    commentId: P:PostSharp.Extensibility.PostSharpEnvironment.CurrentProject
+  - linkId: PostSharp.Extensibility.IProject.StateStore
+    commentId: P:PostSharp.Extensibility.IProject.StateStore
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  nameWithType.vb: ProjectLocal(Of T)
+  fullName.vb: PostSharp.Extensibility.ProjectLocal(Of T)
+  name.vb: ProjectLocal(Of T)
+- uid: PostSharp.Extensibility.ProjectLocal`1.#ctor(System.Func{`0})
+  commentId: M:PostSharp.Extensibility.ProjectLocal`1.#ctor(System.Func{`0})
+  id: '#ctor(System.Func{`0})'
+  parent: PostSharp.Extensibility.ProjectLocal`1
+  langs:
+  - csharp
+  - vb
+  name: ProjectLocal(Func<T>)
+  nameWithType: ProjectLocal<T>.ProjectLocal(Func<T>)
+  fullName: PostSharp.Extensibility.ProjectLocal<T>.ProjectLocal(System.Func<T>)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.ProjectLocal%601" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ProjectLocal(Func<T> initialValueFactory = null)
+    parameters:
+    - id: initialValueFactory
+      type: System.Func{{T}}
+      description: >-
+        A function that creates the initial value of each project, or <code>null</code> to
+                    start each project with the default value of <code class="typeparamref">T</code>.
+    content.vb: Public Sub New(initialValueFactory As Func(Of T) = Nothing)
+  overload: PostSharp.Extensibility.ProjectLocal`1.#ctor*
+  nameWithType.vb: ProjectLocal(Of T).New(Func(Of T))
+  fullName.vb: PostSharp.Extensibility.ProjectLocal(Of T).New(System.Func(Of T))
+  name.vb: New(Func(Of T))
+- uid: PostSharp.Extensibility.ProjectLocal`1.#ctor(System.String,System.Func{`0})
+  commentId: M:PostSharp.Extensibility.ProjectLocal`1.#ctor(System.String,System.Func{`0})
+  id: '#ctor(System.String,System.Func{`0})'
+  parent: PostSharp.Extensibility.ProjectLocal`1
+  langs:
+  - csharp
+  - vb
+  name: ProjectLocal(string, Func<T>)
+  nameWithType: ProjectLocal<T>.ProjectLocal(string, Func<T>)
+  fullName: PostSharp.Extensibility.ProjectLocal<T>.ProjectLocal(string, System.Func<T>)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Initializes a new instance of the <xref href="PostSharp.Extensibility.ProjectLocal%601" data-throw-if-not-resolved="false"></xref> class, whose storage is identified by a name.
+  remarks: >-
+    <p>
+        Use this constructor in an assembly that PostSharp may load more than once in a process, such as a library of aspects
+        that each compilation loads into its own load context. Every copy of the assembly then shares one place in the
+        storage of a project, instead of adding one more for each copy. A project sees one copy of the assembly only, so
+        the copies never share a value.
+        </p>
+    <p>
+        Two <xref href="PostSharp.Extensibility.ProjectLocal%601" data-throw-if-not-resolved="false"></xref> created with the same name share their value in a project, whatever their
+        <code class="typeparamref">T</code>, which corrupts both.
+        </p>
+  example: []
+  syntax:
+    content: public ProjectLocal(string slotName, Func<T> initialValueFactory = null)
+    parameters:
+    - id: slotName
+      type: System.String
+      description: >-
+        A name that identifies this value in every copy of the assembly that declares it. The caller
+                    is responsible for its uniqueness in the process: include the full name of the declaring type and the name of the
+                    field, for instance <code>MyCompany.MyAspects.MyAspect.processedMethods</code>.
+    - id: initialValueFactory
+      type: System.Func{{T}}
+      description: >-
+        A function that creates the initial value of each project, or <code>null</code> to
+                    start each project with the default value of <code class="typeparamref">T</code>.
+    content.vb: Public Sub New(slotName As String, initialValueFactory As Func(Of T) = Nothing)
+  overload: PostSharp.Extensibility.ProjectLocal`1.#ctor*
+  exceptions:
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: <code class="paramref">slotName</code> is <code>null</code> or empty.
+  nameWithType.vb: ProjectLocal(Of T).New(String, Func(Of T))
+  fullName.vb: PostSharp.Extensibility.ProjectLocal(Of T).New(String, System.Func(Of T))
+  name.vb: New(String, Func(Of T))
+- uid: PostSharp.Extensibility.ProjectLocal`1.TryGetValue(`0@)
+  commentId: M:PostSharp.Extensibility.ProjectLocal`1.TryGetValue(`0@)
+  id: TryGetValue(`0@)
+  parent: PostSharp.Extensibility.ProjectLocal`1
+  langs:
+  - csharp
+  - vb
+  name: TryGetValue(out T)
+  nameWithType: ProjectLocal<T>.TryGetValue(out T)
+  fullName: PostSharp.Extensibility.ProjectLocal<T>.TryGetValue(out T)
+  type: Method
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets the value of the current project, if PostSharp is processing a project.
+  example: []
+  syntax:
+    content: public bool TryGetValue(out T value)
+    parameters:
+    - id: value
+      type: '{T}'
+      description: The value of the current project, or the default value of <code class="typeparamref">T</code>.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if PostSharp is processing a project, or <code>false</code> at run time.
+    content.vb: Public Function TryGetValue(value As T) As Boolean
+  overload: PostSharp.Extensibility.ProjectLocal`1.TryGetValue*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: >-
+      PostSharp runs, but is not processing a project in the current
+                  thread.
+  nameWithType.vb: ProjectLocal(Of T).TryGetValue(T)
+  fullName.vb: PostSharp.Extensibility.ProjectLocal(Of T).TryGetValue(T)
+  name.vb: TryGetValue(T)
+- uid: PostSharp.Extensibility.ProjectLocal`1.SlotName
+  commentId: P:PostSharp.Extensibility.ProjectLocal`1.SlotName
+  id: SlotName
+  parent: PostSharp.Extensibility.ProjectLocal`1
+  langs:
+  - csharp
+  - vb
+  name: SlotName
+  nameWithType: ProjectLocal<T>.SlotName
+  fullName: PostSharp.Extensibility.ProjectLocal<T>.SlotName
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: >-
+    Gets the name that identifies the storage of this value in the process, or <code>null</code> when the
+
+    <xref href="PostSharp.Extensibility.ProjectLocal%601" data-throw-if-not-resolved="false"></xref> was created without a name.
+  example: []
+  syntax:
+    content: public string SlotName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property SlotName As String
+  overload: PostSharp.Extensibility.ProjectLocal`1.SlotName*
+  nameWithType.vb: ProjectLocal(Of T).SlotName
+  fullName.vb: PostSharp.Extensibility.ProjectLocal(Of T).SlotName
+- uid: PostSharp.Extensibility.ProjectLocal`1.Value
+  commentId: P:PostSharp.Extensibility.ProjectLocal`1.Value
+  id: Value
+  parent: PostSharp.Extensibility.ProjectLocal`1
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: ProjectLocal<T>.Value
+  fullName: PostSharp.Extensibility.ProjectLocal<T>.Value
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Extensibility
+  summary: Gets a reference to the value of the current project.
+  remarks: >-
+    The property returns a reference, so you can assign the value (<code>local.Value = x</code>) or pass it to
+
+    <xref href="System.Threading.Interlocked" data-throw-if-not-resolved="false"></xref> (<code>Interlocked.Increment( ref local.Value )</code>).
+  example: []
+  syntax:
+    content: public ref T Value { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly ByRef Property Value As T
+  overload: PostSharp.Extensibility.ProjectLocal`1.Value*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: PostSharp is not processing a project.
+  nameWithType.vb: ProjectLocal(Of T).Value
+  fullName.vb: PostSharp.Extensibility.ProjectLocal(Of T).Value

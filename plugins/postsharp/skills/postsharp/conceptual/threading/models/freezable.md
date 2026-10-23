@@ -26,7 +26,7 @@ To make an object freezable:
 
 2. Add the <xref:PostSharp.Patterns.Threading.FreezableAttribute> custom attribute to your class. 
 
-    [!code-csharp[](../../../code/samples/Threading/Freezable.cs#class)]
+    [!code-csharp[](../../../code/samples/Threading/Core/Freezable.cs#class)]
 
 
 3. Annotate your object model for parent/child relationships as described in <xref:aggregatable-adding>. 
@@ -37,7 +37,7 @@ To make an object freezable:
 
 To freeze an object, you will first have to cast the object to the <xref:PostSharp.Patterns.Threading.IFreezable> interface. After that, you will be able to call the <xref:PostSharp.Patterns.Threading.IFreezable.Freeze> method. 
 
-[!code-csharp[](../../../code/samples/Threading/Freezable.cs#freeze)]
+[!code-csharp[](../../../code/samples/Threading/Core/Freezable.cs#freeze)]
 
 > [!NOTE]
 > The <xref:PostSharp.Patterns.Threading.IFreezable> interface will be injected into the `Invoice` class *after* compilation. Tools that are not aware of PostSharp may incorrectly report that the `Invoice` class does not implement the <xref:PostSharp.Patterns.Threading.IFreezable> interface. 
@@ -48,7 +48,7 @@ To freeze an object, you will first have to cast the object to the <xref:PostSha
 
 Once you have called the <xref:PostSharp.Patterns.Threading.IFreezable.Freeze> method on an object instance, the code will no longer be able to change the property values on that instance. If a value change is attempted, the code will throw an <xref:PostSharp.Patterns.Threading.ObjectReadOnlyException>. 
 
-[!code-csharp[](../../../code/samples/Threading/Freezable.cs#modify)]
+[!code-csharp[](../../../code/samples/Threading/Core/Freezable.cs#modify)]
 
 
 ## Rules enforced by the Freezable aspect
@@ -68,7 +68,7 @@ A freezable object will throw the following exceptions at run time:
 
 To determine whether an object has been frozen, cast it to <xref:PostSharp.Patterns.Threading.IThreadAware> and get the read-only value from <xref:PostSharp.Patterns.Threading.IConcurrencyController.IsReadOnly> via the <xref:PostSharp.Patterns.Threading.IThreadAware.ConcurrencyController> property. 
 
-[!code-csharp[](../../../code/samples/Threading/Freezable.cs#frozen)]
+[!code-csharp[](../../../code/samples/Threading/Core/Freezable.cs#frozen)]
 
 
 ## Freezable object trees

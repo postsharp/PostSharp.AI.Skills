@@ -18,7 +18,7 @@ This article describes how to use the Synchronized model and how it differs from
 
 Traditionally, the C# `lock(this)` statement has been used to synchronize access of several threads to a single object. When an object is locked by one thread, any other thread that attempts to access that object will have its execution blocked. 
 
-[!code-csharp[](../../../code/samples/Threading/SynchronizedLock.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/SynchronizedLock.cs#example)]
 
 In this example, the `myLockingObject` member variable is used as a locking object. Once a thread runs the `lock(myLockingObject)` line, all other threads that enter the `DoSomething` method will stop executing, or be blocked, until the original thread has exited the `lock(myLockingObject)` code block. 
 
@@ -55,17 +55,17 @@ To apply the Synchronized threading model to a class:
 
 In the example below, the <xref:PostSharp.Patterns.Threading.SynchronizedAttribute> has been added to the class. 
 
-[!code-csharp[](../../../code/samples/Threading/Synchronized.cs#service)]
+[!code-csharp[](../../../code/samples/Threading/Core/Synchronized.cs#service)]
 
 To test this, we can run the following code.
 
-[!code-csharp[](../../../code/samples/Threading/Synchronized.cs#program)]
+[!code-csharp[](../../../code/samples/Threading/Core/Synchronized.cs#program)]
 
 The code above executes the `Process` method on two different threads: a background thread and the main thread. The `started` event makes sure that the background thread enters the method first. Because both threads access the same instance of `OrderService`, the background thread blocks the main thread until it exits the `Process` method. The `Thread.Sleep` call does not let the main thread in. When the background thread exits the method, the main thread is no longer blocked and continues its execution.
 
 The output of this program is:
 
-[!code-text[](../../../code/samples/Threading/Synchronized.txt)]
+[!code-text[](../../../code/samples/Threading/Core/Synchronized.txt)]
 
 
 ## Rules enforced by the Synchronized aspect

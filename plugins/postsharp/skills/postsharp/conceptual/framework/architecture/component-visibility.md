@@ -118,10 +118,10 @@ As with the `internal` keyword, an assembly that the declaring assembly lists in
 
 6. Notice that the only change in the code is the addition of the [<xref:PostSharp.Constraints.InternalAttribute>] attribute. 
 
-    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalCustomer/Library/Customer.cs#customer)]
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalCustomer/InternalCustomer.Dependency.cs#customer)]
 
 
-7. When you use that public component in a different assembly, the build-time warning `AR0105` appears in the Output window. Applying a custom attribute that has this restriction in a different assembly also emits `AR0105`. In the following code, `CustomerRepository` is in a different assembly than `Customer`.
+7. When you use that public component in a different assembly, the build-time warning <xref:ar0105?text=AR0105> appears in the Output window. Applying a custom attribute that has this restriction in a different assembly also emits <xref:ar0105?text=AR0105>. In the following code, `CustomerRepository` is in a different assembly than `Customer`.
 
     [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalCustomer/InternalCustomer.cs#repository)]
 
@@ -161,7 +161,7 @@ To allow access to the constrained component in a specific method, add the <xref
 [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/ComponentInternalSuppress.cs#method)]
 
 > [!NOTE]
-> `AR0102` is the identifier of the warning emitted by <xref:PostSharp.Constraints.ComponentInternalAttribute>. To ignore warnings emitted by <xref:PostSharp.Constraints.InternalAttribute>, use the identifier `AR0105`. 
+> <xref:ar0102?text=AR0102> is the identifier of the warning emitted by <xref:PostSharp.Constraints.ComponentInternalAttribute>. To ignore warnings emitted by <xref:PostSharp.Constraints.InternalAttribute>, use the identifier <xref:ar0105?text=AR0105>. 
 >
 > <xref:PostSharp.Extensibility.SuppressWarningAttribute> works with any PostSharp warning, not only this one. Any build warning or error, whether from MSBuild, C# or PostSharp, has an identifier. To see identifiers in Visual Studio, open the **View** menu, click **Output**, and select **Show output from: Build**. The warnings are displayed with their identifiers. 
 

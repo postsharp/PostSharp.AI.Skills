@@ -21,6 +21,7 @@ PostSharp allows you to dramatically reduce the complexity of caching. It allows
 | <xref:caching-invalidation> | This article shows how to invalidate cached return values of methods declaratively and imperatively. |
 | <xref:caching-dependencies> | This article shows how to invalidate cache items automatically using cache dependencies. |
 | <xref:caching-keys> | This article shows how to customize the cache keys that identify cached method return values. |
+| <xref:caching-dependency-injection> | This article shows how classes with cached methods receive their caching service from a dependency injection container. |
 | <xref:caching-backends> | This article shows how to store cached values in various backends. |
 | <xref:caching-pubsub> | This article shows how to invalidate all related in-memory caches in a distributed environment. |
 | <xref:caching-value-adapters> | This article describes how to cache return values of methods that cannot be cached directly, such as instances of <xref:System.Collections.Generic.IEnumerable`1> or <xref:System.IO.Stream>.  |

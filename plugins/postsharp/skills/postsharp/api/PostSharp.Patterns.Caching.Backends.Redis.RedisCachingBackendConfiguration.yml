@@ -665,15 +665,31 @@ items:
   assemblies:
   - PostSharp.Patterns.Caching.Backends.Redis
   namespace: PostSharp.Patterns.Caching.Backends.Redis
-  summary: Gets or sets the length threshold over which cache keys are hashed. The default value is 127.
+  summary: This property has no effect. The default value is 128.
+  remarks: >-
+    <p>Cache keys are compressed by the <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref>, for all backends. To compress the keys, assign
+        <xref href="PostSharp.Patterns.Caching.ICachingService.KeyBuilder?text=CachingServices.DefaultService.KeyBuilder" data-throw-if-not-resolved="false"></xref> a <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder" data-throw-if-not-resolved="false"></xref> created with a <xref href="PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm" data-throw-if-not-resolved="false"></xref> and the
+        <code>keyCompressingThreshold</code> parameter of its constructor.</p>
   example: []
   syntax:
-    content: public int KeyCompressingThreshold { get; set; }
+    content: >-
+      [Obsolete("This property has no effect. Pass the keyCompressingThreshold parameter to the CacheKeyBuilder constructor and assign it to CachingServices.DefaultService.KeyBuilder.")]
+
+      public int KeyCompressingThreshold { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Property KeyCompressingThreshold As Integer
+    content.vb: >-
+      <Obsolete("This property has no effect. Pass the keyCompressingThreshold parameter to the CacheKeyBuilder constructor and assign it to CachingServices.DefaultService.KeyBuilder.")>
+
+      Public Property KeyCompressingThreshold As Integer
   overload: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.KeyCompressingThreshold*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This property has no effect. Pass the keyCompressingThreshold parameter to the CacheKeyBuilder constructor and assign it to CachingServices.DefaultService.KeyBuilder.
 - uid: PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout
   commentId: P:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration.DisposeTimeout
   id: DisposeTimeout

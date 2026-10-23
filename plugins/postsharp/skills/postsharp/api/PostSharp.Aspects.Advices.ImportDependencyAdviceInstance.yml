@@ -1,0 +1,277 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  id: ImportDependencyAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.#ctor(System.Type)
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.DependencyType
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsLazy
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsRequired
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.MasterAspectMember
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Name
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Visibility
+  langs:
+  - csharp
+  - vb
+  name: ImportDependencyAdviceInstance
+  nameWithType: ImportDependencyAdviceInstance
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Represents a request for a dependency (or service) that the target class receives from its constructors, typically from a dependency
+
+    injection container such as Microsoft.Extensions.DependencyInjection.
+  remarks: >-
+    <p>An aspect returns an <xref href="PostSharp.Aspects.Advices.ImportDependencyAdviceInstance" data-throw-if-not-resolved="false"></xref> from <xref href="PostSharp.Aspects.Advices.IAdviceProvider.ProvideAdvices(System.Object)" data-throw-if-not-resolved="false"></xref>, so that the request
+            can depend on the configuration of the target. The target class is the class to which the aspect is applied, or the declaring class of
+            the member to which it is applied. For each target class, the request does the following:</p>
+    <ol><li>If the class declares or inherits a field of the dependency type that it can access, the request resolves to this
+              field, and nothing else changes. Otherwise, if the class declares or inherits a readable instance property of the dependency type that
+              it can access, the request resolves to this property in the same way; several such properties cause the error LA0286. The field or the
+              property is trusted: the request does not check that the class initializes it.</li><li>Otherwise, a private read-only field of the dependency type is introduced, as an <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref>
+              without a name and with <xref href="PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Ignore" data-throw-if-not-resolved="false"></xref> does. When the field is not private, as specified by
+              <xref href="PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Visibility" data-throw-if-not-resolved="false"></xref>, or when the dependency is lazy, the field stays private and a getter-only property of the dependency type exposes
+              it. A class whose base class exposes the same dependency by such a property uses that property.</li><li>A parameter of the dependency type is appended to the instance constructors of the class, and to those of the classes
+              that derive from it, whose <code>base(...)</code> calls pass it, also when they are in another assembly that PostSharp processes. A
+              constructor that already has a parameter of exactly the dependency type uses it.</li><li>Each original constructor is kept as a forwarder that passes <code>null</code> for the dependency. A <code>public</code>
+              forwarder becomes <code>protected internal</code>, or <code>internal</code> in a sealed class, so that a dependency injection container sees only the constructors that receive the
+              dependency, while the code of the assembly and the derived classes in other assemblies can still call it.</li><li>The constructors assign the field just after the base constructor call, as C# assigns a field from a constructor
+              parameter, and before the aspects are initialized and the body of the constructor runs. When the argument is <code>null</code>, the
+              dependency is resolved from <xref href="PostSharp.Extensibility.RunTimeServiceLocator" data-throw-if-not-resolved="false"></xref>:
+              <xref href="PostSharp.Extensibility.RunTimeServiceLocator.GetRequiredService%60%601" data-throw-if-not-resolved="false"></xref> for a required dependency, which throws
+              <xref href="System.InvalidOperationException" data-throw-if-not-resolved="false"></xref> when no service is registered, and
+              <xref href="PostSharp.Extensibility.RunTimeServiceLocator.GetService%60%601" data-throw-if-not-resolved="false"></xref> for an optional one.</li></ol>
+    <p>The advices of the aspect instance that made the request receive the dependency through a parameter annotated with
+            <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>: by the <xref href="PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Name" data-throw-if-not-resolved="false"></xref> of the request, whatever the names of the field and of the property, or
+            without a name, by the dependency type. The parameter receives the property when there is one, and the field otherwise. On a static
+            target, it receives <code>null</code>.</p>
+    <p>An object of the class can still be created with <code>new</code> in the project, through a forwarder: its dependencies are then
+            resolved from <xref href="PostSharp.Extensibility.RunTimeServiceLocator" data-throw-if-not-resolved="false"></xref>, where the application registers a factory for each
+            service. The request also works with <xref href="PostSharp.Aspects.Advices.OnInstanceConstructedAdvice" data-throw-if-not-resolved="false"></xref>: the dependencies are assigned before the advice
+            runs.</p>
+    <p>Applying such an aspect to a public class changes its public constructors. This is a binary breaking change for the consumers of
+            the class. Several requests for the same dependency type in a class give one field and one parameter, which is required when one of
+            the requests is.</p>
+  example: []
+  syntax:
+    content: 'public sealed class ImportDependencyAdviceInstance : AdviceInstance'
+    content.vb: Public NotInheritable Class ImportDependencyAdviceInstance Inherits AdviceInstance
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IAdviceProvider
+    commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
+  - linkId: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+    commentId: T:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  - linkId: PostSharp.Extensibility.RunTimeServiceLocator
+    commentId: T:PostSharp.Extensibility.RunTimeServiceLocator
+  - linkType: HRef
+    linkId: '@constructor-dependencies'
+    altText: 'Conceptual: Receiving Dependencies from the Constructors of the Target Class'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.#ctor(System.Type)
+  commentId: M:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: ImportDependencyAdviceInstance(Type)
+  nameWithType: ImportDependencyAdviceInstance.ImportDependencyAdviceInstance(Type)
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.ImportDependencyAdviceInstance(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.ImportDependencyAdviceInstance" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public ImportDependencyAdviceInstance(Type dependencyType)
+    parameters:
+    - id: dependencyType
+      type: System.Type
+      description: The type of the dependency, which must be a reference type.
+    content.vb: Public Sub New(dependencyType As Type)
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.#ctor*
+  nameWithType.vb: ImportDependencyAdviceInstance.New(Type)
+  fullName.vb: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.DependencyType
+  commentId: P:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.DependencyType
+  id: DependencyType
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: DependencyType
+  nameWithType: ImportDependencyAdviceInstance.DependencyType
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.DependencyType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the type of the dependency.
+  example: []
+  syntax:
+    content: public Type DependencyType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property DependencyType As Type
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.DependencyType*
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: ImportDependencyAdviceInstance.IsRequired
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the dependency is required. The default value is <code>true</code>. A required dependency is a
+
+    mandatory constructor parameter, checked for <code>null</code>; an optional dependency is an optional parameter whose default value is
+
+    <code>null</code>.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsRequired*
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Name
+  commentId: P:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Name
+  id: Name
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ImportDependencyAdviceInstance.Name
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Name
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the name by which the advices of the aspect import the dependency with <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>, and the name of the
+
+    property that exposes it, or <code>null</code>. Without a name, the advices import the dependency by its type, and the property is named after
+
+    the dependency type, without the <code>I</code> of an interface. When another member has the name, a number is appended to the name of the
+
+    property.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Name*
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Visibility
+  commentId: P:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Visibility
+  id: Visibility
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Visibility
+  nameWithType: ImportDependencyAdviceInstance.Visibility
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Visibility
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the visibility of the member that exposes the dependency, or <code>null</code> for the default value:
+
+    <xref href="PostSharp.Reflection.Visibility.Family" data-throw-if-not-resolved="false"></xref>, or <xref href="PostSharp.Reflection.Visibility.Private" data-throw-if-not-resolved="false"></xref> when the target class is
+
+    sealed. A dependency that is not private is exposed by a getter-only property of this visibility, so that derived classes, also in
+
+    other assemblies, can read it, and so that the dependency can later become lazy without changing that member.
+  example: []
+  syntax:
+    content: public Visibility? Visibility { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{PostSharp.Reflection.Visibility}
+    content.vb: Public Property Visibility As Visibility?
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.Visibility*
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsLazy
+  commentId: P:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsLazy
+  id: IsLazy
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsLazy
+  nameWithType: ImportDependencyAdviceInstance.IsLazy
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsLazy
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the dependency is resolved when it is first used rather than when the object is created. A lazy
+
+    dependency is received as a <xref href="System.Lazy%601" data-throw-if-not-resolved="false"></xref> of the dependency type, stored in a field of that type, and exposed by a getter-only
+
+    property of the dependency type that returns <xref href="System.Lazy%601.Value" data-throw-if-not-resolved="false"></xref>. The container must be able to create the
+
+    <xref href="System.Lazy%601" data-throw-if-not-resolved="false"></xref>. The default value is <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IsLazy { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsLazy As Boolean
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.IsLazy*
+- uid: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.MasterAspectMember
+  commentId: P:PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.MasterAspectMember
+  id: MasterAspectMember
+  parent: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MasterAspectMember
+  nameWithType: ImportDependencyAdviceInstance.MasterAspectMember
+  fullName: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.MasterAspectMember
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the main field or method of the aspect class that the current <xref href="PostSharp.Aspects.Advices.AdviceInstance" data-throw-if-not-resolved="false"></xref> relates to.
+  example: []
+  syntax:
+    content: public override object MasterAspectMember { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides ReadOnly Property MasterAspectMember As Object
+  overridden: PostSharp.Aspects.Advices.AdviceInstance.MasterAspectMember
+  overload: PostSharp.Aspects.Advices.ImportDependencyAdviceInstance.MasterAspectMember*

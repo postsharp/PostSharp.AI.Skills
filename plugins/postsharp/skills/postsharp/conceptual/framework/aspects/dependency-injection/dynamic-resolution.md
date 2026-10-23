@@ -28,14 +28,14 @@ This solution is based on the following elements:
 
 The following code snippet shows a logging aspect and how it could be used in production code:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/DynamicDependencyResolution.cs#production)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/DynamicDependencyResolution.cs#production)]
 
 The program prints:
 
-[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Testing/DynamicDependencyResolution.txt)]
+[!code-text[](../../../../code/samples/CustomPatterns/Testing/DynamicDependencyResolution.txt)]
 
 The following code snippet shows how the logging aspect can be tested:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/DynamicDependencyResolutionTest.cs#test)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/DynamicDependencyResolutionTest.cs#test)]
 
 

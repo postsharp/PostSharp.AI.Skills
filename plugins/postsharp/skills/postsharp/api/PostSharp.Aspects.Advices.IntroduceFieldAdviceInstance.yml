@@ -1,0 +1,360 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  commentId: T:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  id: IntroduceFieldAdviceInstance
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.#ctor(System.Type)
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.CustomAttributes
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.FieldType
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsReadOnly
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsSerialized
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsStatic
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.MasterAspectMember
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Visibility
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+  langs:
+  - csharp
+  - vb
+  name: IntroduceFieldAdviceInstance
+  nameWithType: IntroduceFieldAdviceInstance
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  type: Class
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Represents a request for a field to exist in or to be introduced into the target type of the aspect. The field is introduced into the
+
+    target type, or the introduction is skipped when the target type already has a compatible field, as specified by
+
+    <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>An aspect returns an <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref> from <xref href="PostSharp.Aspects.Advices.IAdviceProvider.ProvideAdvices(System.Object)" data-throw-if-not-resolved="false"></xref>, so that the type, the
+            name and the number of the fields can depend on the target. The target type is the type to which the aspect is applied, or the declaring
+            type of the member to which it is applied. Any aspect can request fields, including a statically scoped aspect, which then keeps
+            per-object state in the target object.</p>
+    <p>The advices of the aspect instance that made the request receive the field through an advice parameter annotated with
+            <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>. With a <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name" data-throw-if-not-resolved="false"></xref>, the parameter imports the field by this name, whatever the real name of
+            the field, and the requested name wins over a member of the target type that has the same name. Without a name, the parameter imports
+            the field by its type, and the fields requested by the aspect instance win over the other members of the target type. The requested
+            name is visible only to the aspect instance that made the request.</p>
+    <p>The request does not initialize the field: a new field has the default value of its type when the object is created.</p>
+
+    <p>When several aspects request a field that can resolve to the same field, they must be ordered by aspect dependencies, because the
+            result depends on the order: the request declares the effect <xref href="PostSharp.Aspects.Dependencies.StandardEffects.MemberIntroduction" data-throw-if-not-resolved="false"></xref>, and the
+            effect returned by <xref href="PostSharp.Aspects.Dependencies.StandardEffects.GetMemberIntroductionEffect(System.String)" data-throw-if-not-resolved="false"></xref> for its name, or for its type when it has no
+            name. Equivalent requests that use an existing field, such as the requests of one aspect applied to several members, share the field
+            whatever their order and need no dependency.</p>
+  example: []
+  syntax:
+    content: 'public sealed class IntroduceFieldAdviceInstance : AdviceInstance'
+    content.vb: Public NotInheritable Class IntroduceFieldAdviceInstance Inherits AdviceInstance
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IAdviceProvider
+    commentId: T:PostSharp.Aspects.Advices.IAdviceProvider
+  - linkId: PostSharp.Aspects.Advices.ImportMemberAttribute
+    commentId: T:PostSharp.Aspects.Advices.ImportMemberAttribute
+  - linkType: HRef
+    linkId: '@advice-provider'
+    altText: 'Conceptual: Providing Advices Dynamically'
+  inheritance:
+  - System.Object
+  - PostSharp.Aspects.Advices.AdviceInstance
+  inheritedMembers:
+  - PostSharp.Aspects.Advices.AdviceInstance.Description
+  - PostSharp.Aspects.Advices.AdviceInstance.LinesOfCodeAvoided
+  - System.Object.GetType
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.#ctor(System.Type)
+  commentId: M:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.#ctor(System.Type)
+  id: '#ctor(System.Type)'
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IntroduceFieldAdviceInstance(Type)
+  nameWithType: IntroduceFieldAdviceInstance.IntroduceFieldAdviceInstance(Type)
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IntroduceFieldAdviceInstance(System.Type)
+  type: Constructor
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Initializes a new instance of the <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref> class.
+  example: []
+  syntax:
+    content: public IntroduceFieldAdviceInstance(Type fieldType)
+    parameters:
+    - id: fieldType
+      type: System.Type
+      description: The type of the field. It can be computed from the target, and can be a closed generic type.
+    content.vb: Public Sub New(fieldType As Type)
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.#ctor*
+  nameWithType.vb: IntroduceFieldAdviceInstance.New(Type)
+  fullName.vb: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.New(System.Type)
+  name.vb: New(Type)
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.FieldType
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.FieldType
+  id: FieldType
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: FieldType
+  nameWithType: IntroduceFieldAdviceInstance.FieldType
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.FieldType
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the type of the field.
+  example: []
+  syntax:
+    content: public Type FieldType { get; }
+    parameters: []
+    return:
+      type: System.Type
+    content.vb: Public ReadOnly Property FieldType As Type
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.FieldType*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name
+  id: Name
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IntroduceFieldAdviceInstance.Name
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets the requested name of the field, or <code>null</code>.
+  remarks: >-
+    <p>The requested name serves two purposes. It finds an existing field of this name, as specified by
+            <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists" data-throw-if-not-resolved="false"></xref>. It is also the name of the field that the request introduces, or, when another member already
+            has this name, the stem of that name: <xref href="PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.IntroduceAnother" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.IntroduceAnother" data-throw-if-not-resolved="false"></xref>
+            then append a number that makes the name unique in the type, such as <code>handlers2</code>.</p>
+    <p>Without a requested name, an existing field is recognized by its type, and a new field gets a generated name that cannot conflict
+            with source code.</p>
+    <p>The advices of the aspect import the field by the requested name, whatever its real name. A name with a suffix depends on the
+            order of the aspects, so a field that other code must find by name does not use <xref href="PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.IntroduceAnother" data-throw-if-not-resolved="false"></xref> or
+            <xref href="PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.IntroduceAnother" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+  id: WhenCompatibleFieldExists
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: WhenCompatibleFieldExists
+  nameWithType: IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the action taken when the target type already has a field that is compatible with the request: the field that has the
+
+    requested name, or, without a name, a field of the type of the request. The default value is <xref href="PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Fail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IntroduceFieldCompatibleAction WhenCompatibleFieldExists { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+    content.vb: Public Property WhenCompatibleFieldExists As IntroduceFieldCompatibleAction
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+  id: WhenIncompatibleMemberExists
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: WhenIncompatibleMemberExists
+  nameWithType: IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets the action taken when a member of the target type has the requested name but is not a compatible field. It applies only
+
+    to a request with a <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name" data-throw-if-not-resolved="false"></xref>. The default value is <xref href="PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.Fail" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public IntroduceFieldIncompatibleAction WhenIncompatibleMemberExists { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+    content.vb: Public Property WhenIncompatibleMemberExists As IntroduceFieldIncompatibleAction
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Visibility
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Visibility
+  id: Visibility
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: Visibility
+  nameWithType: IntroduceFieldAdviceInstance.Visibility
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Visibility
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets the visibility of the introduced field. The default value is <xref href="PostSharp.Reflection.Visibility.Private" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public Visibility Visibility { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Reflection.Visibility
+    content.vb: Public Property Visibility As Visibility
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Visibility*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsStatic
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsStatic
+  id: IsStatic
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsStatic
+  nameWithType: IntroduceFieldAdviceInstance.IsStatic
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsStatic
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets a value indicating whether the field is static. A static field of a generic type exists once per closed generic type.
+  example: []
+  syntax:
+    content: public bool IsStatic { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsStatic As Boolean
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsStatic*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsSerialized
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsSerialized
+  id: IsSerialized
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsSerialized
+  nameWithType: IntroduceFieldAdviceInstance.IsSerialized
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsSerialized
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the field is serialized with the object. The default value is <code>true</code>. When it is
+
+    <code>false</code>, the introduced field is marked <code>NotSerialized</code>, which a serializer such as <code>BinaryFormatter</code> skips.
+  example: []
+  syntax:
+    content: public bool IsSerialized { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSerialized As Boolean
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsSerialized*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.CustomAttributes
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.CustomAttributes
+  id: CustomAttributes
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: CustomAttributes
+  nameWithType: IntroduceFieldAdviceInstance.CustomAttributes
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.CustomAttributes
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets the custom attributes added to the introduced field, as <xref href="PostSharp.Reflection.ObjectConstruction" data-throw-if-not-resolved="false"></xref> objects. They are not added to an
+
+    existing field to which the request resolves.
+  example: []
+  syntax:
+    content: public IList<ObjectConstruction> CustomAttributes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{PostSharp.Reflection.ObjectConstruction}
+    content.vb: Public ReadOnly Property CustomAttributes As IList(Of ObjectConstruction)
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.CustomAttributes*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsReadOnly
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsReadOnly
+  id: IsReadOnly
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: IntroduceFieldAdviceInstance.IsReadOnly
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsReadOnly
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Gets or sets a value indicating whether the introduced field is read-only (<code>initonly</code>): only the constructors of the target type
+
+    assign it. An advice imports a read-only field by value or as <code>in</code>, but not as <code>ref</code> or <code>out</code>. The default value is
+
+    <code>false</code>.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsReadOnly As Boolean
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.IsReadOnly*
+- uid: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.MasterAspectMember
+  commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.MasterAspectMember
+  id: MasterAspectMember
+  parent: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
+  langs:
+  - csharp
+  - vb
+  name: MasterAspectMember
+  nameWithType: IntroduceFieldAdviceInstance.MasterAspectMember
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.MasterAspectMember
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets the main field or method of the aspect class that the current <xref href="PostSharp.Aspects.Advices.AdviceInstance" data-throw-if-not-resolved="false"></xref> relates to.
+  example: []
+  syntax:
+    content: public override object MasterAspectMember { get; }
+    parameters: []
+    return:
+      type: System.Object
+    content.vb: Public Overrides ReadOnly Property MasterAspectMember As Object
+  overridden: PostSharp.Aspects.Advices.AdviceInstance.MasterAspectMember
+  overload: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.MasterAspectMember*

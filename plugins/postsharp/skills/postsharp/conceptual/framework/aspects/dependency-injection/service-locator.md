@@ -26,14 +26,14 @@ In this case, you cannot use dependency injection methods such as <xref:System.C
 
 The following code snippet shows a logging aspect and how it could be used in production code:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/GlobalServiceLocator.cs#production)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/GlobalServiceLocator.cs#production)]
 
 The program prints:
 
-[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Testing/GlobalServiceLocator.txt)]
+[!code-text[](../../../../code/samples/CustomPatterns/Testing/GlobalServiceLocator.txt)]
 
 The following code snippet shows how the logging aspect can be tested:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/GlobalServiceLocatorTest.cs#test)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/GlobalServiceLocatorTest.cs#test)]
 
 

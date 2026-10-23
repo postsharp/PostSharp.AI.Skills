@@ -37,14 +37,14 @@ The next example illustrates this procedure.
 
 The following code snippet shows a logging aspect and how it could be used in production code:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/ImportingDependencies.cs#production)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/ImportingDependencies.cs#production)]
 
 The program prints:
 
-[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Testing/ImportingDependencies.txt)]
+[!code-text[](../../../../code/samples/CustomPatterns/Testing/ImportingDependencies.txt)]
 
 The following code snippet shows how the logging aspect can be tested:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/ImportingDependenciesTest.cs#test)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/ImportingDependenciesTest.cs#test)]
 
 

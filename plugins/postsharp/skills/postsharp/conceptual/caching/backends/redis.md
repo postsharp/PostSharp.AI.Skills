@@ -58,7 +58,7 @@ To set up PostSharp to use Redis for caching:
 
 2. Create an instance of [StackExchange.Redis.ConnectionMultiplexer](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-3. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend> class using the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create*> factory method and assign the instance to <xref:PostSharp.Patterns.Caching.CachingServices.DefaultBackend>, passing a <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration> object.
+3. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend> class using the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend.Create*> factory method and assign the instance to <xref:PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend>, passing a <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration> object.
 
 4. Configure logging. <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackend> uses PostSharp Logging. See <xref:backends> to learn how to plug caching into your logging framework. While tuning performance, we recommend monitoring warnings.
 
@@ -145,7 +145,7 @@ The exception handling policy described above is abstracted by the <xref:PostSha
 
 ### Performance tuning
 
-With any level of load, it is recommended to enable cache key compression by assigning the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder?text=CachingServices.DefaultKeyBuilder> property to a <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder> instance with a non-default <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm>.
+With any level of load, it is recommended to enable cache key compression by assigning the <xref:PostSharp.Patterns.Caching.ICachingService.KeyBuilder?text=CachingServices.DefaultService.KeyBuilder> property to a <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder> instance with a non-default <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm>.
 
 If you expect high load, it is recommended to tune the following <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCachingBackendConfiguration> properties:
 

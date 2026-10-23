@@ -21,6 +21,7 @@ These characteristics are not an obstacle to using service containers, but you m
 
 This section presents several ways to consume dependencies from an aspect:
 
+* <xref:constructor-dependencies>: the aspect requests a service, which the target class receives from its constructors, for instance from Microsoft.Extensions.DependencyInjection. This is the approach to prefer when the objects are created by a container.
 * <xref:global-service-container>
 * <xref:global-service-locator>
 * <xref:dynamic-dependency-resolution>

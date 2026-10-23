@@ -80,7 +80,7 @@ When applied explicitly to extension methods or to the accessors of extension pr
 You can also add a method-level aspect to the extension property itself. It is then applied to both accessors, as for an ordinary property.
 
 > [!NOTE]
-> A location-level aspect, such as <xref:PostSharp.Aspects.LocationInterceptionAspect>, cannot be applied to an extension property, because an extension property has no implementation of its own. PostSharp reports the error LA0252. Use a method-level aspect instead.
+> A location-level aspect, such as <xref:PostSharp.Aspects.LocationInterceptionAspect>, cannot be applied to an extension property, because an extension property has no implementation of its own. PostSharp reports the error <xref:la0253?text=LA0253>. Use a method-level aspect instead.
 
 A program that calls the extension method, then gets and sets the extension property, prints:
 
@@ -111,7 +111,7 @@ When implementing `IAspectProvider` or `IAdviceProvider`, you receive reflection
 - Static implementation methods for extension members
 - Compiler-generated nested metadata types (e.g., `<G>$BA41CFE2B5EDAEB8C1B9062F59ED4D69<TInstance>`)
 
-Attempting to target extension block metadata types or their members will result in error LA0167. For instance, the following aspect provider adds an aspect to the methods of all nested types, including the extension block metadata types:
+Attempting to target extension block metadata types or their members will result in error <xref:la0167?text=LA0167>. For instance, the following aspect provider adds an aspect to the methods of all nested types, including the extension block metadata types:
 
 [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/ExtensionBlockMetadataError.cs#example)]
 
@@ -122,7 +122,7 @@ The build then fails with the following errors:
 To make your `IAspectProvider` or `IAdviceProvider` safe to use with extension blocks, remember that:
 
 - **Extension member implementation methods are safe to target** - These are the static methods that implement the actual extension logic and can have aspects applied to them.
-- **Extension block metadata types must be avoided** - Targeting these compiler-generated types or their members will result in error LA0167.
+- **Extension block metadata types must be avoided** - Targeting these compiler-generated types or their members will result in error <xref:la0167?text=LA0167>.
 
 PostSharp 2026.0 introduces the <xref:PostSharp.Reflection.ReflectionHelper.IsExtensionBlockMetadata> method to help identify and filter extension block metadata artifacts. This method allows you to distinguish between regular types/members and compiler-generated extension block metadata.
 

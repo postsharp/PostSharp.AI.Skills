@@ -32,7 +32,54 @@ items:
     <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.Property%602" data-throw-if-not-resolved="false"></xref>
 
     (to bind to a property), or <xref href="PostSharp.Aspects.Advices.Event%601" data-throw-if-not-resolved="false"></xref> (to bind to an event).
+
+    When applied to a parameter of an advice method, determines that the parameter receives a field, a property or a method of the target class.
   remarks: >-
+    <p>
+      <b>On an advice parameter.</b> The advice receives a field or a property of the target class, in any aspect, including a statically
+            scoped aspect. The type and the mode of the parameter select what the advice receives:</p>
+    <ul><li>A parameter of the type of a field, passed by value, as <code>in</code>, <code>ref</code> or <code>out</code>, receives the field: a copy of its
+              value, or a reference to the field. A <code>ref</code> or <code>out</code> parameter requires a field that is not read-only.</li><li>A parameter of the type of a property, passed by value or as <code>in</code>, receives the value that the getter returns when the
+              advice is called. A property that returns a reference (<code>ref T</code>) is a location, as a field is: a parameter passed as <code>in</code>,
+              <code>ref</code> or <code>out</code> receives the reference, and <code>ref</code> or <code>out</code> requires a reference that is not read-only.</li><li>A parameter of type <xref href="PostSharp.Aspects.ILocationBinding%601" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.ILocationBinding" data-throw-if-not-resolved="false"></xref> receives the binding of the field or
+              property, which reads and writes it on the object passed to its methods, typically received by a <xref href="PostSharp.Aspects.Advices.ThisAttribute" data-throw-if-not-resolved="false"></xref> parameter.
+              There is one binding object per member and target type.</li><li>A parameter of a delegate type, with a member name, receives an open delegate of a method: the first parameter of the delegate
+              receives the object of an instance method, and the other parameters are the parameters of the method. For a struct, the first parameter
+              is <code>in</code> or <code>ref</code>, with a custom delegate type: <code>in</code> for any method, and <code>ref</code> only for a method that is not
+              <code>readonly</code>. Through <code>in</code>, a method that is not <code>readonly</code> is called on a copy of the struct, as in C#. The method is
+              converted as C# converts a method group to a delegate type: by identity or reference conversions, without boxing, and the signature of
+              the delegate selects the overload. A virtual method is dispatched on the object. The delegate is
+              created once per target type, so calling the method does not allocate.</li><li>A parameter of type <xref href="PostSharp.Aspects.IMethodBinding" data-throw-if-not-resolved="false"></xref> receives the binding of a method, which calls it on the object passed to
+              <xref href="PostSharp.Aspects.IMethodBinding.Invoke(System.Object%40%2cPostSharp.Aspects.Arguments)" data-throw-if-not-resolved="false"></xref>, with the arguments of an <xref href="PostSharp.Aspects.Arguments" data-throw-if-not-resolved="false"></xref> object. The name selects the method, so a method
+              with overloads must be imported as a delegate.</li><li>A parameter of type <xref href="PostSharp.Aspects.IEventBinding" data-throw-if-not-resolved="false"></xref>, with a member name, receives the binding of an event, which adds and
+              removes handlers of the event on the object passed to its methods, and invokes a handler with the arguments of an <xref href="PostSharp.Aspects.Arguments" data-throw-if-not-resolved="false"></xref>
+              object.</li><li>In an instance advice of an instance-scoped aspect (<xref href="PostSharp.Aspects.IInstanceScopedAspect" data-throw-if-not-resolved="false"></xref>), a parameter of type
+              <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.Event%601" data-throw-if-not-resolved="false"></xref> receives an object bound to the target object, created once per target
+              object, as an aspect field of these types receives.</li></ul>
+    <p>With member names, the member is selected by name, in the order of the names, among the members whose type the parameter accepts.
+            Without a name, the member is selected by type, as <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref> selects an argument: a parameter passed by value accepts
+            a member whose type is assignable to it without conversion, except boxing, and a parameter passed by reference or a location binding requires
+            the exact type. When several members match, the build fails. The members of the target class and the accessible members of its base classes
+            are candidates, but not indexers. A method is always selected by name.</p>
+    <p>The fields that the aspect instance requests with <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref> win over the members of the target class:
+            with names, a field requested under a name is selected before a member that has this name; without a name, the requested fields whose type
+            the parameter accepts are the only candidates. The fields requested by other aspects are members of the target class, under their real
+            names.</p>
+    <p>When no member matches, the parameter receives <code>null</code>, the default value, or a reference to a temporary variable, unless
+            <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute.IsRequired" data-throw-if-not-resolved="false"></xref> is <code>true</code>, which is then a build error. On a static target, a parameter passed by value receives the default value
+            of an instance member.</p>
+    <p>When another aspect turns a field into a property, such as a <xref href="PostSharp.Aspects.LocationInterceptionAspect" data-throw-if-not-resolved="false"></xref>, the order of the aspects decides
+            what the parameter sees, as it decides for any two aspects. An aspect ordered before the other aspect sees the field itself, and
+            an aspect ordered after it sees the property: its values go through the accessors, and it cannot be passed as <code>ref</code> or <code>out</code>.
+            Declare the order with <xref href="PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute" data-throw-if-not-resolved="false"></xref> or another aspect dependency.</p>
+    <p>For a method, a property or an event imported as a delegate, an <xref href="PostSharp.Aspects.IMethodBinding" data-throw-if-not-resolved="false"></xref>, a <xref href="PostSharp.Aspects.Advices.Property%601" data-throw-if-not-resolved="false"></xref> or an
+            <xref href="PostSharp.Aspects.Advices.Event%601" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute.Order" data-throw-if-not-resolved="false"></xref> has the meaning that it has on an aspect field: with
+            <xref href="PostSharp.Aspects.Advices.ImportMemberOrder.BeforeIntroductions" data-throw-if-not-resolved="false"></xref>, the parameter calls the method as it was before the aspect introduced or overrode
+            it, without virtual dispatch.</p>
+    <p>
+      <b>On an aspect field.</b>
+    </p>
+
     <p>Fields annotated with the <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>
             custom attribute must be public and must not be read-only.</p>
     <p>At runtime, these fields are assigned to a delegate (in case
@@ -53,11 +100,11 @@ items:
   example: []
   syntax:
     content: >-
-      [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+      [AttributeUsage(AttributeTargets.Field|AttributeTargets.Parameter, AllowMultiple = false)]
 
       public sealed class ImportMemberAttribute : Advice
     content.vb: >-
-      <AttributeUsage(AttributeTargets.Field, AllowMultiple:=False)>
+      <AttributeUsage(AttributeTargets.FieldOrAttributeTargets.Parameter, AllowMultiple:=False)>
 
       Public NotInheritable Class ImportMemberAttribute Inherits Advice
   seealso:
@@ -69,6 +116,9 @@ items:
   - linkType: HRef
     linkId: '@instance-initialization'
     altText: 'Conceptual: Coping with Custom Object Serializers'
+  - linkType: HRef
+    linkId: '@advice-parameter-binding'
+    altText: 'Conceptual: Advice Parameters'
   inheritance:
   - System.Object
   - System.Attribute
@@ -122,7 +172,7 @@ items:
     ctor: System.AttributeUsageAttribute.#ctor(System.AttributeTargets)
     arguments:
     - type: System.AttributeTargets
-      value: 256
+      value: 2304
     namedArguments:
     - name: AllowMultiple
       type: System.Boolean
@@ -198,7 +248,7 @@ items:
   summary: >-
     Gets or sets a value indicating whether a build-time error must be issued if the member to be
 
-    imported is absent. If <code>false</code>, the binding field is <code>null</code>
+    imported is absent. If <code>false</code>, the binding field or parameter is <code>null</code>, or the parameter has its default value,
 
     when the imported member is absent.
   example: []
@@ -223,7 +273,10 @@ items:
   assemblies:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
-  summary: Gets the possible names of the imported member, in order of precedence.
+  summary: >-
+    Gets the possible names of the imported member, in order of precedence. When the array is empty, the member imported into an advice
+
+    parameter is selected by its type.
   example: []
   syntax:
     content: public string[] MemberNames { get; }

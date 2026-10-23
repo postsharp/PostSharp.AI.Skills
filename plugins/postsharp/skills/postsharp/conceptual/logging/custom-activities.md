@@ -49,11 +49,11 @@ To log a custom activity:
 
 The following code shows how to open and close an activity.
 
-[!code-csharp[](../../code/samples/Logging/LogCustomActivities.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogCustomActivities.cs#example)]
 
 This code produces the following output:
 
-[!code-text[](../../code/samples/Logging/LogCustomActivities.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/LogCustomActivities.txt)]
 
 
 ## Logging an activity the compact way, with an anonymous method
@@ -67,11 +67,11 @@ The inconvenient consequence of using <xref:PostSharp.Patterns.Diagnostics.Custo
 
 The following code does almost the same as the previous example but with fewer lines of code. The main difference is that, in the current example, the <xref:PostSharp.Patterns.Diagnostics.LogActivity`1.SetResult``1(``0,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)> method is invoked instead of <xref:PostSharp.Patterns.Diagnostics.LogActivity`1.SetOutcome``1(PostSharp.Patterns.Diagnostics.LogLevel,``0@,System.Exception,PostSharp.Patterns.Diagnostics.CloseActivityOptions@)>, and there is heap allocation even when logging is disabled. 
 
-[!code-csharp[](../../code/samples/Logging/LogCustomActivitiesCompact.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogCustomActivitiesCompact.cs#example)]
 
 This code produces the following output:
 
-[!code-text[](../../code/samples/Logging/LogCustomActivitiesCompact.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/LogCustomActivitiesCompact.txt)]
 
 
 ## Changing the default level for exceptions
@@ -85,7 +85,7 @@ However, when the activity fails with an exception, the close message level will
 
 You can measure the execution time of all activities by enabling the <xref:PostSharp.Patterns.Diagnostics.LoggingBackendOptions.IncludeActivityExecutionTime> property: 
 
-[!code-csharp[](../../code/samples/Logging/LogActivityExecutionTime.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogActivityExecutionTime.cs#example)]
 
 This will cause the execution time to be appended to the close message.
 

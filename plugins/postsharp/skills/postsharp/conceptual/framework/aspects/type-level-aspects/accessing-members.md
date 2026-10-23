@@ -14,6 +14,8 @@ PostSharp makes it possible to import a delegate of a target class method, prope
 
 These mechanisms allow developers to encapsulate more design patterns using aspects.
 
+The aspect fields described in this article require an aspect derived from <xref:PostSharp.Aspects.InstanceLevelAspect>. An advice of any aspect, including a statically scoped aspect, can also receive a field, a property or a method of the target class through a parameter annotated with <xref:PostSharp.Aspects.Advices.ImportMemberAttribute> (see [Importing members of the target type](xref:advice-parameter-binding#importing-members-of-the-target-type)).
+
 
 ## Importing members of the target class
 
@@ -84,3 +86,4 @@ Based on this well-defined order, the advices behave as follows:
 
 <xref:aspect-dependencies>
 <br><xref:advice-provider>
+<br><xref:advice-parameter-binding>

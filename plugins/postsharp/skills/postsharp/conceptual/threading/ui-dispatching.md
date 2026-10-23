@@ -33,7 +33,7 @@ To force a method to execute on the foreground thread:
 
 The following example shows how to use both <xref:PostSharp.Patterns.Threading.BackgroundAttribute> and <xref:PostSharp.Patterns.Threading.DispatchedAttribute> to specify on which threads different methods of the class are executed. 
 
-[!code-csharp[](../../code/samples/Threading/UiDispatching.cs#example)]
+[!code-csharp[](../../code/samples/Threading/Wpf/UiDispatching.cs#example)]
 
 
 ## Executing a method asynchronously
@@ -42,7 +42,7 @@ By default, the <xref:PostSharp.Patterns.Threading.DispatchedAttribute> forces t
 
 You can enable asynchronous execution of a dispatched method by passing the `true` value to the parameter of the <xref:PostSharp.Patterns.Threading.DispatchedAttribute> class constructor, for instance: 
 
-[!code-csharp[](../../code/samples/Threading/UiDispatching.cs#async)]
+[!code-csharp[](../../code/samples/Threading/Wpf/UiDispatching.cs#async)]
 
 
 ## Executing async methods in the foreground thread

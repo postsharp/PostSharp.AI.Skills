@@ -18,14 +18,14 @@ Evaluating context-sensitive rules may be CPU-intensive, but it needs to be done
 
 The following code snippet shows a logging aspect and how it could be used in production code:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/ContextualDependencyResolution.cs#production)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/ContextualDependencyResolution.cs#production)]
 
 The program prints:
 
-[!code-text[](../../../../code/samples/CustomPatterns/Aspects/Testing/ContextualDependencyResolution.txt)]
+[!code-text[](../../../../code/samples/CustomPatterns/Testing/ContextualDependencyResolution.txt)]
 
 The following code snippet shows how the logging aspect can be tested:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Testing/ContextualDependencyResolutionTest.cs#test)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/Testing/ContextualDependencyResolutionTest.cs#test)]
 
 

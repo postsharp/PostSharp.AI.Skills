@@ -25,7 +25,7 @@ To use PostSharp Logging with Application Insights:
 
 4. In the application startup method, include the following code before any logged code:
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingApplicationInsights.cs#configure)]
+    [!code-csharp[](../../../code/samples/Logging/Integrations/LoggingApplicationInsights.cs#configure)]
 
     > [!NOTE]
     > Instead of passing the instrumentation key to the constructor, you can use the parameterless constructor of <xref:PostSharp.Patterns.Diagnostics.Backends.ApplicationInsights.ApplicationInsightsLoggingBackend>. It reads the default Application Insights configuration, for example the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY` or, on .NET Framework, an `ApplicationInsights.config` file.

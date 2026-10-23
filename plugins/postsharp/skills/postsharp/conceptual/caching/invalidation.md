@@ -28,11 +28,11 @@ You can add the <xref:PostSharp.Patterns.Caching.InvalidateCacheAttribute> aspec
 
 In this example, the `Update` method invalidates the cached return value of the `GetValue` method. 
 
-[!code-csharp[](../../code/samples/Caching/CachingInvalidation.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingInvalidation.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingImperativeInvalidation.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingImperativeInvalidation.txt)]
 
 
 ## Invalidating cache items imperatively
@@ -44,10 +44,12 @@ Instead of annotating invalidating methods with a custom attribute, you can call
 
 In this example, the cached return value of the `GetValue` method is invalidated by calling one of the overloads of the <xref:PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate``1(System.Func{``0})> method. 
 
-[!code-csharp[](../../code/samples/Caching/CachingImperativeInvalidation.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingImperativeInvalidation.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingInvalidation.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingInvalidation.txt)]
+
+The overloads of <xref:PostSharp.Patterns.Caching.CachingServices.Invalidation> act on <xref:PostSharp.Patterns.Caching.CachingServices.DefaultService>. When the class of the cached method receives its caching service from dependency injection, call the <xref:PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Reflection.MethodInfo,System.Object,System.Object[])> method of this service instead, with the method, the instance and the arguments (see <xref:caching-dependency-injection>).
 
 

@@ -25,7 +25,7 @@ If you own the source code of a type, the easiest way to implement a custom form
 
 The following example shows how to implement the <xref:PostSharp.Patterns.Formatters.IFormattable> interface: 
 
-[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#formattable)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/CustomFormatter.cs#formattable)]
 
 > [!TIP]
 > To prevent the formatter from being logged, add `[Log(AttributeExclude=true)]` to the formatting method. 
@@ -39,7 +39,7 @@ If you do not own the source code of a type, you cannot implement the <xref:Post
 
 The following example illustrates a formatter for the <xref:System.Int32> type. 
 
-[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#formatter)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/CustomFormatter.cs#formatter)]
 
 > [!TIP]
 > To prevent the formatter from being logged, add `[Log(AttributeExclude=true)]` to the formatting method. 
@@ -51,15 +51,15 @@ Creating a new formatter class does not cause PostSharp to use it. You still nee
 
 Use the following code to register your formatter with PostSharp Logging:
 
-[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#register-logging)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/CustomFormatter.cs#register-logging)]
 
 With the two formatters of this article, a logged method that receives a `CustomerData` object and the number 2 produces the following records:
 
-[!code-text[](../../code/samples/Logging/CustomFormatter.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/CustomFormatter.txt)]
 
 To use the same formatter in PostSharp Caching, use:
 
-[!code-csharp[](../../code/samples/Logging/CustomFormatter.cs#register-caching)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/CustomFormatter.cs#register-caching)]
 
 ## See Also
 

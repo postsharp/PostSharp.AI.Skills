@@ -59,11 +59,11 @@ Logging aspects are assigned to a default profile, as shown in the following tab
 
 2. Edit `postsharp.config` as in the following example: 
 
-    [!code-xml[](../../code/samples/Logging/LoggingProfileDefault/postsharp.config)]
+    [!code-xml[](../../code/samples/Logging/Diagnostics/LoggingProfileDefault/postsharp.config)]
 
     With this profile, the records include the parameter types and the source line:
 
-    [!code-text[](../../code/samples/Logging/LoggingProfileDefault/LoggingProfileDefault.txt)]
+    [!code-text[](../../code/samples/Logging/Diagnostics/LoggingProfileDefault/LoggingProfileDefault.txt)]
 
     See the documentation of the <xref:PostSharp.Patterns.Diagnostics.LoggingProfile> and <xref:PostSharp.Patterns.Diagnostics.LoggingOptions> classes for details. 
 
@@ -73,12 +73,12 @@ Logging aspects are assigned to a default profile, as shown in the following tab
 
 1. Configure a logging profile in `postsharp.config`, but choose a different name from `default`, `exceptions` or `audit`. 
 
-    [!code-xml[](../../code/samples/Logging/LoggingProfileDetailed/postsharp.config)]
+    [!code-xml[](../../code/samples/Logging/Diagnostics/LoggingProfileDetailed/postsharp.config)]
 
 
 2. Specify the profile name when you add the <xref:PostSharp.Patterns.Diagnostics.LogAttribute> aspect to a method, type, or project. 
 
-    [!code-csharp[](../../code/samples/Logging/LoggingProfileDetailed/LoggingProfileDetailed.cs#example)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingProfileDetailed/LoggingProfileDetailed.cs#example)]
 
     > [!NOTE]
     > Alternatively, you can create a new aspect class and derive it from <xref:PostSharp.Patterns.Diagnostics.LogAttributeBase>. 
@@ -93,11 +93,11 @@ Unlike the build-time options, the run-time options are not organized into profi
 
 To edit run-time options, go to the startup method where PostSharp Logging is initialized, and set the backend options:
 
-[!code-csharp[](../../code/samples/Logging/LoggingRuntimeOptions.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingRuntimeOptions.cs#example)]
 
 This code produces records like the following:
 
-[!code-text[](../../code/samples/Logging/LoggingRuntimeOptions.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/LoggingRuntimeOptions.txt)]
 
 
 ## Implementing a custom formatter

@@ -70,7 +70,7 @@ items:
   namespace: PostSharp.Patterns.Caching.Implementation
   summary: An abstraction of the physical implementation of the cache, which the <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> writes to and reads from.
   remarks: >-
-    <p>The backend used by cached methods is the one assigned to <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>. This assembly provides
+    <p>The backend used by cached methods is the one assigned to <xref href="PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend" data-throw-if-not-resolved="false"></xref>. This assembly provides
         <xref href="PostSharp.Patterns.Caching.Backends.MemoryCachingBackend" data-throw-if-not-resolved="false"></xref>; other backends, such as Redis, are distributed in separate packages.</p>
     <p>To implement a backend, override the protected methods whose name ends with <code>Core</code>; the public methods validate the arguments and call them.
         Override <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend.CreateFeatures" data-throw-if-not-resolved="false"></xref> to declare the features the backend supports, for example dependencies. To add a behavior to an existing
@@ -1598,7 +1598,7 @@ items:
     which could not be cached otherwise.
   remarks: >-
     <p>Each backend has its own <xref href="PostSharp.Patterns.Caching.ValueAdapters.ValueAdapterFactory" data-throw-if-not-resolved="false"></xref>. Register custom value adapters on the backend that you assign to
-        <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>.</p>
+        <xref href="PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend" data-throw-if-not-resolved="false"></xref>.</p>
   example: []
   syntax:
     content: public ValueAdapterFactory ValueAdapters { get; }

@@ -18,7 +18,7 @@ For local, in-memory caching, PostSharp offers two backend classes:
 
 ## In-memory caching with MemoryCache
 
-To use the <xref:System.Runtime.Caching.MemoryCache> class to store cached values in memory, assign an instance of the <xref:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend> class to the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultBackend> property.
+To use the <xref:System.Runtime.Caching.MemoryCache> class to store cached values in memory, assign an instance of the <xref:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend> class to the <xref:PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend> property.
 
 [!code-csharp[](../../../code/samples/Caching/Backends/CachingMemoryRuntime.cs#default)]
 
@@ -36,7 +36,7 @@ To store cached values in an instance that implements the `Microsoft.Extensions.
 1. Add a reference to the [PostSharp.Patterns.Caching.IMemoryCache](https://www.nuget.org/packages/PostSharp.Patterns.Caching.IMemoryCache/) package. 
 
 
-2. Assign an instance of the <xref:PostSharp.Patterns.Caching.Backends.MemoryCacheBackend> class to the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultBackend> property. Pass the `IMemoryCache` to the constructor. 
+2. Assign an instance of the <xref:PostSharp.Patterns.Caching.Backends.MemoryCacheBackend> class to the <xref:PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend> property. Pass the `IMemoryCache` to the constructor. 
 
     [!code-csharp[](../../../code/samples/Caching/Backends/CachingMemoryExtensions.cs#example)]
 

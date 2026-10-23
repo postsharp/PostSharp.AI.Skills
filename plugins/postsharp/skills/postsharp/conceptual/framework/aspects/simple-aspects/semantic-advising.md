@@ -13,10 +13,7 @@ In most C# and VB methods, the source code is very similar to the way the method
 
 By default, PostSharp applies *semantic advising* for `async` and iterator methods. It also uses semantic advising for all methods returning a <xref:System.Threading.Tasks.Task>. 
 
-On .NET 11, when you enable runtime async with `<Features>runtime-async=on</Features>`, the C# compiler generates no state machine for an `async` method that returns <xref:System.Threading.Tasks.Task>, <xref:System.Threading.Tasks.Task`1>, <xref:System.Threading.Tasks.ValueTask> or <xref:System.Threading.Tasks.ValueTask`1>. Other `async` methods and iterators still use a state machine. The .NET runtime suspends and resumes the method instead. PostSharp applies aspects to these methods with the same semantics: the aspects receive the same advices, in the same order, with the same arguments, and <xref:PostSharp.Reflection.ReflectionExtensions.GetStateMachineKind*> returns <xref:PostSharp.Reflection.StateMachineKind.Async>. There are two differences with a method that the compiler implements as a state machine:
-
-* A parameter annotated with <xref:PostSharp.Aspects.Advices.CurrentTaskAttribute> receives `null`, because the runtime provides no task while the method runs. PostSharp emits the warning `LA0240`.
-* When an `OnYield` or `OnResume` advice throws an exception, the `finally` blocks of the method around the `await` run.
+On .NET 11, when you enable runtime async with `<Features>runtime-async=on</Features>`, the C# compiler generates no state machine for an `async` method that returns <xref:System.Threading.Tasks.Task>, <xref:System.Threading.Tasks.Task`1>, <xref:System.Threading.Tasks.ValueTask> or <xref:System.Threading.Tasks.ValueTask`1>. Other `async` methods and iterators still use a state machine. The .NET runtime suspends and resumes the method instead. PostSharp applies aspects to these methods with the same semantics: the aspects receive the same advices, in the same order, with the same arguments, and <xref:PostSharp.Reflection.ReflectionExtensions.GetStateMachineKind*> returns <xref:PostSharp.Reflection.StateMachineKind.Async>. The only difference with a method that the compiler implements as a state machine is that a parameter annotated with <xref:PostSharp.Aspects.Advices.CurrentTaskAttribute> receives `null`, because the runtime provides no task while the method runs. PostSharp emits the warning <xref:la0240?text=LA0240>. An exception thrown by an `OnYield` or `OnResume` advice takes the same path as in a state machine (see [Exceptions thrown by OnYield and OnResume](#exceptions-thrown-by-onyield-and-onresume)).
 
 This article discusses all details of semantic advising.
 
@@ -56,9 +53,41 @@ It is generally a good choice to execute the advices in the current synchronizat
 
 Example of the deadlock:
 
-[!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/SemanticAdvisingDeadlock.cs#example)]
+[!code-csharp[](../../../../code/samples/CustomPatterns/WindowsForms/SemanticAdvisingDeadlock.cs#example)]
 
 If you do not want to execute advices in the current synchronization context, use <xref:PostSharp.Aspects.MethodInterceptionAspect> instead of <xref:PostSharp.Aspects.OnMethodBoundaryAspect>. The interception aspect gives you more control over the synchronization context. 
+
+
+## Exceptions thrown by OnYield and OnResume
+
+When the <xref:PostSharp.Aspects.OnMethodBoundaryAspect.OnYield(PostSharp.Aspects.MethodExecutionArgs)> or <xref:PostSharp.Aspects.OnMethodBoundaryAspect.OnResume(PostSharp.Aspects.MethodExecutionArgs)> advice throws an exception in an `async` method, the path of the exception depends on the `PostSharpCompatibilityLevel` MSBuild property. The behavior is the same whether the compiler implements the method with a state machine or with runtime async.
+
+### With PostSharpCompatibilityLevel 2027.0 or higher
+
+The exception behaves as if the `await` expression had thrown it:
+
+1. Every aspect that suspended the method resumes first, as when an awaited task faults. When the `OnYield` advice of an aspect throws, the inner aspects, which have already yielded, receive their `OnResume` advice. When the `OnResume` advice of an aspect throws, the other aspects still resume. If several advices throw, the first exception is kept. Therefore, an aspect never runs user code between its `OnYield` and `OnResume` advices.
+2. The `catch` and `finally` blocks of the method around the `await` see the exception.
+3. If the method does not catch the exception, the <xref:PostSharp.Aspects.OnMethodBoundaryAspect.OnException(PostSharp.Aspects.MethodExecutionArgs)> and <xref:PostSharp.Aspects.OnMethodBoundaryAspect.OnExit(PostSharp.Aspects.MethodExecutionArgs)> advices of every aspect run, and the task faults.
+
+If the user code catches the exception, no `OnException` advice runs. The method continues after the `catch` block without having awaited, its next `await` suspends normally, and the `OnExit` advices run when the method completes. An aspect must therefore tolerate that its own `OnYield` or `OnResume` advice throws and that the method then continues.
+
+### Before 2027.0, or when the property is not set
+
+The exception keeps the behavior of PostSharp 2026.0: it skips the `catch` and `finally` blocks of the method around the `await`, and no `OnExit` advice runs. An exception of `OnYield` reaches the `OnException` advice of its aspect and of the outer aspects. An exception of `OnResume` reaches only the `OnException` advice of the outer aspects. The task then faults.
+
+When `PostSharpCompatibilityLevel` is not set, PostSharp emits the warning <xref:la0250?text=LA0250> once per aspect type that has an `OnYield` or `OnResume` advice applied to an `async` method, including the aspects of the Pattern Libraries. To remove the warning, set the property in your project or in a `Directory.Build.props` file:
+
+```xml
+<PropertyGroup>
+  <PostSharpCompatibilityLevel>2027.0</PostSharpCompatibilityLevel>
+</PropertyGroup>
+```
+
+Set the property to `2026.0` to keep the previous behavior without the warning.
+
+> [!NOTE]
+> Async iterators always keep the behavior of PostSharp 2026.0.
 
 
 ## Semantic advising for iterators
@@ -125,7 +154,7 @@ The following table specifies where semantic advising is supported and where it 
 | Async iterator method (C# 8) | Non-semantic | Non-semantic | Semantic |
 
 > [!WARNING]
-> With <xref:PostSharp.Aspects.MethodInterceptionAspect>, the default advising mode is *always* non-semantic when the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice is not implemented by the aspect. PostSharp then emits the warning LA0185 for methods returning a <xref:System.Threading.Tasks.Task>. To remove this warning, implement the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice or set the <xref:PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds> property to `None`. 
+> With <xref:PostSharp.Aspects.MethodInterceptionAspect>, the default advising mode is *always* non-semantic when the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice is not implemented by the aspect. PostSharp then emits the warning <xref:la0185?text=LA0185> for methods returning a <xref:System.Threading.Tasks.Task>. To remove this warning, implement the <xref:PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)> advice or set the <xref:PostSharp.Aspects.MethodInterceptionAspect.SemanticallyAdvisedMethodKinds> property to `None`. 
 
 The default mode is always semantic, even in situations where semantic advising is not available. This design allows us to implement support for semantic advising in future versions of PostSharp without breaking backward compatibility. However, PostSharp will emit a build-time error if you try to use semantic advising on a method that is not supported.
 

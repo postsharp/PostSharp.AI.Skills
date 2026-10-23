@@ -41,10 +41,10 @@ To restrict the implementation of a publicly declared interface, add [<xref:Post
 
 5. Notice that the only change in the code is the addition of the [<xref:PostSharp.Constraints.InternalImplementAttribute>] attribute. 
 
-    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalImplement/Library/ICustomerRepository.cs#interface)]
+    [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalImplement/InternalImplement.Dependency.cs#interface)]
 
 
-After that, implementing the interface that is decorated with <xref:PostSharp.Constraints.InternalImplementAttribute> from another assembly creates the build-time warning `AR0101`, unless the assembly of the interface grants access to that assembly with `InternalsVisibleToAttribute`. In the following code, `CustomerRepository` is in a different assembly than `ICustomerRepository`:
+After that, implementing the interface that is decorated with <xref:PostSharp.Constraints.InternalImplementAttribute> from another assembly creates the build-time warning <xref:ar0101?text=AR0101>, unless the assembly of the interface grants access to that assembly with `InternalsVisibleToAttribute`. In the following code, `CustomerRepository` is in a different assembly than `ICustomerRepository`:
 
 [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalImplement/InternalImplement.cs#implementation)]
 
@@ -60,7 +60,7 @@ The build reports the following warning:
 
 If a warning is not strict enough, you can change the output to a build-time error by setting the `Severity` property of <xref:PostSharp.Constraints.InternalImplementAttribute> to `Error`. 
 
-[!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalImplementError/Library/ICustomerRepository.cs#interface)]
+[!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalImplementError/InternalImplementError.Dependency.cs#interface)]
 
 Now any implementation of the decorated interface in another assembly generates an error and fails the build of your project:
 
@@ -77,7 +77,7 @@ If you implement a constrained interface in a separate assembly and you want to 
 To suppress the warning, add the <xref:PostSharp.Extensibility.SuppressWarningAttribute> attribute to the offending code. In this example, add the attribute to the class that implements the constrained interface. The warning for that specific implementation is then suppressed. All other locations that implement this interface still generate their warnings. 
 
 > [!NOTE]
-> You may wonder where the identifier `AR0101` comes from. <xref:PostSharp.Extensibility.SuppressWarningAttribute> works with any PostSharp warning, not only this one. Any build warning or error, whether from MSBuild, C# or PostSharp, has an identifier. To see identifiers in Visual Studio, open the **View** menu, click **Output**, and select **Show output from: Build**. The warnings are displayed with their identifiers. 
+> You may wonder where the identifier <xref:ar0101?text=AR0101> comes from. <xref:PostSharp.Extensibility.SuppressWarningAttribute> works with any PostSharp warning, not only this one. Any build warning or error, whether from MSBuild, C# or PostSharp, has an identifier. To see identifiers in Visual Studio, open the **View** menu, click **Output**, and select **Show output from: Build**. The warnings are displayed with their identifiers. 
 
 [!code-csharp[](../../../code/samples/CustomPatterns/Constraints/InternalImplement/InternalImplement.cs#suppress)]
 

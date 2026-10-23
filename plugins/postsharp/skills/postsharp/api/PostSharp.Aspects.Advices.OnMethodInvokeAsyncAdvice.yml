@@ -22,8 +22,18 @@ items:
     that this method is an advice that has the same semantics as <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
   remarks: >-
     <p>
-            The method to which this custom attribute is applied must be public and must have the same signature as
-            <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref>. However, it can be static.
+            The method to which this custom attribute is applied must be public. It can be static.
+            It can have the same signature as <xref href="PostSharp.Aspects.IAsyncMethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)" data-throw-if-not-resolved="false"></xref>.
+            It can also have parameters that receive a value of the target, each selected by a custom attribute derived from
+            <xref href="PostSharp.Aspects.Advices.AdviceParameterAttribute" data-throw-if-not-resolved="false"></xref>: <xref href="PostSharp.Aspects.Advices.ThisAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ArgumentAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ArgumentsAttribute" data-throw-if-not-resolved="false"></xref>,
+            <xref href="PostSharp.Aspects.Advices.BindingAttribute" data-throw-if-not-resolved="false"></xref> (as an <xref href="PostSharp.Aspects.IAsyncMethodBinding" data-throw-if-not-resolved="false"></xref>), <xref href="PostSharp.Aspects.Advices.DeclarationAttribute" data-throw-if-not-resolved="false"></xref>,
+            <xref href="PostSharp.Aspects.Advices.DeclarationNameAttribute" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.DeclarationIdentifierAttribute" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Aspects.Advices.ImportMemberAttribute" data-throw-if-not-resolved="false"></xref>, all passed by value.
+            These parameters can follow a <xref href="PostSharp.Aspects.MethodInterceptionArgs" data-throw-if-not-resolved="false"></xref> parameter, or replace it.
+          </p>
+    <p>
+            The method returns a <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> or a <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref>. The result of
+            a <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> becomes the result of the target method. Its type is the result type of the target
+            method, <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, or a type parameter of the method, which is inferred from the result type of the target method.
           </p>
   example: []
   syntax:
@@ -50,6 +60,7 @@ items:
   inheritedMembers:
   - PostSharp.Aspects.Advices.OnMethodInvokeBaseAdvice.SemanticallyAdvisedMethodKinds
   - PostSharp.Aspects.Advices.OnMethodInvokeBaseAdvice.UnsupportedTargetAction
+  - PostSharp.Aspects.Advices.GroupingAdvice.Group
   - PostSharp.Aspects.Advices.GroupingAdvice.Master
   - PostSharp.Aspects.Advices.Advice.Description
   - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided

@@ -1,0 +1,79 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+  commentId: T:PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+  id: IntroduceFieldIncompatibleAction
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.Fail
+  - PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.IntroduceAnother
+  langs:
+  - csharp
+  - vb
+  name: IntroduceFieldIncompatibleAction
+  nameWithType: IntroduceFieldIncompatibleAction
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    Specifies what an <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref> does when a member of the target type has the requested name but is not a
+
+    compatible field, for instance a property, a method, or a field of another type or static kind.
+  remarks: >-
+    <p>This applies only to a request that has a <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.Name" data-throw-if-not-resolved="false"></xref>: a request without a name finds fields by
+        their type, and its new field gets a generated name that cannot conflict with another member.</p>
+  example: []
+  syntax:
+    content: public enum IntroduceFieldIncompatibleAction
+    content.vb: Public Enum IntroduceFieldIncompatibleAction
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+    commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists
+  - linkType: HRef
+    linkId: '@advice-provider'
+    altText: 'Conceptual: Providing Advices Dynamically'
+- uid: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.Fail
+  commentId: F:PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.Fail
+  id: Fail
+  parent: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+  langs:
+  - csharp
+  - vb
+  name: Fail
+  nameWithType: IntroduceFieldIncompatibleAction.Fail
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.Fail
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The build fails with the error LA0272.
+  example: []
+  syntax:
+    content: Fail = 0
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+- uid: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.IntroduceAnother
+  commentId: F:PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.IntroduceAnother
+  id: IntroduceAnother
+  parent: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction
+  langs:
+  - csharp
+  - vb
+  name: IntroduceAnother
+  nameWithType: IntroduceFieldIncompatibleAction.IntroduceAnother
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction.IntroduceAnother
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    A new field is introduced with the requested name followed by a number that makes it unique in the type, such as <code>handlers2</code>. The
+
+    existing member is not renamed.
+  example: []
+  syntax:
+    content: IntroduceAnother = 1
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldIncompatibleAction

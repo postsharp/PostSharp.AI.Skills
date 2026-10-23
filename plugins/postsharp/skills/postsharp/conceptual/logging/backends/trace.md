@@ -25,7 +25,7 @@ To send PostSharp Logging events to Trace listeners:
 
 3. In the application startup method, include the following code:
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingTrace.cs#backend)]
+    [!code-csharp[](../../../code/samples/Logging/Tracing/LoggingTrace.cs#backend)]
 
 
 
@@ -35,19 +35,19 @@ If your source code already emits log events using `System.Diagnostics.Trace`, y
 
 Suppose that you have already configured `System.Diagnostics.Trace` and PostSharp like this: 
 
-[!code-csharp[](../../../code/samples/Logging/LoggingTrace.cs#configure)]
+[!code-csharp[](../../../code/samples/Logging/Tracing/LoggingTrace.cs#configure)]
 
 To collect Trace manual logging events into PostSharp, replace that startup code with the following:
 
-[!code-csharp[](../../../code/samples/Logging/LoggingTraceCollecting.cs#configure)]
+[!code-csharp[](../../../code/samples/Logging/Tracing/LoggingTraceCollecting.cs#configure)]
 
 You can now do standard Trace logging and the logging output will be collected and sent to PostSharp Logging:
 
-[!code-csharp[](../../../code/samples/Logging/LoggingTraceCollecting.cs#manual)]
+[!code-csharp[](../../../code/samples/Logging/Tracing/LoggingTraceCollecting.cs#manual)]
 
 When a logged method also writes a manual record, this record is indented like the records of PostSharp Logging:
 
-[!code-text[](../../../code/samples/Logging/LoggingTraceCollecting.txt)]
+[!code-text[](../../../code/samples/Logging/Tracing/LoggingTraceCollecting.txt)]
 
 ## See Also
 

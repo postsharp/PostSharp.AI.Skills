@@ -54,7 +54,7 @@ public void PlaceOrder( Order order )
 
 The example shows the main rules of a member-level aspect:
 
-* The advices apply to the target of the aspect. They need no pointcut. An advice that cannot apply to this kind of declaration, for instance a location advice in a <xref:PostSharp.Aspects.MethodLevelAspect>, causes the error LA0049.
+* The advices apply to the target of the aspect. They need no pointcut. An advice that cannot apply to this kind of declaration, for instance a location advice in a <xref:PostSharp.Aspects.MethodLevelAspect>, causes the error <xref:la0049?text=LA0049>.
 * The advices of one family, such as the entry and exit advices, form one group and are woven as one transformation: here, one `try` / `finally` construct. You do not need to declare the group.
 * The parameters of the advices are bound to values of the target. `methodName` receives the name of the method, which is a constant. The two `stopwatch` parameters are bound to the same variable, which lives for one execution of the method: the entry advice assigns it, and the exit advice reads it.
 * No object is allocated on each call, except the <xref:System.Diagnostics.Stopwatch> itself.

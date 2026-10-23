@@ -26,7 +26,7 @@ This is illustrated in the following code snippet.
 
 Member-level, type-level and assembly-level aspects do not override methods of a base class. They declare advice methods with custom attributes such as <xref:PostSharp.Aspects.Advices.OnMethodEntryAdvice>, and possibly pointcuts such as <xref:PostSharp.Aspects.Advices.MethodPointcut> (see <xref:member-level-aspects> and <xref:complex-aspects>). Unlike simple aspects, these aspects can have several advices. 
 
-With these aspects, you should add a description to every group of advices. You can do that by setting the <xref:PostSharp.Aspects.Advices.Advice.Description> property of the advice custom attribute. When PostSharp infers the group, set the description on one advice of the group only: several descriptions in one inferred group cause the error LA0231 (see <xref:pointcuts>). 
+With these aspects, you should add a description to every group of advices. You can do that by setting the <xref:PostSharp.Aspects.Advices.Advice.Description> property of the advice custom attribute. The description applies to the whole group, so set it on one advice of the group only: two different descriptions in one group cause the error <xref:la0231?text=LA0231> (see <xref:pointcuts>). 
 
 The following code snippet illustrates how to set the description of the advice. This description will appear in CodeLens and the IntelliSense tooltip of each property affected by this advice.
 

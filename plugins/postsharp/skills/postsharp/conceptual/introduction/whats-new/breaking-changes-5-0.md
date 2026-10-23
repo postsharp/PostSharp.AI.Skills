@@ -14,7 +14,7 @@ PostSharp 5.0 contains the following breaking changes:
 
 ## Changes causing silent changes of behavior
 
-* The <xref:PostSharp.Aspects.OnMethodBoundaryAspect> aspect will now advise the state machine of async methods and iterators by default instead of the kick-off method. The `ApplyToStateMachine` property is deprecated in favor of <xref:PostSharp.Aspects.OnMethodBoundaryAspect.SemanticallyAdvisedMethodKinds> and its default value is now `true`. The behavior of existing code that ignored the `PS0215` warning will silently change. 
+* The <xref:PostSharp.Aspects.OnMethodBoundaryAspect> aspect will now advise the state machine of async methods and iterators by default instead of the kick-off method. The `ApplyToStateMachine` property is deprecated in favor of <xref:PostSharp.Aspects.OnMethodBoundaryAspect.SemanticallyAdvisedMethodKinds> and its default value is now `true`. The behavior of existing code that ignored the <xref:ps0215?text=PS0215> warning will silently change. 
 
 
 ## Changes causing build errors

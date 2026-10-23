@@ -213,6 +213,9 @@ items:
     <p>Unless a class sets it to <code>false</code>, multiple instances are allowed. When multiple instances are not allowed, each instance
         replaces the instances of the same attribute type processed before it, for example the ones multicast from the declaring type
         or the assembly. Applying two instances directly to the same declaration is then a build error.</p>
+    <p>The getter returns the value set on this instance of <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref>, and <code>false</code> when
+        the value is not set. The value that applies to a class is computed at build time from the <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref>
+        of the class and of its base classes, so reading this property by reflection does not give it.</p>
   example: []
   syntax:
     content: public bool AllowMultiple { get; set; }
@@ -283,6 +286,12 @@ items:
     Gets or sets a value indicating whether this attribute can be applied to declarations of external assemblies
 
     (that is, to assemblies other than the one in which the custom attribute is instantiated).
+  remarks: >-
+    <p>Unless a class sets it to <code>false</code>, the custom attribute can be applied to declarations of external assemblies.</p>
+
+    <p>The getter returns the value set on this instance of <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref>, and <code>false</code> when
+        the value is not set. The value that applies to a class is computed at build time from the <xref href="PostSharp.Extensibility.MulticastAttributeUsageAttribute" data-throw-if-not-resolved="false"></xref>
+        of the class and of its base classes, so reading this property by reflection does not give it.</p>
   example: []
   syntax:
     content: public bool AllowExternalAssemblies { get; set; }

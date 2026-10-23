@@ -32,7 +32,7 @@ In some cases, the default serialization strategy implemented by the <xref:PostS
 To apply the fallback serialization strategy to your aspects, use the [<xref:System.SerializableAttribute>] custom attribute instead of [<xref:PostSharp.Serialization.PSerializableAttribute>], and use the [<xref:System.NonSerializedAttribute>] custom attribute instead of [<xref:PostSharp.Serialization.PNonSerializedAttribute>]. 
 
 > [!NOTE]
-> When an aspect class is annotated with [<xref:System.SerializableAttribute>], the build fails with the error `LA0206` unless the `PostSharpBinaryFormatterAllowed` MSBuild property is set to `True`. 
+> When an aspect class is annotated with [<xref:System.SerializableAttribute>], the build fails with the error <xref:la0206?text=LA0206> unless the `PostSharpBinaryFormatterAllowed` MSBuild property is set to `True`. 
 
 > [!WARNING]
 > <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> is considered dangerous and therefore [<xref:System.SerializableAttribute>] should not be used for aspect serialization. See section <xref:binary-formatter-security> for details. 

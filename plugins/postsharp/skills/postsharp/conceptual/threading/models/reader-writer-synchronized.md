@@ -21,7 +21,7 @@ The Reader/Writer Synchronized Threading Model is implemented by the <xref:PostS
 
 Consider the following example of an `Order` class which stores an amount and a discount: 
 
-[!code-csharp[](../../../code/samples/Threading/ReaderWriterUnsynchronized.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ReaderWriterUnsynchronized.cs#example)]
 
 In this example, the `Set` method writes to the `Amount` and `Discount` members, while the `AmountAfterDiscount` property reads these members. In a single-threaded program, the `AmountAfterDiscount` property is guaranteed to be positive or zero. However, in a multithreaded program, the `AmountAfterDiscount` property could be evaluated in the middle of the `Set` operation, and return an inconsistent result. 
 
@@ -39,7 +39,7 @@ The easiest way to synchronize accesses to a class in C# is to use the `lock` ke
 
 Reader-writer locks take advantage of the fact that most applications involve far fewer writes than reads, and that concurrent reads are always safe. Reader-writer locks ensure that no other thread is accessing the object when it is being written. Reader-writer locks are normally implemented by the .NET classes <xref:System.Threading.ReaderWriterLock> or <xref:System.Threading.ReaderWriterLockSlim>. The following example shows how <xref:System.Threading.ReaderWriterLockSlim> would be used to control reads and writes in the `Order` class: 
 
-[!code-csharp[](../../../code/samples/Threading/ReaderWriterManualLock.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ReaderWriterManualLock.cs#example)]
 
 However, working directly with the <xref:System.Threading.ReaderWriterLock> and <xref:System.Threading.ReaderWriterLockSlim> classes has disadvantages: 
 
@@ -89,7 +89,7 @@ Likewise, invoking methods marked with <xref:PostSharp.Patterns.Threading.Writer
 
 The following code shows the `Order` class, synchronized with the reader-writer threading pattern: 
 
-[!code-csharp[](../../../code/samples/Threading/ReaderWriterSynchronized.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ReaderWriterSynchronized.cs#example)]
 
 
 ## Rules enforced by the ReaderWriterSynchronized aspect
@@ -120,7 +120,7 @@ In the following example, `OrderCollection` is a collection of `Order` objects. 
 
 Since listeners can be on other threads (for example, a UI thread), this event is invoked by the `Add()` and `Remove()` methods via a method called `OnCollectionChanged()` which has been marked with the <xref:PostSharp.Patterns.Threading.YielderAttribute> attribute. This lock ensures that the listener (which may be in another thread space) can read the current state of the collection without the collection being modified by another invocation of the `Add()` or `Remove()` operations from another thread. 
 
-[!code-csharp[](../../../code/samples/Threading/ReaderWriterYielder.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ReaderWriterYielder.cs#example)]
 
 
 ## Executing long-running write methods
@@ -131,7 +131,7 @@ In the following example, the `Order` class contains a collection of `Line` obje
 
 Since the `Recalculate` method performs a series of reads followed by a write operation (to store the total in `Amount`), it is marked with the <xref:PostSharp.Patterns.Threading.UpgradeableReaderAttribute> attribute which ensures that all of the orders that it reads remain locked so that it calculates and writes out the correct total. In addition to this, the set accessor of the `Order`’s `Amount` property has been marked with <xref:PostSharp.Patterns.Threading.WriterAttribute>: 
 
-[!code-csharp[](../../../code/samples/Threading/ReaderWriterUpgradeable.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ReaderWriterUpgradeable.cs#example)]
 
 
 ## Working with object trees

@@ -23,7 +23,7 @@ To enable per-request logging with ASP.NET Core:
 * In your `Program.Main` method, include a call to the <xref:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)> method. 
     If you want to enable support for distributed logging, you need to pass a value to the `correlationProtocol` parameter. The only available implementation is currently <xref:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol>. 
 
-[!code-csharp[](../../../code/samples/Logging/LoggingInstrumentationAspNetCore.cs#example)]
+[!code-csharp[](../../../code/samples/Logging/AspNetCore/LoggingInstrumentationAspNetCore.cs#example)]
 
 This will log any incoming HTTP request and, if you have set up request correlation, it will interpret the HTTP headers related to distributed logging. To learn how to configure verbosity on a per-request basis, see <xref:log-enabling> for details. 
 
@@ -77,7 +77,7 @@ To add the `HttpClient` instrumentation to your code:
 * In your `Program.Main` method, include a call to the <xref:PostSharp.Patterns.Diagnostics.Adapters.HttpClient.HttpClientLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{System.Uri})> method. 
     If you want to enable support for distributed logging, you need to pass a value to the `correlationProtocol` parameter. The only available implementation is currently <xref:PostSharp.Patterns.Diagnostics.Correlation.LegacyHttpCorrelationProtocol>. It is important that you use the same protocol in the client and the server. 
 
-[!code-csharp[](../../../code/samples/Logging/LoggingInstrumentationHttpClient.cs#example)]
+[!code-csharp[](../../../code/samples/Logging/Integrations/LoggingInstrumentationHttpClient.cs#example)]
 
 ## See Also
 

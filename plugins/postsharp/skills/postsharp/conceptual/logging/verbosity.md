@@ -71,7 +71,7 @@ The first thing to do is to define transaction boundaries in your application. T
 
 2. In your `Program.Main` method, call the <xref:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging.Initialize(PostSharp.Patterns.Diagnostics.Correlation.ICorrelationProtocol,System.Predicate{Microsoft.AspNetCore.Http.HttpRequest},PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata)> method: 
 
-    [!code-csharp[](../../code/samples/Logging/LogEnablingAspNetCore.cs#initialize)]
+    [!code-csharp[](../../code/samples/Logging/AspNetCore/LogEnablingAspNetCore.cs#initialize)]
 
 
 3. Define per-transaction logging in your logging verbosity configuration file and set the `type` attribute of the `/logging/transactions/policy` element to `AspNetCoreRequest`, for instance: 

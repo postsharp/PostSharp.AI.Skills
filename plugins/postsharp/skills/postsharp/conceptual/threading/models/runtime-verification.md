@@ -57,7 +57,7 @@ Perform the following steps to enable run-time verification by using the Project
 
 You can override the project-level configuration of the run-time verification setting by setting the <xref:PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled> property of the threading model custom attribute. This property is defined by the <xref:PostSharp.Patterns.Threading.ThreadAwareAttribute> class, from which all threading model attributes derive. 
 
-[!code-csharp[](../../../code/samples/Threading/RuntimeVerification.cs#attribute)]
+[!code-csharp[](../../../code/samples/Threading/Core/RuntimeVerification.cs#attribute)]
 
 If the property is not manually set, it derives its value from the setting on the project properties page. If you want to override the default value, you only need to set the value of the <xref:PostSharp.Patterns.Threading.ThreadAwareAttribute.RuntimeVerificationEnabled> to `true` or `false`. 
 

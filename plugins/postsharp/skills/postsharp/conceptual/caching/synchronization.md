@@ -47,7 +47,7 @@ The principal inconvenience of pub/sub invalidation is that there is some latenc
 7. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions> class, passing the connection string of the shared access policy you just created and the topic name. You can omit the topic name if the connection string contains an `EntityPath` component. To use a topic subscription that you created yourself, set the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions.SubscriptionName> property. See below. 
 
 
-8. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator> class using the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)> factory method, passing the existing instance of the <xref:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend> and the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions>. Assign the new <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator> to the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultBackend> property. 
+8. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator> class using the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions)> factory method, passing the existing instance of the <xref:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend> and the <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidatorOptions>. Assign the new <xref:PostSharp.Patterns.Caching.Backends.Azure.AzureServiceBusCacheInvalidator> to the <xref:PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend> property. 
 
 ### Topic creation strategies
 
@@ -79,7 +79,7 @@ If you are already using Redis for PostSharp caching, it is useless to add anoth
 3. Create and configure an instance of the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions> class. 
 
 
-4. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator> class using the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)> factory method, passing your instance of <xref:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend> and <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions>. Assign the instance to the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultBackend> property. 
+4. Create an instance of the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator> class using the <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidator.Create(PostSharp.Patterns.Caching.Implementation.CachingBackend,StackExchange.Redis.IConnectionMultiplexer,PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions)> factory method, passing your instance of <xref:PostSharp.Patterns.Caching.Backends.MemoryCachingBackend> and <xref:PostSharp.Patterns.Caching.Backends.Redis.RedisCacheInvalidatorOptions>. Assign the instance to the <xref:PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend> property. 
 
 
 
@@ -87,6 +87,6 @@ If you are already using Redis for PostSharp caching, it is useless to add anoth
 
 This example shows how to initialize an in-memory caching backend to let it invalidate and be invalidated using Redis Pub/Sub.
 
-[!code-csharp[](../../code/samples/Caching/CachingPubSub.cs#redis)]
+[!code-csharp[](../../code/samples/Caching/Backends/CachingPubSub.cs#redis)]
 
 

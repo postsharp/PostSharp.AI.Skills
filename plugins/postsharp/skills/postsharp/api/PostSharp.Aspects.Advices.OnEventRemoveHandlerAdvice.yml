@@ -35,12 +35,12 @@ items:
       <xref href="PostSharp.Aspects.Advices.OnEventInvokeHandlerAdvice" data-throw-if-not-resolved="false"></xref>
       ) that are meant to be applied to the same events with consistent ordering, these advices should be
       grouped together (see
-      <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref>
+      <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Group" data-throw-if-not-resolved="false"></xref>
       property).
     </p>
         <div class="NOTE"><h5>note</h5><p>
-      A master advice without a custom attribute derived from <xref href="PostSharp.Aspects.Advices.Pointcut" data-throw-if-not-resolved="false"></xref> applies to the event to which the aspect is applied; when the aspect is applied to another kind of declaration, a pointcut is required. An advice without <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> and without pointcut joins
-      the group of the master advice declared in its class.
+      A group of advices without a custom attribute derived from <xref href="PostSharp.Aspects.Advices.Pointcut" data-throw-if-not-resolved="false"></xref> applies to the event to which the aspect is applied; when the aspect is applied to another kind of declaration, a pointcut is required. An advice without <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Group" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Master" data-throw-if-not-resolved="false"></xref> and pointcut joins
+      the group of its class that has no advice of its kind yet.
     </p></div>
         <xref href="PostSharp.Aspects.IEventInterceptionAspect" data-throw-if-not-resolved="false"></xref>
         <xref href="PostSharp.Aspects.Advices.OnEventAddHandlerAdvice" data-throw-if-not-resolved="false"></xref>
@@ -86,6 +86,7 @@ items:
   - PostSharp.Aspects.Advices.Advice
   - PostSharp.Aspects.Advices.GroupingAdvice
   inheritedMembers:
+  - PostSharp.Aspects.Advices.GroupingAdvice.Group
   - PostSharp.Aspects.Advices.GroupingAdvice.Master
   - PostSharp.Aspects.Advices.Advice.Description
   - PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided

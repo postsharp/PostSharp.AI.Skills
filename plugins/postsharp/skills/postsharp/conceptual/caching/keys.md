@@ -61,18 +61,18 @@ To exclude the value of the `this` parameter of an instance method from the cach
 
 In this example, the `this` and `callId` parameters of the `GetNumber` method are not part of the cache key. 
 
-[!code-csharp[](../../code/samples/Caching/CachingKeysExcludingParameters.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingKeysExcludingParameters.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingKeysExcludingParameters.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingKeysExcludingParameters.txt)]
 
 
 ## Changing the maximal length of a cache key
 
 The maximal length of a cache key is 2048 characters by default.
 
-To change the maximal length of a cache key, create a new instance of the <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder> class, passing the new value of the maximal length to the constructor, and assign the new instance to the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder> property. 
+To change the maximal length of a cache key, create a new instance of the <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder> class, passing the new value of the maximal length to the constructor, and assign the new instance to the <xref:PostSharp.Patterns.Caching.ICachingService.KeyBuilder?text=CachingServices.DefaultService.KeyBuilder> property. 
 
 > [!WARNING]
 > If you need large cache keys, we suggest you also hash the cache key before submitting it to the caching backend. To hash the cache key, pass a <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyHashingAlgorithm> value other than `None` to the constructor of the <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder> class. You can also implement a custom cache key builder (see below).
@@ -81,7 +81,7 @@ To change the maximal length of a cache key, create a new instance of the <xref:
 
 The following example sets the maximal length of a cache key to 4096 characters, and hashes the keys that are longer than 1024 characters with the XxHash128 algorithm:
 
-[!code-csharp[](../../code/samples/Caching/CachingKeysMaxLength.cs#max-length)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingKeysMaxLength.cs#max-length)]
 
 
 ## Implementing a custom cache key builder
@@ -99,7 +99,7 @@ All the options described above change how a parameter value is formatted. To cu
     To completely override the key building process, override the <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildMethodKey(System.Reflection.MethodInfo,System.Collections.Generic.IList{System.Object},System.Object)> and/or <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.BuildDependencyKey(System.Object)> methods. The default implementation of these two methods uses <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendType(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type)>, <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendMethod(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Reflection.MethodInfo)>, <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendArgument(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Type,System.Object)> and <xref:PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder.AppendObject(PostSharp.Patterns.Formatters.UnsafeStringBuilder,System.Object)> helper methods. If you need to override how a type, a method, an argument or an object is formatted, you can override just some of these methods. 
 
 
-3. Assign an instance of your new cache key builder to the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder> property. 
+3. Assign an instance of your new cache key builder to the <xref:PostSharp.Patterns.Caching.ICachingService.KeyBuilder?text=CachingServices.DefaultService.KeyBuilder> property. 
 
 
 

@@ -24,7 +24,7 @@ Eventually, all dependencies are represented as strings. Although we recommend u
 1. Add a call to the <xref:PostSharp.Patterns.Caching.ICachingContext.AddDependency(System.String)> method to the cached method. 
 
 
-2. Add a call to the <xref:PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(System.String)> method to the invalidating method. 
+2. Add a call to the <xref:PostSharp.Patterns.Caching.ICachingService.Invalidate(System.String)> method of <xref:PostSharp.Patterns.Caching.CachingServices.DefaultService?text=CachingServices.DefaultService> to the invalidating method. 
 
 
 > [!NOTE]
@@ -35,11 +35,11 @@ Eventually, all dependencies are represented as strings. Although we recommend u
 
 In this example, the `GetValue` method assigns a string dependency to its cached return value. The `Update` method invalidates the dependency. This causes the related cached return value to be invalidated as well. 
 
-[!code-csharp[](../../code/samples/Caching/CachingStringDependencies.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingStringDependencies.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingObjectDependencies.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingObjectDependencies.txt)]
 
 
 ## Adding object-oriented dependencies through the ICacheDependency interface
@@ -56,11 +56,11 @@ If you own the source code of the class you want to use as a cache dependency, t
 
 In the following example, the `Customer` class represents a business entity. Instances of this class are cached. At the same time, they serve as object dependencies, so the `Customer` class implements the <xref:PostSharp.Patterns.Caching.Dependencies.ICacheDependency> interface. The `GetValue` method assigns an object dependency of type `Customer` to its cached return value. The `Update` method invalidates the dependency. This causes the related cached return value to be invalidated as well. 
 
-[!code-csharp[](../../code/samples/Caching/CachingObjectDependencies.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingObjectDependencies.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingStringDependencies.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingStringDependencies.txt)]
 
 
 ## Adding object-oriented dependencies through a formatter
@@ -78,13 +78,13 @@ When a parent cached method calls a child cached method, the dependencies of the
 
 There are cases where propagating the caching context from the parent to the child methods (and therefore the collection of child dependencies into the parent context) is not desirable. For instance, if the parent method runs an asynchronous child task using `Task.Run` and does not wait for its completion, then it is likely that the dependencies of methods called in the child task should not be propagated to the parent (the child task could be considered a side effect of the parent method, and should not affect caching). Undesired dependencies would not make the program incorrect, but they would make it less efficient. 
 
-To suspend the collection of dependencies in the current context and in all children contexts, you can use the <xref:PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation> method with a `using` construct. 
+To suspend the collection of dependencies in the current context and in all children contexts, you can use the <xref:PostSharp.Patterns.Caching.CachingServices.SuspendDependencyPropagation*> method with a `using` construct. 
 
 
 ### Example
 
 In the next example, the dependencies of `ChildMethod` (a side-effect method calling the cached method `GetName`) are not propagated to the parent `CachedMethod`. 
 
-[!code-csharp[](../../code/samples/Caching/CachingSuspendDependencies.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingSuspendDependencies.cs#example)]
 
 

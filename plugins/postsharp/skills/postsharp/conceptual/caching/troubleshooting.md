@@ -18,11 +18,11 @@ If you use PostSharp Logging for logging, you can enable detailed logging of the
 
 The following code shows how to log the details of the caching aspect to the system console for the whole application:
 
-[!code-csharp[](../../code/samples/Caching/CachingLogging.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingLogging.cs#example)]
 
 When a cached method is called twice with the same argument, this configuration produces the following output:
 
-[!code-text[](../../code/samples/Caching/CachingLogging.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingLogging.txt)]
 
 
 ## Enabling logging of caching with System.Diagnostics

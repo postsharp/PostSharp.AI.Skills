@@ -25,17 +25,17 @@ To send PostSharp Logging events to the logging system of ASP.NET Core:
 
 3. In *Program.cs*, set up ASP.NET Core logging like this: 
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingAspNetCore/LoggingAspNetCore.cs#logging)]
+    [!code-csharp[](../../../code/samples/Logging/AspNetCore/LoggingAspNetCore/LoggingAspNetCore.cs#logging)]
 
 
 4. In *appsettings.json* and *appsettings.Development.json*, reduce the minimum logged `LogLevel` to `Debug`. PostSharp outputs most traces at the `Debug` level: 
 
-    [!code-json[](../../../code/samples/Logging/LoggingAspNetCore/appsettings.json)]
+    [!code-json[](../../../code/samples/Logging/AspNetCore/LoggingAspNetCore/appsettings.json)]
 
 
 5. After you build the application, and before you run it, set <xref:PostSharp.Patterns.Diagnostics.Backends.Microsoft.MicrosoftLoggingBackend> as the default backend: 
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingAspNetCore/LoggingAspNetCore.cs#backend)]
+    [!code-csharp[](../../../code/samples/Logging/AspNetCore/LoggingAspNetCore/LoggingAspNetCore.cs#backend)]
 
 
 Any methods annotated with <xref:PostSharp.Patterns.Diagnostics.LogAttribute> will now emit log messages into ASP.NET Core logging, as in this example:
@@ -60,7 +60,7 @@ To collect .NET Core manual logging events into PostSharp:
 
 2. In *Program.cs*, after you create the `WebApplicationBuilder`, add the following code: 
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingAspNetCoreCollecting.cs#collecting)]
+    [!code-csharp[](../../../code/samples/Logging/AspNetCore/LoggingAspNetCoreCollecting.cs#collecting)]
 
 
 Now, you can use <xref:PostSharp.Patterns.Diagnostics.LogAttribute> to add automatic logging and <xref:Microsoft.Extensions.Logging.ILogger> loggers to add manual log messages. 

@@ -48,7 +48,7 @@ items:
   remarks: >-
     <p>The default behavior of all methods of a <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer" data-throw-if-not-resolved="false"></xref> is to delegate the implementation
         to the next <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackend" data-throw-if-not-resolved="false"></xref> in the chain of responsibility.</p>
-    <p>Assign the outermost node of the chain to <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>. To add a behavior, override only the methods
+    <p>Assign the outermost node of the chain to <xref href="PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend" data-throw-if-not-resolved="false"></xref>. To add a behavior, override only the methods
         that need it. For example, an enhancer that overrides <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.GetItemCore(System.String%2cSystem.Boolean)" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.Implementation.CachingBackendEnhancer.GetItemAsyncCore(System.String%2cSystem.Boolean%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> can count cache hits
         and misses, a <code>null</code> return value meaning a miss.</p>
   example: []

@@ -24,12 +24,12 @@ To write a custom text message to the log:
 
 1. Add the following statements at the top of your C# file:
 
-    [!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#usings)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LogCustomMessages.cs#usings)]
 
 
 2. Add a static read-only field of type <xref:PostSharp.Patterns.Diagnostics.LogSource> and initialize it with the <xref:PostSharp.Patterns.Diagnostics.LogSource.Get> method: 
 
-    [!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#field)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LogCustomMessages.cs#field)]
 
 
 3. Evaluate the property corresponding to the desired log level, e.g. <xref:PostSharp.Patterns.Diagnostics.LogSource.Debug> or <xref:PostSharp.Patterns.Diagnostics.LogSource.Error>. 
@@ -37,13 +37,13 @@ To write a custom text message to the log:
 
 4. Invoke the <xref:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)> method. Construct the message object to pass to this method by invoking the <xref:PostSharp.Patterns.Diagnostics.FormattedMessageBuilder.Formatted*> method. 
 
-    [!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#write)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LogCustomMessages.cs#write)]
 
 
 
 ### Example
 
-[!code-csharp[](../../code/samples/Logging/LogCustomMessages.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogCustomMessages.cs#example)]
 
 
 ## Writing text messages with parameters
@@ -70,11 +70,11 @@ The formatting string has the following specifications:
 
 ### Example
 
-[!code-csharp[](../../code/samples/Logging/LogFormattedMessages.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogFormattedMessages.cs#example)]
 
 With a file of 40,000 bytes, this code produces the following output:
 
-[!code-text[](../../code/samples/Logging/LogFormattedMessages.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/LogFormattedMessages.txt)]
 
 
 ## Writing semantic messages for easy statistical processing
@@ -90,11 +90,11 @@ To emit semantic messages, use the <xref:PostSharp.Patterns.Diagnostics.Semantic
 
 ### Example
 
-[!code-csharp[](../../code/samples/Logging/LogSemanticMessages.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogSemanticMessages.cs#example)]
 
 With a file of 40,000 bytes, this code produces the following output:
 
-[!code-text[](../../code/samples/Logging/LogSemanticMessages.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/LogSemanticMessages.txt)]
 
 
 ## Using default log levels
@@ -117,7 +117,7 @@ Alternatively, you can use the <xref:PostSharp.Patterns.Diagnostics.LogSource.De
 
 The following example illustrates how to configure log sources centrally:
 
-[!code-csharp[](../../code/samples/Logging/LogDefaultLevels.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogDefaultLevels.cs#example)]
 
 
 ## Optimizing performance with the 'Elvis' operator
@@ -133,7 +133,7 @@ However, it is much more convenient to use the <xref:PostSharp.Patterns.Diagnost
 
 The following example uses the <xref:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.EnabledOrNull> and the Elvis operator to make sure the expensive `File.GetLastWriteTime` method is evaluated only when debug-level logging is enabled. 
 
-[!code-csharp[](../../code/samples/Logging/LogEnabledOrNull.cs#example)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogEnabledOrNull.cs#example)]
 
 
 ## Implementing your own type of messages

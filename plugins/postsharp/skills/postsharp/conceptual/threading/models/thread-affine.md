@@ -34,7 +34,7 @@ To apply the Thread-Affine threading model to a class:
 
 In the example below, the <xref:PostSharp.Patterns.Threading.ThreadAffineAttribute> has been added to the class. 
 
-[!code-csharp[](../../../code/samples/Threading/ThreadAffine.cs#service)]
+[!code-csharp[](../../../code/samples/Threading/Core/ThreadAffine.cs#service)]
 
 
 ## Rules enforced by the Thread-Affine aspect
@@ -45,11 +45,11 @@ Except for the types of fields, the <xref:PostSharp.Patterns.Threading.ThreadAff
 
 To test the thread-affine `OrderService` class, we can run the following code: 
 
-[!code-csharp[](../../../code/samples/Threading/ThreadAffine.cs#program)]
+[!code-csharp[](../../../code/samples/Threading/Core/ThreadAffine.cs#program)]
 
 The output of this program is:
 
-[!code-text[](../../../code/samples/Threading/ThreadAffine.txt)]
+[!code-text[](../../../code/samples/Threading/Core/ThreadAffine.txt)]
 
 The `orderService.Process(1)` call succeeds because the `orderService` instance is created (with the `new` keyword) and used on the same thread.
 

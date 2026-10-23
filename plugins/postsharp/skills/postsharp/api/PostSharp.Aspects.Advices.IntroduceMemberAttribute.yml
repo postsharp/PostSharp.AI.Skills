@@ -184,7 +184,9 @@ items:
   summary: Gets or sets a value indicating whether the introduced member should be virtual.
   remarks: >-
     <p>
-            The value of this property is ignored when the member to be introduced already exists in the aspect target type or its base type.
+            When a method with the same signature is already declared in the aspect target type, and this property is set, its
+            value must match whether the existing method is virtual and not sealed; otherwise, the build fails with error LA0071.
+            When the method is inherited from a base type, the value of this property is ignored.
           </p>
   example: []
   syntax:

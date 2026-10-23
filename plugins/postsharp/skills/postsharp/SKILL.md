@@ -1,6 +1,6 @@
 ---
 name: postsharp
-description: Complete PostSharp documentation for aspect-oriented programming in C#, covering custom aspects (OnMethodBoundaryAspect, MethodInterceptionAspect, LocationInterceptionAspect, EventInterceptionAspect), attribute multicasting, architecture constraints, and the PostSharp Patterns libraries (caching, logging, threading models, contracts, INotifyPropertyChanged, XAML). Use whenever writing, reviewing, or debugging code in a project that references PostSharp packages; when a build reports PostSharp (PS) errors or warnings; when configuring PostSharp MSBuild properties, postsharp.config, licensing, or deployment on a build server; or when maintaining an existing PostSharp code base.
+description: Complete PostSharp documentation for aspect-oriented programming in C#, covering custom aspects (OnMethodBoundaryAspect, MethodInterceptionAspect, LocationInterceptionAspect, EventInterceptionAspect), attribute multicasting, architecture constraints, and the PostSharp Patterns libraries (caching, logging, threading models, contracts, INotifyPropertyChanged, XAML). Use whenever writing, reviewing, or debugging code in a project that references PostSharp packages; when a build reports PostSharp errors or warnings (PS, LA, SR, AR, COM, DOM, THR, XAM, CAC or DIA codes, each documented in an article); when configuring PostSharp MSBuild properties, postsharp.config, licensing, or deployment on a build server; or when maintaining an existing PostSharp code base.
 ---
 
 # PostSharp Documentation Skill
@@ -41,6 +41,8 @@ The PostSharp Patterns libraries (`PostSharp.Patterns.Caching`, `PostSharp.Patte
 
 PostSharp runs after the C# compiler and rewrites the compiled assembly. It reports invalid aspect usages, eligibility problems, and failed constraints as build errors and warnings with `PS` codes (for instance `PS0215`) or with codes defined by custom aspects. After writing or changing an aspect, run `dotnet build` (or `msbuild` for a non-SDK-style .NET Framework project) and read the diagnostics; treat a clean build as the pass condition.
 
+**Every message that PostSharp or a pattern library reports has an article** at `conceptual/errors/<id>.md`, where `<id>` is the code in lowercase: `PS0215` is `conceptual/errors/ps0215.md`, and `python <skill-dir>/scripts/find-doc.py ps0215` finds it too. The article gives the message text, the cause, and the resolution. Read it before you change code to fix the message. `conceptual/errors/errors.md` explains the prefixes and lists the categories. The examples of the articles, an `<ID>_Error` program and an `<ID>_Fixed` program, are included from `code/samples/`, which this skill does not bundle; when you need one, read the live page `https://doc.postsharp.net/<id>`. A code without an article is either reported by a custom aspect, whose author defines it, or obsolete.
+
 A clean build proves the aspects were applied; it does not prove behavior. When feasible, also **run the program** (or a test) to check that the enhanced code does what was asked. Because PostSharp modifies IL, the C# source never shows the aspect code; to inspect the result, decompile the output assembly (for example with ILSpy or `ilspycmd`).
 
 Observe these rules in the builds you run:
@@ -66,6 +68,7 @@ See `conceptual/framework/testing/` for testing aspects.
 | `conceptual/aggregatable/` | Parent-child relationships, `[Aggregatable]`, `[Disposable]` |
 | `conceptual/xaml/` | Dependency properties, attached properties, commands |
 | `conceptual/deployment/`, `conceptual/licensing/`, `conceptual/configuration/` | Installation, requirements, build servers, licensing, MSBuild properties, `postsharp.config`, build messages |
+| `conceptual/errors/` | One article per error or warning code (`<id>.md`, lowercase), the index `errors.md`, and one page per category (`errors-<category>.md`) |
 | `conceptual/deprecated/` | Deprecated features, such as undo/redo. Do not use them in new code |
 | `api/` | API reference YML files from DocFx (trimmed to the documentation content), indexed by `api/.manifest` |
 | `scripts/` | Helper scripts: `find-api` (API lookup) and `find-doc` (article search), each in Python and PowerShell |
@@ -117,6 +120,7 @@ grep -i "OnMethodBoundaryAspect" <skill-dir>/api/.manifest
 | INotifyPropertyChanged | `conceptual/inotifypropertychanged/inotifypropertychanged.md` | `[NotifyPropertyChanged]` and its dependency analysis |
 | MSBuild Properties | `conceptual/configuration/msbuild-properties.md` | All PostSharp MSBuild properties |
 | Build Servers | `conceptual/deployment/build-server.md` | Using PostSharp on a build server |
+| Errors and Warnings | `conceptual/errors/errors.md` | The prefixes of the message codes, and the categories of the articles |
 
 ## Common Patterns
 

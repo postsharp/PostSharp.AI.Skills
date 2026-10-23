@@ -32,13 +32,20 @@ items:
         <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> class, such as <xref href="PostSharp.Patterns.Caching.CacheAttribute.AbsoluteExpiration" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.CacheAttribute.SlidingExpiration" data-throw-if-not-resolved="false"></xref>. You can
         add the <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to the declaring type, a base type, or the declaring assembly.
         Finally, you can define a profile by setting the <xref href="PostSharp.Patterns.Caching.CacheAttribute.ProfileName" data-throw-if-not-resolved="false"></xref> property and configure the profile at run time
-        by accessing the <xref href="PostSharp.Patterns.Caching.CachingServices.Profiles" data-throw-if-not-resolved="false"></xref> collection of the <xref href="PostSharp.Patterns.Caching.CachingServices" data-throw-if-not-resolved="false"></xref> class.</p>
+        by accessing the <xref href="PostSharp.Patterns.Caching.ICachingService.Profiles" data-throw-if-not-resolved="false"></xref> collection of the caching service, i.e. <xref href="PostSharp.Patterns.Caching.CachingServices.Profiles" data-throw-if-not-resolved="false"></xref>
+        for <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref>.</p>
     <p>Use the <xref href="PostSharp.Patterns.Caching.NotCacheKeyAttribute" data-throw-if-not-resolved="false"></xref> custom attribute to exclude a parameter from the cache key.</p>
 
+    <p>An async iterator, and an async method that does not return <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref>, such as a method that
+        returns <code>ValueTask&lt;T&gt;</code>, are not supported: they cause the error CAC013. When the <xref href="PostSharp.Aspects.Aspect.UnsupportedTargetAction" data-throw-if-not-resolved="false"></xref>
+        property is <xref href="PostSharp.Aspects.UnsupportedTargetAction.Ignore" data-throw-if-not-resolved="false"></xref>, the calls to such a method proceed without caching.</p>
     <p>To invalidate a cached method, see <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref>.</p>
 
-    <p>Before the first call to a cached method, set <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultBackend" data-throw-if-not-resolved="false"></xref>; otherwise, the call throws a <xref href="PostSharp.Patterns.Caching.CachingException" data-throw-if-not-resolved="false"></xref>.</p>
-
+    <p>Before the first call to a cached method, set the <xref href="PostSharp.Patterns.Caching.ICachingService.Backend" data-throw-if-not-resolved="false"></xref> property of <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref>;
+        otherwise, the call throws a <xref href="PostSharp.Patterns.Caching.CachingException" data-throw-if-not-resolved="false"></xref>.
+        Alternatively, set <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection" data-throw-if-not-resolved="false"></xref> to <code>true</code>: the declaring class then receives an
+        <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref> from its constructors, typically from a dependency injection container, and the cached methods of its objects
+        use it.</p>
     <p>The cache key includes the method, the <code>this</code> instance (unless <xref href="PostSharp.Patterns.Caching.CacheAttribute.IgnoreThisParameter" data-throw-if-not-resolved="false"></xref> is <code>true</code>) and the arguments.
         Objects are formatted with <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> unless a formatter is registered for their type, so make sure that parameter types
         other than intrinsic types such as <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> or <xref href="System.String" data-throw-if-not-resolved="false"></xref> produce a distinct string for each distinct value.</p>
@@ -55,11 +62,11 @@ items:
 
       [LinesOfCodeAvoided(3)]
 
-      [MulticastAttributeUsage(PersistMetaData = true)]
+      [MulticastAttributeUsage(PersistMetaData = true, TargetMemberAttributes = MulticastAttributes.NonAbstract)]
 
       [Serializer(typeof(CacheAttribute.Serializer))]
 
-      public sealed class CacheAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAdviceProvider, IAspect
+      public sealed class CacheAttribute : MethodLevelAspect, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAdviceProvider, IAspect
     content.vb: >-
       <Metric("UsedFeatures", "Patterns.Caching.Cache")>
 
@@ -71,11 +78,11 @@ items:
 
       <LinesOfCodeAvoided(3)>
 
-      <MulticastAttributeUsage(PersistMetaData:=True)>
+      <MulticastAttributeUsage(PersistMetaData:=True, TargetMemberAttributes:=MulticastAttributes.NonAbstract)>
 
       <Serializer(GetType(CacheAttribute.Serializer))>
 
-      Public NotInheritable Class CacheAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAdviceProvider, IAspect
+      Public NotInheritable Class CacheAttribute Inherits MethodLevelAspect Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAdviceProvider, IAspect
   seealso:
   - linkType: HRef
     linkId: '@caching-getting-started'
@@ -89,26 +96,21 @@ items:
   - PostSharp.Extensibility.MulticastAttribute
   - PostSharp.Aspects.Aspect
   - PostSharp.Aspects.MethodLevelAspect
-  - PostSharp.Aspects.MethodInterceptionAspect
   implements:
+  - PostSharp.Aspects.IMethodLevelAspect
   - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
   - PostSharp.Aspects.IAspectBuildSemantics
   - PostSharp.Extensibility.IValidableAnnotation
-  - PostSharp.Aspects.IAsyncMethodInterceptionAspect
-  - PostSharp.Aspects.IMethodInterceptionAspect
-  - PostSharp.Aspects.IMethodLevelAspect
   - PostSharp.Aspects.Advices.IAdviceProvider
   - PostSharp.Aspects.IAspect
   inheritedMembers:
-  - PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
-  - PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
-  - PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
   - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
   - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
   - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
   - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
   - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
   - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
@@ -208,6 +210,9 @@ items:
     - name: PersistMetaData
       type: System.Boolean
       value: true
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 1024
   - type: PostSharp.Serialization.SerializerAttribute
     ctor: PostSharp.Serialization.SerializerAttribute.#ctor(System.Type)
     arguments:

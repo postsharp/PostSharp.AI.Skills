@@ -27,7 +27,7 @@ To send PostSharp Logging events to log4net appenders:
 
     Add the following content to this file:
 
-    [!code-xml[](../../../code/samples/Logging/LoggingLog4Net/log4net.config)]
+    [!code-xml[](../../../code/samples/Logging/Log4Net/LoggingLog4Net/log4net.config)]
 
     This example configuration file instructs log4net to write all log records to a file named `log4net.log` and to the console. 
 
@@ -36,18 +36,18 @@ To send PostSharp Logging events to log4net appenders:
 
 4. In the application startup file, include the following namespace imports:
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingLog4Net/LoggingLog4Net.cs#usings)]
+    [!code-csharp[](../../../code/samples/Logging/Log4Net/LoggingLog4Net/LoggingLog4Net.cs#usings)]
 
     In the application startup method, include the following code:
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingLog4Net/LoggingLog4Net.cs#configure)]
+    [!code-csharp[](../../../code/samples/Logging/Log4Net/LoggingLog4Net/LoggingLog4Net.cs#configure)]
 
     On .NET Core and .NET 5 or later, log4net does not support the default repository, so this code passes the repository explicitly.
 
 
 If you run your application, you should now see a detailed log in a file named `log4net.log`. If your application is a console application, you should also see the log in the console, for instance:
 
-[!code-text[](../../../code/samples/Logging/LoggingLog4Net/LoggingLog4Net.txt)]
+[!code-text[](../../../code/samples/Logging/Log4Net/LoggingLog4Net/LoggingLog4Net.txt)]
 
 
 ## Collecting log4net events into PostSharp Logging
@@ -56,21 +56,21 @@ If your source code already emits log events using log4net, you can configure Po
 
 Suppose that you have already configured log4net and PostSharp like this:
 
-[!code-csharp[](../../../code/samples/Logging/Log4NetManualLogging/Log4NetManualLogging.cs#configure)]
+[!code-csharp[](../../../code/samples/Logging/Log4Net/Log4NetManualLogging/Log4NetManualLogging.cs#configure)]
 
-[!code-csharp[](../../../code/samples/Logging/Log4NetManualLogging/Log4NetManualLogging.cs#manual)]
+[!code-csharp[](../../../code/samples/Logging/Log4Net/Log4NetManualLogging/Log4NetManualLogging.cs#manual)]
 
 To collect log4net manual logging events into PostSharp Logging, replace that startup code with the following. You must do this before you create any log4net loggers: 
 
-[!code-csharp[](../../../code/samples/Logging/Log4NetCollecting/Log4NetCollecting.cs#configure)]
+[!code-csharp[](../../../code/samples/Logging/Log4Net/Log4NetCollecting/Log4NetCollecting.cs#configure)]
 
 You can now do standard log4net logging and the logging output will be collected and sent to PostSharp Logging:
 
-[!code-csharp[](../../../code/samples/Logging/Log4NetCollecting/Log4NetCollecting.cs#manual)]
+[!code-csharp[](../../../code/samples/Logging/Log4Net/Log4NetCollecting/Log4NetCollecting.cs#manual)]
 
 When this code runs in a logged method, the manual record is indented like the records of PostSharp Logging:
 
-[!code-text[](../../../code/samples/Logging/Log4NetCollecting/Log4NetCollecting.txt)]
+[!code-text[](../../../code/samples/Logging/Log4Net/Log4NetCollecting/Log4NetCollecting.txt)]
 
 ## See Also
 

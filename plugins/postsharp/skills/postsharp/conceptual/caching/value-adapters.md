@@ -49,10 +49,10 @@ The following value adapters are used automatically by default:
 
 In this example, we create the ``EnumerableValueAdapter`1`` class, which transforms instances of the <xref:System.Collections.Generic.IEnumerable`1> interface into an array. 
 
-[!code-csharp[](../../code/samples/Caching/CachingValueAdapters.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingValueAdapters.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingValueAdapters.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingValueAdapters.txt)]
 
 

@@ -28,11 +28,11 @@ To send PostSharp Logging events to Serilog sinks:
 
 3. In the application startup file, include the following namespace imports:
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingSerilog.cs#usings)]
+    [!code-csharp[](../../../code/samples/Logging/Serilog/LoggingSerilog.cs#usings)]
 
     In the application startup method, include the following code:
 
-    [!code-csharp[](../../../code/samples/Logging/LoggingSerilog.cs#configure)]
+    [!code-csharp[](../../../code/samples/Logging/Serilog/LoggingSerilog.cs#configure)]
 
     This example code instructs Serilog to write all log records to a file named `serilog.log` and to the console. 
 
@@ -43,7 +43,7 @@ To send PostSharp Logging events to Serilog sinks:
 
 If you run your application, you should now see a detailed log in a file named `serilog.log`. If your application is a console application, you should also see the log in the console, for instance:
 
-[!code-text[](../../../code/samples/Logging/LoggingSerilog.txt)]
+[!code-text[](../../../code/samples/Logging/Serilog/LoggingSerilog.txt)]
 
 
 ## Using Serilog formatters instead of PostSharp ones
@@ -71,19 +71,19 @@ If your source code already emits log events using Serilog, you can configure Po
 
 Suppose that you have already configured Serilog and PostSharp like this:
 
-[!code-csharp[](../../../code/samples/Logging/SerilogManualLogging.cs#configure)]
+[!code-csharp[](../../../code/samples/Logging/Serilog/SerilogManualLogging.cs#configure)]
 
 To collect Serilog manual logging events into PostSharp, replace that startup code with the following:
 
-[!code-csharp[](../../../code/samples/Logging/SerilogCollecting.cs#configure)]
+[!code-csharp[](../../../code/samples/Logging/Serilog/SerilogCollecting.cs#configure)]
 
 You can now do standard Serilog logging and the logging output will be collected and sent to PostSharp Logging. Use `logger`: 
 
-[!code-csharp[](../../../code/samples/Logging/SerilogCollecting.cs#manual)]
+[!code-csharp[](../../../code/samples/Logging/Serilog/SerilogCollecting.cs#manual)]
 
 When a logged method also writes a manual record, this record is indented like the records of PostSharp Logging:
 
-[!code-text[](../../../code/samples/Logging/SerilogCollecting.txt)]
+[!code-text[](../../../code/samples/Logging/Serilog/SerilogCollecting.txt)]
 
 ## See Also
 

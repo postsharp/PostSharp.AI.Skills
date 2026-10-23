@@ -33,10 +33,13 @@ items:
         set <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute.AllowMultipleOverloads" data-throw-if-not-resolved="false"></xref> to <code>true</code> to invalidate all of them.</p>
     <p>To invalidate cached methods imperatively, use <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref>. To decouple the invalidating methods from the cached methods,
         use cache dependencies (see <xref href="PostSharp.Patterns.Caching.ICachingContext" data-throw-if-not-resolved="false"></xref>).</p>
+    <p>When <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection" data-throw-if-not-resolved="false"></xref> is <code>true</code> for the target method, the declaring class receives
+        an <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref> from its constructors, and the invalidation applies to that service. The invalidated methods must use the
+        same service: an invalidating method and an invalidated method whose settings differ are a build error.</p>
   example: []
   syntax:
     content: >-
-      [MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple = true)]
+      [MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple = true, TargetMemberAttributes = MulticastAttributes.NonAbstract)]
 
       [Metric("UsedFeatures", "Patterns.Caching.InvalidateCache")]
 
@@ -50,9 +53,9 @@ items:
 
       [Serializer(typeof(InvalidateCacheAttribute.Serializer))]
 
-      public sealed class InvalidateCacheAttribute : MethodInterceptionAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+      public sealed class InvalidateCacheAttribute : MethodLevelAspect, IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAdviceProvider, IAspect
     content.vb: >-
-      <MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple:=True)>
+      <MulticastAttributeUsage(MulticastTargets.Method, AllowMultiple:=True, TargetMemberAttributes:=MulticastAttributes.NonAbstract)>
 
       <Metric("UsedFeatures", "Patterns.Caching.InvalidateCache")>
 
@@ -66,7 +69,7 @@ items:
 
       <Serializer(GetType(InvalidateCacheAttribute.Serializer))>
 
-      Public NotInheritable Class InvalidateCacheAttribute Inherits MethodInterceptionAspect Implements IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAsyncMethodInterceptionAspect, IMethodInterceptionAspect, IMethodLevelAspect, IAspect
+      Public NotInheritable Class InvalidateCacheAttribute Inherits MethodLevelAspect Implements IMethodLevelAspect, IMethodLevelAspectBuildSemantics, IAspectBuildSemantics, IValidableAnnotation, IAdviceProvider, IAspect
   seealso:
   - linkType: HRef
     linkId: '@caching-invalidation'
@@ -77,25 +80,21 @@ items:
   - PostSharp.Extensibility.MulticastAttribute
   - PostSharp.Aspects.Aspect
   - PostSharp.Aspects.MethodLevelAspect
-  - PostSharp.Aspects.MethodInterceptionAspect
   implements:
+  - PostSharp.Aspects.IMethodLevelAspect
   - PostSharp.Aspects.IMethodLevelAspectBuildSemantics
   - PostSharp.Aspects.IAspectBuildSemantics
   - PostSharp.Extensibility.IValidableAnnotation
-  - PostSharp.Aspects.IAsyncMethodInterceptionAspect
-  - PostSharp.Aspects.IMethodInterceptionAspect
-  - PostSharp.Aspects.IMethodLevelAspect
+  - PostSharp.Aspects.Advices.IAdviceProvider
   - PostSharp.Aspects.IAspect
   inheritedMembers:
-  - PostSharp.Aspects.MethodInterceptionAspect.OnInvoke(PostSharp.Aspects.MethodInterceptionArgs)
-  - PostSharp.Aspects.MethodInterceptionAspect.OnInvokeAsync(PostSharp.Aspects.MethodInterceptionArgs)
-  - PostSharp.Aspects.MethodInterceptionAspect.UnsupportedTargetAction
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Reflection.MethodBase)
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeValidate(System.Object)
   - PostSharp.Aspects.MethodLevelAspect.CompileTimeInitialize(System.Reflection.MethodBase,PostSharp.Aspects.AspectInfo)
   - PostSharp.Aspects.MethodLevelAspect.RuntimeInitialize(System.Reflection.MethodBase)
   - PostSharp.Aspects.Aspect.GetAspectConfiguration(System.Object)
   - PostSharp.Aspects.Aspect.AspectPriority
+  - PostSharp.Aspects.Aspect.UnsupportedTargetAction
   - PostSharp.Extensibility.MulticastAttribute.AttributeTargetElements
   - PostSharp.Extensibility.MulticastAttribute.AttributeTargetAssemblies
   - PostSharp.Extensibility.MulticastAttribute.AttributeTargetTypes
@@ -162,6 +161,9 @@ items:
     - name: AllowMultiple
       type: System.Boolean
       value: true
+    - name: TargetMemberAttributes
+      type: PostSharp.Extensibility.MulticastAttributes
+      value: 1024
   - type: PostSharp.Extensibility.MetricAttribute
     ctor: PostSharp.Extensibility.MetricAttribute.#ctor(System.String,System.Object)
     arguments:

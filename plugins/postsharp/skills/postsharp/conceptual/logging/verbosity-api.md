@@ -23,11 +23,11 @@ The default logging level is `Debug`.
 
 The following code will cause PostSharp to log only exceptions for the `MyCompany` namespace and at the same time all messages for the `MyCompany.BusinessLayer` namespace. The order of the two lines of code is important. 
 
-[!code-csharp[](../../code/samples/Logging/LoggingVerbosityApi.cs#namespaces)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingVerbosityApi.cs#namespaces)]
 
 When the program calls a logged method of `MyCompany.Data` and then a logged method of `MyCompany.BusinessLayer`, only the second call is logged:
 
-[!code-text[](../../code/samples/Logging/LoggingVerbosityApi.txt)]
+[!code-text[](../../code/samples/Logging/Diagnostics/LoggingVerbosityApi.txt)]
 
 
 ## Configuring verbosity for the current execution context only
@@ -39,19 +39,19 @@ To selectively enable logging for the current execution context:
 
 1. Disable detailed logging at global level.
 
-    [!code-csharp[](../../code/samples/Logging/LoggingVerbosityContext.cs#global)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingVerbosityContext.cs#global)]
 
 
 2. Create a <xref:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration> by calling the <xref:PostSharp.Patterns.Diagnostics.LoggingBackend.CreateVerbosityConfiguration> method. This <xref:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration> will be used by all requests where you want to enable logging. Store it in a field. Note that the <xref:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration> is a type that uses a large amount of memory, so you should avoid creating one instance for every request. 
 
     By default, the verbosity is set to `Debug`. You can configure the <xref:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration> as needed, for instance using <xref:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.SetMinimalLevelForNamespace(PostSharp.Patterns.Diagnostics.LogLevel,System.String)>. 
 
-    [!code-csharp[](../../code/samples/Logging/LoggingVerbosityContext.cs#create)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingVerbosityContext.cs#create)]
 
 
 3. Intercept the request before it is passed to your application code (typically using an ASP.NET Action Filter or a WCF Behavior), decide whether the request should be logged, and call the <xref:PostSharp.Patterns.Diagnostics.LoggingVerbosityConfiguration.Use> method. Dispose the returned token once the request processing has completed. 
 
-    [!code-csharp[](../../code/samples/Logging/LoggingVerbosityContext.cs#use)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingVerbosityContext.cs#use)]
 
 
 
@@ -79,6 +79,6 @@ When you set the <xref:PostSharp.Patterns.Diagnostics.LoggingProfile.AllowDynami
 
 The following `postsharp.config` enables the JIT-compiler optimizations for the default profile. 
 
-[!code-xml[](../../code/samples/Logging/LoggingJitOptimization/postsharp.config)]
+[!code-xml[](../../code/samples/Logging/Diagnostics/LoggingJitOptimization/postsharp.config)]
 
 

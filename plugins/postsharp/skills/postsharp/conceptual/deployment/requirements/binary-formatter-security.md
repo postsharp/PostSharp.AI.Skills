@@ -16,7 +16,7 @@ The attack vector of this vulnerability is deserialization of data that could be
 
 PostSharp allows multiple ways to serialize aspects. The <xref:System.Runtime.Serialization.Formatters.Binary.BinaryFormatter> class is used if the type has the `[Serializable]` attribute in C#. After PostSharp 4.0, the preferred method of serialization became through <xref:PostSharp.Serialization.PSerializableAttribute?text=[PSerializable]>, which results in using <xref:PostSharp.Serialization.PortableFormatter>, our own efficient and portable implementation specialized in serializing aspects. 
 
-Since PostSharp 2024.0, using `[Serializable]` on aspect classes will result in a build-time error LA0206. 
+Since PostSharp 2024.0, using `[Serializable]` on aspect classes will result in a build-time error <xref:la0206?text=LA0206>. 
 
 In legacy applications that require usage of binary serialization, you can disable this error by setting the `PostSharpBinaryFormatterAllowed` MSBuild property to `true`.
 

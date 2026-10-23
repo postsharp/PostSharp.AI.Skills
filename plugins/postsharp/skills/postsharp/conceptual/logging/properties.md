@@ -18,7 +18,7 @@ Every method that allows you to write a message, open an activity, or close an a
 
 For instance, the <xref:PostSharp.Patterns.Diagnostics.Custom.LogLevelSource.Write``1(``0@,PostSharp.Patterns.Diagnostics.WriteMessageOptions@)> method accepts an `options` parameter of type <xref:PostSharp.Patterns.Diagnostics.WriteMessageOptions>, and this type has a constructor that accepts an `object`. 
 
-[!code-csharp[](../../code/samples/Logging/LogProperties.cs#anonymous)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogProperties.cs#anonymous)]
 
 The code above adds two properties to the message: `User` and `Day`. 
 
@@ -35,7 +35,7 @@ You can also use other properties of <xref:PostSharp.Patterns.Diagnostics.Custom
 
 For instance, the following class exports a single property to PostSharp Logging, and this property will be inherited by all children messages and activities:
 
-[!code-csharp[](../../code/samples/Logging/LogProperties.cs#attributes)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LogProperties.cs#attributes)]
 
 
 ## Advanced scenarios with logging properties
@@ -46,7 +46,7 @@ This design, which separates data from metadata, allows you to pass several prop
 
 The following example shows how to expose the HTTP context to properties (this is an abbreviated version of what is implemented by <xref:PostSharp.Patterns.Diagnostics.Adapters.AspNetCore.AspNetCoreLogging>): 
 
-[!code-csharp[](../../code/samples/Logging/LogPropertiesMetadata.cs#example)]
+[!code-csharp[](../../code/samples/Logging/AspNetCore/LogPropertiesMetadata.cs#example)]
 
 You will also create a custom <xref:PostSharp.Patterns.Diagnostics.Custom.LogEventMetadata> if you want to define custom transactions. See <xref:custom-logging-transactions> for details. 
 

@@ -18,22 +18,22 @@ In certain scenarios, such as rich client applications with many UI controls, re
 
 The following `Calc` class has two integer fields `a` and `b`, and a property `Sum` that returns the sum of these two numbers. The `Main` method creates an instance of the `Calc` class and changes the fields from `(a=1, b=2)` to `(a=2, b=1)`. There are two `PropertyChanged` event notifications shown in the output, even though the actual `Sum` value does not change in the second case. 
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcFalsePositives.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcFalsePositives.cs#example)]
 
 Output:
 
-[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcFalsePositives.txt)]
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcFalsePositives.txt)]
 
 
 ## How to suppress false positives
 
 To suppress false positive event notifications, set the `PreventFalsePositives` property to `true` when you apply the aspect to the target element.
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcPreventFalsePositives.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcPreventFalsePositives.cs#example)]
 
 If you run the test code snippet again after this change, you can see that there is only one change notification now.
 
-[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcPreventFalsePositives.txt)]
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcPreventFalsePositives.txt)]
 
 > [!WARNING]
 > Do not suppress false positive notifications in your class when the property getters in the class have side effects. In this case, reset the `PreventFalsePositives` property to its default value of `false`. 

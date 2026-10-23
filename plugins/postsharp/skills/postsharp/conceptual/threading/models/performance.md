@@ -48,10 +48,10 @@ To avoid excessive creation and assignment of concurrency controllers, you can u
 
 The following code snippet illustrates the use of <xref:PostSharp.Patterns.Threading.ThreadingServices.WithConcurrencyController(PostSharp.Patterns.Threading.IConcurrencyController)>. With this method, a single concurrency controller instance is created, and each node is assigned only once to this concurrency controller, amounting to 3 assignments for 3 nodes. Without the use of this method, 3 instances of the concurrency controller would have been created, and in total 5 assignments would be done. 
 
-[!code-csharp[](../../../code/samples/Threading/ThreadingPerformance.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ThreadingPerformance.cs#example)]
 
 In this snippet, `SynchronizedObject` is the following class:
 
-[!code-csharp[](../../../code/samples/Threading/ThreadingPerformance.cs#object)]
+[!code-csharp[](../../../code/samples/Threading/Core/ThreadingPerformance.cs#object)]
 
 

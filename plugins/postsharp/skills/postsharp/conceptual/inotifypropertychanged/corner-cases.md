@@ -21,7 +21,7 @@ Use the <xref:PostSharp.Patterns.Model.IgnoreAutoChangeNotificationAttribute> cl
 
 In this example, the `CustomerModel` class contains a `Country` property among others. To prevent a property notification from being invoked when the value of this property is set, place the <xref:PostSharp.Patterns.Model.IgnoreAutoChangeNotificationAttribute> attribute above the property. 
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcIgnore.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcIgnore.cs#example)]
 
 
 ## Handling virtual calls, delegates, external methods, or complex data flows
@@ -56,7 +56,7 @@ Even if you remove the error, PostSharp still analyzes the `Country` property ge
 
 
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcSafeForDependencyAnalysis.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcSafeForDependencyAnalysis.cs#example)]
 
 
 ## Handling dependencies on pure methods
@@ -70,7 +70,7 @@ Consider the following variation to `CustomerModel` where the `ValidPhoneNumber`
 
 Since `GetValidPhoneNumber()` is a standalone method of another class, it is not analyzed. Therefore the <xref:PostSharp.Patterns.Model.PureAttribute> attribute needs to be applied to this method to acknowledge this dependency. 
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcPure.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcPure.cs#example)]
 
 
 ## Handling dependencies on collections
@@ -86,7 +86,7 @@ In the following `Recipe` class, the `LongestStep` property gets the duration of
 
 Since the collection property is marked with <xref:PostSharp.Patterns.Model.AggregateAllChangesAttribute>, each change to this collection will result in a change of the `LongestStep` property even though the property still contains the same collection object. 
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcAggregateAllChanges.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcAggregateAllChanges.cs#example)]
 
 ## See Also
 

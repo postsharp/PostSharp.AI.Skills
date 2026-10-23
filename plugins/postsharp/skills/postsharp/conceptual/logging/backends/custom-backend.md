@@ -21,7 +21,7 @@ By design, every logging backend must implement a class exposing all available r
 
 ### Example
 
-[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#options)]
+[!code-csharp[](../../../code/samples/Logging/Integrations/CustomLoggingBackend.cs#options)]
 
 
 ## Override the LoggingTypeSource class
@@ -35,7 +35,7 @@ Your implementation of <xref:PostSharp.Patterns.Diagnostics.LoggingTypeSource> m
 
 ### Example
 
-[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#type-source)]
+[!code-csharp[](../../../code/samples/Logging/Integrations/CustomLoggingBackend.cs#type-source)]
 
 
 ## Override the TextLogRecordBuilder class
@@ -51,7 +51,7 @@ Your implementation of the <xref:PostSharp.Patterns.Diagnostics.RecordBuilders.T
 
 ### Example
 
-[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#record-builder)]
+[!code-csharp[](../../../code/samples/Logging/Integrations/CustomLoggingBackend.cs#record-builder)]
 
 
 ## Override the TextLoggingBackend class
@@ -80,7 +80,7 @@ To implement the backend class:
 
 ### Example
 
-[!code-csharp[](../../../code/samples/Logging/CustomLoggingBackend.cs#backend)]
+[!code-csharp[](../../../code/samples/Logging/Integrations/CustomLoggingBackend.cs#backend)]
 
 
 ## Overriding context classes

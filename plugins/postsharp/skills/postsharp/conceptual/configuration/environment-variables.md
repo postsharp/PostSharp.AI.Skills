@@ -15,7 +15,7 @@ PostSharp reads two kinds of environment variables:
 * Environment variables that PostSharp reads directly. They have no equivalent MSBuild property. Most of them are machine-wide settings, typically defined on a build server. This article lists them.
 
 > [!NOTE]
-> On .NET Framework, PostSharp can run in a background process named the pipe server (see the `PostSharpUsePipeServer` property in <xref:msbuild-properties>). The pipe server keeps the environment variables that it was started with. When you change a variable that PostSharp reads at build time, stop the pipe server with the `postsharp shutdown` command (`postsharp shutdown --force` for a pipe server of PostSharp 2026.0 or earlier), or disable the pipe server with `PostSharpUsePipeServer=False`, before the next build.
+> PostSharp can run in a background process named the pipe server (see the `PostSharpUsePipeServer` property in <xref:msbuild-properties>): on .NET Framework, and, since PostSharp 2027.0, on .NET when the project is built with the .NET SDK (`dotnet build`). The pipe server keeps the environment variables of the build that started it. When you change a variable that PostSharp reads at build time, stop the pipe servers with the `postsharp shutdown` command (`postsharp shutdown --force` for a pipe server of PostSharp 2026.0 or earlier), or disable the pipe server with `PostSharpUsePipeServer=False`, before the next build.
 
 > [!NOTE]
 > The environment variables that PostSharp reads but that this article does not list are implementation details. They may change without notice.
@@ -52,6 +52,7 @@ When another process locks a file that PostSharp reads or writes, for instance a
 | `HAS_JIT_DEBUGGER` | `True` or `False`, or `1` or `0`. Specifies whether a just-in-time debugger is installed on the machine. When `PostSharpAttachDebugger` is set to `True` and a just-in-time debugger is installed, PostSharp calls `System.Diagnostics.Debugger.Launch()`. Otherwise, PostSharp writes its process identifier to the build log and waits until you attach a debugger. By default, PostSharp assumes that a just-in-time debugger is installed on Windows, except in a container, and that none is installed on other operating systems. For details, see <xref:debugging-buildtime>. |
 | `PostSharpAttachDebuggerOnException` | Any non-empty value. PostSharp calls `System.Diagnostics.Debugger.Launch()` when it reports an unhandled exception, so that you can inspect the exception in a debugger. |
 | `POSTSHARPSERVER_DEBUG` | `True` to launch a debugger when the pipe server process starts. The MSBuild task then waits for the pipe server without timeout. |
+| `POSTSHARP_PIPE_SERVER_LOG` | The path of a file to which the .NET pipe server writes its log: when it starts listening, and the project directory, result and duration of each compilation. `{pid}` in the path is replaced by the process identifier of the server, so that several servers write to different files. The server reads the variable when it starts, so set it in the environment of the build that starts the server, after stopping the running servers with `postsharp shutdown`. This variable is supported since PostSharp 2027.0. For details, see <xref:in-process-memory-leaks>. |
 
 
 ## Licensing and Usage Reporting
@@ -74,6 +75,12 @@ These variables affect the PostSharp process that runs on .NET (.NET Core), that
 | `POSTSHARPHOST_DISABLE_CACHE` | `True` to generate the *runtimeconfig.json* and *deps.json* files of the PostSharp process at every build. By default, PostSharp generates them again only when the *project.assets.json* file of the project changes. |
 | `POSTSHARPHOST_DISABLE_NATIVE_FRAMEWORK_OVERRIDE` | `True` to disable the override of the native framework. When the target framework of the project has a higher version or platform version than the runtime installed on the machine, for instance `net8.0-windows10.0.22621.0`, PostSharp runs with the higher version by default, and reports a warning. With this variable, PostSharp runs with the installed version. |
 | `POSTSHARPHOST_DISABLE_NATIVE_FRAMEWORK_OVERRIDE_WARNING` | `True` to remove the warning that PostSharp reports when it overrides the native framework. |
+| `POSTSHARP_PIPE_SERVER_DISCRIMINATOR` | Any string. The builds of a user share one .NET pipe server for each version of PostSharp and each runtime configuration. Builds with different values of this variable use different .NET pipe servers, so that they do not share compilations, memory or environment variables, for instance two build jobs that run at the same time under the same account. This variable is supported since PostSharp 2027.0. |
+
+
+## Aspect Test Framework
+
+The aspect test framework of the `PostSharp.Testing.AspectTesting` package reads `POSTSHARP_TEST_HOLD_AT_END` and `POSTSHARP_TEST_MEMORY_LOG`, and limits the tests that weave at the same time with `POSTSHARP_MAX_PARALLELISM`. See <xref:aspect-test-reference>.
 
 
 ## Third-Party Environment Variables
@@ -95,3 +102,4 @@ PostSharp also reads the following environment variables, which are defined by o
 <br><xref:configuration-msbuild>
 <br><xref:debugging-buildtime>
 <br><xref:deploying-keys>
+<br><xref:in-process-memory-leaks>

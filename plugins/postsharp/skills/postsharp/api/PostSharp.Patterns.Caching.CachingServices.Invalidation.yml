@@ -109,9 +109,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Invalidates a cache dependency given an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, i.e. removes all cached items that are dependent on that object.
+  remarks: <p>This method is obsolete. It invalidates the dependency in <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static void Invalidate(object dependency)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static void Invalidate(object dependency)
     parameters:
     - id: dependency
       type: System.Object
@@ -122,8 +126,17 @@ items:
       - type: PostSharp.Patterns.Contracts.RequiredAttribute
         ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
         arguments: []
-    content.vb: Public Shared Sub Invalidate(dependency As Object)
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Sub Invalidate(dependency As Object)
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
   nameWithType.vb: CachingServices.Invalidation.Invalidate(Object)
   fullName.vb: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(Object)
   name.vb: Invalidate(Object)
@@ -142,9 +155,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Asynchronously invalidates a cache dependency given an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, i.e. removes all cached items that are dependent on that object.
+  remarks: <p>This method is obsolete. It invalidates the dependency in <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static Task InvalidateAsync(object dependency)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static Task InvalidateAsync(object dependency)
     parameters:
     - id: dependency
       type: System.Object
@@ -158,8 +175,17 @@ items:
     return:
       type: System.Threading.Tasks.Task
       description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
-    content.vb: Public Shared Function InvalidateAsync(dependency As Object) As Task
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Function InvalidateAsync(dependency As Object) As Task
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
   nameWithType.vb: CachingServices.Invalidation.InvalidateAsync(Object)
   fullName.vb: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync(Object)
   name.vb: InvalidateAsync(Object)
@@ -178,9 +204,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Invalidates a cache dependency given as an <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this dependency.
+  remarks: <p>This method is obsolete. It invalidates the dependency in <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static void Invalidate(ICacheDependency dependency)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static void Invalidate(ICacheDependency dependency)
     parameters:
     - id: dependency
       type: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
@@ -189,8 +219,17 @@ items:
       - type: PostSharp.Patterns.Contracts.RequiredAttribute
         ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
         arguments: []
-    content.vb: Public Shared Sub Invalidate(dependency As ICacheDependency)
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Sub Invalidate(dependency As ICacheDependency)
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
 - uid: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
   commentId: M:PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
   id: InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
@@ -206,9 +245,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Asynchronously invalidates a cache dependency given as an <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this dependency.
+  remarks: <p>This method is obsolete. It invalidates the dependency in <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static Task InvalidateAsync(ICacheDependency dependency)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static Task InvalidateAsync(ICacheDependency dependency)
     parameters:
     - id: dependency
       type: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
@@ -220,8 +263,17 @@ items:
     return:
       type: System.Threading.Tasks.Task
       description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
-    content.vb: Public Shared Function InvalidateAsync(dependency As ICacheDependency) As Task
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Function InvalidateAsync(dependency As ICacheDependency) As Task
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
 - uid: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(System.String)
   commentId: M:PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(System.String)
   id: Invalidate(System.String)
@@ -237,9 +289,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Invalidates a cache dependency given as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this dependency key.
+  remarks: <p>This method is obsolete. It invalidates the dependency in <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static void Invalidate(string dependencyKey)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static void Invalidate(string dependencyKey)
     parameters:
     - id: dependencyKey
       type: System.String
@@ -248,8 +304,17 @@ items:
       - type: PostSharp.Patterns.Contracts.RequiredAttribute
         ctor: PostSharp.Patterns.Contracts.RequiredAttribute.#ctor
         arguments: []
-    content.vb: Public Shared Sub Invalidate(dependencyKey As String)
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Sub Invalidate(dependencyKey As String)
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
   nameWithType.vb: CachingServices.Invalidation.Invalidate(String)
   fullName.vb: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(String)
   name.vb: Invalidate(String)
@@ -268,9 +333,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Asynchronously invalidates a cache dependency given as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this dependency key.
+  remarks: <p>This method is obsolete. It invalidates the dependency in <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static Task InvalidateAsync(string dependencyKey)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static Task InvalidateAsync(string dependencyKey)
     parameters:
     - id: dependencyKey
       type: System.String
@@ -281,8 +350,18 @@ items:
         arguments: []
     return:
       type: System.Threading.Tasks.Task
-    content.vb: Public Shared Function InvalidateAsync(dependencyKey As String) As Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Function InvalidateAsync(dependencyKey As String) As Task
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
   nameWithType.vb: CachingServices.Invalidation.InvalidateAsync(String)
   fullName.vb: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync(String)
   name.vb: InvalidateAsync(String)
@@ -301,9 +380,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Removes a method call result from the cache, using the <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> that represents the method, the instance and the arguments of the method call.
+  remarks: <p>This method is obsolete. It removes the item from <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static void Invalidate(MethodInfo method, object instance, params object[] args)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static void Invalidate(MethodInfo method, object instance, params object[] args)
     parameters:
     - id: method
       type: System.Reflection.MethodInfo
@@ -318,8 +401,17 @@ items:
     - id: args
       type: System.Object[]
       description: The method arguments.
-    content.vb: Public Shared Sub Invalidate(method As MethodInfo, instance As Object, ParamArray args As Object())
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Sub Invalidate(method As MethodInfo, instance As Object, ParamArray args As Object())
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
   nameWithType.vb: CachingServices.Invalidation.Invalidate(MethodInfo, Object, ParamArray Object())
   fullName.vb: PostSharp.Patterns.Caching.CachingServices.Invalidation.Invalidate(System.Reflection.MethodInfo, Object, ParamArray Object())
   name.vb: Invalidate(MethodInfo, Object, ParamArray Object())
@@ -338,9 +430,13 @@ items:
   - PostSharp.Patterns.Caching
   namespace: PostSharp.Patterns.Caching
   summary: Asynchronously removes a method call result from the cache, using the <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> that represents the method, the instance and the arguments of the method call.
+  remarks: <p>This method is obsolete. It removes the item from <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> only.</p>
   example: []
   syntax:
-    content: public static Task InvalidateAsync(MethodInfo method, object instance, params object[] args)
+    content: >-
+      [Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")]
+
+      public static Task InvalidateAsync(MethodInfo method, object instance, params object[] args)
     parameters:
     - id: method
       type: System.Reflection.MethodInfo
@@ -357,8 +453,18 @@ items:
       description: The method arguments.
     return:
       type: System.Threading.Tasks.Task
-    content.vb: Public Shared Function InvalidateAsync(method As MethodInfo, instance As Object, ParamArray args As Object()) As Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: >-
+      <Obsolete("Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.")>
+
+      Public Shared Function InvalidateAsync(method As MethodInfo, instance As Object, ParamArray args As Object()) As Task
   overload: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Use the Invalidate or InvalidateAsync method of CachingServices.DefaultService, or of the ICachingService that caches the methods.
   nameWithType.vb: CachingServices.Invalidation.InvalidateAsync(MethodInfo, Object, ParamArray Object())
   fullName.vb: PostSharp.Patterns.Caching.CachingServices.Invalidation.InvalidateAsync(System.Reflection.MethodInfo, Object, ParamArray Object())
   name.vb: InvalidateAsync(MethodInfo, Object, ParamArray Object())

@@ -16,15 +16,23 @@ items:
   assemblies:
   - PostSharp
   namespace: PostSharp.Aspects.Advices
-  summary: <xref href="PostSharp.Aspects.Advices.Pointcut" data-throw-if-not-resolved="false"></xref> that selects exactly the aspect target.
+  summary: >-
+    <xref href="PostSharp.Aspects.Advices.Pointcut" data-throw-if-not-resolved="false"></xref> that selects exactly the aspect target. It is obsolete: a group of advices without pointcut applies to the
+          target of the aspect, so this pointcut is always redundant.
   remarks: >-
-    A master advice without pointcut behaves as if it had a <xref href="PostSharp.Aspects.Advices.SelfPointcut" data-throw-if-not-resolved="false"></xref> when the advice accepts the kind of the aspect target,
+    The compiler treats this pointcut as the absence of a pointcut: it neither selects nor starts a group. To give an advice a group of its
 
-    for instance a method boundary advice in a <xref href="PostSharp.Aspects.MethodLevelAspect" data-throw-if-not-resolved="false"></xref>. This attribute is then optional.
+    own that applies to the target of the aspect, set <xref href="PostSharp.Aspects.Advices.GroupingAdvice.Group" data-throw-if-not-resolved="false"></xref>.
   example: []
   syntax:
-    content: 'public sealed class SelfPointcut : Pointcut'
-    content.vb: Public NotInheritable Class SelfPointcut Inherits Pointcut
+    content: >-
+      [Obsolete("SelfPointcut is redundant: a group of advices without pointcut applies to the target of the aspect. Remove it, and set GroupingAdvice.Group to give the advice a group of its own.")]
+
+      public sealed class SelfPointcut : Pointcut
+    content.vb: >-
+      <Obsolete("SelfPointcut is redundant: a group of advices without pointcut applies to the target of the aspect. Remove it, and set GroupingAdvice.Group to give the advice a group of its own.")>
+
+      Public NotInheritable Class SelfPointcut Inherits Pointcut
   seealso:
   - linkType: HRef
     linkId: '@advices'
@@ -78,6 +86,12 @@ items:
   - System.Object.ToString
   - System.Object.Equals(System.Object,System.Object)
   - System.Object.ReferenceEquals(System.Object,System.Object)
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: 'SelfPointcut is redundant: a group of advices without pointcut applies to the target of the aspect. Remove it, and set GroupingAdvice.Group to give the advice a group of its own.'
 - uid: PostSharp.Aspects.Advices.SelfPointcut.#ctor
   commentId: M:PostSharp.Aspects.Advices.SelfPointcut.#ctor
   id: '#ctor'

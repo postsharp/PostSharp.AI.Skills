@@ -463,10 +463,18 @@ items:
   assemblies:
   - PostSharp.Patterns.Diagnostics.Backends.Tracing
   namespace: PostSharp.Patterns.Diagnostics.Backends.EventSource
-  summary: <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit" data-throw-if-not-resolved="false"></xref>.
+  summary: <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit" data-throw-if-not-resolved="false"></xref> with a level lower than <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>A <xref href="PostSharp.Patterns.Diagnostics.LogRecordKind.CustomActivityExit" data-throw-if-not-resolved="false"></xref> record of level <xref href="PostSharp.Patterns.Diagnostics.LogLevel.Warning" data-throw-if-not-resolved="false"></xref> or higher is written
+
+    with the <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityFailure" data-throw-if-not-resolved="false"></xref> event.</p>
+
+    <p>Before version 2027.0.5, the value was 16, the value of <xref href="PostSharp.Patterns.Diagnostics.Backends.EventSource.PostSharpEventSource.EventIds.CustomActivityFailure" data-throw-if-not-resolved="false"></xref>, and all custom activity
+
+    exits were written as failure events.</p>
   example: []
   syntax:
-    content: public const int CustomActivityExit = 16
+    content: public const int CustomActivityExit = 20
     return:
       type: System.Int32
-    content.vb: Public Const CustomActivityExit As Integer = 16
+    content.vb: Public Const CustomActivityExit As Integer = 20

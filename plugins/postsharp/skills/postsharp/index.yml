@@ -58,12 +58,12 @@
     - name: What's New in PostSharp 2027.0
       uid: whats-new-20270
       path: conceptual/introduction/whats-new/2027-0.md
-      summary: PostSharp 2027.0 makes advice parameter binding a public feature, adds support for .NET 11 and C# 15, replaces the Windows options application with a cross-platform browser interface and command line tool, integrates with the MSBuild server, and provides a plugin for AI coding agents.
+      summary: PostSharp 2027.0 compiles .NET projects in a background build server, lets aspects receive services from dependency injection, makes advice parameter binding a public feature, lets any aspect import the members and fields of the target class, adds support for .NET 11 and C# 15, replaces the Windows options application with a cross-platform browser interface and command line tool, integrates with the MSBuild server, and provides a test framework for aspects and a plugin for AI coding agents.
       items:
       - name: Breaking Changes in PostSharp 2027.0
         uid: breaking-changes-20270
         path: conceptual/introduction/whats-new/breaking-changes-2027-0.md
-        summary: PostSharp 2027.0 moves the supported .NET versions to .NET 10 and .NET 11, replaces the Windows options application, requires a license for interactive builds on Linux and macOS, switches on usage reporting by default, and applies TreatWarningsAsErrors to the warnings of PostSharp.
+        summary: PostSharp 2027.0 moves the supported .NET versions to .NET 10 and .NET 11, replaces the Windows options application, requires a license for interactive builds on Linux and macOS, switches on usage reporting by default, applies TreatWarningsAsErrors to the warnings of PostSharp, infers the groups of advices for each class, changes the caching aspects and the caching API, and no longer shares the dependencies of the compiler with add-ins.
     - name: What's New in PostSharp 2026.0
       uid: whats-new-20260
       path: conceptual/introduction/whats-new/2026-0.md
@@ -777,6 +777,10 @@
     uid: caching-keys
     path: conceptual/caching/keys.md
     summary: The document provides a guide on customizing cache keys in PostSharp, including default key generation logic, overriding the ToString method, implementing a custom cache key formatter, excluding parameters from a cache key, changing the maximal length of a cache key, and implementing a custom cache key builder.
+  - name: Using Caching with Dependency Injection
+    uid: caching-dependency-injection
+    path: conceptual/caching/dependency-injection.md
+    summary: Explains how classes with cached methods receive their ICachingService from a dependency injection container such as Microsoft.Extensions.DependencyInjection, with [CacheConfiguration( UseDependencyInjection = true )], and how the caching service, its backend and its profiles are configured in the container.
   - name: Caching Backends
     uid: caching-backends
     path: conceptual/caching/backends/backends.md
@@ -926,11 +930,11 @@
     - name: Advice Parameters
       uid: advice-parameter-binding
       path: conceptual/framework/aspects/member-level-aspects/advice-parameter-binding.md
-      summary: Explains how an advice method receives the values it needs, such as arguments, the return value, the exception or a variable shared between advices, as typed parameters annotated with binding attributes, and lists the bindings that each kind of advice accepts.
+      summary: Explains how an advice method receives the values it needs, such as arguments, the return value, the exception, a variable shared between advices or a member of the target type, as typed parameters annotated with binding attributes, and lists the bindings that each kind of advice accepts.
     - name: Modernizing Your Custom Aspects
       uid: modernizing-aspects
       path: conceptual/framework/aspects/member-level-aspects/modernizing-aspects.md
-      summary: Explains why and how to convert an aspect that receives MethodExecutionArgs, MethodInterceptionArgs or LocationInterceptionArgs into an aspect whose advices receive typed, bound parameters, with a mapping from the members of these classes to binding attributes.
+      summary: Explains why and how to convert an aspect that receives MethodExecutionArgs, MethodInterceptionArgs or LocationInterceptionArgs into an aspect whose advices receive typed, bound parameters, with a mapping from the members of these classes to binding attributes, and how a modernized aspect can receive its services by dependency injection.
   - name: Developing Type- and Assembly-Level Aspects
     uid: complex-aspects
     path: conceptual/framework/aspects/type-level-aspects/type-level-aspects.md
@@ -955,7 +959,7 @@
     - name: Providing Advices Dynamically
       uid: advice-provider
       path: conceptual/framework/aspects/type-level-aspects/advice-provider.md
-      summary: Explains how an instance-level aspect implements IAdviceProvider to import members of the target class and introduce interfaces and methods with code, when these advices depend on the target.
+      summary: Explains how an aspect implements IAdviceProvider to import members of the target class, introduce interfaces and methods, request fields and request dependencies with code, when these advices depend on the target.
   - name: Understanding Aspect Lifetime and Scope
     uid: aspect-lifetime
     path: conceptual/framework/aspects/lifetime.md
@@ -1012,6 +1016,10 @@
     path: conceptual/framework/aspects/dependency-injection/dependency-injection.md
     summary: The document discusses how to consume dependencies from an aspect in PostSharp, highlighting different patterns to overcome obstacles related to instantiation and static scope.
     items:
+    - name: Receiving Dependencies from the Constructors of the Target Class
+      uid: constructor-dependencies
+      path: conceptual/framework/aspects/dependency-injection/constructor-dependencies.md
+      summary: Explains how an aspect requests a service with ImportDependencyAdviceInstance, so that the target class receives the service from its constructors, for instance from Microsoft.Extensions.DependencyInjection, and how RunTimeServiceLocator provides the service to objects created with new.
     - name: Using a Global Composition Container
       uid: global-service-container
       path: conceptual/framework/aspects/dependency-injection/global-container.md
@@ -1054,6 +1062,14 @@
   path: conceptual/framework/testing/testing.md
   summary: The document discusses testing and debugging techniques for aspects in PostSharp, which differ from normal class libraries due to their unique characteristics.
   items:
+  - name: Testing Aspects with the Aspect Test Framework
+    uid: aspect-tests
+    path: conceptual/framework/testing/aspect-tests.md
+    summary: Test aspects with the PostSharp.Testing.AspectTesting package. Each source file of a test project is compiled, woven, verified and run as a test of its own.
+  - name: Aspect Test Directives and Settings
+    uid: aspect-test-reference
+    path: conceptual/framework/testing/aspect-test-reference.md
+    summary: Reference of the test directives, MSBuild properties, postsharpTests.json settings and environment variables of the PostSharp aspect test framework.
   - name: Debugging Run-Time Logic
     uid: debugging-runtime
     path: conceptual/framework/testing/debugging-run-time.md
@@ -1062,6 +1078,10 @@
     uid: debugging-buildtime
     path: conceptual/framework/testing/debugging-build-time.md
     summary: The document provides a guide on how to debug build-time logic using PostSharp, by attaching a debugger to the PostSharp process and using Visual Studio to set breakpoints.
+  - name: Diagnosing Memory Leaks of In-Process Compilations
+    uid: in-process-memory-leaks
+    path: conceptual/framework/testing/memory-leaks.md
+    summary: Explains why build-time code can keep a compilation in memory when several compilations share a process, which rules prevent it, and how to detect a leak and find its root with a memory dump.
   - name: Testing that an Aspect has been Applied
     uid: testing-application
     path: conceptual/framework/testing/aspect-applied.md
@@ -1117,6 +1137,1894 @@
         uid: undoredo-conceptual
         path: conceptual/deprecated/undo-redo/understanding.md
         summary: The document explains the Recordable Aspect in PostSharp, which records changes performed on instances of a class. It covers topics like scopes, logical operations, atomic operations, primitive operations, restore points, implementing IEditableObject, callback methods, and memory consumption.
+- name: Errors and Warnings
+  uid: errors
+  path: conceptual/errors/errors.md
+  summary: Reference of the errors and warnings that PostSharp and the PostSharp pattern libraries report at build time, grouped by category, with the cause of each message and how to resolve it.
+  items:
+  - name: General
+    uid: errors-general
+    path: conceptual/errors/errors-general.md
+    summary: 'Reference of the general errors and warnings of PostSharp. Messages of the PostSharp compiler: configuration, the build process, the processing of assemblies, and unexpected errors.'
+    items:
+    - name: PS0003
+      uid: ps0003
+      path: conceptual/errors/ps0003.md
+      summary: PostSharp reports PS0003 when a configuration file, such as postsharp.config, is not well-formed XML, or when its root element is not a Project element in the namespace of the PostSharp configuration files.
+    - name: PS0010
+      uid: ps0010
+      path: conceptual/errors/ps0010.md
+      summary: PostSharp reports PS0010 when it cannot find a configuration file or a plug-in that a Using element of a configuration file imports, typically because the file name is misspelled or because a name without a path is not in the search path of PostSharp.
+    - name: PS0013
+      uid: ps0013
+      path: conceptual/errors/ps0013.md
+      summary: PostSharp reports PS0013 when a TaskType element of a plug-in or of a configuration file names an implementation type that does not exist in its assembly, typically because the plug-in and its configuration come from different versions.
+    - name: PS0014
+      uid: ps0014
+      path: conceptual/errors/ps0014.md
+      summary: PostSharp reports PS0014 when it cannot create an instance of a task that a plug-in declares, because the constructor of the task throws an exception, or because the implementation type is abstract or has no public parameterless constructor.
+    - name: PS0016
+      uid: ps0016
+      path: conceptual/errors/ps0016.md
+      summary: PostSharp reports PS0016 when a build of a project reaches 500 errors, which usually means that one mistake, such as an aspect applied too broadly, causes the same error on many declarations.
+    - name: PS0017
+      uid: ps0017
+      path: conceptual/errors/ps0017.md
+      summary: PostSharp reports PS0017 when a property of the PostSharp compiler, set with an MSBuild property or a Property element of postsharp.config, has a value that is not one of the values that the property accepts.
+    - name: PS0021
+      uid: ps0021
+      path: conceptual/errors/ps0021.md
+      summary: PostSharp reports PS0021 when a task element under the Tasks element of a postsharp.config or .psproj file has an attribute that the task does not support, typically a misspelled attribute name. PostSharp ignores the attribute.
+    - name: PS0023
+      uid: ps0023
+      path: conceptual/errors/ps0023.md
+      summary: PostSharp reports PS0023 when it evaluates an expression of a configuration file whose property references nest more than 32 levels deep, which happens when deferred properties refer to each other in a cycle.
+    - name: PS0041
+      uid: ps0041
+      path: conceptual/errors/ps0041.md
+      summary: PostSharp reports PS0041 when a task requires another task type, or a service, that no task type of the project defines or exports, typically because a plug-in of PostSharp is missing or has a different version.
+    - name: PS0042
+      uid: ps0042
+      path: conceptual/errors/ps0042.md
+      summary: PostSharp reports PS0042 when it cannot order the tasks of a phase because their dependencies form a cycle, typically because of the task types of a plug-in or of a configuration file.
+    - name: PS0045
+      uid: ps0045
+      path: conceptual/errors/ps0045.md
+      summary: PostSharp reports PS0045 when a path that it reads from a configuration file, from the name of a plug-in, or from the build, such as the location of the private key, is not a valid path for the file system.
+    - name: PS0048
+      uid: ps0048
+      path: conceptual/errors/ps0048.md
+      summary: PostSharp reports PS0048 when it must add a task to the project, typically because a referenced library requires it with RequirePostSharpAttribute, and neither PostSharp nor its loaded plug-ins define a task of this name.
+    - name: PS0049
+      uid: ps0049
+      path: conceptual/errors/ps0049.md
+      summary: PostSharp reports PS0049 when a TaskType element of a plug-in or of a configuration file names an implementation class that exists but is not derived from the Task class of PostSharp.
+    - name: PS0050
+      uid: ps0050
+      path: conceptual/errors/ps0050.md
+      summary: PostSharp reports PS0050 when it writes a method whose body it modified and finds an instruction that pops more values than the evaluation stack holds, which means that the IL of the method is invalid.
+    - name: PS0051
+      uid: ps0051
+      path: conceptual/errors/ps0051.md
+      summary: PostSharp reports PS0051 when a class derived directly from MulticastAttribute is used in the project, but neither the class nor its base classes carry a MulticastAttributeUsageAttribute.
+    - name: PS0052
+      uid: ps0052
+      path: conceptual/errors/ps0052.md
+      summary: PostSharp reports PS0052 when a referenced library requires a PostSharp plug-in, with RequirePostSharpAttribute, and PostSharp cannot find this plug-in, typically because the package that provides the plug-in is not referenced by the project.
+    - name: PS0054
+      uid: ps0054
+      path: conceptual/errors/ps0054.md
+      summary: PostSharp reports PS0054 when a class derived from MulticastAttribute carries more than one MulticastAttributeUsageAttribute, which only an assembly produced by a tool other than the C# or Visual Basic compiler can contain.
+    - name: PS0055
+      uid: ps0055
+      path: conceptual/errors/ps0055.md
+      summary: PostSharp reports PS0055 when it stops processing the multicast attributes and aspects of a project because it has already reported errors about them, for example an invalid regular expression in AttributeTargetTypes.
+    - name: PS0060
+      uid: ps0060
+      path: conceptual/errors/ps0060.md
+      summary: PostSharp reports PS0060 when the processing of a module fails although no error was reported, which indicates an internal problem of PostSharp.
+    - name: PS0065
+      uid: ps0065
+      path: conceptual/errors/ps0065.md
+      summary: PostSharp reports PS0065 when a declaration has several instances of a multicast attribute or an aspect whose MulticastAttributeUsage sets AllowMultiple to false.
+    - name: PS0070
+      uid: ps0070
+      path: conceptual/errors/ps0070.md
+      summary: PostSharp reports PS0070 when a field that an add-in of the PostSharp SDK has marked for removal is assigned before the base constructor is called, typically by a field initializer, so that the assignment cannot be redirected.
+    - name: PS0071
+      uid: ps0071
+      path: conceptual/errors/ps0071.md
+      summary: PostSharp reports PS0071 when a multicast attribute or an aspect is applied directly to a kind of declaration that the ValidOn property of its MulticastAttributeUsage does not allow.
+    - name: PS0072
+      uid: ps0072
+      path: conceptual/errors/ps0072.md
+      summary: PostSharp reports PS0072 when the MulticastAttributeUsage of an aspect class allows more than the MulticastAttributeUsage that it inherits from its base classes, for example more targets in ValidOn or AllowMultiple set to true.
+    - name: PS0074
+      uid: ps0074
+      path: conceptual/errors/ps0074.md
+      summary: PostSharp reports PS0074 when the SignAssembly property of the PostSharp compiler is true but the assembly that the C# or Visual Basic compiler produced has no public key, so PostSharp writes the woven assembly unsigned.
+    - name: PS0075
+      uid: ps0075
+      path: conceptual/errors/ps0075.md
+      summary: PostSharp reports PS0075 when a Compile element in the Tasks section of a configuration file sets SignAssembly to true but gives neither PrivateKeyLocation nor PrivateKeyContainer.
+    - name: PS0077
+      uid: ps0077
+      path: conceptual/errors/ps0077.md
+      summary: PostSharp reports PS0077 when the value of a date attribute of a task, in the Tasks section of a configuration file, is an expression that PostSharp cannot evaluate. Only the tasks of third-party plug-ins have date attributes.
+    - name: PS0079
+      uid: ps0079
+      path: conceptual/errors/ps0079.md
+      summary: PostSharp reports PS0079 when an element of the Tasks section of a configuration file names a task that no loaded plug-in defines, usually because the name is misspelled or the plug-in is not referenced.
+    - name: PS0082
+      uid: ps0082
+      path: conceptual/errors/ps0082.md
+      summary: PostSharp reports PS0082 when an element of the Tasks section of a configuration file does not set an attribute that the task requires, such as the TargetFile attribute of the Compile task.
+    - name: PS0083
+      uid: ps0083
+      path: conceptual/errors/ps0083.md
+      summary: PostSharp reports PS0083 when the value of a date attribute of a task, in the Tasks section of a configuration file, is not a date and time in the XML Schema format. Only the tasks of third-party plug-ins have date attributes.
+    - name: PS0084
+      uid: ps0084
+      path: conceptual/errors/ps0084.md
+      summary: PostSharp reports PS0084 and stops the build when the setup of the project, which instantiates the services and the tasks of the PostSharp compiler, reported other errors, usually because of a configuration file.
+    - name: PS0087
+      uid: ps0087
+      path: conceptual/errors/ps0087.md
+      summary: PostSharp reports PS0087 when a call of Post.Cast converts an object to a type that its type does not implement after the build, typically an interface that no aspect introduces into this type.
+    - name: PS0088
+      uid: ps0088
+      path: conceptual/errors/ps0088.md
+      summary: PostSharp reports PS0088 when code loads the address of a value-type field that an aspect intercepts and that a PostSharp SDK add-in removes from the type, so that the field no longer exists to be referenced.
+    - name: PS0089
+      uid: ps0089
+      path: conceptual/errors/ps0089.md
+      summary: PostSharp reports PS0089 when code loads the address of a field that an aspect intercepts, typically to change a member of a structure stored in the field in place, so that the aspect cannot intercept this access.
+    - name: PS0090
+      uid: ps0090
+      path: conceptual/errors/ps0090.md
+      summary: PostSharp reports PS0090 when a multicast attribute sets AttributeTargetElements, or one of the properties that filter targets by visibility or scope, to values that the MulticastAttributeUsageAttribute of the attribute type excludes.
+    - name: PS0091
+      uid: ps0091
+      path: conceptual/errors/ps0091.md
+      summary: PostSharp reports PS0091 when a multicast attribute or an aspect is applied directly to a declaration that its MulticastAttributeUsageAttribute excludes by visibility, scope or another attribute, for example an aspect for instance methods applied to a static method.
+    - name: PS0093
+      uid: ps0093
+      path: conceptual/errors/ps0093.md
+      summary: 'PostSharp reports PS0093 when a multicast filter such as AttributeTargetTypes or AttributeTargetMembers starts with the regex: prefix but the rest of the value is not a valid regular expression.'
+    - name: PS0095
+      uid: ps0095
+      path: conceptual/errors/ps0095.md
+      summary: PostSharp reports PS0095 when, for a .NET Framework project, it cannot parse the configuration file from which it reads the assembly binding redirections of its host process, because the file is not well-formed XML.
+    - name: PS0096
+      uid: ps0096
+      path: conceptual/errors/ps0096.md
+      summary: PostSharp reports PS0096 when a bindingRedirect or assemblyIdentity element of the assembly binding configuration that PostSharp loads for a .NET Framework project has an invalid version or processor architecture.
+    - name: PS0097
+      uid: ps0097
+      path: conceptual/errors/ps0097.md
+      summary: PostSharp reports PS0097 when the configuration file of the PostSharp process, from which it loads the assembly binding redirections of a .NET Framework project, has no assemblyBinding element under configuration/runtime.
+    - name: PS0099
+      uid: ps0099
+      path: conceptual/errors/ps0099.md
+      summary: PostSharp reports PS0099 when an unexpected exception stops the processing of a project, usually because of a bug of PostSharp or of the build-time code of an aspect.
+    - name: PS0101
+      uid: ps0101
+      path: conceptual/errors/ps0101.md
+      summary: PostSharp throws an exception with the PS0101 message when a program that hosts the PostSharp compiler calls InvokeProject with the ProcessDependenciesFirst property set to true.
+    - name: PS0103
+      uid: ps0103
+      path: conceptual/errors/ps0103.md
+      summary: PostSharp reports PS0103 when the MulticastAttributeUsage of an attribute class sets the Inheritance property although the MulticastAttributeUsage of a base class already sets it.
+    - name: PS0104
+      uid: ps0104
+      path: conceptual/errors/ps0104.md
+      summary: PostSharp reports PS0104 when a multicast attribute is multicast to the parameters or the return value of a method of another assembly, with the AttributeTargetAssemblies property.
+    - name: PS0105
+      uid: ps0105
+      path: conceptual/errors/ps0105.md
+      summary: PostSharp reports PS0105 when a multicast attribute or an aspect is applied directly to a parameter, but the method of the parameter does not match the TargetMemberAttributes filter of the attribute, for example its visibility.
+    - name: PS0106
+      uid: ps0106
+      path: conceptual/errors/ps0106.md
+      summary: PostSharp reports PS0106 when a multicast attribute, such as a contract, is applied directly to a parameter that its parameter filter excludes, for example an out parameter when the filter accepts only input parameters.
+    - name: PS0108
+      uid: ps0108
+      path: conceptual/errors/ps0108.md
+      summary: PostSharp reports PS0108 when an instance of a multicast attribute sets AttributeInheritance to a value different from the Inheritance that the MulticastAttributeUsage of its class sets.
+    - name: PS0110
+      uid: ps0110
+      path: conceptual/errors/ps0110.md
+      summary: PostSharp reports PS0110 when the low-level code weaver receives more than 32 advices for the same join point of a method, which only an add-in built on the PostSharp SDK can cause.
+    - name: PS0111
+      uid: ps0111
+      path: conceptual/errors/ps0111.md
+      summary: PostSharp reports PS0111 when the order dependencies of the aspects applied to the same declaration form a cycle, for example A before B, B before C and C before A, so that no order satisfies all of them.
+    - name: PS0112
+      uid: ps0112
+      path: conceptual/errors/ps0112.md
+      summary: PostSharp reports PS0112 when an aspect dependency with the Conflict action matches another aspect on the same declaration, or when a dependency with the Require action matches none.
+    - name: PS0114
+      uid: ps0114
+      path: conceptual/errors/ps0114.md
+      summary: PostSharp reports PS0114 when two aspects on the same declaration may interfere with each other, but no dependency or priority decides which one runs first.
+    - name: PS0115
+      uid: ps0115
+      path: conceptual/errors/ps0115.md
+      summary: PostSharp reports PS0115 when an aspect has two dependencies that match the same other aspect, one positioned before it and the other after it.
+    - name: PS0116
+      uid: ps0116
+      path: conceptual/errors/ps0116.md
+      summary: PostSharp reports PS0116 when a base class defines an InitializeAspects or OnInstanceConstructed method that is not virtual, or is sealed, and PostSharp needs to override it in a derived class to initialize the aspects of that class.
+    - name: PS0117
+      uid: ps0117
+      path: conceptual/errors/ps0117.md
+      summary: PostSharp reports PS0117 when a public, unsealed class defines an InitializeAspects or OnInstanceConstructed method that PostSharp would use to initialize aspects, but the method is not public virtual or protected virtual, or is sealed.
+    - name: PS0118
+      uid: ps0118
+      path: conceptual/errors/ps0118.md
+      summary: PostSharp reports PS0118 when a class defines a static InitializeAspects or OnInstanceConstructed method, which PostSharp would use to initialize the aspects of each instance.
+    - name: PS0119
+      uid: ps0119
+      path: conceptual/errors/ps0119.md
+      summary: PostSharp reports PS0119 when the Targets property of a MulticastPointcut selects kinds of declarations that the advice cannot apply to, for example properties for an OnMethodEntry advice.
+    - name: PS0120
+      uid: ps0120
+      path: conceptual/errors/ps0120.md
+      summary: PostSharp reports PS0120 when the Attributes property of a MulticastPointcut selects declarations that the advice cannot apply to, for example abstract methods for an OnMethodEntry advice.
+    - name: PS0121
+      uid: ps0121
+      path: conceptual/errors/ps0121.md
+      summary: PostSharp reports PS0121 when an aspect provider describes an aspect with an ObjectConstruction whose named arguments include a name that is neither a property nor a field of the aspect class.
+    - name: PS0122
+      uid: ps0122
+      path: conceptual/errors/ps0122.md
+      summary: 'PostSharp reports the informational message PS0122 right after LA0001, when the serialization of the aspects fails: it gives the complete exception, with its type, its inner exceptions and its stack trace.'
+    - name: PS0123
+      uid: ps0123
+      path: conceptual/errors/ps0123.md
+      summary: PS0123 is an internal consistency check of the PostSharp compiler, which only its diagnostic builds run, about a method whose local variables do not occupy consecutive slots.
+    - name: PS0124
+      uid: ps0124
+      path: conceptual/errors/ps0124.md
+      summary: PostSharp reports PS0124, an informational message, right after PS0114 or PS0115, to list the transformations of the aspects on the target and the dependencies that each one declares.
+    - name: PS0125
+      uid: ps0125
+      path: conceptual/errors/ps0125.md
+      summary: PostSharp reports PS0125 and stops the build when code of yours that runs at build time, such as a CompileTimeValidate, CompileTimeInitialize or ProvideAspects method or an architecture constraint, throws an exception.
+    - name: PS0127
+      uid: ps0127
+      path: conceptual/errors/ps0127.md
+      summary: 'PostSharp reports PS0127 when the project requires a part of PostSharp that no license of the build covers: premium features beyond the free limit, the free edition itself, or the Framework package that a compiler extension needs.'
+    - name: PS0131
+      uid: ps0131
+      path: conceptual/errors/ps0131.md
+      summary: PostSharp reports PS0131 when it processes a project that applies no aspect and uses no other feature of PostSharp, so running PostSharp only slows down the build.
+    - name: PS0134
+      uid: ps0134
+      path: conceptual/errors/ps0134.md
+      summary: PostSharp reports PS0134 when it cannot read the PDB file of an assembly that it reads, because the file is corrupted, locked, in an unsupported format, or in the Windows PDB format on Linux or macOS.
+    - name: PS0135
+      uid: ps0135
+      path: conceptual/errors/ps0135.md
+      summary: PostSharp reports PS0135 when a property of PostSharp, or a condition of a configuration file, that must be True or False has another value, such as Yes or 1.
+    - name: PS0136
+      uid: ps0136
+      path: conceptual/errors/ps0136.md
+      summary: PostSharp reports PS0136 when an expression of a PostSharp configuration file, typically a postsharp.config file, has a curly bracket without its matching bracket, or a pair of curly brackets with no expression between them.
+    - name: PS0138
+      uid: ps0138
+      path: conceptual/errors/ps0138.md
+      summary: PostSharp reports PS0138 when an expression that must have a value, such as the File attribute of a Using element in a postsharp.config file, evaluates to an empty string, typically because it refers to a property that is not set.
+    - name: PS0141
+      uid: ps0141
+      path: conceptual/errors/ps0141.md
+      summary: PostSharp reports PS0141 when it loads a plug-in assembly whose ExportProjectAttribute or AssemblyProjectProviderAttribute designates a type that does not implement IProjectConfigurationProvider.
+    - name: PS0142
+      uid: ps0142
+      path: conceptual/errors/ps0142.md
+      summary: PostSharp reports PS0142 when it loads a plug-in assembly whose project provider returns a null project configuration.
+    - name: PS0143
+      uid: ps0143
+      path: conceptual/errors/ps0143.md
+      summary: PostSharp reports PS0143 when it loads a plug-in assembly that defines several projects with the obsolete AssemblyProjectProviderAttribute, and the file name of the assembly does not say which project to load.
+    - name: PS0144
+      uid: ps0144
+      path: conceptual/errors/ps0144.md
+      summary: PostSharp reports PS0144 when the reference to a plug-in assembly names a project, after a semicolon, that no AssemblyProjectProviderAttribute of the assembly defines.
+    - name: PS0156
+      uid: ps0156
+      path: conceptual/errors/ps0156.md
+      summary: PS0156 is meant to report a Service element of a PostSharp configuration file whose type does not implement the IService interface. In the current version, PostSharp crashes instead of reporting it.
+    - name: PS0157
+      uid: ps0157
+      path: conceptual/errors/ps0157.md
+      summary: PostSharp reports PS0157 when it cannot create the class that a Service element of a configuration file names, usually because the type name is not the full name of an existing class.
+    - name: PS0158
+      uid: ps0158
+      path: conceptual/errors/ps0158.md
+      summary: PostSharp reports PS0158 when a Property element of a PostSharp configuration file has no Name attribute, or a Service element has no TypeName attribute.
+    - name: PS0161
+      uid: ps0161
+      path: conceptual/errors/ps0161.md
+      summary: PostSharp reports PS0161 when the XML namespace of an element that describes a CLR object in a configuration file, for example in the Multicast section, is not in the form clr-namespace:Namespace;assembly:Assembly.
+    - name: PS0165
+      uid: ps0165
+      path: conceptual/errors/ps0165.md
+      summary: PostSharp reports PS0165 when an element of a configuration file, for example in the Multicast section, describes an object of a type that has no constructor without parameters.
+    - name: PS0166
+      uid: ps0166
+      path: conceptual/errors/ps0166.md
+      summary: PostSharp reports PS0166 when an XML attribute or child element of an element that describes a CLR object in a configuration file, for example in the Multicast section, does not match a public field or property of the type.
+    - name: PS0167
+      uid: ps0167
+      path: conceptual/errors/ps0167.md
+      summary: PostSharp reports PS0167 when an XML attribute of an element that describes a CLR object in a configuration file, for example in the Multicast section, has a namespace prefix.
+    - name: PS0168
+      uid: ps0168
+      path: conceptual/errors/ps0168.md
+      summary: PostSharp reports PS0168 when a Multicast element of a postsharp.config file sets a field or property whose type cannot be written in XML, such as TimeSpan, DateTime or object.
+    - name: PS0169
+      uid: ps0169
+      path: conceptual/errors/ps0169.md
+      summary: PostSharp reports PS0169 when the value of an XML attribute of a Multicast element of a postsharp.config file cannot be converted into the type of the field or property it sets, for example text in a number.
+    - name: PS0171
+      uid: ps0171
+      path: conceptual/errors/ps0171.md
+      summary: PostSharp reports PS0171 when the MulticastAttributeUsageAttribute of an aspect or multicast attribute class sets Inheritance to Strict, and the attribute can target properties or events, on which strict inheritance is not supported.
+    - name: PS0172
+      uid: ps0172
+      path: conceptual/errors/ps0172.md
+      summary: PostSharp reports PS0172 when an aspect or multicast attribute applied to a property or an event sets AttributeInheritance to Strict, which is not supported on properties and events.
+    - name: PS0199
+      uid: ps0199
+      path: conceptual/errors/ps0199.md
+      summary: 'PostSharp reports PS0199 when the .NET Framework process of the PostSharp compiler meets a known intermittent failure of the runtime: the compiler stops, and the build starts it again, up to three attempts.'
+    - name: PS0201
+      uid: ps0201
+      path: conceptual/errors/ps0201.md
+      summary: PostSharp reports PS0201 when an XML element of a postsharp.config file, for example in the Multicast element, names a class that does not exist in the namespace and assembly of its XML namespace.
+    - name: PS0202
+      uid: ps0202
+      path: conceptual/errors/ps0202.md
+      summary: PostSharp reports PS0202 when an aspect provider returns an AspectInstance with an ObjectConstruction whose constructor arguments match no constructor of the aspect class.
+    - name: PS0204
+      uid: ps0204
+      path: conceptual/errors/ps0204.md
+      summary: PostSharp reports PS0204 when a Property element of a postsharp.config file has a name that does not start with a letter or that contains a character other than a letter or a digit.
+    - name: PS0205
+      uid: ps0205
+      path: conceptual/errors/ps0205.md
+      summary: PostSharp reports PS0205 when an expression between braces in a postsharp.config file is not a valid XPath expression, or cannot be evaluated.
+    - name: PS0206
+      uid: ps0206
+      path: conceptual/errors/ps0206.md
+      summary: PostSharp reports PS0206 when an XML element of a postsharp.config file that describes a CLR object, for example an aspect in the Multicast element, has an attribute in the namespace of the configuration schema other than Condition.
+    - name: PS0207
+      uid: ps0207
+      path: conceptual/errors/ps0207.md
+      summary: PostSharp reports PS0207 when a Property element of a postsharp.config file sets a property that an earlier Property element, usually in the configuration file of a parent directory, sealed with Sealed="true".
+    - name: PS0208
+      uid: ps0208
+      path: conceptual/errors/ps0208.md
+      summary: PostSharp reports PS0208 when an aspect applied to an async or iterator method needs a parameter that the C# compiler did not store in the state machine, which happens for unused parameters when compiler optimizations are enabled.
+    - name: PS0209
+      uid: ps0209
+      path: conceptual/errors/ps0209.md
+      summary: PostSharp reports PS0209 when a class derives from a class of another assembly that has an OnInstanceConstructed advice, and the constructor that a constructor of the derived class calls has no overload with the extra parameter that PostSharp adds.
+    - name: PS0212
+      uid: ps0212
+      path: conceptual/errors/ps0212.md
+      summary: PostSharp reports PS0212 when a method of another type loads the address of a field that an aspect intercepts, for example to pass the field as a ref or out argument, because PostSharp has turned the field into a property and made the field private.
+    - name: PS0214
+      uid: ps0214
+      path: conceptual/errors/ps0214.md
+      summary: PostSharp reports PS0214 when the language of the project is neither C# nor Visual Basic, and weaving needs a detail of the code that the compiler of the language generates, such as the fields of an async state machine.
+    - name: PS0215
+      uid: ps0215
+      path: conceptual/errors/ps0215.md
+      summary: PostSharp reports PS0215 when an aspect advises an async method semantically, but the target framework of the project does not provide the AsyncTaskMethodBuilder type that PostSharp needs to weave the state machine.
+    - name: PS0216
+      uid: ps0216
+      path: conceptual/errors/ps0216.md
+      summary: PostSharp reports PS0216 when the operating system refuses to open or acquire one of the named locks that PostSharp uses to protect its caches from concurrent builds. PostSharp continues without the lock.
+    - name: PS0219
+      uid: ps0219
+      path: conceptual/errors/ps0219.md
+      summary: PostSharp reports PS0219 when it needs the reference assemblies of a .NET Framework version, the version that it runs on, that the project targets or that a reference targets, and the targeting pack of this version is not installed on the machine.
+    - name: PS0220
+      uid: ps0220
+      path: conceptual/errors/ps0220.md
+      summary: PostSharp reports the informational message PS0220 when it creates a type index or a facade assembly for a framework, the first time a build on the machine needs it. Later builds read the result from the cache.
+    - name: PS0228
+      uid: ps0228
+      path: conceptual/errors/ps0228.md
+      summary: PostSharp reports PS0228 when the file that lists the frameworks installed on the machine, which the build creates in the cache directory of PostSharp just before it starts the compiler, no longer exists when the compiler reads it.
+    - name: PS0229
+      uid: ps0229
+      path: conceptual/errors/ps0229.md
+      summary: PostSharp reports PS0229 when a method marked with [ModuleInitializer] is not static, is private or protected, is generic, has parameters, or returns a value.
+    - name: PS0231
+      uid: ps0231
+      path: conceptual/errors/ps0231.md
+      summary: PostSharp reports PS0231 when it writes a Windows PDB file and the state machine of an async method has a different number of yield points and resume points, so that PostSharp omits the async stepping information of this method.
+    - name: PS0232
+      uid: ps0232
+      path: conceptual/errors/ps0232.md
+      summary: 'PostSharp reports PS0232 when the PostSharp compiler starts without an input assembly: the Input property of the PostSharp project is empty, typically because the compiler is invoked from the command line or a custom build script without it.'
+    - name: PS0233
+      uid: ps0233
+      path: conceptual/errors/ps0233.md
+      summary: PostSharp reports PS0233 when the assembly that the PostSharp compiler must process does not exist, typically because another process deleted or locked it away between the C# compiler and PostSharp, or because a custom invocation names the wrong file.
+    - name: PS0236
+      uid: ps0236
+      path: conceptual/errors/ps0236.md
+      summary: PostSharp reports PS0236 when an assembly that it reads has a module without a name, which the ECMA-335 standard does not allow; PostSharp then uses the name of the file.
+    - name: PS0240
+      uid: ps0240
+      path: conceptual/errors/ps0240.md
+      summary: PostSharp reports PS0240 when the .NET Framework strong name API of Windows fails while PostSharp reads a strong name key or signs the assembly, typically because the key container does not exist or the machine key store cannot be accessed.
+    - name: PS0250
+      uid: ps0250
+      path: conceptual/errors/ps0250.md
+      summary: PostSharp reports PS0250 when an element of a postsharp.config file that sets a property of its parent element, such as DefaultOptions in a logging profile, has attributes, which belong on the element that it contains.
+    - name: PS0251
+      uid: ps0251
+      path: conceptual/errors/ps0251.md
+      summary: PostSharp reports PS0251 when an element of a postsharp.config file that sets a property of its parent element, such as Profiles or DefaultOptions in the Logging section, contains text, for example a note that is not written as an XML comment.
+    - name: PS0252
+      uid: ps0252
+      path: conceptual/errors/ps0252.md
+      summary: PostSharp reports PS0252 when an element of postsharp.config that sets a property of a CLR object, such as the DefaultOptions of a logging profile, has no child element or several, instead of the single element that describes the value.
+    - name: PS0253
+      uid: ps0253
+      path: conceptual/errors/ps0253.md
+      summary: PostSharp reports PS0253 when an element of postsharp.config describes an object whose type cannot be assigned to the property or field that it sets, for example backend options in the DefaultOptions of a logging profile.
+    - name: PS0254
+      uid: ps0254
+      path: conceptual/errors/ps0254.md
+      summary: PostSharp reports PS0254 when the value of an XML attribute in postsharp.config cannot be converted to the type of the property or field that it sets, for example a log level that is not a member of the LogLevel enumeration.
+    - name: PS0255
+      uid: ps0255
+      path: conceptual/errors/ps0255.md
+      summary: PostSharp reports PS0255 when it cannot set or read a property of an object described in postsharp.config, typically because the property is read-only, such as the Backend property of a logging profile, or because its accessor throws an exception.
+    - name: PS0258
+      uid: ps0258
+      path: conceptual/errors/ps0258.md
+      summary: PostSharp reports PS0258 when an element of postsharp.config adds an object to a collection property, such as the Profiles of the Logging section, but the type of the object is not the item type of the collection.
+    - name: PS0259
+      uid: ps0259
+      path: conceptual/errors/ps0259.md
+      summary: PostSharp reports PS0259 when the PDB file of an assembly that it reads, or the PDB embedded in the assembly, is neither a Windows PDB nor a valid portable PDB, usually because the file is corrupted, truncated or stale.
+    - name: PS0261
+      uid: ps0261
+      path: conceptual/errors/ps0261.md
+      summary: PostSharp reports PS0261 when the compatibility level of the project, usually set with the PostSharpCompatibilityLevel MSBuild property, is not a version with at least a major and a minor number, such as 2027.0. PostSharp then ignores it.
+    - name: PS0262
+      uid: ps0262
+      path: conceptual/errors/ps0262.md
+      summary: PostSharp reports the warning PS0262 when it finds data that it does not expect in the portable PDB file of the assembly it builds, and skips this data. The debugging information of the woven assembly may then be incomplete.
+    - name: PS0263
+      uid: ps0263
+      path: conceptual/errors/ps0263.md
+      summary: PostSharp reports PS0263 when an item of a collection in a postsharp.config file, such as a logging profile, cannot be added to the collection, most often because another item already has the same name.
+    - name: PS0264
+      uid: ps0264
+      path: conceptual/errors/ps0264.md
+      summary: PostSharp reports PS0264 when it cannot load an assembly that the project needs, or cannot bind a type or a member, for example a method that reflection cannot distinguish from an overload.
+    - name: PS0265
+      uid: ps0265
+      path: conceptual/errors/ps0265.md
+      summary: PostSharp reports the informational message PS0265 right after the error PS0264, to give the log of the attempts to load the assembly, type or member that failed.
+    - name: PS0266
+      uid: ps0266
+      path: conceptual/errors/ps0266.md
+      summary: PostSharp reports the warning PS0266 when an unexpected exception occurs while it looks for the file and line of a declaration, to locate another message. The other message is then reported without a location.
+    - name: PS0270
+      uid: ps0270
+      path: conceptual/errors/ps0270.md
+      summary: PostSharp reports the warning PS0270 when a referenced assembly is in the folder of a NuGet package whose .nuspec or .nupkg file gives no package id or no version, which usually means that the package cache is corrupted.
+    - name: PS0272
+      uid: ps0272
+      path: conceptual/errors/ps0272.md
+      summary: 'PostSharp reports the warning PS0272 when the PostSharpAttachDebugger MSBuild property is set and no just-in-time debugger can be launched: the compiler gives its process identifier and waits until you attach a debugger.'
+    - name: PS0275
+      uid: ps0275
+      path: conceptual/errors/ps0275.md
+      summary: PostSharp reports PS0275 and stops when the project targets, or references an assembly built for, a platform that PostSharp does not support, such as Silverlight or the .NET Micro Framework.
+    - name: PS0276
+      uid: ps0276
+      path: conceptual/errors/ps0276.md
+      summary: PostSharp reports PS0276 when a multicast attribute sets AttributeTargetAssemblies, AttributeTargetTypes or AttributeTargetMembers on a declaration where this filter has no effect, for example AttributeTargetTypes on a class.
+    - name: PS0277
+      uid: ps0277
+      path: conceptual/errors/ps0277.md
+      summary: PS0277 is an informational message that shows the copyright notice of a plug-in of PostSharp that took part in the build. It requires no action.
+    - name: PS0279
+      uid: ps0279
+      path: conceptual/errors/ps0279.md
+      summary: 'PostSharp reports PS0279 and stops when it must execute a referenced assembly but the runtime rejects the file as an invalid image: the file is a reference assembly, a native library or a corrupted file, or it targets another processor architecture than the PostSharp process.'
+    - name: PS0280
+      uid: ps0280
+      path: conceptual/errors/ps0280.md
+      summary: PostSharp reports PS0280 when the runtime that executes the PostSharp compiler is not compatible with the target framework of the project, for example a .NET runtime older than the target framework, so that the build may fail on missing declarations.
+    - name: PS0281
+      uid: ps0281
+      path: conceptual/errors/ps0281.md
+      summary: 'PostSharp reports PS0281 when the metadata of an assembly that it reads is invalid: a column of a metadata table designates a row beyond the end of the table that it refers to. This usually means that the assembly was damaged or produced by a faulty tool.'
+    - name: PS0282
+      uid: ps0282
+      path: conceptual/errors/ps0282.md
+      summary: 'PostSharp reports PS0282 when the metadata of an assembly that it reads is invalid: a row of the Param table gives a method a parameter whose sequence number is larger than the number of parameters of the method signature. This usually means that the assembly was damaged or produced by a faulty tool.'
+    - name: PS0283
+      uid: ps0283
+      path: conceptual/errors/ps0283.md
+      summary: PostSharp reports PS0283 when it looks for a plug-in and finds it only in the subdirectory of the other runtime of the compiler, net472 or net10.0, so that it cannot load it. PS0052 or another error about the missing plug-in usually follows.
+    - name: PS0284
+      uid: ps0284
+      path: conceptual/errors/ps0284.md
+      summary: PostSharp reports PS0284 when the telemetry services cannot read the TelemetryEnabled setting of the postsharp.config file of the repository, or ignore it because the file is not at the root of the repository. The setting then has no effect, and the default telemetry policy applies.
+    - name: PS0285
+      uid: ps0285
+      path: conceptual/errors/ps0285.md
+      summary: PostSharp reports PS0285 when the CompileTimeValidate method of a custom attribute that implements IValidableAnnotation throws an InvalidAnnotationException, which means that the attribute cannot be applied to its target. The message ends with the message of the exception.
+  - name: Aspects
+    uid: errors-aspects
+    path: conceptual/errors/errors-aspects.md
+    summary: 'Reference of the aspect errors and warnings of PostSharp. Messages about aspects: applying aspects to code, multicasting, aspect classes and their advices, introductions, aspect dependencies, and the code that PostSharp generates.'
+    items:
+    - name: LA0001
+      uid: la0001
+      path: conceptual/errors/la0001.md
+      summary: PostSharp reports LA0001 when it cannot serialize the aspect instances into the assembly at build time, typically because a field of an aspect holds an object whose type is not serializable.
+    - name: LA0004
+      uid: la0004
+      path: conceptual/errors/la0004.md
+      summary: PostSharp reports LA0004 when an aspect introduces an interface that the target type already implements, and the introduction is set to fail in this case, which is the default.
+    - name: LA0005
+      uid: la0005
+      path: conceptual/errors/la0005.md
+      summary: PostSharp reports LA0005 when an aspect introduces an interface whose base interface the target type already implements, and the introduction is set to fail in this case, which is the default.
+    - name: LA0013
+      uid: la0013
+      path: conceptual/errors/la0013.md
+      summary: PostSharp reports LA0013 when an aspect class is a private or protected nested class, because the code that PostSharp generates must be able to access the aspect class from anywhere in the assembly.
+    - name: LA0014
+      uid: la0014
+      path: conceptual/errors/la0014.md
+      summary: PostSharp reports LA0014 when it cannot create an aspect instance at build time, because the constructor or a property setter of the aspect throws an exception for the arguments given in the custom attribute.
+    - name: LA0016
+      uid: la0016
+      path: conceptual/errors/la0016.md
+      summary: PostSharp reports LA0016 when a CompositionAspect is applied to an interface, typically by an aspect provider that adds it to every type, interfaces included.
+    - name: LA0021
+      uid: la0021
+      path: conceptual/errors/la0021.md
+      summary: PostSharp reports LA0021 when the serializer type configured for an aspect with the SerializerType property is not derived from the AspectSerializer class.
+    - name: LA0022
+      uid: la0022
+      path: conceptual/errors/la0022.md
+      summary: PostSharp reports LA0022 when the serializer type configured for an aspect with the SerializerType property has no public parameterless constructor, so that PostSharp cannot create it.
+    - name: LA0030
+      uid: la0030
+      path: conceptual/errors/la0030.md
+      summary: PostSharp reports LA0030 when a CustomAttributeIntroductionAspect introduces a custom attribute with a constructor argument or a named argument whose type cannot be stored in custom attribute metadata, such as a TimeSpan passed as an object.
+    - name: LA0031
+      uid: la0031
+      path: conceptual/errors/la0031.md
+      summary: PostSharp reports LA0031 when an IAspectProvider provides an aspect to a property or an event whose declaring type PostSharp cannot find in the current assembly.
+    - name: LA0032
+      uid: la0032
+      path: conceptual/errors/la0032.md
+      summary: PostSharp reports LA0032 when an aspect provider adds an aspect to a parameter of a method that PostSharp cannot find in the current assembly or in its references, typically because the reflection object does not come from the target code.
+    - name: LA0033
+      uid: la0033
+      path: conceptual/errors/la0033.md
+      summary: PostSharp reports LA0033 when an aspect provider adds an aspect to a type, method or field that PostSharp cannot find in the current assembly or in its references, typically because the reflection object does not come from the target code.
+    - name: LA0035
+      uid: la0035
+      path: conceptual/errors/la0035.md
+      summary: PostSharp reports LA0035 when an aspect provider adds an aspect that is not serialized, because it uses MsilAspectSerializer, as an aspect instance instead of an ObjectConstruction.
+    - name: LA0036
+      uid: la0036
+      path: conceptual/errors/la0036.md
+      summary: PostSharp reports LA0036 when a project uses an aspect from a referenced assembly that was built without PostSharp, so the advices of the aspect lack the optimization information that PostSharp computes.
+    - name: LA0037
+      uid: la0037
+      path: conceptual/errors/la0037.md
+      summary: PostSharp reports LA0037 when a composition aspect declares, as one of the interfaces it introduces into its target class, a type that is not an interface, typically a class returned by GetPublicInterfaces.
+    - name: LA0042
+      uid: la0042
+      path: conceptual/errors/la0042.md
+      summary: PostSharp reports LA0042 when AspectUtilities.InitializeCurrentAspects is called from a static method, because this call initializes the aspects of the current instance, and a static method has none.
+    - name: LA0045
+      uid: la0045
+      path: conceptual/errors/la0045.md
+      summary: PostSharp reports LA0045 when AspectUtilities.InitializeCurrentAspects is called in a class whose InitializeAspects method is a private method of a base class, which the call cannot reach.
+    - name: LA0047
+      uid: la0047
+      path: conceptual/errors/la0047.md
+      summary: 'PostSharp reports LA0047 when an aspect uses an advice of a type that PostSharp cannot weave: a custom attribute derived from Advice, or a custom class derived from AdviceInstance.'
+    - name: LA0048
+      uid: la0048
+      path: conceptual/errors/la0048.md
+      summary: PostSharp reports LA0048 when an advice of an aspect has a pointcut of a custom type derived from Pointcut, which PostSharp cannot evaluate.
+    - name: LA0049
+      uid: la0049
+      path: conceptual/errors/la0049.md
+      summary: PostSharp reports LA0049 when a group of advices has no pointcut, so it applies to the target of the aspect, but its advices cannot transform this kind of declaration, for instance a method entry advice in a type-level aspect.
+    - name: LA0059
+      uid: la0059
+      path: conceptual/errors/la0059.md
+      summary: PostSharp reports LA0059 when a group of advices contains two advices of the same kind, typically because the Group property gives two entry advices the same group name.
+    - name: LA0060
+      uid: la0060
+      path: conceptual/errors/la0060.md
+      summary: PostSharp reports LA0060 when an aspect introduces a method, property or event that the target type already defines, and the introduction is set to fail in this case, which is the default.
+    - name: LA0061
+      uid: la0061
+      path: conceptual/errors/la0061.md
+      summary: PostSharp reports LA0061 when an aspect introduces a member with the OverrideOrFail action, and a base type of the target type already defines this member without making it virtual, or seals it.
+    - name: LA0063
+      uid: la0063
+      path: conceptual/errors/la0063.md
+      summary: PostSharp reports LA0063 when an aspect introduces a property with the OverrideOrFail action, and the target type or one of its base types already defines a property with the same name and parameters but of a different type.
+    - name: LA0064
+      uid: la0064
+      path: conceptual/errors/la0064.md
+      summary: PostSharp reports LA0064 when an aspect introduces an event with the OverrideOrFail action, and the target type or one of its base types already defines an event with the same name but of a different delegate type.
+    - name: LA0065
+      uid: la0065
+      path: conceptual/errors/la0065.md
+      summary: PostSharp reports LA0065 when an aspect or an advice carries a custom attribute derived from AspectDependencyAttribute that PostSharp cannot process, typically a dependency attribute defined in your own code.
+    - name: LA0066
+      uid: la0066
+      path: conceptual/errors/la0066.md
+      summary: PostSharp reports LA0066 when a declaration carries a custom attribute derived from RequiresAdviceAnalysisAttribute, an infrastructure class of the advices, for which no advice analyzer is registered.
+    - name: LA0067
+      uid: la0067
+      path: conceptual/errors/la0067.md
+      summary: PostSharp reports LA0067 when a dependency custom attribute applied to an advice method sets its Target property to AspectDependencyTarget.Type, which only an aspect class can do.
+    - name: LA0068
+      uid: la0068
+      path: conceptual/errors/la0068.md
+      summary: PostSharp reports LA0068 when an aspect introduces an interface with IntroduceInterfaceAttribute or an IntroduceInterfaceAdviceInstance, but the aspect class itself does not implement this interface.
+    - name: LA0069
+      uid: la0069
+      path: conceptual/errors/la0069.md
+      summary: PostSharp reports LA0069 when an aspect that introduces an interface is statically scoped, for example a TypeLevelAspect, because the introduced interface needs one aspect instance for each object of the target type.
+    - name: LA0070
+      uid: la0070
+      path: conceptual/errors/la0070.md
+      summary: PostSharp reports LA0070 when an aspect introduces a method with an override action, and the target type or one of its base types already defines a static method with the same name and signature.
+    - name: LA0071
+      uid: la0071
+      path: conceptual/errors/la0071.md
+      summary: PostSharp reports LA0071 when an aspect replaces a method of the target type with an introduced method, and the IsVirtual property of the introduction does not match whether the existing method is virtual.
+    - name: LA0072
+      uid: la0072
+      path: conceptual/errors/la0072.md
+      summary: PostSharp reports LA0072 when an aspect introduces a method with an override action, and the method that already exists in the target type or a base type has another visibility than the Visibility property of the introduction, which is public by default.
+    - name: LA0073
+      uid: la0073
+      path: conceptual/errors/la0073.md
+      summary: PostSharp reports LA0073 when an aspect copies a custom attribute with CopyCustomAttributesAttribute to a declaration that already has a custom attribute of the same type, and the OverrideAction of the copy is Fail, which is the default.
+    - name: LA0074
+      uid: la0074
+      path: conceptual/errors/la0074.md
+      summary: PostSharp reports LA0074 when a field of an aspect annotated with ImportMemberAttribute has a type that cannot receive an imported member, for example the type of the property instead of Property<T>.
+    - name: LA0075
+      uid: la0075
+      path: conceptual/errors/la0075.md
+      summary: PostSharp reports LA0075 when an aspect requires the import of a method into a delegate field, but the target type and its base types have no accessible method of this name with the signature of the delegate.
+    - name: LA0078
+      uid: la0078
+      path: conceptual/errors/la0078.md
+      summary: PostSharp reports LA0078 when a field of an aspect that receives an imported member of the target class is static, because each instance of the aspect needs the member of its own target object.
+    - name: LA0079
+      uid: la0079
+      path: conceptual/errors/la0079.md
+      summary: PostSharp reports LA0079 when an aspect that imports members of its target class with ImportMemberAttribute is not instance-scoped, for example when it derives from TypeLevelAspect instead of InstanceLevelAspect.
+    - name: LA0080
+      uid: la0080
+      path: conceptual/errors/la0080.md
+      summary: PostSharp reports LA0080 when an aspect requires the import of a property into a Property<T> field, but the target type and its base types have no accessible property of this name.
+    - name: LA0081
+      uid: la0081
+      path: conceptual/errors/la0081.md
+      summary: PostSharp reports LA0081 when an aspect imports a property into a Property<T> field whose type argument is not exactly the type of the property.
+    - name: LA0082
+      uid: la0082
+      path: conceptual/errors/la0082.md
+      summary: PostSharp reports LA0082 when an aspect requires the import of an event into an Event<T> field, but the target type and its base types have no accessible event of this name.
+    - name: LA0083
+      uid: la0083
+      path: conceptual/errors/la0083.md
+      summary: PostSharp reports LA0083 when an aspect imports an event into an Event<T> field whose type argument is not the delegate type of the event.
+    - name: LA0084
+      uid: la0084
+      path: conceptual/errors/la0084.md
+      summary: PostSharp reports LA0084 when an advice custom attribute that must be applied to a method of the aspect, such as a class derived from LocationValidationAdvice, is applied to another declaration.
+    - name: LA0085
+      uid: la0085
+      path: conceptual/errors/la0085.md
+      summary: PostSharp reports LA0085 when the parameters or the return type of an advice method do not match the signature required by its advice attribute, typically a parameter without binding attribute that is not the AdviceArgs of the advice.
+    - name: LA0086
+      uid: la0086
+      path: conceptual/errors/la0086.md
+      summary: PostSharp reports LA0086 when the obsolete Master property of an advice names no advice of the same family, typically because of a typo in the name.
+    - name: LA0087
+      uid: la0087
+      path: conceptual/errors/la0087.md
+      summary: PostSharp reports LA0087 when an advice method, a field annotated with ImportMemberAttribute or a member annotated with IntroduceMemberAttribute is not public.
+    - name: LA0088
+      uid: la0088
+      path: conceptual/errors/la0088.md
+      summary: 'PostSharp reports LA0088 when an aspect applied to the assembly, such as an AssemblyLevelAspect, contains an advice that works on a type: an introduction, an import, or an advice that runs when an instance is initialized or constructed.'
+    - name: LA0089
+      uid: la0089
+      path: conceptual/errors/la0089.md
+      summary: PostSharp reports LA0089 when an aspect introduces an indexer into a type whose DefaultMemberAttribute names another member, typically an indexer renamed with IndexerNameAttribute, and the introduction is set to fail in this case, which is the default.
+    - name: LA0099
+      uid: la0099
+      path: conceptual/errors/la0099.md
+      summary: PostSharp reports LA0099 when an aspect instance targets a kind of declaration that the aspect does not support, typically when an IAspectProvider provides a method-level aspect to a type or a location aspect to a parameter.
+    - name: LA0101
+      uid: la0101
+      path: conceptual/errors/la0101.md
+      summary: PostSharp reports LA0101 when the MethodPointcut of an advice names a method that the aspect class does not define with the signature of a pointcut method, for instance because the method is static, has another parameter type, or does not return an IEnumerable<T>.
+    - name: LA0102
+      uid: la0102
+      path: conceptual/errors/la0102.md
+      summary: PostSharp reports LA0102 when the MethodPointcut of an advice names a method that the aspect class overloads, and several of the overloads have the signature of a pointcut method.
+    - name: LA0103
+      uid: la0103
+      path: conceptual/errors/la0103.md
+      summary: PostSharp reports LA0103 when the method of a MethodPointcut returns a property or an event that PostSharp cannot find in the current assembly or in the assemblies that it references, such as an internal member of .NET.
+    - name: LA0104
+      uid: la0104
+      path: conceptual/errors/la0104.md
+      summary: PostSharp reports LA0104 when the method of a MethodPointcut returns a parameter that PostSharp cannot find, typically a parameter of an indexer returned by PropertyInfo.GetIndexParameters, which belongs to a property instead of a method.
+    - name: LA0105
+      uid: la0105
+      path: conceptual/errors/la0105.md
+      summary: PostSharp reports LA0105 when the method of a MethodPointcut returns a type, a method, a field or an assembly that PostSharp cannot find in the current assembly or in the assemblies that it references, such as an internal member of .NET.
+    - name: LA0106
+      uid: la0106
+      path: conceptual/errors/la0106.md
+      summary: PostSharp reports LA0106 when the method of a MethodPointcut returns an object that is not a reflection object of a declaration, for instance the name of a method instead of its MethodInfo.
+    - name: LA0107
+      uid: la0107
+      path: conceptual/errors/la0107.md
+      summary: PostSharp reports LA0107 when the pointcut of an instance advice method of an instance-scoped aspect, such as an InstanceLevelAspect, selects a static member, which has no instance of the aspect to run the advice.
+    - name: LA0108
+      uid: la0108
+      path: conceptual/errors/la0108.md
+      summary: PostSharp reports LA0108 when an advice passes its advice arguments to a virtual method, or to a method of another assembly, so that PostSharp cannot tell which properties of the arguments are used and disables the optimizations of the advice.
+    - name: LA0109
+      uid: la0109
+      path: conceptual/errors/la0109.md
+      summary: PostSharp reports LA0109 when the method of a MethodPointcut returns a member of a generic type instance, such as a method of Repository<Customer>, or a generic method instance, instead of a member of the generic definition.
+    - name: LA0110
+      uid: la0110
+      path: conceptual/errors/la0110.md
+      summary: PostSharp reports LA0110 when the method of a MethodPointcut of an instance-scoped aspect, such as an InstanceLevelAspect, returns a member that does not belong to the target type of the aspect, for example a method of its base class.
+    - name: LA0111
+      uid: la0111
+      path: conceptual/errors/la0111.md
+      summary: PostSharp reports LA0111 when an aspect stores a FieldInfo in a field that is serialized at build time, because the weaver can turn the field into a property. Store a LocationInfo instead.
+    - name: LA0112
+      uid: la0112
+      path: conceptual/errors/la0112.md
+      summary: PostSharp reports LA0112 when an instance-scoped aspect, which has one instance per instance of its target type, is applied to a member of a struct.
+    - name: LA0113
+      uid: la0113
+      path: conceptual/errors/la0113.md
+      summary: PostSharp reports LA0113 when a method interception aspect is applied to an instance constructor, typically because the aspect is applied to a class and multicast to all its methods, constructors included.
+    - name: LA0114
+      uid: la0114
+      path: conceptual/errors/la0114.md
+      summary: PostSharp reports LA0114 when a method interception aspect is applied to a static constructor, typically by an aspect provider that adds the aspect to the type initializer.
+    - name: LA0115
+      uid: la0115
+      path: conceptual/errors/la0115.md
+      summary: PostSharp reports LA0115 when an aspect dependency custom attribute, such as AspectTypeDependencyAttribute, is applied to the assembly without its TargetType property, so PostSharp cannot tell which aspect the dependency applies to.
+    - name: LA0116
+      uid: la0116
+      path: conceptual/errors/la0116.md
+      summary: PostSharp reports the LA0116 warning and skips the aspect when an aspect provider adds a location interception aspect to a const field, which has no storage to intercept.
+    - name: LA0117
+      uid: la0117
+      path: conceptual/errors/la0117.md
+      summary: PostSharp reports LA0117 when an aspect provider describes an aspect with an ObjectConstruction whose constructor arguments or named arguments do not match the aspect class.
+    - name: LA0118
+      uid: la0118
+      path: conceptual/errors/la0118.md
+      summary: PostSharp reports LA0118 when an aspect class has no [PSerializable] attribute and no serializer, and the target framework of the project does not support the binary serialization of .NET.
+    - name: LA0119
+      uid: la0119
+      path: conceptual/errors/la0119.md
+      summary: PostSharp reports LA0119 when an aspect class has no serialization attribute and no serializer, so PostSharp cannot store its instances in the assembly at build time.
+    - name: LA0121
+      uid: la0121
+      path: conceptual/errors/la0121.md
+      summary: PostSharp reports LA0121 when a validation aspect or advice is applied to a parameter, property or field whose type matches none of the ValidateValue methods of the aspect.
+    - name: LA0126
+      uid: la0126
+      path: conceptual/errors/la0126.md
+      summary: PostSharp reports LA0126 when a method-boundary or exception-handling aspect, or a location validation aspect on a parameter, targets an abstract method, which has no body to enhance. It typically happens when an IAspectProvider provides the aspect to every method of a type.
+    - name: LA0127
+      uid: la0127
+      path: conceptual/errors/la0127.md
+      summary: PostSharp reports LA0127 when a location validation aspect, which implements ILocationValidationAspect<T>, is applied to a const field, whose value can never be assigned at run time.
+    - name: LA0130
+      uid: la0130
+      path: conceptual/errors/la0130.md
+      summary: PostSharp reports LA0130 when a method-boundary, exception-handling or method-interception aspect targets a method of an interface that has no default implementation, typically because an IAspectProvider provides the aspect to every method of an interface.
+    - name: LA0131
+      uid: la0131
+      path: conceptual/errors/la0131.md
+      summary: PostSharp reports LA0131 when an aspect serialized with BinaryFormatter holds a reflection object, such as a Type or a MethodBase, that PostSharp cannot load again at run time.
+    - name: LA0132
+      uid: la0132
+      path: conceptual/errors/la0132.md
+      summary: PostSharp reports LA0132 when an aspect class and one of its base classes both define an advice method of the same name, for example when the derived class hides the advice method of the base class.
+    - name: LA0133
+      uid: la0133
+      path: conceptual/errors/la0133.md
+      summary: PostSharp reports LA0133 when an aspect provider adds a type-level aspect to the <Module> special type of the assembly, which holds the global members of the module and is not a class of the program.
+    - name: LA0136
+      uid: la0136
+      path: conceptual/errors/la0136.md
+      summary: PostSharp reports LA0136 when a location validation aspect, such as a contract, is applied to a property that has no setter.
+    - name: LA0137
+      uid: la0137
+      path: conceptual/errors/la0137.md
+      summary: PostSharp reports LA0137 when an advice returned by IAdviceProvider.ProvideAdvices refers to an aspect member, such as the aspect field of an import advice, that is not declared in the aspect class or in one of its base classes.
+    - name: LA0138
+      uid: la0138
+      path: conceptual/errors/la0138.md
+      summary: PostSharp reports LA0138 when an ImportLocationAdviceInstance returned by IAdviceProvider.ProvideAdvices designates a field or property that is declared neither in the target class of the aspect nor in one of its base classes.
+    - name: LA0139
+      uid: la0139
+      path: conceptual/errors/la0139.md
+      summary: PostSharp reports LA0139 when an aspect imports a member into a field of type Property<TValue>, and the member that PostSharp finds in the target class is a field or an event instead of a property.
+    - name: LA0140
+      uid: la0140
+      path: conceptual/errors/la0140.md
+      summary: PostSharp reports LA0140 when the aspect field of an import advice returned by IAdviceProvider.ProvideAdvices has a type that cannot receive the imported member, or is a collection of ILocationBinding that PostSharp cannot instantiate, such as an interface.
+    - name: LA0142
+      uid: la0142
+      path: conceptual/errors/la0142.md
+      summary: PostSharp reports LA0142 when a method of an aspect annotated with OnInstanceConstructedAdvice has a return type other than void.
+    - name: LA0143
+      uid: la0143
+      path: conceptual/errors/la0143.md
+      summary: PostSharp reports LA0143 when a method of an aspect annotated with InitializeAspectInstanceAdvice or OnAspectsInitializedAdvice does not return void or does not take exactly one parameter of type AspectInitializationReason.
+    - name: LA0144
+      uid: la0144
+      path: conceptual/errors/la0144.md
+      summary: PostSharp reports LA0144 when the method of a method boundary, method interception, location interception or event interception advice returns a value instead of void.
+    - name: LA0148
+      uid: la0148
+      path: conceptual/errors/la0148.md
+      summary: PostSharp reports LA0148 when an AspectRoleDependencyAttribute is given a null or empty role.
+    - name: LA0149
+      uid: la0149
+      path: conceptual/errors/la0149.md
+      summary: PostSharp reports LA0149 when an aspect serialized with BinaryFormatter, because it is marked as [Serializable], has a field of a delegate type that holds a value at build time.
+    - name: LA0151
+      uid: la0151
+      path: conceptual/errors/la0151.md
+      summary: PostSharp reports LA0151 when a parameter of an advice has a binding attribute that this kind of advice does not accept, for example [Exception] in an exit advice or [AwaitedTask] in an entry advice.
+    - name: LA0152
+      uid: la0152
+      path: conceptual/errors/la0152.md
+      summary: PostSharp reports LA0152 when an [Awaiter] parameter of an advice is passed by value, or when its type is not an awaiter, which implements INotifyCompletion.
+    - name: LA0153
+      uid: la0153
+      path: conceptual/errors/la0153.md
+      summary: PostSharp reports LA0153 when two advices of the same group, such as the entry and resume advices of an aspect, have [Awaiter] parameters of different types.
+    - name: LA0154
+      uid: la0154
+      path: conceptual/errors/la0154.md
+      summary: PostSharp reports the warning LA0154 when an entry or resume advice applied to an async method has a [FlowBehavior] parameter but no [Awaiter] parameter, so that the advice cannot make the method yield.
+    - name: LA0155
+      uid: la0155
+      path: conceptual/errors/la0155.md
+      summary: PostSharp reports LA0155 when a [FlowBehavior] parameter of an advice is passed by value, or is not of type FlowBehavior.
+    - name: LA0157
+      uid: la0157
+      path: conceptual/errors/la0157.md
+      summary: PostSharp reports LA0157 when you use an aspect that has the PSerializable attribute but is defined in an assembly that PostSharp has not processed, so that the aspect has no serializer.
+    - name: LA0158
+      uid: la0158
+      path: conceptual/errors/la0158.md
+      summary: PostSharp reports LA0158 when an aspect applies a LocationValidationAdvice to a property that has no setter, because the advice validates the values assigned through the setter.
+    - name: LA0160
+      uid: la0160
+      path: conceptual/errors/la0160.md
+      summary: PostSharp reports LA0160 when aspects that implement IAspectProvider keep providing new aspects, typically because two aspect providers provide each other, so that the discovery of aspects never ends.
+    - name: LA0161
+      uid: la0161
+      path: conceptual/errors/la0161.md
+      summary: PostSharp reports LA0161 when a type has the internal RequiresDebuggerEnhancement attribute of PostSharp but no debugger enhancer of PostSharp supports this type. PostSharp ignores the attribute.
+    - name: LA0162
+      uid: la0162
+      path: conceptual/errors/la0162.md
+      summary: PostSharp reports LA0162 when a field of an aspect annotated with ImportMemberAttribute does not name the member of the target class to import, typically because the attribute has no argument.
+    - name: LA0163
+      uid: la0163
+      path: conceptual/errors/la0163.md
+      summary: PostSharp reports LA0163 when an instance-scoped aspect is applied to a member that is declared in another assembly, typically by an aspect provider that selects a member inherited from a base class of a library.
+    - name: LA0164
+      uid: la0164
+      path: conceptual/errors/la0164.md
+      summary: PostSharp reports LA0164 when a method interception aspect or an OnMethodInvokeAdvice is applied to a method that returns a reference (ref return), which method interception does not support.
+    - name: LA0165
+      uid: la0165
+      path: conceptual/errors/la0165.md
+      summary: PostSharp reports LA0165 when an advice method marked with OnMethodInvokeAsyncAdvice does not return Task, for example when it is declared async void.
+    - name: LA0166
+      uid: la0166
+      path: conceptual/errors/la0166.md
+      summary: PostSharp reports LA0166 when a MethodInterceptionAspect that implements OnInvokeAsync is applied to an async method that returns void or an awaitable type other than Task, such as ValueTask, or when an aspect that implements only OnInvokeAsync is applied to a method that it cannot intercept.
+    - name: LA0167
+      uid: la0167
+      path: conceptual/errors/la0167.md
+      summary: PostSharp reports LA0167 when an aspect is applied to a declaration that cannot receive aspects, such as a local function, an anonymous method or another compiler-generated member, either with a custom attribute or by an aspect provider.
+    - name: LA0171
+      uid: la0171
+      path: conceptual/errors/la0171.md
+      summary: PostSharp reports LA0171 when a MethodInterceptionAspect sets its UnsupportedTargetAction property to Fallback but overrides only OnInvokeAsync, so that there is no non-async interception to fall back to.
+    - name: LA0172
+      uid: la0172
+      path: conceptual/errors/la0172.md
+      summary: PostSharp reports LA0172 when an OnMethodInvokeAsyncAdvice is applied to a method that async interception does not support, such as a method that returns a ValueTask<T> or void, and the advice group cannot skip it or fall back to a non-async advice.
+    - name: LA0173
+      uid: la0173
+      path: conceptual/errors/la0173.md
+      summary: PostSharp reports LA0173 when an OnMethodInvokeAsyncAdvice sets UnsupportedTargetAction to Fallback, but its group has no non-async OnMethodInvokeAdvice to fall back to.
+    - name: LA0174
+      uid: la0174
+      path: conceptual/errors/la0174.md
+      summary: PostSharp reports LA0174 when an OnMethodBoundaryAspect or an OnExceptionAspect is applied to a method that is neither async nor an iterator and returns a type that PostSharp cannot wrap, such as a ValueTask<T>, or a task or enumerable with by-reference parameters.
+    - name: LA0175
+      uid: la0175
+      path: conceptual/errors/la0175.md
+      summary: PostSharp reports LA0175 when a group of method boundary advices is applied to a method that is neither async nor an iterator and returns a type that PostSharp cannot wrap, such as a ValueTask<T>, or a task or enumerable with by-reference parameters.
+    - name: LA0179
+      uid: la0179
+      path: conceptual/errors/la0179.md
+      summary: PostSharp reports LA0179 when an OnMethodBoundaryAspect or an OnExceptionAspect is applied to an instance constructor of a type that another assembly defines, typically by multicasting the aspect with AttributeTargetAssemblies.
+    - name: LA0180
+      uid: la0180
+      path: conceptual/errors/la0180.md
+      summary: PostSharp reports LA0180 when an OnMethodBoundaryAspect or an OnExceptionAspect is applied to the static constructor of a type that another assembly defines, typically by an aspect provider.
+    - name: LA0181
+      uid: la0181
+      path: conceptual/errors/la0181.md
+      summary: PostSharp reports LA0181 when an OnMethodEntryAdvice, OnMethodSuccessAdvice, OnMethodExitAdvice or OnMethodExceptionAdvice is applied to an instance constructor of a type that another assembly defines, typically when its aspect is multicast with AttributeTargetAssemblies.
+    - name: LA0182
+      uid: la0182
+      path: conceptual/errors/la0182.md
+      summary: PostSharp reports LA0182 when an OnMethodEntryAdvice, OnMethodSuccessAdvice, OnMethodExitAdvice or OnMethodExceptionAdvice is applied to the static constructor of a type that another assembly defines, typically by an aspect provider.
+    - name: LA0183
+      uid: la0183
+      path: conceptual/errors/la0183.md
+      summary: PostSharp reports the LA0183 warning when an OnMethodBoundaryAspect, an OnExceptionAspect or a MethodInterceptionAspect is applied to a virtual method of a type that another assembly defines, because the aspect may not run on every call of the method.
+    - name: LA0184
+      uid: la0184
+      path: conceptual/errors/la0184.md
+      summary: PostSharp reports LA0184 when an OnMethodEntry, OnMethodSuccess, OnMethodExit, OnMethodException or OnMethodInvoke advice is applied to a virtual method defined in a referenced assembly, because PostSharp then advises the calls to the method, which can reach an override that the advice does not describe.
+    - name: LA0185
+      uid: la0185
+      path: conceptual/errors/la0185.md
+      summary: 'PostSharp reports LA0185 when a MethodInterceptionAspect that does not implement OnInvokeAsync is applied to an async method or a method returning a task: the aspect then intercepts only the call that starts the task, not the whole asynchronous operation.'
+    - name: LA0186
+      uid: la0186
+      path: conceptual/errors/la0186.md
+      summary: 'PostSharp reports LA0186 when an [OnMethodInvokeAdvice] advice is applied to an async method or a method returning a task, and the aspect has no [OnMethodInvokeAsyncAdvice] advice: the advice then intercepts only the call that starts the task, not the whole asynchronous operation.'
+    - name: LA0187
+      uid: la0187
+      path: conceptual/errors/la0187.md
+      summary: PostSharp reports LA0187 when an OnMethodBoundaryAspect or OnExceptionAspect must be applied semantically to a method returning a task that is not an async method, and the target framework does not support async methods, so PostSharp cannot generate the async state machine that semantic advising needs.
+    - name: LA0188
+      uid: la0188
+      path: conceptual/errors/la0188.md
+      summary: PostSharp reports LA0188 when an OnMethodBoundary advice must be applied semantically to a method returning a task that is not an async method, and the target framework does not support async methods, so PostSharp cannot generate the async state machine that semantic advising needs.
+    - name: LA0189
+      uid: la0189
+      path: conceptual/errors/la0189.md
+      summary: PostSharp reports LA0189 when an advice receives an `in` parameter of the target method through a `ref` or `out` parameter bound with the Argument attribute.
+    - name: LA0190
+      uid: la0190
+      path: conceptual/errors/la0190.md
+      summary: PostSharp reports LA0190 when an aspect is applied to a member of a ref struct, or to a method, property, field or event whose signature uses a ref struct such as Span<T>.
+    - name: LA0191
+      uid: la0191
+      path: conceptual/errors/la0191.md
+      summary: PostSharp reports LA0191 when an instance-scoped aspect, such as an InstanceLevelAspect, is applied to an interface or to a member of an interface, typically by an aspect provider.
+    - name: LA0192
+      uid: la0192
+      path: conceptual/errors/la0192.md
+      summary: PostSharp reports LA0192 when an aspect introduces a method that overrides an existing method of the target type, and a parameter is in in one method and ref or out in the other.
+    - name: LA0193
+      uid: la0193
+      path: conceptual/errors/la0193.md
+      summary: PostSharp reports LA0193 when a CustomAttributeIntroductionAspect receives an ObjectConstruction whose type name does not include the name of the assembly of the attribute.
+    - name: LA0194
+      uid: la0194
+      path: conceptual/errors/la0194.md
+      summary: PostSharp reports LA0194 when an aspect, instantiated at build time, implements an IAspect interface that comes from another copy or version of the PostSharp assembly than the one that the compiler uses, which usually means that the project references several versions of PostSharp.
+    - name: LA0195
+      uid: la0195
+      path: conceptual/errors/la0195.md
+      summary: PostSharp reports LA0195 when an event interception aspect or advice is applied to an instance event declared in an interface, for example an event with a default implementation.
+    - name: LA0196
+      uid: la0196
+      path: conceptual/errors/la0196.md
+      summary: PostSharp reports LA0196 when an OnMethodBoundaryAspect with OnYield or OnResume advices, or a MethodInterceptionAspect with an OnInvokeAsync advice, is applied to a C# 8 async iterator method and the UnsupportedTargetAction of the aspect is Fail, which is the default.
+    - name: LA0197
+      uid: la0197
+      path: conceptual/errors/la0197.md
+      summary: PostSharp reports LA0197 when a group of advice methods that includes OnMethodYieldAdvice, OnMethodResumeAdvice or OnMethodInvokeAsyncAdvice is applied to a C# 8 async iterator method and the UnsupportedTargetAction of the master advice is Fail, which is the default.
+    - name: LA0200
+      uid: la0200
+      path: conceptual/errors/la0200.md
+      summary: PostSharp reports the warning LA0200 and skips the aspect when you apply an aspect directly to an aspect class or to a member of an aspect class.
+    - name: LA0201
+      uid: la0201
+      path: conceptual/errors/la0201.md
+      summary: PostSharp reports LA0201 when an aspect introduces a member into a type of another assembly and copies onto it a custom attribute whose type is internal to the assembly of the aspect.
+    - name: LA0202
+      uid: la0202
+      path: conceptual/errors/la0202.md
+      summary: PostSharp reports LA0202 when an aspect of another assembly introduces a method with an in parameter into a type whose assembly cannot reference IsReadOnlyAttribute.
+    - name: LA0204
+      uid: la0204
+      path: conceptual/errors/la0204.md
+      summary: PostSharp reports LA0204 when an aspect or an advice targets a field, a property or a parameter whose type is a function pointer, which PostSharp does not support.
+    - name: LA0206
+      uid: la0206
+      path: conceptual/errors/la0206.md
+      summary: PostSharp reports LA0206 when an aspect class has the [Serializable] attribute instead of [PSerializable], because the aspect would then be deserialized with BinaryFormatter at run time.
+    - name: LA0207
+      uid: la0207
+      path: conceptual/errors/la0207.md
+      summary: PostSharp reports LA0207 when a parameter of an advice method has more than one advice parameter attribute, such as [Argument] and [DeclarationName], so PostSharp cannot tell which value to pass to it.
+    - name: LA0208
+      uid: la0208
+      path: conceptual/errors/la0208.md
+      summary: PostSharp reports LA0208 when a parameter of an advice has no binding attribute, although it is not the first parameter of a method boundary or interception advice, which alone can be an AdviceArgs parameter without attribute.
+    - name: LA0209
+      uid: la0209
+      path: conceptual/errors/la0209.md
+      summary: PostSharp reports LA0209 when a parameter of an advice has a binding attribute, but the kind of the advice, such as OnInstanceLocationInitializedAdvice or OnMethodInvokeAsyncAdvice, receives only its AdviceArgs object and accepts no bound parameters.
+    - name: LA0210
+      uid: la0210
+      path: conceptual/errors/la0210.md
+      summary: 'PostSharp reports LA0210 when a parameter of an advice has a binding attribute that you derived from AdviceParameterAttribute: only the binding attributes of PostSharp can select the value of a parameter.'
+    - name: LA0211
+      uid: la0211
+      path: conceptual/errors/la0211.md
+      summary: PostSharp reports LA0211 when the type of a bound advice parameter cannot receive the value that its binding attribute gives, for example an object parameter for a value of a value type, which PostSharp does not box.
+    - name: LA0212
+      uid: la0212
+      path: conceptual/errors/la0212.md
+      summary: PostSharp reports LA0212 when a [ReturnValue] parameter of an entry, exception or method interception advice is passed by value or as in, although the advice can only set the return value through an out or ref parameter.
+    - name: LA0213
+      uid: la0213
+      path: conceptual/errors/la0213.md
+      summary: PostSharp reports LA0213 when a parameter of an advice is declared as in, ref or out, but its binding attribute accepts only parameters passed by value in this advice.
+    - name: LA0214
+      uid: la0214
+      path: conceptual/errors/la0214.md
+      summary: PostSharp reports LA0214 when an advice has two parameters with the [Exception] or [ReturnValue] binding, which an advice can use only once.
+    - name: LA0215
+      uid: la0215
+      path: conceptual/errors/la0215.md
+      summary: PostSharp reports LA0215 when two advices of the same group bind a [State] slot with parameters of different types.
+    - name: LA0216
+      uid: la0216
+      path: conceptual/errors/la0216.md
+      summary: PostSharp reports LA0216 when a parameter of an advice is bound by [Argument] with a negative index.
+    - name: LA0217
+      uid: la0217
+      path: conceptual/errors/la0217.md
+      summary: PostSharp reports LA0217 when the type of a bound parameter of an advice cannot receive the value that the binding gives on one of the targets of the advice, such as an argument of another type.
+    - name: LA0218
+      uid: la0218
+      path: conceptual/errors/la0218.md
+      summary: PostSharp reports LA0218 when an advice parameter is bound by [This] with IsRequired set to true, and the advice is applied to a static method, field or property, which has no instance.
+    - name: LA0219
+      uid: la0219
+      path: conceptual/errors/la0219.md
+      summary: PostSharp reports LA0219 when an advice parameter is bound by [AsyncCallId] with IsRequired set to true, and the advice is applied to a method that PostSharp does not transform as an async method.
+    - name: LA0220
+      uid: la0220
+      path: conceptual/errors/la0220.md
+      summary: PostSharp reports LA0220 when it cannot infer a type argument of a generic advice method for a target, because the bound values conflict, have no common type, or give a type argument that violates a constraint of the advice.
+    - name: LA0221
+      uid: la0221
+      path: conceptual/errors/la0221.md
+      summary: PostSharp reports LA0221 when a method interception advice with bound parameters is applied to a method that returns a value, and the advice has neither a [ReturnValue] parameter nor a MethodInterceptionArgs parameter to set it.
+    - name: LA0222
+      uid: la0222
+      path: conceptual/errors/la0222.md
+      summary: PostSharp reports LA0222 when an advice parameter is bound by reference to an argument whose address PostSharp cannot load, typically in a non-async method that returns a task and has more than eight parameters, whose arguments PostSharp stores in an array.
+    - name: LA0223
+      uid: la0223
+      path: conceptual/errors/la0223.md
+      summary: PostSharp reports LA0223 when a [This] parameter of an advice is passed by reference (in or ref) and the advice applies to an instance member of a class, because only the instance of a struct can be passed by reference.
+    - name: LA0224
+      uid: la0224
+      path: conceptual/errors/la0224.md
+      summary: PostSharp reports LA0224 when a parameter of an [OnInstanceConstructedAdvice] method is bound by [Argument], [ReturnValue], [LocationValue] or [FlowBehavior], because this advice runs after any constructor and has none of these values.
+    - name: LA0225
+      uid: la0225
+      path: conceptual/errors/la0225.md
+      summary: PostSharp reports LA0225 when a parameter of an advice is bound by [Argument] with an index, and the target method has no parameter at this index.
+    - name: LA0226
+      uid: la0226
+      path: conceptual/errors/la0226.md
+      summary: PostSharp reports LA0226 when a parameter of an advice is bound by [Argument] with a name, and the target method has no parameter of this name.
+    - name: LA0227
+      uid: la0227
+      path: conceptual/errors/la0227.md
+      summary: PostSharp reports LA0227 when a parameter of an advice is bound by [Argument] without an index or a name, and the target method has no parameter of a type that matches the type of the advice parameter.
+    - name: LA0228
+      uid: la0228
+      path: conceptual/errors/la0228.md
+      summary: PostSharp reports LA0228 when an advice parameter annotated with [Argument], without an index or a name, matches several parameters of the target method by its type.
+    - name: LA0229
+      uid: la0229
+      path: conceptual/errors/la0229.md
+      summary: PostSharp reports LA0229 when an advice parameter annotated with [DeclarationName] is not of type string.
+    - name: LA0230
+      uid: la0230
+      path: conceptual/errors/la0230.md
+      summary: PostSharp reports LA0230 when an advice has neither a pointcut nor the Group property, and several groups of its class have no advice of its kind, so PostSharp cannot tell which group the advice joins.
+    - name: LA0231
+      uid: la0231
+      path: conceptual/errors/la0231.md
+      summary: PostSharp reports LA0231 when two advices of one group set a property that applies to the whole group, such as Description, to different values.
+    - name: LA0233
+      uid: la0233
+      path: conceptual/errors/la0233.md
+      summary: PostSharp reports the warning LA0233 when an advice has a [FlowBehavior] or [Arguments] parameter although its kind of advice does not read or define the value of this parameter.
+    - name: LA0234
+      uid: la0234
+      path: conceptual/errors/la0234.md
+      summary: PostSharp reports the warning LA0234 when an entry, exception or resume advice has both a MethodExecutionArgs parameter and a [FlowBehavior] parameter, because the value set to MethodExecutionArgs.FlowBehavior is then ignored.
+    - name: LA0235
+      uid: la0235
+      path: conceptual/errors/la0235.md
+      summary: PostSharp reports the warning LA0235 when an [Argument] parameter of a method interception advice is out or ref, because a value written to it does not reach the intercepted method.
+    - name: LA0236
+      uid: la0236
+      path: conceptual/errors/la0236.md
+      summary: PostSharp reports the warning LA0236 when an advice has several [FlowBehavior] parameters or several [Awaiter] parameters, which a single advice supports only once.
+    - name: LA0237
+      uid: la0237
+      path: conceptual/errors/la0237.md
+      summary: PostSharp reports LA0237 when an OnLocationGetValueAdvice has neither a LocationInterceptionArgs parameter nor a [LocationValue] parameter, so that it cannot give the value that the getter returns.
+    - name: LA0238
+      uid: la0238
+      path: conceptual/errors/la0238.md
+      summary: PostSharp reports LA0238 when a yield advice has an [AwaitedTask] or [AwaitedMethod] parameter and is applied to a method that is not transformed as an async method, such as an iterator, so that there is no awaited task to pass.
+    - name: LA0239
+      uid: la0239
+      path: conceptual/errors/la0239.md
+      summary: 'PostSharp reports LA0239 when an advice requires the task of the async method with [CurrentTask(IsRequired = true)], but the target method cannot provide it: an async void method, a method with another method builder, or a method implemented with runtime async.'
+    - name: LA0240
+      uid: la0240
+      path: conceptual/errors/la0240.md
+      summary: PostSharp reports LA0240 when an advice has a [CurrentTask] parameter and is applied to an async method that the C# compiler implements with runtime async, so that the parameter is always null.
+    - name: LA0241
+      uid: la0241
+      path: conceptual/errors/la0241.md
+      summary: 'PostSharp reports LA0241 when an advice requires the return value with [ReturnValue(IsRequired = true)], but the target method has no return value that the advice can access: it returns void, a task without a result or a reference, or it is an iterator.'
+    - name: LA0242
+      uid: la0242
+      path: conceptual/errors/la0242.md
+      summary: PostSharp reports LA0242 when an advice other than OnMethodResumeAdvice has a [CurrentTask] parameter with IsRequired set to true, because the advice can run before the async method yields, when its task does not exist yet.
+    - name: LA0243
+      uid: la0243
+      path: conceptual/errors/la0243.md
+      summary: 'PostSharp reports LA0243 when a method boundary advice has both a MethodExecutionArgs parameter and a [ReturnValue] parameter passed as out or ref: the method returns the value of the parameter, and a value assigned to MethodExecutionArgs.ReturnValue is ignored.'
+    - name: LA0244
+      uid: la0244
+      path: conceptual/errors/la0244.md
+      summary: PostSharp reports LA0244 when a resume advice requires its [CurrentTask] parameter, with IsRequired set to true, but an entry advice of the same group has an [Awaiter] parameter, which can make the resume advice run before the task of the async method exists.
+    - name: LA0245
+      uid: la0245
+      path: conceptual/errors/la0245.md
+      summary: PostSharp reports LA0245 when a type parameter of a generic advice method is not used by any parameter from which PostSharp infers type arguments, so the advice is called with object as the type argument.
+    - name: LA0246
+      uid: la0246
+      path: conceptual/errors/la0246.md
+      summary: PostSharp reports LA0246 when a [Declaration] parameter of an advice is of a type that cannot receive the reflection object of the target in this kind of advice, for instance a FieldInfo in a location advice.
+    - name: LA0247
+      uid: la0247
+      path: conceptual/errors/la0247.md
+      summary: PostSharp reports LA0247 when an [Exception] parameter of an exception advice is of a type other than System.Exception, or other than System.Exception and object when it is passed by value.
+    - name: LA0248
+      uid: la0248
+      path: conceptual/errors/la0248.md
+      summary: PostSharp reports LA0248 when an exception advice has both a MethodExecutionArgs parameter and an [Exception] parameter passed as out or ref, because the advice can then set the exception to throw in two places, and only the parameter is used.
+    - name: LA0249
+      uid: la0249
+      path: conceptual/errors/la0249.md
+      summary: PostSharp reports LA0249 when an aspect requests, with InstantiateTypeAdviceInstance, a type that PostSharp cannot instantiate in the woven assembly, such as a generic type definition or an abstract class, in a project woven for ahead-of-time compilation.
+    - name: LA0250
+      uid: la0250
+      path: conceptual/errors/la0250.md
+      summary: PostSharp reports LA0250 when an aspect has an OnYield or OnResume advice applied to an async method and the PostSharpCompatibilityLevel MSBuild property is not set, because the path of an exception thrown by these advices depends on this property.
+    - name: LA0251
+      uid: la0251
+      path: conceptual/errors/la0251.md
+      summary: PostSharp reports LA0251 when an advice uses MatchPointcut and its aspect is applied to a declaration that is not a type, such as a method or the assembly, because MatchPointcut selects methods of the target type of the aspect.
+    - name: LA0252
+      uid: la0252
+      path: conceptual/errors/la0252.md
+      summary: PostSharp reports LA0252 when the CompileTimeValidate method of an aspect throws an InvalidAnnotationException, which means that the aspect cannot be applied to its target. The message of the error is the message of the exception.
+    - name: LA0253
+      uid: la0253
+      path: conceptual/errors/la0253.md
+      summary: PostSharp reports LA0253 when an aspect that targets the property itself, such as a LocationInterceptionAspect, is applied to a property declared in a C# 14 extension block, which has no implementation of its own.
+    - name: LA0254
+      uid: la0254
+      path: conceptual/errors/la0254.md
+      summary: 'PostSharp reports LA0254 when a method interception advice, such as OnMethodInvokeAdvice, is applied to an abstract method of the current project: the method gets an implementation, and the overrides of the method are not intercepted.'
+    - name: LA0255
+      uid: la0255
+      path: conceptual/errors/la0255.md
+      summary: PostSharp reports LA0255 when an advice sets the Group property to the group that PostSharp would infer without it, and no other class of the aspect selects the same group name.
+    - name: LA0257
+      uid: la0257
+      path: conceptual/errors/la0257.md
+      summary: PostSharp reports LA0257 when an aspect type has two groups of advices of the same family without pointcut, from one class or from a class and its base class, so that both apply to the target of the aspect as separate transformations.
+    - name: LA0258
+      uid: la0258
+      path: conceptual/errors/la0258.md
+      summary: PostSharp reports LA0258 when an advice selects its group with both the Group property and the obsolete Master property.
+    - name: LA0259
+      uid: la0259
+      path: conceptual/errors/la0259.md
+      summary: PostSharp reports LA0259 when two advices of one group each have a pointcut, although a group has one pointcut, which applies to all its advices.
+    - name: LA0260
+      uid: la0260
+      path: conceptual/errors/la0260.md
+      summary: PostSharp reports LA0260 when an advice parameter is bound by [ImportMember] without a member name and with IsRequired set to true, and the target type has no field or property whose type the parameter can receive.
+    - name: LA0261
+      uid: la0261
+      path: conceptual/errors/la0261.md
+      summary: PostSharp reports LA0261 when an advice parameter imports a field as ref or out, but the advice is ordered after another aspect, such as a location interception aspect, that turns the field into a property, which has no address.
+    - name: LA0262
+      uid: la0262
+      path: conceptual/errors/la0262.md
+      summary: PostSharp reports LA0262 when an advice parameter imports an instance field of a struct as ref or out, and the target method is an async method or an iterator, which works on a copy of the struct.
+    - name: LA0263
+      uid: la0263
+      path: conceptual/errors/la0263.md
+      summary: PostSharp reports LA0263 when an advice parameter of a delegate type imports a method of the target type with [ImportMember] and IsRequired set to true, but no method of this name converts to the delegate type, typically because a parameter or the return type differs.
+    - name: LA0264
+      uid: la0264
+      path: conceptual/errors/la0264.md
+      summary: PostSharp reports LA0264 when an advice parameter of a delegate type imports a method with [ImportMember], and several overloads of this name convert to the delegate type without one being more specific than the others.
+    - name: LA0265
+      uid: la0265
+      path: conceptual/errors/la0265.md
+      summary: PostSharp reports LA0265 when an advice parameter of type IMethodBinding is bound by [ImportMember] with IsRequired set to true, and the target type has no method of the given name that IMethodBinding can import.
+    - name: LA0266
+      uid: la0266
+      path: conceptual/errors/la0266.md
+      summary: PostSharp reports LA0266 when an advice parameter of type IMethodBinding is bound by [ImportMember] to a method name that has several overloads in the target type, because IMethodBinding selects a method by its name only.
+    - name: LA0267
+      uid: la0267
+      path: conceptual/errors/la0267.md
+      summary: PostSharp reports LA0267 when an advice parameter of type Property<T> or Event<T> is bound by [ImportMember] in a static advice, or in an aspect that is not instance-scoped, because these objects are bound to one target object.
+    - name: LA0268
+      uid: la0268
+      path: conceptual/errors/la0268.md
+      summary: PostSharp reports LA0268 when an aspect attempts to introduce a field with IntroduceFieldAdviceInstance, but its target type is an interface, an enum or a delegate, or the aspect is applied to an assembly.
+    - name: LA0269
+      uid: la0269
+      path: conceptual/errors/la0269.md
+      summary: 'PostSharp reports LA0269 when an aspect attempts to introduce a field with IntroduceFieldAdviceInstance whose type cannot be the type of a field: a by-reference type, a pointer, void, a type that contains generic parameters, or a byref-like type outside a ref struct.'
+    - name: LA0270
+      uid: la0270
+      path: conceptual/errors/la0270.md
+      summary: PostSharp reports LA0270 when an aspect attempts to introduce a field with IntroduceFieldAdviceInstance and sets its Name property to an empty string or to white space instead of null.
+    - name: LA0271
+      uid: la0271
+      path: conceptual/errors/la0271.md
+      summary: PostSharp reports LA0271 when an IntroduceFieldAdviceInstance finds an existing field that matches the request, and its WhenCompatibleFieldExists property is Fail, which is the default.
+    - name: LA0272
+      uid: la0272
+      path: conceptual/errors/la0272.md
+      summary: PostSharp reports LA0272 when an IntroduceFieldAdviceInstance attempts to introduce a field by a name that another member of the target type has, such as a property or a field of another type, and its WhenIncompatibleMemberExists property is Fail, which is the default.
+    - name: LA0273
+      uid: la0273
+      path: conceptual/errors/la0273.md
+      summary: PostSharp reports LA0273 when an IntroduceFieldAdviceInstance without a name finds several fields of the requested type in the target type, and its WhenCompatibleFieldExists property is not IntroduceAnother.
+    - name: LA0274
+      uid: la0274
+      path: conceptual/errors/la0274.md
+      summary: PostSharp reports LA0274 when an aspect attempts to introduce a dependency with ImportDependencyAdviceInstance, but the target type is not a class with instance constructors, for instance a static class or a struct.
+    - name: LA0275
+      uid: la0275
+      path: conceptual/errors/la0275.md
+      summary: PostSharp reports LA0275 when an aspect attempts to introduce a dependency with ImportDependencyAdviceInstance whose type is a value type, a pointer or by-reference type, or an open generic type.
+    - name: LA0277
+      uid: la0277
+      path: conceptual/errors/la0277.md
+      summary: PostSharp reports LA0277 when an advice parameter imports a readonly method of a struct with [ImportMember], and the first parameter of the delegate type passes the struct as ref instead of in.
+    - name: LA0278
+      uid: la0278
+      path: conceptual/errors/la0278.md
+      summary: PostSharp reports LA0278 when the parameters that an ImportDependencyAdviceInstance adds to a constructor would give it the signature of another constructor of the class.
+    - name: LA0279
+      uid: la0279
+      path: conceptual/errors/la0279.md
+      summary: PostSharp reports LA0279 when an aspect attempts to introduce an instance field with IntroduceFieldAdviceInstance in a type with an explicit layout, and no existing field can be used, because a new field would have no offset.
+    - name: LA0280
+      uid: la0280
+      path: conceptual/errors/la0280.md
+      summary: PostSharp reports LA0280 when an advice parameter bound by [ImportMember] is of type Property<T, TIndex>, which an advice parameter cannot receive.
+    - name: LA0281
+      uid: la0281
+      path: conceptual/errors/la0281.md
+      summary: PostSharp reports LA0281 when an advice parameter is bound by [ImportMember] with a member name and with IsRequired set to true, and the target type has no member of this name that the parameter can receive, for instance a property imported by a ref parameter.
+    - name: LA0282
+      uid: la0282
+      path: conceptual/errors/la0282.md
+      summary: PostSharp reports LA0282 when an advice parameter imports an instance field by reference (in, ref or out), and the advice is applied to a static member, which has no instance whose field the parameter could reference.
+    - name: LA0283
+      uid: la0283
+      path: conceptual/errors/la0283.md
+      summary: PostSharp reports LA0283 when an advice parameter is bound by [ImportMember] without a member name, and several fields or properties of the target type have a type that the parameter can receive.
+    - name: LA0284
+      uid: la0284
+      path: conceptual/errors/la0284.md
+      summary: PostSharp reports LA0284 when an advice parameter of type ILocationBinding, IMethodBinding, Property<T> or Event<T> is bound by [ImportMember] without a member name, because these types import a member by its name only.
+    - name: LA0285
+      uid: la0285
+      path: conceptual/errors/la0285.md
+      summary: PostSharp reports LA0285 when an advice has a MatchPointcut with IsRequired set to true, and the target type has no method with the name of the pointcut whose signature matches the parameters of the advice.
+    - name: LA0286
+      uid: la0286
+      path: conceptual/errors/la0286.md
+      summary: PostSharp reports LA0286 when an aspect attempts to introduce a dependency with ImportDependencyAdviceInstance, the target class has no field of the dependency type, and several readable instance properties of this type could provide the dependency.
+  - name: Serialization
+    uid: errors-serialization
+    path: conceptual/errors/errors-serialization.md
+    summary: Reference of the serialization errors and warnings of PostSharp. Messages about the serialization of aspects and of the objects they reference, with [PSerializable] and the serializers of PostSharp.
+    items:
+    - name: SR0001
+      uid: sr0001
+      path: conceptual/errors/sr0001.md
+      summary: PostSharp reports SR0001 when the [PSerializable] attribute reaches an interface, typically through an aspect provider that adds it to a set of types without excluding interfaces.
+    - name: SR0002
+      uid: sr0002
+      path: conceptual/errors/sr0002.md
+      summary: PostSharp reports SR0002 when a [PSerializable] class derives from a class whose serializer is written by hand, because the base class then has no deserializing constructor that the generated constructor can call.
+    - name: SR0003
+      uid: sr0003
+      path: conceptual/errors/sr0003.md
+      summary: PostSharp reports SR0003 when the constructor of the base type that the deserializing constructor of a [PSerializable] type must call is not accessible from this type, typically because it is private.
+    - name: SR0004
+      uid: sr0004
+      path: conceptual/errors/sr0004.md
+      summary: PostSharp reports SR0004 when a [PSerializable] type has a read-only instance field that is serialized, because the deserializer must assign this field after the object is created.
+    - name: SR0005
+      uid: sr0005
+      path: conceptual/errors/sr0005.md
+      summary: PostSharp reports SR0005 when a [PSerializable] type already defines the deserializing constructor, which takes a single parameter of type PortableFormatterConstructorContext, because PostSharp generates this constructor.
+    - name: SR0006
+      uid: sr0006
+      path: conceptual/errors/sr0006.md
+      summary: 'PostSharp reports SR0006 when a [PSerializable] type derives from a type that has no serializer: neither [PSerializable], nor [Serializer], nor a nested Serializer class.'
+    - name: SR0007
+      uid: sr0007
+      path: conceptual/errors/sr0007.md
+      summary: PostSharp reports SR0007 when a [PSerializable] type derives from a [PSerializable] type of another assembly whose serializer has not been generated, because this assembly was built without PostSharp.
+    - name: SR0008
+      uid: sr0008
+      path: conceptual/errors/sr0008.md
+      summary: PostSharp reports SR0008 when a [PSerializable] class derives from a class whose serializer, written by hand, does not derive from ReferenceTypeSerializer, so the generated serializer cannot extend it.
+    - name: SR0009
+      uid: sr0009
+      path: conceptual/errors/sr0009.md
+      summary: PostSharp reports SR0009 when a [PSerializable] class derives from a class whose serializer, written by hand, is not visible from the derived class, typically because the serializer is a private nested class.
+    - name: SR0010
+      uid: sr0010
+      path: conceptual/errors/sr0010.md
+      summary: PostSharp reports SR0010 when a [PSerializable] class derives from a class whose serializer, written by hand, has no parameterless constructor that the generated serializer can call.
+    - name: SR0011
+      uid: sr0011
+      path: conceptual/errors/sr0011.md
+      summary: PostSharp reports SR0011 when a [PSerializable] class derives from a class whose serializer, written by hand, has a private default constructor, which the generated serializer cannot call.
+    - name: SR0012
+      uid: sr0012
+      path: conceptual/errors/sr0012.md
+      summary: PostSharp reports SR0012 when a [PSerializable] class derives from a class whose serializer, written by hand, seals SerializeObject or DeserializeFields, which the generated serializer must override.
+    - name: SR0013
+      uid: sr0013
+      path: conceptual/errors/sr0013.md
+      summary: PostSharp reports SR0013 when a [PSerializable] type derives from a type whose custom serializer class is sealed, because the serializer that PostSharp generates must derive from it.
+    - name: SR0016
+      uid: sr0016
+      path: conceptual/errors/sr0016.md
+      summary: PostSharp reports SR0016 when a [PSerializable] type already contains a nested type named Serializer, because PostSharp adds a nested type of this name to generate the serializer.
+  - name: Architecture
+    uid: errors-architecture
+    path: conceptual/errors/errors-architecture.md
+    summary: Reference of the architecture errors and warnings of PostSharp. Messages reported by architecture constraints, such as [ComponentInternal], [InternalImplement] and custom constraints.
+    items:
+    - name: AR0101
+      uid: ar0101
+      path: conceptual/errors/ar0101.md
+      summary: PostSharp reports AR0101 when a type in another assembly implements an interface marked with the [InternalImplement] constraint, unless the assembly of the interface grants it access with [InternalsVisibleTo].
+    - name: AR0102
+      uid: ar0102
+      path: conceptual/errors/ar0102.md
+      summary: PostSharp reports AR0102 when code outside of the namespaces and types allowed by a [ComponentInternal] constraint references the declaration that the constraint protects.
+    - name: AR0104
+      uid: ar0104
+      path: conceptual/errors/ar0104.md
+      summary: PostSharp reports AR0104 when the [Internal] constraint is applied to a declaration that other assemblies cannot see anyway, such as a public method of an internal class.
+    - name: AR0105
+      uid: ar0105
+      path: conceptual/errors/ar0105.md
+      summary: PostSharp reports AR0105 when code in another assembly uses a public declaration marked with the [Internal] constraint, unless the assembly of the declaration grants it access with [InternalsVisibleTo].
+    - name: AR0106
+      uid: ar0106
+      path: conceptual/errors/ar0106.md
+      summary: PostSharp reports AR0106 when a project uses a type, method or field marked with the [Experimental] constraint, which can change in a future version of its library.
+    - name: AR0107
+      uid: ar0107
+      path: conceptual/errors/ar0107.md
+      summary: PostSharp reports AR0107 when the [Protected] constraint is applied to a declaration that is already private or protected, or that belongs to a private or protected nested type.
+    - name: AR0108
+      uid: ar0108
+      path: conceptual/errors/ar0108.md
+      summary: PostSharp reports AR0108 when code in a type that does not derive from the declaring type uses a declaration marked with the [Protected] constraint.
+    - name: AR0109
+      uid: ar0109
+      path: conceptual/errors/ar0109.md
+      summary: 'PostSharp reports AR0109 when the pattern of a [NamingConvention] constraint is empty, or neither contains a * wildcard nor starts with the regex: prefix.'
+    - name: AR0110
+      uid: ar0110
+      path: conceptual/errors/ar0110.md
+      summary: PostSharp reports AR0110 when the name of a class or interface does not match the pattern of a [NamingConvention] constraint applied to it or to one of its base classes or interfaces.
+  - name: Licensing
+    uid: errors-licensing
+    path: conceptual/errors/errors-licensing.md
+    summary: 'Reference of the licensing errors and warnings of PostSharp. Messages about the PostSharp license: missing or invalid license keys, the features and the number of projects a license allows, and the license server.'
+    items:
+    - name: PS0132
+      uid: ps0132
+      path: conceptual/errors/ps0132.md
+      summary: PostSharp reports PS0132 for a message of the licensing services that none of the more specific licensing messages covers.
+    - name: PS0148
+      uid: ps0148
+      path: conceptual/errors/ps0148.md
+      summary: 'PostSharp reports PS0148 when the license server registered for the project or the machine does not lease a license: it does not answer, it refuses the lease, or it returns an invalid or already ended lease.'
+    - name: PS0242
+      uid: ps0242
+      path: conceptual/errors/ps0242.md
+      summary: 'PostSharp reports PS0242 when a project uses PostSharp and PostSharp finds no usable license at all: no license key is registered or configured, or every license key that it found was rejected.'
+    - name: PS0243
+      uid: ps0243
+      path: conceptual/errors/ps0243.md
+      summary: PostSharp reports PS0243 when premium features that no license of the build covers enhance types with more than 1,000 lines of code in the project, or in the project and the assemblies that it references.
+    - name: PS0278
+      uid: ps0278
+      path: conceptual/errors/ps0278.md
+      summary: PostSharp reports PS0278 when the project uses an aspect weaver plug-in that is not part of PostSharp, and no license of the build covers PostSharp Framework.
+    - name: PS0301
+      uid: ps0301
+      path: conceptual/errors/ps0301.md
+      summary: 'PostSharp reports PS0301 when a license key or a license string that the project or the machine supplies cannot be used: it is malformed, its signature does not verify, it is limited to another namespace, or it licenses another product.'
+    - name: PS0304
+      uid: ps0304
+      path: conceptual/errors/ps0304.md
+      summary: PostSharp reports PS0304 when a license key that the project or the machine supplies has expired, has been revoked, or carries a subscription that ended before the release of the version of PostSharp that builds the project.
+    - name: PS0305
+      uid: ps0305
+      path: conceptual/errors/ps0305.md
+      summary: PostSharp reports PS0305 when the project or the machine names a license server by an http:// URL, which sends the name of the user and of the machine in cleartext.
+  - name: Aggregation
+    uid: errors-common
+    path: conceptual/errors/errors-common.md
+    summary: 'Reference of the aggregation and common pattern errors and warnings of PostSharp. Messages of the COM family, reported by PostSharp.Patterns.Aggregation and the common patterns: [Aggregatable], [Child], [Reference] and [Parent], and the advisable collections.'
+    items:
+    - name: COM001
+      uid: com001
+      path: conceptual/errors/com001.md
+      summary: PostSharp reports COM001 when a field or an automatic property of an [Aggregatable] class has more than one of the [Child], [Reference] and [Parent] attributes, so its relationship to the parent object is ambiguous.
+    - name: COM002
+      uid: com002
+      path: conceptual/errors/com002.md
+      summary: PostSharp reports COM002 when a field or an automatic property of an [Aggregatable] class can hold a child object but has neither a [Child], [Reference] or [Parent] attribute nor a rule that gives its relationship.
+    - name: COM003
+      uid: com003
+      path: conceptual/errors/com003.md
+      summary: PostSharp reports COM003 when a [Child], [Reference] or [Parent] attribute is applied to a property that has its own accessors, instead of to the field that stores the value of the property.
+    - name: COM004
+      uid: com004
+      path: conceptual/errors/com004.md
+      summary: PostSharp reports COM004 when a [Child], [Reference] or [Parent] attribute is applied to a field or an automatic property whose type, such as a string, a delegate or a value type, cannot take part in a parent/child relationship.
+    - name: COM007
+      uid: com007
+      path: conceptual/errors/com007.md
+      summary: PostSharp reports COM007 when the IsParentSurrogate property of a [Child] attribute requests a relationship that the type of the field or property cannot have, for example IsParentSurrogate = false on an ImmutableArray.
+    - name: COM008
+      uid: com008
+      path: conceptual/errors/com008.md
+      summary: PostSharp reports COM008 when a [Child] field or property of a threading-aware or recordable class has the type List<T>, Collection<T>, ObservableCollection<T>, Dictionary<TKey, TValue> or HashSet<T>, which PostSharp cannot enhance. Use an advisable collection instead.
+    - name: COM009
+      uid: com009
+      path: conceptual/errors/com009.md
+      summary: PostSharp reports COM009 when a [Child] field or automatic property of an [Aggregatable] class has a struct type and its field is read-only, because PostSharp must modify the struct in place to attach it to its parent.
+    - name: COM010
+      uid: com010
+      path: conceptual/errors/com010.md
+      summary: PostSharp reports COM010 when a range contract such as [GreaterThan] or [Range] is applied to a field, property or parameter whose type cannot hold any value of the range, for example [GreaterThan(1000)] on a byte.
+    - name: COM011
+      uid: com011
+      path: conceptual/errors/com011.md
+      summary: PostSharp reports COM011 when an async lambda or anonymous method opens a custom logging activity with OpenActivity or OpenAsyncActivity, because PostSharp cannot instrument the await expressions of an anonymous method.
+    - name: COM012
+      uid: com012
+      path: conceptual/errors/com012.md
+      summary: PostSharp reports COM012 when [Child], [Reference] or [Parent] is applied to a static field or a static automatic property. A static member does not belong to an instance, so PostSharp ignores the attribute.
+    - name: COM013
+      uid: com013
+      path: conceptual/errors/com013.md
+      summary: PostSharp reports COM013 when a [Child], [Parent] or [Reference] attribute is applied to a field or property of a class that does not have the [Aggregatable] aspect, so the attribute has no effect.
+    - name: COM014
+      uid: com014
+      path: conceptual/errors/com014.md
+      summary: PostSharp reports COM014 when a class with a threading model has a field or automatic property of a collection type without [Child] or [Reference], and treats the member as a reference.
+    - name: COM015
+      uid: com015
+      path: conceptual/errors/com015.md
+      summary: 'PostSharp reports COM015 when a [Child], [Parent] or [Reference] attribute is applied to the backing field of an automatic property with the field: target, where the Aggregatable aspect does not read it.'
+    - name: COM016
+      uid: com016
+      path: conceptual/errors/com016.md
+      summary: 'PostSharp reports COM016 when [field: Reference] is applied to a read-only automatic property that has no relationship attribute itself: the attribute excludes the backing field from the immutability analysis but does not set the relationship of the property.'
+    - name: COM017
+      uid: com017
+      path: conceptual/errors/com017.md
+      summary: 'PostSharp reports COM017 when an automatic property and its backing field have different relationship attributes, such as [Reference] on the property and [field: Child]: the attribute of the property decides the relationship.'
+    - name: COM018
+      uid: com018
+      path: conceptual/errors/com018.md
+      summary: 'PostSharp reports COM018 when a [Child], [Parent] or [Reference] attribute is applied with the field: target to an automatic property of a string, delegate or value type, which cannot have a relationship.'
+  - name: Model
+    uid: errors-model
+    path: conceptual/errors/errors-model.md
+    summary: 'Reference of the model pattern errors and warnings of PostSharp. Messages reported by PostSharp.Patterns.Model: INotifyPropertyChanged, aggregatable objects, undo/redo and weak events.'
+    items:
+    - name: DOM001
+      uid: dom001
+      path: conceptual/errors/dom001.md
+      summary: PostSharp reports DOM001 when the getter of a property of a [NotifyPropertyChanged] class, or a method that it calls, reads a mutable static field or a field of another object, whose changes the aspect cannot detect.
+    - name: DOM002
+      uid: dom002
+      path: conceptual/errors/dom002.md
+      summary: PostSharp reports DOM002 when the getter of a property of a [NotifyPropertyChanged] class, or a method that it calls, calls a static method or a method of another object that returns a value, and that is not marked as [Pure].
+    - name: DOM003
+      uid: dom003
+      path: conceptual/errors/dom003.md
+      summary: PostSharp reports DOM003 when the getter of a property of a [NotifyPropertyChanged] class, or a method that it calls, creates a delegate from a method group or a lambda expression, because the aspect cannot analyze the dependencies of the code behind the delegate.
+    - name: DOM004
+      uid: dom004
+      path: conceptual/errors/dom004.md
+      summary: PostSharp reports DOM004 when a method marked with the [Pure] attribute has a parameter whose type is not immutable, such as a class or a collection, because the result of the method could then change without its arguments changing.
+    - name: DOM007
+      uid: dom007
+      path: conceptual/errors/dom007.md
+      summary: PostSharp warns with DOM007 when the getter of a property of a [NotifyPropertyChanged] class reads more than five fields whose type is compatible with the type of the property, which makes tracking the changes of its value less efficient at run time.
+    - name: DOM008
+      uid: dom008
+      path: conceptual/errors/dom008.md
+      summary: PostSharp reports DOM008 when the [NotifyPropertyChanged] aspect is applied to a class that already implements INotifyPropertyChanged but has no OnPropertyChanged(string) method through which the aspect can raise the event.
+    - name: DOM009
+      uid: dom009
+      path: conceptual/errors/dom009.md
+      summary: PostSharp reports DOM009 when a class with the [NotifyPropertyChanged] aspect, or one of its base classes, defines a ChildPropertyChanged event or an OnChildPropertyChanged(string) method, whose names the aspect reserves.
+    - name: DOM011
+      uid: dom011
+      path: conceptual/errors/dom011.md
+      summary: PostSharp reports DOM011 when the [NotifyPropertyChanged] aspect analyzes the dependencies of a property whose getter, directly or through another method of the class, calls a virtual method that returns a value.
+    - name: DOM012
+      uid: dom012
+      path: conceptual/errors/dom012.md
+      summary: PostSharp reports DOM012 when Depends.On is called in a method that the getter of a property reaches only through another method, instead of in the getter itself or in a method that the getter calls directly.
+    - name: DOM021
+      uid: dom021
+      path: conceptual/errors/dom021.md
+      summary: PostSharp reports DOM021 when a class with the [Recordable] aspect has a field whose type is a mutable struct, whose changes in place the aspect cannot record.
+    - name: DOM022
+      uid: dom022
+      path: conceptual/errors/dom022.md
+      summary: PostSharp reports DOM022 when a class with the deprecated [Recordable] aspect has a [Child] field whose type neither implements IRecordable nor has the [Recordable] aspect, so the changes of the child cannot be undone with its parent.
+    - name: DOM023
+      uid: dom023
+      path: conceptual/errors/dom023.md
+      summary: PostSharp reports DOM023 when a property of a class with the [NotifyPropertyChanged] aspect reads a property of another object whose type does not implement INotifyPropertyChanged, so the aspect cannot know when the dependent property changes.
+    - name: DOM025
+      uid: dom025
+      path: conceptual/errors/dom025.md
+      summary: PostSharp reports DOM025 when the getter of a property of a class with the [NotifyPropertyChanged] aspect, or a method that it calls, uses a local variable assigned inside a try statement, which the dependency analysis does not support.
+    - name: DOM026
+      uid: dom026
+      path: conceptual/errors/dom026.md
+      summary: PostSharp reports DOM026 when a class with the deprecated [Recordable] aspect has a public or internal async or iterator method, for which the aspect cannot open a recording scope.
+    - name: DOM027
+      uid: dom027
+      path: conceptual/errors/dom027.md
+      summary: PostSharp reports DOM027 when the [AggregateAllChanges] attribute is applied to a property whose type implements neither ICollection nor ICollection<T>, in a class with the [NotifyPropertyChanged] aspect.
+    - name: DOM028
+      uid: dom028
+      path: conceptual/errors/dom028.md
+      summary: PostSharp reports DOM028 when a method of a class with the [NotifyPropertyChanged] aspect assigns a field of a structure stored in a field of the class, a change that the aspect cannot observe.
+    - name: DOM030
+      uid: dom030
+      path: conceptual/errors/dom030.md
+      summary: PostSharp reports DOM030 when the [IgnoreAutoChangeNotification] attribute is applied to a method. The attribute is meant for properties; on a method, it makes the [NotifyPropertyChanged] aspect skip the analysis of the calls to the method, which can hide dependencies.
+  - name: Threading
+    uid: errors-threading
+    path: conceptual/errors/errors-threading.md
+    summary: 'Reference of the threading errors and warnings of PostSharp. Messages reported by PostSharp.Patterns.Threading: threading models, dispatching, and deadlock detection.'
+    items:
+    - name: THR001
+      uid: thr001
+      path: conceptual/errors/thr001.md
+      summary: PostSharp reports THR001 when the [Dispatched] aspect is applied in non-blocking mode, for example with [Dispatched(true)], to a method that returns a value or has ref, out or in parameters.
+    - name: THR006
+      uid: thr006
+      path: conceptual/errors/thr006.md
+      summary: PostSharp reports THR006 when the [Background] aspect is applied to a method that returns a value other than a Task, or that has ref, out or in parameters.
+    - name: THR008
+      uid: thr008
+      path: conceptual/errors/thr008.md
+      summary: PostSharp reports THR008 when a class with the Synchronized, Reader/Writer Synchronized, Actor or Thread-Unsafe threading model has a public or internal field.
+    - name: THR009
+      uid: thr009
+      path: conceptual/errors/thr009.md
+      summary: PostSharp reports THR009 when a method of a class with the [Actor] threading model can be invoked from outside the object and has a ref, out or in parameter.
+    - name: THR016
+      uid: thr016
+      path: conceptual/errors/thr016.md
+      summary: PostSharp reports THR016 when a method of a class with the [ReaderWriterSynchronized] threading model can be invoked from outside the object but has no [Reader], [UpgradeableReader] or [Writer] attribute, so the method acquires no lock.
+    - name: THR017
+      uid: thr017
+      path: conceptual/errors/thr017.md
+      summary: PostSharp reports THR017 when an async method of a class with the Synchronized, Reader/Writer Synchronized or Actor threading model, or an async [Dispatched] method of a class with a threading model, has no [Reentrant] attribute.
+    - name: THR018
+      uid: thr018
+      path: conceptual/errors/thr018.md
+      summary: PostSharp reports THR018 when a class with a threading model has a field whose type is a struct with fields that are not read-only.
+    - name: THR019
+      uid: thr019
+      path: conceptual/errors/thr019.md
+      summary: PostSharp reports THR019 when a child field of a class with a threading model has a type whose threading model cannot be the child of that model, for example a synchronized child of a freezable object.
+    - name: THR020
+      uid: thr020
+      path: conceptual/errors/thr020.md
+      summary: PostSharp reports THR020 when a child field of a class with a threading model has a type that is neither immutable nor annotated with a threading model, so the parent cannot protect it.
+    - name: THR021
+      uid: thr021
+      path: conceptual/errors/thr021.md
+      summary: PostSharp reports THR021 when a method of a class with the [ReaderWriterSynchronized] aspect has more than one access-level attribute, for example both [Reader] and [Writer].
+    - name: THR022
+      uid: thr022
+      path: conceptual/errors/thr022.md
+      summary: PostSharp reports THR022 when the [Reentrant] attribute is applied to a method that is not async, including a method that returns a Task without the async keyword.
+    - name: THR023
+      uid: thr023
+      path: conceptual/errors/thr023.md
+      summary: PostSharp reports THR023 when the [Dispatched] aspect is applied to a static method, which has no object whose thread it could run in.
+    - name: THR025
+      uid: thr025
+      path: conceptual/errors/thr025.md
+      summary: PostSharp reports THR025 when the thread-safety policy is applied to the assembly and a class with instance fields has no threading model and is not marked as [ExplicitlySynchronized].
+    - name: THR026
+      uid: thr026
+      path: conceptual/errors/thr026.md
+      summary: PostSharp reports THR026 when the thread-safety policy is applied to the assembly and a static field is not read-only and is not marked as [ExplicitlySynchronized] or [ThreadStatic].
+    - name: THR027
+      uid: thr027
+      path: conceptual/errors/thr027.md
+      summary: PostSharp reports THR027 when the thread-safety policy is applied to the assembly and the type of a static field is not thread-safe, unless the field is marked as [ExplicitlySynchronized] or [ThreadStatic].
+    - name: THR036
+      uid: thr036
+      path: conceptual/errors/thr036.md
+      summary: PostSharp reports THR036 when the [Background] aspect is applied to an instance method of a class that has the [ThreadAffine] threading model.
+    - name: THR037
+      uid: thr037
+      path: conceptual/errors/thr037.md
+      summary: PostSharp reports THR037 when the [Background] aspect is applied to an instance method of a class that has the [Actor] threading model.
+    - name: THR039
+      uid: thr039
+      path: conceptual/errors/thr039.md
+      summary: PostSharp reports THR039 when an async method that is an entry point of an [Actor] class, such as a public or internal method, returns a type other than void, Task or Task<T>, for example ValueTask<T>.
+    - name: THR040
+      uid: thr040
+      path: conceptual/errors/thr040.md
+      summary: PostSharp reports THR040 when an access level attribute such as [Reader] or [Writer] is applied to a static method of a class that has a threading model. The threading model ignores the attribute, because its locks protect instances.
+    - name: THR041
+      uid: thr041
+      path: conceptual/errors/thr041.md
+      summary: PostSharp reports THR041 when an access level attribute such as [Reader] or [Writer] is applied to a method of a class that has no threading model, so that no lock is acquired and the attribute is ignored.
+    - name: THR042
+      uid: thr042
+      path: conceptual/errors/thr042.md
+      summary: 'PostSharp reports THR042 when [field: ExplicitlySynchronized] is applied to the backing field of an automatic property but not to the property. The threading model reads the attribute from the property, so the attribute has no effect.'
+    - name: THR043
+      uid: thr043
+      path: conceptual/errors/thr043.md
+      summary: PostSharp reports THR043 when the [ExplicitlySynchronized] attribute of a property receives an appliesToMethodOnly argument that requests another behavior than the one the threading model gives the property, because the argument is ignored on properties.
+  - name: XAML
+    uid: errors-xaml
+    path: conceptual/errors/errors-xaml.md
+    summary: 'Reference of the xaml errors and warnings of PostSharp. Messages reported by PostSharp.Patterns.Xaml: dependency properties, attached properties and commands.'
+    items:
+    - name: XAM050
+      uid: xam050
+      path: conceptual/errors/xam050.md
+      summary: PostSharp reports XAM050 when a [DependencyProperty] or [AttachedProperty] aspect is applied to a property of a class that does not derive from DependencyObject.
+    - name: XAM051
+      uid: xam051
+      path: conceptual/errors/xam051.md
+      summary: PostSharp reports XAM051 when the [DependencyProperty] aspect is applied to a static property, to a property whose getter is private, or to a field.
+    - name: XAM052
+      uid: xam052
+      path: conceptual/errors/xam052.md
+      summary: PostSharp reports XAM052 when the [AttachedProperty] aspect is applied to a property that is not static, whose getter is not public, or whose type is not the generic Attached type, or to a field.
+    - name: XAM053
+      uid: xam053
+      path: conceptual/errors/xam053.md
+      summary: PostSharp reports XAM053 when the ValidateValueMethod property of a [DependencyProperty] or [AttachedProperty] aspect names a method that the declaring type of the property does not declare.
+    - name: XAM054
+      uid: xam054
+      path: conceptual/errors/xam054.md
+      summary: PostSharp reports XAM054 when the class of a [DependencyProperty] or [AttachedProperty] property declares several overloads of its validation method or of its property-changed method.
+    - name: XAM055
+      uid: xam055
+      path: conceptual/errors/xam055.md
+      summary: PostSharp reports XAM055 when the validation method of a [DependencyProperty] or [AttachedProperty] property has parameters that the aspect cannot call it with, for example a value parameter of another type than the property.
+    - name: XAM057
+      uid: xam057
+      path: conceptual/errors/xam057.md
+      summary: PostSharp reports XAM057 when the PropertyChangedMethod property of a [DependencyProperty] or [AttachedProperty] aspect names a method that the class of the property does not declare.
+    - name: XAM058
+      uid: xam058
+      path: conceptual/errors/xam058.md
+      summary: PostSharp reports XAM058 when the change handler method of a [DependencyProperty] or [AttachedProperty] property has parameters that the aspect cannot call it with, for example a parameter for the new value.
+    - name: XAM059
+      uid: xam059
+      path: conceptual/errors/xam059.md
+      summary: PostSharp reports XAM059 when the change handler or the validation method of an [AttachedProperty] property is an instance method, because an attached property has no instance of the declaring class to call it on.
+    - name: XAM070
+      uid: xam070
+      path: conceptual/errors/xam070.md
+      summary: PostSharp reports XAM070 when the [Command] aspect is applied to a static property, or to a property whose type is not exactly System.Windows.Input.ICommand.
+    - name: XAM071
+      uid: xam071
+      path: conceptual/errors/xam071.md
+      summary: PostSharp reports XAM071 when the ExecuteMethod, CanExecuteMethod or CanExecuteProperty property of the [Command] aspect names a member that the class of the command property does not declare.
+    - name: XAM072
+      uid: xam072
+      path: conceptual/errors/xam072.md
+      summary: PostSharp reports XAM072 when a [Command] aspect sets both its CanExecuteMethod and CanExecuteProperty properties, because a command can take its availability from only one member.
+    - name: XAM075
+      uid: xam075
+      path: conceptual/errors/xam075.md
+      summary: PostSharp reports XAM075 when the class of a [Command] property declares more than one method that matches the Execute or CanExecute method of the command, for example an ExecuteSave and a Save method, or overloads.
+    - name: XAM077
+      uid: xam077
+      path: conceptual/errors/xam077.md
+      summary: PostSharp reports XAM077 when the Execute method of a [Command] property does not return void, is static, or has more than one parameter.
+    - name: XAM078
+      uid: xam078
+      path: conceptual/errors/xam078.md
+      summary: PostSharp reports XAM078 when the CanExecute method that the [Command] aspect binds to a command property is static, does not return bool, or has more than one parameter.
+    - name: XAM079
+      uid: xam079
+      path: conceptual/errors/xam079.md
+      summary: PostSharp reports XAM079 when the CanExecute property that the [Command] aspect binds to a command property is not of type bool, has no getter, or has a static or private getter.
+    - name: XAM080
+      uid: xam080
+      path: conceptual/errors/xam080.md
+      summary: PostSharp reports XAM080 when the [Command] aspect is applied to a property that is not automatic and lacks a getter or a setter, through which the aspect assigns the command.
+    - name: XAM081
+      uid: xam081
+      path: conceptual/errors/xam081.md
+      summary: PostSharp reports XAM081 when the [Command] aspect does not set the ExecuteMethod property and the class of the command property declares no method with the default names, Execute<Name> or <Name>.
+  - name: Caching
+    uid: errors-caching
+    path: conceptual/errors/errors-caching.md
+    summary: Reference of the caching errors and warnings of PostSharp. Messages reported by PostSharp.Patterns.Caching.
+    items:
+    - name: CAC001
+      uid: cac001
+      path: conceptual/errors/cac001.md
+      summary: PostSharp reports CAC001 when the [Cache] aspect is applied to a method whose return type is void or the non-generic Task, because such a method has no value to store in the cache.
+    - name: CAC002
+      uid: cac002
+      path: conceptual/errors/cac002.md
+      summary: PostSharp reports CAC002 when the [InvalidateCache] aspect names a method that exists but does not have the [Cache] aspect, so there is no cached value to remove.
+    - name: CAC003
+      uid: cac003
+      path: conceptual/errors/cac003.md
+      summary: PostSharp reports CAC003 when the [InvalidateCache] aspect names an instance method whose cache key includes the this instance, and the invalidating method is static or belongs to a type that is not derived from the type of the cached method.
+    - name: CAC004
+      uid: cac004
+      path: conceptual/errors/cac004.md
+      summary: PostSharp reports CAC004 when a parameter of the method named by the [InvalidateCache] aspect has no parameter of the same name in the invalidating method, so the aspect cannot rebuild the cache key.
+    - name: CAC005
+      uid: cac005
+      path: conceptual/errors/cac005.md
+      summary: PostSharp reports CAC005 when a parameter of the invalidating method has the name of a parameter of the cached method, but its type cannot be assigned to the type of that parameter.
+    - name: CAC006
+      uid: cac006
+      path: conceptual/errors/cac006.md
+      summary: PostSharp reports CAC006 when one of the method names passed to the [InvalidateCache] aspect is null or an empty string.
+    - name: CAC007
+      uid: cac007
+      path: conceptual/errors/cac007.md
+      summary: PostSharp reports CAC007 when the [InvalidateCache] aspect is applied without the name of any method to invalidate.
+    - name: CAC008
+      uid: cac008
+      path: conceptual/errors/cac008.md
+      summary: PostSharp reports CAC008 when the [InvalidateCache] aspect names a method that does not exist in the type where the aspect looks for it, typically because the cached method belongs to another type that the aspect does not name.
+    - name: CAC009
+      uid: cac009
+      path: conceptual/errors/cac009.md
+      summary: PostSharp reports CAC009 when the [InvalidateCache] aspect names a method that has several cached overloads whose parameters all match the invalidating method, and the AllowMultipleOverloads property is not set.
+    - name: CAC010
+      uid: cac010
+      path: conceptual/errors/cac010.md
+      summary: PostSharp reports CAC010 when the [Cache] aspect is applied to a method that has a ref or out parameter, because the cache stores only the return value of the method.
+    - name: CAC011
+      uid: cac011
+      path: conceptual/errors/cac011.md
+      summary: 'PostSharp reports CAC011 when a static method, or a method of a struct, has a caching aspect in a class configured with UseDependencyInjection: the method has no object that receives the caching service, so it uses CachingServices.DefaultService. Its severity is set by StaticMethodFallbackSeverity, a warning by default.'
+    - name: CAC012
+      uid: cac012
+      path: conceptual/errors/cac012.md
+      summary: PostSharp reports CAC012 when the [InvalidateCache] aspect names a cached method whose UseDependencyInjection setting differs from the setting of the invalidating method, so that the two methods use different caching services.
+    - name: CAC013
+      uid: cac013
+      path: conceptual/errors/cac013.md
+      summary: PostSharp reports CAC013 when the [Cache] aspect is applied to an async iterator, or to an async method that does not return Task<T>, such as a method that returns ValueTask<T>, and the UnsupportedTargetAction property of the aspect keeps its default value.
+  - name: Logging
+    uid: errors-logging
+    path: conceptual/errors/errors-logging.md
+    summary: Reference of the logging errors and warnings of PostSharp. Messages reported by PostSharp.Patterns.Diagnostics, the logging library.
+    items:
+    - name: DIA002
+      uid: dia002
+      path: conceptual/errors/dia002.md
+      summary: PostSharp reports DIA002 when a logging aspect such as [Log] is applied to an abstract method, which has no body to log, typically by an IAspectProvider that adds the aspect to every method of a type.
+    - name: DIA003
+      uid: dia003
+      path: conceptual/errors/dia003.md
+      summary: PostSharp reports DIA003 when a logging profile sets an execution time threshold but logs exceptions and slow executions at a lower level than the other records, so the threshold cannot raise the level of slow executions and is ignored.
+    - name: DIA004
+      uid: dia004
+      path: conceptual/errors/dia004.md
+      summary: PostSharp reports DIA004 when a logging aspect names a logging profile that neither PostSharp nor any postsharp.config file of the project defines, typically because of a misspelled name or a configuration file in the wrong directory.
+    - name: DIA005
+      uid: dia005
+      path: conceptual/errors/dia005.md
+      summary: 'PostSharp reports DIA005 when a project that uses PostSharp Logging is built in developer mode: the logging of the built assembly stops 24 hours after the build, unless the application logs to Flashtrace.'
 - name: API Reference
   uid: api
   path: conceptual/api.md
@@ -1127,6 +3035,18 @@
     uid: immutable-collections
     path: conceptual/aggregatable/immutable-collections.md
     summary: The document is related to "PostSharp", a product associated with aspects of AOP and Metaprogramming. It references 'advisable-collections' as additional resources.
+  - name: target-frameworks
+    uid: target-frameworks
+    path: conceptual/deployment/target-frameworks.md
+    summary: The document discusses the "postsharp" product, related to the categories of PostSharp, AOP (Aspect-Oriented Programming), and Metaprogramming.
+  - name: Limitations of Undo/Redo
+    uid: undoredo-limitations
+    path: conceptual/deprecated/undo-redo/undoredo-limitations.md
+    summary: The document discusses the limitations of the PostSharp product, including its intrinsic single-threaded nature and lack of support for async methods in recordable classes.
+  - name: interface-introduction
+    uid: interface-introduction
+    path: conceptual/framework/aspects/type-level-aspects/interface-introduction.md
+    summary: The document explains how to use PostSharp to add code constructs such as interfaces, methods, and properties to your codebase in a controlled and consistent manner, adhering to the DRY (Don't Repeat Yourself) principle. It also covers handling potential conflicts and controlling visibility of introduced members.
   - name: What's New in PostSharp 2025.1
     uid: whats-new-20251
     path: conceptual/introduction/whats-new/2025-1.md

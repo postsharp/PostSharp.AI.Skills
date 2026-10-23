@@ -214,7 +214,14 @@ items:
   assemblies:
   - PostSharp.Patterns.Diagnostics.Backends.Serilog
   namespace: PostSharp.Patterns.Diagnostics.Backends.Serilog
-  summary: Gets or sets the special properties that should be added to the list of event properties.
+  summary: >-
+    Gets or sets the special properties that should be added to the list of event properties.
+
+    The default value is <code>Indent | IndentLevel</code>.
+  remarks: >-
+    <p>Before version 2027.0.5, the <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSpecialProperties.Indent" data-throw-if-not-resolved="false"></xref> flag also added the <code>IndentLevel</code> property,
+        and the <xref href="PostSharp.Patterns.Diagnostics.Backends.Serilog.SerilogSpecialProperties.IndentLevel" data-throw-if-not-resolved="false"></xref> flag had no effect. The default value includes both flags, so that the
+        default output does not change.</p>
   example: []
   syntax:
     content: public SerilogSpecialProperties IncludedSpecialProperties { get; set; }

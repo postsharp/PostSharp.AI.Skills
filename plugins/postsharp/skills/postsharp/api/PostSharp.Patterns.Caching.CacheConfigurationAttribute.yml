@@ -12,6 +12,8 @@ items:
   - PostSharp.Patterns.Caching.CacheConfigurationAttribute.Priority
   - PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
   - PostSharp.Patterns.Caching.CacheConfigurationAttribute.SlidingExpiration
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.StaticMethodFallbackSeverity
+  - PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection
   langs:
   - csharp
   - vb
@@ -121,6 +123,80 @@ items:
   nameWithType.vb: CacheConfigurationAttribute.New()
   fullName.vb: PostSharp.Patterns.Caching.CacheConfigurationAttribute.New()
   name.vb: New()
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection
+  id: UseDependencyInjection
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: UseDependencyInjection
+  nameWithType: CacheConfigurationAttribute.UseDependencyInjection
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets a value indicating whether the classes in scope receive their <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref> from a dependency injection
+
+    container. The default value is <code>false</code>, which means that the cached methods use <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>When this property is <code>true</code>, every class that has a method with <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> or
+            <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> receives an <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref> parameter in its public constructors, and the
+            classes that derive from it receive it too, also in other assemblies that PostSharp processes. The constructors assign the service just after the base constructor
+            call. A constructor that already has a parameter of type <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref> uses it.</p>
+    <p>The original constructors are kept as non-public forwarders that pass <code>null</code>, so that a container sees only the
+            constructors that receive the service. An object created with <code>new</code> in the project goes through a forwarder and resolves the
+            service from <xref href="PostSharp.Extensibility.RunTimeServiceLocator" data-throw-if-not-resolved="false"></xref>, where <xref href="PostSharp.Patterns.Caching.CachingServices" data-throw-if-not-resolved="false"></xref> registers
+            <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> unless the application registered another service first.</p>
+    <p>This changes the public constructors of the classes, which is a binary breaking change for their consumers.</p>
+
+    <p>Static methods have no object that receives the service: they use <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref>, and the build reports a
+            message with the severity given by <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute.StaticMethodFallbackSeverity" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>This property is read at build time from the declaring type of the method, its base types and its assembly, in this order.</p>
+  example: []
+  syntax:
+    content: public bool UseDependencyInjection { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UseDependencyInjection As Boolean
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection*
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-dependency-injection'
+    altText: 'Conceptual: Using Caching with Dependency Injection'
+- uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.StaticMethodFallbackSeverity
+  commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.StaticMethodFallbackSeverity
+  id: StaticMethodFallbackSeverity
+  parent: PostSharp.Patterns.Caching.CacheConfigurationAttribute
+  langs:
+  - csharp
+  - vb
+  name: StaticMethodFallbackSeverity
+  nameWithType: CacheConfigurationAttribute.StaticMethodFallbackSeverity
+  fullName: PostSharp.Patterns.Caching.CacheConfigurationAttribute.StaticMethodFallbackSeverity
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets or sets the severity of the message reported when a static method uses <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> although
+
+    <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection" data-throw-if-not-resolved="false"></xref> is <code>true</code>. The default value is <xref href="PostSharp.Extensibility.SeverityType.Warning" data-throw-if-not-resolved="false"></xref>. Set it to
+
+    <xref href="PostSharp.Extensibility.SeverityType.Error" data-throw-if-not-resolved="false"></xref> to require that every cached method receives its service from the container, or to
+
+    <xref href="PostSharp.Extensibility.SeverityType.None" data-throw-if-not-resolved="false"></xref> to accept the fallback silently.
+  example: []
+  syntax:
+    content: public SeverityType StaticMethodFallbackSeverity { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Extensibility.SeverityType
+    content.vb: Public Property StaticMethodFallbackSeverity As SeverityType
+  overload: PostSharp.Patterns.Caching.CacheConfigurationAttribute.StaticMethodFallbackSeverity*
 - uid: PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
   commentId: P:PostSharp.Patterns.Caching.CacheConfigurationAttribute.ProfileName
   id: ProfileName

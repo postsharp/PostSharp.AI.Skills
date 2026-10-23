@@ -40,7 +40,7 @@ In the following example, the methods in type `MyClass` are enhanced by one, two
 
 [!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Applying/MulticastMultipleInstances.cs#example)]
 
-The <xref:PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute> custom attribute specifies that several instances of the aspect can run in any order. Without it, PostSharp emits the warning PS0114 because the instances are not ordered. See <xref:aspect-dependencies> for details.
+The <xref:PostSharp.Aspects.Dependencies.AspectTypeDependencyAttribute> custom attribute specifies that several instances of the aspect can run in any order. Without it, PostSharp emits the warning <xref:ps0114?text=PS0114> because the instances are not ordered. See <xref:aspect-dependencies> for details.
 
 When the program calls the three methods, every aspect instance writes a line:
 

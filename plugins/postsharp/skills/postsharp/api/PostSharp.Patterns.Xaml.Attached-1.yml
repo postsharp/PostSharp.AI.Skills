@@ -134,7 +134,10 @@ items:
   assemblies:
   - PostSharp.Patterns.Xaml
   namespace: PostSharp.Patterns.Xaml
-  summary: Sets the value of this attached property for a given object without changing its value source (see <xref href="System.Windows.DependencyObject.SetCurrentValue(System.Windows.DependencyProperty%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>).
+  summary: Sets the local value of this attached property for a given object, like the indexer (see <xref href="System.Windows.DependencyObject.SetValue(System.Windows.DependencyProperty%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>).
+  remarks: >-
+    <p>Before version 2027.0.5, this method called <xref href="System.Windows.DependencyObject.SetCurrentValue(System.Windows.DependencyProperty%2cSystem.Object)" data-throw-if-not-resolved="false"></xref>, so a style or a binding could replace
+        the value.</p>
   example: []
   syntax:
     content: public void SetValue(DependencyObject obj, T value)

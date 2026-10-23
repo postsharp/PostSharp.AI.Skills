@@ -22,7 +22,7 @@ To disable enforcement of the class-level threading model for a specific method,
 
 In the following example, this custom attribute allows us to implement the `ToString` in a class that respects the Actor model. Without the custom attribute, this would not have been possible because non-void public methods must have the `async` keyword. 
 
-[!code-csharp[](../../../code/samples/Threading/ExplicitlySynchronizedMethod.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ExplicitlySynchronizedMethod.cs#example)]
 
 When used on a method, the <xref:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute> attribute has several effects: 
 
@@ -40,7 +40,7 @@ When used on a method, the <xref:PostSharp.Patterns.Threading.ExplicitlySynchron
 
 To disable enforcement of the class-level threading model for a specific field, add the <xref:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute> attribute to the field: 
 
-[!code-csharp[](../../../code/samples/Threading/ExplicitlySynchronizedField.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ExplicitlySynchronizedField.cs#example)]
 
 When used on a field, the <xref:PostSharp.Patterns.Threading.ExplicitlySynchronizedAttribute> attribute has several effects: 
 
@@ -55,7 +55,7 @@ By default, thread safety is ensured when a thread first invokes a public or int
 
 In the following code snippet, the `OnCreated` method is invoked from a background thread by the `FileSystemWatcher` class. The `InputQueueWatcher` is thread-safe because of the <xref:PostSharp.Patterns.Threading.SynchronizedAttribute> aspect. 
 
-[!code-csharp[](../../../code/samples/Threading/EntryPoint.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/EntryPoint.cs#example)]
 
 ## See Also
 

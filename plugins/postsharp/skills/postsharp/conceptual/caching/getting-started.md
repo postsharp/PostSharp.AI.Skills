@@ -23,7 +23,7 @@ Suppose you have a time-consuming method that always returns the same return val
 2. Add the <xref:PostSharp.Patterns.Caching.CacheAttribute> custom attribute to the method that you want to cache. Such a method is called the *cached method*. 
 
 
-3. Now you need to specify which caching framework or caching server is to be used by the <xref:PostSharp.Patterns.Caching.CacheAttribute> aspect. We call this the *caching backend*. You must specify the caching backend by setting the <xref:PostSharp.Patterns.Caching.CachingServices.DefaultBackend> property. See <xref:caching-backends> for a list of caching backends. 
+3. Now you need to specify which caching framework or caching server is to be used by the <xref:PostSharp.Patterns.Caching.CacheAttribute> aspect. We call this the *caching backend*. You must specify the caching backend by setting the <xref:PostSharp.Patterns.Caching.ICachingService.Backend?text=CachingServices.DefaultService.Backend> property. See <xref:caching-backends> for a list of caching backends. In an application that creates its services with a dependency injection container, you can register the cache in the container instead (see <xref:caching-dependency-injection>). 
 
     > [!IMPORTANT]
     > The caching backend has to be set before any cached method is called for the first time.
@@ -37,11 +37,11 @@ Suppose you have a time-consuming method that always returns the same return val
 
 In this example, the return value of the `GetNumber` method is cached. 
 
-[!code-csharp[](../../code/samples/Caching/CachingGettingStarted.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingGettingStarted.cs#example)]
 
 The output of this sample is:
 
-[!code-text[](../../code/samples/Caching/CachingGettingStarted.txt)]
+[!code-text[](../../code/samples/Caching/Core/CachingGettingStarted.txt)]
 
 
 ## Configuring the cache behavior
@@ -80,7 +80,7 @@ Configuration is defined on a per-property basis. For each property of the cache
 
 In the following example, the absolute expiration of cache items is set to 60 minutes for methods of the `AccountServices` class, but to 20 minutes for the `GetAccountsOfCustomer` method. 
 
-[!code-csharp[](../../code/samples/Caching/CachingConfiguration.cs#example)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingConfiguration.cs#example)]
 
 
 ## Configuring caching with caching profiles
@@ -95,7 +95,7 @@ Caching profiles are useful in the following scenarios:
 
 * to completely disable or re-enable caching at run time.
 
-Caching profiles are represented by the <xref:PostSharp.Patterns.Caching.CachingProfile> class. They are exposed on the <xref:PostSharp.Patterns.Caching.CachingServices.Profiles> property, which is a collection indexed by the profile name. The default caching profile is accessible via the <xref:PostSharp.Patterns.Caching.CachingServices.CachingProfileRegistry.Default> property. 
+Caching profiles are represented by the <xref:PostSharp.Patterns.Caching.CachingProfile> class. They are exposed on the <xref:PostSharp.Patterns.Caching.ICachingService.Profiles> property of the caching service, which is a collection indexed by the profile name. <xref:PostSharp.Patterns.Caching.CachingServices.Profiles> gives the profiles of <xref:PostSharp.Patterns.Caching.CachingServices.DefaultService>, which the methods use unless they receive a caching service from dependency injection (see <xref:caching-dependency-injection>). The default caching profile is accessible via the <xref:PostSharp.Patterns.Caching.CachingProfileRegistry.Default> property. 
 
 > [!NOTE]
 > Configuration specified by the <xref:PostSharp.Patterns.Caching.CacheAttribute> aspect and the <xref:PostSharp.Patterns.Caching.CacheConfigurationAttribute> custom attribute has priority over the configuration of the <xref:PostSharp.Patterns.Caching.CachingProfile>. 
@@ -114,17 +114,17 @@ Caching profiles are represented by the <xref:PostSharp.Patterns.Caching.Caching
 
 The following code snippet sets the profile name to `Account` for all methods of the `AccountServices` class. 
 
-[!code-csharp[](../../code/samples/Caching/CachingProfiles.cs#services)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingProfiles.cs#services)]
 
 The following code snippet sets the absolute expiration to 60 seconds for all methods using the `Account` profile. 
 
-[!code-csharp[](../../code/samples/Caching/CachingProfiles.cs#configure)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingProfiles.cs#configure)]
 
 
 ## Disabling caching at run time
 
 You can disable caching at run time by setting the <xref:PostSharp.Patterns.Caching.CachingProfile.IsEnabled> property of a caching profile to `false`, for instance: 
 
-[!code-csharp[](../../code/samples/Caching/CachingProfiles.cs#disable)]
+[!code-csharp[](../../code/samples/Caching/Core/CachingProfiles.cs#disable)]
 
 

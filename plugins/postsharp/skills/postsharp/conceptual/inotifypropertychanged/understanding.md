@@ -35,7 +35,7 @@ To adequately raise the <xref:System.ComponentModel.INotifyPropertyChanged.Prope
 
 Consider the following code snippet:
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcFieldDependencies.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcFieldDependencies.cs#example)]
 
 The result of the analysis for the code snippet above would be the map `{ _amount => ( Amount, Total ), _tax => ( Tax, Total ) }`. Whenever the `_amount` field is changed, the <xref:System.ComponentModel.INotifyPropertyChanged.PropertyChanged> event will be raised for properties `Amount` and `Total`. 
 
@@ -48,7 +48,7 @@ Field references are not only looked for in the getter, but in any method invoke
 
 Consider the following code snippet:
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcCallGraph.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcCallGraph.cs#example)]
 
 In the code snippet above, the analyzer starts from the getter of the `AmountBase` property, follows the call to the `Amount` property getter, then the call to the `Convert` method and recursively follows the `ExchangeRate` property getter. Therefore, the resulting property map remains `{ _amount => ( Amount, AmountBase ), _exchangeRate => ( ExchangeRate, AmountBase ) }`. 
 
@@ -59,7 +59,7 @@ The <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect does n
 
 Consider the following code snippet:
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcExternalObjects.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcExternalObjects.cs#example)]
 
 In the example above, the `InvoiceViewModel.Total` property is dependent on properties `Amount` and `Tax` of the `_model` field. Therefore, changes in the `InvoiceModel._amount` field will trigger a change notification for the `InvoiceModel.Amount` and `InvoiceViewModel.Total` properties. 
 
@@ -91,7 +91,7 @@ Simplistic implementations of the <xref:System.ComponentModel.INotifyPropertyCha
 
 Consider the following code:
 
-[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/NpcRaisingNotifications.cs#example)]
+[!code-csharp[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcRaisingNotifications.cs#example)]
 
 As a class invariant, the assumption `Total == Amount + Tax` should always be true. 
 
@@ -103,7 +103,7 @@ The <xref:PostSharp.Patterns.Model.NotifyPropertyChangedAttribute> aspect relies
 
 In the example above, a client that checks the class invariant in its event handler always sees a consistent object, because the three notifications are raised when the `Set` method exits:
 
-[!code-text[](../../code/samples/Model/NotifyPropertyChanged/NpcRaisingNotifications.txt)]
+[!code-text[](../../code/samples/Model/NotifyPropertyChanged/Core/NpcRaisingNotifications.txt)]
 
 Besides avoiding the exposure of an invalid object state, this strategy also prevents the same property from being notified several times during the execution of a single public method, which has a potentially large positive impact on performance.
 

@@ -77,7 +77,7 @@ Both aspects use advice methods. `AuthorizationAttribute` declares a conflict po
 
 [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectEffectDependencies.cs#example)]
 
-`BackgroundAttribute` runs before `AuthorizationAttribute` because of their <xref:PostSharp.Aspects.Aspect.AspectPriority>. Without <xref:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute>, the build fails with the error PS0112, which says that `AuthorizationAttribute` cannot be preceded by `BackgroundAttribute`. Because `BackgroundAttribute` waives the effect, both aspects can be applied to the same method in this order:
+`BackgroundAttribute` runs before `AuthorizationAttribute` because of their <xref:PostSharp.Aspects.Aspect.AspectPriority>. Without <xref:PostSharp.Aspects.Dependencies.WaiveAspectEffectAttribute>, the build fails with the error <xref:ps0112?text=PS0112>, which says that `AuthorizationAttribute` cannot be preceded by `BackgroundAttribute`. Because `BackgroundAttribute` waives the effect, both aspects can be applied to the same method in this order:
 
 [!code-text[](../../../../code/samples/CustomPatterns/Aspects/Dependencies/AspectEffectDependencies.txt)]
 

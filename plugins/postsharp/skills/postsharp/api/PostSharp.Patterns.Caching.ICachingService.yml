@@ -1,0 +1,468 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Patterns.Caching.ICachingService
+  commentId: T:PostSharp.Patterns.Caching.ICachingService
+  id: ICachingService
+  parent: PostSharp.Patterns.Caching
+  children:
+  - PostSharp.Patterns.Caching.ICachingService.Backend
+  - PostSharp.Patterns.Caching.ICachingService.GetOrAdd(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Object},PostSharp.Patterns.Diagnostics.LogSource)
+  - PostSharp.Patterns.Caching.ICachingService.GetOrAddAsync(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Threading.Tasks.Task{System.Object}},PostSharp.Patterns.Diagnostics.LogSource,System.Threading.CancellationToken)
+  - PostSharp.Patterns.Caching.ICachingService.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  - PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Object)
+  - PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Reflection.MethodInfo,System.Object,System.Object[])
+  - PostSharp.Patterns.Caching.ICachingService.Invalidate(System.String)
+  - PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  - PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Object)
+  - PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Reflection.MethodInfo,System.Object,System.Object[])
+  - PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.String)
+  - PostSharp.Patterns.Caching.ICachingService.KeyBuilder
+  - PostSharp.Patterns.Caching.ICachingService.Profiles
+  langs:
+  - csharp
+  - vb
+  name: ICachingService
+  nameWithType: ICachingService
+  fullName: PostSharp.Patterns.Caching.ICachingService
+  type: Interface
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Represents a cache: the backend that stores the items, the key builder that computes their keys, the caching profiles, and the
+
+    operations that the caching aspects call. The default implementation is <xref href="PostSharp.Patterns.Caching.CachingService" data-throw-if-not-resolved="false"></xref>.
+  remarks: >-
+    <p>A class receives an <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref> from a dependency injection container when its assembly, its declaring type or a base type has a
+            <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute" data-throw-if-not-resolved="false"></xref> whose <xref href="PostSharp.Patterns.Caching.CacheConfigurationAttribute.UseDependencyInjection" data-throw-if-not-resolved="false"></xref> property is <code>true</code>.
+            Otherwise, the cached methods use <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref>.</p>
+    <p>The formatters (<xref href="PostSharp.Patterns.Caching.CachingServices.Formatters" data-throw-if-not-resolved="false"></xref>) and the caching context (<xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref>) are shared
+            by all the services of the process.</p>
+  example: []
+  syntax:
+    content: public interface ICachingService
+    content.vb: Public Interface ICachingService
+  seealso:
+  - linkType: HRef
+    linkId: '@caching-dependency-injection'
+    altText: 'Conceptual: Using Caching with Dependency Injection'
+  derivedClasses:
+  - PostSharp.Patterns.Caching.CachingService
+- uid: PostSharp.Patterns.Caching.ICachingService.GetOrAdd(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Object},PostSharp.Patterns.Diagnostics.LogSource)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.GetOrAdd(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Object},PostSharp.Patterns.Diagnostics.LogSource)
+  id: GetOrAdd(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Object},PostSharp.Patterns.Diagnostics.LogSource)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: GetOrAdd(MethodInfo, string, Type, CacheItemConfiguration, Func<object>, LogSource)
+  nameWithType: ICachingService.GetOrAdd(MethodInfo, string, Type, CacheItemConfiguration, Func<object>, LogSource)
+  fullName: PostSharp.Patterns.Caching.ICachingService.GetOrAdd(System.Reflection.MethodInfo, string, System.Type, PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration, System.Func<object>, PostSharp.Patterns.Diagnostics.LogSource)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Gets a value from the cache or, when the cache has no item for the key, evaluates the value, adds it to the cache and returns it.
+
+    The <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> aspect calls this method.
+  example: []
+  syntax:
+    content: object GetOrAdd(MethodInfo method, string key, Type valueType, CacheItemConfiguration configuration, Func<object> valueProvider, LogSource logger)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: The cached method.
+    - id: key
+      type: System.String
+      description: The cache key, computed by <xref href="PostSharp.Patterns.Caching.ICachingService.KeyBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: valueType
+      type: System.Type
+      description: The type of the cached value.
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration
+      description: The configuration of the cached method, already merged with its profile.
+    - id: valueProvider
+      type: System.Func{System.Object}
+      description: A delegate that evaluates the value.
+    - id: logger
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> of the declaring type of the cached method.
+    return:
+      type: System.Object
+      description: The cached or evaluated value.
+    content.vb: Function GetOrAdd(method As MethodInfo, key As String, valueType As Type, configuration As CacheItemConfiguration, valueProvider As Func(Of Object), logger As LogSource) As Object
+  overload: PostSharp.Patterns.Caching.ICachingService.GetOrAdd*
+  nameWithType.vb: ICachingService.GetOrAdd(MethodInfo, String, Type, CacheItemConfiguration, Func(Of Object), LogSource)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.GetOrAdd(System.Reflection.MethodInfo, String, System.Type, PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration, System.Func(Of Object), PostSharp.Patterns.Diagnostics.LogSource)
+  name.vb: GetOrAdd(MethodInfo, String, Type, CacheItemConfiguration, Func(Of Object), LogSource)
+- uid: PostSharp.Patterns.Caching.ICachingService.GetOrAddAsync(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Threading.Tasks.Task{System.Object}},PostSharp.Patterns.Diagnostics.LogSource,System.Threading.CancellationToken)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.GetOrAddAsync(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Threading.Tasks.Task{System.Object}},PostSharp.Patterns.Diagnostics.LogSource,System.Threading.CancellationToken)
+  id: GetOrAddAsync(System.Reflection.MethodInfo,System.String,System.Type,PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration,System.Func{System.Threading.Tasks.Task{System.Object}},PostSharp.Patterns.Diagnostics.LogSource,System.Threading.CancellationToken)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: GetOrAddAsync(MethodInfo, string, Type, CacheItemConfiguration, Func<Task<object>>, LogSource, CancellationToken)
+  nameWithType: ICachingService.GetOrAddAsync(MethodInfo, string, Type, CacheItemConfiguration, Func<Task<object>>, LogSource, CancellationToken)
+  fullName: PostSharp.Patterns.Caching.ICachingService.GetOrAddAsync(System.Reflection.MethodInfo, string, System.Type, PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration, System.Func<System.Threading.Tasks.Task<object>>, PostSharp.Patterns.Diagnostics.LogSource, System.Threading.CancellationToken)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Asynchronously gets a value from the cache or, when the cache has no item for the key, evaluates the value, adds it to the cache and returns it.
+
+    The <xref href="PostSharp.Patterns.Caching.CacheAttribute" data-throw-if-not-resolved="false"></xref> aspect calls this method for asynchronous methods.
+  example: []
+  syntax:
+    content: Task<object> GetOrAddAsync(MethodInfo method, string key, Type valueType, CacheItemConfiguration configuration, Func<Task<object>> valueProvider, LogSource logger, CancellationToken cancellationToken)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: The cached method.
+    - id: key
+      type: System.String
+      description: The cache key, computed by <xref href="PostSharp.Patterns.Caching.ICachingService.KeyBuilder" data-throw-if-not-resolved="false"></xref>.
+    - id: valueType
+      type: System.Type
+      description: The type of the cached value, i.e. the type of the result of the task.
+    - id: configuration
+      type: PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration
+      description: The configuration of the cached method, already merged with its profile.
+    - id: valueProvider
+      type: System.Func{System.Threading.Tasks.Task{System.Object}}
+      description: A delegate that evaluates the value.
+    - id: logger
+      type: PostSharp.Patterns.Diagnostics.LogSource
+      description: The <xref href="PostSharp.Patterns.Diagnostics.LogSource" data-throw-if-not-resolved="false"></xref> of the declaring type of the cached method.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: A <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Object}
+      description: A <xref href="System.Threading.Tasks.Task%601" data-throw-if-not-resolved="false"></xref> that evaluates to the cached or evaluated value.
+    content.vb: Function GetOrAddAsync(method As MethodInfo, key As String, valueType As Type, configuration As CacheItemConfiguration, valueProvider As Func(Of Task(Of Object)), logger As LogSource, cancellationToken As CancellationToken) As Task(Of Object)
+  overload: PostSharp.Patterns.Caching.ICachingService.GetOrAddAsync*
+  nameWithType.vb: ICachingService.GetOrAddAsync(MethodInfo, String, Type, CacheItemConfiguration, Func(Of Task(Of Object)), LogSource, CancellationToken)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.GetOrAddAsync(System.Reflection.MethodInfo, String, System.Type, PostSharp.Patterns.Caching.Implementation.CacheItemConfiguration, System.Func(Of System.Threading.Tasks.Task(Of Object)), PostSharp.Patterns.Diagnostics.LogSource, System.Threading.CancellationToken)
+  name.vb: GetOrAddAsync(MethodInfo, String, Type, CacheItemConfiguration, Func(Of Task(Of Object)), LogSource, CancellationToken)
+- uid: PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Reflection.MethodInfo,System.Object,System.Object[])
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Reflection.MethodInfo,System.Object,System.Object[])
+  id: Invalidate(System.Reflection.MethodInfo,System.Object,System.Object[])
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: Invalidate(MethodInfo, object, params object[])
+  nameWithType: ICachingService.Invalidate(MethodInfo, object, params object[])
+  fullName: PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Reflection.MethodInfo, object, params object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Removes a method call result from the cache, using the <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> that represents the method, the instance and the arguments
+
+    of the method call. The <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> aspect calls this method.
+  example: []
+  syntax:
+    content: void Invalidate(MethodInfo method, object instance, params object[] args)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: The <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> of the method call.
+    - id: instance
+      type: System.Object
+      description: The value of the <code>this</code> instance, or <code>null</code> for static methods.
+    - id: args
+      type: System.Object[]
+      description: The method arguments.
+    content.vb: Sub Invalidate(method As MethodInfo, instance As Object, ParamArray args As Object())
+  overload: PostSharp.Patterns.Caching.ICachingService.Invalidate*
+  nameWithType.vb: ICachingService.Invalidate(MethodInfo, Object, ParamArray Object())
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Reflection.MethodInfo, Object, ParamArray Object())
+  name.vb: Invalidate(MethodInfo, Object, ParamArray Object())
+- uid: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Reflection.MethodInfo,System.Object,System.Object[])
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Reflection.MethodInfo,System.Object,System.Object[])
+  id: InvalidateAsync(System.Reflection.MethodInfo,System.Object,System.Object[])
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: InvalidateAsync(MethodInfo, object, params object[])
+  nameWithType: ICachingService.InvalidateAsync(MethodInfo, object, params object[])
+  fullName: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Reflection.MethodInfo, object, params object[])
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Asynchronously removes a method call result from the cache, using the <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> that represents the method, the instance
+
+    and the arguments of the method call. The <xref href="PostSharp.Patterns.Caching.InvalidateCacheAttribute" data-throw-if-not-resolved="false"></xref> aspect calls this method for asynchronous methods.
+  example: []
+  syntax:
+    content: Task InvalidateAsync(MethodInfo method, object instance, params object[] args)
+    parameters:
+    - id: method
+      type: System.Reflection.MethodInfo
+      description: The <xref href="System.Reflection.MethodInfo" data-throw-if-not-resolved="false"></xref> of the method call.
+    - id: instance
+      type: System.Object
+      description: The value of the <code>this</code> instance, or <code>null</code> for static methods.
+    - id: args
+      type: System.Object[]
+      description: The method arguments.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: Function InvalidateAsync(method As MethodInfo, instance As Object, ParamArray args As Object()) As Task
+  overload: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync*
+  nameWithType.vb: ICachingService.InvalidateAsync(MethodInfo, Object, ParamArray Object())
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Reflection.MethodInfo, Object, ParamArray Object())
+  name.vb: InvalidateAsync(MethodInfo, Object, ParamArray Object())
+- uid: PostSharp.Patterns.Caching.ICachingService.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  id: Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: Invalidate(ICacheDependency)
+  nameWithType: ICachingService.Invalidate(ICacheDependency)
+  fullName: PostSharp.Patterns.Caching.ICachingService.Invalidate(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Invalidates a cache dependency given as an <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this dependency.
+  example: []
+  syntax:
+    content: void Invalidate(ICacheDependency dependency)
+    parameters:
+    - id: dependency
+      type: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+      description: A dependency.
+    content.vb: Sub Invalidate(dependency As ICacheDependency)
+  overload: PostSharp.Patterns.Caching.ICachingService.Invalidate*
+- uid: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  id: InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: InvalidateAsync(ICacheDependency)
+  nameWithType: ICachingService.InvalidateAsync(ICacheDependency)
+  fullName: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(PostSharp.Patterns.Caching.Dependencies.ICacheDependency)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Asynchronously invalidates a cache dependency given as an <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent
+
+    on this dependency.
+  example: []
+  syntax:
+    content: Task InvalidateAsync(ICacheDependency dependency)
+    parameters:
+    - id: dependency
+      type: PostSharp.Patterns.Caching.Dependencies.ICacheDependency
+      description: A dependency.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: Function InvalidateAsync(dependency As ICacheDependency) As Task
+  overload: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync*
+- uid: PostSharp.Patterns.Caching.ICachingService.Invalidate(System.String)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.Invalidate(System.String)
+  id: Invalidate(System.String)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: Invalidate(string)
+  nameWithType: ICachingService.Invalidate(string)
+  fullName: PostSharp.Patterns.Caching.ICachingService.Invalidate(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Invalidates a cache dependency given as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this dependency key.
+  example: []
+  syntax:
+    content: void Invalidate(string dependencyKey)
+    parameters:
+    - id: dependencyKey
+      type: System.String
+      description: The dependency key.
+    content.vb: Sub Invalidate(dependencyKey As String)
+  overload: PostSharp.Patterns.Caching.ICachingService.Invalidate*
+  nameWithType.vb: ICachingService.Invalidate(String)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.Invalidate(String)
+  name.vb: Invalidate(String)
+- uid: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.String)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.String)
+  id: InvalidateAsync(System.String)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: InvalidateAsync(string)
+  nameWithType: ICachingService.InvalidateAsync(string)
+  fullName: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(string)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: >-
+    Asynchronously invalidates a cache dependency given as <xref href="System.String" data-throw-if-not-resolved="false"></xref>, i.e. removes all cache items that are dependent on this
+
+    dependency key.
+  example: []
+  syntax:
+    content: Task InvalidateAsync(string dependencyKey)
+    parameters:
+    - id: dependencyKey
+      type: System.String
+      description: The dependency key.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: Function InvalidateAsync(dependencyKey As String) As Task
+  overload: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync*
+  nameWithType.vb: ICachingService.InvalidateAsync(String)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(String)
+  name.vb: InvalidateAsync(String)
+- uid: PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.Invalidate(System.Object)
+  id: Invalidate(System.Object)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: Invalidate(object)
+  nameWithType: ICachingService.Invalidate(object)
+  fullName: PostSharp.Patterns.Caching.ICachingService.Invalidate(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Invalidates a cache dependency given an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, i.e. removes all cached items that are dependent on that object.
+  example: []
+  syntax:
+    content: void Invalidate(object dependency)
+    parameters:
+    - id: dependency
+      type: System.Object
+      description: >-
+        Typically, an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>. If a <xref href="System.String" data-throw-if-not-resolved="false"></xref>, <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>
+                    is passed, the proper overload of the method is invoked. Otherwise, <code class="paramref">dependency</code> is wrapped in an <xref href="PostSharp.Patterns.Caching.Dependencies.ObjectDependency" data-throw-if-not-resolved="false"></xref> object.
+    content.vb: Sub Invalidate(dependency As Object)
+  overload: PostSharp.Patterns.Caching.ICachingService.Invalidate*
+  nameWithType.vb: ICachingService.Invalidate(Object)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.Invalidate(Object)
+  name.vb: Invalidate(Object)
+- uid: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Object)
+  commentId: M:PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(System.Object)
+  id: InvalidateAsync(System.Object)
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: InvalidateAsync(object)
+  nameWithType: ICachingService.InvalidateAsync(object)
+  fullName: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(object)
+  type: Method
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Asynchronously invalidates a cache dependency given an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>, i.e. removes all cached items that are dependent on that object.
+  example: []
+  syntax:
+    content: Task InvalidateAsync(object dependency)
+    parameters:
+    - id: dependency
+      type: System.Object
+      description: >-
+        Typically, an <xref href="System.Object" data-throw-if-not-resolved="false"></xref>. If a <xref href="System.String" data-throw-if-not-resolved="false"></xref>, <xref href="System.Delegate" data-throw-if-not-resolved="false"></xref> or <xref href="PostSharp.Patterns.Caching.Dependencies.ICacheDependency" data-throw-if-not-resolved="false"></xref>
+                    is passed, the proper overload of the method is invoked. Otherwise, <code class="paramref">dependency</code> is wrapped in an <xref href="PostSharp.Patterns.Caching.Dependencies.ObjectDependency" data-throw-if-not-resolved="false"></xref> object.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A <xref href="System.Threading.Tasks.Task" data-throw-if-not-resolved="false"></xref> that represents the asynchronous operation.
+    content.vb: Function InvalidateAsync(dependency As Object) As Task
+  overload: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync*
+  nameWithType.vb: ICachingService.InvalidateAsync(Object)
+  fullName.vb: PostSharp.Patterns.Caching.ICachingService.InvalidateAsync(Object)
+  name.vb: InvalidateAsync(Object)
+- uid: PostSharp.Patterns.Caching.ICachingService.Backend
+  commentId: P:PostSharp.Patterns.Caching.ICachingService.Backend
+  id: Backend
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: Backend
+  nameWithType: ICachingService.Backend
+  fullName: PostSharp.Patterns.Caching.ICachingService.Backend
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the backend that stores the cached items.
+  example: []
+  syntax:
+    content: CachingBackend Backend { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CachingBackend
+    content.vb: Property Backend As CachingBackend
+  overload: PostSharp.Patterns.Caching.ICachingService.Backend*
+- uid: PostSharp.Patterns.Caching.ICachingService.KeyBuilder
+  commentId: P:PostSharp.Patterns.Caching.ICachingService.KeyBuilder
+  id: KeyBuilder
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: KeyBuilder
+  nameWithType: ICachingService.KeyBuilder
+  fullName: PostSharp.Patterns.Caching.ICachingService.KeyBuilder
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets or sets the key builder that computes the keys of the cached items.
+  example: []
+  syntax:
+    content: CacheKeyBuilder KeyBuilder { get; set; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.Implementation.CacheKeyBuilder
+    content.vb: Property KeyBuilder As CacheKeyBuilder
+  overload: PostSharp.Patterns.Caching.ICachingService.KeyBuilder*
+- uid: PostSharp.Patterns.Caching.ICachingService.Profiles
+  commentId: P:PostSharp.Patterns.Caching.ICachingService.Profiles
+  id: Profiles
+  parent: PostSharp.Patterns.Caching.ICachingService
+  langs:
+  - csharp
+  - vb
+  name: Profiles
+  nameWithType: ICachingService.Profiles
+  fullName: PostSharp.Patterns.Caching.ICachingService.Profiles
+  type: Property
+  assemblies:
+  - PostSharp.Patterns.Caching
+  namespace: PostSharp.Patterns.Caching
+  summary: Gets the caching profiles (<xref href="PostSharp.Patterns.Caching.CachingProfile" data-throw-if-not-resolved="false"></xref>) of the methods cached by this service.
+  example: []
+  syntax:
+    content: CachingProfileRegistry Profiles { get; }
+    parameters: []
+    return:
+      type: PostSharp.Patterns.Caching.CachingProfileRegistry
+    content.vb: ReadOnly Property Profiles As CachingProfileRegistry
+  overload: PostSharp.Patterns.Caching.ICachingService.Profiles*

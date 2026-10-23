@@ -1,0 +1,102 @@
+### YamlMime:ManagedReference
+items:
+- uid: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+  commentId: T:PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+  id: IntroduceFieldCompatibleAction
+  parent: PostSharp.Aspects.Advices
+  children:
+  - PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Fail
+  - PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Ignore
+  - PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.IntroduceAnother
+  langs:
+  - csharp
+  - vb
+  name: IntroduceFieldCompatibleAction
+  nameWithType: IntroduceFieldCompatibleAction
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+  type: Enum
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Specifies what an <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref> does when the target type already has a field that is compatible with it.
+  remarks: >-
+    <p>A field is compatible when it has the requested name, or the type of the request when no name is requested, and when it has exactly
+        the type of the request and the same static or instance kind. The candidates are the fields of the target type, the fields introduced by
+        earlier requests, and the fields of the base types that the target type can access. A member that has the requested name but is not
+        compatible is handled by <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenIncompatibleMemberExists" data-throw-if-not-resolved="false"></xref>.</p>
+  example: []
+  syntax:
+    content: public enum IntroduceFieldCompatibleAction
+    content.vb: Public Enum IntroduceFieldCompatibleAction
+  seealso:
+  - linkId: PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+    commentId: P:PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance.WhenCompatibleFieldExists
+  - linkType: HRef
+    linkId: '@advice-provider'
+    altText: 'Conceptual: Providing Advices Dynamically'
+- uid: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Fail
+  commentId: F:PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Fail
+  id: Fail
+  parent: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+  langs:
+  - csharp
+  - vb
+  name: Fail
+  nameWithType: IntroduceFieldCompatibleAction.Fail
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Fail
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: The build fails with the error LA0271.
+  example: []
+  syntax:
+    content: Fail = 0
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+- uid: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Ignore
+  commentId: F:PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Ignore
+  id: Ignore
+  parent: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+  langs:
+  - csharp
+  - vb
+  name: Ignore
+  nameWithType: IntroduceFieldCompatibleAction.Ignore
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.Ignore
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    The introduction is skipped: the request resolves to the compatible field, which the advices of the aspect import. This is how
+
+    several aspects share one field. The request does not initialize the field.
+  example: []
+  syntax:
+    content: Ignore = 1
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+- uid: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.IntroduceAnother
+  commentId: F:PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.IntroduceAnother
+  id: IntroduceAnother
+  parent: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction
+  langs:
+  - csharp
+  - vb
+  name: IntroduceAnother
+  nameWithType: IntroduceFieldCompatibleAction.IntroduceAnother
+  fullName: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction.IntroduceAnother
+  type: Field
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: >-
+    A new field is introduced next to the compatible field. It gets the requested name followed by a number that makes it unique in the
+
+    type, such as <code>handlers2</code>, or, without a requested name, a generated name.
+  example: []
+  syntax:
+    content: IntroduceAnother = 2
+    return:
+      type: PostSharp.Aspects.Advices.IntroduceFieldCompatibleAction

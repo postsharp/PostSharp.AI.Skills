@@ -17,7 +17,7 @@ You do not want your application to fail in production because of a failure of t
 By default, when an exception occurs in the logging feature, the following happens:
 
 * A message is logged to the <xref:PostSharp.Patterns.Diagnostics.LoggingRoles.Meta> role. By default, the <xref:PostSharp.Patterns.Diagnostics.LoggingRoles.Meta> role uses the default <xref:PostSharp.Patterns.Diagnostics.LoggingBackend>, so it is likely that the logging of the logging failure will fail. It is recommended to configure the <xref:PostSharp.Patterns.Diagnostics.LoggingRoles.Meta> logging role separately by using the following code snippet: 
-    [!code-csharp[](../../code/samples/Logging/LoggingExceptionHandling.cs#meta)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingExceptionHandling.cs#meta)]
 
 
 * The whole <xref:PostSharp.Patterns.Diagnostics.LoggingBackend> responsible for the failure is disabled, unless the reason for the failure is a defect in user code (typically an invalid use of the <xref:PostSharp.Patterns.Diagnostics.LogSource> API) and not in the logging component itself. This pattern is called a *circuit breaker*. You can enable the <xref:PostSharp.Patterns.Diagnostics.LoggingBackend> again by setting the <xref:PostSharp.Patterns.Diagnostics.LoggingBackend.IsEnabled> property to `true`. 
@@ -39,7 +39,7 @@ To override the default exception handling behavior:
 
 The following code snippet implements an exception handler that throws an exception upon any failure. The `Initialize` method registers the exception handler. 
 
-[!code-csharp[](../../code/samples/Logging/LoggingExceptionHandling.cs#handler)]
+[!code-csharp[](../../code/samples/Logging/Diagnostics/LoggingExceptionHandling.cs#handler)]
 
 ## See Also
 

@@ -6,6 +6,7 @@ items:
   parent: PostSharp.Aspects.Advices
   children:
   - PostSharp.Aspects.Advices.MatchPointcut.#ctor(System.String)
+  - PostSharp.Aspects.Advices.MatchPointcut.IsRequired
   - PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount
   - PostSharp.Aspects.Advices.MatchPointcut.MethodName
   langs:
@@ -160,6 +161,35 @@ items:
       type: System.Boolean
     content.vb: Public Property MatchParameterCount As Boolean
   overload: PostSharp.Aspects.Advices.MatchPointcut.MatchParameterCount*
+- uid: PostSharp.Aspects.Advices.MatchPointcut.IsRequired
+  commentId: P:PostSharp.Aspects.Advices.MatchPointcut.IsRequired
+  id: IsRequired
+  parent: PostSharp.Aspects.Advices.MatchPointcut
+  langs:
+  - csharp
+  - vb
+  name: IsRequired
+  nameWithType: MatchPointcut.IsRequired
+  fullName: PostSharp.Aspects.Advices.MatchPointcut.IsRequired
+  type: Property
+  assemblies:
+  - PostSharp
+  namespace: PostSharp.Aspects.Advices
+  summary: Gets or sets a value indicating whether the advice must apply to at least one method of the target type. The default value is <code>false</code>.
+  remarks: >-
+    When this property is <code>true</code> and the advice applies to no method of the target type, either because no method has the name
+
+    <xref href="PostSharp.Aspects.Advices.MatchPointcut.MethodName" data-throw-if-not-resolved="false"></xref> or because the signature of each method with this name does not match the parameters of the advice,
+
+    the error LA0285 is reported for the aspect instance. When it is <code>false</code>, the advice applies to nothing without error.
+  example: []
+  syntax:
+    content: public bool IsRequired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsRequired As Boolean
+  overload: PostSharp.Aspects.Advices.MatchPointcut.IsRequired*
 - uid: PostSharp.Aspects.Advices.MatchPointcut.MethodName
   commentId: P:PostSharp.Aspects.Advices.MatchPointcut.MethodName
   id: MethodName

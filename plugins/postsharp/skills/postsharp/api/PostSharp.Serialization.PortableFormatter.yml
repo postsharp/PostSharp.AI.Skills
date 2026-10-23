@@ -104,7 +104,9 @@ items:
       description: A <xref href="PostSharp.Serialization.PortableSerializationBinder" data-throw-if-not-resolved="false"></xref> customizing bindings between types and type names, or <code>null</code> to use the default implementation.
     - id: serializerProvider
       type: PostSharp.Serialization.ISerializerFactoryProvider
-      description: A custom implementation of <xref href="PostSharp.Serialization.ISerializerFactoryProvider" data-throw-if-not-resolved="false"></xref>, or <code>null</code> to use the default implementation.
+      description: >-
+        A custom implementation of <xref href="PostSharp.Serialization.ISerializerFactoryProvider" data-throw-if-not-resolved="false"></xref>, or <code>null</code> to use the default implementation:
+                    <xref href="PostSharp.Serialization.SerializerFactoryProvider.BuiltIn" data-throw-if-not-resolved="false"></xref>, or, while PostSharp compiles a project, the built-in serializers of that project.
     content.vb: Public Sub New(binder As PortableSerializationBinder, serializerProvider As ISerializerFactoryProvider)
   overload: PostSharp.Serialization.PortableFormatter.#ctor*
   nameWithType.vb: PortableFormatter.New(PortableSerializationBinder, ISerializerFactoryProvider)

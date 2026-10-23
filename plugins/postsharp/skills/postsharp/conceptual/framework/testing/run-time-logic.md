@@ -15,6 +15,8 @@ When designing a test strategy for aspects, it is fundamental to understand that
 
 * *Test invocation code* that invokes the target code and verifies that the combination of the aspect and the target code exhibits the intended behavior. 
 
+> [!TIP]
+> A unit test project is woven as a whole. If an aspect emits a build error on one target, the build of every test fails. To isolate and diagnose the problem, reproduce it in an aspect test, which weaves each test in its own assembly (see <xref:aspect-tests>).
 
 ## Achieving large test coverage
 
@@ -33,6 +35,6 @@ In the case of aspects, the input context is composed of the following items:
 
 The following example demonstrates how to test a caching aspect. High code coverage is achieved by varying the target code and testing with null and non-null parameters. The `[Cache]` aspect under test is a simple <xref:PostSharp.Aspects.MethodInterceptionAspect> that stores the return value of the method for each instance and each list of arguments.
 
-[!code-csharp[](../../../code/samples/CustomPatterns/Aspects/Testing/SimpleTests.cs#test)]
+[!code-csharp[](../../../code/samples/CustomPatterns/Testing/SimpleTests.cs#test)]
 
 

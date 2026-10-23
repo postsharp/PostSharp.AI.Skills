@@ -30,7 +30,7 @@ The following steps add trace logging for the start and completion of method cal
 
     Add the following content to this file:
 
-    [!code-csharp[](../../code/samples/Logging/AddLogging.cs#global-aspects)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/AddLogging.cs#global-aspects)]
 
     This code adds logging to all methods except private methods and except property getters. You can edit this code to target methods relevant to your scenarios. See <xref:applying-aspects> for details. 
 
@@ -51,7 +51,7 @@ PostSharp will now add logging before and after the execution of all methods tar
 
 3. Add the following content to the `postsharp.config` file: 
 
-    [!code-xml[](../../code/samples/Logging/AddLoggingConfig/postsharp.config)]
+    [!code-xml[](../../code/samples/Logging/Diagnostics/AddLoggingConfig/postsharp.config)]
 
     That XML configuration file adds logging to all methods in all projects that have the `PostSharp.Patterns.Diagnostics` package. You can see more options at <xref:xml-multicasting>. 
 
@@ -95,12 +95,12 @@ To configure logging:
 
 3. Import the `PostSharp.Patterns.Diagnostics` namespace in the startup file. 
 
-    [!code-csharp[](../../code/samples/Logging/AddLogging.cs#using)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/AddLogging.cs#using)]
 
 
 4. Add the following code at the top of the startup method:
 
-    [!code-csharp[](../../code/samples/Logging/AddLogging.cs#configure)]
+    [!code-csharp[](../../code/samples/Logging/Diagnostics/AddLogging.cs#configure)]
 
     In the code snippet above, you can replace <xref:PostSharp.Patterns.Diagnostics.Backends.Console.ConsoleLoggingBackend> with any of the logging backends. 
 

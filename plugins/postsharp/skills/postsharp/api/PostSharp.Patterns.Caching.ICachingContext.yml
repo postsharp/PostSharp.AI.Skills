@@ -25,7 +25,7 @@ items:
   summary: Represents the context in which a method being cached is executing.
   remarks: >-
     <p>Get the current context from <xref href="PostSharp.Patterns.Caching.CachingServices.CurrentContext" data-throw-if-not-resolved="false"></xref>. Dependencies added to it while a cached method is being evaluated
-        are attached to the cached result, which is removed from the cache when one of its dependencies is invalidated through <xref href="PostSharp.Patterns.Caching.CachingServices.Invalidation" data-throw-if-not-resolved="false"></xref>.
+        are attached to the cached result, which is removed from the cache when one of its dependencies is invalidated through <xref href="PostSharp.Patterns.Caching.ICachingService.Invalidate(System.String)" data-throw-if-not-resolved="false"></xref> or the other <code>Invalidate</code> methods of the caching service.
         Outside of a cached method, the current context ignores the dependencies added to it.</p>
     <p>The context flows to the methods called by the cached method. When the backend supports dependencies, a cached method called by another cached method
         becomes a dependency of the caller, even when its result comes from the cache. To prevent this propagation, for example for a task that the cached method

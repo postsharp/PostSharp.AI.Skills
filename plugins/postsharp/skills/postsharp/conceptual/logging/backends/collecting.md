@@ -40,11 +40,11 @@ This situation is described in the following diagram:
 
 For example, take the following method. Assume `logger` is an NLog logger, but the situation is similar for other logging frameworks. 
 
-[!code-csharp[](../../../code/samples/Logging/LogCollectingWithout.cs#example)]
+[!code-csharp[](../../../code/samples/Logging/NLog/LogCollectingWithout.cs#example)]
 
 It may produce something like the following output:
 
-[!code-text[](../../../code/samples/Logging/LogCollectingWithout.txt)]
+[!code-text[](../../../code/samples/Logging/NLog/LogCollectingWithout.txt)]
 
 That is fine, but it does not make use of context and configuration in the PostSharp logging backend. One consequence is that the line with "Manual." is not indented, despite being inside `MyMethod1`. Another consequence is that it does not include the logger name. 
 
@@ -59,11 +59,11 @@ This situation is described in the following diagram:
 
 If we use log collecting, then the `MyMethod1` method from the previous section actually produces the following output: 
 
-[!code-text[](../../../code/samples/Logging/LogCollectingWith.txt)]
+[!code-text[](../../../code/samples/Logging/NLog/LogCollectingWith.txt)]
 
 It now has indentation and because the class name is now part of the message itself for both automatic and manual logging, you can now remove the logger name from the NLog formatting string and end up with a cleaner output:
 
-[!code-text[](../../../code/samples/Logging/LogCollectingShortLayout.txt)]
+[!code-text[](../../../code/samples/Logging/NLog/LogCollectingShortLayout.txt)]
 
 The way to set up log collecting is different for each supported logging framework. We support log collecting from Serilog, log4net, Microsoft Logging (ASP.NET Core), NLog, Trace and TraceSource. See our documentation page for each logging framework for instructions on how to set up log collecting.
 

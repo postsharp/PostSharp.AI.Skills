@@ -18,11 +18,11 @@ The <xref:PostSharp.Patterns.Diagnostics.Backends.Multiplexer.MultiplexerBackend
 
 To set it up, create two or more logging backends in your initialization code, pass them as arguments to the constructor of the multiplexer, and then use the multiplexer as your backend, for example:
 
-[!code-csharp[](../../../code/samples/Logging/LogMultiplexer.cs#example)]
+[!code-csharp[](../../../code/samples/Logging/Tracing/LogMultiplexer.cs#example)]
 
 Each record is written twice, once by each backend:
 
-[!code-text[](../../../code/samples/Logging/LogMultiplexer.txt)]
+[!code-text[](../../../code/samples/Logging/Tracing/LogMultiplexer.txt)]
 
 
 ## Configuring the backends
@@ -33,11 +33,11 @@ If you attempt to set the minimum verbosity for a role, namespace or type on the
 
 For example, you can configure one backend to receive all logging events and a second backend to receive only warnings like this:
 
-[!code-csharp[](../../../code/samples/Logging/LogMultiplexerVerbosity.cs#example)]
+[!code-csharp[](../../../code/samples/Logging/Tracing/LogMultiplexerVerbosity.cs#example)]
 
 The second backend only writes the warning:
 
-[!code-text[](../../../code/samples/Logging/LogMultiplexerVerbosity.txt)]
+[!code-text[](../../../code/samples/Logging/Tracing/LogMultiplexerVerbosity.txt)]
 
 
 ## Handling logging errors

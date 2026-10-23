@@ -24,7 +24,9 @@ items:
   summary: >-
     Wraps an <xref href="System.Object" data-throw-if-not-resolved="false"></xref> into an <xref href="PostSharp.Patterns.Caching.Dependencies.ObjectDependency" data-throw-if-not-resolved="false"></xref>. The <xref href="PostSharp.Patterns.Caching.Dependencies.ObjectDependency.GetCacheKey" data-throw-if-not-resolved="false"></xref> method
 
-    relies on the <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultKeyBuilder" data-throw-if-not-resolved="false"></xref> to create the cache key of the wrapped object.
+    relies on the <xref href="PostSharp.Patterns.Caching.ICachingService.KeyBuilder" data-throw-if-not-resolved="false"></xref> of <xref href="PostSharp.Patterns.Caching.CachingServices.DefaultService" data-throw-if-not-resolved="false"></xref> to create the cache key of the wrapped object,
+
+    except when the dependency is added or invalidated through another <xref href="PostSharp.Patterns.Caching.ICachingService" data-throw-if-not-resolved="false"></xref>, which uses its own key builder.
   example: []
   syntax:
     content: 'public sealed class ObjectDependency : ICacheDependency'

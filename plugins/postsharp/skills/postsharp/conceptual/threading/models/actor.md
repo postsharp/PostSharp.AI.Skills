@@ -41,7 +41,7 @@ To apply the Actor threading model:
 
 Consider the following example of an `AverageCalculator` class. The code is not thread-safe because the `AddSample` method performs four operations (two reads and two writes) that must all be performed atomically. 
 
-[!code-csharp[](../../../code/samples/Threading/ActorUnsafe.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ActorUnsafe.cs#example)]
 
 We could use the Synchronized or Reader-Writer Synchronized threading model to make sure that the calling thread will wait if the object is currently being accessed by another thread. Another solution in this situation is to avoid concurrency altogether using the Actor pattern and asynchronous methods.
 
@@ -49,15 +49,15 @@ In the reworked example below, the `AverageCalculator` class has the <xref:PostS
 
 Note that we could keep the methods non-async, but it is good practice to make the public API of all actors async methods.
 
-[!code-csharp[](../../../code/samples/Threading/Actor.cs#calculator)]
+[!code-csharp[](../../../code/samples/Threading/Core/Actor.cs#calculator)]
 
 You can now use the same `AverageCalculator` from two concurrent threads. In the following program, two threads add samples to the same `AverageCalculator` instance.
 
-[!code-csharp[](../../../code/samples/Threading/Actor.cs#program)]
+[!code-csharp[](../../../code/samples/Threading/Core/Actor.cs#program)]
 
 The output of this program is:
 
-[!code-text[](../../../code/samples/Threading/Actor.txt)]
+[!code-text[](../../../code/samples/Threading/Core/Actor.txt)]
 
 Behind the scenes, each invocation of `AverageCalculator.AddSample` is added to the message queue by the <xref:PostSharp.Patterns.Threading.ActorAttribute>, which then processes each call sequentially in the order it was added to the queue. This gives us the guarantee that an instance of the `AverageCalculator` class is never being accessed concurrently by two threads, and eliminates the need to take multithreading into account. 
 
@@ -93,7 +93,7 @@ For more information regarding parent-child relationships in threading models, s
 
 ### Example
 
-[!code-csharp[](../../../code/samples/Threading/ActorComplexState.cs#example)]
+[!code-csharp[](../../../code/samples/Threading/Core/ActorComplexState.cs#example)]
 
 
 ## Dealing with constraints of the Actor model

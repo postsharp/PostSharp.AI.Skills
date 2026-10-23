@@ -20,7 +20,7 @@ This article covers only the technical issues you may encounter. You can find mo
 
 ### Error PS0242: Could not find any valid registered license
 
-If you have a license key installed as described in <xref:deploying-keys> and you still get this error, it most probably means that the version of PostSharp you are using was released after the end of your subscription period. In this case, you either need to [renew your subscription](https://www.postsharp.net/il/pricing/upgrades-and-renewals) or to use an older version of PostSharp that was released before the end of your subscription period. PostSharp reports the reason why it rejected each license key in a separate PS0301 warning. 
+If you have a license key installed as described in <xref:deploying-keys> and you still get this error, it most probably means that the version of PostSharp you are using was released after the end of your subscription period. In this case, you either need to [renew your subscription](https://www.postsharp.net/il/pricing/upgrades-and-renewals) or to use an older version of PostSharp that was released before the end of your subscription period. PostSharp reports the reason why it rejected each license key in a separate <xref:ps0301?text=PS0301> warning. 
 
 
 ### Error PS0243: License error. The project uses non-licensed premium features. It is not allowed to enhance types with a total of more than X lines of code in the project by features not covered by the installed licenses, but Y lines of code were enhanced.
@@ -40,7 +40,7 @@ There are three cases in which you might get such an error:
 
 ### A message warning that a license or subscription has expired appears after installing a renewed license key
 
-The expired license key is still installed. PostSharp reports its expiration in the build message `PS0304`. On Windows, PostSharp can also show a notification. In PostSharp 2026.0 and earlier, this notification was a window of the PostSharp Options application, which is no longer included in PostSharp.
+The expired license key is still installed. PostSharp reports its expiration in the build message <xref:ps0304?text=PS0304>. On Windows, PostSharp can also show a notification. In PostSharp 2026.0 and earlier, this notification was a window of the PostSharp Options application, which is no longer included in PostSharp.
 
 Uninstall the expired license key. See <xref:deploying-keys> to find out where the expired license key can be installed. 
 
@@ -69,7 +69,7 @@ The Visual Studio extension and the build-time compiler are separate components,
 
 License keys are stored in the Windows registry under `HKEY_CURRENT_USER\SOFTWARE\SharpCrafters\PostSharp 3\LicenseKeys`, either directly or under a `<MinPostSharpVersion>` sub-key. This sub-key corresponds to the minimum PostSharp version the key was generated for (for example, `6.9.3`). At build time, PostSharp reads the keys stored directly under `LicenseKeys` and those under every version sub-key that is not greater than its own version. It skips a key stored under a greater version.
 
-If the build reports PS0242 even though the key is present in the registry, use the [diagnostic logging steps](#capturing-licensing-diagnostic-logs) below to determine whether the key is being found but failing to deserialize or validate.
+If the build reports <xref:ps0242?text=PS0242> even though the key is present in the registry, use the [diagnostic logging steps](#capturing-licensing-diagnostic-logs) below to determine whether the key is being found but failing to deserialize or validate.
 
 Common causes include:
 
@@ -116,7 +116,7 @@ Using the .NET CLI:
 dotnet build -p:PostSharpTrace="Licensing" -p:PostSharpUsePipeServer=False --no-incremental -v:diag MyProject.csproj > trace.log 2>&1
 ```
 
-In the resulting log, look for the messages of the `Licensing` category. In PostSharp 2026.0 and earlier, these lines show the registry keys being loaded, the deserialization of each license, the validation results, and the requirement-satisfaction checks. Following this sequence tells you whether the license key is being found at all, and if so, whether it fails to deserialize or fails validation. From PostSharp 2027.0, these lines show whether the project is treated as unmodified, which aspects require a license that no installed key grants, and how many lines of code were enhanced under the free edition. The reason why a license key is rejected is reported as a PS0301 warning.
+In the resulting log, look for the messages of the `Licensing` category. In PostSharp 2026.0 and earlier, these lines show the registry keys being loaded, the deserialization of each license, the validation results, and the requirement-satisfaction checks. Following this sequence tells you whether the license key is being found at all, and if so, whether it fails to deserialize or fails validation. From PostSharp 2027.0, these lines show whether the project is treated as unmodified, which aspects require a license that no installed key grants, and how many lines of code were enhanced under the free edition. The reason why a license key is rejected is reported as a <xref:ps0301?text=PS0301> warning.
 
 
 ## Passing the license key explicitly as a workaround

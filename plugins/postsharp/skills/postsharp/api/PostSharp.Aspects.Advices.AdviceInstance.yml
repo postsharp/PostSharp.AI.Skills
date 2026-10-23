@@ -22,8 +22,8 @@ items:
   summary: Base class for advice instances, which the aspect can provide dynamically through the <xref href="PostSharp.Aspects.Advices.IAdviceProvider" data-throw-if-not-resolved="false"></xref> interface.
   remarks: >-
     <p>The advices that an aspect can provide are <xref href="PostSharp.Aspects.Advices.ImportLocationAdviceInstance" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.ImportMethodAdviceInstance" data-throw-if-not-resolved="false"></xref>,
-        <xref href="PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.IntroduceInterfaceAdviceInstance" data-throw-if-not-resolved="false"></xref>. Import advices and interface introductions
-        require an instance-scoped aspect, such as an <xref href="PostSharp.Aspects.InstanceLevelAspect" data-throw-if-not-resolved="false"></xref>.</p>
+        <xref href="PostSharp.Aspects.Advices.IntroduceMethodAdviceInstance" data-throw-if-not-resolved="false"></xref>, <xref href="PostSharp.Aspects.Advices.IntroduceInterfaceAdviceInstance" data-throw-if-not-resolved="false"></xref> and <xref href="PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance" data-throw-if-not-resolved="false"></xref>.
+        Import advices and interface introductions require an instance-scoped aspect, such as an <xref href="PostSharp.Aspects.InstanceLevelAspect" data-throw-if-not-resolved="false"></xref>.</p>
   example: []
   syntax:
     content: public abstract class AdviceInstance
@@ -35,8 +35,10 @@ items:
   inheritance:
   - System.Object
   derivedClasses:
+  - PostSharp.Aspects.Advices.ImportDependencyAdviceInstance
   - PostSharp.Aspects.Advices.ImportMemberAdviceInstance
   - PostSharp.Aspects.Advices.InstantiateTypeAdviceInstance
+  - PostSharp.Aspects.Advices.IntroduceFieldAdviceInstance
   - PostSharp.Aspects.Advices.IntroduceInterfaceAdviceInstance
   - PostSharp.Aspects.Advices.IntroduceMemberAdviceInstance
   inheritedMembers:
