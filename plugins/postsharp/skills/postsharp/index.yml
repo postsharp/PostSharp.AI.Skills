@@ -58,7 +58,7 @@
     - name: What's New in PostSharp 2027.0
       uid: whats-new-20270
       path: conceptual/introduction/whats-new/2027-0.md
-      summary: PostSharp 2027.0 compiles .NET projects in a background build server, lets aspects receive services from dependency injection, makes advice parameter binding a public feature, lets any aspect import the members and fields of the target class, adds support for .NET 11 and C# 15, replaces the Windows options application with a cross-platform browser interface and command line tool, integrates with the MSBuild server, and provides a test framework for aspects and a plugin for AI coding agents.
+      summary: PostSharp 2027.0 compiles .NET projects in a background build server, lets aspects receive services from dependency injection, makes advice parameter binding a public feature, lets any aspect import the members and fields of the target class, adds support for .NET 11 and C# 15, replaces the Windows options application with a cross-platform browser interface and command line tool, which also queries how aspects were applied, integrates with the MSBuild server, and provides a test framework for aspects and a plugin for AI coding agents.
       items:
       - name: Breaking Changes in PostSharp 2027.0
         uid: breaking-changes-20270
@@ -228,6 +228,10 @@
       uid: whats-new-15
       path: conceptual/introduction/whats-new/1-5.md
       summary: PostSharp 1.5 introduces aspect inheritance, the ability to read assemblies without loading them in the CLR, lazy loading of assemblies, build-time performance improvements, support for Mono, Silverlight 2.0, Compact Framework 2.0, and a pluggable aspect serializer.
+  - name: Using PostSharp with AI Coding Agents
+    uid: postsharp-and-ai
+    path: conceptual/introduction/ai-coding-agents.md
+    summary: 'Why aspects remain valuable when AI coding agents write much of the code, the problems an agent meets in a project that uses PostSharp, and the tools that PostSharp provides to solve them: a plugin with the documentation, the postsharp introspect commands, documented build messages, the aspect test framework, and architecture constraints.'
 - name: Deployment and Configuration
   uid: deployment-configuration
   path: conceptual/deployment-configuration.md
@@ -1070,6 +1074,10 @@
     uid: aspect-test-reference
     path: conceptual/framework/testing/aspect-test-reference.md
     summary: Reference of the test directives, MSBuild properties, postsharpTests.json settings and environment variables of the PostSharp aspect test framework.
+  - name: Inspecting How Aspects Were Applied
+    uid: introspect
+    path: conceptual/framework/testing/introspect.md
+    summary: The postsharp introspect commands query the files of the last build to tell which aspects apply to a declaration, what created them, what they changed and in which order, how many lines of code they saved, for a project or a solution. They are designed for AI coding agents as much as for people.
   - name: Debugging Run-Time Logic
     uid: debugging-runtime
     path: conceptual/framework/testing/debugging-run-time.md

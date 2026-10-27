@@ -21,4 +21,11 @@ This service can be used in the following scenarios:
 
 To get an instance of this service, call the <xref:PostSharp.Extensibility.IProject.GetService``1(System.Boolean)> method of `PostSharpEnvironment.CurrentProject`. 
 
+The annotations that an aspect pushes are written to the weaving symbol file. `postsharp introspect list annotations` and `postsharp introspect show declaration` show them outside Visual Studio, which is a way to check them after a build. See <xref:introspect>.
 
+## See Also
+
+**Other Resources**
+
+<xref:introspect>
+<br>

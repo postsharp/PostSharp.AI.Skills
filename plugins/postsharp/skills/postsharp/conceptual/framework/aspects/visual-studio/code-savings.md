@@ -47,9 +47,27 @@ The following code snippet shows how to specify that 1 line of code is avoided e
 
 In the previous sections, we described how to add code saving hints declaratively using custom attributes. Sometimes declarative estimations are not accurate enough. To learn how to add programmatic hints, see <xref:programmatic-tooltip>. 
 
+## Inspecting code savings from the CLI
+
+Outside of Visual Studio, for instance in a build script, a CI job or an AI coding agent, the `postsharp introspect` commands of the `postsharp` command-line tool show the same figures as the Metrics window. They read the files of the last build, and never build the project.
+
+`postsharp introspect metrics` gives the lines of code written by hand and the lines saved by aspects, per project and target framework. The `linesOfCodeAvoided` field of the aspect instances, transformations and annotations gives the estimate of each one, so you can check the effect of the attributes described above:
+
+```powershell
+postsharp introspect metrics
+postsharp introspect list aspect-instances --select "aspectClass/shortName,targetDeclaration/id,linesOfCodeAvoided"
+```
+
+To install the tool and learn the other commands, see <xref:introspect>.
+
 ## See Also
 
 **Reference**
 
 <xref:PostSharp.Aspects.LinesOfCodeAvoidedAttribute>
 <br><xref:PostSharp.Aspects.Advices.Advice.LinesOfCodeAvoided>
+<br>
+
+**Other Resources**
+
+<xref:introspect>

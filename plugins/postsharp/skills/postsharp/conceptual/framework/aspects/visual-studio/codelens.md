@@ -32,4 +32,11 @@ The following code snippet illustrates how to set the description of the advice.
 
 [!code-csharp[](../../../../code/samples/CustomPatterns/Aspects/Intellisense/AdviceDescription.cs#example)]
 
+The descriptions also appear outside Visual Studio: `postsharp introspect show declaration` lists the transformations of a declaration with their descriptions, in order. Check them there after a build, without opening Visual Studio. See <xref:introspect>.
 
+## See Also
+
+**Other Resources**
+
+<xref:introspect>
+<br>

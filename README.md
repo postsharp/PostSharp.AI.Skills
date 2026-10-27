@@ -36,6 +36,7 @@ The plugin provides the coding agent with access to:
 - **API reference**: Full documentation for all PostSharp namespaces and types.
 - **Errors and warnings**: An article for each message that PostSharp reports at build time, with its cause and resolution.
 - **Pattern libraries**: Documentation for PostSharp Caching, Logging, Threading, Contracts, INotifyPropertyChanged, XAML, and undo/redo.
+- **Investigation of the woven code**: Instructions to ask the `postsharp introspect` commands which aspects apply to a member and what they changed, instead of guessing from the source.
 
 ## Usage
 

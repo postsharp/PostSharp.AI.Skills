@@ -38,11 +38,19 @@ However, custom attributes representing aspects are stripped by default. If you 
 > Aspects added by <xref:PostSharp.Aspects.IAspectProvider> are not represented by custom attributes, so their presence cannot be tested by this approach. 
 
 
-## Parsing the PostSharp symbol file
+## Inspecting aspects from the CLI
 
-PostSharp generates a symbol file named *MyAssembly.pssym* in the output directory (for instance *bin\Debug*), where *MyAssembly* is the name of the assembly. In theory, you could use this file to determine which elements of code have been modified by aspects in your project. 
+The `postsharp introspect` commands of the `postsharp` command-line tool tell which aspects apply to which declarations, including the aspects added by <xref:PostSharp.Aspects.IAspectProvider>, which no custom attribute represents. They read the weaving symbol file that PostSharp writes next to the assembly, *MyAssembly.pssym*, and never build the project. Use them rather than parsing the file.
+
+A test of the pointcut can therefore run after the build, outside of the tested assembly. For instance, it can check that the expected number of methods is logged:
+
+```powershell
+postsharp introspect list aspect-instances --where "aspectClass/shortName eq 'Log'" --count
+```
+
+The output is JSON and the exit code is 0 when the query runs, so a script can compare the result with an expected value. To install the tool and learn the other commands, see <xref:introspect>.
 
 > [!CAUTION]
-> The PostSharp symbol file format is undocumented and unsupported. Therefore, the PostSharp support team cannot answer questions related to this file format.
+> The format of the PostSharp symbol file is undocumented and can change. The commands, not the file, are supported.
 
 

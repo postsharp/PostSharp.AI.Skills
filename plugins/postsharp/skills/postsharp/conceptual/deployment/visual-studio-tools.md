@@ -22,9 +22,14 @@ To install Visual Studio Tools for Metalama and PostSharp:
 
 4. Open any solution in Visual Studio and complete the initial setup wizard.
 
+## Outside Visual Studio
+
+Visual Studio Tools for Metalama and PostSharp show which aspects enhance a declaration in CodeLens and tooltips. To get the same information outside Visual Studio, for instance on Linux or macOS, or for an AI coding agent, use the `postsharp introspect` commands, which read the files of the last build. See <xref:introspect>.
+
 ## See Also
 
 **Other Resources**
 
 <xref:install-compiler>
 <br><xref:uninstalling>
+<br><xref:introspect>

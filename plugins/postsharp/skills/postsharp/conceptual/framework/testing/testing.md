@@ -25,6 +25,7 @@ These characteristics are no obstacle to proper testing of aspects. The aspect t
 |---|---|
 | <xref:aspect-tests> | Explains how to test aspects with the aspect test framework, which compiles, weaves, verifies and runs each test file in an assembly of its own. |
 | <xref:aspect-test-reference> | Lists the test directives, MSBuild properties and other settings of the aspect test framework. |
+| <xref:introspect> | Explains how the `postsharp introspect` commands tell, from the files of the last build, which aspects apply to a declaration, what created them and what they changed. |
 | <xref:simple-tests> | Explains how to test the run-time behavior of an aspect with an ordinary unit test project. |
 | <xref:testing-application> | Shows how to test that an aspect has been applied to the expected set of code artifacts. |
 | <xref:consuming-dependencies> | Describes several ways for aspects to consume dependencies from dependency-injection containers and service locators. |

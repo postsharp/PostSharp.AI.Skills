@@ -25,5 +25,6 @@ PostSharp adds support for patterns into the C# and VB languages, allowing devel
 | <xref:how-it-works> | This chapter proves that there is no magic involved, and that everything relies on stable specifications and documented extension points. |
 | <xref:getting-started> | This chapter suggests a few learning resources according to your role in and the phase of the project. |
 | <xref:whats-new> | This chapter lists the new features in each major and minor release. |
+| <xref:postsharp-and-ai> | This topic explains why aspects remain valuable when AI coding agents write the code, and what PostSharp provides for these agents. |
 
 

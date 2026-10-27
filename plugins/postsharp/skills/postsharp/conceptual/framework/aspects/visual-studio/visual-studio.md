@@ -16,3 +16,4 @@ This chapter explains how to configure how your custom aspects appear in Visual 
 | <xref:customizing-aspect-description> | This topic describes how to change the description of custom aspects in CodeLens and tooltips in Visual Studio. |
 | <xref:estimating-code-saving> | This topic explains how to give hints so that PostSharp can better estimate how many lines of code are saved thanks to your aspect. |
 
+The descriptions, the code saving estimates and the information that aspects push programmatically are written to the weaving symbol file at build time. The `postsharp introspect` commands show them outside Visual Studio too, on any platform and to AI coding agents. See <xref:introspect>.
